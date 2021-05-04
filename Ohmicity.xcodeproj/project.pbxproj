@@ -12,7 +12,6 @@
 		B931DD11EEA6F4B90B2E687A /* Pods_Ohmicity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
 		D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D082641C4C400E95415 /* SceneDelegate.swift */; };
-		D8403D0B2641C4C400E95415 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D0A2641C4C400E95415 /* ViewController.swift */; };
 		D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0C2641C4C400E95415 /* Main.storyboard */; };
 		D8403D102641C4C500E95415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0F2641C4C500E95415 /* Assets.xcassets */; };
 		D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D112641C4C500E95415 /* LaunchScreen.storyboard */; };
@@ -21,6 +20,7 @@
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8403D3E2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8403D3F2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
+		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,6 @@
 		D8403D032641C4C400E95415 /* Ohmicity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohmicity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8403D062641C4C400E95415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8403D082641C4C400E95415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D8403D0A2641C4C400E95415 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8403D0D2641C4C400E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8403D0F2641C4C500E95415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8403D122641C4C500E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		D8403D2A2641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8CED3C22641DEB60017FD28 /* Ohmicity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ohmicity.entitlements; sourceTree = "<group>"; };
+		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
 		E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.debug.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,10 +131,12 @@
 		D8403D052641C4C400E95415 /* Ohmicity */ = {
 			isa = PBXGroup;
 			children = (
+				D8CED3F02641E36A0017FD28 /* Models */,
+				D8CED3F32641E3970017FD28 /* Views */,
+				D8CED3F22641E3880017FD28 /* Controllers */,
 				D8CED3C22641DEB60017FD28 /* Ohmicity.entitlements */,
 				D8403D062641C4C400E95415 /* AppDelegate.swift */,
 				D8403D082641C4C400E95415 /* SceneDelegate.swift */,
-				D8403D0A2641C4C400E95415 /* ViewController.swift */,
 				D8403D0C2641C4C400E95415 /* Main.storyboard */,
 				D8403D0F2641C4C500E95415 /* Assets.xcassets */,
 				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
@@ -160,6 +162,28 @@
 				D8403D2A2641C4C500E95415 /* Info.plist */,
 			);
 			path = OhmicityUITests;
+			sourceTree = "<group>";
+		};
+		D8CED3F02641E36A0017FD28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D8CED3F22641E3880017FD28 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8CED4002641E96D0017FD28 /* SignInViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D8CED3F32641E3970017FD28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F6F59D254F66DCB6A2224A40 /* Pods */ = {
@@ -452,9 +476,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8403D0B2641C4C400E95415 /* ViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
+				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
