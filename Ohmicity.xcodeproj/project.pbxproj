@@ -1,0 +1,800 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C3F6FECE3310098B255B19A /* Pods_Ohmicity_OhmicityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */; };
+		3F304D43FD03EB5F6B7C155E /* Pods_OhmicityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */; };
+		B931DD11EEA6F4B90B2E687A /* Pods_Ohmicity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */; };
+		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
+		D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D082641C4C400E95415 /* SceneDelegate.swift */; };
+		D8403D0B2641C4C400E95415 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D0A2641C4C400E95415 /* ViewController.swift */; };
+		D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0C2641C4C400E95415 /* Main.storyboard */; };
+		D8403D102641C4C500E95415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0F2641C4C500E95415 /* Assets.xcassets */; };
+		D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D112641C4C500E95415 /* LaunchScreen.storyboard */; };
+		D8403D1E2641C4C500E95415 /* OhmicityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D1D2641C4C500E95415 /* OhmicityTests.swift */; };
+		D8403D292641C4C500E95415 /* OhmicityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D282641C4C500E95415 /* OhmicityUITests.swift */; };
+		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
+		D8403D3E2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
+		D8403D3F2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8403D1A2641C4C500E95415 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8403CFB2641C4C400E95415 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8403D022641C4C400E95415;
+			remoteInfo = Ohmicity;
+		};
+		D8403D252641C4C500E95415 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8403CFB2641C4C400E95415 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8403D022641C4C400E95415;
+			remoteInfo = Ohmicity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhmicityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31F2E9F1DACE883B2F06FBFD /* Pods-Ohmicity-OhmicityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity-OhmicityUITests.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests.release.xcconfig"; sourceTree = "<group>"; };
+		59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CAC8C8ADD179DED45557938 /* Pods-Ohmicity-OhmicityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity-OhmicityUITests.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity_OhmicityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.release.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.release.xcconfig"; sourceTree = "<group>"; };
+		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
+		D8403D032641C4C400E95415 /* Ohmicity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohmicity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8403D062641C4C400E95415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8403D082641C4C400E95415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D8403D0A2641C4C400E95415 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8403D0D2641C4C400E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8403D0F2641C4C500E95415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8403D122641C4C500E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8403D142641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8403D192641C4C500E95415 /* OhmicityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhmicityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8403D1D2641C4C500E95415 /* OhmicityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhmicityTests.swift; sourceTree = "<group>"; };
+		D8403D1F2641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8403D242641C4C500E95415 /* OhmicityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhmicityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8403D282641C4C500E95415 /* OhmicityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhmicityUITests.swift; sourceTree = "<group>"; };
+		D8403D2A2641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D8CED3C22641DEB60017FD28 /* Ohmicity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ohmicity.entitlements; sourceTree = "<group>"; };
+		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
+		E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.debug.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8403D002641C4C400E95415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B931DD11EEA6F4B90B2E687A /* Pods_Ohmicity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8403D162641C4C500E95415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F304D43FD03EB5F6B7C155E /* Pods_OhmicityTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8403D212641C4C500E95415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C3F6FECE3310098B255B19A /* Pods_Ohmicity_OhmicityUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		774EDA1CD1EB166EB9631C7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */,
+				B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */,
+				11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8403CFA2641C4C400E95415 = {
+			isa = PBXGroup;
+			children = (
+				D8403D052641C4C400E95415 /* Ohmicity */,
+				D8403D1C2641C4C500E95415 /* OhmicityTests */,
+				D8403D272641C4C500E95415 /* OhmicityUITests */,
+				D8403D042641C4C400E95415 /* Products */,
+				F6F59D254F66DCB6A2224A40 /* Pods */,
+				774EDA1CD1EB166EB9631C7A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D8403D042641C4C400E95415 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8403D032641C4C400E95415 /* Ohmicity.app */,
+				D8403D192641C4C500E95415 /* OhmicityTests.xctest */,
+				D8403D242641C4C500E95415 /* OhmicityUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8403D052641C4C400E95415 /* Ohmicity */ = {
+			isa = PBXGroup;
+			children = (
+				D8CED3C22641DEB60017FD28 /* Ohmicity.entitlements */,
+				D8403D062641C4C400E95415 /* AppDelegate.swift */,
+				D8403D082641C4C400E95415 /* SceneDelegate.swift */,
+				D8403D0A2641C4C400E95415 /* ViewController.swift */,
+				D8403D0C2641C4C400E95415 /* Main.storyboard */,
+				D8403D0F2641C4C500E95415 /* Assets.xcassets */,
+				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
+				D8403D142641C4C500E95415 /* Info.plist */,
+				D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */,
+			);
+			path = Ohmicity;
+			sourceTree = "<group>";
+		};
+		D8403D1C2641C4C500E95415 /* OhmicityTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8403D1D2641C4C500E95415 /* OhmicityTests.swift */,
+				D8403D1F2641C4C500E95415 /* Info.plist */,
+			);
+			path = OhmicityTests;
+			sourceTree = "<group>";
+		};
+		D8403D272641C4C500E95415 /* OhmicityUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D8403D282641C4C500E95415 /* OhmicityUITests.swift */,
+				D8403D2A2641C4C500E95415 /* Info.plist */,
+			);
+			path = OhmicityUITests;
+			sourceTree = "<group>";
+		};
+		F6F59D254F66DCB6A2224A40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */,
+				DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */,
+				8CAC8C8ADD179DED45557938 /* Pods-Ohmicity-OhmicityUITests.debug.xcconfig */,
+				31F2E9F1DACE883B2F06FBFD /* Pods-Ohmicity-OhmicityUITests.release.xcconfig */,
+				E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */,
+				C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8403D022641C4C400E95415 /* Ohmicity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8403D2D2641C4C500E95415 /* Build configuration list for PBXNativeTarget "Ohmicity" */;
+			buildPhases = (
+				0268DA122DCECFE6F9AC42BF /* [CP] Check Pods Manifest.lock */,
+				D8403CFF2641C4C400E95415 /* Sources */,
+				D8403D002641C4C400E95415 /* Frameworks */,
+				D8403D012641C4C400E95415 /* Resources */,
+				9945C9C3D7EAB37AD9996691 /* [CP] Embed Pods Frameworks */,
+				99690EB67567A1B994FA37B6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ohmicity;
+			productName = Ohmicity;
+			productReference = D8403D032641C4C400E95415 /* Ohmicity.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8403D182641C4C500E95415 /* OhmicityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8403D302641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityTests" */;
+			buildPhases = (
+				7A1DA1AFC4A63E8658EBF67B /* [CP] Check Pods Manifest.lock */,
+				D8403D152641C4C500E95415 /* Sources */,
+				D8403D162641C4C500E95415 /* Frameworks */,
+				D8403D172641C4C500E95415 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8403D1B2641C4C500E95415 /* PBXTargetDependency */,
+			);
+			name = OhmicityTests;
+			productName = OhmicityTests;
+			productReference = D8403D192641C4C500E95415 /* OhmicityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D8403D232641C4C500E95415 /* OhmicityUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8403D332641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityUITests" */;
+			buildPhases = (
+				FFCF8A2E8692331FADBC167E /* [CP] Check Pods Manifest.lock */,
+				D8403D202641C4C500E95415 /* Sources */,
+				D8403D212641C4C500E95415 /* Frameworks */,
+				D8403D222641C4C500E95415 /* Resources */,
+				46B21BA83A905441C399950E /* [CP] Embed Pods Frameworks */,
+				5172CB572DCB5D5946819548 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8403D262641C4C500E95415 /* PBXTargetDependency */,
+			);
+			name = OhmicityUITests;
+			productName = OhmicityUITests;
+			productReference = D8403D242641C4C500E95415 /* OhmicityUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8403CFB2641C4C400E95415 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					D8403D022641C4C400E95415 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					D8403D182641C4C500E95415 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = D8403D022641C4C400E95415;
+					};
+					D8403D232641C4C500E95415 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = D8403D022641C4C400E95415;
+					};
+				};
+			};
+			buildConfigurationList = D8403CFE2641C4C400E95415 /* Build configuration list for PBXProject "Ohmicity" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8403CFA2641C4C400E95415;
+			productRefGroup = D8403D042641C4C400E95415 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8403D022641C4C400E95415 /* Ohmicity */,
+				D8403D182641C4C500E95415 /* OhmicityTests */,
+				D8403D232641C4C500E95415 /* OhmicityUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8403D012641C4C400E95415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
+				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
+				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
+				D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8403D172641C4C500E95415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8403D3E2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8403D222641C4C500E95415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8403D3F2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0268DA122DCECFE6F9AC42BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ohmicity-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46B21BA83A905441C399950E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5172CB572DCB5D5946819548 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A1DA1AFC4A63E8658EBF67B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OhmicityTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9945C9C3D7EAB37AD9996691 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99690EB67567A1B994FA37B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFCF8A2E8692331FADBC167E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ohmicity-OhmicityUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8403CFF2641C4C400E95415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8403D0B2641C4C400E95415 /* ViewController.swift in Sources */,
+				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
+				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8403D152641C4C500E95415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8403D1E2641C4C500E95415 /* OhmicityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8403D202641C4C500E95415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8403D292641C4C500E95415 /* OhmicityUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8403D1B2641C4C500E95415 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8403D022641C4C400E95415 /* Ohmicity */;
+			targetProxy = D8403D1A2641C4C500E95415 /* PBXContainerItemProxy */;
+		};
+		D8403D262641C4C500E95415 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8403D022641C4C400E95415 /* Ohmicity */;
+			targetProxy = D8403D252641C4C500E95415 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8403D0C2641C4C400E95415 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8403D0D2641C4C400E95415 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8403D112641C4C500E95415 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8403D122641C4C500E95415 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8403D2B2641C4C500E95415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D8403D2C2641C4C500E95415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8403D2E2641C4C500E95415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8492LT54LT;
+				INFOPLIST_FILE = Ohmicity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8403D2F2641C4C500E95415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8492LT54LT;
+				INFOPLIST_FILE = Ohmicity/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D8403D312641C4C500E95415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8492LT54LT;
+				INFOPLIST_FILE = OhmicityTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ohmicity.app/Ohmicity";
+			};
+			name = Debug;
+		};
+		D8403D322641C4C500E95415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8492LT54LT;
+				INFOPLIST_FILE = OhmicityTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ohmicity.app/Ohmicity";
+			};
+			name = Release;
+		};
+		D8403D342641C4C500E95415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CAC8C8ADD179DED45557938 /* Pods-Ohmicity-OhmicityUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8492LT54LT;
+				INFOPLIST_FILE = OhmicityUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Ohmicity;
+			};
+			name = Debug;
+		};
+		D8403D352641C4C500E95415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31F2E9F1DACE883B2F06FBFD /* Pods-Ohmicity-OhmicityUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8492LT54LT;
+				INFOPLIST_FILE = OhmicityUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Ohmicity;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8403CFE2641C4C400E95415 /* Build configuration list for PBXProject "Ohmicity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8403D2B2641C4C500E95415 /* Debug */,
+				D8403D2C2641C4C500E95415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8403D2D2641C4C500E95415 /* Build configuration list for PBXNativeTarget "Ohmicity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8403D2E2641C4C500E95415 /* Debug */,
+				D8403D2F2641C4C500E95415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8403D302641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8403D312641C4C500E95415 /* Debug */,
+				D8403D322641C4C500E95415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8403D332641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8403D342641C4C500E95415 /* Debug */,
+				D8403D352641C4C500E95415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8403CFB2641C4C400E95415 /* Project object */;
+}
