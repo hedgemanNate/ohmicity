@@ -10,6 +10,11 @@
 		1C3F6FECE3310098B255B19A /* Pods_Ohmicity_OhmicityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */; };
 		3F304D43FD03EB5F6B7C155E /* Pods_OhmicityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */; };
 		B931DD11EEA6F4B90B2E687A /* Pods_Ohmicity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */; };
+		D8262EFC2644668A0050F9CA /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262EFB2644668A0050F9CA /* DashboardViewController.swift */; };
+		D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* SearchViewController.swift */; };
+		D8262F06264467790050F9CA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F05264467790050F9CA /* SettingsTableViewController.swift */; };
+		D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0A264467A90050F9CA /* SuggestViewController.swift */; };
+		D8262F102644688C0050F9CA /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
 		D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D082641C4C400E95415 /* SceneDelegate.swift */; };
 		D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0C2641C4C400E95415 /* Main.storyboard */; };
@@ -49,6 +54,11 @@
 		B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity_OhmicityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.release.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.release.xcconfig"; sourceTree = "<group>"; };
 		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
+		D8262EFB2644668A0050F9CA /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		D8262F00264466FA0050F9CA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D8262F05264467790050F9CA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		D8262F0A264467A90050F9CA /* SuggestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
+		D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		D8403D032641C4C400E95415 /* Ohmicity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohmicity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8403D062641C4C400E95415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8403D082641C4C400E95415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				D8CED4002641E96D0017FD28 /* SignInViewController.swift */,
+				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
+				D8262F05264467790050F9CA /* SettingsTableViewController.swift */,
+				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
+				D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */,
+				D8262EFB2644668A0050F9CA /* DashboardViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -480,9 +495,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
+				D8262F06264467790050F9CA /* SettingsTableViewController.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
+				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
+				D8262EFC2644668A0050F9CA /* DashboardViewController.swift in Sources */,
+				D8262F102644688C0050F9CA /* VenueDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
