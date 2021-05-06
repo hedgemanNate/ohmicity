@@ -28,6 +28,14 @@
                                     <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jyu-Mf-OgD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTx-3d-Xfn">
+                                <rect key="frame" x="126" y="529" width="163" height="142"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="jme-NG-NpO" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="c61-2h-EWf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -43,7 +51,9 @@
         <!--Dashboard-->
         <scene sceneID="ivK-Si-cBV">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" id="jme-NG-NpO" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="jme-NG-NpO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6hI-rX-Obg"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ErL-qy-lrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="739" y="104"/>
