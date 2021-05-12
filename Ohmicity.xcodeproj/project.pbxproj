@@ -27,6 +27,14 @@
 		D8403D3F2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 		D8CED4062641F4100017FD28 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* Dashboard.storyboard */; };
+		F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */; };
+		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
+		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
+		F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */; };
+		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
+		F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */; };
+		F67B3FA72649FD9200D3FC88 /* GlobalGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FA62649FD9200D3FC88 /* GlobalGestureHelper.swift */; };
+		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +86,14 @@
 		D8CED4052641F4100017FD28 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
 		E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.debug.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OhmicityLogoNoTag.png; sourceTree = "<group>"; };
+		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
+		F649ECB0264B2C5500E84408 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F67B3FA62649FD9200D3FC88 /* GlobalGestureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGestureHelper.swift; sourceTree = "<group>"; };
+		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +137,7 @@
 		D8403CFA2641C4C400E95415 = {
 			isa = PBXGroup;
 			children = (
+				F6522D622649AAF400912B90 /* Helpers */,
 				D8403D052641C4C400E95415 /* Ohmicity */,
 				D8403D1C2641C4C500E95415 /* OhmicityTests */,
 				D8403D272641C4C500E95415 /* OhmicityUITests */,
@@ -143,18 +160,12 @@
 		D8403D052641C4C400E95415 /* Ohmicity */ = {
 			isa = PBXGroup;
 			children = (
-				D8CED3F02641E36A0017FD28 /* Models */,
-				D8CED3F32641E3970017FD28 /* Views */,
+				F67109F0264B650300FC479B /* Views */,
+				F67109EF264B64F000FC479B /* Models */,
+				F60E6BCD2648F36B001CA06E /* Images */,
 				D8CED3F22641E3880017FD28 /* Controllers */,
-				D8CED3C22641DEB60017FD28 /* Ohmicity.entitlements */,
-				D8403D062641C4C400E95415 /* AppDelegate.swift */,
-				D8403D082641C4C400E95415 /* SceneDelegate.swift */,
-				D8403D0C2641C4C400E95415 /* Main.storyboard */,
-				D8CED4052641F4100017FD28 /* Dashboard.storyboard */,
-				D8403D0F2641C4C500E95415 /* Assets.xcassets */,
-				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
-				D8403D142641C4C500E95415 /* Info.plist */,
-				D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */,
+				F60E6BC82648F259001CA06E /* Storyboard */,
+				F60E6BC92648F2AE001CA06E /* Assets */,
 			);
 			path = Ohmicity;
 			sourceTree = "<group>";
@@ -177,13 +188,6 @@
 			path = OhmicityUITests;
 			sourceTree = "<group>";
 		};
-		D8CED3F02641E36A0017FD28 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		D8CED3F22641E3880017FD28 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,11 +197,63 @@
 				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */,
 				D8262EFB2644668A0050F9CA /* DashboardViewController.swift */,
+				F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */,
+				F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		D8CED3F32641E3970017FD28 /* Views */ = {
+		F60E6BC82648F259001CA06E /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
+				D8403D0C2641C4C400E95415 /* Main.storyboard */,
+				D8CED4052641F4100017FD28 /* Dashboard.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F60E6BC92648F2AE001CA06E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D8CED3C22641DEB60017FD28 /* Ohmicity.entitlements */,
+				D8403D062641C4C400E95415 /* AppDelegate.swift */,
+				D8403D082641C4C400E95415 /* SceneDelegate.swift */,
+				D8403D0F2641C4C500E95415 /* Assets.xcassets */,
+				D8403D142641C4C500E95415 /* Info.plist */,
+				D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F60E6BCD2648F36B001CA06E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F60E6BD62648F7C8001CA06E /* PurpleBG.png */,
+				F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		F6522D622649AAF400912B90 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F6522D5D2649AAF000912B90 /* CustomColors.swift */,
+				F67B3FA62649FD9200D3FC88 /* GlobalGestureHelper.swift */,
+				F649ECB0264B2C5500E84408 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F67109EF264B64F000FC479B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F67109F0264B650300FC479B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -327,6 +383,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */,
+				F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				D8CED4062641F4100017FD28 /* Dashboard.storyboard in Resources */,
 				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
@@ -495,13 +553,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */,
+				F67B3FA72649FD9200D3FC88 /* GlobalGestureHelper.swift in Sources */,
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				D8262F06264467790050F9CA /* SettingsTableViewController.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
+				F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
+				F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				D8262EFC2644668A0050F9CA /* DashboardViewController.swift in Sources */,
+				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
+				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,
 				D8262F102644688C0050F9CA /* VenueDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,7 +746,7 @@
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8492LT54LT;
-				INFOPLIST_FILE = Ohmicity/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -690,7 +754,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -703,7 +767,7 @@
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8492LT54LT;
-				INFOPLIST_FILE = Ohmicity/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -711,7 +775,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -5,16 +5,25 @@ target 'Ohmicity' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  project 'Ohmicity.xcodeproj'
+
   # Pods for Ohmicity
   pod 'Firebase/Analytics'
   pod 'FirebaseUI'
+  pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/TextControls+FilledTextAreas'
+  pod 'MaterialComponents/TextControls+FilledTextFields'
+  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
+  pod 'MaterialComponents/TextControls+OutlinedTextFields'
 
   target 'OhmicityTests' do
     inherit! :search_paths
+    $(inherited)
     # Pods for testing
   end
 
   target 'OhmicityUITests' do
+    $(inherited)
     # Pods for testing
   end
 
