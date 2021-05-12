@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//MARK: AlertController
 extension UIAlertController {
     
     //Set background color of UIAlertController
@@ -55,6 +56,8 @@ extension UIAlertController {
     }
 }
 
+
+//MARK: ViewController
 extension UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
