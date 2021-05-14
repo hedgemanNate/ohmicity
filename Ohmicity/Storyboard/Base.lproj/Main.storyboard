@@ -52,6 +52,14 @@
                                     <segue destination="lIq-SC-gyZ" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Ebh-Co-CA6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGK-PB-ElV">
+                                <rect key="frame" x="175" y="202" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="break"/>
+                                <connections>
+                                    <action selector="breaker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Gf-6F-ONI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -216,7 +224,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ErL-qy-lrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1572" y="104"/>
+            <point key="canvasLocation" x="2086" y="104"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="9iI-ur-060">
@@ -281,11 +289,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vm6-b6-6i2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="827"/>
+            <point key="canvasLocation" x="976.81159420289862" y="826.33928571428567"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rKh-sM-mz4"/>
+        <segue reference="T5e-DP-nWA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="OhmicityLogoNoTag.png" width="3509" height="1020"/>
