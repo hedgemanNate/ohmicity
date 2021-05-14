@@ -10,9 +10,7 @@
 		1C3F6FECE3310098B255B19A /* Pods_Ohmicity_OhmicityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */; };
 		3F304D43FD03EB5F6B7C155E /* Pods_OhmicityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */; };
 		B931DD11EEA6F4B90B2E687A /* Pods_Ohmicity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */; };
-		D8262EFC2644668A0050F9CA /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262EFB2644668A0050F9CA /* DashboardViewController.swift */; };
 		D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* SearchViewController.swift */; };
-		D8262F06264467790050F9CA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F05264467790050F9CA /* SettingsTableViewController.swift */; };
 		D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0A264467A90050F9CA /* SuggestViewController.swift */; };
 		D8262F102644688C0050F9CA /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
@@ -31,12 +29,13 @@
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
 		F640DD0A264E3B7300959358 /* Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Handlers.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
-		F640DD16264E4EDC00959358 /* SettingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD15264E4EDC00959358 /* SettingsCollectionViewController.swift */; };
 		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
 		F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
 		F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */; };
 		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
+		F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6923D25264E7F6400A2E036 /* DashboardViewController.swift */; };
+		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +63,7 @@
 		B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity_OhmicityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.release.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.release.xcconfig"; sourceTree = "<group>"; };
 		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
-		D8262EFB2644668A0050F9CA /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		D8262F00264466FA0050F9CA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		D8262F05264467790050F9CA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		D8262F0A264467A90050F9CA /* SuggestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
 		D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		D8403D032641C4C400E95415 /* Ohmicity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohmicity.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,12 +88,13 @@
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
 		F640DD09264E3B7300959358 /* Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handlers.swift; sourceTree = "<group>"; };
 		F640DD0E264E432B00959358 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
-		F640DD15264E4EDC00959358 /* SettingsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewController.swift; sourceTree = "<group>"; };
 		F649ECB0264B2C5500E84408 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
+		F6923D25264E7F6400A2E036 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,13 +194,12 @@
 			children = (
 				F640DD14264E4BB700959358 /* Login */,
 				F640DD0E264E432B00959358 /* DashboardTabBarController.swift */,
+				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
 				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
-				D8262F05264467790050F9CA /* SettingsTableViewController.swift */,
 				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */,
-				D8262EFB2644668A0050F9CA /* DashboardViewController.swift */,
+				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
 				F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */,
-				F640DD15264E4EDC00959358 /* SettingsCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -567,16 +564,15 @@
 			files = (
 				F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */,
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
-				F640DD16264E4EDC00959358 /* SettingsCollectionViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
-				D8262F06264467790050F9CA /* SettingsTableViewController.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
+				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
+				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
 				F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Handlers.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
-				D8262EFC2644668A0050F9CA /* DashboardViewController.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,

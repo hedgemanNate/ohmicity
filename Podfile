@@ -19,12 +19,10 @@ target 'Ohmicity' do
 
   target 'OhmicityTests' do
     inherit! :search_paths
-    $(inherited)
     # Pods for testing
   end
 
   target 'OhmicityUITests' do
-    $(inherited)
     # Pods for testing
   end
 

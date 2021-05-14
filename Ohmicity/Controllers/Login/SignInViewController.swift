@@ -66,7 +66,6 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
                 let dashboardViewController = storyBoard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
                 dashboardViewController.modalPresentationStyle = .fullScreen
                         self.present(dashboardViewController, animated: true, completion: nil)
-                //dismiss(animated: false)
             }
       }
     }
