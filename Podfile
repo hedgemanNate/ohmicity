@@ -15,6 +15,7 @@ target 'Ohmicity' do
   pod 'MaterialComponents/TextControls+FilledTextFields'
   pod 'MaterialComponents/TextControls+OutlinedTextAreas'
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
+  pod 'MaterialComponents/List'
 
   target 'OhmicityTests' do
     inherit! :search_paths
