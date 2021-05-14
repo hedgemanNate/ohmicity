@@ -8,6 +8,13 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    
+    let menuArray = [
+        "Suggest A Business",
+        "Privacy Policy",
+        "Reset Password/Change Email",
+        "Logout"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +30,40 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return menuArray.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuse", for: indexPath)
+        
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestCell", for: indexPath)
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyCell", for: indexPath)
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ResetCell", for: indexPath)
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LogoutCell", for: indexPath)
+            return cell
+        default:
+            break
+        }
+        
+        cell.textLabel?.text = menuArray[indexPath.row]
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
