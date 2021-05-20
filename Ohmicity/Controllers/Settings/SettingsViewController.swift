@@ -41,20 +41,34 @@ class SettingsViewController: UIViewController {
     //MARK: UI
     private func updateViews() {
         
-        suggestButton.setTitle("Suggest A Business", for: .normal)
+        //Buttons
+        suggestButton.setTitle("   Suggest A Business", for: .normal)
         suggestButton.backgroundColor = cc.mainColorPurple
+        suggestButton.setImage(UIImage(systemName: "building"), for: .normal)
+        suggestButton.setImageTintColor(.white, for: .normal)
         
-        privacyButton.setTitle("Privacy Policy", for: .normal)
+        privacyButton.setTitle("   Privacy Policy", for: .normal)
         privacyButton.backgroundColor = cc.mainColorPurple
+        privacyButton.setImage(UIImage(systemName: "doc.text"), for: .normal)
+        privacyButton.setImageTintColor(.white, for: .normal)
         
-        resetPasswordButton.setTitle("Reset Password/Change Email", for: .normal)
+        resetPasswordButton.setTitle("   Change Email/Reset Password", for: .normal)
         resetPasswordButton.backgroundColor = cc.mainColorPurple
+        resetPasswordButton.setImage(UIImage(systemName: "lock.shield"), for: .normal)
+        resetPasswordButton.setImageTintColor(.white, for: .normal)
         
-        logoutButton.setTitle("Logout", for: .normal)
+        logoutButton.setTitle("   Logout", for: .normal)
         logoutButton.backgroundColor = cc.mainColorPurple
+        logoutButton.setImage(UIImage(systemName: "arrowshape.turn.up.left"), for: .normal)
+        logoutButton.setImageTintColor(.white, for: .normal)
     }
     
     
+    @IBAction func privacyButtonTapped(_ sender: Any) {
+        if let url = URL(string: "https://face2faceapps.com/super-hero-cpr-privacy-policy/") {
+            UIApplication.shared.open(url)
+        }
+    }
     
     
     

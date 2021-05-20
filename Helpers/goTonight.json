@@ -1,0 +1,818 @@
+{
+ "selection1": [
+  {
+   "name": "3 Daughters Brewing",
+   "city": "St. Petersburg",
+   "band": "Spazmatics",
+   "band_url": "https://gotonight.com/artists/artist/?id=62711"
+  },
+  {
+   "name": "3 Keys Brewing",
+   "city": "Bradenton",
+   "band": "Danielle Mohr",
+   "band_url": "https://gotonight.com/artists/artist/?id=91383",
+   "time": "7pm-10pm"
+  },
+  {
+   "name": "Alafia Brewing Company",
+   "city": "Gibsonton",
+   "band": "Flyte Band Tampa",
+   "band_url": "https://gotonight.com/artists/artist/?id=34635",
+   "time": "8pm-11pm"
+  },
+  {
+   "name": "All-Star Sports Grill",
+   "city": "Port Charlotte",
+   "band": "Jane Bond",
+   "band_url": "https://gotonight.com/artists/artist/?id=157990",
+   "time": "9 pm -1 am $0"
+  },
+  {
+   "name": "American Legion Post 30",
+   "city": "Sarasota",
+   "band": "Cruise Control Band",
+   "band_url": "https://gotonight.com/artists/artist/?id=156555",
+   "time": "7:00 $0.00"
+  },
+  {
+   "name": "Amore Restaurant",
+   "city": "Sarasota",
+   "band": "John Rinell",
+   "band_url": "https://gotonight.com/artists/artist/?id=34360",
+   "time": "6 pm to 9 pm $0"
+  },
+  {
+   "name": "Anclote River Boat Club",
+   "city": "Tarpon Springs",
+   "band": "Jeff Burdette & That 70's Show LIVE!",
+   "band_url": "https://gotonight.com/artists/artist/?id=121218",
+   "time": "3-7pm"
+  },
+  {
+   "name": "Anna Maria Beach Cafe",
+   "city": "Bradenton Beach",
+   "band": "Bill Vinhage",
+   "band_url": "https://gotonight.com/artists/artist/?id=4147",
+   "time": "5:00 pm"
+  },
+  {
+   "name": "B & B Chophouse and Market",
+   "city": "Bradenton",
+   "band": "Tony 'n' Tasha",
+   "band_url": "https://gotonight.com/artists/artist/?id=98641",
+   "time": "7pm-10pm"
+  },
+  {
+   "name": "Ballyhoo Grill",
+   "city": "Tampa",
+   "band": "Forrest Jones",
+   "band_url": "https://gotonight.com/artists/artist/?id=156402",
+   "time": "6:00 pm - 9:00"
+  },
+  {
+   "name": "Banana Factory",
+   "city": "Bradenton",
+   "time": "09:00"
+  },
+  {
+   "name": "Bauser's",
+   "city": "Dunedin",
+   "band": "SoulFish",
+   "band_url": "https://gotonight.com/artists/artist/?id=155279",
+   "time": "9:00 PM"
+  },
+  {
+   "name": "Bayport Inn (Hernando Beach)",
+   "city": "Spring Hill",
+   "band": "7th Isle",
+   "band_url": "https://gotonight.com/artists/artist/?id=100790",
+   "time": "5-9 PM"
+  },
+  {
+   "name": "Big Top Brewing Company",
+   "city": "Sarasota",
+   "band": "Dead Set Florida",
+   "band_url": "https://gotonight.com/artists/artist/?id=118829",
+   "time": "7pm"
+  },
+  {
+   "name": "Blase' Cafe & Martini Bar",
+   "city": "Siesta Key",
+   "band": "Gin and Juice Band",
+   "band_url": "https://gotonight.com/artists/artist/?id=1256",
+   "time": "7 pm $0"
+  },
+  {
+   "name": "Blase' on Hillview",
+   "city": "Sarasota",
+   "band": "Latin Rendezvous",
+   "band_url": "https://gotonight.com/artists/artist/?id=91343",
+   "time": "6:30 $0"
+  },
+  {
+   "name": "Blue Rooster",
+   "city": "Sarasota",
+   "time": "8 to 11 pm $5"
+  },
+  {
+   "name": "Bogota Kitchen and Bar",
+   "city": "Palm Harbor",
+   "band": "Jaded",
+   "band_url": "https://gotonight.com/artists/artist/?id=2656",
+   "time": "7:00pm $0"
+  },
+  {
+   "name": "Bradenton Farmers' Market",
+   "city": "Bradenton",
+   "band": "Trevor Bystrom",
+   "band_url": "https://gotonight.com/artists/artist/?id=129954",
+   "time": "10a-2p"
+  },
+  {
+   "name": "Brown Boxer Pub-Clearwater Beach",
+   "city": "Clearwater Beach",
+   "band": "LOTP-Life of the Party",
+   "band_url": "https://gotonight.com/artists/artist/?id=60782",
+   "time": "10P-2A BAND"
+  },
+  {
+   "name": "Buckingham Blues Bar",
+   "city": "Ft. Myers",
+   "band": "Memphis Lightning",
+   "band_url": "https://gotonight.com/artists/artist/?id=135417",
+   "time": "2pm"
+  },
+  {
+   "name": "Caddy's Bradenton",
+   "city": "Bradenton",
+   "band": "Bickley Island Chill",
+   "band_url": "https://gotonight.com/artists/artist/?id=43442",
+   "time": "12pm to 3pm"
+  },
+  {
+   "name": "Caddy's on the Beach",
+   "city": "Treasure Island",
+   "band": "Bickley Island Chill",
+   "band_url": "https://gotonight.com/artists/artist/?id=43442",
+   "time": "5pm to 9pm"
+  },
+  {
+   "name": "Caddy's St Pete Beach",
+   "city": "St. Pete Beach",
+   "band": "Bickley Island Chill",
+   "band_url": "https://gotonight.com/artists/artist/?id=43442",
+   "time": "5-9pm"
+  },
+  {
+   "name": "Cafe BarBosso",
+   "city": "Sarasota",
+   "band": "Shift Change Band",
+   "band_url": "https://gotonight.com/artists/artist/?id=1843",
+   "time": "6 till 8"
+  },
+  {
+   "name": "Coconut Charlie's Beach Bar & Grill",
+   "city": "St. Pete Beach",
+   "band": "Marko Coconut",
+   "band_url": "https://gotonight.com/artists/artist/?id=153476",
+   "time": "6pm-10pm"
+  },
+  {
+   "name": "Compass by Margaritaville",
+   "city": "Bradenton",
+   "band": "Mike Sales",
+   "band_url": "https://gotonight.com/artists/artist/?id=1455",
+   "time": "1-4pm"
+  },
+  {
+   "name": "Copper Mule",
+   "city": "Tarpon Springs",
+   "band": "Jeriko Turnpike",
+   "band_url": "https://gotonight.com/artists/artist/?id=16225",
+   "time": "8pm"
+  },
+  {
+   "name": "Cortez Kitchen",
+   "city": "Cortez",
+   "time": "6:00pm - 10:00p"
+  },
+  {
+   "name": "Crabby's Bar & Grille (Beachwalk)",
+   "city": "Clearwater Beach",
+   "band": "Stick Martin",
+   "band_url": "https://gotonight.com/artists/artist/?id=3593",
+   "time": "6pm $Free Entry"
+  },
+  {
+   "name": "Crabby's Bar & Grille (Beachwalk)",
+   "city": "Clearwater Beach",
+   "band": "Jon Ditty",
+   "band_url": "https://gotonight.com/artists/artist/?id=114048",
+   "time": "6pm $Free Entry"
+  },
+  {
+   "name": "Crabby's Dockside",
+   "city": "Clearwater Beach",
+   "band": "Wilkins Music",
+   "band_url": "https://gotonight.com/artists/artist/?id=104153",
+   "time": "12 pm - 4 pm"
+  },
+  {
+   "name": "Deans South of the Border",
+   "city": "Punta Gorda",
+   "band": "The Lost Boys",
+   "band_url": "https://gotonight.com/artists/artist/?id=146582",
+   "time": "8pm $free"
+  },
+  {
+   "name": "Dunedin Smokehouse",
+   "city": "Dunedin",
+   "band": "Wendy Barmore",
+   "band_url": "https://gotonight.com/artists/artist/?id=4250",
+   "time": "6-9pm"
+  },
+  {
+   "name": "Englewoods On Dearborn",
+   "city": "Englewood",
+   "time": "7:00pm-11:00pm"
+  },
+  {
+   "name": "Florida Avenue Brewing Co",
+   "city": "Wesley Chapel",
+   "band": "Fred Chandler Epicoustic Events",
+   "band_url": "https://gotonight.com/artists/artist/?id=59986",
+   "time": "6pm-10pm"
+  },
+  {
+   "name": "Floridian Social Club",
+   "city": "St. Petersburg",
+   "band": "Black Honkeys",
+   "band_url": "https://gotonight.com/artists/artist/?id=2864",
+   "time": "9:30pm $10"
+  },
+  {
+   "name": "Fraternal Order of Eagles #3752 ZHills",
+   "city": "Zephyrhills",
+   "band": "Ben Meyer",
+   "band_url": "https://gotonight.com/artists/artist/?id=4476",
+   "time": "7pm $0"
+  },
+  {
+   "name": "Front Porch Grill and Bart's Tavern",
+   "city": "Tampa",
+   "band": "Mad Scientist & The Beast",
+   "band_url": "https://gotonight.com/artists/artist/?id=154701",
+   "time": "6:00pm $0"
+  },
+  {
+   "name": "Front Porch Grill and Bart's Tavern",
+   "city": "Tampa",
+   "band": "Mad Scientist & The Beast",
+   "band_url": "https://gotonight.com/artists/artist/?id=154701",
+   "time": "6:00pm $0"
+  },
+  {
+   "name": "Get Hooked Bar and Grill",
+   "city": "Hudson",
+   "band": "Lisa Kay & The GoldTop Band",
+   "band_url": "https://gotonight.com/artists/artist/?id=107418",
+   "time": "6-10pm $0"
+  },
+  {
+   "name": "Gill Dawg Tiki Bar & Event Center",
+   "city": "Port Richey",
+   "time": "6-10pm"
+  },
+  {
+   "name": "H'ours Creole Smokehouse",
+   "city": "Tarpon Springs",
+   "band": "TBone Hamilton",
+   "band_url": "https://gotonight.com/artists/artist/?id=155395",
+   "time": "5:00pm"
+  },
+  {
+   "name": "Happy's Bayou Bites",
+   "city": "Dunedin",
+   "band": "Rick Honeyboy Hart",
+   "band_url": "https://gotonight.com/artists/artist/?id=31132",
+   "time": "1-5pm"
+  },
+  {
+   "name": "Hart's Landing",
+   "city": "Sarasota",
+   "band": "Midnight Mama",
+   "band_url": "https://gotonight.com/artists/artist/?id=143171",
+   "time": "7pm-10pm $0"
+  },
+  {
+   "name": "Hernando Beach Tropical Grill",
+   "city": "Hernando Beach",
+   "band": "Davy Daniels",
+   "band_url": "https://gotonight.com/artists/artist/?id=131985",
+   "time": "2pm"
+  },
+  {
+   "name": "Hideaway Cafe - St. Pete",
+   "city": "St. Petersburg",
+   "time": "8pm"
+  },
+  {
+   "name": "Jack Willie's Bar, Grill, and Tiki",
+   "city": "Oldsmar",
+   "band": "Gene Field",
+   "band_url": "https://gotonight.com/artists/artist/?id=158673",
+   "time": "1-4 $0"
+  },
+  {
+   "name": "JD's Restaurant & Bar",
+   "city": "Indian Rocks Beach",
+   "band": "Underground Pilot",
+   "band_url": "https://gotonight.com/artists/artist/?id=83572",
+   "time": "6-10pm $No"
+  },
+  {
+   "name": "Jiggs Landing Outpost",
+   "city": "Bradenton",
+   "band": "Greg Short & Friends",
+   "band_url": "https://gotonight.com/artists/artist/?id=136729",
+   "time": "4:00pm"
+  },
+  {
+   "name": "Jimmy B's Beach Bar (Beachcomber Resort)",
+   "city": "St. Pete Beach",
+   "band": "Ryan Marchand",
+   "band_url": "https://gotonight.com/artists/artist/?id=142333",
+   "time": "12-3PM"
+  },
+  {
+   "name": "Jimmy's Sports Lounge",
+   "city": "Largo",
+   "band": "One Eyed Jack",
+   "band_url": "https://gotonight.com/artists/artist/?id=157430",
+   "time": "10pm $OEJ Shananigans"
+  },
+  {
+   "name": "JR's Old Packinghouse Cafe",
+   "city": "Sarasota",
+   "time": "7:00 PM - 10:00"
+  },
+  {
+   "name": "Lead Foot City",
+   "city": "Brooksville",
+   "time": "4-10pm $Tickets Lead Food Fiesta"
+  },
+  {
+   "name": "LeBarge Tropical Cruises",
+   "city": "Sarasota",
+   "band": "James Blain",
+   "band_url": "https://gotonight.com/artists/artist/?id=31077",
+   "time": "6:30-9 $32"
+  },
+  {
+   "name": "MacRae's of Homosassa (aka The Shed)",
+   "city": "Homosassa",
+   "band": "Past Due",
+   "band_url": "https://gotonight.com/artists/artist/?id=87182",
+   "time": "4-8pm"
+  },
+  {
+   "name": "Mattison's City Grille Downtown Sarasota",
+   "city": "Sarasota",
+   "band": "Klick Band",
+   "band_url": "https://gotonight.com/artists/artist/?id=98679",
+   "time": "8pm"
+  },
+  {
+   "name": "Mattison's Riverwalk Grille",
+   "city": "Bradenton",
+   "band": "Messenger",
+   "band_url": "https://gotonight.com/artists/artist/?id=3303",
+   "time": "7:00-10:00 pm"
+  },
+  {
+   "name": "Micks Pub",
+   "city": "Clearwater",
+   "time": "9:30 $0"
+  },
+  {
+   "name": "Moramoto",
+   "city": "Tampa",
+   "band": "Black Honkeys",
+   "band_url": "https://gotonight.com/artists/artist/?id=2864",
+   "time": "2:00-3:30 p.m. $0"
+  },
+  {
+   "name": "Nancy's BBQ Lorraine Corners",
+   "city": "Lakewood Ranch",
+   "band": "Mickey White Triage",
+   "band_url": "https://gotonight.com/artists/artist/?id=110175",
+   "time": "6:30 pm-9:30"
+  },
+  {
+   "name": "North End Taphouse",
+   "city": "Gulfport",
+   "time": "3pm"
+  },
+  {
+   "name": "North End Taphouse",
+   "city": "Gulfport",
+   "time": "5pm"
+  },
+  {
+   "name": "North End Taphouse",
+   "city": "Gulfport",
+   "time": "7pm"
+  },
+  {
+   "name": "O'Briens Irish Pub & Grill Wesley Chapel",
+   "city": "Wesley Chapel",
+   "band": "Edwin \"Bigfish\" Rodriguez",
+   "band_url": "https://gotonight.com/artists/artist/?id=142141",
+   "time": "8pm - 12am"
+  },
+  {
+   "name": "O'Briens Irish Pub Tampa Carrollwood",
+   "city": "Tampa",
+   "band": "Jam Jones",
+   "band_url": "https://gotonight.com/artists/artist/?id=130859",
+   "time": "8pm-12am"
+  },
+  {
+   "name": "Overtime Sports Bar & Grill",
+   "city": "Port Richey",
+   "time": "9 PM - 1 AM $0"
+  },
+  {
+   "name": "Ozona Blue Grilling Company",
+   "city": "Palm Harbor",
+   "band": "BLU",
+   "band_url": "https://gotonight.com/artists/artist/?id=7178",
+   "time": "5pm"
+  },
+  {
+   "name": "Peggy's Corral",
+   "city": "Palmetto",
+   "time": "4pm-8pm"
+  },
+  {
+   "name": "Pesky Pelican",
+   "city": "St. Petersburg",
+   "band": "Autumn June",
+   "band_url": "https://gotonight.com/artists/artist/?id=79919",
+   "time": "6:30-9"
+  },
+  {
+   "name": "Pete's Place North",
+   "city": "Tampa",
+   "band": "Kickdown",
+   "band_url": "https://gotonight.com/artists/artist/?id=156808",
+   "time": "7 pm $n/a"
+  },
+  {
+   "name": "Private Event",
+   "city": "not disclosed",
+   "band": "Beat Street",
+   "band_url": "https://gotonight.com/artists/artist/?id=146142",
+   "time": "4PM"
+  },
+  {
+   "name": "Private Event",
+   "city": "not disclosed",
+   "band": "Perfect Stranger Band",
+   "band_url": "https://gotonight.com/artists/artist/?id=144572",
+   "time": "7:00-10:00 pm $free"
+  },
+  {
+   "name": "Red Star Live",
+   "city": "Tampa",
+   "time": "5:30pm"
+  },
+  {
+   "name": "Red Star Live",
+   "city": "Tampa",
+   "band": "Bad Rabbit",
+   "band_url": "https://gotonight.com/artists/artist/?id=133193",
+   "time": "7:30pm"
+  },
+  {
+   "name": "Ringside Cafe",
+   "city": "St. Petersburg",
+   "band": "-22N-",
+   "band_url": "https://gotonight.com/artists/artist/?id=95651",
+   "time": "9:30 PM - 1:30"
+  },
+  {
+   "name": "Rosie's Tavern of Dunedin",
+   "city": "Dunedin",
+   "band": "Chris Rastelli",
+   "band_url": "https://gotonight.com/artists/artist/?id=119709",
+   "time": "2-5"
+  },
+  {
+   "name": "Rosie's Tavern of Dunedin",
+   "city": "Dunedin",
+   "band": "Cerulean Songbird",
+   "band_url": "https://gotonight.com/artists/artist/?id=150791",
+   "time": "7-10"
+  },
+  {
+   "name": "Rossiter's Harley-Davidson",
+   "city": "Sarasota",
+   "band": "Mumbo Jumbo",
+   "band_url": "https://gotonight.com/artists/artist/?id=71",
+   "time": "10am-2pm"
+  },
+  {
+   "name": "Rusty Bellies Waterfront Grill",
+   "city": "Tarpon Springs",
+   "band": "Scott Fallon",
+   "band_url": "https://gotonight.com/artists/artist/?id=10607",
+   "time": "5:30 p.m."
+  },
+  {
+   "name": "Safety Harbor Art & Music Center",
+   "city": "Safety Harbor",
+   "time": "5pm $35 https://bit.ly/3cFZ5kJ"
+  },
+  {
+   "name": "Safety Harbor Art & Music Center",
+   "city": "Safety Harbor",
+   "time": "8pm Late Show $35 https://bit.ly/2OesVDN"
+  },
+  {
+   "name": "SandBar Tiki & Grille",
+   "city": "Englewood",
+   "band": "Trinity ON80",
+   "band_url": "https://gotonight.com/artists/artist/?id=100710",
+   "time": "1:00 to 5:00 pm $None"
+  },
+  {
+   "name": "Sea Hags Bar & Grill St Pete Beach",
+   "city": "St. Pete Beach",
+   "band": "Lorelei on the Rocks",
+   "band_url": "https://gotonight.com/artists/artist/?id=78685",
+   "time": "6-10pm $No"
+  },
+  {
+   "name": "Sea Sea Riders Restaurant",
+   "city": "Dunedin",
+   "band": "Jimmy Griswold",
+   "band_url": "https://gotonight.com/artists/artist/?id=51",
+   "time": "6-10p Solo"
+  },
+  {
+   "name": "Shrimpys Blues Bistro",
+   "city": "St. Pete Beach",
+   "band": "Kimi Tortuga",
+   "band_url": "https://gotonight.com/artists/artist/?id=31479",
+   "time": "7:00 PM $Free"
+  },
+  {
+   "name": "Shuffle",
+   "city": "Tampa",
+   "band": "Granny's Gin",
+   "band_url": "https://gotonight.com/artists/artist/?id=139847",
+   "time": "8pm"
+  },
+  {
+   "name": "Snappers Grill & Comedy Club",
+   "city": "Palm Harbor",
+   "time": "8 PM $0"
+  },
+  {
+   "name": "Sneaky's Bar and Grill",
+   "city": "Largo",
+   "time": "9 PM $0"
+  },
+  {
+   "name": "St. Armands Circle",
+   "city": "Sarasota",
+   "band": "Orchestra Fuego",
+   "band_url": "https://gotonight.com/artists/artist/?id=153436",
+   "time": "6pm"
+  },
+  {
+   "name": "Stirling Wine",
+   "city": "Dunedin",
+   "band": "Flycatcher",
+   "band_url": "https://gotonight.com/artists/artist/?id=58035",
+   "time": "1 - 4 PM"
+  },
+  {
+   "name": "Stirling Wine",
+   "city": "Dunedin",
+   "band": "Shaun Hopper",
+   "band_url": "https://gotonight.com/artists/artist/?id=2696",
+   "time": "7:30 - 10:30 pm"
+  },
+  {
+   "name": "Stottlemyer's Smokehouse",
+   "city": "Sarasota",
+   "time": "3:15-5:30 $0"
+  },
+  {
+   "name": "Swan Brewing",
+   "city": "Lakeland",
+   "band": "Celtic Conundrum",
+   "band_url": "https://gotonight.com/artists/artist/?id=122219",
+   "time": "7pm to 10pm $Free"
+  },
+  {
+   "name": "Tamiami Tap",
+   "city": "Sarasota",
+   "time": "8pm to 11pm"
+  },
+  {
+   "name": "Tarpon Bay Grill & Tiki Bar",
+   "city": "Sarasota",
+   "band": "Kettle Of Fish",
+   "band_url": "https://gotonight.com/artists/artist/?id=54",
+   "time": "7"
+  },
+  {
+   "name": "Tarpon Turtle Grill & Marina",
+   "city": "Tarpon Springs",
+   "time": "12pm -3pm"
+  },
+  {
+   "name": "Tarpon Turtle Grill & Marina",
+   "city": "Tarpon Springs",
+   "band": "High Five Reggae Band Duo",
+   "band_url": "https://gotonight.com/artists/artist/?id=141950",
+   "time": "5pm - 8pm"
+  },
+  {
+   "name": "The Lazy Lizard",
+   "city": "Hernando Beach",
+   "band": "Fred George",
+   "band_url": "https://gotonight.com/artists/artist/?id=36063",
+   "time": "12 noon -10 pm"
+  },
+  {
+   "name": "The Lazy Lizard",
+   "city": "Hernando Beach",
+   "time": "12 noon -10 pm"
+  },
+  {
+   "name": "The Lazy Lizard",
+   "city": "Hernando Beach",
+   "time": "12 noon -10 pm"
+  },
+  {
+   "name": "The Lazy Lizard",
+   "city": "Hernando Beach",
+   "time": "12 noon -10 pm"
+  },
+  {
+   "name": "The Lazy Lizard",
+   "city": "Hernando Beach",
+   "time": "12 pm - 10 pm"
+  },
+  {
+   "name": "The Lazy Lizard",
+   "city": "Hernando Beach",
+   "band": "George Mac - Saltwater Cowboys",
+   "band_url": "https://gotonight.com/artists/artist/?id=141792",
+   "time": "12 pm Margarita"
+  },
+  {
+   "name": "The Lazy Lizard",
+   "city": "Hernando Beach",
+   "time": "12noon -10 pm"
+  },
+  {
+   "name": "The Liquid Therapy Bar",
+   "city": "Pinellas Park",
+   "band": "Rocky D. and The Intruders",
+   "band_url": "https://gotonight.com/artists/artist/?id=95679",
+   "time": "8:00pm-Midnight"
+  },
+  {
+   "name": "Thirsty Marlin Grill & Bar",
+   "city": "Palm Harbor",
+   "band": "AudioStar",
+   "band_url": "https://gotonight.com/artists/artist/?id=106247",
+   "time": "8pm - 12am $Band"
+  },
+  {
+   "name": "TJ Carney's",
+   "city": "Venice",
+   "band": "Phoenix Rising",
+   "band_url": "https://gotonight.com/artists/artist/?id=69054",
+   "time": "8-1159"
+  },
+  {
+   "name": "Toasted Monkey",
+   "city": "St. Pete Beach",
+   "band": "Motel Funk",
+   "band_url": "https://gotonight.com/artists/artist/?id=71449",
+   "time": "1pm"
+  },
+  {
+   "name": "Toasted Monkey",
+   "city": "St. Pete Beach",
+   "band": "Swipe Right",
+   "band_url": "https://gotonight.com/artists/artist/?id=127665",
+   "time": "6pm"
+  },
+  {
+   "name": "Two Buks Saloon",
+   "city": "Clearwater",
+   "band": "The Machine Gun Kelly's",
+   "band_url": "https://gotonight.com/artists/artist/?id=149976",
+   "time": "9:30 pm - 1:30"
+  },
+  {
+   "name": "Twysted Vyne",
+   "city": "Inverness",
+   "band": "JoJo Jones and Jay Jernigan",
+   "band_url": "https://gotonight.com/artists/artist/?id=158535",
+   "time": "7:30 PM"
+  },
+  {
+   "name": "Ukulele Brands",
+   "city": "Land O Lakes",
+   "band": "Phoenix",
+   "band_url": "https://gotonight.com/artists/artist/?id=4421",
+   "time": "7:30pm-10:30pm"
+  },
+  {
+   "name": "Uncle Fat's #2 Tampa",
+   "city": "Tampa",
+   "band": "Stonegrey",
+   "band_url": "https://gotonight.com/artists/artist/?id=55332",
+   "time": "8pm-12am"
+  },
+  {
+   "name": "Waterfront Social",
+   "city": "Crystal River",
+   "band": "Mixed Signal",
+   "band_url": "https://gotonight.com/artists/artist/?id=142000",
+   "time": "9 pm"
+  },
+  {
+   "name": "West Pasco Moose 2366",
+   "city": "New Port Richey",
+   "band": "Broken Heart",
+   "band_url": "https://gotonight.com/artists/artist/?id=158577",
+   "time": "7:00- 10:00pm $free"
+  },
+  {
+   "name": "Whiskey River On The Water",
+   "city": "Port Richey",
+   "time": "1PM-5PM $0"
+  },
+  {
+   "name": "Whiskey River On The Water",
+   "city": "Port Richey",
+   "time": "7PM-11PM $0"
+  },
+  {
+   "name": "Whiskey Wings - Tarpon Springs",
+   "city": "Tarpon Springs",
+   "time": "8PM"
+  },
+  {
+   "name": "White Elephant Pub",
+   "city": "Englewood",
+   "band": "Tropical Avenue",
+   "band_url": "https://gotonight.com/artists/artist/?id=8707",
+   "time": "7-11pm"
+  },
+  {
+   "name": "Widow Fletcher's",
+   "city": "New Port Richey",
+   "band": "Shakes Society",
+   "band_url": "https://gotonight.com/artists/artist/?id=67928",
+   "time": "7pm"
+  },
+  {
+   "name": "Widow Fletcher's",
+   "city": "New Port Richey",
+   "band": "Shakes Society",
+   "band_url": "https://gotonight.com/artists/artist/?id=67928",
+   "time": "7pm $0"
+  },
+  {
+   "name": "Woody's River Roo",
+   "city": "Ellenton",
+   "band": "RAW VINYL BAND",
+   "band_url": "https://gotonight.com/artists/artist/?id=130677",
+   "time": "1pm – 5pm"
+  },
+  {
+   "name": "Woody's River Roo",
+   "city": "Ellenton",
+   "band": "RAW VINYL",
+   "band_url": "https://gotonight.com/artists/artist/?id=158568",
+   "time": "1pm-5pm"
+  },
+  {
+   "name": "Woody's River Roo",
+   "city": "Ellenton",
+   "band": "Hurricane Shane",
+   "band_url": "https://gotonight.com/artists/artist/?id=107303",
+   "time": "7pm – 11pm"
+  }
+ ]
+}

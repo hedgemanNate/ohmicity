@@ -27,6 +27,9 @@
 		D8CED4062641F4100017FD28 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* Dashboard.storyboard */; };
 		F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */; };
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
+		F60EB6322656CF5300CDB6F6 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EB6312656CF5300CDB6F6 /* SearchCollectionViewCell.swift */; };
+		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
+		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
 		F640DD0A264E3B7300959358 /* Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Handlers.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
 		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
@@ -86,6 +89,9 @@
 		E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.debug.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OhmicityLogoNoTag.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
+		F60EB6312656CF5300CDB6F6 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		F60EB6362656D3C400CDB6F6 /* goTonight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goTonight.json; sourceTree = "<group>"; };
+		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F640DD09264E3B7300959358 /* Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handlers.swift; sourceTree = "<group>"; };
 		F640DD0E264E432B00959358 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		F649ECB0264B2C5500E84408 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -193,13 +199,11 @@
 			isa = PBXGroup;
 			children = (
 				F640DD14264E4BB700959358 /* Login */,
+				F62FEB6B26562A1A008DEF64 /* Settings */,
 				F640DD0E264E432B00959358 /* DashboardTabBarController.swift */,
 				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
 				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
-				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				D8262F0F2644688C0050F9CA /* VenueDetailViewController.swift */,
-				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
-				F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -235,9 +239,20 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		F62FEB6B26562A1A008DEF64 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
+				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
+				F62FEB6F26562A59008DEF64 /* ResetViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		F640DD13264E4B9600959358 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F60EB6312656CF5300CDB6F6 /* SearchCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +262,7 @@
 			children = (
 				D8CED4002641E96D0017FD28 /* SignInViewController.swift */,
 				F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */,
+				F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -257,6 +273,7 @@
 				F6522D5D2649AAF000912B90 /* CustomColors.swift */,
 				F649ECB0264B2C5500E84408 /* Extensions.swift */,
 				F640DD09264E3B7300959358 /* Handlers.swift */,
+				F60EB6362656D3C400CDB6F6 /* goTonight.json */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -393,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */,
+				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
 				F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				D8CED4062641F4100017FD28 /* Dashboard.storyboard in Resources */,
@@ -568,10 +586,12 @@
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
+				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
 				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
 				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
 				F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Handlers.swift in Sources */,
+				F60EB6322656CF5300CDB6F6 /* SearchCollectionViewCell.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,
