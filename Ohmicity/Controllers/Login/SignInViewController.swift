@@ -22,7 +22,6 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addUserListener()
         updateViews()
     }
     
@@ -48,7 +47,10 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             guard let uid = authDataResult?.user.uid else {return NSLog("No uid returned from auth")}
             guard let email = authDataResult?.user.email else {return NSLog("No email retuned from auth")}
             currentUser = CurrentUser(userID: uid, email: email)
-            performSegue(withIdentifier: "ToDashboard", sender: self)
+            notificationCenter.post(notifications.userAuthUpdated)
+            self.dismiss(animated: true, completion: nil)
+            
+
         }
     }
     
@@ -62,10 +64,11 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
                 //Future function for no user signed in
                 print("NO USERS SIGN IN!!!!!!!")
             } else {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
-                let dashboardViewController = storyBoard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
-                dashboardViewController.modalPresentationStyle = .fullScreen
-                        self.present(dashboardViewController, animated: true, completion: nil)
+//                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                let dashboardViewController = storyBoard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
+//                dashboardViewController.modalPresentationStyle = .fullScreen
+//                        self.present(dashboardViewController, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
       }
     }

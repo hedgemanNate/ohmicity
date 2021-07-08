@@ -6,13 +6,25 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DashboardViewController: UIViewController {
+    
+    //Properties
+    //Hidden Elements
+    @IBOutlet weak var favoritesButton: UIButton!
+    @IBOutlet weak var favoritesCollectionView: UICollectionView!
+    @IBOutlet weak var hiddenSignUpView: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        notificationCenter.addObserver(self, selector: #selector(handleHidden), name: notifications.userAuthUpdated.name, object: nil)
+        updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
 
@@ -25,5 +37,21 @@ class DashboardViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @objc private func handleHidden() {
+        if Auth.auth().currentUser == nil {
+            favoritesButton.isHidden = true
+            favoritesCollectionView.isHidden = true
+            hiddenSignUpView.isHidden = false
+        } else {
+            favoritesButton.isHidden = false
+            favoritesCollectionView.isHidden = false
+            hiddenSignUpView.isHidden = true
+        }
+    }
+    
+    private func updateViews() {
+        handleHidden()
+    }
 
 }

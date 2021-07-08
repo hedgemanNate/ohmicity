@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIBarButtonItem.appearance().tintColor = cc.navigationTextBlue
         return true
+        
     }
 
     // MARK: UISceneSession Lifecycle
