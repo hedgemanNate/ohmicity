@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SignUpViewController-->
+        <scene sceneID="9uL-rV-mOc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" referencedIdentifier="SignUpViewController" id="Ypa-Y9-Qcs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRk-WE-hZX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1423" y="-597"/>
+        </scene>
         <!--Dashboard-->
         <scene sceneID="E72-49-XI8">
             <objects>
@@ -111,6 +119,9 @@ shows in the Bay Area. Every Week.</string>
                                                         <state key="normal" title="Get Perks">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="Ypa-Y9-Qcs" kind="presentation" id="VNz-1J-1BQ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ow-Wu-N6B">
                                                         <rect key="frame" x="35" y="164" width="184" height="30"/>
@@ -119,6 +130,9 @@ shows in the Bay Area. Every Week.</string>
                                                             <constraint firstAttribute="height" constant="30" id="ZXD-wU-iS6"/>
                                                         </constraints>
                                                         <state key="normal" title="Already have an account?"/>
+                                                        <connections>
+                                                            <segue destination="VkB-f5-0Se" kind="presentation" id="bbm-h1-KWo"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -331,9 +345,13 @@ should be on Xity?</string>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="4NF-lf-IEi"/>
                     <navigationItem key="navigationItem" id="Tc7-Hk-1yN"/>
                     <connections>
+                        <outlet property="alreadyAccountButton" destination="9Ow-Wu-N6B" id="tc6-s3-BEB"/>
                         <outlet property="favoritesButton" destination="Asf-iS-3FF" id="iMV-s8-CkE"/>
                         <outlet property="favoritesCollectionView" destination="3Uw-p8-LOM" id="P7M-nU-qTP"/>
+                        <outlet property="getPerksButton" destination="1QV-6n-gnY" id="X22-YH-3zu"/>
                         <outlet property="hiddenSignUpView" destination="pOr-WM-3Yr" id="jlF-wl-1fc"/>
+                        <outlet property="scrollView" destination="B5K-rm-Xrp" id="a4m-XX-oPX"/>
+                        <outlet property="topAdView" destination="pGS-oC-XPb" id="c0X-nm-B2W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYw-It-NKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1590,7 +1608,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="SignIn" id="VkB-f5-0Se" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtj-5X-GBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="225"/>
+            <point key="canvasLocation" x="-1422" y="-513"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="Mxh-ZS-JdM">
@@ -1698,6 +1716,9 @@ should be on Xity?</string>
             <point key="canvasLocation" x="3442" y="-609"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bbm-h1-KWo"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="phone" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">

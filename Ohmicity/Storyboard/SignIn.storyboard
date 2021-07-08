@@ -93,7 +93,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="if5-cQ-dC8">
             <objects>
-                <viewController id="86d-lX-6oc" customClass="SignUpViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="86d-lX-6oc" customClass="SignUpViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k2p-En-R8q">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,7 +293,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U7l-t6-EkE"/>
+        <segue reference="iNf-o9-4Vj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="OhmicityLogoNoTag.png" width="3509" height="1020"/>

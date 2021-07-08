@@ -51,7 +51,9 @@ class SignUpViewController: UIViewController {
         let alert = UIAlertController(title: "UH OH!", message: "", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Got it!", style: .cancel, handler: nil)
         let alertAction2 = UIAlertAction(title: "Ok", style: .default) { [self] (_) in
-            performSegue(withIdentifier: "ToDashboard", sender: nil)
+            notificationCenter.post(notifications.userAuthUpdated)
+            notificationCenter.post(notifications.scrollToTop)
+            dismiss(animated: true, completion: nil)
         }
         
         Auth.auth().createUser(withEmail: email, password: password)  { [self] (authResult, error) in
@@ -92,7 +94,9 @@ class SignUpViewController: UIViewController {
                 guard let uid = authDataResult?.user.uid else {return NSLog("No uid returned from auth")}
                 guard let email = authDataResult?.user.email else {return NSLog("No email returned from auth")}
                 currentUser = CurrentUser(userID: uid, email: email)
-                performSegue(withIdentifier: "ToDashboard", sender: nil)
+                notificationCenter.post(notifications.userAuthUpdated)
+                notificationCenter.post(notifications.scrollToTop)
+                dismiss(animated: true, completion: nil)
             }
         }
     }

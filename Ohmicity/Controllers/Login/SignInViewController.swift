@@ -64,10 +64,6 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
                 //Future function for no user signed in
                 print("NO USERS SIGN IN!!!!!!!")
             } else {
-//                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                let dashboardViewController = storyBoard.instantiateViewController(withIdentifier: "DashboardTabBarController") as! DashboardTabBarController
-//                dashboardViewController.modalPresentationStyle = .fullScreen
-//                        self.present(dashboardViewController, animated: true, completion: nil)
                 self.dismiss(animated: true, completion: nil)
             }
       }

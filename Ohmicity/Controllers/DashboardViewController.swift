@@ -11,6 +11,13 @@ import FirebaseAuth
 class DashboardViewController: UIViewController {
     
     //Properties
+    @IBOutlet weak var getPerksButton: UIButton!
+    @IBOutlet weak var alreadyAccountButton: UIButton!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var topAdView: UIView!
+    
+    
     //Hidden Elements
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
@@ -19,7 +26,7 @@ class DashboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        notificationCenter.addObserver(self, selector: #selector(handleHidden), name: notifications.userAuthUpdated.name, object: nil)
+        notificationObservers()
         updateViews()
     }
     
@@ -50,8 +57,20 @@ class DashboardViewController: UIViewController {
         }
     }
     
+    @objc private func scrollToTop() {
+        scrollView.scrollToTop(animated: true)
+    }
+    
     private func updateViews() {
         handleHidden()
+    }
+    
+    private func notificationObservers() {
+        //Hide Views
+        notificationCenter.addObserver(self, selector: #selector(handleHidden), name: notifications.userAuthUpdated.name, object: nil)
+        
+        //Scroll To Top
+        notificationCenter.addObserver(self, selector: #selector(scrollToTop), name: notifications.scrollToTop.name, object: nil)
     }
 
 }
