@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //Firebase
         FirebaseApp.configure()
+        
+        //Admob
+        GADMobileAds.sharedInstance().start(completionHandler: nil) /*set up MEDIATION in here in handler*/
 
         //Navigation UI
         UINavigationBar.appearance().backgroundColor = cc.navigationBGPurple
