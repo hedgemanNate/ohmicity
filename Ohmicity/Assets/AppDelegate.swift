@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         //Firebase
         FirebaseApp.configure()
+        let settings = FirestoreSettings()
+        let db = Firestore.firestore()
+        settings.cacheSizeBytes = 209715200
+        settings.isPersistenceEnabled = true
+        db.settings = settings
+        
+        //Get Data
+        lmDateHandler.checkDateAndGetData()
         
         //Admob
         GADMobileAds.sharedInstance().start(completionHandler: nil) /*set up MEDIATION in here in handler*/

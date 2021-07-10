@@ -101,10 +101,6 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
     //MARK: UI
     private func updateViews() {
         //Buttons

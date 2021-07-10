@@ -35,8 +35,21 @@
 		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
 		F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
+		F676F0F526991C6C00C47599 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EE26991C6C00C47599 /* User.swift */; };
+		F676F0F626991C6C00C47599 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Rating.swift */; };
+		F676F0F726991C6C00C47599 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F026991C6C00C47599 /* Recommendation.swift */; };
+		F676F0F826991C6C00C47599 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F126991C6C00C47599 /* Message.swift */; };
+		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
+		F676F0FA26991C6C00C47599 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F326991C6C00C47599 /* Venue.swift */; };
+		F676F0FB26991C6C00C47599 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F426991C6C00C47599 /* Band.swift */; };
+		F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */; };
+		F676F0FF269947B300C47599 /* BandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0FE269947B300C47599 /* BandController.swift */; };
+		F676F101269947D300C47599 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F100269947D300C47599 /* Enumerations.swift */; };
+		F676F1032699496200C47599 /* ShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F1022699496200C47599 /* ShowController.swift */; };
 		F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67990FD26977ED7000FDC5E /* ProfileViewController.swift */; };
 		F67991002697AB54000FDC5E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67990FF2697AB54000FDC5E /* Notifications.swift */; };
+		F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991042697E2A0000FDC5E /* BusinessController.swift */; };
+		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
 		F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */; };
 		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
 		F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6923D25264E7F6400A2E036 /* DashboardViewController.swift */; };
@@ -99,8 +112,21 @@
 		F649ECB0264B2C5500E84408 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		F676F0EE26991C6C00C47599 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F676F0EF26991C6C00C47599 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		F676F0F026991C6C00C47599 /* Recommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
+		F676F0F126991C6C00C47599 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		F676F0F326991C6C00C47599 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		F676F0F426991C6C00C47599 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
+		F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastModifiedDateHandler.swift; sourceTree = "<group>"; };
+		F676F0FE269947B300C47599 /* BandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandController.swift; sourceTree = "<group>"; };
+		F676F100269947D300C47599 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		F676F1022699496200C47599 /* ShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowController.swift; sourceTree = "<group>"; };
 		F67990FD26977ED7000FDC5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F67990FF2697AB54000FDC5E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		F67991042697E2A0000FDC5E /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
+		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
 		F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
 		F6923D25264E7F6400A2E036 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +228,7 @@
 		D8CED3F22641E3880017FD28 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F67991032697E278000FDC5E /* Model Controllers */,
 				F640DD14264E4BB700959358 /* Login */,
 				F62FEB6B26562A1A008DEF64 /* Settings */,
 				F640DD0E264E432B00959358 /* DashboardTabBarController.swift */,
@@ -280,6 +307,9 @@
 				F640DD09264E3B7300959358 /* Handlers.swift */,
 				F60EB6362656D3C400CDB6F6 /* goTonight.json */,
 				F67990FF2697AB54000FDC5E /* Notifications.swift */,
+				F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */,
+				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
+				F676F100269947D300C47599 /* Enumerations.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -288,8 +318,25 @@
 			isa = PBXGroup;
 			children = (
 				F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */,
+				F676F0F426991C6C00C47599 /* Band.swift */,
+				F676F0F126991C6C00C47599 /* Message.swift */,
+				F676F0EF26991C6C00C47599 /* Rating.swift */,
+				F676F0F026991C6C00C47599 /* Recommendation.swift */,
+				F676F0F226991C6C00C47599 /* Show.swift */,
+				F676F0EE26991C6C00C47599 /* User.swift */,
+				F676F0F326991C6C00C47599 /* Venue.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F67991032697E278000FDC5E /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F67991042697E2A0000FDC5E /* BusinessController.swift */,
+				F676F0FE269947B300C47599 /* BandController.swift */,
+				F676F1022699496200C47599 /* ShowController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		F6F59D254F66DCB6A2224A40 /* Pods */ = {
@@ -592,18 +639,31 @@
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */,
+				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
+				F676F0FF269947B300C47599 /* BandController.swift in Sources */,
+				F676F0F826991C6C00C47599 /* Message.swift in Sources */,
 				F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */,
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
+				F676F0F926991C6C00C47599 /* Show.swift in Sources */,
 				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
+				F676F0F526991C6C00C47599 /* User.swift in Sources */,
 				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
+				F676F0F726991C6C00C47599 /* Recommendation.swift in Sources */,
 				F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */,
+				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Handlers.swift in Sources */,
+				F676F1032699496200C47599 /* ShowController.swift in Sources */,
 				F60EB6322656CF5300CDB6F6 /* SearchCollectionViewCell.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
+				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
+				F676F0FA26991C6C00C47599 /* Venue.swift in Sources */,
+				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
+				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
 				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
+				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
 				D8262F102644688C0050F9CA /* VenueDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

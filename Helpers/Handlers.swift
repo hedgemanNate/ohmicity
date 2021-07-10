@@ -9,3 +9,5 @@ import Foundation
 import Firebase
 
 var authHandle: AuthStateDidChangeListenerHandle?
+
+

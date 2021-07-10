@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-Fs-r3B" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1735"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asf-iS-3FF" userLabel="Favorites Button">
                                                 <rect key="frame" x="9" y="713" width="182" height="44"/>
@@ -65,6 +65,16 @@
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGS-oC-XPb" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="245"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNx-Pf-vxh">
+                                                        <rect key="frame" x="187" y="107" width="40" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Break"/>
+                                                        <connections>
+                                                            <action selector="breaker:" destination="0BH-eH-kqO" eventType="touchUpInside" id="RWB-f1-Jdl"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="pGS-oC-XPb" secondAttribute="height" multiplier="414:245" id="k5x-LG-QWx"/>
@@ -316,7 +326,7 @@ should be on Xity?</string>
                                             <constraint firstAttribute="trailing" secondItem="ASL-Fa-bVH" secondAttribute="trailing" id="jae-0r-cys"/>
                                             <constraint firstAttribute="trailing" secondItem="C2e-I6-00I" secondAttribute="trailing" constant="9" id="kAH-92-DFV"/>
                                             <constraint firstAttribute="trailing" secondItem="4bF-yt-oT7" secondAttribute="trailing" id="sF6-MU-gsL"/>
-                                            <constraint firstAttribute="height" constant="1735" id="se1-Wd-mUc"/>
+                                            <constraint firstAttribute="height" constant="2000" id="se1-Wd-mUc"/>
                                             <constraint firstItem="ASL-Fa-bVH" firstAttribute="leading" secondItem="eJF-Fs-r3B" secondAttribute="leading" id="t70-Wt-urw"/>
                                             <constraint firstItem="4bF-yt-oT7" firstAttribute="leading" secondItem="eJF-Fs-r3B" secondAttribute="leading" id="w6R-Sd-Rod"/>
                                             <constraint firstItem="QHF-Rb-oqe" firstAttribute="leading" secondItem="eJF-Fs-r3B" secondAttribute="leading" id="yOS-f0-1Iu"/>
@@ -331,14 +341,24 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="eJF-Fs-r3B" secondAttribute="bottom" constant="-127" id="v9A-s3-ZcO"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hW-Rr-pxW" userLabel="Admob Lower Banner Ad">
+                                <rect key="frame" x="28" y="758" width="358" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6hW-Rr-pxW" secondAttribute="height" multiplier="358:55" id="Ejw-bo-y1N"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MUE-UY-wHK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="MUE-UY-wHK" firstAttribute="trailing" secondItem="6hW-Rr-pxW" secondAttribute="trailing" constant="28" id="PqM-rP-UC8"/>
                             <constraint firstItem="B5K-rm-Xrp" firstAttribute="trailing" secondItem="MUE-UY-wHK" secondAttribute="trailing" id="S0d-o4-FzW"/>
                             <constraint firstItem="B5K-rm-Xrp" firstAttribute="leading" secondItem="MUE-UY-wHK" secondAttribute="leading" id="Zqs-8G-jjJ"/>
                             <constraint firstItem="B5K-rm-Xrp" firstAttribute="top" secondItem="MUE-UY-wHK" secondAttribute="top" id="cQt-eL-BxK"/>
                             <constraint firstItem="eJF-Fs-r3B" firstAttribute="width" secondItem="cAf-je-p4V" secondAttribute="width" id="dIH-91-9Yk"/>
+                            <constraint firstItem="MUE-UY-wHK" firstAttribute="bottom" secondItem="6hW-Rr-pxW" secondAttribute="bottom" id="fto-VV-3fj"/>
+                            <constraint firstItem="6hW-Rr-pxW" firstAttribute="leading" secondItem="MUE-UY-wHK" secondAttribute="leading" constant="28" id="oFI-Wo-URq"/>
                             <constraint firstItem="B5K-rm-Xrp" firstAttribute="bottom" secondItem="MUE-UY-wHK" secondAttribute="bottom" id="vNG-6N-LyF"/>
                         </constraints>
                     </view>
@@ -377,282 +397,9 @@ should be on Xity?</string>
             <point key="canvasLocation" x="-1323" y="228"/>
         </scene>
         <!--Dashboard-->
-        <scene sceneID="Agk-13-uBf">
-            <objects>
-                <viewController id="oaa-0j-606" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nC2-cw-TCG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85s-9w-Kh3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UiH-oW-g31" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1735"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7CX-oi-VQb" userLabel="Top Ad View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="245"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="7CX-oi-VQb" secondAttribute="height" multiplier="414:245" id="Ljg-Bn-vP6"/>
-                                                </constraints>
-                                            </view>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8j3-TD-Biw">
-                                                <rect key="frame" x="0.0" y="596" width="414" height="82"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="8j3-TD-Biw" secondAttribute="height" multiplier="207:41" id="DyO-J4-tln"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lup-Nw-zyS">
-                                                    <size key="itemSize" width="117" height="82"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3Uq-Ng-siD">
-                                                        <rect key="frame" x="9" y="0.0" width="117" height="82"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0jk-pj-Kcf">
-                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="82"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LfU-Nj-lKy">
-                                                <rect key="frame" x="0.0" y="1294" width="414" height="82"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="LfU-Nj-lKy" secondAttribute="height" multiplier="207:41" id="NGa-QZ-esh"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5JJ-yC-KLR">
-                                                    <size key="itemSize" width="117" height="82"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="N4m-br-9mJ">
-                                                        <rect key="frame" x="9" y="0.0" width="117" height="82"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xld-aO-iIi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="82"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RA-of-3mq">
-                                                <rect key="frame" x="9" y="1425" width="396" height="146"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oy6-8X-1sD">
-                                                        <rect key="frame" x="21" y="14" width="354" height="51"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Oy6-8X-1sD" secondAttribute="height" multiplier="118:17" id="Rpm-O5-i0m"/>
-                                                        </constraints>
-                                                        <string key="text">Know a great local band or venue that
-should be on Xity?</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-3a-vTg">
-                                                        <rect key="frame" x="21" y="85" width="354" height="47"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="bc9-3a-vTg" secondAttribute="height" multiplier="354:47" id="Y5U-Sr-RDX"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="Recommend">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="8RA-of-3mq" secondAttribute="height" multiplier="198:73" id="R1J-24-sek"/>
-                                                    <constraint firstAttribute="trailing" secondItem="bc9-3a-vTg" secondAttribute="trailing" constant="21" id="Zxx-b4-dr4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Oy6-8X-1sD" secondAttribute="trailing" constant="21" id="Zzm-ak-SQE"/>
-                                                    <constraint firstItem="bc9-3a-vTg" firstAttribute="leading" secondItem="8RA-of-3mq" secondAttribute="leading" constant="21" id="cYT-Vy-9Ds"/>
-                                                    <constraint firstItem="Oy6-8X-1sD" firstAttribute="leading" secondItem="8RA-of-3mq" secondAttribute="leading" constant="21" id="mcb-6Z-xZV"/>
-                                                    <constraint firstItem="Oy6-8X-1sD" firstAttribute="top" secondItem="8RA-of-3mq" secondAttribute="top" constant="14" id="n54-VL-0mO"/>
-                                                    <constraint firstAttribute="bottom" secondItem="bc9-3a-vTg" secondAttribute="bottom" constant="14" id="qid-y9-Aem"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owi-vV-lXj">
-                                                <rect key="frame" x="9" y="280" width="129" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="First Button">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQ1-OP-rED">
-                                                <rect key="frame" x="9" y="545" width="161" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="SecondButton">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mgb-lp-Qdx">
-                                                <rect key="frame" x="0.0" y="331" width="414" height="179"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="mgb-lp-Qdx" secondAttribute="height" multiplier="414:179" id="Kym-Xs-aF7"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="14" id="TTV-h1-fsN">
-                                                    <size key="itemSize" width="97" height="115"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="03d-Yd-xop">
-                                                        <rect key="frame" x="9" y="0.5" width="117" height="178"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="I1f-Rh-nJK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="178"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="117" height="178"/>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbg-oa-7SQ">
-                                                <rect key="frame" x="9" y="978" width="153" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Fourth Button">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVY-h5-PlK">
-                                                <rect key="frame" x="9" y="1243" width="131" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Fifth Button">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eg2-YA-khV">
-                                                <rect key="frame" x="0.0" y="1029" width="414" height="179"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Eg2-YA-khV" secondAttribute="height" multiplier="414:179" id="iNq-ZG-H8J"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="14" id="fBn-LH-kSb">
-                                                    <size key="itemSize" width="97" height="115"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GCf-Sk-2IB">
-                                                        <rect key="frame" x="9" y="0.0" width="117" height="179"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6uS-4p-zlg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="179"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="117" height="179"/>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYA-Jo-pjl">
-                                                <rect key="frame" x="9" y="713" width="139" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Third Button">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-PB-Ebw">
-                                                <rect key="frame" x="0.0" y="764" width="414" height="179"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="xHf-PB-Ebw" secondAttribute="height" multiplier="414:179" id="vMG-D3-qcx"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="7" minimumInteritemSpacing="14" id="Z7J-7I-Iyo">
-                                                    <size key="itemSize" width="97" height="115"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ceT-OC-xwu">
-                                                        <rect key="frame" x="9" y="0.0" width="117" height="179"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7SZ-79-CRd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="179"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="117" height="179"/>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                        <constraints>
-                                            <constraint firstItem="owi-vV-lXj" firstAttribute="top" secondItem="7CX-oi-VQb" secondAttribute="bottom" constant="35" id="39t-gc-KRv"/>
-                                            <constraint firstAttribute="trailing" secondItem="8RA-of-3mq" secondAttribute="trailing" constant="9" id="7DU-Fv-w0N"/>
-                                            <constraint firstItem="8j3-TD-Biw" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" id="8o7-dR-029"/>
-                                            <constraint firstItem="vbg-oa-7SQ" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" constant="9" id="AkD-Xb-2Po"/>
-                                            <constraint firstAttribute="trailing" secondItem="xHf-PB-Ebw" secondAttribute="trailing" id="DCz-yo-eGL"/>
-                                            <constraint firstItem="LfU-Nj-lKy" firstAttribute="top" secondItem="dVY-h5-PlK" secondAttribute="bottom" constant="7" id="FcF-ja-ZXr"/>
-                                            <constraint firstItem="Eg2-YA-khV" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" id="Ofp-2v-Z3e"/>
-                                            <constraint firstAttribute="trailing" secondItem="8j3-TD-Biw" secondAttribute="trailing" id="PBd-dy-5aP"/>
-                                            <constraint firstItem="EYA-Jo-pjl" firstAttribute="top" secondItem="8j3-TD-Biw" secondAttribute="bottom" constant="35" id="Qa1-na-ZUe"/>
-                                            <constraint firstItem="mgb-lp-Qdx" firstAttribute="top" secondItem="owi-vV-lXj" secondAttribute="bottom" constant="7" id="VDq-ku-V50"/>
-                                            <constraint firstItem="vbg-oa-7SQ" firstAttribute="top" secondItem="xHf-PB-Ebw" secondAttribute="bottom" constant="35" id="VxS-bO-JWz"/>
-                                            <constraint firstItem="LfU-Nj-lKy" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" id="W9h-8I-7sz"/>
-                                            <constraint firstItem="JQ1-OP-rED" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" constant="9" id="WJ1-TE-rPj"/>
-                                            <constraint firstItem="xHf-PB-Ebw" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" id="aSa-lb-ea3"/>
-                                            <constraint firstItem="mgb-lp-Qdx" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" id="dH7-Ne-5Yh"/>
-                                            <constraint firstItem="xHf-PB-Ebw" firstAttribute="top" secondItem="EYA-Jo-pjl" secondAttribute="bottom" constant="7" id="eUw-C3-Dvk"/>
-                                            <constraint firstItem="Eg2-YA-khV" firstAttribute="top" secondItem="vbg-oa-7SQ" secondAttribute="bottom" constant="7" id="h7K-Vu-f55"/>
-                                            <constraint firstItem="dVY-h5-PlK" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" constant="9" id="iDf-ot-0jB"/>
-                                            <constraint firstAttribute="height" constant="1735" id="iRd-Ma-7yl"/>
-                                            <constraint firstItem="8j3-TD-Biw" firstAttribute="top" secondItem="JQ1-OP-rED" secondAttribute="bottom" constant="7" id="j7m-bv-odL"/>
-                                            <constraint firstAttribute="trailing" secondItem="LfU-Nj-lKy" secondAttribute="trailing" id="kUp-Wk-7vh"/>
-                                            <constraint firstItem="owi-vV-lXj" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" constant="9" id="l7x-PQ-EGX"/>
-                                            <constraint firstAttribute="trailing" secondItem="mgb-lp-Qdx" secondAttribute="trailing" id="lS0-n4-446"/>
-                                            <constraint firstItem="8RA-of-3mq" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" constant="9" id="msd-5X-ikM"/>
-                                            <constraint firstItem="7CX-oi-VQb" firstAttribute="top" secondItem="UiH-oW-g31" secondAttribute="top" id="o30-KM-CUq"/>
-                                            <constraint firstAttribute="trailing" secondItem="7CX-oi-VQb" secondAttribute="trailing" id="qtE-6Y-DVw"/>
-                                            <constraint firstItem="JQ1-OP-rED" firstAttribute="top" secondItem="mgb-lp-Qdx" secondAttribute="bottom" constant="35" id="rK8-tC-jNC"/>
-                                            <constraint firstItem="dVY-h5-PlK" firstAttribute="top" secondItem="Eg2-YA-khV" secondAttribute="bottom" constant="35" id="sEe-Fz-zfi"/>
-                                            <constraint firstItem="EYA-Jo-pjl" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" constant="9" id="tPL-En-anA"/>
-                                            <constraint firstItem="7CX-oi-VQb" firstAttribute="leading" secondItem="UiH-oW-g31" secondAttribute="leading" id="wdm-OQ-wAT"/>
-                                            <constraint firstAttribute="trailing" secondItem="Eg2-YA-khV" secondAttribute="trailing" id="xpB-wK-XC4"/>
-                                            <constraint firstItem="8RA-of-3mq" firstAttribute="top" secondItem="LfU-Nj-lKy" secondAttribute="bottom" constant="49" id="xzS-VG-MOQ"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="UiH-oW-g31" firstAttribute="top" secondItem="85s-9w-Kh3" secondAttribute="top" id="5lQ-gC-d3Q"/>
-                                    <constraint firstAttribute="trailing" secondItem="UiH-oW-g31" secondAttribute="trailing" id="8Zk-dP-gng"/>
-                                    <constraint firstAttribute="bottom" secondItem="UiH-oW-g31" secondAttribute="bottom" constant="-127" id="THS-BP-5i6"/>
-                                    <constraint firstItem="UiH-oW-g31" firstAttribute="leading" secondItem="85s-9w-Kh3" secondAttribute="leading" id="lAT-Hx-fDn"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="cmx-qU-25a"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="85s-9w-Kh3" firstAttribute="leading" secondItem="cmx-qU-25a" secondAttribute="leading" id="4w5-Cc-52O"/>
-                            <constraint firstItem="85s-9w-Kh3" firstAttribute="trailing" secondItem="cmx-qU-25a" secondAttribute="trailing" id="CCD-AJ-q67"/>
-                            <constraint firstItem="85s-9w-Kh3" firstAttribute="top" secondItem="cmx-qU-25a" secondAttribute="top" id="Imw-zr-7pm"/>
-                            <constraint firstItem="85s-9w-Kh3" firstAttribute="bottom" secondItem="cmx-qU-25a" secondAttribute="bottom" id="N2j-6k-M9q"/>
-                            <constraint firstItem="UiH-oW-g31" firstAttribute="width" secondItem="nC2-cw-TCG" secondAttribute="width" id="R9K-Xn-NBZ"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Dashboard" id="5Wn-JE-F8k"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jrs-nj-Ayo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="317" y="-609"/>
-        </scene>
-        <!--Dashboard-->
         <scene sceneID="awe-Of-PtB">
             <objects>
-                <viewController id="3L6-vU-wgp" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3L6-vU-wgp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NeU-eK-nqW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -831,27 +578,37 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="4Fo-n8-heq" secondAttribute="bottom" constant="-127" id="qV3-dM-qcf"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSo-ng-eoU" userLabel="Admob Lower Banner Ad">
+                                <rect key="frame" x="28" y="807" width="358" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GSo-ng-eoU" secondAttribute="height" multiplier="358:55" id="diy-1K-d79"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZGp-Uf-IrR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZGp-Uf-IrR" firstAttribute="bottom" secondItem="GSo-ng-eoU" secondAttribute="bottom" id="AgX-Hs-dCA"/>
+                            <constraint firstItem="ZGp-Uf-IrR" firstAttribute="trailing" secondItem="GSo-ng-eoU" secondAttribute="trailing" constant="28" id="TBx-Jt-Y7T"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="bottom" secondItem="ZGp-Uf-IrR" secondAttribute="bottom" id="Vqr-aH-Igt"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="leading" secondItem="ZGp-Uf-IrR" secondAttribute="leading" id="XPT-mw-5ce"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="top" secondItem="ZGp-Uf-IrR" secondAttribute="top" id="Yf2-ud-bZW"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="trailing" secondItem="ZGp-Uf-IrR" secondAttribute="trailing" id="hqY-LG-gQa"/>
                             <constraint firstItem="4Fo-n8-heq" firstAttribute="width" secondItem="NeU-eK-nqW" secondAttribute="width" id="mJ1-pp-KTT"/>
+                            <constraint firstItem="GSo-ng-eoU" firstAttribute="leading" secondItem="ZGp-Uf-IrR" secondAttribute="leading" constant="28" id="wq8-Dy-Wq9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="00v-gD-rj0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037.68115942029" y="-614.0625"/>
+            <point key="canvasLocation" x="445" y="-609"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="x6D-KM-3o5">
             <objects>
-                <viewController id="fki-Bt-PNW" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fki-Bt-PNW" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M90-I2-fJF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1179,14 +936,24 @@ Florida 34222 </string>
                                     <constraint firstAttribute="trailing" secondItem="7W9-h7-a1s" secondAttribute="trailing" id="yve-Cn-8fo"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXW-I8-3WD" userLabel="Admob Lower Banner Ad">
+                                <rect key="frame" x="28" y="807" width="358" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OXW-I8-3WD" secondAttribute="height" multiplier="358:55" id="dVl-Uv-6KP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8rd-4H-tVK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="top" secondItem="8rd-4H-tVK" secondAttribute="top" id="KnX-uP-pqX"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="leading" secondItem="8rd-4H-tVK" secondAttribute="leading" id="b0X-ZZ-Fvi"/>
+                            <constraint firstItem="8rd-4H-tVK" firstAttribute="trailing" secondItem="OXW-I8-3WD" secondAttribute="trailing" constant="28" id="b2a-2p-P7K"/>
                             <constraint firstItem="7W9-h7-a1s" firstAttribute="width" secondItem="M90-I2-fJF" secondAttribute="width" id="g5u-QE-cw5"/>
+                            <constraint firstItem="OXW-I8-3WD" firstAttribute="leading" secondItem="8rd-4H-tVK" secondAttribute="leading" constant="28" id="ieH-ui-uxB"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="trailing" secondItem="8rd-4H-tVK" secondAttribute="trailing" id="jdt-oZ-rqo"/>
+                            <constraint firstItem="8rd-4H-tVK" firstAttribute="bottom" secondItem="OXW-I8-3WD" secondAttribute="bottom" id="ois-jW-xNL"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="bottom" secondItem="8rd-4H-tVK" secondAttribute="bottom" id="ub5-GD-xgw"/>
                         </constraints>
                     </view>
@@ -1194,12 +961,12 @@ Florida 34222 </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908.6956521739132" y="-614.0625"/>
+            <point key="canvasLocation" x="1320" y="-609"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="rtp-Rd-53p">
             <objects>
-                <viewController id="0Cl-MS-BJa" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Cl-MS-BJa" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eMx-Sq-MO6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1427,13 +1194,23 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="2Gl-BI-ulL" secondAttribute="bottom" constant="-127" id="peH-dn-NOf"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84S-Cm-240" userLabel="Admob Lower Banner Ad">
+                                <rect key="frame" x="28" y="807" width="358" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="84S-Cm-240" secondAttribute="height" multiplier="358:55" id="NWu-ER-Ghz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kso-Lk-L7q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2Gl-BI-ulL" firstAttribute="width" secondItem="eMx-Sq-MO6" secondAttribute="width" id="5YI-HT-Hvy"/>
                             <constraint firstItem="pDW-sU-At6" firstAttribute="bottom" secondItem="Kso-Lk-L7q" secondAttribute="bottom" id="Gg7-ve-buf"/>
+                            <constraint firstItem="Kso-Lk-L7q" firstAttribute="trailing" secondItem="84S-Cm-240" secondAttribute="trailing" constant="28" id="SAv-xs-KKy"/>
                             <constraint firstItem="pDW-sU-At6" firstAttribute="leading" secondItem="Kso-Lk-L7q" secondAttribute="leading" id="bKi-8K-CeP"/>
+                            <constraint firstItem="Kso-Lk-L7q" firstAttribute="bottom" secondItem="84S-Cm-240" secondAttribute="bottom" id="lxc-zl-Kh0"/>
+                            <constraint firstItem="84S-Cm-240" firstAttribute="leading" secondItem="Kso-Lk-L7q" secondAttribute="leading" constant="28" id="p9X-3O-cjL"/>
                             <constraint firstItem="pDW-sU-At6" firstAttribute="top" secondItem="Kso-Lk-L7q" secondAttribute="top" id="sF9-mx-Zik"/>
                             <constraint firstItem="pDW-sU-At6" firstAttribute="trailing" secondItem="Kso-Lk-L7q" secondAttribute="trailing" id="tYy-ns-QsO"/>
                         </constraints>
@@ -1442,7 +1219,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUt-tx-PEI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2685.9813084112147" y="-625.91792656587472"/>
+            <point key="canvasLocation" x="2159" y="-597"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Iqo-pK-cSs">
@@ -1581,14 +1358,24 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="6oy-Bu-Xsa" secondAttribute="bottom" constant="-127" id="bKK-Yc-rA7"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-n1-0BK" userLabel="Admob Lower Banner Ad">
+                                <rect key="frame" x="28" y="758" width="358" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VU5-n1-0BK" secondAttribute="height" multiplier="358:55" id="L2U-fD-lzq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1oK-L6-V5b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="trailing" secondItem="1oK-L6-V5b" secondAttribute="trailing" id="0D8-Ib-Dwp"/>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="leading" secondItem="1oK-L6-V5b" secondAttribute="leading" id="5c2-AO-dZ7"/>
+                            <constraint firstItem="1oK-L6-V5b" firstAttribute="bottom" secondItem="VU5-n1-0BK" secondAttribute="bottom" id="BVV-sP-egO"/>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="top" secondItem="1oK-L6-V5b" secondAttribute="top" id="BkY-GY-JEl"/>
+                            <constraint firstItem="1oK-L6-V5b" firstAttribute="trailing" secondItem="VU5-n1-0BK" secondAttribute="trailing" constant="28" id="VBm-EG-8VT"/>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="bottom" secondItem="1oK-L6-V5b" secondAttribute="bottom" id="Z7U-Sr-8QR"/>
+                            <constraint firstItem="VU5-n1-0BK" firstAttribute="leading" secondItem="1oK-L6-V5b" secondAttribute="leading" constant="28" id="pbu-yl-yN9"/>
                             <constraint firstItem="6oy-Bu-Xsa" firstAttribute="width" secondItem="77H-gc-TUL" secondAttribute="width" id="vwf-xc-Abe"/>
                         </constraints>
                     </view>
@@ -1613,7 +1400,7 @@ should be on Xity?</string>
         <!--Dashboard-->
         <scene sceneID="Mxh-ZS-JdM">
             <objects>
-                <viewController id="WSl-bD-smr" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WSl-bD-smr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4N1-94-CLr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1698,6 +1485,13 @@ should be on Xity?</string>
                                     <constraint firstAttribute="trailing" secondItem="sHi-AN-4IX" secondAttribute="trailing" id="mNS-By-etx"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6R-WV-Bab" userLabel="Admob Lower Banner Ad">
+                                <rect key="frame" x="28" y="807" width="358" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="k6R-WV-Bab" secondAttribute="height" multiplier="358:55" id="v4x-iD-h9v"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="isk-yC-ikI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1706,6 +1500,9 @@ should be on Xity?</string>
                             <constraint firstItem="Xbs-fL-DYS" firstAttribute="trailing" secondItem="isk-yC-ikI" secondAttribute="trailing" id="6NX-w9-DqV"/>
                             <constraint firstItem="sHi-AN-4IX" firstAttribute="width" secondItem="4N1-94-CLr" secondAttribute="width" id="AGN-aT-3hN"/>
                             <constraint firstItem="Xbs-fL-DYS" firstAttribute="bottom" secondItem="isk-yC-ikI" secondAttribute="bottom" id="RJV-Cs-Qc9"/>
+                            <constraint firstItem="isk-yC-ikI" firstAttribute="bottom" secondItem="k6R-WV-Bab" secondAttribute="bottom" id="TME-Ok-SXh"/>
+                            <constraint firstItem="k6R-WV-Bab" firstAttribute="leading" secondItem="isk-yC-ikI" secondAttribute="leading" constant="28" id="YLE-ku-S9J"/>
+                            <constraint firstItem="isk-yC-ikI" firstAttribute="trailing" secondItem="k6R-WV-Bab" secondAttribute="trailing" constant="28" id="Zcm-6I-OYh"/>
                             <constraint firstItem="Xbs-fL-DYS" firstAttribute="leading" secondItem="isk-yC-ikI" secondAttribute="leading" id="y96-Tb-LRs"/>
                         </constraints>
                     </view>
@@ -1713,7 +1510,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7GM-av-OXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3442" y="-609"/>
+            <point key="canvasLocation" x="2958" y="-597"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

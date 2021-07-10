@@ -45,6 +45,10 @@ class DashboardViewController: UIViewController {
     }
     */
     
+    @IBAction func breaker(_ sender: Any) {
+        
+    }
+    
     @objc private func handleHidden() {
         if Auth.auth().currentUser == nil {
             favoritesButton.isHidden = true
@@ -71,6 +75,11 @@ class DashboardViewController: UIViewController {
         
         //Scroll To Top
         notificationCenter.addObserver(self, selector: #selector(scrollToTop), name: notifications.scrollToTop.name, object: nil)
+    }
+    
+    //MARK:Cache Data
+    private func getCacheBusinessData() {
+        
     }
 
 }
