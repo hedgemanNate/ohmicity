@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class DashboardViewController: UIViewController {
     
@@ -22,6 +23,25 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
     @IBOutlet weak var hiddenSignUpView: UIView!
+    
+    //Collections Views
+    @IBOutlet weak var todayCollectionView: UICollectionView!
+    @IBOutlet weak var citiesCollectionView: UICollectionView!
+    @IBOutlet weak var weeklyCollectionView: UICollectionView!
+    @IBOutlet weak var venueCollectionView: UICollectionView!
+    
+    //Buttons
+    @IBOutlet weak var todayButton: UIButton!
+    @IBOutlet weak var citiesButton: UIButton!
+    @IBOutlet weak var weeklyButton: UIButton!
+    @IBOutlet weak var venueButton: UIButton!
+    
+    //View Backgrounds
+    @IBOutlet weak var recommendView: UIView!
+    
+   
+    
+    
     
 
     override func viewDidLoad() {
@@ -46,6 +66,28 @@ class DashboardViewController: UIViewController {
     */
     
     @IBAction func breaker(_ sender: Any) {
+        
+        ref.businessFullDataPath.whereField("name", isEqualTo: "Banana Factory").getDocuments(source: .cache, completion: { querySnapshot, error in
+            if let error = error {
+                print(error)
+            } else {
+                for document in querySnapshot!.documents {
+                    let result = Result {
+                        try document.data(as: BusinessFullData.self)
+                    }
+                    switch result {
+                    case .success(let business):
+                        if let business = business {
+                            print(business.name)
+                        } else {
+                            print("Not Found")
+                        }
+                    case .failure(_):
+                        print("error")
+                    }
+                }
+            }
+        })
         
     }
     

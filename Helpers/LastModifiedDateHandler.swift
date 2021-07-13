@@ -29,7 +29,7 @@ class LastModifiedDateHandler {
     
     func checkDateAndGetData() {
         if UserDefaults.standard.object(forKey: "SavedDate") == nil {
-            NSLog("!!!First Open!!!")
+            NSLog("!*!*!First Open!*!*!")
             //ALL BUSINESS DATA
             businessController.getAllBusinessData { results in
                 if results == .failure {
@@ -62,7 +62,7 @@ class LastModifiedDateHandler {
                         }
             saveDate()
         } else {
-            NSLog("!!!Repeat Open!!!")
+            NSLog("!*!*!Repeat Open!*!*!")
             loadDate()
             //NEW BUSINESS DATA
             businessController.getNewBusinessData { results in
