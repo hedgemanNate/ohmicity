@@ -11,6 +11,8 @@ import FirebaseFirestore
 class LastModifiedDateHandler {
     //MARK: Properties
     var savedDate: Date?
+    let opQueue = OperationQueue()
+    
     
     
     //MARK: Functions
@@ -23,78 +25,75 @@ class LastModifiedDateHandler {
     func saveDate() {
         savedDate = Date()
         UserDefaults.standard.set(savedDate, forKey: "SavedDate")
-        print(Timestamp(date: savedDate!))
+        print("!!!SAVEDDATE: \(Timestamp(date: savedDate!).dateValue())")
     }
     
+    
+    func checkDateAndGetData(complete:() -> Void) {
+        if UserDefaults.standard.object(forKey: "SavedDate") == nil {
+            NSLog("!*!*!First Open!*!*!")
+            //ALL BUSINESS DATA
+            businessController.getAllBusinessData()
+
+            //ALL SHOW DATA
+            showController.getAllShowData()
+            
+            //ALL BAND DATA
+            bandController.getAllBandData()
+            saveDate()
+            complete()
+        } else {
+            NSLog("!*!*!Repeat Open!*!*!")
+            loadDate()
+            //NEW BUSINESS DATA
+            businessController.getNewBusinessData()
+            businessController.fillArray()
+            
+            //NEW SHOW DATA
+            showController.getNewShowData()
+            showController.fillArray()
+            
+            //NEW BAND DATA
+            bandController.getNewBandData()
+            bandController.fillArray()
+            saveDate()
+            complete()
+        }
+    }
     
     func checkDateAndGetData() {
         if UserDefaults.standard.object(forKey: "SavedDate") == nil {
             NSLog("!*!*!First Open!*!*!")
             //ALL BUSINESS DATA
-            businessController.getAllBusinessData { results in
-                if results == .failure {
-                    NSLog("getAllBusinessData: Failed")
-                    notificationCenter.post(notifications.databaseError)
-                } else if results == .success {
-                    NSLog("getAllBusinessData: Succeeded")
-                    notificationCenter.post(notifications.databaseSuccess)
-                }
-            }
+            businessController.getAllBusinessData()
+
             //ALL SHOW DATA
-            showController.getAllShowData { results in
-                if results == .failure {
-                    NSLog("getAllShowData: Failed")
-                    notificationCenter.post(notifications.databaseError)
-                } else if results == .success {
-                    NSLog("getAllShowData: Succeeded")
-                    notificationCenter.post(notifications.databaseSuccess)
-                }
-            }
+            showController.getAllShowData()
+            
             //ALL BAND DATA
-            bandController.getAllBandData { results in
-                            if results == .failure {
-                                NSLog("getAllBandData: Failed")
-                                notificationCenter.post(notifications.databaseError)
-                            } else if results == .success {
-                                NSLog("getAllBandData: Succeeded")
-                                notificationCenter.post(notifications.databaseSuccess)
-                            }
-                        }
+            bandController.getAllBandData()
             saveDate()
         } else {
             NSLog("!*!*!Repeat Open!*!*!")
-            loadDate()
-            //NEW BUSINESS DATA
-            businessController.getNewBusinessData { results in
-                if results == .failure {
-                    NSLog("getNewBusinessData: Failed")
-                    notificationCenter.post(notifications.databaseError)
-                } else if results == .success {
-                    NSLog("getNewBusinessData: Succeeded")
-                    notificationCenter.post(notifications.databaseSuccess)
-                }
+            opQueue.maxConcurrentOperationCount = 1
+            let op1 = BlockOperation {
+                self.loadDate()
+                businessController.getNewBusinessData()
+                showController.getNewShowData()
+                bandController.getNewBandData()
             }
-            //NEW SHOW DATA
-            showController.getNewShowData { results in
-                if results == .failure {
-                    NSLog("getNewShowData: Failed")
-                    notificationCenter.post(notifications.databaseError)
-                } else if results == .success {
-                    NSLog("getNewShowData: Succeeded")
-                    notificationCenter.post(notifications.databaseSuccess)
-                }
+            
+            let op2 = BlockOperation {
+                businessController.fillArray()
+                showController.fillArray()
+                bandController.fillArray()
+                self.saveDate()
             }
-            //NEW BAND DATA
-            bandController.getNewBandData { results in
-                if results == .failure {
-                    NSLog("getNewBandData: Failed")
-                    notificationCenter.post(notifications.databaseError)
-                } else if results == .success {
-                    NSLog("getNewBandData: Succeeded")
-                    notificationCenter.post(notifications.databaseSuccess)
-                }
-            }
-            saveDate()
+            
+            op2.addDependency(op1)
+            
+            opQueue.addOperations([op1, op2], waitUntilFinished: true)
+        
         }
     }
 }

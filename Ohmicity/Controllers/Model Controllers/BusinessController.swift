@@ -12,7 +12,12 @@ import FirebaseFirestore
 
 class BusinessController {
     //Properties
-    var businessArray: [BusinessFullData] = []
+    var businessArray: [BusinessFullData] = [] {
+        didSet {
+            
+        }
+    }
+    
     let db = Firestore.firestore()
                       .collection("remoteData")
                       .document("remoteData")
@@ -21,11 +26,39 @@ class BusinessController {
     
     //Functions
     
-    func getNewBusinessData(completion: @escaping (DataResults) -> Void) {
+    func getNewBusinessData() {
         db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: lmDateHandler.savedDate!).getDocuments() { (querySnapshot, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
-                completion(.failure)
+            } else {
+                NSLog("Business Data Cached")
+//                for business in querySnapshot!.documents {
+//                    let result = Result {
+//                        try business.data(as: BusinessFullData.self)
+//                    }
+//                    switch result {
+//                    case .success(let business):
+//                        if let business = business {
+//                            self.businessArray.append(business)
+//                            NSLog(business.name!,"RECIEVED & APPENDED")
+//                        } else {
+//                            NSLog("Business data was nil")
+//                        }
+//                    case .failure(let error):
+//                        NSLog("Error decoding Business: \(error)")
+//                    }
+//                }
+                //notificationCenter.post(notifications.gotBusinessData)
+            }
+        }
+    }
+
+    
+    
+    func getAllBusinessData() {
+        db.getDocuments { querySnapshot, error in
+            if let error = error {
+                NSLog(error.localizedDescription)
             } else {
                 for business in querySnapshot!.documents {
                     let result = Result {
@@ -35,24 +68,23 @@ class BusinessController {
                     case .success(let business):
                         if let business = business {
                             self.businessArray.append(business)
+                            NSLog(business.name!,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }
                     case .failure(let error):
                         NSLog("Error decoding Business: \(error)")
                     }
-                    completion(.success)
                 }
+                notificationCenter.post(notifications.gotBusinessData)
             }
         }
     }
     
-    
-    func getAllBusinessData(completion: @escaping (DataResults) -> Void) {
-        db.getDocuments { querySnapshot, error in
+    func fillArray() {
+        db.getDocuments(source: .cache) { querySnapshot, error in
             if let error = error {
                 NSLog(error.localizedDescription)
-                completion(.failure)
             } else {
                 for business in querySnapshot!.documents {
                     let result = Result {
@@ -62,14 +94,15 @@ class BusinessController {
                     case .success(let business):
                         if let business = business {
                             self.businessArray.append(business)
+                            NSLog(business.name!,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }
                     case .failure(let error):
                         NSLog("Error decoding Business: \(error)")
                     }
-                    completion(.success)
                 }
+                notificationCenter.post(notifications.gotCacheBusinessData)
             }
         }
     }

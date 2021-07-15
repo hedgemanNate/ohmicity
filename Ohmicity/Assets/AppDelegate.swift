@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         db.settings = settings
         
         //Get Data
-        lmDateHandler.checkDateAndGetData()
+        
         
         //Admob
         GADMobileAds.sharedInstance().start(completionHandler: nil) /*set up MEDIATION in here in handler*/
