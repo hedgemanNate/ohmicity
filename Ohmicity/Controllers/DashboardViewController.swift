@@ -20,8 +20,9 @@ class DashboardViewController: UIViewController {
     var weeklyShowArray: [Show] = []
     var favBandsArray: [Band] = []
     
-    var todayDate: String = "July 14, 2021"
+    var todayDate = ""
     let bandVenueCellid = "MainCell"
+    let cityCellid = "CityCell"
     
     @IBOutlet weak var getPerksButton: UIButton!
     @IBOutlet weak var alreadyAccountButton: UIButton!
@@ -76,15 +77,13 @@ class DashboardViewController: UIViewController {
     
     @IBAction func breaker(_ sender: Any) {
         
-        ref.businessFullDataPath.whereField("name", isEqualTo: "Banana Factory").getDocuments(source: .cache) { querySnapshot, err in
-            if let err = err {
-                print(err)
-            } else {
-                for venue in querySnapshot!.documents {
-                    print(venue)
-                }
-            }
-        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        let stringDate = dateFormatter.string(from: showController.showArray[124].date)
+        
+        print(stringDate)
+        print(todayDate)
+        
     }
 }
 
@@ -112,7 +111,7 @@ extension DashboardViewController {
     
     //MARK: UPDATEVIEWS
     private func updateViews() {
-        //self.getTodaysDate()
+        self.getTodaysDate()
         self.getCollectionData()
         setupUpCollectionViews()
 //        if todayShowArray != [] {
@@ -133,14 +132,22 @@ extension DashboardViewController {
         //MARK: Today Data
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
         
         let op1 = BlockOperation {
-            self.todayShowArray = showController.showArray.filter({$0.dateString == self.todayDate})
+            for show in showController.showArray {
+                let stringDate = dateFormatter.string(from: show.date)
+                
+                if stringDate == self.todayDate {
+                    self.todayShowArray.append(show)
+                }
+            }
         }
         
         let op2 = BlockOperation {
             for show in self.todayShowArray {
-                for venue in businessController.businessArray {
+                for venue in businessController.businessArray { 
                     if show.venue == venue.name {
                         self.todayVenueArray.append(venue)
                     }
@@ -167,6 +174,9 @@ extension DashboardViewController {
     private func setupUpCollectionViews() {
         //plainCollectionView.delegate = self
         //plainCollectionView.dataSource = self
+        
+        citiesCollectionView.delegate = self
+        citiesCollectionView.dataSource = self
         
         todayCollectionView.delegate = self
         todayCollectionView.dataSource = self
@@ -195,22 +205,26 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         
         if collectionView == todayCollectionView {
             num = todayVenueArray.count
+        } else if collectionView == citiesCollectionView {
+            num = businessController.citiesArray.count
         }
         
-        return num ?? 1
+        return num ?? 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var bandCell = BandVenueCollectionViewCell()
-        var cell = UICollectionViewCell()
+        var venueCell = BandVenueCollectionViewCell()
+        var cityCell = CitiesCollectionViewCell()
+        let cell = UICollectionViewCell()
         
         if collectionView == todayCollectionView {
-            bandCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
-            bandCell.venue = todayVenueArray[indexPath.row]
-            return bandCell
-        } else {
-            print("Plain")
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
+            venueCell.venue = todayVenueArray[indexPath.row]
+            return venueCell
+        } else if collectionView == citiesCollectionView {
+            cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell
+            cityCell.city = businessController.citiesArray[indexPath.row]
+            return cityCell
         }
         
         

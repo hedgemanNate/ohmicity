@@ -56,6 +56,14 @@
 		F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */; };
 		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
 		F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6923D25264E7F6400A2E036 /* DashboardViewController.swift */; };
+		F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */; };
+		F696A73426AB7079009CB1BD /* tampa.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A72E26AB7072009CB1BD /* tampa.png */; };
+		F696A73526AB7079009CB1BD /* stpete.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A72F26AB7074009CB1BD /* stpete.png */; };
+		F696A73626AB7079009CB1BD /* bradenton.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73026AB7075009CB1BD /* bradenton.png */; };
+		F696A73726AB7079009CB1BD /* venice.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73126AB7076009CB1BD /* venice.png */; };
+		F696A73826AB7079009CB1BD /* ybor.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73226AB7077009CB1BD /* ybor.png */; };
+		F696A73926AB7079009CB1BD /* sarasota.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73326AB7078009CB1BD /* sarasota.png */; };
+		F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73C26ABB805009CB1BD /* BandVenueBorderXityPick.png */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +144,14 @@
 		F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
 		F6923D25264E7F6400A2E036 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCollectionViewCell.swift; sourceTree = "<group>"; };
+		F696A72E26AB7072009CB1BD /* tampa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tampa.png; sourceTree = "<group>"; };
+		F696A72F26AB7074009CB1BD /* stpete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stpete.png; sourceTree = "<group>"; };
+		F696A73026AB7075009CB1BD /* bradenton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bradenton.png; sourceTree = "<group>"; };
+		F696A73126AB7076009CB1BD /* venice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = venice.png; sourceTree = "<group>"; };
+		F696A73226AB7077009CB1BD /* ybor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ybor.png; sourceTree = "<group>"; };
+		F696A73326AB7078009CB1BD /* sarasota.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sarasota.png; sourceTree = "<group>"; };
+		F696A73C26ABB805009CB1BD /* BandVenueBorderXityPick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorderXityPick.png; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,6 +288,13 @@
 		F60E6BCD2648F36B001CA06E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F696A73C26ABB805009CB1BD /* BandVenueBorderXityPick.png */,
+				F696A73026AB7075009CB1BD /* bradenton.png */,
+				F696A73326AB7078009CB1BD /* sarasota.png */,
+				F696A72F26AB7074009CB1BD /* stpete.png */,
+				F696A72E26AB7072009CB1BD /* tampa.png */,
+				F696A73126AB7076009CB1BD /* venice.png */,
+				F696A73226AB7077009CB1BD /* ybor.png */,
 				F60DDB8D269E483E009DD827 /* BandVenueBorder.png */,
 				F60E6BD62648F7C8001CA06E /* PurpleBG.png */,
 				F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */,
@@ -294,6 +317,7 @@
 			children = (
 				F60EB6312656CF5300CDB6F6 /* SearchCollectionViewCell.swift */,
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
+				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -473,13 +497,20 @@
 			files = (
 				F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */,
 				F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */,
+				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
 				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
 				F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
+				F696A73626AB7079009CB1BD /* bradenton.png in Resources */,
 				D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */,
+				F696A73826AB7079009CB1BD /* ybor.png in Resources */,
+				F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */,
 				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
+				F696A73426AB7079009CB1BD /* tampa.png in Resources */,
+				F696A73726AB7079009CB1BD /* venice.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
 				D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */,
+				F696A73526AB7079009CB1BD /* stpete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +682,7 @@
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
 				F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
+				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
 				F676F0FF269947B300C47599 /* BandController.swift in Sources */,
 				F676F0F826991C6C00C47599 /* Message.swift in Sources */,

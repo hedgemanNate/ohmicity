@@ -18,6 +18,8 @@ class BusinessController {
         }
     }
     
+    let citiesArray: [City] = [.Venice, .Sarasota, .Bradenton, .StPete, .Tampa, .Ybor]
+    
     let db = Firestore.firestore()
                       .collection("remoteData")
                       .document("remoteData")
@@ -32,23 +34,23 @@ class BusinessController {
                 NSLog(error.localizedDescription)
             } else {
                 NSLog("Business Data Cached")
-//                for business in querySnapshot!.documents {
-//                    let result = Result {
-//                        try business.data(as: BusinessFullData.self)
-//                    }
-//                    switch result {
-//                    case .success(let business):
-//                        if let business = business {
-//                            self.businessArray.append(business)
-//                            NSLog(business.name!,"RECIEVED & APPENDED")
-//                        } else {
-//                            NSLog("Business data was nil")
-//                        }
-//                    case .failure(let error):
-//                        NSLog("Error decoding Business: \(error)")
-//                    }
-//                }
-                //notificationCenter.post(notifications.gotBusinessData)
+                for business in querySnapshot!.documents {
+                    let result = Result {
+                        try business.data(as: BusinessFullData.self)
+                    }
+                    switch result {
+                    case .success(let business):
+                        if let business = business {
+                            self.businessArray.append(business)
+                            NSLog(business.name!,"RECIEVED & APPENDED")
+                        } else {
+                            NSLog("Business data was nil")
+                        }
+                    case .failure(let error):
+                        NSLog("Error decoding Business: \(error)")
+                    }
+                }
+                notificationCenter.post(notifications.gotBusinessData)
             }
         }
     }
