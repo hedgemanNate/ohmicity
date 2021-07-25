@@ -1047,7 +1047,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1263" y="13"/>
+            <point key="canvasLocation" x="-255" y="-87"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="URJ-TY-WiF">
@@ -1177,11 +1177,11 @@ should be on Xity?</string>
             <objects>
                 <viewController id="xaL-Zu-PHr" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Blf-j4-zLb">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="2050"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
-                                <rect key="frame" x="0.0" y="44" width="428" height="799"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="1923"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaE-9Z-b5c" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="2000"/>
@@ -1588,7 +1588,7 @@ should be on Xity?</string>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-SF-db0" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="786" width="372" height="57"/>
+                                <rect key="frame" x="28" y="1910" width="372" height="57"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6xf-SF-db0" secondAttribute="height" multiplier="358:55" id="am7-Z3-wIO"/>
@@ -1610,6 +1610,7 @@ should be on Xity?</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="nkK-LA-BON"/>
                     <navigationItem key="navigationItem" id="DD0-Kn-XVT"/>
+                    <size key="freeformSize" width="428" height="2050"/>
                     <connections>
                         <outlet property="alreadyAccountButton" destination="zgl-sI-FPH" id="sZl-gN-H2n"/>
                         <outlet property="citiesButton" destination="4FR-ji-xOh" id="AZb-oA-dOs"/>
