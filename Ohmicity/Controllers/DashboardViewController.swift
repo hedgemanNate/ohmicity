@@ -39,7 +39,6 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var noShowsView: UIView!
     
     //Collections Views
-    @IBOutlet weak var plainCollectionView: UICollectionView!
     @IBOutlet weak var todayCollectionView: UICollectionView!
     @IBOutlet weak var citiesCollectionView: UICollectionView!
     @IBOutlet weak var weeklyCollectionView: UICollectionView!
@@ -113,12 +112,9 @@ extension DashboardViewController {
     private func updateViews() {
         self.getTodaysDate()
         self.getCollectionData()
+        handleHidden()
         setupUpCollectionViews()
-//        if todayShowArray != [] {
-//            noShowsView.isHidden = true
-//        } else {
-//            noShowsView.isHidden = false
-//        }
+
     }
     
     //MARK: Logic Functions
@@ -172,14 +168,14 @@ extension DashboardViewController {
     
     //MARK: Setup CollectionViews
     private func setupUpCollectionViews() {
-        //plainCollectionView.delegate = self
-        //plainCollectionView.dataSource = self
         
         citiesCollectionView.delegate = self
         citiesCollectionView.dataSource = self
+        citiesCollectionView.showsHorizontalScrollIndicator = false
         
         todayCollectionView.delegate = self
         todayCollectionView.dataSource = self
+        todayCollectionView.showsHorizontalScrollIndicator = false
     }
     
     
