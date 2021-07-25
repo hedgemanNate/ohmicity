@@ -54,10 +54,12 @@ class LoadInitDataViewController: UIViewController {
     
     @objc private func counting() {
         databaseCount += 1
+        print(databaseCount)
     }
     
     
     private func doneLoading() {
+        print(showController.showArray)
         self.performSegue(withIdentifier: "ToDashboard", sender: self)
     }
 }

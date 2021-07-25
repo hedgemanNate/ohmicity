@@ -11,3 +11,12 @@ enum DataResults {
     case success
     case failure
 }
+
+enum City: String, Codable {
+    case Sarasota
+    case Bradenton
+    case Venice
+    case StPete
+    case Tampa
+    case Ybor
+}

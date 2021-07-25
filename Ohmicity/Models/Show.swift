@@ -9,12 +9,12 @@ import FirebaseFirestore
 
 struct Show: Codable, Equatable, Hashable {
     var showID: String
-    var lastModified: Timestamp?
+    var lastModified = Timestamp()
     let band: String
     let venue: String
     var dateString: String
-    var date: Timestamp?
-    var time: String?
+    var date = Date()
+    var time = ""
     var ohmPick: Bool = false
     
     //Equatable Conformity

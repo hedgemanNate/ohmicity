@@ -11,8 +11,8 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
     
     //Properties
     @IBOutlet private weak var logoImageView: UIImageView!
-    //@IBOutlet private weak var borderImageView: UIImageView!
-    //@IBOutlet private weak var ohmPickImageView: UIImageView!
+    @IBOutlet private weak var borderImageView: UIImageView!
+    @IBOutlet private weak var adImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -36,12 +36,17 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
                 //logoImageView.contentMode = .scaleToFill
                 //logoImageView.contentMode = .center
                 
+                borderImageView.image = UIImage(named: "BandVenueBorder.png")
                 logoImageView.image = UIImage(data: venue.logo!)
                 nameLabel.text = venue.name
                 
                 if venue.ohmPick == true {
-                    //ohmPickImageView.image = UIImage(named: "OhmPick")
+                    borderImageView.image = UIImage(named: "BandVenueBorderXityPick.png")
                 }
+                
+//                if venue.ad == true {
+//                    adImageView.image = UIImage(named: "ad.png")
+//                }
             }
         }
     }
