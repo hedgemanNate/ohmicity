@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class FireStoreReferenceManager {
     private static let environment = "remoteData"
-    private static let fireDataBase = Firestore.firestore()
+    static let fireDataBase = Firestore.firestore()
     
     static let businessFullDataPath = fireDataBase.collection(environment).document(environment).collection("businessFullData")
     static let bandDataPath = fireDataBase.collection(environment).document(environment).collection("bandData")
