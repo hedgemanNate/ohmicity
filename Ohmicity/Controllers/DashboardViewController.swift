@@ -182,6 +182,10 @@ extension DashboardViewController {
         todayCollectionView.delegate = self
         todayCollectionView.dataSource = self
         todayCollectionView.showsHorizontalScrollIndicator = false
+        
+        venueCollectionView.delegate = self
+        venueCollectionView.dataSource = self
+        venueCollectionView.showsHorizontalScrollIndicator = false
     }
     
     
@@ -205,22 +209,16 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var num: Int?
         
-        if collectionView == todayCollectionView {
-                    num = businessController.todayVenueArray.count
-                } else if collectionView == citiesCollectionView {
-                    num = businessController.citiesArray.count
-                }
-        
-//        switch collectionView {
-//        case todayCollectionView:
-//            num = businessController.todayVenueArray.count
-//        case citiesCollectionView:
-//            num = businessController.citiesArray.count
-//        case venueCollectionView:
-//            num = businessController.businessTypeArray.count
-//        default:
-//            num = 4
-//        }
+        switch collectionView {
+        case todayCollectionView:
+            num = businessController.todayVenueArray.count
+        case citiesCollectionView:
+            num = businessController.citiesArray.count
+        case venueCollectionView:
+            num = businessController.businessTypeArray.count
+        default:
+            num = 4
+        }
         
         return num ?? 4
     }
@@ -228,20 +226,40 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var venueCell = BandVenueCollectionViewCell()
         var cityCell = CitiesCollectionViewCell()
+        var businessTypeCell = CitiesCollectionViewCell()
         let cell = UICollectionViewCell()
         
-        if collectionView == todayCollectionView {
+//        if collectionView == todayCollectionView {
+//            venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
+//            venueCell.venue = businessController.todayVenueArray[indexPath.row]
+//            return venueCell
+//        } else if collectionView == citiesCollectionView {
+//            cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell
+//            cityCell.city = businessController.citiesArray[indexPath.row]
+//            return cityCell
+//        }
+        
+        switch collectionView {
+        case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
             venueCell.venue = businessController.todayVenueArray[indexPath.row]
             return venueCell
-        } else if collectionView == citiesCollectionView {
+            
+        case citiesCollectionView:
             cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell
             cityCell.city = businessController.citiesArray[indexPath.row]
             return cityCell
+            
+        case venueCollectionView:
+            businessTypeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessTypeCell", for: indexPath) as! CitiesCollectionViewCell
+            businessTypeCell.type = businessController.businessTypeArray[indexPath.row]
+            return businessTypeCell
+            
+        default:
+            return cell
         }
-        
-        
-        return cell
+
+        //return cell
     }
     
     

@@ -45,4 +45,35 @@ class CitiesCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    var type: BusinessType? {
+        didSet {
+            self.clipsToBounds = true
+            self.layer.cornerRadius = 10
+            
+            if let type = type {
+                switch type {
+                case .Bar:
+                    imageView.image = UIImage(named: "bar.png")
+                    nameLabel.text = type.rawValue
+                case .Club:
+                    imageView.image = UIImage(named: "club.png")
+                    nameLabel.text = type.rawValue
+                case .Family:
+                    imageView.image = UIImage(named: "family.png")
+                    nameLabel.text = type.rawValue
+                case .LiveMusic:
+                    imageView.image = UIImage(named: "livemusic.png")
+                    nameLabel.text = type.rawValue
+                case .Outdoors:
+                    imageView.image = UIImage(named: "outdoors.png")
+                    nameLabel.text = type.rawValue
+                case .Restaurant:
+                    imageView.image = UIImage(named: "restaurant.png")
+                    nameLabel.text = type.rawValue
+                }
+            }
+        }
+    }
+    
 }
