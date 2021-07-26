@@ -12,6 +12,7 @@ import FirebaseFirestore
 
 class BusinessController {
     //Properties
+    var todayVenueArray = [BusinessFullData]()
     var businessArray: [BusinessFullData] = [] {
         didSet {
             
@@ -19,6 +20,7 @@ class BusinessController {
     }
     
     let citiesArray: [City] = [.Venice, .Sarasota, .Bradenton, .StPete, .Tampa, .Ybor]
+    let businessTypeArray: [BusinessType] = [.Bar, .Club, .LiveMusic, .Restaurant, .Outdoors, .Family]
     
     let db = Firestore.firestore()
                       .collection("remoteData")

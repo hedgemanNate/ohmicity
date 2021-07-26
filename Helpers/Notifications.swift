@@ -30,6 +30,9 @@ class Notifications {
     
     let databaseError = Notification(name: Notification.Name(rawValue: "DatabaseError"))
     let databaseSuccess = Notification(name: Notification.Name(rawValue: "DatabaseSuccess"))
+    
+    //Loading Notifications
+    let organizeData = Notification(name: Notification.Name(rawValue: "OrganizeData"))
 }
 
 let notifications = Notifications()

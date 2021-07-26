@@ -10,7 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 enum BusinessType: String, Codable, Equatable {
-    case Resturant
+    case Restaurant
     case Bar
     case Club
     case Outdoors

@@ -76,8 +76,13 @@ class LastModifiedDateHandler {
         } else {
             NSLog("!*!*!Repeat Open!*!*!")
             opQueue.maxConcurrentOperationCount = 1
-            let op1 = BlockOperation {
+            
+            let preOp = BlockOperation {
                 self.loadDate()
+            }
+            
+            let op1 = BlockOperation {
+                
                 businessController.getNewBusinessData()
                 showController.getNewShowData()
                 bandController.getNewBandData()
@@ -90,9 +95,15 @@ class LastModifiedDateHandler {
                 self.saveDate()
             }
             
-            op2.addDependency(op1)
+            let op3 = BlockOperation {
+                
+            }
             
-            opQueue.addOperations([op1, op2], waitUntilFinished: true)
+            op1.addDependency(preOp)
+            op2.addDependency(op1)
+            op3.addDependency(op2)
+            
+            opQueue.addOperations([preOp, op1, op2, op3], waitUntilFinished: true)
         
         }
     }

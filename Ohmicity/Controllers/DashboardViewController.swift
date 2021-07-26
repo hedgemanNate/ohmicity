@@ -76,6 +76,12 @@ class DashboardViewController: UIViewController {
     
     @IBAction func breaker(_ sender: Any) {
         
+        ref.fireDataBase.clearPersistence { err in
+            if let err = err {
+                NSLog("***Firestore: Cache Not Cleared***: \(err)")
+            }
+        }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, yyyy"
         let stringDate = dateFormatter.string(from: showController.showArray[124].date)
@@ -111,7 +117,7 @@ extension DashboardViewController {
     //MARK: UPDATEVIEWS
     private func updateViews() {
         self.getTodaysDate()
-        self.getCollectionData()
+        //self.getCollectionData()
         handleHidden()
         setupUpCollectionViews()
 
@@ -200,10 +206,21 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         var num: Int?
         
         if collectionView == todayCollectionView {
-            num = todayVenueArray.count
-        } else if collectionView == citiesCollectionView {
-            num = businessController.citiesArray.count
-        }
+                    num = businessController.todayVenueArray.count
+                } else if collectionView == citiesCollectionView {
+                    num = businessController.citiesArray.count
+                }
+        
+//        switch collectionView {
+//        case todayCollectionView:
+//            num = businessController.todayVenueArray.count
+//        case citiesCollectionView:
+//            num = businessController.citiesArray.count
+//        case venueCollectionView:
+//            num = businessController.businessTypeArray.count
+//        default:
+//            num = 4
+//        }
         
         return num ?? 4
     }
@@ -215,7 +232,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         
         if collectionView == todayCollectionView {
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
-            venueCell.venue = todayVenueArray[indexPath.row]
+            venueCell.venue = businessController.todayVenueArray[indexPath.row]
             return venueCell
         } else if collectionView == citiesCollectionView {
             cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell
