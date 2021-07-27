@@ -281,9 +281,47 @@ should be on Xity?</string>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hk-SP-Xj0" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253.33333333333334"/>
+                                                <subviews>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Ls-J7-E6e" userLabel="Local Ads Collection View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="428" height="253.33333333333334"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kHo-cf-vxW">
+                                                            <size key="itemSize" width="428" height="253"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Rhh-JB-jKW">
+                                                                <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Egn-aa-4Eh">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7gd-1g-UKE">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="7gd-1g-UKE" firstAttribute="leading" secondItem="Egn-aa-4Eh" secondAttribute="leading" id="M9k-nI-Dp7"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="7gd-1g-UKE" secondAttribute="bottom" id="Yci-Hg-m0K"/>
+                                                                        <constraint firstItem="7gd-1g-UKE" firstAttribute="top" secondItem="Egn-aa-4Eh" secondAttribute="top" id="jRW-RQ-Khm"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="7gd-1g-UKE" secondAttribute="trailing" id="wdz-YU-XOe"/>
+                                                                    </constraints>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="428" height="253"/>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="4Hk-SP-Xj0" secondAttribute="height" multiplier="414:245" id="1fP-YV-yEG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3Ls-J7-E6e" secondAttribute="bottom" id="1tE-9G-Jy3"/>
+                                                    <constraint firstItem="3Ls-J7-E6e" firstAttribute="top" secondItem="4Hk-SP-Xj0" secondAttribute="top" id="Fgg-Ig-8xy"/>
+                                                    <constraint firstItem="3Ls-J7-E6e" firstAttribute="leading" secondItem="4Hk-SP-Xj0" secondAttribute="leading" id="Xoq-cE-zZI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3Ls-J7-E6e" secondAttribute="trailing" id="qDg-Fn-Ekz"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25w-CZ-cPi" userLabel="Reccomend View">
