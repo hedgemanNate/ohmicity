@@ -71,6 +71,7 @@
 		F6F3DB4826AF337C00C49016 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4226AF337800C49016 /* bar.png */; };
 		F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4326AF337900C49016 /* livemusic.png */; };
 		F6F3DB4A26AF337C00C49016 /* family.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4426AF337B00C49016 /* family.png */; };
+		F6F3DB4C26AF9F6000C49016 /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4B26AF9F5E00C49016 /* listenButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		F6F3DB4226AF337800C49016 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		F6F3DB4326AF337900C49016 /* livemusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livemusic.png; sourceTree = "<group>"; };
 		F6F3DB4426AF337B00C49016 /* family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = family.png; sourceTree = "<group>"; };
+		F6F3DB4B26AF9F5E00C49016 /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				F6F3DB3E26AF335100C49016 /* Business Type Images */,
 				F60E6BD62648F7C8001CA06E /* PurpleBG.png */,
 				F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */,
+				F6F3DB4B26AF9F5E00C49016 /* listenButton.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				F696A73426AB7079009CB1BD /* tampa.png in Resources */,
 				F6F3DB4826AF337C00C49016 /* bar.png in Resources */,
 				F6F3DB4626AF337C00C49016 /* club.png in Resources */,
+				F6F3DB4C26AF9F6000C49016 /* listenButton.png in Resources */,
 				F696A73726AB7079009CB1BD /* venice.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
