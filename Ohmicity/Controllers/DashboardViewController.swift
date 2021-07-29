@@ -43,6 +43,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var citiesCollectionView: UICollectionView!
     @IBOutlet weak var weeklyCollectionView: UICollectionView!
     @IBOutlet weak var venueCollectionView: UICollectionView!
+    @IBOutlet weak var bannerAdCollectionView: UICollectionView!
     
     //Buttons
     @IBOutlet weak var todayButton: UIButton!
@@ -182,6 +183,14 @@ extension DashboardViewController {
         todayCollectionView.delegate = self
         todayCollectionView.dataSource = self
         todayCollectionView.showsHorizontalScrollIndicator = false
+        
+        venueCollectionView.delegate = self
+        venueCollectionView.dataSource = self
+        venueCollectionView.showsHorizontalScrollIndicator = false
+        
+        bannerAdCollectionView.delegate = self
+        bannerAdCollectionView.dataSource = self
+        bannerAdCollectionView.showsHorizontalScrollIndicator = false
     }
     
     
@@ -205,22 +214,18 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var num: Int?
         
-        if collectionView == todayCollectionView {
-                    num = businessController.todayVenueArray.count
-                } else if collectionView == citiesCollectionView {
-                    num = businessController.citiesArray.count
-                }
-        
-//        switch collectionView {
-//        case todayCollectionView:
-//            num = businessController.todayVenueArray.count
-//        case citiesCollectionView:
-//            num = businessController.citiesArray.count
-//        case venueCollectionView:
-//            num = businessController.businessTypeArray.count
-//        default:
-//            num = 4
-//        }
+        switch collectionView {
+        case todayCollectionView:
+            num = businessController.todayVenueArray.count
+        case citiesCollectionView:
+            num = businessController.citiesArray.count
+        case venueCollectionView:
+            num = businessController.businessTypeArray.count
+        case bannerAdCollectionView:
+            num = bannerAdController.bannerAdArray.count
+        default:
+            num = 4
+        }
         
         return num ?? 4
     }
@@ -228,20 +233,37 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var venueCell = BandVenueCollectionViewCell()
         var cityCell = CitiesCollectionViewCell()
+        var businessTypeCell = CitiesCollectionViewCell()
+        var bannerAdCell = BannerAdCollectionViewCell()
         let cell = UICollectionViewCell()
+    
         
-        if collectionView == todayCollectionView {
+        switch collectionView {
+        case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
             venueCell.venue = businessController.todayVenueArray[indexPath.row]
             return venueCell
-        } else if collectionView == citiesCollectionView {
+            
+        case citiesCollectionView:
             cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell
             cityCell.city = businessController.citiesArray[indexPath.row]
             return cityCell
+            
+        case venueCollectionView:
+            businessTypeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessTypeCell", for: indexPath) as! CitiesCollectionViewCell
+            businessTypeCell.type = businessController.businessTypeArray[indexPath.row]
+            return businessTypeCell
+            
+        case bannerAdCollectionView:
+            bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdCollectionViewCell
+            bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row]
+            return bannerAdCell
+            
+        default:
+            return cell
         }
-        
-        
-        return cell
+
+        //return cell
     }
     
     

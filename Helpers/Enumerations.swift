@@ -20,3 +20,14 @@ enum City: String, Codable {
     case Tampa
     case Ybor
 }
+
+enum LoadingScreenInfo: String {
+    case BannerAdsLoaded
+    case BannerAdsCollected
+    case ShowsLoaded
+    case ShowsCollected
+    case BusinessesLoaded
+    case BusinessesCollected
+    case BandsLoaded
+    case BandsCollected
+}

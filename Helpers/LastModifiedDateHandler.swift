@@ -72,6 +72,9 @@ class LastModifiedDateHandler {
             
             //ALL BAND DATA
             bandController.getAllBandData()
+            
+            //TEMP BANNER DATA
+            bannerAdController.fillArray()
             saveDate()
         } else {
             NSLog("!*!*!Repeat Open!*!*!")
@@ -89,6 +92,7 @@ class LastModifiedDateHandler {
             }
             
             let op2 = BlockOperation {
+                bannerAdController.fillArray()
                 businessController.fillArray()
                 showController.fillArray()
                 bandController.fillArray()
