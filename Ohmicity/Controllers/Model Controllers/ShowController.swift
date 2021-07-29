@@ -53,9 +53,6 @@ class ShowController {
                 }
                 notificationCenter.post(notifications.gotShowData)
                 NSLog("****\(showCount) NEW Downloaded shows added to showController.showArray****")
-                DispatchQueue.main.async {
-                    loadingVC.downloadShowsSet = true
-                }
             }
         }
     }
@@ -87,7 +84,7 @@ class ShowController {
                 notificationCenter.post(notifications.gotShowData)
                 NSLog("****\(showCount) Downloaded shows added to showController.showArray****")
                 DispatchQueue.main.async {
-                    loadingVC.downloadShowsSet = true
+                    //loadingVC.downloadShowsSet = true
                 }
             }
         }
@@ -119,7 +116,7 @@ class ShowController {
                 NSLog("****\(showCount) CACHED shows added to showController.showArray****")
                 notificationCenter.post(notifications.gotCacheShowData)
                 DispatchQueue.main.async {
-                    loadingVC.cacheShowsSet = true
+                    //loadingVC.cacheShowsSet = true
                 }
             }
         }

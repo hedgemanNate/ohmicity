@@ -16,6 +16,6 @@ let dateFormat2 = "MMMM d, yyyy ha"
 let dateFormat3 = "MMMM d, yyyy"
 
 //Helper for Inital Loading Screen
-let loadingVC = LoadInitDataViewController()
+
 
 

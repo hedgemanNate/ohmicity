@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class LoadInitDataViewController: UIViewController {
     
@@ -16,20 +17,8 @@ class LoadInitDataViewController: UIViewController {
     var todayDate = ""
     
     
-    var dataActionsFinished = 0 { didSet { if dataActionsFinished == 4 { organizeData() }}}
-    
-    var bannerAdsSet = false { didSet { updateLoader(from: .BannerAdsLoaded) }}
-    
-    var cacheShowsSet = false { didSet { updateLoader(from: .ShowsCollected) }}
-    var cacheBandsSet = false { didSet { updateLoader(from: .BandsCollected) }}
-    var cacheBizSet = false { didSet { updateLoader(from: .BusinessesCollected) }}
-    
-    var downloadShowsSet = false { didSet { updateLoader(from: .ShowsLoaded) }}
-    var downloadBandsSet = false { didSet { updateLoader(from: .BandsLoaded) }}
-    var downloadBizSet = false { didSet { updateLoader(from: .BusinessesLoaded) }}
-    
-    
-    var stepFinishedLoading: LoadingScreenInfo?
+    var dataActionsFinished = 0 { didSet { if dataActionsFinished == 7 { organizeData(); print("DATA ACTIONS FIN") }}}
+    var syncingActionsFinished = 0 { didSet { if dataActionsFinished == 2 { print("DONE LOADING") }}}
     
 
     override func viewDidLoad() {
@@ -47,10 +36,6 @@ class LoadInitDataViewController: UIViewController {
     }
     @IBAction func btn(_ sender: Any) {
         print("****Tapped****")
-        //resetCache
-        let settings = FirestoreSettings()
-        settings.isPersistenceEnabled = false
-        settings.isPersistenceEnabled = true
     }
     
 
@@ -69,11 +54,11 @@ extension LoadInitDataViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, yyyy"
         //todayDate = dateFormatter.string(from: Date())
-        todayDate = "August 21, 2021"
+        todayDate = "July 17, 2021"
     }
     
-    private func doneLoading() {
-        //print(showController.showArray)
+    func doneLoading() {
+        print("**DONE LOADING FUNC****")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
@@ -83,27 +68,6 @@ extension LoadInitDataViewController {
     private func updateViewController() {
         dateFormatter.dateFormat = dateFormat3
         getTodaysDate()
-    }
-    
-    private func updateLoader(from: LoadingScreenInfo) {
-        switch from {
-        case .BannerAdsLoaded:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        case .BannerAdsCollected:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        case .ShowsLoaded:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        case .ShowsCollected:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        case .BusinessesLoaded:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        case .BusinessesCollected:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        case .BandsLoaded:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        case .BandsCollected:
-            print("!!!!!!!!\(from)!!!!!!!!")
-        }
     }
     
     private func addNotificatonObservers() {
@@ -121,10 +85,33 @@ extension LoadInitDataViewController {
     
     //@objc Functions
     @objc private func counting(_ notification: NSNotification) {
-        dataActionsFinished += 1
         
-        if ((notification.userInfo?.contains(where: {$0.value as! LoadingScreenInfo == LoadingScreenInfo.BannerAdsCollected})) != nil) {
-            print("***BANNER ADS COLLECTED WORKED FOR LOADING SCREEN PERPOSES****")
+        
+        switch notification.name {
+        case notifications.bandArraySet.name:
+            dataActionsFinished += 1
+        case notifications.bannerAdsCollected.name:
+            dataActionsFinished += 1
+        case notifications.bannerAdsLoaded.name:
+            dataActionsFinished += 1
+        case notifications.businessArraySet.name:
+            dataActionsFinished += 1
+        case notifications.gotBandData.name:
+            dataActionsFinished += 1
+        case notifications.gotBusinessData.name:
+            dataActionsFinished += 1
+        case notifications.gotCacheBandData.name:
+            dataActionsFinished += 1
+        case notifications.gotCacheBusinessData.name:
+            dataActionsFinished += 1
+        case notifications.gotShowData.name:
+            dataActionsFinished += 1
+        case notifications.gotCacheShowData.name:
+            dataActionsFinished += 1
+            
+        default:
+            break
+            
         }
     }
     
@@ -142,6 +129,8 @@ extension LoadInitDataViewController {
                     showController.todayShowArray.append(show)
                 }
             }
+            self.syncingActionsFinished += 1
+            print("***Collected Shows For Today***")
         }
         
         //Connecting Todays Shows to Businesses
@@ -153,11 +142,10 @@ extension LoadInitDataViewController {
                     }
                 }
             }
+            self.syncingActionsFinished += 1
+            print("***Synced Data***")
         }
         
-        let bannerAdLoading = BlockOperation {
-            bannerAdController.fillArray()
-        }
         
         let finalOp = BlockOperation {
             self.doneLoading()
@@ -165,7 +153,7 @@ extension LoadInitDataViewController {
         
         op2.addDependency(op1)
         finalOp.addDependency(op2)
-        opQueue.addOperations([op1, op2, finalOp, bannerAdLoading], waitUntilFinished: true)
+        opQueue.addOperations([op1, op2, finalOp], waitUntilFinished: true)
         
         
     }

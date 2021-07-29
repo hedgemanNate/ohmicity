@@ -19,17 +19,15 @@ class BannerAdController {
 
 //MARK: Functions
 extension BannerAdController {
+    
     func fillArray() {
         
         guard let image = UIImage(named: "bannerAdExample1.png") else {return}
-        let ad1 = BannerAd(_with: image, businessID: "Gtk7woKSc36iECdQMUBk")
+        let ad1 = BannerAd(_with: image, businessID: "Blue Rooster")
         bannerAdArray = [ad1, ad1, ad1 ,ad1]
         
-        notificationCenter.post(name: notifications.bannerAdsLoaded.name, object:nil, userInfo: ["InitialLoadingScreen": LoadingScreenInfo.BannerAdsLoaded])
-        
-        DispatchQueue.main.async {
-            loadingVC.bannerAdsSet = true
-        }
+        notificationCenter.post(name: notifications.bannerAdsLoaded.name, object:nil, userInfo: ["InitialLoadingScreen": LoadingScreenInfo.BannerAdsLoaded.rawValue])
+    
         
     }
 }

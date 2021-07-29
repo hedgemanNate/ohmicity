@@ -75,6 +75,7 @@
 		F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4326AF337900C49016 /* livemusic.png */; };
 		F6F3DB4A26AF337C00C49016 /* family.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4426AF337B00C49016 /* family.png */; };
 		F6F3DB4C26AF9F6000C49016 /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4B26AF9F5E00C49016 /* listenButton.png */; };
+		F6FB9F2E26B258BF006B286F /* BannerAdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB9F2D26B258BF006B286F /* BannerAdCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		F6F3DB4326AF337900C49016 /* livemusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livemusic.png; sourceTree = "<group>"; };
 		F6F3DB4426AF337B00C49016 /* family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = family.png; sourceTree = "<group>"; };
 		F6F3DB4B26AF9F5E00C49016 /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
+		F6FB9F2D26B258BF006B286F /* BannerAdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +337,7 @@
 				F60EB6312656CF5300CDB6F6 /* SearchCollectionViewCell.swift */,
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
+				F6FB9F2D26B258BF006B286F /* BannerAdCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,
+				F6FB9F2E26B258BF006B286F /* BannerAdCollectionViewCell.swift in Sources */,
 				F676F1032699496200C47599 /* ShowController.swift in Sources */,
 				F60EB6322656CF5300CDB6F6 /* SearchCollectionViewCell.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,

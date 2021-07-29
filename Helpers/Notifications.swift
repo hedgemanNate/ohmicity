@@ -31,10 +31,14 @@ class Notifications {
     let databaseError = Notification(name: Notification.Name(rawValue: "DatabaseError"))
     let databaseSuccess = Notification(name: Notification.Name(rawValue: "DatabaseSuccess"))
     
-    //Loading Notifications
-    
+    //Change Names of banner notifications
     let bannerAdsCollected = Notification(name: Notification.Name(rawValue: "BannerAdsCollected"))
     let bannerAdsLoaded = Notification(name: Notification.Name(rawValue: "BannerAdsLoaded"))
+    
+    //Loading Steps
+    let op1Finished = Notification(name: Notification.Name(rawValue: "op1Finished"))
+    let op2Finished = Notification(name: Notification.Name(rawValue: "op2Finished"))
+    let op3Finished = Notification(name: Notification.Name(rawValue: "op3Finished"))
 }
 
 let notifications = Notifications()

@@ -48,9 +48,6 @@ class BandController {
                     }
                 }
                 notificationCenter.post(notifications.gotBandData)
-                DispatchQueue.main.async {
-                    loadingVC.downloadBandsSet = true
-                }
             }
         }
     }
@@ -78,9 +75,6 @@ class BandController {
                     }
                 }
                 notificationCenter.post(notifications.gotBandData)
-                DispatchQueue.main.async {
-                    loadingVC.downloadBandsSet = true
-                }
             }
         }
     }
@@ -107,9 +101,6 @@ class BandController {
                         }
                     }
                     notificationCenter.post(notifications.gotCacheBandData)
-                    DispatchQueue.main.async {
-                        loadingVC.cacheBandsSet = true
-                    }
                 }
             }
         }

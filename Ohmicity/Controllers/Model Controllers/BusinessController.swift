@@ -53,10 +53,6 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotBusinessData)
-                DispatchQueue.main.async {
-                    loadingVC.downloadBizSet = true
-                }
-                
             }
         }
     }
@@ -85,9 +81,6 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotBusinessData)
-                DispatchQueue.main.async {
-                    loadingVC.downloadBizSet = true
-                }
             }
         }
     }
@@ -114,9 +107,6 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotCacheBusinessData)
-                DispatchQueue.main.async {
-                    loadingVC.cacheBizSet = true
-                }
             }
         }
     }

@@ -72,6 +72,9 @@ class LastModifiedDateHandler {
             
             //ALL BAND DATA
             bandController.getAllBandData()
+            
+            //TEMP BANNER DATA
+            bannerAdController.fillArray()
             saveDate()
         } else {
             NSLog("!*!*!Repeat Open!*!*!")
