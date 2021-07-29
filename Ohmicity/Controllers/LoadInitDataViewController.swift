@@ -16,32 +16,28 @@ class LoadInitDataViewController: UIViewController {
     var todayDate = ""
     
     
-    var dataActionsFinished = 0 {
-        didSet {
-            if dataActionsFinished == 3 {
-                organizeData()
-            }
-        }
-    }
+    var dataActionsFinished = 0 { didSet { if dataActionsFinished == 4 { organizeData() }}}
+    
+    var bannerAdsSet = false { didSet { updateLoader(from: .BannerAdsLoaded) }}
+    
+    var cacheShowsSet = false { didSet { updateLoader(from: .ShowsCollected) }}
+    var cacheBandsSet = false { didSet { updateLoader(from: .BandsCollected) }}
+    var cacheBizSet = false { didSet { updateLoader(from: .BusinessesCollected) }}
+    
+    var downloadShowsSet = false { didSet { updateLoader(from: .ShowsLoaded) }}
+    var downloadBandsSet = false { didSet { updateLoader(from: .BandsLoaded) }}
+    var downloadBizSet = false { didSet { updateLoader(from: .BusinessesLoaded) }}
+    
+    
+    var stepFinishedLoading: LoadingScreenInfo?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Cache Loading Notifications
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
-        
-        //Database Loading Notifications
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotShowData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBandData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessData.name, object: nil)
-        
-        //Organize Data
-        notificationCenter.addObserver(self, selector: #selector(organizeData), name: notifications.organizeData.name, object: nil)
-        
+        addNotificatonObservers()
+        updateViewController()
         lmDateHandler.checkDateAndGetData()
-        dateFormatter.dateFormat = dateFormat3
+        
         
         //resetCache
 //        let settings = FirestoreSettings()
@@ -57,17 +53,87 @@ class LoadInitDataViewController: UIViewController {
         settings.isPersistenceEnabled = true
     }
     
-    @objc private func counting() {
+
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+}
+
+//MARK: Functions
+extension LoadInitDataViewController {
+    
+    private func getTodaysDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        //todayDate = dateFormatter.string(from: Date())
+        todayDate = "August 21, 2021"
+    }
+    
+    private func doneLoading() {
+        //print(showController.showArray)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ToDashboard", sender: self)
+        }
+    }
+    
+    //MARK: UpdateViews
+    private func updateViewController() {
+        dateFormatter.dateFormat = dateFormat3
+        getTodaysDate()
+    }
+    
+    private func updateLoader(from: LoadingScreenInfo) {
+        switch from {
+        case .BannerAdsLoaded:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        case .BannerAdsCollected:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        case .ShowsLoaded:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        case .ShowsCollected:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        case .BusinessesLoaded:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        case .BusinessesCollected:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        case .BandsLoaded:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        case .BandsCollected:
+            print("!!!!!!!!\(from)!!!!!!!!")
+        }
+    }
+    
+    private func addNotificatonObservers() {
+        //Cache Loading Notifications
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
+        
+        //Database Loading Notifications
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotShowData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBandData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.bannerAdsLoaded.name, object: nil)
+    }
+    
+    //@objc Functions
+    @objc private func counting(_ notification: NSNotification) {
         dataActionsFinished += 1
-        print(dataActionsFinished)
+        
+        if ((notification.userInfo?.contains(where: {$0.value as! LoadingScreenInfo == LoadingScreenInfo.BannerAdsCollected})) != nil) {
+            print("***BANNER ADS COLLECTED WORKED FOR LOADING SCREEN PERPOSES****")
+        }
     }
     
     //MARK: Adding shows to Today
     @objc private func organizeData() {
-        getTodaysDate()
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
         
+        //Locating Todays Shows
         let op1 = BlockOperation {
             for show in showController.showArray {
                 let stringDate = dateFormatter.string(from: show.date)
@@ -78,6 +144,7 @@ class LoadInitDataViewController: UIViewController {
             }
         }
         
+        //Connecting Todays Shows to Businesses
         let op2 = BlockOperation {
             for show in showController.todayShowArray {
                 for venue in businessController.businessArray {
@@ -88,35 +155,20 @@ class LoadInitDataViewController: UIViewController {
             }
         }
         
-        let op3 = BlockOperation {
+        let bannerAdLoading = BlockOperation {
+            bannerAdController.fillArray()
+        }
+        
+        let finalOp = BlockOperation {
             self.doneLoading()
         }
         
         op2.addDependency(op1)
-        op3.addDependency(op2)
-        opQueue.addOperations([op1, op2, op3], waitUntilFinished: true)
+        finalOp.addDependency(op2)
+        opQueue.addOperations([op1, op2, finalOp, bannerAdLoading], waitUntilFinished: true)
+        
         
     }
     
-    private func getTodaysDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        //todayDate = dateFormatter.string(from: Date())
-        todayDate = "July 17, 2021"
-    }
     
-    
-    private func doneLoading() {
-        //print(showController.showArray)
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "ToDashboard", sender: self)
-        }
-    }
-    
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }

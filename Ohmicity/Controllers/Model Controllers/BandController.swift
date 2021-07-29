@@ -31,23 +31,26 @@ class BandController {
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
-//                for band in querySnapshot!.documents {
-//                    let result = Result {
-//                        try band.data(as: Band.self)
-//                    }
-//                    switch result {
-//                    case .success(let band):
-//                        if let band = band {
-//                            self.bandArray.append(band)
-//                            NSLog(band.name," SHOW: RECIEVED & APPENDED")
-//                        } else {
-//                            NSLog("Band data was nil")
-//                        }
-//                    case .failure(let error):
-//                        NSLog("Error decoding band: \(error)")
-//                    }
-//                }
-//                notificationCenter.post(notifications.gotBandData)
+                for band in querySnapshot!.documents {
+                    let result = Result {
+                        try band.data(as: Band.self)
+                    }
+                    switch result {
+                    case .success(let band):
+                        if let band = band {
+                            self.bandArray.append(band)
+                            NSLog(band.name," SHOW: RECIEVED & APPENDED")
+                        } else {
+                            NSLog("Band data was nil")
+                        }
+                    case .failure(let error):
+                        NSLog("Error decoding band: \(error)")
+                    }
+                }
+                notificationCenter.post(notifications.gotBandData)
+                DispatchQueue.main.async {
+                    loadingVC.downloadBandsSet = true
+                }
             }
         }
     }
@@ -75,6 +78,9 @@ class BandController {
                     }
                 }
                 notificationCenter.post(notifications.gotBandData)
+                DispatchQueue.main.async {
+                    loadingVC.downloadBandsSet = true
+                }
             }
         }
     }
@@ -101,6 +107,9 @@ class BandController {
                         }
                     }
                     notificationCenter.post(notifications.gotCacheBandData)
+                    DispatchQueue.main.async {
+                        loadingVC.cacheBandsSet = true
+                    }
                 }
             }
         }

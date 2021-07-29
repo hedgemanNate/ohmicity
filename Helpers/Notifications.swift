@@ -32,7 +32,9 @@ class Notifications {
     let databaseSuccess = Notification(name: Notification.Name(rawValue: "DatabaseSuccess"))
     
     //Loading Notifications
-    let organizeData = Notification(name: Notification.Name(rawValue: "OrganizeData"))
+    
+    let bannerAdsCollected = Notification(name: Notification.Name(rawValue: "BannerAdsCollected"))
+    let bannerAdsLoaded = Notification(name: Notification.Name(rawValue: "BannerAdsLoaded"))
 }
 
 let notifications = Notifications()

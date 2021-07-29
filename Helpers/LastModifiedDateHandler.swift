@@ -89,6 +89,7 @@ class LastModifiedDateHandler {
             }
             
             let op2 = BlockOperation {
+                bannerAdController.fillArray()
                 businessController.fillArray()
                 showController.fillArray()
                 bandController.fillArray()
