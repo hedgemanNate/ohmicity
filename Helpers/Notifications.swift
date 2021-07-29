@@ -24,6 +24,10 @@ class Notifications {
     let gotBandData = Notification(name: Notification.Name(rawValue: "GotBandData"))
     let gotShowData = Notification(name: Notification.Name(rawValue: "GotShowData"))
     
+    let gotAllBusinessData = Notification(name: Notification.Name(rawValue: "GotAllBusinessData"))
+    let gotAllBandData = Notification(name: Notification.Name(rawValue: "GotAllBandData"))
+    let gotAllShowData = Notification(name: Notification.Name(rawValue: "GotAllShowData"))
+    
     let gotCacheBusinessData = Notification(name: Notification.Name(rawValue: "GotCacheBusinessData"))
     let gotCacheBandData = Notification(name: Notification.Name(rawValue: "GotCacheBandData"))
     let gotCacheShowData = Notification(name: Notification.Name(rawValue: "GotCacheShowData"))

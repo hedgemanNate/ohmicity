@@ -17,8 +17,17 @@ class LoadInitDataViewController: UIViewController {
     var todayDate = ""
     
     
-    var dataActionsFinished = 0 { didSet { if dataActionsFinished == 7 { organizeData(); print("DATA ACTIONS FIN") }}}
-    var syncingActionsFinished = 0 { didSet { if dataActionsFinished == 2 { print("DONE LOADING") }}}
+    var dataActionsFinished = 0 {
+        didSet {
+            print(dataActionsFinished)
+            if dataActionsFinished == 7 {
+                organizeData(); print("DATA ACTIONS FIN")
+            }
+        }
+    }
+    
+    
+    var syncingActionsFinished = 0 { didSet { if dataActionsFinished == 2 { print("DONE LOADING")}}}
     
 
     override func viewDidLoad() {
@@ -77,6 +86,9 @@ extension LoadInitDataViewController {
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
         
         //Database Loading Notifications
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllShowData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBandData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessData.name, object: nil)
@@ -108,10 +120,15 @@ extension LoadInitDataViewController {
             dataActionsFinished += 1
         case notifications.gotCacheShowData.name:
             dataActionsFinished += 1
+        case notifications.gotAllBandData.name:
+            dataActionsFinished += 2
+        case notifications.gotAllBusinessData.name:
+            dataActionsFinished += 2
+        case notifications.gotAllShowData.name:
+            dataActionsFinished += 2
             
         default:
             break
-            
         }
     }
     

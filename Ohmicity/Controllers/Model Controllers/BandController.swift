@@ -48,6 +48,7 @@ class BandController {
                     }
                 }
                 notificationCenter.post(notifications.gotBandData)
+                NSLog("*****GET NEW BAND DATA HIT*****")
             }
         }
     }
@@ -74,7 +75,8 @@ class BandController {
                         NSLog("Error decoding band: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotBandData)
+                notificationCenter.post(notifications.gotAllBandData)
+                NSLog("*****GET ALL BAND DATA HIT*****")
             }
         }
     }
@@ -101,6 +103,7 @@ class BandController {
                         }
                     }
                     notificationCenter.post(notifications.gotCacheBandData)
+                    NSLog("*****FILL BAND DATA ARRAY HIT*****")
                 }
             }
         }

@@ -24,6 +24,9 @@ class DashboardViewController: UIViewController {
     let bandVenueCellid = "MainCell"
     let cityCellid = "CityCell"
     
+    var timer = Timer()
+    var counter = 0
+    
     @IBOutlet weak var getPerksButton: UIButton!
     @IBOutlet weak var alreadyAccountButton: UIButton!
     
@@ -91,6 +94,7 @@ class DashboardViewController: UIViewController {
         print(todayDate)
         
     }
+    
 }
 
 
@@ -114,13 +118,33 @@ extension DashboardViewController {
         scrollView.scrollToTop(animated: true)
     }
     
+    //MARK: Banner Ad
+    @objc func bannerChange() {
+        var indexPath = IndexPath(row: counter, section: 0)
+        
+        //High Count For Infinite Loop: See Banner Ad Collection View
+        if counter < 50 {
+            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            counter += 1
+        } else {
+            counter = 0
+            indexPath = IndexPath(row: 0, section: 0)
+            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            counter = 1
+        }
+    }
     
     //MARK: UPDATEVIEWS
+    
     private func updateViews() {
         self.getTodaysDate()
         //self.getCollectionData()
         handleHidden()
         setupUpCollectionViews()
+                
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
+        }
 
     }
     
@@ -222,7 +246,8 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case venueCollectionView:
             num = businessController.businessTypeArray.count
         case bannerAdCollectionView:
-            num = bannerAdController.bannerAdArray.count
+            //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
+            num = 50
         default:
             num = 4
         }
@@ -256,7 +281,8 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case bannerAdCollectionView:
             bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdCollectionViewCell
-            bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row]
+            //% for indexpath to allow for infinite loop: See Banner Ad Section
+            bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row % bannerAdController.bannerAdArray.count]
             return bannerAdCell
             
         default:

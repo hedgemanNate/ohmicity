@@ -52,7 +52,7 @@ class ShowController {
                     }
                 }
                 notificationCenter.post(notifications.gotShowData)
-                NSLog("****\(showCount) NEW Downloaded shows added to showController.showArray****")
+                NSLog("*****GET NEW SHOW DATA HIT*****")
             }
         }
     }
@@ -81,11 +81,8 @@ class ShowController {
                         NSLog("Error decoding show: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotShowData)
-                NSLog("****\(showCount) Downloaded shows added to showController.showArray****")
-                DispatchQueue.main.async {
-                    //loadingVC.downloadShowsSet = true
-                }
+                notificationCenter.post(notifications.gotAllShowData)
+                NSLog("*****GET ALL SHOW DATA HIT*****")
             }
         }
     }
@@ -113,11 +110,8 @@ class ShowController {
                         NSLog("Error decoding Business: \(error)")
                     }
                 }
-                NSLog("****\(showCount) CACHED shows added to showController.showArray****")
                 notificationCenter.post(notifications.gotCacheShowData)
-                DispatchQueue.main.async {
-                    //loadingVC.cacheShowsSet = true
-                }
+                NSLog("*****FILL SHOW DATA ARRAY HIT*****")
             }
         }
     }

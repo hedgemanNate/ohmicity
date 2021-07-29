@@ -27,6 +27,7 @@ extension BannerAdController {
         bannerAdArray = [ad1, ad1, ad1 ,ad1]
         
         notificationCenter.post(name: notifications.bannerAdsLoaded.name, object:nil, userInfo: ["InitialLoadingScreen": LoadingScreenInfo.BannerAdsLoaded.rawValue])
+        NSLog("*****FILL BANNER DATA ARRAY HIT*****")
     
         
     }

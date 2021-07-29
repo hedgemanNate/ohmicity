@@ -53,6 +53,7 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotBusinessData)
+                NSLog("*****GET NEW BUSINESS DATA HIT*****")
             }
         }
     }
@@ -80,7 +81,8 @@ class BusinessController {
                         NSLog("Error decoding Business: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotBusinessData)
+                notificationCenter.post(notifications.gotAllBusinessData)
+                NSLog("*****GET ALL BUSINESS DATA HIT*****")
             }
         }
     }
@@ -107,6 +109,7 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotCacheBusinessData)
+                NSLog("*****FILL BUSINESS DATA ARRAY HIT*****")
             }
         }
     }
