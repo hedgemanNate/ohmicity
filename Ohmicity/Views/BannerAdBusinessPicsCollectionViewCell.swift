@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BannerAdCollectionViewCell: UICollectionViewCell {
+class BannerAdBusinessPicsCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var bannerImage: UIImageView!
