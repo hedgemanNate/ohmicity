@@ -79,20 +79,7 @@ class DashboardViewController: UIViewController {
     */
     
     @IBAction func breaker(_ sender: Any) {
-        
-        ref.fireDataBase.clearPersistence { err in
-            if let err = err {
-                NSLog("***Firestore: Cache Not Cleared***: \(err)")
-            }
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        let stringDate = dateFormatter.string(from: showController.showArray[124].date)
-        
-        print(stringDate)
-        print(todayDate)
-        
+        print(currentUser?.userID ?? "No User")
     }
     
 }

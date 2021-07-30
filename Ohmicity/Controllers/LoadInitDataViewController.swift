@@ -32,7 +32,8 @@ class LoadInitDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNotificatonObservers()
+        addNotificationObservers()
+        assignCurrentUser()
         updateViewController()
         lmDateHandler.checkDateAndGetData()
         
@@ -66,20 +67,29 @@ extension LoadInitDataViewController {
         todayDate = "July 17, 2021"
     }
     
-    func doneLoading() {
+    private func doneLoading() {
         print("**DONE LOADING FUNC****")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
     }
     
+    private func assignCurrentUser() {
+        guard let id = Auth.auth().currentUser?.uid else { return NSLog("No Current User ID: assignCurrentUser") }
+        guard let email = Auth.auth().currentUser?.email else { return NSLog("No Current User Email: assignCurrentUser") }
+        
+        currentUser = CurrentUser(userID: id, email: email)
+        }
+        
+    
     //MARK: UpdateViews
     private func updateViewController() {
         dateFormatter.dateFormat = dateFormat3
         getTodaysDate()
+        
     }
     
-    private func addNotificatonObservers() {
+    private func addNotificationObservers() {
         //Cache Loading Notifications
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
