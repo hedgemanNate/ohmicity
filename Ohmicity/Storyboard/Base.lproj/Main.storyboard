@@ -268,7 +268,7 @@ should be on Xity?</string>
         <!--Dashboard-->
         <scene sceneID="x6D-KM-3o5">
             <objects>
-                <viewController id="fki-Bt-PNW" sceneMemberID="viewController">
+                <viewController id="fki-Bt-PNW" customClass="VenueDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M90-I2-fJF">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1496"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,6 +301,10 @@ should be on Xity?</string>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7gd-1g-UKE">
                                                                             <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
+                                                                        </imageView>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1u-QM-zqz" userLabel="Logo">
+                                                                            <rect key="frame" x="8" y="145" width="76" height="100"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <constraints>
@@ -374,6 +378,10 @@ should be on Xity?</string>
                                                                     <imageReference key="image" image="phone" catalog="system" symbolScale="large" renderingMode="original"/>
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="callBusinessButton:" destination="5ac-YL-HRn" eventType="touchUpInside" id="sbA-3M-zNp"/>
+                                                                    <action selector="callBusinessButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="q2G-9s-HEU"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -693,6 +701,7 @@ Florida 34222 </string>
                     <size key="freeformSize" width="428" height="1550"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="5ac-YL-HRn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-506.07476635514018" y="-306.47948164146868"/>
         </scene>
@@ -1385,7 +1394,7 @@ should be on Xity?</string>
                                                             <outlet property="borderImageView" destination="5sL-uA-mq2" id="5cz-dX-5rG"/>
                                                             <outlet property="logoImageView" destination="hhN-6i-sfM" id="pab-Ge-FTi"/>
                                                             <outlet property="nameLabel" destination="11k-Km-eNH" id="nw3-Fd-HAG"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" id="g3J-Zg-qrW"/>
+                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="ToBusiness" id="g3J-Zg-qrW"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>

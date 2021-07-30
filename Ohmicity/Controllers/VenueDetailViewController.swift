@@ -8,7 +8,11 @@
 import UIKit
 
 class VenueDetailViewController: UIViewController {
+    
+    //Properties
+    var currentBusiness: BusinessFullData?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +20,10 @@ class VenueDetailViewController: UIViewController {
     }
     
 
+    
+    @IBAction func callBusinessButtonTapped(_ sender: Any) {
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -27,3 +35,4 @@ class VenueDetailViewController: UIViewController {
     */
 
 }
+
