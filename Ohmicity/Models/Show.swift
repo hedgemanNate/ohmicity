@@ -15,7 +15,7 @@ struct Show: Codable, Equatable, Hashable {
     var dateString: String
     var date = Date()
     var time = ""
-    var onHold: Bool? //To removed shows from user cache
+    var onHold: Bool = false //To removed shows from user cache
     var ohmPick: Bool = false
     
     //Equatable Conformity
