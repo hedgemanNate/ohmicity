@@ -21,6 +21,7 @@ enum Genre: String, Codable {
     case DJ
     case Pop
     case Metal
+    case Experimental
 }
 
 class Band: Codable, Equatable {
@@ -33,7 +34,7 @@ class Band: Codable, Equatable {
     var name: String
     var photo: Data?
     var genre: [Genre] = []
-    //var shows: [Show] = []
+    
     var mediaLink: String?
     var ohmPick: Bool = false
     
