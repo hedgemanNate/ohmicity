@@ -38,6 +38,7 @@
 		F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */; };
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
+		F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66206E826B4B9C800BDE93E /* TimeController.swift */; };
 		F676F0F526991C6C00C47599 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EE26991C6C00C47599 /* User.swift */; };
 		F676F0F626991C6C00C47599 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Rating.swift */; };
 		F676F0F726991C6C00C47599 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F026991C6C00C47599 /* Recommendation.swift */; };
@@ -75,7 +76,7 @@
 		F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4326AF337900C49016 /* livemusic.png */; };
 		F6F3DB4A26AF337C00C49016 /* family.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4426AF337B00C49016 /* family.png */; };
 		F6F3DB4C26AF9F6000C49016 /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4B26AF9F5E00C49016 /* listenButton.png */; };
-		F6FB9F2E26B258BF006B286F /* BannerAdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB9F2D26B258BF006B286F /* BannerAdCollectionViewCell.swift */; };
+		F6FB9F2E26B258BF006B286F /* BannerAdBusinessPicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB9F2D26B258BF006B286F /* BannerAdBusinessPicsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandVenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadInitDataViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		F66206E826B4B9C800BDE93E /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		F676F0EE26991C6C00C47599 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		F676F0F026991C6C00C47599 /* Recommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
@@ -174,7 +176,7 @@
 		F6F3DB4326AF337900C49016 /* livemusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livemusic.png; sourceTree = "<group>"; };
 		F6F3DB4426AF337B00C49016 /* family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = family.png; sourceTree = "<group>"; };
 		F6F3DB4B26AF9F5E00C49016 /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
-		F6FB9F2D26B258BF006B286F /* BannerAdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdCollectionViewCell.swift; sourceTree = "<group>"; };
+		F6FB9F2D26B258BF006B286F /* BannerAdBusinessPicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdBusinessPicsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,7 +339,7 @@
 				F60EB6312656CF5300CDB6F6 /* SearchCollectionViewCell.swift */,
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
-				F6FB9F2D26B258BF006B286F /* BannerAdCollectionViewCell.swift */,
+				F6FB9F2D26B258BF006B286F /* BannerAdBusinessPicsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +360,7 @@
 				F6522D5D2649AAF000912B90 /* CustomColors.swift */,
 				F649ECB0264B2C5500E84408 /* Extensions.swift */,
 				F640DD09264E3B7300959358 /* Helper.swift */,
+				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F60EB6362656D3C400CDB6F6 /* goTonight.json */,
 				F67990FF2697AB54000FDC5E /* Notifications.swift */,
 				F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */,
@@ -763,7 +766,7 @@
 				F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,
-				F6FB9F2E26B258BF006B286F /* BannerAdCollectionViewCell.swift in Sources */,
+				F6FB9F2E26B258BF006B286F /* BannerAdBusinessPicsCollectionViewCell.swift in Sources */,
 				F676F1032699496200C47599 /* ShowController.swift in Sources */,
 				F60EB6322656CF5300CDB6F6 /* SearchCollectionViewCell.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
@@ -777,6 +780,7 @@
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
 				D8262F102644688C0050F9CA /* VenueDetailViewController.swift in Sources */,
+				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
