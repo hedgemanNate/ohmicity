@@ -38,6 +38,7 @@ class BandController {
                     switch result {
                     case .success(let band):
                         if let band = band {
+                            self.bandArray.removeAll(where: {$0 == band})
                             self.bandArray.append(band)
                             NSLog(band.name," SHOW: RECIEVED & APPENDED")
                         } else {
