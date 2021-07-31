@@ -14,7 +14,6 @@ class LoadInitDataViewController: UIViewController {
     //Properties
     var todayShowArray: [Show] = []
     var todayVenueArray: [BusinessFullData] = []
-    var todayDate = ""
     
     
     var dataActionsFinished = 0 {
@@ -32,7 +31,7 @@ class LoadInitDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNotificatonObservers()
+        addNotificationObservers()
         updateViewController()
         lmDateHandler.checkDateAndGetData()
         
@@ -59,13 +58,6 @@ class LoadInitDataViewController: UIViewController {
 //MARK: Functions
 extension LoadInitDataViewController {
     
-    private func getTodaysDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        //todayDate = dateFormatter.string(from: Date())
-        todayDate = "July 17, 2021"
-    }
-    
     func doneLoading() {
         print("**DONE LOADING FUNC****")
         DispatchQueue.main.async {
@@ -76,10 +68,10 @@ extension LoadInitDataViewController {
     //MARK: UpdateViews
     private func updateViewController() {
         dateFormatter.dateFormat = dateFormat3
-        getTodaysDate()
+        timeController.setTime()
     }
     
-    private func addNotificatonObservers() {
+    private func addNotificationObservers() {
         //Cache Loading Notifications
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
@@ -142,7 +134,7 @@ extension LoadInitDataViewController {
             for show in showController.showArray {
                 let stringDate = dateFormatter.string(from: show.date)
                 
-                if stringDate == self.todayDate {
+                if stringDate == timeController.todayString {
                     showController.todayShowArray.append(show)
                 }
             }
@@ -161,6 +153,16 @@ extension LoadInitDataViewController {
             }
             self.syncingActionsFinished += 1
             print("***Synced Data***")
+        }
+        
+        let op = BlockOperation {
+            for business1 in businessController.businessArray {
+                for business2 in businessController.businessArray {
+                    if business1 == business2 && ((business1.lastModified?.compare(business2.lastModified!)) != nil) {
+                        
+                    }
+                }
+            }
         }
         
         

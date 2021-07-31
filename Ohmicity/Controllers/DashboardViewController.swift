@@ -13,58 +13,57 @@ class DashboardViewController: UIViewController {
     
     
     //Properties
-    var todayVenueArray: [BusinessFullData] = []
-    var todayBandArray: [Band] = []
-    var todayShowArray: [Show] = []
-    var weeklyVenueArray: [BusinessFullData] = []
+    private var weeklyVenueArray: [BusinessFullData] = []
     var weeklyShowArray: [Show] = []
     var favBandsArray: [Band] = []
     
-    var todayDate = ""
-    let bandVenueCellid = "MainCell"
-    let cityCellid = "CityCell"
+    private var todayDate = ""
+    private let bandVenueCellid = "MainCell"
+    private let cityCellid = "CityCell"
     
-    var timer = Timer()
-    var counter = 0
+    private var timer = Timer()
+    private var counter = 0
     
-    @IBOutlet weak var getPerksButton: UIButton!
-    @IBOutlet weak var alreadyAccountButton: UIButton!
+    @IBOutlet private weak var getPerksButton: UIButton!
+    @IBOutlet private weak var alreadyAccountButton: UIButton!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var topAdView: UIView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var topAdView: UIView!
     
     
     //Hidden Elements
     var showsToday: Bool = true
-    @IBOutlet weak var favoritesButton: UIButton!
-    @IBOutlet weak var favoritesCollectionView: UICollectionView!
-    @IBOutlet weak var hiddenSignUpView: UIView!
-    @IBOutlet weak var noShowsView: UIView!
+    @IBOutlet private weak var favoritesButton: UIButton!
+    @IBOutlet private weak var favoritesCollectionView: UICollectionView!
+    @IBOutlet private weak var hiddenSignUpView: UIView!
+    @IBOutlet private weak var noShowsView: UIView!
     
     //Collections Views
-    @IBOutlet weak var todayCollectionView: UICollectionView!
-    @IBOutlet weak var citiesCollectionView: UICollectionView!
-    @IBOutlet weak var weeklyCollectionView: UICollectionView!
-    @IBOutlet weak var venueCollectionView: UICollectionView!
-    @IBOutlet weak var bannerAdCollectionView: UICollectionView!
+    @IBOutlet private weak var todayCollectionView: UICollectionView!
+    @IBOutlet private weak var citiesCollectionView: UICollectionView!
+    @IBOutlet private weak var weeklyCollectionView: UICollectionView!
+    @IBOutlet private weak var venueCollectionView: UICollectionView!
+    @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
     
     //Buttons
-    @IBOutlet weak var todayButton: UIButton!
-    @IBOutlet weak var citiesButton: UIButton!
-    @IBOutlet weak var weeklyButton: UIButton!
-    @IBOutlet weak var venueButton: UIButton!
+    @IBOutlet private weak var todayButton: UIButton!
+    @IBOutlet private weak var citiesButton: UIButton!
+    @IBOutlet private weak var weeklyButton: UIButton!
+    @IBOutlet private weak var venueButton: UIButton!
     
     //View Backgrounds
-    @IBOutlet weak var recommendView: UIView!
+    @IBOutlet private weak var recommendView: UIView!
     
-    //MARK: OPERATIONS
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationObservers()
         updateViews()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
     }
     
 
@@ -81,21 +80,7 @@ class DashboardViewController: UIViewController {
     
     @IBAction func breaker(_ sender: Any) {
         
-        ref.fireDataBase.clearPersistence { err in
-            if let err = err {
-                NSLog("***Firestore: Cache Not Cleared***: \(err)")
-            }
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        let stringDate = dateFormatter.string(from: showController.showArray[124].date)
-        
-        print(stringDate)
-        print(todayDate)
-        
     }
-    
 }
 
 
@@ -120,7 +105,7 @@ extension DashboardViewController {
     }
     
     //MARK: Banner Ad
-    @objc func bannerChange() {
+    @objc private func bannerChange() {
         var indexPath = IndexPath(row: counter, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
@@ -139,9 +124,10 @@ extension DashboardViewController {
     
     private func updateViews() {
         self.getTodaysDate()
-        //self.getCollectionData()
         handleHidden()
+        showController.removeHolds()
         setupUpCollectionViews()
+        
                 
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
@@ -151,50 +137,8 @@ extension DashboardViewController {
     
     //MARK: Logic Functions
     private func getTodaysDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        todayDate = dateFormatter.string(from: Date())
-    }
-    
-    private func getCollectionData() {
-        //MARK: Today Data
-        let opQueue = OperationQueue()
-        opQueue.maxConcurrentOperationCount = 1
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        
-        let op1 = BlockOperation {
-            for show in showController.showArray {
-                let stringDate = dateFormatter.string(from: show.date)
-                
-                if stringDate == self.todayDate {
-                    self.todayShowArray.append(show)
-                }
-            }
-        }
-        
-        let op2 = BlockOperation {
-            for show in self.todayShowArray {
-                for venue in businessController.businessArray { 
-                    if show.venue == venue.name {
-                        self.todayVenueArray.append(venue)
-                    }
-                }
-            }
-            
-            for show in self.todayShowArray {
-                for band in bandController.bandArray {
-                    if show.band == band.name {
-                        self.todayBandArray.append(band)
-                    }
-                }
-            }
-        }
-        
-        op2.addDependency(op1)
-        opQueue.addOperations([op1, op2], waitUntilFinished: false)
-        
-        //End Today Data
+        dateFormatter.dateFormat = dateFormat3
+        todayDate = dateFormatter.string(from: todaysDate)
     }
     
     
@@ -260,7 +204,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         var venueCell = BandVenueCollectionViewCell()
         var cityCell = CitiesCollectionViewCell()
         var businessTypeCell = CitiesCollectionViewCell()
-        var bannerAdCell = BannerAdCollectionViewCell()
+        var bannerAdCell = BannerAdBusinessPicsCollectionViewCell()
         let cell = UICollectionViewCell()
     
         
@@ -281,7 +225,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return businessTypeCell
             
         case bannerAdCollectionView:
-            bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdCollectionViewCell
+            bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
             //% for indexpath to allow for infinite loop: See Banner Ad Section
             bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row % bannerAdController.bannerAdArray.count]
             return bannerAdCell
