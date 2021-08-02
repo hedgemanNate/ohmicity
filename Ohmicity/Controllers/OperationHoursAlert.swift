@@ -54,13 +54,13 @@ class OperationHoursAlert: UIView {
         sunTimeLabel.text = business.hours?.sunday
         
         //Default UI
-        monTimeLabel.layer.cornerRadius = 5
-        tueTimeLabel.layer.cornerRadius = 5
-        wedTimeLabel.layer.cornerRadius = 5
-        thuTimeLabel.layer.cornerRadius = 5
-        friTimeLabel.layer.cornerRadius = 5
-        satTimeLabel.layer.cornerRadius = 5
-        sunTimeLabel.layer.cornerRadius = 5
+        monTimeLabel.layer.cornerRadius = 0
+        tueTimeLabel.layer.cornerRadius = 0
+        wedTimeLabel.layer.cornerRadius = 0
+        thuTimeLabel.layer.cornerRadius = 0
+        friTimeLabel.layer.cornerRadius = 0
+        satTimeLabel.layer.cornerRadius = 0
+        sunTimeLabel.layer.cornerRadius = 0
         
         monTimeLabel.clipsToBounds = true
         tueTimeLabel.clipsToBounds = true
@@ -70,13 +70,13 @@ class OperationHoursAlert: UIView {
         satTimeLabel.clipsToBounds = true
         sunTimeLabel.clipsToBounds = true
         
-        monLabel.layer.cornerRadius = 5
-        tueLabel.layer.cornerRadius = 5
-        wedLabel.layer.cornerRadius = 5
-        thuLabel.layer.cornerRadius = 5
-        friLabel.layer.cornerRadius = 5
-        satLabel.layer.cornerRadius = 5
-        sunLabel.layer.cornerRadius = 5
+        monLabel.layer.cornerRadius = 0
+        tueLabel.layer.cornerRadius = 0
+        wedLabel.layer.cornerRadius = 0
+        thuLabel.layer.cornerRadius = 0
+        friLabel.layer.cornerRadius = 0
+        satLabel.layer.cornerRadius = 0
+        sunLabel.layer.cornerRadius = 0
            
         monLabel.clipsToBounds = true
         tueLabel.clipsToBounds = true
