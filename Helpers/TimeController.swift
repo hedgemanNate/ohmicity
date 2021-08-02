@@ -11,12 +11,14 @@ import Firebase
 class TimeController {
     var todayString = ""
     var thisYear = ""
+    var dayOfWeek = ""
     
     let dateFormatter = DateFormatter() 
     let dayMonthDayYearTime = "E, MMMM d, yyyy ha" //1
     let dayMonthDay = "E, MMMM d"
     let monthDayYearTime = "MMMM d, yyyy ha" //2
     let monthDayYear = "MMMM d, yyyy" //3
+    let day = "E"
     
     let year = "yyyy"
     
@@ -32,12 +34,19 @@ class TimeController {
         //For todayString
         dateFormatter.dateFormat = monthDayYear
         todayString = dateFormatter.string(from: now)
-            //Manual Date
-        //todayString = "July 31, 2021"
         
         //For thisYear
         dateFormatter.dateFormat = year
         thisYear = dateFormatter.string(from: now)
+        
+        //For today's day of the week
+        dateFormatter.dateFormat = day
+        dayOfWeek = dateFormatter.string(from: now)
+    }
+    
+    func setTime(enterTime: String) {
+        setTime()
+        todayString = enterTime
     }
     
 }

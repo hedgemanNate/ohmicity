@@ -106,6 +106,7 @@ extension DashboardViewController {
     
     //MARK: Banner Ad
     @objc private func bannerChange() {
+        
         var indexPath = IndexPath(row: counter, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
@@ -136,6 +137,7 @@ extension DashboardViewController {
     }
     
     @objc private func startTimer() {
+        
         DispatchQueue.main.async {
             timeController.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }

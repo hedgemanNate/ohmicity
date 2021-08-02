@@ -14,6 +14,7 @@ class CustomColors: UIColor {
     
     let mainColorPurple = UIColor(red: 151/255, green: 140/255, blue: 175/255, alpha: 1)
     let secondaryColorPurple = UIColor(red: 172/255, green: 155/255, blue: 206/255, alpha: 1)
+    let highlightPurple = UIColor(red: 99/255, green: 56/255, blue: 133/255, alpha: 1)
     
     let navigationBGPurple = UIColor(red: 172/255, green: 155/255, blue: 206/255, alpha: 1)
     let navigationTextBlue = UIColor(red: 56/255, green: 79/255, blue: 104/255, alpha: 1)

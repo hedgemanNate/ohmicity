@@ -60,6 +60,7 @@ class VenueDetailViewController: UIViewController {
         self.view.addSubview(backgroundView)
         self.view.addSubview(hoursView)
         setupHoursAlertConstraints()
+        print(timeController.dayOfWeek)
     }
     
     /*
@@ -155,7 +156,7 @@ extension VenueDetailViewController {
         //The alert itself
         let alertView: OperationHoursAlert = {
             let view = OperationHoursAlert.instanceFromNib(business: currentBusiness)
-            view.layer.cornerRadius = 20
+            view.layer.cornerRadius = 0
             view.clipsToBounds = true
             view.delegate = self
             return view
@@ -212,7 +213,7 @@ extension VenueDetailViewController {
 extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nextShowsArray.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

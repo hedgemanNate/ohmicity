@@ -33,8 +33,8 @@
 		F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370626B64E5A00A2235B /* directionsIcon.png */; };
 		F61C370926B64E5B00A2235B /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370726B64E5A00A2235B /* listenButton.png */; };
 		F61C370B26B66F8600A2235B /* brickBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370A26B66F8500A2235B /* brickBackground.png */; };
-		F61C370F26B7239400A2235B /* HoursOfOperationAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61C370E26B7239400A2235B /* HoursOfOperationAlertView.xib */; };
-		F61C371126B727B400A2235B /* HoursOfOperationAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C371026B727B400A2235B /* HoursOfOperationAlertViewController.swift */; };
+		F61C370F26B7239400A2235B /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61C370E26B7239400A2235B /* OperationHoursAlert.xib */; };
+		F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C371026B727B400A2235B /* OperationHoursAlert.swift */; };
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
 		F640DD0A264E3B7300959358 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Helper.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
@@ -137,8 +137,8 @@
 		F61C370626B64E5A00A2235B /* directionsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = directionsIcon.png; sourceTree = "<group>"; };
 		F61C370726B64E5A00A2235B /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
 		F61C370A26B66F8500A2235B /* brickBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brickBackground.png; sourceTree = "<group>"; };
-		F61C370E26B7239400A2235B /* HoursOfOperationAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoursOfOperationAlertView.xib; sourceTree = "<group>"; };
-		F61C371026B727B400A2235B /* HoursOfOperationAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursOfOperationAlertViewController.swift; sourceTree = "<group>"; };
+		F61C370E26B7239400A2235B /* OperationHoursAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperationHoursAlert.xib; sourceTree = "<group>"; };
+		F61C371026B727B400A2235B /* OperationHoursAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHoursAlert.swift; sourceTree = "<group>"; };
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F640DD09264E3B7300959358 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F640DD0E264E432B00959358 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
 				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
 				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
-				F61C371026B727B400A2235B /* HoursOfOperationAlertViewController.swift */,
+				F61C371026B727B400A2235B /* OperationHoursAlert.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 				F6FB9F2D26B258BF006B286F /* BannerAdBusinessPicsCollectionViewCell.swift */,
-				F61C370E26B7239400A2235B /* HoursOfOperationAlertView.xib */,
+				F61C370E26B7239400A2235B /* OperationHoursAlert.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -385,6 +385,7 @@
 				F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */,
 				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
 				F676F100269947D300C47599 /* Enumerations.swift */,
+				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -412,7 +413,6 @@
 				F676F0FE269947B300C47599 /* BandController.swift */,
 				F676F1022699496200C47599 /* ShowController.swift */,
 				F67E64E726B0D27900ED75D0 /* BannerAdController.swift */,
-				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -580,7 +580,7 @@
 				F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */,
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
 				F6F3DB4A26AF337C00C49016 /* family.png in Resources */,
-				F61C370F26B7239400A2235B /* HoursOfOperationAlertView.xib in Resources */,
+				F61C370F26B7239400A2235B /* OperationHoursAlert.xib in Resources */,
 				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
 				F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */,
 				F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */,
@@ -779,7 +779,7 @@
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
 				F676F0FF269947B300C47599 /* BandController.swift in Sources */,
 				F676F0F826991C6C00C47599 /* Message.swift in Sources */,
-				F61C371126B727B400A2235B /* HoursOfOperationAlertViewController.swift in Sources */,
+				F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */,
 				F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */,
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
 				F676F0F926991C6C00C47599 /* Show.swift in Sources */,

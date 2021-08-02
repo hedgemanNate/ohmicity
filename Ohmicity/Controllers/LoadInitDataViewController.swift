@@ -68,7 +68,8 @@ extension LoadInitDataViewController {
     //MARK: UpdateViews
     private func updateViewController() {
         dateFormatter.dateFormat = dateFormat3
-        timeController.setTime()
+        timeController.setTime(enterTime: "July 31, 2021")
+        //setTime(enterTime) format July 31, 2021
     }
     
     private func addNotificationObservers() {
