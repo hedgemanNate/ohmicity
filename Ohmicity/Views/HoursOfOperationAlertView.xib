@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OperationHoursAlert" customModule="Ohmicity" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WWd-mN-a7A" userLabel="Operation Hours Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="351"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ufz-qY-Iau" userLabel="Days Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="351"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asZ-g8-AkA" userLabel="Content View">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="351"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pOa-lW-oeO" userLabel="Label Stack View">
+                                            <rect key="frame" x="9" y="0.0" width="99.5" height="351"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37m-8y-3jm" userLabel="mon">
+                                                    <rect key="frame" x="0.0" y="0.0" width="99.5" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVq-7m-107" userLabel="tue">
+                                                    <rect key="frame" x="0.0" y="50" width="99.5" height="50.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ve-oj-eoa" userLabel="wed">
+                                                    <rect key="frame" x="0.0" y="100.5" width="99.5" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcQ-GP-ex2" userLabel="thu">
+                                                    <rect key="frame" x="0.0" y="150.5" width="99.5" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZB-sH-hSk" userLabel="fri">
+                                                    <rect key="frame" x="0.0" y="200.5" width="99.5" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCv-zV-4WF" userLabel="sat">
+                                                    <rect key="frame" x="0.0" y="250.5" width="99.5" height="50.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbi-Zh-xfX" userLabel="sun">
+                                                    <rect key="frame" x="0.0" y="301" width="99.5" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="pOa-lW-oeO" secondAttribute="bottom" id="Ick-zC-1h3"/>
+                                        <constraint firstItem="pOa-lW-oeO" firstAttribute="leading" secondItem="asZ-g8-AkA" secondAttribute="leading" constant="9" id="dTc-ra-9a7"/>
+                                        <constraint firstItem="pOa-lW-oeO" firstAttribute="top" secondItem="asZ-g8-AkA" secondAttribute="top" id="lX6-lQ-QQe"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-gq-hUg" userLabel="Time Stack View">
+                            <rect key="frame" x="200" y="0.0" width="200" height="351"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NL9-f1-2kN" userLabel="Content View" customClass="OperationHoursAlert" customModule="Ohmicity" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="351"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="P84-Ps-FA5" userLabel="Label Stack View">
+                                            <rect key="frame" x="9" y="0.0" width="46" height="351"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zk-B1-Wvp" userLabel="mon">
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc6-de-3zc" userLabel="tue">
+                                                    <rect key="frame" x="0.0" y="50" width="46" height="50.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wf0-Ic-gyV" userLabel="wed">
+                                                    <rect key="frame" x="0.0" y="100.5" width="46" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kui-Og-FI6" userLabel="thu">
+                                                    <rect key="frame" x="0.0" y="150.5" width="46" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcJ-TZ-taA" userLabel="fri">
+                                                    <rect key="frame" x="0.0" y="200.5" width="46" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFN-Yk-V9W" userLabel="sat">
+                                                    <rect key="frame" x="0.0" y="250.5" width="46" height="50.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyO-Ay-gix" userLabel="sun">
+                                                    <rect key="frame" x="0.0" y="301" width="46" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="P84-Ps-FA5" firstAttribute="top" secondItem="NL9-f1-2kN" secondAttribute="top" id="Ol2-Bt-Lwd"/>
+                                        <constraint firstAttribute="bottom" secondItem="P84-Ps-FA5" secondAttribute="bottom" id="ne0-Vr-YoU"/>
+                                        <constraint firstItem="P84-Ps-FA5" firstAttribute="leading" secondItem="NL9-f1-2kN" secondAttribute="leading" constant="9" id="oJs-SH-hyA"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.26495882869999998" green="0.15182313319999999" blue="0.35518908500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbe-CG-BDc">
+                    <rect key="frame" x="0.0" y="351" width="400" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="8S7-QQ-Cax"/>
+                    </constraints>
+                    <state key="normal" title="Done" backgroundImage="listenButton.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="tTo-gI-lLO"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.52740900000000002" green="0.17958099999999999" blue="0.57089500000000004" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Pbe-CG-BDc" secondAttribute="bottom" id="Fc9-bx-YTX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WWd-mN-a7A" secondAttribute="trailing" id="NW4-gL-SqF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pbe-CG-BDc" secondAttribute="trailing" id="SDk-OS-h7U"/>
+                <constraint firstItem="WWd-mN-a7A" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aoL-1I-hZy"/>
+                <constraint firstItem="WWd-mN-a7A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hJa-ZY-Tnj"/>
+                <constraint firstItem="Pbe-CG-BDc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iNi-fl-0Zp"/>
+                <constraint firstItem="Pbe-CG-BDc" firstAttribute="top" secondItem="WWd-mN-a7A" secondAttribute="bottom" id="zVU-g7-dVt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="friTimeLabel" destination="dcJ-TZ-taA" id="Qfc-Gd-Y9f"/>
+                <outlet property="monTimeLabel" destination="9Zk-B1-Wvp" id="FC9-Nu-ZVz"/>
+                <outlet property="satTimeLabel" destination="hFN-Yk-V9W" id="5lY-2y-q66"/>
+                <outlet property="sunTimeLabel" destination="WyO-Ay-gix" id="oFU-c4-rLA"/>
+                <outlet property="thuTimeLabel" destination="kui-Og-FI6" id="3VM-kl-Jlg"/>
+                <outlet property="tueTimeLabel" destination="Hc6-de-3zc" id="SKY-Qa-w9h"/>
+                <outlet property="wedTimeLabel" destination="Wf0-Ic-gyV" id="ZzU-II-Y0y"/>
+            </connections>
+            <point key="canvasLocation" x="122" y="-55"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="listenButton.png" width="196" height="38"/>
+    </resources>
+</document>

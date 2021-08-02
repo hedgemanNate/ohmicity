@@ -17,11 +17,10 @@ class DashboardViewController: UIViewController {
     var weeklyShowArray: [Show] = []
     var favBandsArray: [Band] = []
     
-    private var todayDate = ""
+    
     private let bandVenueCellid = "MainCell"
     private let cityCellid = "CityCell"
     
-    private var timer = Timer()
     private var counter = 0
     
     @IBOutlet private weak var getPerksButton: UIButton!
@@ -63,7 +62,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timer.invalidate()
+        timeController.timer.invalidate()
     }
     
 
@@ -75,6 +74,7 @@ class DashboardViewController: UIViewController {
             
             businessVC.currentBusiness = businessController.todayVenueArray[indexPath!.row]
             
+            timeController.timer.invalidate()
         }
     }
     
@@ -123,23 +123,26 @@ extension DashboardViewController {
     //MARK: UPDATEVIEWS
     
     private func updateViews() {
-        self.getTodaysDate()
         handleHidden()
         showController.removeHolds()
         setupUpCollectionViews()
         
-                
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
-        }
+        //UI Adjustments
+        getPerksButton.layer.cornerRadius = 5
+        
+        //Timer
+        startTimer()
 
     }
     
-    //MARK: Logic Functions
-    private func getTodaysDate() {
-        dateFormatter.dateFormat = dateFormat3
-        todayDate = dateFormatter.string(from: todaysDate)
+    @objc private func startTimer() {
+        DispatchQueue.main.async {
+            timeController.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
+        }
     }
+    
+    //MARK: Logic Functions
+    
     
     
     //MARK: Setup CollectionViews
@@ -169,6 +172,8 @@ extension DashboardViewController {
         
         //Scroll To Top
         notificationCenter.addObserver(self, selector: #selector(scrollToTop), name: notifications.scrollToTop.name, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
     }
 }
 

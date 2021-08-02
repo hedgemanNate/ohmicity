@@ -9,14 +9,21 @@ import UIKit
 
 class VenueDetailViewController: UIViewController {
     
-    //Properties
-    weak var currentBusiness: BusinessFullData?
+    //MARK: Properties
+    var currentBusiness: BusinessFullData?
     var nextShowsArray = [Show]()
     var nextShow: Show?
-    var todayDate = ""
+    
+    private var timer = timeController.timer
+    private var counter = 0
+    
+    //Hours Of Operation Alert View
+    var hoursView = OperationHoursAlert()
+    private var backgroundView: UIView!
 
     @IBOutlet weak var hoursButton: UIButton!
     @IBOutlet weak var listenButton: UIButton!
+    @IBOutlet weak var directionsButton: UIButton!
     
     @IBOutlet weak var businessLogoImageView: UIImageView!
     @IBOutlet weak var bandPhotoImageView: UIImageView!
@@ -30,8 +37,6 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var businessPicsCollectionView: UICollectionView!
     @IBOutlet weak var nextShowsTableView: UITableView!
     
-    private var timer = Timer()
-    private var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +46,22 @@ class VenueDetailViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         timer.invalidate()
+        //To inform Dashboard to resume its banner ad timer
+        notificationCenter.post(notifications.modalDismissed)
     }
     
 
-    
+    //MARK: Buttons Tapped
     @IBAction func callBusinessButtonTapped(_ sender: Any) {
         
     }
+    
+    @IBAction func hoursButtonTapped(_ sender: Any) {
+        self.view.addSubview(backgroundView)
+        self.view.addSubview(hoursView)
+        setupHoursAlertConstraints()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -69,7 +83,11 @@ extension VenueDetailViewController {
     private func updateViews() {
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
-        todayDate = dateFormatter.string(from: timeController.now)
+        
+        //UI Adjustments
+        directionsButton.layer.cornerRadius = directionsButton.frame.height / 2
+        businessLogoImageView.layer.cornerRadius = businessLogoImageView.frame.height / 2
+        
         
         //Data Source An Delegate Setup
         nextShowsTableView.dataSource = self
@@ -85,15 +103,14 @@ extension VenueDetailViewController {
         
         //Collection View Timer
         DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.pictureChange), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.startSlideShow), userInfo: nil, repeats: true)
         }
         timer.fire()
         
-        //MARK: - Table Logic
+        //MARK: - Table Logic And Tonights Show Logic
         //Table View data source
         var businessShows = showController.showArray.filter({$0.venue == currentBusiness.name})
-        let fourHourBufferTime = todaysDate.addingTimeInterval(-14400)
-        businessShows.removeAll(where: {$0.date < fourHourBufferTime})
+        businessShows.removeAll(where: {$0.date < timeController.twoHoursAgo})
         var orderedShows = businessShows.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
         //Grabs next Show for displaying
         let nextShow = orderedShows.first
@@ -134,10 +151,48 @@ extension VenueDetailViewController {
             businessRatingLabel.text = "\(currentBusiness.stars)"
         }
         
+        //MARK: - Hours of Operations View Initiation
+        //The alert itself
+        let alertView: OperationHoursAlert = {
+            let view = OperationHoursAlert.instanceFromNib(business: currentBusiness)
+            view.layer.cornerRadius = 20
+            view.clipsToBounds = true
+            view.delegate = self
+            return view
+        }()
+        hoursView = alertView
         
+        //The backgroundView
+        let backgroundView: UIView = {
+            let view = UIView()
+            view.backgroundColor = .black
+            view.alpha = 0.5
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }()
+        self.backgroundView = backgroundView
     }
     
-    @objc func pictureChange() {
+    
+    
+    //MARK: Setup Hours Constraints
+    private func setupHoursAlertConstraints() {
+        self.hoursView.translatesAutoresizingMaskIntoConstraints = false
+        self.hoursView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+        self.hoursView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0).isActive = true
+        self.hoursView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        self.hoursView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        self.backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+        self.backgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        self.backgroundView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+        self.backgroundView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+    }
+    
+    
+    //MARK: Slide Show Functions
+    @objc func startSlideShow() {
         var indexPath = IndexPath(row: counter, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
@@ -188,6 +243,11 @@ extension VenueDetailViewController: UICollectionViewDelegate, UICollectionViewD
         cell.businessPic = currentBusiness.pics[indexPath.row % currentBusiness.pics.count]
         return cell
     }
-    
-    
+}
+
+extension VenueDetailViewController: OperationHoursAlertDelegate {
+    func removeAlert(sender: OperationHoursAlert) {
+        sender.removeFromSuperview()
+        self.backgroundView.removeFromSuperview()
+    }
 }
