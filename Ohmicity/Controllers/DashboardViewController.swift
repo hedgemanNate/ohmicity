@@ -187,6 +187,34 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         return 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var size = CGSize()
+        let width = collectionView.frame.size.width
+        let height = collectionView.frame.size.height
+        
+        
+        
+        switch collectionView {
+        case bannerAdCollectionView:
+            size = CGSize(width: width, height: height)
+            return size
+        case todayCollectionView:
+            size = CGSize(width: 155, height: height)
+            return size
+        case citiesCollectionView:
+            size = CGSize(width: 155, height: height)
+            return size
+        case weeklyCollectionView:
+            size = CGSize(width: 155, height: height)
+            return size
+        case venueCollectionView:
+            size = CGSize(width: 155, height: height)
+            return size
+        default:
+            return size
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var num: Int?
         
