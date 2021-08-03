@@ -32,6 +32,8 @@ class LoadInitDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
+        assignCurrentUser()
+        addNotificationObservers()
         updateViewController()
         lmDateHandler.checkDateAndGetData()
         
@@ -64,6 +66,14 @@ extension LoadInitDataViewController {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
     }
+    
+    private func assignCurrentUser() {
+        guard let id = Auth.auth().currentUser?.uid else { return NSLog("No Current User ID: assignCurrentUser") }
+        guard let email = Auth.auth().currentUser?.email else { return NSLog("No Current User Email: assignCurrentUser") }
+        
+        currentUser = CurrentUser(userID: id, email: email)
+        }
+        
     
     //MARK: UpdateViews
     private func updateViewController() {

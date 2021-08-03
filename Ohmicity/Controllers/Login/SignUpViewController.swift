@@ -56,24 +56,42 @@ class SignUpViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
         
-        Auth.auth().createUser(withEmail: email, password: password)  { [self] (authResult, error) in
-            if let error = error {
-                NSLog("Error Logging In: \(error)")
-                alert.message = error.localizedDescription
-                alert.addAction(alertAction)
-                alertUI(alert)
-                present(alert, animated: true, completion: nil)
-            } else {
-                guard let uid = authResult?.user.uid else {return NSLog("No uid returned from auth")}
-                guard let email = authResult?.user.email else {return NSLog("No email retuned from auth")}
-                currentUser = User(userID: uid, email: email)
-                alert.title = "Welcome!"
-                alert.message = "Sign Up Successful"
-                alertUI(alert)
-                alert.addAction(alertAction2)
-                present(alert, animated: true, completion: nil)
+        let op1 = BlockOperation {
+            //Firestore network call to create the new user and assign it to the current user
+            Auth.auth().createUser(withEmail: email, password: password)  { [self] (authResult, error) in
+                if let error = error {
+                    NSLog("Error Logging In: \(error)")
+                    alert.message = error.localizedDescription
+                    alert.addAction(alertAction)
+                    alertUI(alert)
+                    present(alert, animated: true, completion: nil)
+                } else {
+                    guard let uid = authResult?.user.uid else {return NSLog("No uid returned from auth")}
+                    guard let email = authResult?.user.email else {return NSLog("No email retuned from auth")}
+                    currentUser = CurrentUser(userID: uid, email: email)
+                    alert.title = "Welcome!"
+                    alert.message = "Sign Up Successful"
+                    alertUI(alert)
+                    alert.addAction(alertAction2)
+                    present(alert, animated: true, completion: nil)
+                }
             }
         }
+        
+        let op2 = BlockOperation {
+            //Sends new user data to Firestore
+            guard let id = currentUser?.userID else {return NSLog("No currentUser ID: signUpButtonTapped")}
+            
+            do {
+                try ref.userDataPath.document(id).setData(from: currentUser)
+            } catch {
+                NSLog("Error pushing currentUser to database: signInButtonTapped")
+            }
+        }
+        
+        let opQueue = OperationQueue()
+        op2.addDependency(op1)
+        opQueue.addOperations([op1, op2], waitUntilFinished: true)
     }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
@@ -83,22 +101,50 @@ class SignUpViewController: UIViewController {
         let alert = UIAlertController(title: "UH OH!", message: "", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Got it!", style: .cancel, handler: nil)
         
-        Auth.auth().signIn(withEmail: email, password: password) { [self] (authDataResult, error) in
-            if let error = error {
-                NSLog("Error signing in. \(error)")
-                alert.message = error.localizedDescription
-                alert.addAction(alertAction)
-                alertUI(alert)
-                present(alert, animated: true, completion: nil)
-            } else {
-                guard let uid = authDataResult?.user.uid else {return NSLog("No uid returned from auth")}
-                guard let email = authDataResult?.user.email else {return NSLog("No email returned from auth")}
-                currentUser = User(userID: uid, email: email)
-                notificationCenter.post(notifications.userAuthUpdated)
-                notificationCenter.post(notifications.scrollToTop)
-                dismiss(animated: true, completion: nil)
+        let op1 = BlockOperation {
+            //Firestore network call to sign in the user
+            Auth.auth().signIn(withEmail: email, password: password) { [self] (authDataResult, error) in
+                if let error = error {
+                    NSLog("Error signing in. \(error)")
+                    alert.message = error.localizedDescription
+                    alert.addAction(alertAction)
+                    alertUI(alert)
+                    present(alert, animated: true, completion: nil)
+                } else {
+                    guard let uid = authDataResult?.user.uid else {return NSLog("No uid returned from auth")}
+                    guard let email = authDataResult?.user.email else {return NSLog("No email returned from auth")}
+                    currentUser = CurrentUser(userID: uid, email: email)
+                    notificationCenter.post(notifications.userAuthUpdated)
+                    notificationCenter.post(notifications.scrollToTop)
+                    dismiss(animated: true, completion: nil)
+                }
             }
         }
+        
+        let op2 = BlockOperation {
+            //Get user data from Firebase and assign it to the currentUser
+            guard let id = currentUser?.userID else {return NSLog("No currentUser ID: signInButtonTapped")}
+            ref.userDataPath.document(id).getDocument { document, error in
+                let result = Result {
+                    try document?.data(as: CurrentUser.self)
+                }
+                switch result {
+                case .success(let user):
+                    if let user = user {
+                        currentUser = user
+                    } else {
+                        NSLog("User does not exist in Firebase: signInButtonTapped")
+                    }
+                case .failure(let error):
+                    NSLog("\(error.localizedDescription): signInButtonTapped")
+                }
+            }
+        }
+        
+        let opQueue = OperationQueue()
+        op2.addDependency(op1)
+        opQueue.addOperations([op1, op2], waitUntilFinished: true)
+        
     }
     
     //MARK: UI

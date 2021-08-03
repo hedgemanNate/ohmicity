@@ -41,6 +41,8 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
         }
     }
     
+    
+    //Used By Apple sign up
     internal func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {
             print("\(user.uid) is the user signed in")
@@ -51,11 +53,24 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             
             currentUser = User(userID: uid, email: email)
             notificationCenter.post(notifications.userAuthUpdated)
-            self.dismiss(animated: true, completion: nil)
             
-
+            //Checks if this is a new user and assigns them a space in the database
+            if authDataResult?.additionalUserInfo?.isNewUser == true {
+                NSLog("New User Signed Up: authUI: SignInViewController")
+                do {
+                    try ref.userDataPath.document(uid).setData(from: currentUser)
+                } catch {
+                    NSLog("Error pushing currentUser to database: signInButtonTapped")
+                }
+            } else {
+                NSLog("Old User Signed In: authUI: SignInViewController")
+            }
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    
     
     @IBAction func breaker(_ sender: Any) {
 
@@ -66,7 +81,7 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             if user == nil {
                 //Future function for no user signed in
                 print("NO USERS SIGN IN!!!!!!!")
-            } else {
+            } else {                
                 self.dismiss(animated: true, completion: nil)
             }
       }
