@@ -270,11 +270,11 @@ should be on Xity?</string>
             <objects>
                 <viewController id="fki-Bt-PNW" userLabel="Venue Detail" customClass="VenueDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M90-I2-fJF">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1496"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1546"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-Ve-n4N">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="1462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="1512"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W9-h7-a1s" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1735"/>
@@ -348,7 +348,7 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25w-CZ-cPi" userLabel="Reccomend View">
-                                                <rect key="frame" x="9" y="1267.6666666666667" width="410" height="151.33333333333326"/>
+                                                <rect key="frame" x="9" y="1266.3333333333333" width="410" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4D-9p-Z6b">
                                                         <rect key="frame" x="21" y="14" width="368" height="53"/>
@@ -362,7 +362,7 @@ should be on Xity?</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XX-7s-JZD">
-                                                        <rect key="frame" x="21" y="88.333333333333258" width="368" height="49"/>
+                                                        <rect key="frame" x="21" y="87" width="368" height="49"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="0XX-7s-JZD" secondAttribute="height" multiplier="354:47" id="jDb-pR-uLt"/>
@@ -375,48 +375,20 @@ should be on Xity?</string>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="25w-CZ-cPi" secondAttribute="height" multiplier="198:73" id="11L-hs-R5h"/>
                                                     <constraint firstAttribute="trailing" secondItem="m4D-9p-Z6b" secondAttribute="trailing" constant="21" id="8Ir-4J-YXF"/>
                                                     <constraint firstItem="m4D-9p-Z6b" firstAttribute="leading" secondItem="25w-CZ-cPi" secondAttribute="leading" constant="21" id="AoU-R2-Rp9"/>
-                                                    <constraint firstAttribute="width" secondItem="25w-CZ-cPi" secondAttribute="height" multiplier="198:73" id="GaA-Er-67D"/>
                                                     <constraint firstAttribute="bottom" secondItem="0XX-7s-JZD" secondAttribute="bottom" constant="14" id="Y1J-dB-0jc"/>
                                                     <constraint firstItem="m4D-9p-Z6b" firstAttribute="top" secondItem="25w-CZ-cPi" secondAttribute="top" constant="14" id="ZNu-Q9-Pv8"/>
                                                     <constraint firstItem="0XX-7s-JZD" firstAttribute="leading" secondItem="25w-CZ-cPi" secondAttribute="leading" constant="21" id="h5u-Xb-U2O"/>
+                                                    <constraint firstAttribute="height" constant="150" id="lp3-8n-7Ij"/>
                                                     <constraint firstAttribute="trailing" secondItem="0XX-7s-JZD" secondAttribute="trailing" constant="21" id="meJ-mh-BPM"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wH-zx-jDa" userLabel="Top Buttons">
                                                 <rect key="frame" x="0.0" y="253.33333333333337" width="428" height="75"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zz9-hR-MSY" userLabel="Call View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107.66666666666667" height="75"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNy-i5-Pgz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="107.66666666666667" height="75"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="phone" catalog="system" symbolScale="large" renderingMode="original"/>
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="callBusinessButton:" destination="5ac-YL-HRn" eventType="touchUpInside" id="sbA-3M-zNp"/>
-                                                                    <action selector="callBusinessButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="q2G-9s-HEU"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstItem="kNy-i5-Pgz" firstAttribute="leading" secondItem="zz9-hR-MSY" secondAttribute="leading" id="Bn9-uJ-crL"/>
-                                                            <constraint firstItem="kNy-i5-Pgz" firstAttribute="centerY" secondItem="zz9-hR-MSY" secondAttribute="centerY" id="JxK-qa-lhI"/>
-                                                            <constraint firstAttribute="trailing" secondItem="kNy-i5-Pgz" secondAttribute="trailing" id="c6t-Ij-VT8"/>
-                                                            <constraint firstAttribute="bottom" secondItem="kNy-i5-Pgz" secondAttribute="bottom" id="f47-z7-XlB"/>
-                                                            <constraint firstItem="kNy-i5-Pgz" firstAttribute="centerX" secondItem="zz9-hR-MSY" secondAttribute="centerX" id="jIe-Vj-6fk"/>
-                                                            <constraint firstAttribute="width" secondItem="zz9-hR-MSY" secondAttribute="height" multiplier="23:16" id="roY-co-OQS"/>
-                                                            <constraint firstItem="kNy-i5-Pgz" firstAttribute="top" secondItem="zz9-hR-MSY" secondAttribute="top" id="tID-rd-RGJ"/>
-                                                        </constraints>
-                                                    </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zh-mF-CRG">
-                                                        <rect key="frame" x="107.66666666666666" y="0.0" width="320.33333333333337" height="75"/>
+                                                        <rect key="frame" x="75" y="0.0" width="288" height="75"/>
                                                         <color key="backgroundColor" red="0.26495882869999998" green="0.15182313319999999" blue="0.35518908500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <state key="normal" title="Hours Of Operation">
@@ -426,19 +398,51 @@ should be on Xity?</string>
                                                             <action selector="hoursButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="Jgc-Mi-GWs"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNy-i5-Pgz" userLabel="Call Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                        <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="1HX-tz-wVO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="phone.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="callBusinessButton:" destination="5ac-YL-HRn" eventType="touchUpInside" id="sbA-3M-zNp"/>
+                                                            <action selector="callBusinessButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="q2G-9s-HEU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9d-9P-dVU" userLabel="Favorite Button">
+                                                        <rect key="frame" x="363" y="0.0" width="65" height="75"/>
+                                                        <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="65" id="dQ5-Ev-0Qb"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="suit.heart.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="favoriteButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="pmD-gX-Sp6"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="8zh-mF-CRG" firstAttribute="leading" secondItem="zz9-hR-MSY" secondAttribute="trailing" id="6lY-Y5-I4W"/>
-                                                    <constraint firstAttribute="bottom" secondItem="8zh-mF-CRG" secondAttribute="bottom" id="9rS-8j-1K9"/>
-                                                    <constraint firstItem="zz9-hR-MSY" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="top" id="G4m-eF-HI9"/>
-                                                    <constraint firstItem="zz9-hR-MSY" firstAttribute="leading" secondItem="1wH-zx-jDa" secondAttribute="leading" id="GLw-Uq-SSP"/>
-                                                    <constraint firstItem="8zh-mF-CRG" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="top" id="Gm2-PT-9gp"/>
-                                                    <constraint firstAttribute="bottom" secondItem="8zh-mF-CRG" secondAttribute="bottom" id="fd2-CW-tiO"/>
-                                                    <constraint firstAttribute="bottom" secondItem="zz9-hR-MSY" secondAttribute="bottom" id="gpZ-hX-zxc"/>
-                                                    <constraint firstItem="8zh-mF-CRG" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="top" id="nBS-sW-nW4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="8zh-mF-CRG" secondAttribute="trailing" id="rnk-jf-1L7"/>
-                                                    <constraint firstAttribute="trailing" secondItem="8zh-mF-CRG" secondAttribute="trailing" id="sHE-WP-Qzy"/>
+                                                    <constraint firstItem="n9d-9P-dVU" firstAttribute="leading" secondItem="8zh-mF-CRG" secondAttribute="trailing" id="5LK-Bg-ruB"/>
+                                                    <constraint firstItem="8zh-mF-CRG" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="top" id="QzA-4a-YME"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8zh-mF-CRG" secondAttribute="bottom" id="RaO-gA-EcU"/>
+                                                    <constraint firstItem="n9d-9P-dVU" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="top" id="UCc-oM-q4Y"/>
+                                                    <constraint firstAttribute="trailing" secondItem="n9d-9P-dVU" secondAttribute="trailing" id="dA2-hg-Dc7"/>
+                                                    <constraint firstItem="kNy-i5-Pgz" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="top" id="dVk-Ke-vAb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="kNy-i5-Pgz" secondAttribute="bottom" id="n7V-AK-UoM"/>
+                                                    <constraint firstItem="8zh-mF-CRG" firstAttribute="leading" secondItem="kNy-i5-Pgz" secondAttribute="trailing" id="nMR-xq-uV0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="n9d-9P-dVU" secondAttribute="bottom" id="rNX-LA-aZJ"/>
+                                                    <constraint firstItem="kNy-i5-Pgz" firstAttribute="leading" secondItem="1wH-zx-jDa" secondAttribute="leading" id="wi6-mT-bKg"/>
                                                     <constraint firstAttribute="height" constant="75" id="z71-QQ-3P1"/>
                                                 </constraints>
                                             </view>
@@ -479,10 +483,10 @@ should be on Xity?</string>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3F-y4-RKu">
-                                                        <rect key="frame" x="0.0" y="169.00000000000006" width="241" height="35"/>
+                                                        <rect key="frame" x="0.0" y="159.00000000000006" width="241" height="45"/>
                                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="M35-LO-94m"/>
+                                                            <constraint firstAttribute="height" constant="45" id="M35-LO-94m"/>
                                                         </constraints>
                                                         <state key="normal" title="Take A Listen" backgroundImage="listenButton.png">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -629,14 +633,18 @@ should be on Xity?</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2y-NV-c28" userLabel="Map Holder View">
-                                                <rect key="frame" x="9" y="972.33333333333337" width="410" height="246.33333333333337"/>
+                                                <rect key="frame" x="9" y="972.33333333333348" width="410" height="245"/>
                                                 <subviews>
                                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3S1-ni-Y03">
-                                                        <rect key="frame" x="0.0" y="0.0" width="410" height="246.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="410" height="245"/>
                                                     </mapView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJE-jt-BGi" userLabel="Map Banner View">
-                                                        <rect key="frame" x="0.0" y="165.99999999999989" width="410" height="73.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="164.33333333333337" width="410" height="73.666666666666686"/>
                                                         <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nta-oI-Lyw" userLabel="Background Color VIew">
+                                                                <rect key="frame" x="0.0" y="0.0" width="410" height="73.666666666666671"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
                                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-Bt-nw6">
                                                                 <rect key="frame" x="351" y="-25" width="50" height="50"/>
                                                                 <color key="backgroundColor" red="0.26495882869999998" green="0.15182313319999999" blue="0.35518908500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -655,38 +663,42 @@ should be on Xity?</string>
                                                                     <constraint firstAttribute="width" secondItem="eaK-kZ-pX1" secondAttribute="height" multiplier="253:16" id="m6t-86-zyn"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jae-nk-cF5" userLabel="Business Address">
-                                                                <rect key="frame" x="8" y="25" width="249" height="38"/>
+                                                                <rect key="frame" x="8" y="25" width="176" height="38"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <string key="text">2015 60th Ave E, Ellenton
 Florida 34222 </string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.93717283009999997" green="0.93730741740000001" blue="0.93714338539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="PJE-jt-BGi" secondAttribute="height" multiplier="396:71" id="43v-pk-vOS"/>
+                                                            <constraint firstAttribute="bottom" secondItem="nta-oI-Lyw" secondAttribute="bottom" id="F6K-z7-CMU"/>
+                                                            <constraint firstItem="nta-oI-Lyw" firstAttribute="top" secondItem="PJE-jt-BGi" secondAttribute="top" id="UNU-9O-ocb"/>
                                                             <constraint firstItem="eaK-kZ-pX1" firstAttribute="leading" secondItem="PJE-jt-BGi" secondAttribute="leading" constant="7" id="eOp-7Y-qPG"/>
                                                             <constraint firstAttribute="trailing" secondItem="Dyt-Bt-nw6" secondAttribute="trailing" constant="9" id="fKp-eS-NXa"/>
+                                                            <constraint firstItem="nta-oI-Lyw" firstAttribute="leading" secondItem="PJE-jt-BGi" secondAttribute="leading" id="gLm-xL-KJt"/>
                                                             <constraint firstItem="eaK-kZ-pX1" firstAttribute="top" secondItem="PJE-jt-BGi" secondAttribute="top" constant="7" id="mRN-4g-XgQ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="nta-oI-Lyw" secondAttribute="trailing" id="qsb-hn-M0V"/>
                                                             <constraint firstItem="Dyt-Bt-nw6" firstAttribute="top" secondItem="PJE-jt-BGi" secondAttribute="top" constant="-25" id="wsR-71-iPE"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="j2y-NV-c28" secondAttribute="height" multiplier="198:119" id="2IL-Z0-ffQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="PJE-jt-BGi" secondAttribute="trailing" id="A2F-Nr-s61"/>
                                                     <constraint firstItem="3S1-ni-Y03" firstAttribute="leading" secondItem="j2y-NV-c28" secondAttribute="leading" id="EbA-tM-NpH"/>
                                                     <constraint firstAttribute="trailing" secondItem="3S1-ni-Y03" secondAttribute="trailing" id="LyP-S4-8VC"/>
                                                     <constraint firstAttribute="bottom" secondItem="3S1-ni-Y03" secondAttribute="bottom" id="PUT-3u-ap6"/>
                                                     <constraint firstItem="3S1-ni-Y03" firstAttribute="top" secondItem="j2y-NV-c28" secondAttribute="top" id="i1F-FT-H76"/>
                                                     <constraint firstItem="PJE-jt-BGi" firstAttribute="leading" secondItem="j2y-NV-c28" secondAttribute="leading" id="itW-qY-MhI"/>
+                                                    <constraint firstAttribute="height" constant="245" id="uvU-VX-IXr"/>
                                                     <constraint firstAttribute="bottom" secondItem="PJE-jt-BGi" secondAttribute="bottom" constant="7" id="vSw-Mv-pG1"/>
                                                 </constraints>
                                             </view>
@@ -748,7 +760,7 @@ Florida 34222 </string>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXW-I8-3WD" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="1405" width="372" height="57"/>
+                                <rect key="frame" x="28" y="1455" width="372" height="57"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OXW-I8-3WD" secondAttribute="height" multiplier="358:55" id="dVl-Uv-6KP"/>
@@ -769,7 +781,7 @@ Florida 34222 </string>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="lak-Zv-0cN"/>
-                    <size key="freeformSize" width="428" height="1550"/>
+                    <size key="freeformSize" width="428" height="1600"/>
                     <connections>
                         <outlet property="bandGenreLabel" destination="z9e-rP-hzg" id="1oV-92-nYN"/>
                         <outlet property="bandNameLabel" destination="0UF-od-poe" id="pb0-7d-ZUz"/>
@@ -780,7 +792,9 @@ Florida 34222 </string>
                         <outlet property="directionsButton" destination="Dyt-Bt-nw6" id="LnT-1w-jsp"/>
                         <outlet property="hoursButton" destination="8zh-mF-CRG" id="2Ga-mT-3Ur"/>
                         <outlet property="listenButton" destination="B3F-y4-RKu" id="9q9-8H-Hm1"/>
+                        <outlet property="map" destination="3S1-ni-Y03" id="5Uf-GP-7au"/>
                         <outlet property="mapAddressLabel" destination="Jae-nk-cF5" id="1da-5K-Nk9"/>
+                        <outlet property="mapBackgroundView" destination="nta-oI-Lyw" id="VK2-2a-KOZ"/>
                         <outlet property="mapNameLabel" destination="eaK-kZ-pX1" id="P61-gZ-fub"/>
                         <outlet property="nextShowsTableView" destination="yLX-vV-2Rk" id="cH1-Ue-TB1"/>
                         <outlet property="showTimeLabel" destination="bJS-el-yD1" id="coZ-Qa-cEm"/>
@@ -2073,8 +2087,9 @@ should be on Xity?</string>
         <image name="directionsIcon.png" width="100" height="102"/>
         <image name="listenButton.png" width="196" height="38"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
-        <image name="phone" catalog="system" width="128" height="115"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

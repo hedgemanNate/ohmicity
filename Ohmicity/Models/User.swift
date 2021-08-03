@@ -18,5 +18,7 @@ struct User {
     var usedPromotions: [String] = []
     var paidServices: [String] = []
     var giftServices: [String] = []
-    var adPoints: Int
+    var adPoints: Int = 0
 }
+
+var currentUser: User?

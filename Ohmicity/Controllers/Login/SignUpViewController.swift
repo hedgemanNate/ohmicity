@@ -66,7 +66,7 @@ class SignUpViewController: UIViewController {
             } else {
                 guard let uid = authResult?.user.uid else {return NSLog("No uid returned from auth")}
                 guard let email = authResult?.user.email else {return NSLog("No email retuned from auth")}
-                currentUser = CurrentUser(userID: uid, email: email)
+                currentUser = User(userID: uid, email: email)
                 alert.title = "Welcome!"
                 alert.message = "Sign Up Successful"
                 alertUI(alert)
@@ -93,7 +93,7 @@ class SignUpViewController: UIViewController {
             } else {
                 guard let uid = authDataResult?.user.uid else {return NSLog("No uid returned from auth")}
                 guard let email = authDataResult?.user.email else {return NSLog("No email returned from auth")}
-                currentUser = CurrentUser(userID: uid, email: email)
+                currentUser = User(userID: uid, email: email)
                 notificationCenter.post(notifications.userAuthUpdated)
                 notificationCenter.post(notifications.scrollToTop)
                 dismiss(animated: true, completion: nil)

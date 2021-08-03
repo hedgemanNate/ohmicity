@@ -49,7 +49,7 @@
 		F676F0F726991C6C00C47599 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F026991C6C00C47599 /* Recommendation.swift */; };
 		F676F0F826991C6C00C47599 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F126991C6C00C47599 /* Message.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
-		F676F0FA26991C6C00C47599 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F326991C6C00C47599 /* Venue.swift */; };
+		F676F0FA26991C6C00C47599 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F326991C6C00C47599 /* Business.swift */; };
 		F676F0FB26991C6C00C47599 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F426991C6C00C47599 /* Band.swift */; };
 		F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */; };
 		F676F0FF269947B300C47599 /* BandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0FE269947B300C47599 /* BandController.swift */; };
@@ -153,7 +153,7 @@
 		F676F0F026991C6C00C47599 /* Recommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		F676F0F126991C6C00C47599 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		F676F0F326991C6C00C47599 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		F676F0F326991C6C00C47599 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		F676F0F426991C6C00C47599 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
 		F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastModifiedDateHandler.swift; sourceTree = "<group>"; };
 		F676F0FE269947B300C47599 /* BandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandController.swift; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 				F676F0F026991C6C00C47599 /* Recommendation.swift */,
 				F676F0F226991C6C00C47599 /* Show.swift */,
 				F676F0EE26991C6C00C47599 /* User.swift */,
-				F676F0F326991C6C00C47599 /* Venue.swift */,
+				F676F0F326991C6C00C47599 /* Business.swift */,
 				F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */,
 			);
 			path = Models;
@@ -798,7 +798,7 @@
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BannerAdController.swift in Sources */,
-				F676F0FA26991C6C00C47599 /* Venue.swift in Sources */,
+				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
 				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,

@@ -46,7 +46,10 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             print("\(user.uid) is the user signed in")
             guard let uid = authDataResult?.user.uid else {return NSLog("No uid returned from auth")}
             guard let email = authDataResult?.user.email else {return NSLog("No email retuned from auth")}
-            currentUser = CurrentUser(userID: uid, email: email)
+            
+            
+            
+            currentUser = User(userID: uid, email: email)
             notificationCenter.post(notifications.userAuthUpdated)
             self.dismiss(animated: true, completion: nil)
             

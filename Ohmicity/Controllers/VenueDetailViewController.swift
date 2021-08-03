@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class VenueDetailViewController: UIViewController {
     
@@ -14,16 +16,24 @@ class VenueDetailViewController: UIViewController {
     var nextShowsArray = [Show]()
     var nextShow: Show?
     
+    //Slideshow properties
     private var timer = timeController.timer
     private var counter = 0
     
-    //Hours Of Operation Alert View
+    //Map Properties
+    var addressLocation: CLLocation?
+    var coordinate: CLLocationCoordinate2D?
+    @IBOutlet weak var mapBackgroundView: UIView!
+    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var directionsButton: UIButton!
+    
+    //Top Buttons And Hours
+    
     var hoursView = OperationHoursAlert()
     private var backgroundView: UIView!
 
     @IBOutlet weak var hoursButton: UIButton!
     @IBOutlet weak var listenButton: UIButton!
-    @IBOutlet weak var directionsButton: UIButton!
     
     @IBOutlet weak var businessLogoImageView: UIImageView!
     @IBOutlet weak var bandPhotoImageView: UIImageView!
@@ -57,7 +67,13 @@ class VenueDetailViewController: UIViewController {
 
     //MARK: Buttons Tapped
     @IBAction func callBusinessButtonTapped(_ sender: Any) {
+        guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
+        let num = String(currentBusiness.phoneNumber)
         
+        if let url = URL(string: "tel://\(num)"),
+           UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
     @IBAction func hoursButtonTapped(_ sender: Any) {
@@ -66,6 +82,16 @@ class VenueDetailViewController: UIViewController {
         setupHoursAlertConstraints()
         print(timeController.dayOfWeek)
     }
+    
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: favoriteButtonTapped: venueDetailViewController")}
+        if currentUser!.favoriteBusinesses.contains(currentBusiness.venueID!) {
+            currentUser?.favoriteBusinesses.removeAll(where: {$0 == currentBusiness.venueID})
+            NSLog("Business Removed From Favorites")
+            
+        }
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -87,16 +113,24 @@ extension VenueDetailViewController {
         self.hoursView.removeFromSuperview()
         self.backgroundView.removeFromSuperview()
     }
+}
+
+
+//MARK: - ------UpdateViews--------
+extension VenueDetailViewController {
     
-    //MARK: - UpdateViews
     private func updateViews() {
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         
-        //UI Adjustments
-        directionsButton.layer.cornerRadius = directionsButton.frame.height / 2
+        //Banner Photo Adjustments
         businessLogoImageView.layer.cornerRadius = businessLogoImageView.frame.height / 2
         
+        //Map
+        mapSetup()
+        directionsButton.layer.cornerRadius = directionsButton.frame.height / 2
+        mapBackgroundView.alpha = 0.6
+        mapBackgroundView.backgroundColor = cc.white
         
         //Data Source An Delegate Setup
         nextShowsTableView.dataSource = self
@@ -109,6 +143,9 @@ extension VenueDetailViewController {
         guard let businessLogoData = currentBusiness.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
         let businessLogo = UIImage(data: businessLogoData)
         businessLogoImageView.image = businessLogo
+        
+        mapNameLabel.text = currentBusiness.name
+        mapAddressLabel.text = currentBusiness.address
         
         //Collection View Timer
         DispatchQueue.main.async {
@@ -123,6 +160,7 @@ extension VenueDetailViewController {
         var orderedShows = businessShows.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
         //Grabs next Show for displaying
         let nextShow = orderedShows.first
+        self.nextShow = nextShow
         //Removes nextShow from array so its not shown twice
         orderedShows.removeFirst()
         nextShowsArray = orderedShows
@@ -155,7 +193,7 @@ extension VenueDetailViewController {
         }
         
         if currentBusiness.stars == 0 {
-            businessRatingLabel.text = "Rate Music Here"
+            businessRatingLabel.text = "No Rating Yet"
         } else {
             businessRatingLabel.text = "\(currentBusiness.stars)"
         }
@@ -178,10 +216,14 @@ extension VenueDetailViewController {
         }()
         self.backgroundView = backgroundView
     }
+}
+//MARK: -----UpdateViews End-----
+
+
+
+//MARK: Functions
+extension VenueDetailViewController {
     
-    
-    
-    //MARK: Setup Hours Constraints
     private func setupHoursAlertConstraints() {
         self.hoursView.translatesAutoresizingMaskIntoConstraints = false
         self.hoursView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
@@ -194,6 +236,33 @@ extension VenueDetailViewController {
         self.backgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         self.backgroundView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
         self.backgroundView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+    }
+    
+    private func mapSetup() {
+        guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(currentBusiness.address) { [self] placemarks, error in
+            if let error = error {
+                NSLog("Error Converting Address: \(error.localizedDescription)")
+            }
+            guard let placemarks = placemarks,
+                  let location = placemarks.first?.location
+            else { return NSLog("Error getting placmark: VenueDetailViewController: mapSetup ")}
+            
+            map.isUserInteractionEnabled = true
+            coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            let region = MKCoordinateRegion(center: coordinate!, span: span)
+            map.setRegion(region, animated: false)
+
+            //Setup Map Pin
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate!
+            pin.title = currentBusiness.name
+            map.addAnnotation(pin)
+        }
     }
     
     

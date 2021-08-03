@@ -28,4 +28,4 @@ struct CurrentUser {
     }
 }
 
-var currentUser: CurrentUser?
+
