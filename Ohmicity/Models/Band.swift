@@ -21,6 +21,10 @@ enum Genre: String, Codable {
     case DJ
     case Pop
     case Metal
+    case Experimental
+    case JamBand
+    case Gospel
+    case EasyListening
 }
 
 class Band: Codable, Equatable {
