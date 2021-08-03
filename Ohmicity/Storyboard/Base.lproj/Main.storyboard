@@ -644,7 +644,8 @@ should be on Xity?</string>
                                                                     <constraint firstAttribute="width" constant="50" id="NS8-EH-3CY"/>
                                                                     <constraint firstAttribute="height" constant="50" id="dFI-pG-g5Y"/>
                                                                 </constraints>
-                                                                <state key="normal" image="directionsIcon.png">
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" backgroundImage="directionsIcon.png">
                                                                     <color key="titleColor" red="0.81310960350000006" green="0.58653262070000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                             </button>
@@ -779,6 +780,8 @@ Florida 34222 </string>
                         <outlet property="directionsButton" destination="Dyt-Bt-nw6" id="LnT-1w-jsp"/>
                         <outlet property="hoursButton" destination="8zh-mF-CRG" id="2Ga-mT-3Ur"/>
                         <outlet property="listenButton" destination="B3F-y4-RKu" id="9q9-8H-Hm1"/>
+                        <outlet property="mapAddressLabel" destination="Jae-nk-cF5" id="1da-5K-Nk9"/>
+                        <outlet property="mapNameLabel" destination="eaK-kZ-pX1" id="P61-gZ-fub"/>
                         <outlet property="nextShowsTableView" destination="yLX-vV-2Rk" id="cH1-Ue-TB1"/>
                         <outlet property="showTimeLabel" destination="bJS-el-yD1" id="coZ-Qa-cEm"/>
                         <outlet property="tonightsEntLabel" destination="5Ht-a8-dTe" id="7Wh-Ss-I2V"/>
@@ -1346,7 +1349,7 @@ should be on Xity?</string>
                         <rect key="frame" x="0.0" y="0.0" width="428" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
                                 <rect key="frame" x="0.0" y="44" width="428" height="1873"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaE-9Z-b5c" userLabel="Content View">
@@ -1426,14 +1429,14 @@ should be on Xity?</string>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="Orb-2p-IHY" customClass="BandVenueCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
                                                         <rect key="frame" x="9" y="0.0" width="155" height="260.99999999999994"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lDn-pu-QGD">
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="lDn-pu-QGD">
                                                             <rect key="frame" x="0.0" y="0.0" width="155" height="260.99999999999994"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hhN-6i-sfM">
                                                                     <rect key="frame" x="0.0" y="0.0" width="155" height="204"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="204" id="gzu-kB-KzF"/>
+                                                                        <constraint firstAttribute="height" constant="204" id="R7t-QA-Ym0"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Myp-DL-DmS" userLabel="adImageView">
@@ -1446,7 +1449,7 @@ should be on Xity?</string>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BandVenueBorder.png" translatesAutoresizingMaskIntoConstraints="NO" id="5sL-uA-mq2" userLabel="Border">
                                                                     <rect key="frame" x="0.0" y="0.0" width="155" height="204"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="204" id="xSx-93-Kfp"/>
+                                                                        <constraint firstAttribute="height" constant="204" id="T5l-50-Oue"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11k-Km-eNH">
@@ -1458,19 +1461,17 @@ should be on Xity?</string>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="11k-Km-eNH" secondAttribute="bottom" id="4lq-NL-Tqk"/>
-                                                                <constraint firstItem="5sL-uA-mq2" firstAttribute="top" secondItem="lDn-pu-QGD" secondAttribute="top" id="7aL-js-cYT"/>
-                                                                <constraint firstItem="11k-Km-eNH" firstAttribute="top" secondItem="hhN-6i-sfM" secondAttribute="bottom" id="Bgj-dd-zG1"/>
+                                                                <constraint firstAttribute="trailing" secondItem="hhN-6i-sfM" secondAttribute="trailing" id="Bya-aq-lZY"/>
+                                                                <constraint firstItem="5sL-uA-mq2" firstAttribute="top" secondItem="lDn-pu-QGD" secondAttribute="top" id="DvC-wc-kgB"/>
                                                                 <constraint firstItem="Myp-DL-DmS" firstAttribute="top" secondItem="lDn-pu-QGD" secondAttribute="top" id="GHR-fp-pll"/>
-                                                                <constraint firstAttribute="trailing" secondItem="5sL-uA-mq2" secondAttribute="trailing" id="GoB-1Z-rS2"/>
                                                                 <constraint firstItem="11k-Km-eNH" firstAttribute="leading" secondItem="lDn-pu-QGD" secondAttribute="leading" id="H2i-WG-LHX"/>
-                                                                <constraint firstItem="5sL-uA-mq2" firstAttribute="centerX" secondItem="lDn-pu-QGD" secondAttribute="centerX" id="PN4-EX-mWe"/>
+                                                                <constraint firstAttribute="trailing" secondItem="5sL-uA-mq2" secondAttribute="trailing" id="QV5-ov-eO6"/>
+                                                                <constraint firstItem="hhN-6i-sfM" firstAttribute="top" secondItem="lDn-pu-QGD" secondAttribute="top" id="RVF-lk-Oeh"/>
+                                                                <constraint firstItem="11k-Km-eNH" firstAttribute="top" secondItem="5sL-uA-mq2" secondAttribute="bottom" id="WBa-yv-OKj"/>
                                                                 <constraint firstAttribute="trailing" secondItem="11k-Km-eNH" secondAttribute="trailing" id="cPy-WH-UKy"/>
-                                                                <constraint firstItem="hhN-6i-sfM" firstAttribute="top" secondItem="lDn-pu-QGD" secondAttribute="top" id="fg7-Sq-3zd"/>
+                                                                <constraint firstItem="5sL-uA-mq2" firstAttribute="leading" secondItem="lDn-pu-QGD" secondAttribute="leading" id="gWn-eZ-Lwm"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Myp-DL-DmS" secondAttribute="trailing" id="h6O-AQ-Wco"/>
-                                                                <constraint firstItem="5sL-uA-mq2" firstAttribute="leading" secondItem="lDn-pu-QGD" secondAttribute="leading" id="nWY-JW-9LG"/>
-                                                                <constraint firstItem="hhN-6i-sfM" firstAttribute="leading" secondItem="lDn-pu-QGD" secondAttribute="leading" id="uUc-ma-dVD"/>
-                                                                <constraint firstItem="5sL-uA-mq2" firstAttribute="centerY" secondItem="lDn-pu-QGD" secondAttribute="centerY" constant="-28.5" id="vpG-S7-Ylb"/>
-                                                                <constraint firstAttribute="trailing" secondItem="hhN-6i-sfM" secondAttribute="trailing" id="yU0-vD-G88"/>
+                                                                <constraint firstItem="hhN-6i-sfM" firstAttribute="leading" secondItem="lDn-pu-QGD" secondAttribute="leading" id="wky-p4-tse"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <connections>
@@ -1526,7 +1527,7 @@ should be on Xity?</string>
                                                             <rect key="frame" x="0.0" y="0.0" width="155" height="105"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Ip-Hi4">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EfW-Ip-Hi4">
                                                                     <rect key="frame" x="0.0" y="0.0" width="155" height="105"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-2B-oVB">
@@ -1565,8 +1566,8 @@ should be on Xity?</string>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-3o-0eE">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="232"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Save your favorite venues and bands and get our list of the best shows in the Bay Area. Every Week." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-Bs-Wlj">
-                                                        <rect key="frame" x="27.666666666666657" y="28" width="347.33333333333337" height="83"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your favorite venues and bands and get our list of the best shows in the Bay Area. Every Week." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-Bs-Wlj">
+                                                        <rect key="frame" x="28.333333333333343" y="28" width="346.66666666666663" height="83"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="2tW-Bs-Wlj" secondAttribute="height" multiplier="163:39" id="HL7-Nm-unr"/>
                                                         </constraints>
@@ -1574,7 +1575,7 @@ should be on Xity?</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5O-HO-FdC">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5O-HO-FdC">
                                                         <rect key="frame" x="35" y="118" width="127" height="44"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1586,7 +1587,7 @@ should be on Xity?</string>
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
                                                         <rect key="frame" x="35" y="168.99999999999989" width="184" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="zgl-sI-FPH" secondAttribute="height" multiplier="92:15" id="Ahl-9v-VH6"/>
@@ -1603,11 +1604,13 @@ should be on Xity?</string>
                                                     <constraint firstItem="zgl-sI-FPH" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" constant="35" id="3dV-Yk-ZjE"/>
                                                     <constraint firstItem="vDl-3o-0eE" firstAttribute="top" secondItem="KmJ-NI-E7V" secondAttribute="top" id="4vb-AF-BTI"/>
                                                     <constraint firstItem="z5O-HO-FdC" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" constant="35" id="GI8-80-zRA"/>
+                                                    <constraint firstItem="2tW-Bs-Wlj" firstAttribute="top" secondItem="KmJ-NI-E7V" secondAttribute="top" constant="28" id="NIo-Eg-cN0"/>
                                                     <constraint firstAttribute="width" secondItem="KmJ-NI-E7V" secondAttribute="height" multiplier="99:56" id="Ot5-g7-1H4"/>
                                                     <constraint firstItem="vDl-3o-0eE" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" id="QzU-MK-qBC"/>
                                                     <constraint firstAttribute="trailing" secondItem="2tW-Bs-Wlj" secondAttribute="trailing" constant="35" id="UFn-wk-Zh0"/>
                                                     <constraint firstAttribute="bottom" secondItem="vDl-3o-0eE" secondAttribute="bottom" id="bzV-ft-5qC"/>
                                                     <constraint firstItem="2tW-Bs-Wlj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KmJ-NI-E7V" secondAttribute="leading" constant="20" symbolic="YES" id="dok-hh-m1F"/>
+                                                    <constraint firstAttribute="bottom" secondItem="zgl-sI-FPH" secondAttribute="bottom" constant="33.000000000000227" id="e6c-Tp-B7y"/>
                                                     <constraint firstAttribute="trailing" secondItem="vDl-3o-0eE" secondAttribute="trailing" id="vh9-l9-IQG"/>
                                                     <constraint firstItem="z5O-HO-FdC" firstAttribute="top" secondItem="2tW-Bs-Wlj" secondAttribute="bottom" constant="7" id="xLI-64-X2V"/>
                                                 </constraints>

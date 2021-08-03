@@ -34,6 +34,9 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var bandGenreLabel: UILabel!
     @IBOutlet weak var businessRatingLabel: UILabel!
     
+    @IBOutlet weak var mapNameLabel: UILabel!
+    @IBOutlet weak var mapAddressLabel: UILabel!
+    
     @IBOutlet weak var businessPicsCollectionView: UICollectionView!
     @IBOutlet weak var nextShowsTableView: UITableView!
     
@@ -41,6 +44,7 @@ class VenueDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -78,9 +82,13 @@ class VenueDetailViewController: UIViewController {
 //MARK: - Functions
 extension VenueDetailViewController {
     
+    //Dismissed the Operation Hours Alert View
+    @objc private func dismissAlert() {
+        self.hoursView.removeFromSuperview()
+        self.backgroundView.removeFromSuperview()
+    }
     
     //MARK: - UpdateViews
-    
     private func updateViews() {
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
@@ -156,9 +164,6 @@ extension VenueDetailViewController {
         //The alert itself
         let alertView: OperationHoursAlert = {
             let view = OperationHoursAlert.instanceFromNib(business: currentBusiness)
-            view.layer.cornerRadius = 0
-            view.clipsToBounds = true
-            view.delegate = self
             return view
         }()
         hoursView = alertView
@@ -230,10 +235,17 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 //MARK: - CollectionView
-extension VenueDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension VenueDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 50
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.size.width
+        let height = collectionView.frame.size.height
+        
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -246,9 +258,3 @@ extension VenueDetailViewController: UICollectionViewDelegate, UICollectionViewD
     }
 }
 
-extension VenueDetailViewController: OperationHoursAlertDelegate {
-    func removeAlert(sender: OperationHoursAlert) {
-        sender.removeFromSuperview()
-        self.backgroundView.removeFromSuperview()
-    }
-}

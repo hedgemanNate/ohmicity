@@ -9,9 +9,6 @@ import UIKit
 
 class OperationHoursAlert: UIView {
     
-    //Properties
-    var delegate: OperationHoursAlertDelegate?
-    
     //Day Stack
     @IBOutlet weak var monLabel: UILabel!
     @IBOutlet weak var tueLabel: UILabel!
@@ -39,7 +36,7 @@ class OperationHoursAlert: UIView {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-        self.delegate?.removeAlert(sender: self)
+        notificationCenter.post(notifications.dismiss)
     }
     
     
@@ -85,13 +82,6 @@ class OperationHoursAlert: UIView {
         friLabel.clipsToBounds = true
         satLabel.clipsToBounds = true
         sunLabel.clipsToBounds = true
-        
-        
-        
-        
-        
-        
-        
         
         //Highlight Day Of Week
         switch timeController.dayOfWeek {
@@ -139,7 +129,7 @@ class OperationHoursAlert: UIView {
 // MARK: - Delegate
 protocol OperationHoursAlertDelegate {
     func removeAlert(sender: OperationHoursAlert)
-    //func handleData(name: String, isAllowed: Bool)
+    
 }
 
 

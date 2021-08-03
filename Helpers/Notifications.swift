@@ -14,8 +14,9 @@ class Notifications {
     
     //UI Notifications
     let scrollToTop = Notification(name: Notification.Name(rawValue: "ScrollToTop"))
+    let dismiss = Notification(name: Notification.Name(rawValue: "Dismiss"))
     
-    //Databass Notifications
+    //Database Notifications
     let businessArraySet = Notification(name: Notification.Name(rawValue: "BusinessArraySet"))
     let showArraySet = Notification(name: Notification.Name(rawValue: "ShowArraySet"))
     let bandArraySet = Notification(name: Notification.Name(rawValue: "BandArraySet"))
