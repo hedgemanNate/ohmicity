@@ -33,7 +33,6 @@ class LoadInitDataViewController: UIViewController {
         super.viewDidLoad()
         addNotificationObservers()
         assignCurrentUser()
-        addNotificationObservers()
         updateViewController()
         lmDateHandler.checkDateAndGetData()
         
@@ -69,16 +68,29 @@ extension LoadInitDataViewController {
     
     private func assignCurrentUser() {
         guard let id = Auth.auth().currentUser?.uid else { return NSLog("No Current User ID: assignCurrentUser") }
-        guard let email = Auth.auth().currentUser?.email else { return NSLog("No Current User Email: assignCurrentUser") }
         
-        currentUser = CurrentUser(userID: id, email: email)
+        ref.userDataPath.document(id).getDocument { document, error in
+            let result = Result {
+                try document?.data(as: User.self)
+            }
+            switch result {
+            case.success(let user):
+                if let user = user {
+                    currentUser = user
+                } else {
+                    NSLog("User Data Not Found In Database")
+                }
+            case .failure(let error):
+                NSLog(error.localizedDescription)
+            }
         }
+    }
         
     
     //MARK: UpdateViews
     private func updateViewController() {
         dateFormatter.dateFormat = dateFormat3
-        timeController.setTime(enterTime: "July 31, 2021")
+        timeController.setTime()
         //setTime(enterTime) format July 31, 2021
     }
     

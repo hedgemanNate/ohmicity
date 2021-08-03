@@ -350,20 +350,20 @@ should be on Xity?</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25w-CZ-cPi" userLabel="Reccomend View">
                                                 <rect key="frame" x="9" y="1266.3333333333333" width="410" height="150"/>
                                                 <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="MKB-21-Lnd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="410" height="150"/>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4D-9p-Z6b">
-                                                        <rect key="frame" x="21" y="14" width="368" height="53"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="m4D-9p-Z6b" secondAttribute="height" multiplier="118:17" id="8Pf-Ha-hrV"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="21" y="14" width="368" height="73"/>
                                                         <string key="text">Know a great local band or venue that
 should be on Xity?</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XX-7s-JZD">
                                                         <rect key="frame" x="21" y="87" width="368" height="49"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <color key="backgroundColor" red="0.17517626289999999" green="0.35147607330000002" blue="0.73969513180000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="0XX-7s-JZD" secondAttribute="height" multiplier="354:47" id="jDb-pR-uLt"/>
                                                         </constraints>
@@ -375,20 +375,25 @@ should be on Xity?</string>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="MKB-21-Lnd" firstAttribute="leading" secondItem="25w-CZ-cPi" secondAttribute="leading" id="25f-iT-XEb"/>
                                                     <constraint firstAttribute="trailing" secondItem="m4D-9p-Z6b" secondAttribute="trailing" constant="21" id="8Ir-4J-YXF"/>
                                                     <constraint firstItem="m4D-9p-Z6b" firstAttribute="leading" secondItem="25w-CZ-cPi" secondAttribute="leading" constant="21" id="AoU-R2-Rp9"/>
+                                                    <constraint firstAttribute="bottom" secondItem="MKB-21-Lnd" secondAttribute="bottom" id="CQQ-xJ-1fl"/>
                                                     <constraint firstAttribute="bottom" secondItem="0XX-7s-JZD" secondAttribute="bottom" constant="14" id="Y1J-dB-0jc"/>
                                                     <constraint firstItem="m4D-9p-Z6b" firstAttribute="top" secondItem="25w-CZ-cPi" secondAttribute="top" constant="14" id="ZNu-Q9-Pv8"/>
+                                                    <constraint firstItem="0XX-7s-JZD" firstAttribute="top" secondItem="m4D-9p-Z6b" secondAttribute="bottom" id="g6z-gd-tal"/>
                                                     <constraint firstItem="0XX-7s-JZD" firstAttribute="leading" secondItem="25w-CZ-cPi" secondAttribute="leading" constant="21" id="h5u-Xb-U2O"/>
                                                     <constraint firstAttribute="height" constant="150" id="lp3-8n-7Ij"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MKB-21-Lnd" secondAttribute="trailing" id="m4n-r2-ZVt"/>
                                                     <constraint firstAttribute="trailing" secondItem="0XX-7s-JZD" secondAttribute="trailing" constant="21" id="meJ-mh-BPM"/>
+                                                    <constraint firstItem="MKB-21-Lnd" firstAttribute="top" secondItem="25w-CZ-cPi" secondAttribute="top" id="qCe-OM-DPO"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wH-zx-jDa" userLabel="Top Buttons">
                                                 <rect key="frame" x="0.0" y="253.33333333333337" width="428" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zh-mF-CRG">
-                                                        <rect key="frame" x="75" y="0.0" width="288" height="75"/>
+                                                        <rect key="frame" x="75" y="0.0" width="278" height="75"/>
                                                         <color key="backgroundColor" red="0.26495882869999998" green="0.15182313319999999" blue="0.35518908500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <state key="normal" title="Hours Of Operation">
@@ -416,14 +421,14 @@ should be on Xity?</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9d-9P-dVU" userLabel="Favorite Button">
-                                                        <rect key="frame" x="363" y="0.0" width="65" height="75"/>
+                                                        <rect key="frame" x="353" y="0.0" width="75" height="75"/>
                                                         <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="65" id="dQ5-Ev-0Qb"/>
+                                                            <constraint firstAttribute="width" constant="75" id="dQ5-Ev-0Qb"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal">
-                                                            <imageReference key="image" image="suit.heart.fill" catalog="system" symbolScale="large"/>
+                                                            <imageReference key="image" image="suit.heart" catalog="system" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                                         </state>
                                                         <connections>
@@ -491,6 +496,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Take A Listen" backgroundImage="listenButton.png">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="listenButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="vKi-4u-7vL"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJS-el-yD1">
                                                         <rect key="frame" x="56" y="0.0" width="185" height="40"/>
@@ -656,6 +664,9 @@ should be on Xity?</string>
                                                                 <state key="normal" backgroundImage="directionsIcon.png">
                                                                     <color key="titleColor" red="0.81310960350000006" green="0.58653262070000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="directionsButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="Gq5-3W-SW0"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jerk Hut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaK-kZ-pX1" userLabel="Business Name Label">
                                                                 <rect key="frame" x="7" y="7" width="316.33333333333331" height="20"/>
@@ -711,6 +722,14 @@ Florida 34222 </string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htM-13-0SJ">
+                                                <rect key="frame" x="195" y="336" width="39" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="break"/>
+                                                <connections>
+                                                    <action selector="breaker:" destination="fki-Bt-PNW" eventType="touchUpInside" id="Bgv-fs-HbG"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -790,6 +809,7 @@ Florida 34222 </string>
                         <outlet property="businessPicsCollectionView" destination="3Ls-J7-E6e" id="Dvy-wn-5cy"/>
                         <outlet property="businessRatingLabel" destination="u1P-MG-u2D" id="eOI-7s-Dpn"/>
                         <outlet property="directionsButton" destination="Dyt-Bt-nw6" id="LnT-1w-jsp"/>
+                        <outlet property="favoriteButton" destination="n9d-9P-dVU" id="hy3-aJ-0ed"/>
                         <outlet property="hoursButton" destination="8zh-mF-CRG" id="2Ga-mT-3Ur"/>
                         <outlet property="listenButton" destination="B3F-y4-RKu" id="9q9-8H-Hm1"/>
                         <outlet property="map" destination="3S1-ni-Y03" id="5Uf-GP-7au"/>
@@ -2089,7 +2109,7 @@ should be on Xity?</string>
         <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
+        <image name="suit.heart" catalog="system" width="128" height="109"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

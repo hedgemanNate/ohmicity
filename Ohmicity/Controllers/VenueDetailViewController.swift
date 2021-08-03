@@ -8,6 +8,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class VenueDetailViewController: UIViewController {
     
@@ -15,6 +17,7 @@ class VenueDetailViewController: UIViewController {
     var currentBusiness: BusinessFullData?
     var nextShowsArray = [Show]()
     var nextShow: Show?
+    var band: Band?
     
     //Slideshow properties
     private var timer = timeController.timer
@@ -28,10 +31,9 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var directionsButton: UIButton!
     
     //Top Buttons And Hours
-    
+    @IBOutlet weak var favoriteButton: UIButton!
     var hoursView = OperationHoursAlert()
     private var backgroundView: UIView!
-
     @IBOutlet weak var hoursButton: UIButton!
     @IBOutlet weak var listenButton: UIButton!
     
@@ -66,6 +68,11 @@ class VenueDetailViewController: UIViewController {
     
 
     //MARK: Buttons Tapped
+    
+    @IBAction func breaker(_ sender: Any) {
+        
+    }
+    
     @IBAction func callBusinessButtonTapped(_ sender: Any) {
         guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
         let num = String(currentBusiness.phoneNumber)
@@ -85,12 +92,68 @@ class VenueDetailViewController: UIViewController {
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: favoriteButtonTapped: venueDetailViewController")}
-        if currentUser!.favoriteBusinesses.contains(currentBusiness.venueID!) {
-            currentUser?.favoriteBusinesses.removeAll(where: {$0 == currentBusiness.venueID})
-            NSLog("Business Removed From Favorites")
-            
+        
+        if currentUser != nil {
+            if currentUser!.favoriteBusinesses.contains(currentBusiness.venueID!) {
+                currentUser!.favoriteBusinesses.removeAll(where: {$0 == currentBusiness.venueID})
+                NSLog("Business Removed From Favorites")
+                currentUser?.lastModified = Timestamp()
+                
+                do {
+                    try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    DispatchQueue.main.async {
+                        self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+                    }
+                } catch {
+                    NSLog("Error Pushing favoriteBusiness")
+                }
+            } else {
+                currentUser?.favoriteBusinesses.append(currentBusiness.venueID!)
+                currentUser?.lastModified = Timestamp()
+                
+                do {
+                    try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    DispatchQueue.main.async {
+                        self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+                    }
+                } catch {
+                    NSLog("Error Pushing favoriteBusiness")
+                }
+            }
+        } else {
+            return
+        }
+        
+        print(currentUser!.favoriteBusinesses)
+    }
+    
+    @IBAction func listenButtonTapped(_ sender: Any) {
+        guard let bandMedia = band?.mediaLink else {return}
+        guard let url = URL(string: "\(bandMedia)") else {
+          return //be safe
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
         }
     }
+    
+    
+    @IBAction func directionsButtonTapped(_ sender: Any) {
+        let placemark = MKPlacemark(coordinate: coordinate!, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = currentBusiness?.name
+
+        let regionSpan = MKCoordinateRegion(center: coordinate!, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let launchOptions = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+
+        mapItem.openInMaps(launchOptions: launchOptions)
+    }
+    
     
     
     /*
@@ -120,11 +183,22 @@ extension VenueDetailViewController {
 extension VenueDetailViewController {
     
     private func updateViews() {
+        guard let currentBusiness = currentBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
+        guard let businessLogoData = currentBusiness.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
+        guard let currentUser = currentUser else {return}
+        
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         
         //Banner Photo Adjustments
         businessLogoImageView.layer.cornerRadius = businessLogoImageView.frame.height / 2
+        
+        //Top Buttons UI
+        if currentUser.favoriteBusinesses.contains(currentBusiness.venueID!) {
+            self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+        } else {
+            self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+        }
         
         //Map
         mapSetup()
@@ -139,8 +213,6 @@ extension VenueDetailViewController {
         businessPicsCollectionView.dataSource = self
         
         //Business Logo Setup
-        guard let currentBusiness = currentBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
-        guard let businessLogoData = currentBusiness.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
         let businessLogo = UIImage(data: businessLogoData)
         businessLogoImageView.image = businessLogo
         
@@ -215,6 +287,11 @@ extension VenueDetailViewController {
             return view
         }()
         self.backgroundView = backgroundView
+        band = bandController.bandArray.first(where: {$0.name == nextShow?.band})
+        if band?.mediaLink == nil {
+            listenButton.isEnabled = false
+            listenButton.titleLabel?.text = "Band Has No Media"
+        }
     }
 }
 //MARK: -----UpdateViews End-----
@@ -238,6 +315,8 @@ extension VenueDetailViewController {
         self.backgroundView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
     }
     
+    
+    //MARK: Map
     private func mapSetup() {
         guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
         
@@ -250,7 +329,7 @@ extension VenueDetailViewController {
                   let location = placemarks.first?.location
             else { return NSLog("Error getting placmark: VenueDetailViewController: mapSetup ")}
             
-            map.isUserInteractionEnabled = true
+            map.isUserInteractionEnabled = false
             coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             
             let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)

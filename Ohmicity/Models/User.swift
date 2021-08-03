@@ -8,8 +8,9 @@
 import Foundation
 import FirebaseFirestore
 
-struct User {
+struct User: Codable {
     let userID: String
+    var accountType: AccountType = .Consumer
     var lastModified: Timestamp?
     var email: String
     var savedShows: [String] = []
@@ -17,7 +18,7 @@ struct User {
     var favoriteBands: [String] = []
     var usedPromotions: [String] = []
     var paidServices: [String] = []
-    var giftServices: [String] = []
+    var subscriber: Bool = false
     var adPoints: Int = 0
 }
 
