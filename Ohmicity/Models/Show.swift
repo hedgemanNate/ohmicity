@@ -15,12 +15,12 @@ struct Show: Codable, Equatable, Hashable {
     var dateString: String
     var date = Date()
     var time = ""
-    var onHold: Bool? //To removed shows from user cache
+    var onHold: Bool = false //To removed shows from user cache
     var ohmPick: Bool = false
     
     //Equatable Conformity
     static func == (lhs: Show, rhs: Show) -> Bool {
-        return lhs.venue == rhs.venue && lhs.dateString == rhs.dateString && lhs.time == rhs.time
+        return lhs.venue == rhs.venue && lhs.date == rhs.date
     }
 
     //Hashable Conformity

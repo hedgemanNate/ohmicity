@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
         } else {
             do {
                 try Auth.auth().signOut()
-                notificationCenter.post(notifications.userAuthUpdated)
+                currentUserController.currentUser = nil
                 self.tabBarController?.selectedIndex = 0
             } catch let signOutError as NSError {
                 NSLog("Sign Out Failed: %@", signOutError)

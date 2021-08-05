@@ -84,30 +84,26 @@ class LastModifiedDateHandler {
                 self.loadDate()
             }
             
-            let op1 = BlockOperation {
+            let op2 = BlockOperation {
                 
                 businessController.getNewBusinessData()
                 showController.getNewShowData()
                 bandController.getNewBandData()
+                self.saveDate()
             }
             
-            let op2 = BlockOperation {
+            let op1 = BlockOperation {
                 bannerAdController.fillArray()
                 businessController.fillArray()
                 showController.fillArray()
                 bandController.fillArray()
-                self.saveDate()
-            }
-            
-            let op3 = BlockOperation {
                 
             }
             
             op1.addDependency(preOp)
             op2.addDependency(op1)
-            op3.addDependency(op2)
             
-            opQueue.addOperations([preOp, op1, op2, op3], waitUntilFinished: true)
+            opQueue.addOperations([preOp, op1, op2], waitUntilFinished: true)
         
         }
     }

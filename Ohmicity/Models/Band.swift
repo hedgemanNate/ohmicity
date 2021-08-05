@@ -37,7 +37,7 @@ class Band: Codable, Equatable {
     var name: String
     var photo: Data?
     var genre: [Genre] = []
-    //var shows: [Show] = []
+    
     var mediaLink: String?
     var ohmPick: Bool = false
     

@@ -30,9 +30,9 @@ class BusinessFullData: Codable, Equatable {
     var venueID: String?
     var lastModified: Timestamp?
     var name: String?
-    var address: String?
+    var address: String = ""
     var city: [City] = []
-    var phoneNumber: Int?
+    var phoneNumber: Int = 0
     var hours: Hours?
     var logo: Data?
     var pics: [Data] = []

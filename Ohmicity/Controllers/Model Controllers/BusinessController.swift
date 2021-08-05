@@ -43,6 +43,7 @@ class BusinessController {
                     switch result {
                     case .success(let business):
                         if let business = business {
+                            self.businessArray.removeAll(where: {$0 == business})
                             self.businessArray.append(business)
                             NSLog(business.name!,"RECIEVED & APPENDED")
                         } else {

@@ -27,6 +27,9 @@ class ShowController {
     
     
     //Functions
+    func removeHolds() {
+        showArray.removeAll(where: {$0.onHold == true})
+    }
     
     func getNewShowData() {
         var showCount = 0
@@ -41,8 +44,9 @@ class ShowController {
                     switch result {
                     case .success(let show):
                         if let show = show {
+                            self.showArray.removeAll(where: {$0 == show})
                             self.showArray.append(show)
-                            //NSLog(show.venue," SHOW: RECIEVED & APPENDED")
+                            //NSLog(show.venue," SHOW: RECEIVED & APPENDED")
                             showCount += 1
                         } else {
                             NSLog("Show data was nil")
@@ -55,6 +59,8 @@ class ShowController {
                 NSLog("*****GET NEW SHOW DATA HIT*****")
             }
         }
+        let temp = showArray.removingDuplicates()
+        showArray = temp
     }
     
     
@@ -85,6 +91,8 @@ class ShowController {
                 NSLog("*****GET ALL SHOW DATA HIT*****")
             }
         }
+        let temp = showArray.removingDuplicates()
+        showArray = temp
     }
     
     func fillArray() {
@@ -114,6 +122,8 @@ class ShowController {
                 NSLog("*****FILL SHOW DATA ARRAY HIT*****")
             }
         }
+        let temp = showArray.removingDuplicates()
+        showArray = temp
     }
 }
 

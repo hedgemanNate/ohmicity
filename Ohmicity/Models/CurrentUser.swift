@@ -8,24 +8,29 @@
 import Foundation
 import Firebase
 
+enum AccountType: String, Codable, Equatable {
+    case Consumer
+    case Artist
+    case Business
+}
 
-
-struct CurrentUser {
-    var userID: String
-    var level: Int
-    var favorites: [String]
-    var accountType: String
-    var usedPromos: [String]
+class CurrentUser: Codable {
+    let userID: String
+    var accountType: AccountType = .Consumer
+    var lastModified: Timestamp?
     var email: String
+    var savedShows: [String] = []
+    var favoriteBusinesses: [String] = []
+    var favoriteBands: [String] = []
+    var usedPromotions: [String] = []
+    var paidServices: [String] = []
+    var subscriber: Bool = false
+    var adPoints: Int = 0
     
     init(userID: String, email: String) {
         self.userID = userID
-        self.favorites = []
-        self.level = 0
-        self.accountType = "customer"
-        self.usedPromos = []
         self.email = email
     }
 }
 
-var currentUser: CurrentUser?
+
