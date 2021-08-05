@@ -14,26 +14,22 @@ enum AccountType: String, Codable, Equatable {
     case Business
 }
 
-struct CurrentUser: Codable {
-    var userID: String
-    var lastModified = Timestamp()
-    var subscriber: Bool
-    var bandFavorites: [String]
-    var businessFavorites: [String]
-    var accountType: AccountType
-    var usedPromos: [String]
+class CurrentUser: Codable {
+    let userID: String
+    var accountType: AccountType = .Consumer
+    var lastModified: Timestamp?
     var email: String
-    var adPoints: Int
+    var savedShows: [String] = []
+    var favoriteBusinesses: [String] = []
+    var favoriteBands: [String] = []
+    var usedPromotions: [String] = []
+    var paidServices: [String] = []
+    var subscriber: Bool = false
+    var adPoints: Int = 0
     
     init(userID: String, email: String) {
         self.userID = userID
-        self.bandFavorites = []
-        self.businessFavorites = []
-        self.subscriber = false
-        self.accountType = .Consumer
-        self.usedPromos = []
         self.email = email
-        self.adPoints = 0
     }
 }
 

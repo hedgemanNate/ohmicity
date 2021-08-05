@@ -20,7 +20,7 @@ struct Show: Codable, Equatable, Hashable {
     
     //Equatable Conformity
     static func == (lhs: Show, rhs: Show) -> Bool {
-        return lhs.venue == rhs.venue && lhs.dateString == rhs.dateString && lhs.time == rhs.time
+        return lhs.venue == rhs.venue && lhs.date == rhs.date
     }
 
     //Hashable Conformity

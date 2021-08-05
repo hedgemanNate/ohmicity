@@ -32,7 +32,7 @@ class LoadInitDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
-        assignCurrentUser()
+        currentUserController.assignCurrentUser()
         updateViewController()
         lmDateHandler.checkDateAndGetData()
         
@@ -63,26 +63,6 @@ extension LoadInitDataViewController {
         print("**DONE LOADING FUNC****")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
-        }
-    }
-    
-    private func assignCurrentUser() {
-        guard let id = Auth.auth().currentUser?.uid else { return NSLog("No Current User ID: assignCurrentUser") }
-        
-        ref.userDataPath.document(id).getDocument { document, error in
-            let result = Result {
-                try document?.data(as: User.self)
-            }
-            switch result {
-            case.success(let user):
-                if let user = user {
-                    currentUser = user
-                } else {
-                    NSLog("User Data Not Found In Database")
-                }
-            case .failure(let error):
-                NSLog(error.localizedDescription)
-            }
         }
     }
         
@@ -159,6 +139,7 @@ extension LoadInitDataViewController {
                 
                 if stringDate == timeController.todayString {
                     showController.todayShowArray.append(show)
+                    showController.todayShowArray.removeDuplicates()
                 }
             }
             self.syncingActionsFinished += 1
@@ -182,7 +163,7 @@ extension LoadInitDataViewController {
             for business1 in businessController.businessArray {
                 for business2 in businessController.businessArray {
                     if business1 == business2 && ((business1.lastModified?.compare(business2.lastModified!)) != nil) {
-                        
+                        print("\(business2) IS A DUPE!!!!!!!")
                     }
                 }
             }

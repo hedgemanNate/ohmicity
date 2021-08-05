@@ -10,7 +10,9 @@ import FirebaseAuth
 
 class Notifications {
     
+    //User Notifications
     let userAuthUpdated = Notification(name: Notification.Name(rawValue: "UserAuthUpdated"))
+    let userFavoritesUpdated = Notification(name: Notification.Name(rawValue: "UserFavoritesUpdated"))
     
     //UI Notifications
     let scrollToTop = Notification(name: Notification.Name(rawValue: "ScrollToTop"))

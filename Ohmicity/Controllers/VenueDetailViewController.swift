@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 class VenueDetailViewController: UIViewController {
     
     //MARK: Properties
+    var currentUser = currentUserController.currentUser
     var currentBusiness: BusinessFullData?
     var nextShowsArray = [Show]()
     var nextShow: Show?
@@ -101,6 +102,7 @@ class VenueDetailViewController: UIViewController {
                 
                 do {
                     try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
                     }
@@ -108,11 +110,12 @@ class VenueDetailViewController: UIViewController {
                     NSLog("Error Pushing favoriteBusiness")
                 }
             } else {
-                currentUser?.favoriteBusinesses.append(currentBusiness.venueID!)
-                currentUser?.lastModified = Timestamp()
+                currentUser!.favoriteBusinesses.append(currentBusiness.venueID!)
+                currentUser!.lastModified = Timestamp()
                 
                 do {
                     try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
                     }
@@ -122,6 +125,7 @@ class VenueDetailViewController: UIViewController {
             }
         } else {
             return
+            //Present Alert View To Tell User To Sign iIn
         }
         
         print(currentUser!.favoriteBusinesses)
@@ -185,7 +189,6 @@ extension VenueDetailViewController {
     private func updateViews() {
         guard let currentBusiness = currentBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
         guard let businessLogoData = currentBusiness.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
-        guard let currentUser = currentUser else {return}
         
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
@@ -193,12 +196,26 @@ extension VenueDetailViewController {
         //Banner Photo Adjustments
         businessLogoImageView.layer.cornerRadius = businessLogoImageView.frame.height / 2
         
-        //Top Buttons UI
-        if currentUser.favoriteBusinesses.contains(currentBusiness.venueID!) {
-            self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+        //Top Buttons UI -
+                //This sets the hearts sizes programmatically
+        let fullHeart = UIImage(systemName: "suit.heart.fill")
+        let emptyHeart = UIImage(systemName: "suit.heart")
+        let large: UIImage.SymbolConfiguration = .init(scale: .large)
+        fullHeart?.applyingSymbolConfiguration(large)
+        emptyHeart?.applyingSymbolConfiguration(large)
+        
+        if currentUserController.currentUser != nil {
+            if currentUserController.currentUser!.favoriteBusinesses.contains(currentBusiness.venueID!) {
+                self.favoriteButton.setImage(fullHeart, for: .normal)
+            } else {
+                self.favoriteButton.setImage(emptyHeart, for: .normal)
+            }
         } else {
-            self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+            //MARK: FavoriteButton Not Finished
+            //Create an alert to let them login if they try to favorite
+            self.favoriteButton.isEnabled = false
         }
+        
         
         //Map
         mapSetup()
@@ -221,9 +238,12 @@ extension VenueDetailViewController {
         
         //Collection View Timer
         DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.startSlideShow), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.startSlideShow), userInfo: nil, repeats: true)
         }
         timer.fire()
+        
+        //Stop Dashboard SlideShow
+        
         
         //MARK: - Table Logic And Tonights Show Logic
         //Table View data source

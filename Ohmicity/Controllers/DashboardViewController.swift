@@ -15,7 +15,6 @@ class DashboardViewController: UIViewController {
     //Properties
     private var weeklyVenueArray: [BusinessFullData] = []
     var weeklyShowArray: [Show] = []
-    var favBandsArray: [Band] = []
     
     
     private let bandVenueCellid = "MainCell"
@@ -65,15 +64,26 @@ class DashboardViewController: UIViewController {
         timeController.timer.invalidate()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startTimer()
+    }
+    
 
+    //MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          //Pass the selected object to the new view controller.
-        if segue.identifier == "ToBusiness" {
+        if segue.identifier == "FromToday" {
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            
             businessVC.currentBusiness = businessController.todayVenueArray[indexPath!.row]
-            
+            timeController.timer.invalidate()
+        }
+        
+        if segue.identifier == "FromFav" {
+            let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
+            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
+            businessVC.currentBusiness = currentUserController.favArray[indexPath!.row]
             timeController.timer.invalidate()
         }
     }
@@ -88,7 +98,7 @@ class DashboardViewController: UIViewController {
 extension DashboardViewController {
     //UI Functions
     @objc private func handleHidden() {
-        if Auth.auth().currentUser == nil {
+        if currentUserController.currentUser == nil {
             favoritesButton.isHidden = true
             favoritesCollectionView.isHidden = true
             hiddenSignUpView.isHidden = false
@@ -130,21 +140,26 @@ extension DashboardViewController {
         
         //UI Adjustments
         getPerksButton.layer.cornerRadius = 5
-        
-        //Timer
-        startTimer()
 
     }
     
     @objc private func startTimer() {
-        
         DispatchQueue.main.async {
             timeController.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
     
     //MARK: Logic Functions
-    
+    @objc private func getFavorites() {
+        if currentUserController.currentUser != nil {
+            currentUserController.favArray = []
+            for string in currentUserController.currentUser!.favoriteBusinesses {
+                guard let business = businessController.businessArray.first(where: {$0.venueID == string}) else {return}
+                currentUserController.favArray.append(business)
+            }
+        }
+        favoritesCollectionView.reloadData()
+    }
     
     
     //MARK: Setup CollectionViews
@@ -165,6 +180,11 @@ extension DashboardViewController {
         bannerAdCollectionView.delegate = self
         bannerAdCollectionView.dataSource = self
         bannerAdCollectionView.showsHorizontalScrollIndicator = false
+        
+        favoritesCollectionView.delegate = self
+        favoritesCollectionView.dataSource = self
+        favoritesCollectionView.showsHorizontalScrollIndicator = false
+        getFavorites()
     }
     
     
@@ -175,7 +195,11 @@ extension DashboardViewController {
         //Scroll To Top
         notificationCenter.addObserver(self, selector: #selector(scrollToTop), name: notifications.scrollToTop.name, object: nil)
         
+        //Banner SlideShow Start
         notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        
+        //Favorites
+        notificationCenter.addObserver(self, selector: #selector(getFavorites), name: notifications.userFavoritesUpdated.name, object: nil)
     }
 }
 
@@ -191,8 +215,6 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         var size = CGSize()
         let width = collectionView.frame.size.width
         let height = collectionView.frame.size.height
-        
-        
         
         switch collectionView {
         case bannerAdCollectionView:
@@ -210,6 +232,9 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case venueCollectionView:
             size = CGSize(width: 155, height: height)
             return size
+        case favoritesCollectionView:
+            size = CGSize(width: 155, height: height)
+            return size
         default:
             return size
         }
@@ -219,15 +244,17 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         var num: Int?
         
         switch collectionView {
+        case bannerAdCollectionView:
+            //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
+            num = 50
         case todayCollectionView:
             num = businessController.todayVenueArray.count
         case citiesCollectionView:
             num = businessController.citiesArray.count
         case venueCollectionView:
             num = businessController.businessTypeArray.count
-        case bannerAdCollectionView:
-            //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
-            num = 50
+        case favoritesCollectionView:
+            num = currentUserController.favArray.count
         default:
             num = 4
         }
@@ -244,6 +271,12 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     
         
         switch collectionView {
+        case bannerAdCollectionView:
+            bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
+            //% for indexpath to allow for infinite loop: See Banner Ad Section
+            bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row % bannerAdController.bannerAdArray.count]
+            return bannerAdCell
+            
         case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
             venueCell.venue = businessController.todayVenueArray[indexPath.row]
@@ -259,12 +292,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             businessTypeCell.type = businessController.businessTypeArray[indexPath.row]
             return businessTypeCell
             
-        case bannerAdCollectionView:
-            bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
-            //% for indexpath to allow for infinite loop: See Banner Ad Section
-            bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row % bannerAdController.bannerAdArray.count]
-            return bannerAdCell
-            
+        case favoritesCollectionView:
+            venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! BandVenueCollectionViewCell
+            venueCell.venue = currentUserController.favArray[indexPath.row]
+            return venueCell
         default:
             return cell
         }

@@ -39,12 +39,10 @@
 		F640DD0A264E3B7300959358 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Helper.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
 		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
-		F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */; };
 		F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */; };
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
 		F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66206E826B4B9C800BDE93E /* TimeController.swift */; };
-		F676F0F526991C6C00C47599 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EE26991C6C00C47599 /* User.swift */; };
 		F676F0F626991C6C00C47599 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Rating.swift */; };
 		F676F0F726991C6C00C47599 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F026991C6C00C47599 /* Recommendation.swift */; };
 		F676F0F826991C6C00C47599 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F126991C6C00C47599 /* Message.swift */; };
@@ -59,7 +57,6 @@
 		F67991002697AB54000FDC5E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67990FF2697AB54000FDC5E /* Notifications.swift */; };
 		F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991042697E2A0000FDC5E /* BusinessController.swift */; };
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
-		F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */; };
 		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
 		F67E64E426B0A4A400ED75D0 /* bannerAdExample1.png in Resources */ = {isa = PBXBuildFile; fileRef = F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */; };
 		F67E64E626B0A4DF00ED75D0 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */; };
@@ -72,6 +69,7 @@
 		F696A73826AB7079009CB1BD /* ybor.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73226AB7077009CB1BD /* ybor.png */; };
 		F696A73926AB7079009CB1BD /* sarasota.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73326AB7078009CB1BD /* sarasota.png */; };
 		F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A73C26ABB805009CB1BD /* BandVenueBorderXityPick.png */; };
+		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
 		F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3A26AF172800C49016 /* bradenton.png */; };
 		F6F3DB4526AF337C00C49016 /* restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3F26AF337400C49016 /* restaurant.png */; };
@@ -143,12 +141,10 @@
 		F640DD09264E3B7300959358 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F640DD0E264E432B00959358 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		F649ECB0264B2C5500E84408 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandVenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadInitDataViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		F66206E826B4B9C800BDE93E /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
-		F676F0EE26991C6C00C47599 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		F676F0F026991C6C00C47599 /* Recommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		F676F0F126991C6C00C47599 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -163,7 +159,6 @@
 		F67990FF2697AB54000FDC5E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		F67991042697E2A0000FDC5E /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
-		F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
 		F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerAdExample1.png; sourceTree = "<group>"; };
 		F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
@@ -176,6 +171,7 @@
 		F696A73226AB7077009CB1BD /* ybor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ybor.png; sourceTree = "<group>"; };
 		F696A73326AB7078009CB1BD /* sarasota.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sarasota.png; sourceTree = "<group>"; };
 		F696A73C26ABB805009CB1BD /* BandVenueBorderXityPick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorderXityPick.png; sourceTree = "<group>"; };
+		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F6F3DB3A26AF172800C49016 /* bradenton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bradenton.png; sourceTree = "<group>"; };
 		F6F3DB3F26AF337400C49016 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
@@ -368,8 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				D8CED4002641E96D0017FD28 /* SignInViewController.swift */,
-				F67B3F742649BCEC00D3FC88 /* SignUpViewController.swift */,
-				F649ECB5264B3D3100E84408 /* ForgotPasswordViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -399,7 +393,6 @@
 				F676F0EF26991C6C00C47599 /* Rating.swift */,
 				F676F0F026991C6C00C47599 /* Recommendation.swift */,
 				F676F0F226991C6C00C47599 /* Show.swift */,
-				F676F0EE26991C6C00C47599 /* User.swift */,
 				F676F0F326991C6C00C47599 /* Business.swift */,
 				F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */,
 			);
@@ -413,6 +406,7 @@
 				F676F0FE269947B300C47599 /* BandController.swift */,
 				F676F1022699496200C47599 /* ShowController.swift */,
 				F67E64E726B0D27900ED75D0 /* BannerAdController.swift */,
+				F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -773,7 +767,6 @@
 				F67E64E626B0A4DF00ED75D0 /* BannerAd.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
-				F67B3F752649BCEC00D3FC88 /* SignUpViewController.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
@@ -784,11 +777,10 @@
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
 				F676F0F926991C6C00C47599 /* Show.swift in Sources */,
 				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
-				F676F0F526991C6C00C47599 /* User.swift in Sources */,
 				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
+				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F676F0F726991C6C00C47599 /* Recommendation.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
-				F649ECB6264B3D3100E84408 /* ForgotPasswordViewController.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,
 				F6FB9F2E26B258BF006B286F /* BannerAdBusinessPicsCollectionViewCell.swift in Sources */,

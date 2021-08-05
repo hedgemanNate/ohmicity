@@ -48,9 +48,6 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="86d-lX-6oc" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="4kY-Ed-gb2"/>
-                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e7-Kv-IzQ">
                                 <rect key="frame" x="175" y="202" width="39" height="30"/>
@@ -90,132 +87,6 @@
             </objects>
             <point key="canvasLocation" x="-494" y="1136"/>
         </scene>
-        <!--Sign Up View Controller-->
-        <scene sceneID="if5-cQ-dC8">
-            <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="86d-lX-6oc" customClass="SignUpViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k2p-En-R8q">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="lpI-hO-7pB">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha8-36-Awa" customClass="MDCButton">
-                                <rect key="frame" x="280" y="562" width="118" height="40.666666666666629"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ha8-36-Awa" secondAttribute="height" multiplier="29:10" id="awJ-Wb-PUT"/>
-                                </constraints>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpButtonTapped:" destination="86d-lX-6oc" eventType="touchUpInside" id="Yyj-a1-8z9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SET-vP-U4D" customClass="MDCButton">
-                                <rect key="frame" x="30" y="632.66666666666663" width="368" height="55"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="ESJ-JE-BSW"/>
-                                </constraints>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInButtonTapped:" destination="86d-lX-6oc" eventType="touchUpInside" id="UJq-9A-as8"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-Rv-gx3" customClass="MDCFilledTextField">
-                                <rect key="frame" x="30" y="443.66666666666669" width="368" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next" smartInsertDeleteType="no" textContentType="email"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z3C-2P-Bob" customClass="MDCFilledTextField">
-                                <rect key="frame" x="30" y="507.66666666666669" width="368" height="39.333333333333314"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Z3C-2P-Bob" secondAttribute="height" multiplier="177:19" id="v1X-6o-ASq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="done" smartInsertDeleteType="no" textContentType="password"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OhmicityLogoNoTag.png" translatesAutoresizingMaskIntoConstraints="NO" id="BJs-n2-AoG">
-                                <rect key="frame" x="30" y="276.33333333333331" width="368" height="127.33333333333331"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BJs-n2-AoG" secondAttribute="height" multiplier="240:83" id="dfr-nx-0cV"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTC-Jy-Zaf">
-                                <rect key="frame" x="185" y="732.66666666666663" width="58" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="FEg-of-ulE"/>
-                                    <constraint firstAttribute="height" constant="30" id="by6-Tn-oFQ"/>
-                                </constraints>
-                                <state key="normal" title="Go Back"/>
-                                <connections>
-                                    <action selector="goBackButtonTapped:" destination="86d-lX-6oc" eventType="touchUpInside" id="fw1-eo-N51"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAj-RA-uFS">
-                                <rect key="frame" x="30" y="580.66666666666663" width="146.66666666666666" height="21.666666666666629"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BAj-RA-uFS" secondAttribute="height" multiplier="115:17" id="6dX-qK-Rgh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Forgot Passwofrd">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="M5j-bR-Lxb" kind="presentation" id="xGj-eF-pA3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="LBT-jc-ywe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="eTC-Jy-Zaf" firstAttribute="centerX" secondItem="k2p-En-R8q" secondAttribute="centerX" id="2fY-jL-dMd"/>
-                            <constraint firstItem="aA9-Rv-gx3" firstAttribute="centerY" secondItem="k2p-En-R8q" secondAttribute="centerY" id="57y-Jt-nwZ"/>
-                            <constraint firstItem="LBT-jc-ywe" firstAttribute="trailing" secondItem="aA9-Rv-gx3" secondAttribute="trailing" constant="30" id="5mi-tl-Gch"/>
-                            <constraint firstItem="LBT-jc-ywe" firstAttribute="trailing" secondItem="Z3C-2P-Bob" secondAttribute="trailing" constant="30" id="CCf-qV-lZd"/>
-                            <constraint firstItem="BAj-RA-uFS" firstAttribute="top" secondItem="Z3C-2P-Bob" secondAttribute="bottom" constant="33.5" id="I2j-kX-TQi"/>
-                            <constraint firstItem="lpI-hO-7pB" firstAttribute="leading" secondItem="LBT-jc-ywe" secondAttribute="leading" id="SRU-g0-p3t"/>
-                            <constraint firstItem="ha8-36-Awa" firstAttribute="leading" secondItem="LBT-jc-ywe" secondAttribute="leading" constant="280" id="Tox-cg-jB5"/>
-                            <constraint firstItem="SET-vP-U4D" firstAttribute="top" secondItem="BAj-RA-uFS" secondAttribute="bottom" constant="30.5" id="UbK-49-IN3"/>
-                            <constraint firstItem="Z3C-2P-Bob" firstAttribute="leading" secondItem="LBT-jc-ywe" secondAttribute="leading" constant="30" id="Va5-KH-m52"/>
-                            <constraint firstAttribute="bottom" secondItem="lpI-hO-7pB" secondAttribute="bottom" id="Vht-C3-zmN"/>
-                            <constraint firstItem="BAj-RA-uFS" firstAttribute="leading" secondItem="LBT-jc-ywe" secondAttribute="leading" constant="30" id="Yzx-kp-fJs"/>
-                            <constraint firstItem="lpI-hO-7pB" firstAttribute="top" secondItem="k2p-En-R8q" secondAttribute="top" id="a97-pe-x0j"/>
-                            <constraint firstItem="Z3C-2P-Bob" firstAttribute="top" secondItem="aA9-Rv-gx3" secondAttribute="bottom" constant="25" id="azS-cY-fbz"/>
-                            <constraint firstItem="LBT-jc-ywe" firstAttribute="trailing" secondItem="ha8-36-Awa" secondAttribute="trailing" constant="30" id="eoe-EC-RgM"/>
-                            <constraint firstItem="SET-vP-U4D" firstAttribute="leading" secondItem="LBT-jc-ywe" secondAttribute="leading" constant="30" id="f8i-Th-erW"/>
-                            <constraint firstItem="aA9-Rv-gx3" firstAttribute="leading" secondItem="LBT-jc-ywe" secondAttribute="leading" constant="30" id="git-DR-4gY"/>
-                            <constraint firstItem="ha8-36-Awa" firstAttribute="top" secondItem="Z3C-2P-Bob" secondAttribute="bottom" constant="15" id="h8i-Rg-xc7"/>
-                            <constraint firstItem="aA9-Rv-gx3" firstAttribute="top" secondItem="BJs-n2-AoG" secondAttribute="bottom" constant="40" id="hfF-Ag-Wzp"/>
-                            <constraint firstItem="aA9-Rv-gx3" firstAttribute="centerX" secondItem="k2p-En-R8q" secondAttribute="centerX" id="oMA-pi-uc0"/>
-                            <constraint firstItem="lpI-hO-7pB" firstAttribute="trailing" secondItem="LBT-jc-ywe" secondAttribute="trailing" id="pTF-B7-9Eb"/>
-                            <constraint firstItem="SET-vP-U4D" firstAttribute="top" secondItem="ha8-36-Awa" secondAttribute="bottom" constant="30" id="r49-mu-1j3"/>
-                            <constraint firstItem="BJs-n2-AoG" firstAttribute="leading" secondItem="LBT-jc-ywe" secondAttribute="leading" constant="30" id="sXo-Ww-glq"/>
-                            <constraint firstItem="eTC-Jy-Zaf" firstAttribute="top" secondItem="SET-vP-U4D" secondAttribute="bottom" constant="45" id="tAe-cA-MEe"/>
-                            <constraint firstItem="LBT-jc-ywe" firstAttribute="trailing" secondItem="BJs-n2-AoG" secondAttribute="trailing" constant="30" id="us6-FS-yYN"/>
-                            <constraint firstItem="LBT-jc-ywe" firstAttribute="trailing" secondItem="SET-vP-U4D" secondAttribute="trailing" constant="30" id="yAs-OE-xA6"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="1Mk-n3-pDq"/>
-                    <connections>
-                        <outlet property="emailTextField" destination="aA9-Rv-gx3" id="hv3-42-ptZ"/>
-                        <outlet property="forgotPasswordButton" destination="BAj-RA-uFS" id="Kqo-sw-hfW"/>
-                        <outlet property="goBackButton" destination="eTC-Jy-Zaf" id="yyI-H6-zIA"/>
-                        <outlet property="passwordTextField" destination="Z3C-2P-Bob" id="MgK-k3-E6g"/>
-                        <outlet property="signInButton" destination="SET-vP-U4D" id="wrn-ES-CwC"/>
-                        <outlet property="signUpButton" destination="ha8-36-Awa" id="uie-JM-zc8"/>
-                        <segue destination="dI8-ff-XVC" kind="presentation" identifier="ToDashboard" modalPresentationStyle="fullScreen" id="iNf-o9-4Vj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aMV-RB-lGU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="237" y="1136"/>
-        </scene>
         <!--Main-->
         <scene sceneID="RdP-c1-1T2">
             <objects>
@@ -226,75 +97,7 @@
             </objects>
             <point key="canvasLocation" x="238" y="1646"/>
         </scene>
-        <!--Forgot Password View Controller-->
-        <scene sceneID="ZBf-4N-vjh">
-            <objects>
-                <viewController id="M5j-bR-Lxb" customClass="ForgotPasswordViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aWm-dg-Aut">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="TBW-gx-ioX">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOA-x1-iPE" customClass="MDCFilledTextField">
-                                <rect key="frame" x="30" y="416.66666666666669" width="368" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next" smartInsertDeleteType="no" textContentType="email"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OhmicityLogoNoTag.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jcg-pg-Veg">
-                                <rect key="frame" x="30" y="249.33333333333334" width="368" height="127.33333333333334"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Jcg-pg-Veg" secondAttribute="height" multiplier="240:83" id="3fE-3l-EcN"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uww-6k-IUI" customClass="MDCButton">
-                                <rect key="frame" x="30" y="490.66666666666674" width="368" height="55"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="IWS-9S-wRz"/>
-                                </constraints>
-                                <state key="normal" title="Send Email">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendEmailButtonTapped:" destination="M5j-bR-Lxb" eventType="touchUpInside" id="vCL-Wf-L9O"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="OLD-gY-qNX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Uww-6k-IUI" firstAttribute="leading" secondItem="OLD-gY-qNX" secondAttribute="leading" constant="30" id="0gy-Do-AMF"/>
-                            <constraint firstItem="OLD-gY-qNX" firstAttribute="trailing" secondItem="qOA-x1-iPE" secondAttribute="trailing" constant="30" id="C7o-AO-vih"/>
-                            <constraint firstItem="Uww-6k-IUI" firstAttribute="top" secondItem="qOA-x1-iPE" secondAttribute="bottom" constant="35" id="DQ8-Gy-LbV"/>
-                            <constraint firstItem="qOA-x1-iPE" firstAttribute="centerX" secondItem="aWm-dg-Aut" secondAttribute="centerX" id="MQJ-Ih-ZHQ"/>
-                            <constraint firstItem="qOA-x1-iPE" firstAttribute="top" secondItem="Jcg-pg-Veg" secondAttribute="bottom" constant="40" id="OYs-jw-CaW"/>
-                            <constraint firstItem="Jcg-pg-Veg" firstAttribute="leading" secondItem="OLD-gY-qNX" secondAttribute="leading" constant="30" id="PLu-zI-yCE"/>
-                            <constraint firstItem="TBW-gx-ioX" firstAttribute="leading" secondItem="OLD-gY-qNX" secondAttribute="leading" id="Sic-au-NOQ"/>
-                            <constraint firstItem="TBW-gx-ioX" firstAttribute="trailing" secondItem="OLD-gY-qNX" secondAttribute="trailing" id="gzu-V9-zhu"/>
-                            <constraint firstItem="qOA-x1-iPE" firstAttribute="centerY" secondItem="aWm-dg-Aut" secondAttribute="centerY" id="j1R-Lq-bHg"/>
-                            <constraint firstItem="OLD-gY-qNX" firstAttribute="trailing" secondItem="Jcg-pg-Veg" secondAttribute="trailing" constant="30" id="mp9-EV-lI9"/>
-                            <constraint firstItem="OLD-gY-qNX" firstAttribute="trailing" secondItem="Uww-6k-IUI" secondAttribute="trailing" constant="30" id="n3b-Xp-DaG"/>
-                            <constraint firstAttribute="bottom" secondItem="TBW-gx-ioX" secondAttribute="bottom" id="ntc-n4-rrX"/>
-                            <constraint firstItem="qOA-x1-iPE" firstAttribute="leading" secondItem="OLD-gY-qNX" secondAttribute="leading" constant="30" id="pZZ-Lp-p6U"/>
-                            <constraint firstItem="TBW-gx-ioX" firstAttribute="top" secondItem="aWm-dg-Aut" secondAttribute="top" id="zx3-zd-DGK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="LVQ-4g-8pQ"/>
-                    <connections>
-                        <outlet property="emailTextField" destination="qOA-x1-iPE" id="HTd-of-HeP"/>
-                        <outlet property="sendEmailButton" destination="Uww-6k-IUI" id="bR1-xO-8dt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XNa-ZS-SNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="983" y="1136"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="U7l-t6-EkE"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="OhmicityLogoNoTag.png" width="3509" height="1020"/>
         <image name="PurpleBG.png" width="1125" height="2436"/>

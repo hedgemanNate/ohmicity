@@ -59,6 +59,8 @@ class ShowController {
                 NSLog("*****GET NEW SHOW DATA HIT*****")
             }
         }
+        let temp = showArray.removingDuplicates()
+        showArray = temp
     }
     
     
@@ -89,6 +91,8 @@ class ShowController {
                 NSLog("*****GET ALL SHOW DATA HIT*****")
             }
         }
+        let temp = showArray.removingDuplicates()
+        showArray = temp
     }
     
     func fillArray() {
@@ -118,6 +122,8 @@ class ShowController {
                 NSLog("*****FILL SHOW DATA ARRAY HIT*****")
             }
         }
+        let temp = showArray.removingDuplicates()
+        showArray = temp
     }
 }
 
