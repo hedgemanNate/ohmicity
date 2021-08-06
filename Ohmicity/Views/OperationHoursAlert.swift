@@ -29,7 +29,7 @@ class OperationHoursAlert: UIView {
     
     
     
-    class func instanceFromNib(business: BusinessFullData) -> OperationHoursAlert {
+    class func instanceFromNib(business: Business) -> OperationHoursAlert {
         let view = UINib(nibName: "OperationHoursAlert", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! OperationHoursAlert
         view.setupView(business: business)
         return view
@@ -40,7 +40,7 @@ class OperationHoursAlert: UIView {
     }
     
     
-    private func setupView(business: BusinessFullData) {
+    private func setupView(business: Business) {
         //Present Data
         monTimeLabel.text = business.hours?.monday
         tueTimeLabel.text = business.hours?.tuesday

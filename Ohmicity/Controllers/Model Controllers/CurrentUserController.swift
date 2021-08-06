@@ -16,7 +16,7 @@ class CurrentUserController {
         }
     }
     
-    var favArray = [BusinessFullData]()
+    var favArray = [Business]()
     
     
     //MARK: Functions

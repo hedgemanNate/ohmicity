@@ -26,6 +26,9 @@ class TimeController {
     let inTwoHours = Date().addingTimeInterval(7200)
     let twoHoursAgo = Date().addingTimeInterval(-7200)
     
+    //Calendar
+    let userCalendar = Calendar.current
+    
     
     //Timers
     var timer = Timer()

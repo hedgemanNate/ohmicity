@@ -13,7 +13,7 @@ class LoadInitDataViewController: UIViewController {
     
     //Properties
     var todayShowArray: [Show] = []
-    var todayVenueArray: [BusinessFullData] = []
+    var todayVenueArray: [Business] = []
     
     
     var dataActionsFinished = 0 {
@@ -142,6 +142,7 @@ extension LoadInitDataViewController {
                     showController.todayShowArray.removeDuplicates()
                 }
             }
+            xityPickController.getWeeklyPicks()
             self.syncingActionsFinished += 1
             print("***Collected Shows For Today***")
         }

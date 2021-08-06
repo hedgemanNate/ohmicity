@@ -1728,68 +1728,63 @@ should be on Xity?</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="11h-RU-BJi" userLabel="Weekly Collection View">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="onA-4S-Wan">
                                                 <rect key="frame" x="0.0" y="1168.3333333333333" width="428" height="261"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="261" id="g8f-E6-c0i"/>
+                                                    <constraint firstAttribute="height" constant="261" id="rMx-3S-1j3"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="9" minimumInteritemSpacing="9" id="lpN-pT-Oen">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="9" minimumInteritemSpacing="9" id="85b-Ze-8Uk">
                                                     <size key="itemSize" width="155" height="261"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AOV-eZ-J23">
-                                                        <rect key="frame" x="9" y="0.0" width="155" height="261"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyCell" id="3hv-8t-3mc" customClass="BandVenueCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="154.99999999999997" height="261"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xBo-2v-hwV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="261"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ac6-nE-6ZU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="154.99999999999997" height="261"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zfu-wL-YlT" userLabel="Logo Image View">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gao-Xg-IXq" userLabel="Logo Image">
                                                                     <rect key="frame" x="0.0" y="0.0" width="155" height="204"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="204" id="Z8f-ap-L8v"/>
+                                                                        <constraint firstAttribute="height" constant="204" id="G6s-Lt-ESU"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l9z-Yu-rIo" userLabel="adImageView">
-                                                                    <rect key="frame" x="105" y="0.0" width="50" height="50"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="50" id="Zit-hH-g81"/>
-                                                                        <constraint firstAttribute="height" constant="50" id="wLB-gH-YmL"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BandVenueBorder.png" translatesAutoresizingMaskIntoConstraints="NO" id="enp-oL-Yan" userLabel="Border">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BandVenueBorderXityPick.png" translatesAutoresizingMaskIntoConstraints="NO" id="exe-8R-B62" userLabel="Border">
                                                                     <rect key="frame" x="0.0" y="0.0" width="155" height="204"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="204" id="vVy-yj-2Ur"/>
+                                                                        <constraint firstAttribute="height" constant="204" id="swl-tW-AG9"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZG-uB-GYB">
-                                                                    <rect key="frame" x="0.0" y="212" width="155" height="49"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="49" id="HL2-Cm-SEm"/>
-                                                                    </constraints>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTi-Fe-fw4">
+                                                                    <rect key="frame" x="0.0" y="204" width="155" height="57"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="qZG-uB-GYB" secondAttribute="trailing" id="7XZ-BF-9ha"/>
-                                                                <constraint firstAttribute="trailing" secondItem="zfu-wL-YlT" secondAttribute="trailing" id="BTt-fS-XRE"/>
-                                                                <constraint firstItem="qZG-uB-GYB" firstAttribute="leading" secondItem="xBo-2v-hwV" secondAttribute="leading" id="Seq-6v-qUt"/>
-                                                                <constraint firstItem="zfu-wL-YlT" firstAttribute="leading" secondItem="xBo-2v-hwV" secondAttribute="leading" id="eEX-Sg-n8a"/>
-                                                                <constraint firstItem="enp-oL-Yan" firstAttribute="top" secondItem="xBo-2v-hwV" secondAttribute="top" id="gQe-B8-DDy"/>
-                                                                <constraint firstAttribute="trailing" secondItem="enp-oL-Yan" secondAttribute="trailing" id="j2O-tb-ykP"/>
-                                                                <constraint firstAttribute="trailing" secondItem="l9z-Yu-rIo" secondAttribute="trailing" id="n6b-hs-ghI"/>
-                                                                <constraint firstItem="zfu-wL-YlT" firstAttribute="top" secondItem="xBo-2v-hwV" secondAttribute="top" id="o2w-zK-Rzh"/>
-                                                                <constraint firstItem="enp-oL-Yan" firstAttribute="leading" secondItem="xBo-2v-hwV" secondAttribute="leading" id="ogT-G8-f4t"/>
-                                                                <constraint firstItem="l9z-Yu-rIo" firstAttribute="top" secondItem="xBo-2v-hwV" secondAttribute="top" id="pZ0-YQ-4EP"/>
-                                                                <constraint firstAttribute="bottom" secondItem="qZG-uB-GYB" secondAttribute="bottom" id="z67-st-IVg"/>
+                                                                <constraint firstAttribute="trailing" secondItem="exe-8R-B62" secondAttribute="trailing" id="FFi-g4-FCI"/>
+                                                                <constraint firstAttribute="bottom" secondItem="rTi-Fe-fw4" secondAttribute="bottom" id="FWf-WF-esh"/>
+                                                                <constraint firstItem="Gao-Xg-IXq" firstAttribute="leading" secondItem="Ac6-nE-6ZU" secondAttribute="leading" id="MPR-Wd-EUU"/>
+                                                                <constraint firstItem="rTi-Fe-fw4" firstAttribute="top" secondItem="exe-8R-B62" secondAttribute="bottom" id="OyC-1v-oIe"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Gao-Xg-IXq" secondAttribute="trailing" id="RO5-vg-SHA"/>
+                                                                <constraint firstItem="Gao-Xg-IXq" firstAttribute="top" secondItem="Ac6-nE-6ZU" secondAttribute="top" id="VE0-WK-yMp"/>
+                                                                <constraint firstAttribute="trailing" secondItem="rTi-Fe-fw4" secondAttribute="trailing" id="jsv-gp-ADg"/>
+                                                                <constraint firstItem="exe-8R-B62" firstAttribute="top" secondItem="Ac6-nE-6ZU" secondAttribute="top" id="pr0-XS-5uV"/>
+                                                                <constraint firstItem="rTi-Fe-fw4" firstAttribute="leading" secondItem="Ac6-nE-6ZU" secondAttribute="leading" id="v0b-Ge-fkL"/>
+                                                                <constraint firstItem="exe-8R-B62" firstAttribute="leading" secondItem="Ac6-nE-6ZU" secondAttribute="leading" id="vk2-hq-HMZ"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="logoImageView" destination="Gao-Xg-IXq" id="q6P-FD-8b2"/>
+                                                            <outlet property="nameLabel" destination="rTi-Fe-fw4" id="JE0-Vj-5cd"/>
+                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromXityPick" id="LDR-xw-DX4"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -1903,14 +1898,15 @@ should be on Xity?</string>
                                         </subviews>
                                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="Yr5-mc-o9V" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="21" id="0Yv-3j-i78"/>
                                             <constraint firstAttribute="trailing" secondItem="KmJ-NI-E7V" secondAttribute="trailing" constant="9" id="25z-nL-wGM"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="unq-Kr-Wcq" secondAttribute="bottom" constant="20.329999999999998" id="4ec-df-iq6"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="top" secondItem="vXY-nV-LWV" secondAttribute="bottom" constant="49" id="7Jj-DK-s47"/>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="7ec-qH-eqU"/>
                                             <constraint firstItem="unq-Kr-Wcq" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="7.6699999999999999" id="AqU-rj-YZU"/>
                                             <constraint firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="BgG-vW-9VT"/>
-                                            <constraint firstItem="11h-RU-BJi" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="CdS-pf-GYV"/>
                                             <constraint firstAttribute="trailing" secondItem="g8b-sK-kda" secondAttribute="trailing" id="Dyn-eL-Orr"/>
+                                            <constraint firstAttribute="trailing" secondItem="onA-4S-Wan" secondAttribute="trailing" id="GYS-TM-s9p"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="I1d-Ca-LlP"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="IjF-k3-AVU"/>
                                             <constraint firstItem="HPd-IG-CFU" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="Ixq-qF-KNW"/>
@@ -1921,6 +1917,7 @@ should be on Xity?</string>
                                             <constraint firstItem="HPd-IG-CFU" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="14" id="N4I-OR-p1L"/>
                                             <constraint firstItem="g8b-sK-kda" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="NVZ-bT-eHY"/>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="PAf-dL-QLE"/>
+                                            <constraint firstItem="onA-4S-Wan" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="PTh-TQ-lTj"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="MWB-JM-Q0f" secondAttribute="leading" id="Qac-rb-ddn"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="S6y-nQ-yUg"/>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="SVh-xg-ZFm"/>
@@ -1930,7 +1927,6 @@ should be on Xity?</string>
                                             <constraint firstItem="vXY-nV-LWV" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="UhR-ln-4vy"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="UsH-1c-6EG"/>
                                             <constraint firstItem="SO8-4f-hLW" firstAttribute="top" secondItem="x8J-nE-HSo" secondAttribute="bottom" constant="28" id="WNZ-Vb-9H8"/>
-                                            <constraint firstItem="11h-RU-BJi" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="XNg-MR-zlg"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="bottom" secondItem="MWB-JM-Q0f" secondAttribute="bottom" id="XvU-vJ-Wvx"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="Yle-d4-ob3"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
@@ -1944,10 +1940,9 @@ should be on Xity?</string>
                                             <constraint firstItem="g8b-sK-kda" firstAttribute="top" secondItem="PaE-9Z-b5c" secondAttribute="top" id="nXN-RM-FfO"/>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="top" secondItem="PRD-v0-GZh" secondAttribute="bottom" constant="28" id="nwV-TP-UTi"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="pce-My-VFH"/>
-                                            <constraint firstAttribute="trailing" secondItem="11h-RU-BJi" secondAttribute="trailing" id="qeB-Se-G43"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="ql6-jh-PRe"/>
-                                            <constraint firstItem="Yr5-mc-o9V" firstAttribute="top" secondItem="11h-RU-BJi" secondAttribute="bottom" constant="21" id="sky-6F-C6K"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="14" id="uPv-Ma-efd"/>
+                                            <constraint firstItem="onA-4S-Wan" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="weM-l1-ZCm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2000,7 +1995,7 @@ should be on Xity?</string>
                         <outlet property="venueButton" destination="Yr5-mc-o9V" id="I0a-dO-n5z"/>
                         <outlet property="venueCollectionView" destination="vXY-nV-LWV" id="JCB-mf-fxu"/>
                         <outlet property="weeklyButton" destination="SO8-4f-hLW" id="xgL-UX-5Mi"/>
-                        <outlet property="weeklyCollectionView" destination="11h-RU-BJi" id="Vym-KQ-Bty"/>
+                        <outlet property="weeklyCollectionView" destination="onA-4S-Wan" id="WAf-S7-Qqc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2113,10 +2108,11 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Bv4-4I-uus"/>
+        <segue reference="LDR-xw-DX4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
+        <image name="BandVenueBorderXityPick.png" width="155" height="204"/>
         <image name="brickBackground.png" width="396" height="231"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="listenButton.png" width="196" height="38"/>
