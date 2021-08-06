@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C3F6FECE3310098B255B19A /* Pods_Ohmicity_OhmicityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */; };
 		3F304D43FD03EB5F6B7C155E /* Pods_OhmicityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */; };
-		B931DD11EEA6F4B90B2E687A /* Pods_Ohmicity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */; };
 		D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* SearchViewController.swift */; };
 		D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0A264467A90050F9CA /* SuggestViewController.swift */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
@@ -38,6 +37,7 @@
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
 		F640DD0A264E3B7300959358 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Helper.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
+		F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */; };
 		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
 		F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */; };
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
@@ -194,7 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B931DD11EEA6F4B90B2E687A /* Pods_Ohmicity.framework in Frameworks */,
+				F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
