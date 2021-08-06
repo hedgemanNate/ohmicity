@@ -13,9 +13,7 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var borderImageView: UIImageView!
     @IBOutlet private weak var adImageView: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     
     
     override func layoutSubviews() {
@@ -30,7 +28,7 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
         nameLabel.text = nil
     }
     
-    var venue: BusinessFullData? {
+    var venue: Business? {
         didSet {
             if let venue = venue {
                 //logoImageView.contentMode = .scaleToFill
@@ -54,15 +52,27 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
     var band: Band? {
         didSet {
             if let band = band {
-                //logoImageView.contentMode = .scaleAspectFill
-                //logoImageView.contentMode = .center
                 
                 logoImageView.image = UIImage(data: band.photo!)
-                //nameLabel.text = band.name
+                nameLabel.text = band.name
                 
                 if band.ohmPick == true {
                     //ohmPickImageView.image = UIImage(named: "OhmPick")
                 }
+            }
+        }
+    }
+    
+    var xityPick: XityPick? {
+        didSet {
+            if let xityPick = xityPick {
+                if xityPick.band.photo == nil {
+                    logoImageView.image = UIImage(named: "band.jpg")
+                } else {
+                    logoImageView.image = UIImage(data: xityPick.band.photo!)
+                }
+                nameLabel.text = xityPick.band.name
+                //ohmPickImageView.image = UIImage(named: "OhmPick")
             }
         }
     }

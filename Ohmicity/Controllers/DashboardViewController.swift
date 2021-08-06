@@ -13,7 +13,7 @@ class DashboardViewController: UIViewController {
     
     
     //Properties
-    private var weeklyVenueArray: [BusinessFullData] = []
+    private var weeklyVenueArray: [Business] = []
     var weeklyShowArray: [Show] = []
     
     
@@ -85,6 +85,14 @@ class DashboardViewController: UIViewController {
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             businessVC.currentBusiness = currentUserController.favArray[indexPath!.row]
             timeController.timer.invalidate()
+        }
+        
+        if segue.identifier == "FromXityPick" {
+            let indexPath = weeklyCollectionView.indexPathsForSelectedItems?.first
+            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
+            businessVC.currentBusiness = xityPickController.weeklyPicksArray[indexPath!.row].business
+            businessVC.band = xityPickController.weeklyPicksArray[indexPath!.row].band
+            businessVC.nextShow = xityPickController.weeklyPicksArray[indexPath!.row].show
         }
     }
     
@@ -185,6 +193,10 @@ extension DashboardViewController {
         favoritesCollectionView.dataSource = self
         favoritesCollectionView.showsHorizontalScrollIndicator = false
         getFavorites()
+        
+        weeklyCollectionView.delegate = self
+        weeklyCollectionView.dataSource = self
+        weeklyCollectionView.showsHorizontalScrollIndicator = false
     }
     
     
@@ -235,6 +247,9 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case favoritesCollectionView:
             size = CGSize(width: 155, height: height)
             return size
+        case weeklyCollectionView:
+            size = CGSize(width: 155, height: height)
+            return size
         default:
             return size
         }
@@ -255,6 +270,8 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             num = businessController.businessTypeArray.count
         case favoritesCollectionView:
             num = currentUserController.favArray.count
+        case weeklyCollectionView:
+            num = xityPickController.weeklyPicksArray.count
         default:
             num = 4
         }
@@ -264,6 +281,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var venueCell = BandVenueCollectionViewCell()
+        var xityPickCell = BandVenueCollectionViewCell()
         var cityCell = CitiesCollectionViewCell()
         var businessTypeCell = CitiesCollectionViewCell()
         var bannerAdCell = BannerAdBusinessPicsCollectionViewCell()
@@ -296,6 +314,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! BandVenueCollectionViewCell
             venueCell.venue = currentUserController.favArray[indexPath.row]
             return venueCell
+        case weeklyCollectionView:
+            xityPickCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeeklyCell", for: indexPath) as! BandVenueCollectionViewCell
+            xityPickCell.xityPick = xityPickController.weeklyPicksArray[indexPath.row]
+            return xityPickCell
         default:
             return cell
         }

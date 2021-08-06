@@ -15,7 +15,7 @@ class VenueDetailViewController: UIViewController {
     
     //MARK: Properties
     var currentUser = currentUserController.currentUser
-    var currentBusiness: BusinessFullData?
+    var currentBusiness: Business?
     var nextShowsArray = [Show]()
     var nextShow: Show?
     var band: Band?
@@ -251,8 +251,9 @@ extension VenueDetailViewController {
         businessShows.removeAll(where: {$0.date < timeController.twoHoursAgo})
         var orderedShows = businessShows.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
         //Grabs next Show for displaying
-        let nextShow = orderedShows.first
-        self.nextShow = nextShow
+        if self.nextShow == nil {
+            self.nextShow = orderedShows.first
+        }
         //Removes nextShow from array so its not shown twice
         orderedShows.removeFirst()
         nextShowsArray = orderedShows
@@ -268,17 +269,24 @@ extension VenueDetailViewController {
             tonightsEntLabel.text = "The Next Show: \(showTimeString)"
         }
         
-        guard let featuredBand = bandController.bandArray.first(where: {$0.name == nextShow?.band}) else {return}
-        if let bandImageData = featuredBand.photo {
+        var featuredBand: Band?
+        if band == nil {
+            guard let featuredBand2 = bandController.bandArray.first(where: {$0.name == nextShow?.band}) else {return}
+            featuredBand = featuredBand2
+        } else {
+            featuredBand = self.band
+        }
+        
+        if let bandImageData = featuredBand!.photo {
             let bandImage = UIImage(data: bandImageData)
             bandPhotoImageView.image = bandImage
         }
-        bandNameLabel.text = featuredBand.name
+        bandNameLabel.text = featuredBand!.name
         showTimeLabel.text = nextShow?.time
         
         bandGenreLabel.text = ""
-        if featuredBand.genre.count >= 1 {
-            for genre in featuredBand.genre {
+        if featuredBand!.genre.count >= 1 {
+            for genre in featuredBand!.genre {
                 let genre = genre.rawValue
                 bandGenreLabel.text! += "\(genre), "
             }
@@ -307,7 +315,10 @@ extension VenueDetailViewController {
             return view
         }()
         self.backgroundView = backgroundView
-        band = bandController.bandArray.first(where: {$0.name == nextShow?.band})
+        
+        if band == nil {
+            band = bandController.bandArray.first(where: {$0.name == nextShow?.band})
+        }
         if band?.mediaLink == nil {
             listenButton.isEnabled = false
             listenButton.titleLabel?.text = "Band Has No Media"

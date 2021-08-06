@@ -12,8 +12,8 @@ import FirebaseFirestore
 
 class BusinessController {
     //Properties
-    var todayVenueArray = [BusinessFullData]()
-    var businessArray: [BusinessFullData] = [] {
+    var todayVenueArray = [Business]()
+    var businessArray: [Business] = [] {
         didSet {
             
         }
@@ -38,7 +38,7 @@ class BusinessController {
                 NSLog("Business Data Cached")
                 for business in querySnapshot!.documents {
                     let result = Result {
-                        try business.data(as: BusinessFullData.self)
+                        try business.data(as: Business.self)
                     }
                     switch result {
                     case .success(let business):
@@ -68,7 +68,7 @@ class BusinessController {
             } else {
                 for business in querySnapshot!.documents {
                     let result = Result {
-                        try business.data(as: BusinessFullData.self)
+                        try business.data(as: Business.self)
                     }
                     switch result {
                     case .success(let business):
@@ -95,7 +95,7 @@ class BusinessController {
             } else {
                 for business in querySnapshot!.documents {
                     let result = Result {
-                        try business.data(as: BusinessFullData.self)
+                        try business.data(as: Business.self)
                     }
                     switch result {
                     case .success(let business):
