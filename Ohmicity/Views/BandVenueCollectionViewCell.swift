@@ -53,7 +53,11 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
         didSet {
             if let band = band {
                 
+                if band.photo != nil {
                 logoImageView.image = UIImage(data: band.photo!)
+                } else {
+                    logoImageView.image = UIImage(named: "DefaultBand.png")
+                }
                 nameLabel.text = band.name
                 
                 if band.ohmPick == true {
@@ -67,7 +71,7 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
         didSet {
             if let xityPick = xityPick {
                 if xityPick.band.photo == nil {
-                    logoImageView.image = UIImage(named: "band.jpg")
+                    logoImageView.image = UIImage(named: "DefaultBand.png")
                 } else {
                     logoImageView.image = UIImage(data: xityPick.band.photo!)
                 }
