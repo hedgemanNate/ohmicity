@@ -129,18 +129,18 @@ extension DashboardViewController {
     
     //MARK: Banner Ad
     @objc private func bannerChange() {
-        
-        var indexPath = IndexPath(row: counter, section: 0)
+        let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
+        let currentPath = shownPath.first
+    
+        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if counter < 50 {
+        if currentPath!.row < 50 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            counter += 1
+            
         } else {
-            counter = 0
             indexPath = IndexPath(row: 0, section: 0)
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-            counter = 1
         }
     }
     

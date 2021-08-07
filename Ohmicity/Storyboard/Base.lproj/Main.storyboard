@@ -721,7 +721,7 @@ Florida 34222 </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htM-13-0SJ">
-                                                <rect key="frame" x="195" y="336" width="166" height="48"/>
+                                                <rect key="frame" x="237" y="621" width="166" height="48"/>
                                                 <color key="backgroundColor" red="0.03212521773578414" green="1" blue="3.3306690738754696e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="break">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -736,10 +736,10 @@ Florida 34222 </string>
                                             <constraint firstItem="25w-CZ-cPi" firstAttribute="top" secondItem="j2y-NV-c28" secondAttribute="bottom" constant="49" id="1X5-Wu-Yim"/>
                                             <constraint firstItem="baK-Jv-Q7n" firstAttribute="bottom" secondItem="IGN-It-sRZ" secondAttribute="bottom" id="2Fx-lg-pkk"/>
                                             <constraint firstItem="yLX-vV-2Rk" firstAttribute="top" secondItem="yTP-jS-Lu6" secondAttribute="bottom" constant="7" id="2SM-ci-U2X"/>
-                                            <constraint firstItem="htM-13-0SJ" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="195" id="2lF-GE-l0a"/>
                                             <constraint firstItem="baK-Jv-Q7n" firstAttribute="top" secondItem="5Ht-a8-dTe" secondAttribute="bottom" constant="7" id="64F-j3-O7f"/>
                                             <constraint firstItem="0UF-od-poe" firstAttribute="top" secondItem="IGN-It-sRZ" secondAttribute="bottom" constant="7" id="6CH-0L-UAd"/>
                                             <constraint firstItem="5Ht-a8-dTe" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="7lm-wR-IrM"/>
+                                            <constraint firstItem="htM-13-0SJ" firstAttribute="top" secondItem="baK-Jv-Q7n" secondAttribute="bottom" constant="14.67" id="9WX-S5-XNL"/>
                                             <constraint firstItem="2Mf-7q-eRl" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="7" id="CnI-t9-iIF"/>
                                             <constraint firstItem="yTP-jS-Lu6" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="E9B-4U-5L3"/>
                                             <constraint firstItem="0UF-od-poe" firstAttribute="trailing" secondItem="IGN-It-sRZ" secondAttribute="trailing" id="EHW-2S-2fc"/>
@@ -751,8 +751,11 @@ Florida 34222 </string>
                                             <constraint firstAttribute="trailing" secondItem="j2y-NV-c28" secondAttribute="trailing" constant="9" id="R7e-rn-pgT"/>
                                             <constraint firstItem="1wH-zx-jDa" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" id="Re8-GS-KWr"/>
                                             <constraint firstAttribute="trailing" secondItem="1wH-zx-jDa" secondAttribute="trailing" id="Reu-7w-t5O"/>
+                                            <constraint firstAttribute="trailing" secondItem="htM-13-0SJ" secondAttribute="trailing" constant="25" id="Sfh-6z-1qI"/>
+                                            <constraint firstItem="yTP-jS-Lu6" firstAttribute="top" secondItem="htM-13-0SJ" secondAttribute="bottom" constant="20.329999999999998" id="SmQ-a7-edx"/>
                                             <constraint firstAttribute="height" constant="1735" id="TJI-S1-kJh"/>
                                             <constraint firstItem="j2y-NV-c28" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="UkS-s2-7F2"/>
+                                            <constraint firstItem="htM-13-0SJ" firstAttribute="leading" secondItem="0UF-od-poe" secondAttribute="trailing" constant="73" id="WHO-yJ-vSa"/>
                                             <constraint firstAttribute="trailing" secondItem="4Hk-SP-Xj0" secondAttribute="trailing" id="X8C-Q9-bBQ"/>
                                             <constraint firstItem="5Ht-a8-dTe" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="bottom" constant="35" id="Ylb-HY-gyh"/>
                                             <constraint firstItem="yTP-jS-Lu6" firstAttribute="top" secondItem="0UF-od-poe" secondAttribute="bottom" constant="35" id="cXi-3Y-Cbe"/>
@@ -763,14 +766,11 @@ Florida 34222 </string>
                                             <constraint firstItem="0UF-od-poe" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="nUl-Y6-rab"/>
                                             <constraint firstItem="yLX-vV-2Rk" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="oUH-SH-4PB"/>
                                             <constraint firstAttribute="trailing" secondItem="25w-CZ-cPi" secondAttribute="trailing" constant="9" id="oWr-06-XbD"/>
-                                            <constraint firstItem="baK-Jv-Q7n" firstAttribute="top" secondItem="htM-13-0SJ" secondAttribute="bottom" constant="18.329999999999998" id="pBv-TT-Kjs"/>
-                                            <constraint firstAttribute="trailing" secondItem="htM-13-0SJ" secondAttribute="trailing" constant="67" id="r43-Tg-bDk"/>
                                             <constraint firstItem="4Hk-SP-Xj0" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" id="ra0-Iz-cw0"/>
                                             <constraint firstItem="1wH-zx-jDa" firstAttribute="top" secondItem="4Hk-SP-Xj0" secondAttribute="bottom" id="tLp-J9-ScD"/>
                                             <constraint firstItem="IGN-It-sRZ" firstAttribute="top" secondItem="5Ht-a8-dTe" secondAttribute="bottom" constant="7" id="wUx-jS-ze9"/>
                                             <constraint firstAttribute="trailing" secondItem="25w-CZ-cPi" secondAttribute="trailing" constant="9" id="xLO-E5-1ky"/>
                                             <constraint firstItem="25w-CZ-cPi" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="yPd-bl-XXz"/>
-                                            <constraint firstItem="htM-13-0SJ" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="bottom" constant="7.6699999999999999" id="yVy-Rh-E3h"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1666,7 +1666,7 @@ should be on Xity?</string>
                                                     <size key="itemSize" width="155" height="261"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="9" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCell" id="TFo-ws-g8I" customClass="BandVenueCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
@@ -1741,7 +1741,7 @@ should be on Xity?</string>
                                                     <size key="itemSize" width="155" height="261"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="9" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyCell" id="3hv-8t-3mc" customClass="BandVenueCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
@@ -1808,7 +1808,7 @@ should be on Xity?</string>
                                                     <size key="itemSize" width="155" height="105"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="9" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BusinessTypeCell" id="JiU-4j-0e1" customClass="CitiesCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">

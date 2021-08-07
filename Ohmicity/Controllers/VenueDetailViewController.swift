@@ -65,7 +65,7 @@ class VenueDetailViewController: UIViewController {
         super.viewDidAppear(animated)
         //Collection View Timer
         DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.startSlideShow), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
     
@@ -391,21 +391,19 @@ extension VenueDetailViewController {
     
     
     //MARK: Slide Show Functions
-    @objc func startSlideShow() {
+    @objc func bannerChange() {
         let shownPath = businessPicsCollectionView.indexPathsForVisibleItems
         let currentPath = shownPath.first
     
         var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if counter < 50 {
+        if currentPath!.row < 50 {
             self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            counter += 1
+            
         } else {
-            counter = 0
             indexPath = IndexPath(row: 0, section: 0)
             self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-            counter = 1
         }
     }
 }
