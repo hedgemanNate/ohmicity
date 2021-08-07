@@ -30,9 +30,7 @@ class TimeController {
     let userCalendar = Calendar.current
     
     
-    //Timers
-    var timer = Timer()
-    
+    //Functions
     func setTime() {
         //For todayString
         dateFormatter.dateFormat = monthDayYear

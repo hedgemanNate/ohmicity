@@ -21,7 +21,7 @@ class VenueDetailViewController: UIViewController {
     var band: Band?
     
     //Slideshow properties
-    private var timer = timeController.timer
+    private var timer = Timer()
     private var counter = 0
     
     //Map Properties
@@ -47,6 +47,7 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var bandGenreLabel: UILabel!
     @IBOutlet weak var businessRatingLabel: UILabel!
     
+    //Map
     @IBOutlet weak var mapNameLabel: UILabel!
     @IBOutlet weak var mapAddressLabel: UILabel!
     
@@ -58,6 +59,14 @@ class VenueDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //Collection View Timer
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.startSlideShow), userInfo: nil, repeats: true)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -236,14 +245,6 @@ extension VenueDetailViewController {
         mapNameLabel.text = currentBusiness.name
         mapAddressLabel.text = currentBusiness.address
         
-        //Collection View Timer
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.startSlideShow), userInfo: nil, repeats: true)
-        }
-        timer.fire()
-        
-        //Stop Dashboard SlideShow
-        
         
         //MARK: - Table Logic And Tonights Show Logic
         //Table View data source
@@ -391,7 +392,10 @@ extension VenueDetailViewController {
     
     //MARK: Slide Show Functions
     @objc func startSlideShow() {
-        var indexPath = IndexPath(row: counter, section: 0)
+        let shownPath = businessPicsCollectionView.indexPathsForVisibleItems
+        let currentPath = shownPath.first
+    
+        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
         if counter < 50 {

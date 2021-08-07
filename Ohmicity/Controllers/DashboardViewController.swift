@@ -20,6 +20,8 @@ class DashboardViewController: UIViewController {
     private let bandVenueCellid = "MainCell"
     private let cityCellid = "CityCell"
     
+    //Timer
+    var timer = Timer()
     private var counter = 0
     
     @IBOutlet private weak var getPerksButton: UIButton!
@@ -61,7 +63,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timeController.timer.invalidate()
+        timer.invalidate()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,20 +76,23 @@ class DashboardViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          //Pass the selected object to the new view controller.
         if segue.identifier == "FromToday" {
+            timer.invalidate()
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             businessVC.currentBusiness = businessController.todayVenueArray[indexPath!.row]
-            timeController.timer.invalidate()
+            
         }
         
         if segue.identifier == "FromFav" {
+            timer.invalidate()
             let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             businessVC.currentBusiness = currentUserController.favArray[indexPath!.row]
-            timeController.timer.invalidate()
+            
         }
         
         if segue.identifier == "FromXityPick" {
+            timer.invalidate()
             let indexPath = weeklyCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             businessVC.currentBusiness = xityPickController.weeklyPicksArray[indexPath!.row].business
@@ -153,7 +158,7 @@ extension DashboardViewController {
     
     @objc private func startTimer() {
         DispatchQueue.main.async {
-            timeController.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
     
