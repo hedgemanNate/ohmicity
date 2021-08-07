@@ -25,11 +25,12 @@
  #import <UIKit/UIKit.h>
 
  #import "FBSDKApplicationLifecycleNotifications.h"
+ #import "FBSDKBase64.h"
  #import "FBSDKBridgeAPIRequest.h"
  #import "FBSDKConstants.h"
  #import "FBSDKCoreKitBasicsImport.h"
- #import "FBSDKError+Internal.h"
- #import "FBSDKInternalUtility+Internal.h"
+ #import "FBSDKError.h"
+ #import "FBSDKInternalUtility.h"
  #import "FBSDKPasteboard.h"
  #import "FBSDKSettings.h"
  #import "UIPasteboard+Pasteboard.h"
@@ -170,11 +171,11 @@ static const struct {
                      setObject:bridgeParametersString
                         forKey:FBSDKBridgeAPIProtocolNativeV1OutputKeys.bridgeArgs];
 
-  return [FBSDKInternalUtility.sharedUtility URLWithScheme:self.appScheme
-                                                      host:host
-                                                      path:path
-                                           queryParameters:queryParameters
-                                                     error:errorRef];
+  return [FBSDKInternalUtility URLWithScheme:self.appScheme
+                                        host:host
+                                        path:path
+                             queryParameters:queryParameters
+                                       error:errorRef];
 }
 
 - (NSDictionary *)responseParametersForActionID:(NSString *)actionID

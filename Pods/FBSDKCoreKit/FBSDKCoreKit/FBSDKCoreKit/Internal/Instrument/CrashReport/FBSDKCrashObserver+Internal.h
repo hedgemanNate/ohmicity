@@ -18,7 +18,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C3F6FECE3310098B255B19A /* Pods_Ohmicity_OhmicityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */; };
-		3F304D43FD03EB5F6B7C155E /* Pods_OhmicityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */; };
 		D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* SearchViewController.swift */; };
 		D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0A264467A90050F9CA /* SuggestViewController.swift */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
@@ -16,8 +14,6 @@
 		D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0C2641C4C400E95415 /* Main.storyboard */; };
 		D8403D102641C4C500E95415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0F2641C4C500E95415 /* Assets.xcassets */; };
 		D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D112641C4C500E95415 /* LaunchScreen.storyboard */; };
-		D8403D1E2641C4C500E95415 /* OhmicityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D1D2641C4C500E95415 /* OhmicityTests.swift */; };
-		D8403D292641C4C500E95415 /* OhmicityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D282641C4C500E95415 /* OhmicityUITests.swift */; };
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8403D3E2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8403D3F2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
@@ -103,12 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhmicityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		31F2E9F1DACE883B2F06FBFD /* Pods-Ohmicity-OhmicityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity-OhmicityUITests.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests.release.xcconfig"; sourceTree = "<group>"; };
 		59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CAC8C8ADD179DED45557938 /* Pods-Ohmicity-OhmicityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity-OhmicityUITests.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity_OhmicityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.release.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.release.xcconfig"; sourceTree = "<group>"; };
 		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
 		D8262F00264466FA0050F9CA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D8262F0A264467A90050F9CA /* SuggestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
@@ -120,16 +111,11 @@
 		D8403D122641C4C500E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8403D142641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8403D192641C4C500E95415 /* OhmicityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhmicityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8403D1D2641C4C500E95415 /* OhmicityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhmicityTests.swift; sourceTree = "<group>"; };
-		D8403D1F2641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8403D242641C4C500E95415 /* OhmicityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhmicityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8403D282641C4C500E95415 /* OhmicityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhmicityUITests.swift; sourceTree = "<group>"; };
-		D8403D2A2641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D8CED4052641F4100017FD28 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
-		E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmicityTests.debug.xcconfig"; path = "Target Support Files/Pods-OhmicityTests/Pods-OhmicityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F60DDB8D269E483E009DD827 /* BandVenueBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorder.png; sourceTree = "<group>"; };
 		F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OhmicityLogoNoTag.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
@@ -206,7 +192,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F304D43FD03EB5F6B7C155E /* Pods_OhmicityTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +199,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C3F6FECE3310098B255B19A /* Pods_Ohmicity_OhmicityUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */,
-				B8C514CA12AB2E1D887D5A75 /* Pods_Ohmicity_OhmicityUITests.framework */,
-				11BC47A59DA4F07504A83989 /* Pods_OhmicityTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -237,8 +219,6 @@
 				F66C99C626BCDA6200A7C135 /* MyPlayground.playground */,
 				F6522D622649AAF400912B90 /* Helpers */,
 				D8403D052641C4C400E95415 /* Ohmicity */,
-				D8403D1C2641C4C500E95415 /* OhmicityTests */,
-				D8403D272641C4C500E95415 /* OhmicityUITests */,
 				D8403D042641C4C400E95415 /* Products */,
 				F6F59D254F66DCB6A2224A40 /* Pods */,
 				774EDA1CD1EB166EB9631C7A /* Frameworks */,
@@ -266,24 +246,6 @@
 				F60E6BC92648F2AE001CA06E /* Assets */,
 			);
 			path = Ohmicity;
-			sourceTree = "<group>";
-		};
-		D8403D1C2641C4C500E95415 /* OhmicityTests */ = {
-			isa = PBXGroup;
-			children = (
-				D8403D1D2641C4C500E95415 /* OhmicityTests.swift */,
-				D8403D1F2641C4C500E95415 /* Info.plist */,
-			);
-			path = OhmicityTests;
-			sourceTree = "<group>";
-		};
-		D8403D272641C4C500E95415 /* OhmicityUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D8403D282641C4C500E95415 /* OhmicityUITests.swift */,
-				D8403D2A2641C4C500E95415 /* Info.plist */,
-			);
-			path = OhmicityUITests;
 			sourceTree = "<group>";
 		};
 		D8CED3F22641E3880017FD28 /* Controllers */ = {
@@ -475,10 +437,6 @@
 			children = (
 				D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */,
 				DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */,
-				8CAC8C8ADD179DED45557938 /* Pods-Ohmicity-OhmicityUITests.debug.xcconfig */,
-				31F2E9F1DACE883B2F06FBFD /* Pods-Ohmicity-OhmicityUITests.release.xcconfig */,
-				E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */,
-				C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -510,7 +468,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8403D302641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityTests" */;
 			buildPhases = (
-				7A1DA1AFC4A63E8658EBF67B /* [CP] Check Pods Manifest.lock */,
 				D8403D152641C4C500E95415 /* Sources */,
 				D8403D162641C4C500E95415 /* Frameworks */,
 				D8403D172641C4C500E95415 /* Resources */,
@@ -529,12 +486,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8403D332641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityUITests" */;
 			buildPhases = (
-				FFCF8A2E8692331FADBC167E /* [CP] Check Pods Manifest.lock */,
 				D8403D202641C4C500E95415 /* Sources */,
 				D8403D212641C4C500E95415 /* Frameworks */,
 				D8403D222641C4C500E95415 /* Resources */,
-				46B21BA83A905441C399950E /* [CP] Embed Pods Frameworks */,
-				5172CB572DCB5D5946819548 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -666,62 +620,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		46B21BA83A905441C399950E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5172CB572DCB5D5946819548 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity-OhmicityUITests/Pods-Ohmicity-OhmicityUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A1DA1AFC4A63E8658EBF67B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OhmicityTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9945C9C3D7EAB37AD9996691 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -754,28 +652,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FFCF8A2E8692331FADBC167E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Ohmicity-OhmicityUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -832,7 +708,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8403D1E2641C4C500E95415 /* OhmicityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +715,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8403D292641C4C500E95415 /* OhmicityUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,7 +913,6 @@
 		};
 		D8403D312641C4C500E95415 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6FEEABE0FB325AEC82839E9 /* Pods-OhmicityTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1062,7 +935,6 @@
 		};
 		D8403D322641C4C500E95415 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1B8702273DB65392873283F /* Pods-OhmicityTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1085,7 +957,6 @@
 		};
 		D8403D342641C4C500E95415 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CAC8C8ADD179DED45557938 /* Pods-Ohmicity-OhmicityUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1106,7 +977,6 @@
 		};
 		D8403D352641C4C500E95415 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31F2E9F1DACE883B2F06FBFD /* Pods-Ohmicity-OhmicityUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

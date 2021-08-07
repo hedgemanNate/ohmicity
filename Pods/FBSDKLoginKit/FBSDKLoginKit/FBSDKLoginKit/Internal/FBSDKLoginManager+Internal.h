@@ -34,8 +34,6 @@
 #import <FBSDKLoginKit/FBSDKLoginManager.h>
 #endif
 
-#import "FBSDKLoginProviding.h"
-
 @class FBSDKAccessToken;
 @class FBSDKLoginCompletionParameters;
 @class FBSDKLoginManagerLogger;
@@ -55,7 +53,7 @@ typedef NS_ENUM(NSInteger, FBSDKLoginManagerState) {
   FBSDKLoginManagerStatePerformingLogin,
 };
 
-@interface FBSDKLoginManager () <FBSDKURLOpening, FBSDKLoginProviding>
+@interface FBSDKLoginManager () <FBSDKURLOpening>
 @property (nonatomic, weak) UIViewController *fromViewController;
 @property (nonatomic, readonly) NSSet<FBSDKPermission *> *requestedPermissions;
 @property (nonatomic, strong) FBSDKLoginManagerLogger *logger;

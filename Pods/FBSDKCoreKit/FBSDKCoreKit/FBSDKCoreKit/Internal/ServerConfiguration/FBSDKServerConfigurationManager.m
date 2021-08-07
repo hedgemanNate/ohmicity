@@ -21,18 +21,14 @@
 #import <objc/runtime.h>
 
 #import "FBSDKAppEventsUtility.h"
-#import "FBSDKCoreKitBasicsImport.h"
+#import "FBSDKCoreKit+Internal.h"
 #import "FBSDKGraphRequest.h"
 #import "FBSDKGraphRequest+Internal.h"
-#import "FBSDKGraphRequestConnection.h"
-#import "FBSDKGraphRequestConnection+GraphRequestConnecting.h"
 #import "FBSDKImageDownloader.h"
-#import "FBSDKInternalUtility+Internal.h"
 #import "FBSDKLogger.h"
-#import "FBSDKObjectDecoding.h"
+#import "FBSDKServerConfiguration.h"
 #import "FBSDKServerConfiguration+Internal.h"
 #import "FBSDKSettings.h"
-#import "FBSDKUnarchiverProvider.h"
 
 #define FBSDK_SERVER_CONFIGURATION_USER_DEFAULTS_KEY @"com.facebook.sdk:serverConfiguration%@"
 
@@ -165,9 +161,9 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
           FBSDKGraphRequest *request = [[self class] requestToLoadServerConfiguration:appID];
 
           // start request with specified timeout instead of the default 180s
-          id<FBSDKGraphRequestConnecting> requestConnection = [FBSDKGraphRequestConnection new];
+          FBSDKGraphRequestConnection *requestConnection = [FBSDKGraphRequestConnection new];
           requestConnection.timeout = kTimeout;
-          [requestConnection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
+          [requestConnection addRequest:request completionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
             _requeryFinishedForAppStart = YES;
             [self processLoadRequestResponse:result error:error appID:appID];
           }];
@@ -268,7 +264,7 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
 
 + (FBSDKGraphRequest *)requestToLoadServerConfiguration:(NSString *)appID
 {
-  NSOperatingSystemVersion operatingSystemVersion = [FBSDKInternalUtility.sharedUtility operatingSystemVersion];
+  NSOperatingSystemVersion operatingSystemVersion = [FBSDKInternalUtility operatingSystemVersion];
   NSString *osVersion = [NSString stringWithFormat:@"%ti.%ti.%ti",
                          operatingSystemVersion.majorVersion,
                          operatingSystemVersion.minorVersion,
@@ -328,9 +324,8 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
       if (_serverConfiguration && [_serverConfiguration.appID isEqualToString:appID]) {
         // We have older app settings but the refresh received an error.
         // Log and ignore the error.
-        NSString *msg = [NSString stringWithFormat:@"loadServerConfigurationWithCompletionBlock failed with %@", error];
         [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorInformational
-                               logEntry:msg];
+                           formatString:@"loadServerConfigurationWithCompletionBlock failed with %@", error];
       } else {
         _serverConfiguration = nil;
       }

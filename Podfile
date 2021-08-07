@@ -1,5 +1,6 @@
+project 'Ohmicity.xcodeproj/'
 # Uncomment the next line to define a global platform for your project
- platform :ios, '10.0'
+ platform :ios, '13.0'
 
 target 'Ohmicity' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -12,7 +13,7 @@ target 'Ohmicity' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift', '> 7.0-beta'
+  pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Analytics'
   pod 'FirebaseUI'
 
@@ -24,15 +25,5 @@ target 'Ohmicity' do
   pod 'MaterialComponents/TextControls+OutlinedTextAreas'
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
   pod 'MaterialComponents/List'
-
-  target 'OhmicityTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'OhmicityUITests' do
-    
-    # Pods for testing
-  end
 
 end

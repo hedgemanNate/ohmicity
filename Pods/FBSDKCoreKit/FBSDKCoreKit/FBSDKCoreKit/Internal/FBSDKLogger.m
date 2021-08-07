@@ -18,9 +18,8 @@
 
 #import "FBSDKLogger.h"
 
-#import "FBSDKCoreKitBasicsImport.h"
-#import "FBSDKInternalUtility+Internal.h"
-#import "FBSDKSettings.h"
+#import "FBSDKInternalUtility.h"
+#import "FBSDKSettings+Internal.h"
 
 static NSUInteger g_serialNumberCounter = 1111;
 static NSMutableDictionary *g_stringsToReplace = nil;
@@ -126,15 +125,23 @@ static NSMutableDictionary *g_startTimesWithTags = nil;
 + (void)singleShotLogEntry:(NSString *)loggingBehavior
                   logEntry:(NSString *)logEntry
 {
-  FBSDKLogger *logger = [[FBSDKLogger alloc] initWithLoggingBehavior:loggingBehavior];
-  [logger logEntry:logEntry];
+  if ([FBSDKSettings.loggingBehaviors containsObject:loggingBehavior]) {
+    FBSDKLogger *logger = [[FBSDKLogger alloc] initWithLoggingBehavior:loggingBehavior];
+    [logger appendString:logEntry];
+    [logger emitToNSLog];
+  }
 }
 
-- (void)logEntry:(NSString *)logEntry
++ (void)singleShotLogEntry:(NSString *)loggingBehavior
+              formatString:(NSString *)formatString, ...
 {
-  if ([FBSDKSettings.loggingBehaviors containsObject:_loggingBehavior]) {
-    [self appendString:logEntry];
-    [self emitToNSLog];
+  if ([FBSDKSettings.loggingBehaviors containsObject:loggingBehavior]) {
+    va_list vaArguments;
+    va_start(vaArguments, formatString);
+    NSString *logString = [[NSString alloc] initWithFormat:formatString arguments:vaArguments];
+    va_end(vaArguments);
+
+    [self singleShotLogEntry:loggingBehavior logEntry:logString];
   }
 }
 
@@ -156,7 +163,7 @@ static NSMutableDictionary *g_startTimesWithTags = nil;
 
     // Only log if there's been an associated start time.
     if (startTimeNumber != nil) {
-      uint64_t elapsed = [FBSDKInternalUtility.sharedUtility currentTimeInMilliseconds] - startTimeNumber.unsignedLongLongValue;
+      uint64_t elapsed = [FBSDKInternalUtility currentTimeInMilliseconds] - startTimeNumber.unsignedLongLongValue;
       [g_startTimesWithTags removeObjectForKey:tagAsNumber]; // served its purpose, remove
 
       // Log string is appended with "%d msec", with nothing intervening.  This gives the most control to the caller.
@@ -180,7 +187,7 @@ static NSMutableDictionary *g_startTimesWithTags = nil;
        @"Unexpectedly large number of outstanding perf logging start times, something is likely wrong."];
     }
 
-    uint64_t currTime = [FBSDKInternalUtility.sharedUtility currentTimeInMilliseconds];
+    uint64_t currTime = [FBSDKInternalUtility currentTimeInMilliseconds];
 
     // Treat the incoming object tag simply as an address, since it's only used to identify during lifetime.  If
     // we send in as an object, the dictionary will try to copy it.
