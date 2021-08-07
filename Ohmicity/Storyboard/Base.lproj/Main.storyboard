@@ -721,8 +721,11 @@ Florida 34222 </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htM-13-0SJ">
-                                                <rect key="frame" x="195" y="336" width="39" height="30"/>
-                                                <state key="normal" title="break"/>
+                                                <rect key="frame" x="195" y="336" width="166" height="48"/>
+                                                <color key="backgroundColor" red="0.03212521773578414" green="1" blue="3.3306690738754696e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="break">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="breaker:" destination="fki-Bt-PNW" eventType="touchUpInside" id="Bgv-fs-HbG"/>
                                                 </connections>
@@ -733,13 +736,13 @@ Florida 34222 </string>
                                             <constraint firstItem="25w-CZ-cPi" firstAttribute="top" secondItem="j2y-NV-c28" secondAttribute="bottom" constant="49" id="1X5-Wu-Yim"/>
                                             <constraint firstItem="baK-Jv-Q7n" firstAttribute="bottom" secondItem="IGN-It-sRZ" secondAttribute="bottom" id="2Fx-lg-pkk"/>
                                             <constraint firstItem="yLX-vV-2Rk" firstAttribute="top" secondItem="yTP-jS-Lu6" secondAttribute="bottom" constant="7" id="2SM-ci-U2X"/>
+                                            <constraint firstItem="htM-13-0SJ" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="195" id="2lF-GE-l0a"/>
                                             <constraint firstItem="baK-Jv-Q7n" firstAttribute="top" secondItem="5Ht-a8-dTe" secondAttribute="bottom" constant="7" id="64F-j3-O7f"/>
                                             <constraint firstItem="0UF-od-poe" firstAttribute="top" secondItem="IGN-It-sRZ" secondAttribute="bottom" constant="7" id="6CH-0L-UAd"/>
                                             <constraint firstItem="5Ht-a8-dTe" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="7lm-wR-IrM"/>
                                             <constraint firstItem="2Mf-7q-eRl" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="7" id="CnI-t9-iIF"/>
                                             <constraint firstItem="yTP-jS-Lu6" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="E9B-4U-5L3"/>
                                             <constraint firstItem="0UF-od-poe" firstAttribute="trailing" secondItem="IGN-It-sRZ" secondAttribute="trailing" id="EHW-2S-2fc"/>
-                                            <constraint firstItem="htM-13-0SJ" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="bottom" constant="7.6699999999999999" id="FCB-UH-Acd"/>
                                             <constraint firstItem="baK-Jv-Q7n" firstAttribute="leading" secondItem="IGN-It-sRZ" secondAttribute="trailing" constant="14" id="GRx-mq-J2P"/>
                                             <constraint firstAttribute="trailing" secondItem="yLX-vV-2Rk" secondAttribute="trailing" constant="9" id="M3l-ZH-ROu"/>
                                             <constraint firstItem="IGN-It-sRZ" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="ORF-QO-a6R"/>
@@ -753,21 +756,21 @@ Florida 34222 </string>
                                             <constraint firstAttribute="trailing" secondItem="4Hk-SP-Xj0" secondAttribute="trailing" id="X8C-Q9-bBQ"/>
                                             <constraint firstItem="5Ht-a8-dTe" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="bottom" constant="35" id="Ylb-HY-gyh"/>
                                             <constraint firstItem="yTP-jS-Lu6" firstAttribute="top" secondItem="0UF-od-poe" secondAttribute="bottom" constant="35" id="cXi-3Y-Cbe"/>
-                                            <constraint firstItem="htM-13-0SJ" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="195" id="ejw-BQ-r9l"/>
                                             <constraint firstItem="2Mf-7q-eRl" firstAttribute="top" secondItem="yLX-vV-2Rk" secondAttribute="bottom" constant="35" id="f6Z-oS-IUL"/>
                                             <constraint firstItem="baK-Jv-Q7n" firstAttribute="top" secondItem="IGN-It-sRZ" secondAttribute="top" id="gsv-Ab-Lue"/>
                                             <constraint firstAttribute="trailing" secondItem="baK-Jv-Q7n" secondAttribute="trailing" constant="9" id="hDl-6D-kuQ"/>
                                             <constraint firstItem="j2y-NV-c28" firstAttribute="top" secondItem="2Mf-7q-eRl" secondAttribute="bottom" constant="7" id="hiI-o9-9mz"/>
-                                            <constraint firstItem="baK-Jv-Q7n" firstAttribute="top" secondItem="htM-13-0SJ" secondAttribute="bottom" constant="36.329999999999998" id="hre-fr-ntE"/>
                                             <constraint firstItem="0UF-od-poe" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="nUl-Y6-rab"/>
                                             <constraint firstItem="yLX-vV-2Rk" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="oUH-SH-4PB"/>
                                             <constraint firstAttribute="trailing" secondItem="25w-CZ-cPi" secondAttribute="trailing" constant="9" id="oWr-06-XbD"/>
+                                            <constraint firstItem="baK-Jv-Q7n" firstAttribute="top" secondItem="htM-13-0SJ" secondAttribute="bottom" constant="18.329999999999998" id="pBv-TT-Kjs"/>
+                                            <constraint firstAttribute="trailing" secondItem="htM-13-0SJ" secondAttribute="trailing" constant="67" id="r43-Tg-bDk"/>
                                             <constraint firstItem="4Hk-SP-Xj0" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" id="ra0-Iz-cw0"/>
                                             <constraint firstItem="1wH-zx-jDa" firstAttribute="top" secondItem="4Hk-SP-Xj0" secondAttribute="bottom" id="tLp-J9-ScD"/>
-                                            <constraint firstAttribute="trailing" secondItem="htM-13-0SJ" secondAttribute="trailing" constant="194" id="vLN-Gh-r7n"/>
                                             <constraint firstItem="IGN-It-sRZ" firstAttribute="top" secondItem="5Ht-a8-dTe" secondAttribute="bottom" constant="7" id="wUx-jS-ze9"/>
                                             <constraint firstAttribute="trailing" secondItem="25w-CZ-cPi" secondAttribute="trailing" constant="9" id="xLO-E5-1ky"/>
                                             <constraint firstItem="25w-CZ-cPi" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="yPd-bl-XXz"/>
+                                            <constraint firstItem="htM-13-0SJ" firstAttribute="top" secondItem="1wH-zx-jDa" secondAttribute="bottom" constant="7.6699999999999999" id="yVy-Rh-E3h"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1738,14 +1741,14 @@ should be on Xity?</string>
                                                     <size key="itemSize" width="155" height="261"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeeklyCell" id="3hv-8t-3mc" customClass="BandVenueCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="154.99999999999997" height="261"/>
+                                                        <rect key="frame" x="9" y="0.0" width="155" height="261"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ac6-nE-6ZU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="154.99999999999997" height="261"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="261"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gao-Xg-IXq" userLabel="Logo Image">
@@ -1888,9 +1891,12 @@ should be on Xity?</string>
                                                     <constraint firstItem="eln-43-wph" firstAttribute="leading" secondItem="dRP-dE-0cc" secondAttribute="leading" id="yUI-tN-HQ8"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
-                                                <rect key="frame" x="194" y="261" width="40" height="30"/>
-                                                <state key="normal" title="Break"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
+                                                <rect key="frame" x="194" y="261" width="218" height="30"/>
+                                                <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Break">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="breaker:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="5eZ-hk-4Ji"/>
                                                 </connections>
@@ -1900,10 +1906,8 @@ should be on Xity?</string>
                                         <constraints>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="21" id="0Yv-3j-i78"/>
                                             <constraint firstAttribute="trailing" secondItem="KmJ-NI-E7V" secondAttribute="trailing" constant="9" id="25z-nL-wGM"/>
-                                            <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="unq-Kr-Wcq" secondAttribute="bottom" constant="20.329999999999998" id="4ec-df-iq6"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="top" secondItem="vXY-nV-LWV" secondAttribute="bottom" constant="49" id="7Jj-DK-s47"/>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="7ec-qH-eqU"/>
-                                            <constraint firstItem="unq-Kr-Wcq" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="7.6699999999999999" id="AqU-rj-YZU"/>
                                             <constraint firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="BgG-vW-9VT"/>
                                             <constraint firstAttribute="trailing" secondItem="g8b-sK-kda" secondAttribute="trailing" id="Dyn-eL-Orr"/>
                                             <constraint firstAttribute="trailing" secondItem="onA-4S-Wan" secondAttribute="trailing" id="GYS-TM-s9p"/>
@@ -1921,18 +1925,17 @@ should be on Xity?</string>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="MWB-JM-Q0f" secondAttribute="leading" id="Qac-rb-ddn"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="S6y-nQ-yUg"/>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="SVh-xg-ZFm"/>
-                                            <constraint firstAttribute="trailing" secondItem="unq-Kr-Wcq" secondAttribute="trailing" constant="194" id="SZe-ib-xbS"/>
                                             <constraint firstAttribute="trailing" secondItem="x8J-nE-HSo" secondAttribute="trailing" id="U9T-Dl-Rwh"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="HPd-IG-CFU" secondAttribute="bottom" id="UbT-1i-ILj"/>
                                             <constraint firstItem="vXY-nV-LWV" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="UhR-ln-4vy"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="UsH-1c-6EG"/>
                                             <constraint firstItem="SO8-4f-hLW" firstAttribute="top" secondItem="x8J-nE-HSo" secondAttribute="bottom" constant="28" id="WNZ-Vb-9H8"/>
+                                            <constraint firstAttribute="trailing" secondItem="unq-Kr-Wcq" secondAttribute="trailing" constant="16" id="XGo-bs-mXt"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="bottom" secondItem="MWB-JM-Q0f" secondAttribute="bottom" id="XvU-vJ-Wvx"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="Yle-d4-ob3"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
                                             <constraint firstAttribute="trailing" secondItem="dRP-dE-0cc" secondAttribute="trailing" constant="9" id="Zwt-8h-NtK"/>
                                             <constraint firstAttribute="height" constant="2000" id="b3g-ap-Wy4"/>
-                                            <constraint firstItem="unq-Kr-Wcq" firstAttribute="leading" secondItem="HPd-IG-CFU" secondAttribute="trailing" constant="117" id="hda-rk-7y3"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="top" secondItem="HPd-IG-CFU" secondAttribute="bottom" constant="7" id="kwg-8V-sPE"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="top" secondItem="4FR-ji-xOh" secondAttribute="bottom" constant="7" id="m7q-fG-FRI"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="mgv-dy-lZm"/>
@@ -1941,6 +1944,9 @@ should be on Xity?</string>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="top" secondItem="PRD-v0-GZh" secondAttribute="bottom" constant="28" id="nwV-TP-UTi"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="pce-My-VFH"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="ql6-jh-PRe"/>
+                                            <constraint firstItem="unq-Kr-Wcq" firstAttribute="leading" secondItem="HPd-IG-CFU" secondAttribute="trailing" constant="117" id="qsp-TN-6Kn"/>
+                                            <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="unq-Kr-Wcq" secondAttribute="bottom" constant="20.329999999999998" id="shW-EX-EYH"/>
+                                            <constraint firstItem="unq-Kr-Wcq" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="7.6699999999999999" id="tvO-aT-XgX"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="14" id="uPv-Ma-efd"/>
                                             <constraint firstItem="onA-4S-Wan" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="weM-l1-ZCm"/>
                                         </constraints>

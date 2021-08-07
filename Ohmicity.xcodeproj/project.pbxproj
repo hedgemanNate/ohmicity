@@ -43,6 +43,7 @@
 		F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */; };
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
+		F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */ = {isa = PBXBuildFile; fileRef = F65BC59D26BE8E2400B62C7C /* DefaultBand.png */; };
 		F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66206E826B4B9C800BDE93E /* TimeController.swift */; };
 		F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */; };
 		F66C99C426BCD83800A7C135 /* XityPickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityPickController.swift */; };
@@ -148,6 +149,7 @@
 		F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandVenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadInitDataViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		F65BC59D26BE8E2400B62C7C /* DefaultBand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultBand.png; sourceTree = "<group>"; };
 		F66206E826B4B9C800BDE93E /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationHoursAlert.xib; sourceTree = "<group>"; };
 		F66C99C326BCD83800A7C135 /* XityPickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityPickController.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 		F6F3DB3C26AF331C00C49016 /* Cell Images */ = {
 			isa = PBXGroup;
 			children = (
+				F65BC59D26BE8E2400B62C7C /* DefaultBand.png */,
 				F696A73C26ABB805009CB1BD /* BandVenueBorderXityPick.png */,
 				F60DDB8D269E483E009DD827 /* BandVenueBorder.png */,
 			);
@@ -614,6 +617,7 @@
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
+				F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */,
 				F6F3DB4726AF337C00C49016 /* outdoors.png in Resources */,
 				D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */,
 				F696A73526AB7079009CB1BD /* stpete.png in Resources */,

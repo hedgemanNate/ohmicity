@@ -256,8 +256,18 @@ extension VenueDetailViewController {
         }
         //Removes nextShow from array so its not shown twice
         orderedShows.removeFirst()
-        nextShowsArray = orderedShows
         
+        if orderedShows.count >= 3 {
+            let num = orderedShows.count - 3
+            nextShowsArray = orderedShows.dropLast(num)
+        } else if orderedShows.count == 0 {
+            let blankShow = Show(band: "", venue: "", dateString: "No Shows Yet")
+            nextShowsArray.append(blankShow)
+        } else if orderedShows.count < 3 {
+            nextShowsArray = orderedShows
+        }
+        
+            
         //Find Band for Tonights Entertainment and fill out info
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         var showTimeString = timeController.dateFormatter.string(from: nextShow!.date)
@@ -279,6 +289,9 @@ extension VenueDetailViewController {
         
         if let bandImageData = featuredBand!.photo {
             let bandImage = UIImage(data: bandImageData)
+            bandPhotoImageView.image = bandImage
+        } else {
+            let bandImage = UIImage(named: "DefaultBand.png")
             bandPhotoImageView.image = bandImage
         }
         bandNameLabel.text = featuredBand!.name
@@ -397,7 +410,7 @@ extension VenueDetailViewController {
 extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return nextShowsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
