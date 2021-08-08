@@ -95,9 +95,9 @@ class DashboardViewController: UIViewController {
             timer.invalidate()
             let indexPath = weeklyCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            businessVC.currentBusiness = xityPickController.weeklyPicksArray[indexPath!.row].business
-            businessVC.band = xityPickController.weeklyPicksArray[indexPath!.row].band
-            businessVC.nextShow = xityPickController.weeklyPicksArray[indexPath!.row].show
+            businessVC.currentBusiness = xityShowController.weeklyPicksArray[indexPath!.row].business
+            businessVC.band = xityShowController.weeklyPicksArray[indexPath!.row].band
+            businessVC.nextShow = xityShowController.weeklyPicksArray[indexPath!.row].show
         }
     }
     
@@ -261,27 +261,24 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var num: Int?
         
         switch collectionView {
         case bannerAdCollectionView:
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
-            num = 50
+            return 50
         case todayCollectionView:
-            num = businessController.todayVenueArray.count
+            return businessController.todayVenueArray.count
         case citiesCollectionView:
-            num = businessController.citiesArray.count
+            return businessController.citiesArray.count
         case venueCollectionView:
-            num = businessController.businessTypeArray.count
+            return businessController.businessTypeArray.count
         case favoritesCollectionView:
-            num = currentUserController.favArray.count
+            return currentUserController.favArray.count
         case weeklyCollectionView:
-            num = xityPickController.weeklyPicksArray.count
+            return xityShowController.weeklyPicksArray.count
         default:
-            num = 4
+            return 4
         }
-        
-        return num ?? 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -321,7 +318,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return venueCell
         case weeklyCollectionView:
             xityPickCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeeklyCell", for: indexPath) as! BandVenueCollectionViewCell
-            xityPickCell.xityPick = xityPickController.weeklyPicksArray[indexPath.row]
+            xityPickCell.xityPick = xityShowController.weeklyPicksArray[indexPath.row]
             return xityPickCell
         default:
             return cell

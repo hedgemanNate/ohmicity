@@ -67,7 +67,7 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var xityPick: XityPick? {
+    var xityPick: XityShow? {
         didSet {
             if let xityPick = xityPick {
                 if xityPick.band.photo == nil {

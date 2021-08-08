@@ -9,21 +9,22 @@ import Foundation
 import FirebaseFirestore
 
 enum Genre: String, Codable {
-    case Rock
+    
+    case Rock = "Rock/Alternative"
     case Blues
-    case Jazz
+    case Jazz = "Jazz/Latin"
     case Dance
-    case Reggae
-    case Country
-    case FunkSoul
+    case Reggae = "Reggae/Caribbean"
+    case Country = "Country/Bluegrass"
+    case FunkSoul = "Funk/Soul"
     case EDM
-    case HipHop
+    case HipHop = "HipHop/Rap"
     case DJ
     case Pop
-    case Metal
+    case Metal = "Metal/Punk"
     case Experimental
     case JamBand
-    case Gospel
+    case Gospel = "Gospel/Praise"
     case EasyListening
 }
 

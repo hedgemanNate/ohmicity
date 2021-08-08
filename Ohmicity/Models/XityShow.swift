@@ -7,7 +7,7 @@
 
 import Foundation
 
-class XityPick {
+class XityShow {
     
     //Properties
     var band: Band

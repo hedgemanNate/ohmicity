@@ -142,7 +142,7 @@ extension LoadInitDataViewController {
                     showController.todayShowArray.removeDuplicates()
                 }
             }
-            xityPickController.getWeeklyPicks()
+            xityShowController.getWeeklyPicks()
             self.syncingActionsFinished += 1
             print("***Collected Shows For Today***")
         }

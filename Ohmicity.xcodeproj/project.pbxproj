@@ -26,6 +26,7 @@
 		F61C370926B64E5B00A2235B /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370726B64E5A00A2235B /* listenButton.png */; };
 		F61C370B26B66F8600A2235B /* brickBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370A26B66F8500A2235B /* brickBackground.png */; };
 		F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C371026B727B400A2235B /* OperationHoursAlert.swift */; };
+		F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */; };
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
 		F640DD0A264E3B7300959358 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Helper.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
@@ -39,8 +40,8 @@
 		F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */ = {isa = PBXBuildFile; fileRef = F65BC59D26BE8E2400B62C7C /* DefaultBand.png */; };
 		F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66206E826B4B9C800BDE93E /* TimeController.swift */; };
 		F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */; };
-		F66C99C426BCD83800A7C135 /* XityPickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityPickController.swift */; };
-		F66C99C826BCF5D400A7C135 /* XityPick.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityPick.swift */; };
+		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
+		F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityShow.swift */; };
 		F66C99CA26BD16F600A7C135 /* band.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C926BD16F400A7C135 /* band.jpg */; };
 		F676F0F626991C6C00C47599 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Rating.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
@@ -104,6 +105,7 @@
 		F61C370726B64E5A00A2235B /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
 		F61C370A26B66F8500A2235B /* brickBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brickBackground.png; sourceTree = "<group>"; };
 		F61C371026B727B400A2235B /* OperationHoursAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHoursAlert.swift; sourceTree = "<group>"; };
+		F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F640DD09264E3B7300959358 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F640DD0E264E432B00959358 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
@@ -116,9 +118,9 @@
 		F65BC59D26BE8E2400B62C7C /* DefaultBand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultBand.png; sourceTree = "<group>"; };
 		F66206E826B4B9C800BDE93E /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationHoursAlert.xib; sourceTree = "<group>"; };
-		F66C99C326BCD83800A7C135 /* XityPickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityPickController.swift; sourceTree = "<group>"; };
+		F66C99C326BCD83800A7C135 /* XityShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShowController.swift; sourceTree = "<group>"; };
 		F66C99C626BCDA6200A7C135 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		F66C99C726BCF5D400A7C135 /* XityPick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityPick.swift; sourceTree = "<group>"; };
+		F66C99C726BCF5D400A7C135 /* XityShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShow.swift; sourceTree = "<group>"; };
 		F66C99C926BD16F400A7C135 /* band.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = band.jpg; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
@@ -220,9 +222,9 @@
 				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
 				F640DD0E264E432B00959358 /* DashboardTabBarController.swift */,
 				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
+				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
 				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
 				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
-				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -293,6 +295,7 @@
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 				F6497F5A26BCCAA3005D2D4A /* SearchCollectionViewCell.swift */,
+				F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,7 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
-				F66C99C326BCD83800A7C135 /* XityPickController.swift */,
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 			);
 			path = "Logic Controllers";
@@ -340,7 +342,7 @@
 				F676F0F326991C6C00C47599 /* Business.swift */,
 				F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */,
 				F6F6829026B9F530005B35A1 /* Message.swift */,
-				F66C99C726BCF5D400A7C135 /* XityPick.swift */,
+				F66C99C726BCF5D400A7C135 /* XityShow.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +350,7 @@
 		F67991032697E278000FDC5E /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F66C99C326BCD83800A7C135 /* XityShowController.swift */,
 				F67991042697E2A0000FDC5E /* BusinessController.swift */,
 				F676F0FE269947B300C47599 /* BandController.swift */,
 				F676F1022699496200C47599 /* ShowController.swift */,
@@ -577,7 +580,7 @@
 				F6497F5B26BCCAA3005D2D4A /* SearchCollectionViewCell.swift in Sources */,
 				F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */,
 				F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */,
-				F66C99C426BCD83800A7C135 /* XityPickController.swift in Sources */,
+				F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */,
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
 				F676F0F926991C6C00C47599 /* Show.swift in Sources */,
 				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
@@ -586,10 +589,11 @@
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
-				F66C99C826BCF5D400A7C135 /* XityPick.swift in Sources */,
+				F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,
 				F676F1032699496200C47599 /* ShowController.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
+				F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BannerAdController.swift in Sources */,

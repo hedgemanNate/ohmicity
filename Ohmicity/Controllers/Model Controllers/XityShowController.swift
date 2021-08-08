@@ -7,16 +7,17 @@
 
 import Foundation
 
-class XityPickController {
+class XityShowController {
     
     //Properties
-    var weeklyPicksArray = [XityPick]()
+    var weeklyPicksArray = [XityShow]()
+    var xityShowSearchArray = [XityShow]()
+    var xityBandShowArray = [XityShow]()
+    var xityBusinessShowArray = [XityShow]()
     
     func getWeeklyPicks() {
-        
         let today = Date()
         let monday = Date().next(.monday)
-        
         
         var lowFiltered = [Show]()
         var theWeekFiltered = [Show]()
@@ -43,7 +44,7 @@ class XityPickController {
                 guard let business = businessController.businessArray.first(where: {$0.name == show.venue}) else {return}
                 guard let band = bandController.bandArray.first(where: {$0.name == show.band}) else {return}
                 
-                let xityPick = XityPick(band: band, business: business, show: show)
+                let xityPick = XityShow(band: band, business: business, show: show)
                 self.weeklyPicksArray.append(xityPick)
             }
         }
@@ -57,4 +58,4 @@ class XityPickController {
     }
 }
 
-let xityPickController = XityPickController()
+let xityShowController = XityShowController()
