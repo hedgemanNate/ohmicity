@@ -10,10 +10,9 @@ import Foundation
 class XityShowController {
     
     //Properties
+    var xityData = [XityShow]()
     var weeklyPicksArray = [XityShow]()
     var xityShowSearchArray = [XityShow]()
-    var xityBandShowArray = [XityShow]()
-    var xityBusinessShowArray = [XityShow]()
     
     func getWeeklyPicks() {
         let today = Date()
@@ -25,18 +24,18 @@ class XityShowController {
         
         let op1 = BlockOperation {
             lowFiltered = showController.showArray.filter({$0.date > today})
-            print("******lowFiltered: \(lowFiltered)")
+            print("******lowFiltered")
         }
         
         let op2 = BlockOperation {
             theWeekFiltered = lowFiltered.filter({$0.date < monday})
-            print("******theWeekFiltered: \(theWeekFiltered)")
+            print("******theWeekFiltered")
             print(monday)
         }
         
         let op3 = BlockOperation {
             xityPicks = theWeekFiltered.filter({$0.ohmPick == true})
-            print("******Xity Picks!: \(xityPicks)")
+            print("******Xity Picks!")
         }
         
         let op4 = BlockOperation {

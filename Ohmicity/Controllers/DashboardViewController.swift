@@ -99,6 +99,7 @@ class DashboardViewController: UIViewController {
             businessVC.band = xityShowController.weeklyPicksArray[indexPath!.row].band
             businessVC.nextShow = xityShowController.weeklyPicksArray[indexPath!.row].show
         }
+        
     }
     
     @IBAction func breaker(_ sender: Any) {

@@ -37,6 +37,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        businessType = BusinessType.Outdoors
+        
         setUpCollectionViews()
         updateViews()
     }
@@ -45,7 +47,19 @@ class SearchViewController: UIViewController {
         super.viewDidDisappear(animated)
         timer.invalidate()
     }
+    
+    
+    //MARK: Buttons Tapped
+    
+    @IBAction func breaker(_ sender: Any) {
+        
+    }
+    
+    
+    
 }
+
+
 
 
 //MARK: Functions
@@ -57,23 +71,27 @@ extension SearchViewController {
     }
     
     private func startSearch() {
-        
+        print("SEARCH STARTED!!!!!!!")
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
         
-        let op1 = BlockOperation {
+        let cityOp = BlockOperation {
+            print("op1")
             if self.city != nil {
-                self.resultsArray = xityShowController.xityShowSearchArray.filter({ xityShow in
+                print("op1 !=nil")
+                self.resultsArray = xityShowController.xityData.filter({ xityShow in
                     if xityShow.business.city.contains(self.city!) {
                         return true
                     }
                     return false
                 })
-            } else {return}
+            } else {return print("op1 return")}
         }
         
-        let op2 = BlockOperation {
+        let businessTypeOP = BlockOperation {
+            print("op2")
             if self.businessType != nil && self.resultsArray.count != 0 {
+                print("op2 !=nil&&")
                 self.resultsArray = self.resultsArray.filter({ xityShow in
                     if xityShow.business.businessType.contains(self.businessType!) {
                         return true
@@ -81,43 +99,51 @@ extension SearchViewController {
                     return false
                 })
             } else if self.businessType != nil {
-                self.resultsArray = xityShowController.xityShowSearchArray.filter({ xityShow in
+                print("op2 !=nil")
+                self.resultsArray = xityShowController.xityData.filter({ xityShow in
                     if xityShow.business.businessType.contains(self.businessType!) {
+                        print(xityShow)
                         return true
                     }
                     return false
                 })
-            } else {return}
+            } else {return print("return")}
         }
         
-        let op3 = BlockOperation {
+        let genreOp = BlockOperation {
+            print("op3")
             if self.genre != nil && self.resultsArray.count != 0 {
-                self.resultsArray = self.resultsArray.filter({ xityShow in
+                print("op3 !=nil&&")
+                let tempArray = self.resultsArray.filter({ xityShow in
                     if xityShow.band.genre.contains(self.genre!) {
                         return true
                     }
                     return false
                 })
+                self.resultsArray = tempArray
             } else if self.genre != nil {
+                print("op3 !=nil")
                 self.resultsArray = xityShowController.xityShowSearchArray.filter({ xityShow in
                     if xityShow.band.genre.contains(self.genre!) {
                         return true
                     }
                     return false
                 })
-            } else {return}
+            } else {return print("op3 return")}
         }
         
         let op4 = BlockOperation {
+            print("op4")
             DispatchQueue.main.async {
+                print("op4")
                 self.tableView.reloadData()
             }
         }
         
-        op4.addDependency(op3)
-        op3.addDependency(op2)
-        op2.addDependency(op1)
-        opQueue.addOperations([op1, op2, op3, op4], waitUntilFinished: true)
+        op4.addDependency(genreOp)
+        genreOp.addDependency(businessTypeOP)
+        businessTypeOP.addDependency(cityOp)
+        opQueue.addOperations([cityOp, businessTypeOP, genreOp, op4], waitUntilFinished: true)
     }
     
     //MARK: - UpdateViews
@@ -177,7 +203,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         switch collectionView {
         case bannerAdCollectionView:
             bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
-            //% for indexPath to allow for infinite loop: See Banner Ad Section
+            //% for indexpath to allow for infinite loop: See Banner Ad Section
             bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row % bannerAdController.bannerAdArray.count]
             return bannerAdCell
             
@@ -188,5 +214,17 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resultsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell", for: indexPath) as? SearchTableViewCell else {return UITableViewCell()}
+        
+        cell.xityBusinessShow = resultsArray[indexPath.row]
+        
+        return cell
+    }
+    
     //Leaving off: startSearch function "finished". Finish setting up table view and test startSearch Function
 }

@@ -26,7 +26,14 @@ class LoadInitDataViewController: UIViewController {
     }
     
     
-    var syncingActionsFinished = 0 { didSet { if dataActionsFinished == 2 { print("DONE LOADING")}}}
+    var syncingActionsFinished = 0 {
+        didSet{
+            print(syncingActionsFinished)
+            if syncingActionsFinished == 3 {
+                doneLoading()
+            }
+        }
+    }
     
 
     override func viewDidLoad() {
@@ -157,27 +164,35 @@ extension LoadInitDataViewController {
                 }
             }
             self.syncingActionsFinished += 1
-            print("***Synced Data***")
+            print("***Linking Shows and Venues***")
         }
         
-        let op = BlockOperation {
-            for business1 in businessController.businessArray {
-                for business2 in businessController.businessArray {
-                    if business1 == business2 && ((business1.lastModified?.compare(business2.lastModified!)) != nil) {
-                        print("\(business2) IS A DUPE!!!!!!!")
-                    }
-                }
+        let op3 = BlockOperation {
+            print("op3 Started")
+            let showArray = showController.showArray.filter({$0.date >= timeController.twoHoursAgo})
+            
+            let businessArray = businessController.businessArray
+            let bandArray = bandController.bandArray
+            
+            for show in showArray {
+                let band = bandArray.first(where: {$0.name == show.band})
+                let business = businessArray.first(where: {$0.name == show.venue})
+                let xity = XityShow(band: band!, business: business!, show: show)
+                xityShowController.xityData.append(xity)
+                
             }
+            self.syncingActionsFinished += 1
+            print("***Creating Xity Data")
         }
         
         
-        let finalOp = BlockOperation {
-            self.doneLoading()
-        }
+//        let finalOp = BlockOperation {
+//            self.doneLoading()
+//        }
         
         op2.addDependency(op1)
-        finalOp.addDependency(op2)
-        opQueue.addOperations([op1, op2, finalOp], waitUntilFinished: true)
+        op3.addDependency(op2)
+        opQueue.addOperations([op1, op2, op3], waitUntilFinished: true)
         
         
     }
