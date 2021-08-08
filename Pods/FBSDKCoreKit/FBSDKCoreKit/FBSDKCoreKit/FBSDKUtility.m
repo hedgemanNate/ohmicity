@@ -18,12 +18,10 @@
 
 #import "FBSDKUtility.h"
 
-#import <CommonCrypto/CommonDigest.h>
-
 #import "FBSDKAccessToken.h"
 #import "FBSDKAuthenticationToken.h"
 #import "FBSDKCoreKitBasicsImport.h"
-#import "FBSDKInternalUtility.h"
+#import "FBSDKInternalUtility+Internal.h"
 
 @implementation FBSDKUtility
 
@@ -92,6 +90,17 @@
     #pragma clange diagnostic pop
   }
   return graphDomain;
+}
+
++ (NSURL *)unversionedFacebookURLWithHostPrefix:(NSString *)hostPrefix
+                                           path:(NSString *)path
+                                queryParameters:(NSDictionary *)queryParameters
+                                          error:(NSError *__autoreleasing *)errorRef
+{
+  return [FBSDKInternalUtility.sharedUtility unversionedFacebookURLWithHostPrefix:hostPrefix
+                                                                             path:path
+                                                                  queryParameters:queryParameters
+                                                                            error:errorRef];
 }
 
 @end

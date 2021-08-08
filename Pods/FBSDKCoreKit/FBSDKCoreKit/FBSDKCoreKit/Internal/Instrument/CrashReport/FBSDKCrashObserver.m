@@ -21,10 +21,10 @@
 #import "FBSDKCrashShield.h"
 #import "FBSDKFeatureChecking.h"
 #import "FBSDKFeatureManager+FeatureChecking.h"
+#import "FBSDKGraphRequest.h"
 #import "FBSDKGraphRequestFactory.h"
 #import "FBSDKGraphRequestProviding.h"
 #import "FBSDKSettings+Internal.h"
-#import "FBSDKSettings+SettingsLogging.h"
 #import "FBSDKSettings+SettingsProtocols.h"
 #import "FBSDKSettingsProtocol.h"
 
@@ -92,7 +92,7 @@
                                                                            parameters:@{@"crash_reports" : crashReports ?: @""}
                                                                            HTTPMethod:FBSDKHTTPMethodPOST];
 
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+    [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
       if (!error && [result isKindOfClass:[NSDictionary class]] && result[@"success"]) {
         [FBSDKCrashHandler clearCrashReportFiles];
       }

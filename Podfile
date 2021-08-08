@@ -13,7 +13,7 @@ target 'Ohmicity' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
+  pod 'FirebaseFirestoreSwift', '> 7.4-beta'
   pod 'Firebase/Analytics'
   pod 'FirebaseUI'
 

@@ -28,18 +28,25 @@
  #import <sys/sysctl.h>
  #import <sys/utsname.h>
 
- #import "FBSDKCoreKit+Internal.h"
+ #import "FBSDKAppEvents.h"
+ #import "FBSDKAppEvents+EventLogging.h"
+ #import "FBSDKAppEventsUtility.h"
+ #import "FBSDKCoreKitBasicsImport.h"
  #import "FBSDKEventProcessing.h"
  #import "FBSDKFeatureExtracting.h"
  #import "FBSDKFeatureExtractor.h"
  #import "FBSDKGraphRequestFactory.h"
+ #import "FBSDKInternalUtility+Internal.h"
  #import "FBSDKMLMacros.h"
  #import "FBSDKModelManager.h"
  #import "FBSDKModelUtility.h"
  #import "FBSDKServerConfigurationManager+ServerConfigurationProviding.h"
+ #import "FBSDKSettings+Internal.h"
  #import "FBSDKSettings+SettingsProtocols.h"
  #import "FBSDKSwizzler+Swizzling.h"
  #import "FBSDKSwizzling.h"
+ #import "FBSDKViewHierarchy.h"
+ #import "FBSDKViewHierarchyMacros.h"
 
 NSString *const OptInEvents = @"production_events";
 NSString *const UnconfirmedEvents = @"eligible_for_prediction_events";
@@ -66,7 +73,7 @@ NSString *const UnconfirmedEvents = @"eligible_for_prediction_events";
                 serverConfigurationProvider:FBSDKServerConfigurationManager.class
                                    swizzler:FBSDKSwizzler.class
                                    settings:FBSDKSettings.sharedSettings
-                                eventLogger:[FBSDKEventLogger new]
+                                eventLogger:FBSDKAppEvents.singleton
                            featureExtractor:FBSDKFeatureExtractor.class
                              eventProcessor:FBSDKModelManager.shared];
 }
@@ -269,7 +276,7 @@ static dispatch_once_t setupNonce;
     NSMutableDictionary<NSString *, id> *viewTree = [NSMutableDictionary dictionary];
 
     NSString *screenName = nil;
-    UIViewController *topMostViewController = [FBSDKInternalUtility topMostViewController];
+    UIViewController *topMostViewController = [FBSDKInternalUtility.sharedUtility topMostViewController];
     if (topMostViewController) {
       screenName = NSStringFromClass([topMostViewController class]);
     }
@@ -350,7 +357,7 @@ static dispatch_once_t setupNonce;
                                      @"metadata" : metadata,
                                    }
                                                                              HTTPMethod:FBSDKHTTPMethodPOST];
-  [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {}];
+  [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {}];
   return;
 }
 

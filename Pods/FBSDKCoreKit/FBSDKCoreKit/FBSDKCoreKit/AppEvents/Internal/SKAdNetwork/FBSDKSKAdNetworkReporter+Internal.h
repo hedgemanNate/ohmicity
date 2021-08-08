@@ -20,14 +20,20 @@
 #if !TARGET_OS_TV
 
  #import <Foundation/Foundation.h>
-
+ #import "FBSDKConversionValueUpdating.h"
  #import "FBSDKSKAdNetworkReporter.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface FBSDKSKAdNetworkReporter (Internal)
 
-+ (void)configureWithRequestProvider:(id<FBSDKGraphRequestProviding>)requestProvider
-                               store:(id<FBSDKDataPersisting>)store;
+- (instancetype)initWithRequestProvider:(id<FBSDKGraphRequestProviding>)requestProvider
+                               store:(id<FBSDKDataPersisting>)store
+            conversionValueUpdatable:(Class<FBSDKConversionValueUpdating>)conversionValueUpdatable
+NS_SWIFT_NAME(init(requestProvider:store:conversionValueUpdateable:));
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif

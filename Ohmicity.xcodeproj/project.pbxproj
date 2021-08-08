@@ -15,14 +15,11 @@
 		D8403D102641C4C500E95415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0F2641C4C500E95415 /* Assets.xcassets */; };
 		D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D112641C4C500E95415 /* LaunchScreen.storyboard */; };
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
-		D8403D3E2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
-		D8403D3F2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 		D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* SignIn.storyboard */; };
 		F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = F60DDB8D269E483E009DD827 /* BandVenueBorder.png */; };
 		F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */; };
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
-		F60EB6322656CF5300CDB6F6 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60EB6312656CF5300CDB6F6 /* SearchCollectionViewCell.swift */; };
 		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
 		F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C370326B64E2200A2235B /* VenueDetailViewController.swift */; };
 		F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370626B64E5A00A2235B /* directionsIcon.png */; };
@@ -81,23 +78,6 @@
 		F6F6829126B9F530005B35A1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6829026B9F530005B35A1 /* Message.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D8403D1A2641C4C500E95415 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8403CFB2641C4C400E95415 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D8403D022641C4C400E95415;
-			remoteInfo = Ohmicity;
-		};
-		D8403D252641C4C500E95415 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8403CFB2641C4C400E95415 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D8403D022641C4C400E95415;
-			remoteInfo = Ohmicity;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,8 +90,6 @@
 		D8403D0F2641C4C500E95415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8403D122641C4C500E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8403D142641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8403D192641C4C500E95415 /* OhmicityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhmicityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8403D242641C4C500E95415 /* OhmicityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhmicityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D8CED4052641F4100017FD28 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
@@ -188,20 +166,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8403D162641C4C500E95415 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8403D212641C4C500E95415 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -229,8 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				D8403D032641C4C400E95415 /* Ohmicity.app */,
-				D8403D192641C4C500E95415 /* OhmicityTests.xctest */,
-				D8403D242641C4C500E95415 /* OhmicityUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -464,42 +426,6 @@
 			productReference = D8403D032641C4C400E95415 /* Ohmicity.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D8403D182641C4C500E95415 /* OhmicityTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D8403D302641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityTests" */;
-			buildPhases = (
-				D8403D152641C4C500E95415 /* Sources */,
-				D8403D162641C4C500E95415 /* Frameworks */,
-				D8403D172641C4C500E95415 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D8403D1B2641C4C500E95415 /* PBXTargetDependency */,
-			);
-			name = OhmicityTests;
-			productName = OhmicityTests;
-			productReference = D8403D192641C4C500E95415 /* OhmicityTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D8403D232641C4C500E95415 /* OhmicityUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D8403D332641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityUITests" */;
-			buildPhases = (
-				D8403D202641C4C500E95415 /* Sources */,
-				D8403D212641C4C500E95415 /* Frameworks */,
-				D8403D222641C4C500E95415 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D8403D262641C4C500E95415 /* PBXTargetDependency */,
-			);
-			name = OhmicityUITests;
-			productName = OhmicityUITests;
-			productReference = D8403D242641C4C500E95415 /* OhmicityUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -507,18 +433,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					D8403D022641C4C400E95415 = {
 						CreatedOnToolsVersion = 12.3;
-					};
-					D8403D182641C4C500E95415 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = D8403D022641C4C400E95415;
-					};
-					D8403D232641C4C500E95415 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = D8403D022641C4C400E95415;
 					};
 				};
 			};
@@ -536,8 +454,6 @@
 			projectRoot = "";
 			targets = (
 				D8403D022641C4C400E95415 /* Ohmicity */,
-				D8403D182641C4C500E95415 /* OhmicityTests */,
-				D8403D232641C4C500E95415 /* OhmicityUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -576,22 +492,6 @@
 				D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */,
 				F696A73526AB7079009CB1BD /* stpete.png in Resources */,
 				F6F3DB4526AF337C00C49016 /* restaurant.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8403D172641C4C500E95415 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D8403D3E2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8403D222641C4C500E95415 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D8403D3F2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,7 +589,6 @@
 				F66C99C826BCF5D400A7C135 /* XityPick.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,
 				F676F1032699496200C47599 /* ShowController.swift in Sources */,
-				F60EB6322656CF5300CDB6F6 /* SearchCollectionViewCell.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
@@ -704,34 +603,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8403D152641C4C500E95415 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8403D202641C4C500E95415 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D8403D1B2641C4C500E95415 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D8403D022641C4C400E95415 /* Ohmicity */;
-			targetProxy = D8403D1A2641C4C500E95415 /* PBXContainerItemProxy */;
-		};
-		D8403D262641C4C500E95415 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D8403D022641C4C400E95415 /* Ohmicity */;
-			targetProxy = D8403D252641C4C500E95415 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D8403D0C2641C4C400E95415 /* Main.storyboard */ = {
@@ -911,90 +783,6 @@
 			};
 			name = Release;
 		};
-		D8403D312641C4C500E95415 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8492LT54LT;
-				INFOPLIST_FILE = OhmicityTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ohmicity.app/Ohmicity";
-			};
-			name = Debug;
-		};
-		D8403D322641C4C500E95415 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8492LT54LT;
-				INFOPLIST_FILE = OhmicityTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ohmicity.app/Ohmicity";
-			};
-			name = Release;
-		};
-		D8403D342641C4C500E95415 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8492LT54LT;
-				INFOPLIST_FILE = OhmicityUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Ohmicity;
-			};
-			name = Debug;
-		};
-		D8403D352641C4C500E95415 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8492LT54LT;
-				INFOPLIST_FILE = OhmicityUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.OhmicityUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Ohmicity;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1012,24 +800,6 @@
 			buildConfigurations = (
 				D8403D2E2641C4C500E95415 /* Debug */,
 				D8403D2F2641C4C500E95415 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D8403D302641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D8403D312641C4C500E95415 /* Debug */,
-				D8403D322641C4C500E95415 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D8403D332641C4C500E95415 /* Build configuration list for PBXNativeTarget "OhmicityUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D8403D342641C4C500E95415 /* Debug */,
-				D8403D352641C4C500E95415 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
