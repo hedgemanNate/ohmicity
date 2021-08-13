@@ -40,7 +40,7 @@ class BandController {
                         if let band = band {
                             self.bandArray.removeAll(where: {$0 == band})
                             self.bandArray.append(band)
-                            NSLog(band.name," SHOW: RECIEVED & APPENDED")
+                            NSLog(band.name," NEW SHOW: RECIEVED & APPENDED")
                         } else {
                             NSLog("Band data was nil")
                         }

@@ -25,7 +25,9 @@ struct Show: Codable, Equatable, Hashable {
 
     //Hashable Conformity
     func hash(into hasher: inout Hasher) {
-        hasher.combine(showID)
+        hasher.combine(venue)
+        hasher.combine(band)
+        hasher.combine(date)
     }
     
     

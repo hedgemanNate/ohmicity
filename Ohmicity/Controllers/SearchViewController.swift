@@ -79,7 +79,7 @@ extension SearchViewController {
             print("op1")
             if self.city != nil {
                 print("op1 !=nil")
-                self.resultsArray = xityShowController.xityData.filter({ xityShow in
+                self.resultsArray = xityShowController.showArray.filter({ xityShow in
                     if xityShow.business.city.contains(self.city!) {
                         return true
                     }
@@ -100,7 +100,7 @@ extension SearchViewController {
                 })
             } else if self.businessType != nil {
                 print("op2 !=nil")
-                self.resultsArray = xityShowController.xityData.filter({ xityShow in
+                self.resultsArray = xityShowController.showArray.filter({ xityShow in
                     if xityShow.business.businessType.contains(self.businessType!) {
                         print(xityShow)
                         return true

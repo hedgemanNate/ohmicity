@@ -79,7 +79,11 @@ class DashboardViewController: UIViewController {
             timer.invalidate()
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            businessVC.currentBusiness = businessController.todayVenueArray[indexPath!.row]
+            let selected = xityShowController.todayShowArray[indexPath!.row]
+            let business = selected.business
+            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
+            businessVC.xityBusiness = xityBusiness
+            businessVC.featuredShow = selected
             
         }
         
@@ -87,17 +91,24 @@ class DashboardViewController: UIViewController {
             timer.invalidate()
             let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            businessVC.currentBusiness = currentUserController.favArray[indexPath!.row]
+            let business = currentUserController.favArray[indexPath!.row]
             
+            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
+            xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.twoHoursAgo})
+            
+            businessVC.featuredShow = xityBusiness?.xityShows.first
+            businessVC.xityBusiness = xityBusiness!
         }
         
         if segue.identifier == "FromXityPick" {
             timer.invalidate()
             let indexPath = weeklyCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            businessVC.currentBusiness = xityShowController.weeklyPicksArray[indexPath!.row].business
-            businessVC.band = xityShowController.weeklyPicksArray[indexPath!.row].band
-            businessVC.nextShow = xityShowController.weeklyPicksArray[indexPath!.row].show
+            let pick = xityShowController.weeklyPicksArray[indexPath!.row]
+            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == pick.business})
+            businessVC.xityBusiness = xityBusiness
+            businessVC.featuredShow = pick
+            
         }
         
     }
@@ -268,7 +279,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
             return 50
         case todayCollectionView:
-            return businessController.todayVenueArray.count
+            return xityShowController.todayShowArray.count
         case citiesCollectionView:
             return businessController.citiesArray.count
         case venueCollectionView:
@@ -300,7 +311,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
-            venueCell.venue = businessController.todayVenueArray[indexPath.row]
+            venueCell.venue = xityShowController.todayShowArray[indexPath.row].business
             return venueCell
             
         case citiesCollectionView:

@@ -12,7 +12,7 @@ enum DataResults {
     case failure
 }
 
-enum City: String, Codable {
+enum City: String, Codable, Hashable {
     case Sarasota
     case Bradenton
     case Venice

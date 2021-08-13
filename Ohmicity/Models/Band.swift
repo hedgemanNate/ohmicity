@@ -8,8 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-enum Genre: String, Codable{
-    
+enum Genre: String, Codable {
     case Rock
     case Blues
     case Jazz
@@ -28,9 +27,13 @@ enum Genre: String, Codable{
     case EasyListening
 }
 
-class Band: Codable, Equatable {
+class Band: Codable, Equatable, Hashable {
     static func == (lhs: Band, rhs: Band) -> Bool {
         return lhs.bandID == rhs.bandID || lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
     }
     
     var bandID: String = UUID().uuidString
@@ -38,7 +41,6 @@ class Band: Codable, Equatable {
     var name: String
     var photo: Data?
     var genre: [Genre] = []
-    
     var mediaLink: String?
     var ohmPick: Bool = false
     
@@ -54,4 +56,5 @@ class Band: Codable, Equatable {
         mediaLink = newBand.mediaLink
         ohmPick = newBand.ohmPick
     }
+
 }

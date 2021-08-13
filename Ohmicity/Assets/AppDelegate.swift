@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         //Firebase
         FirebaseApp.configure()
+        
 //        let fb = Firestore.firestore()
 //        fb.clearPersistence { err in
 //            if let err = err {
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = FirestoreSettings()
         settings.cacheSizeBytes = 3000000000
         settings.isPersistenceEnabled = true
+        
         ref.fireDataBase.settings = settings
         
         

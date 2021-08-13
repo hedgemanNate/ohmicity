@@ -124,19 +124,10 @@
                                                     <constraint firstItem="9Zb-p5-raZ" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="top" id="dsj-In-0Is"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Bb-sH-K1W">
-                                                <rect key="frame" x="9" y="281" width="161" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="SecondButton">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                            </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oLF-21-53M">
-                                                <rect key="frame" x="0.0" y="332" width="428" height="84.666666666666686"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oLF-21-53M">
+                                                <rect key="frame" x="0.0" y="332" width="428" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="oLF-21-53M" secondAttribute="height" multiplier="207:41" id="Htg-8n-97F"/>
-                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p5A-TF-gFc">
                                                     <size key="itemSize" width="117" height="82"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -154,7 +145,7 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
                                                 <rect key="frame" x="0.0" y="416.66666666666674" width="428" height="362"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -283,27 +274,46 @@ should be on Xity?</string>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDE-cI-8kF">
-                                                <rect key="frame" x="289" y="288" width="130" height="30"/>
+                                                <rect key="frame" x="289" y="205" width="130" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
+                                                <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Break"/>
                                                 <connections>
                                                     <action selector="breaker:" destination="3L6-vU-wgp" eventType="touchUpInside" id="tUa-KG-5t1"/>
                                                 </connections>
                                             </button>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-mB-DHI">
+                                                <rect key="frame" x="0.0" y="297" width="428" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="wMd-zG-bxv"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Businesses"/>
+                                                    <segment title="Bands"/>
+                                                    <segment title="Cities"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IkV-vX-V7g">
+                                                <rect key="frame" x="0.0" y="253" width="428" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="pom-ms-LEy"/>
+                                                </constraints>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="5Bb-sH-K1W" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" constant="9" id="1tF-Fp-df6"/>
                                             <constraint firstAttribute="trailing" secondItem="Qqa-da-gya" secondAttribute="trailing" id="5qh-lv-Peb"/>
-                                            <constraint firstItem="oLF-21-53M" firstAttribute="top" secondItem="5Bb-sH-K1W" secondAttribute="bottom" constant="7" id="9jD-QC-Ptf"/>
+                                            <constraint firstAttribute="trailing" secondItem="hpP-mB-DHI" secondAttribute="trailing" id="BFe-2u-3Zi"/>
                                             <constraint firstAttribute="height" constant="1125" id="BnK-Ja-xxJ"/>
-                                            <constraint firstItem="Qqa-da-gya" firstAttribute="top" secondItem="oLF-21-53M" secondAttribute="bottom" id="H6i-sK-POv"/>
-                                            <constraint firstAttribute="trailing" secondItem="oLF-21-53M" secondAttribute="trailing" id="Jga-kF-Jwl"/>
+                                            <constraint firstItem="hpP-mB-DHI" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="DiI-lo-GOH"/>
+                                            <constraint firstItem="IkV-vX-V7g" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Dqh-W6-FV2"/>
                                             <constraint firstAttribute="trailing" secondItem="0tN-8H-6Uj" secondAttribute="trailing" id="LE7-bh-T6R"/>
-                                            <constraint firstItem="oLF-21-53M" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="R3a-KC-sJE"/>
+                                            <constraint firstAttribute="trailing" secondItem="IkV-vX-V7g" secondAttribute="trailing" id="LYc-pS-UkN"/>
+                                            <constraint firstItem="hpP-mB-DHI" firstAttribute="top" secondItem="IkV-vX-V7g" secondAttribute="bottom" id="MDs-IL-wLF"/>
+                                            <constraint firstItem="IkV-vX-V7g" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="bottom" id="RTm-NX-Tzf"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Y5x-rB-yTR"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="eo9-ll-ZyN"/>
-                                            <constraint firstItem="5Bb-sH-K1W" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="bottom" constant="28" id="hbs-TU-kgv"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="top" secondItem="4Fo-n8-heq" secondAttribute="top" id="sAI-yg-yri"/>
                                         </constraints>
                                     </view>
