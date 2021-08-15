@@ -12,12 +12,9 @@ import FirebaseFirestore
 
 class BandController {
     //Properties
-    var bandArray: [Band] = [] {
-        didSet {
-            
-        }
-    }
-    
+    var bandArray: [Band] = [] { didSet { /*function here*/  }}
+    let genreTypeArray: [Genre] = [.Blues, .Country, .DJ, .Dance, .EDM, .EasyListening, .Experimental, .FunkSoul, .Gospel, .HipHop, .JamBand, .Jazz, .Metal, .Pop, .Reggae, .Rock]
+        
     let db = Firestore.firestore()
                       .collection("remoteData")
                       .document("remoteData")

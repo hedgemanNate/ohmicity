@@ -150,7 +150,7 @@ extension DashboardViewController {
         if currentPath!.row < 50 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
-        } else {
+        } else if currentPath!.row == 50 {
             indexPath = IndexPath(row: 0, section: 0)
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
@@ -321,7 +321,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case venueCollectionView:
             businessTypeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessTypeCell", for: indexPath) as! CitiesCollectionViewCell
-            businessTypeCell.type = businessController.businessTypeArray[indexPath.row]
+            businessTypeCell.businessType = businessController.businessTypeArray[indexPath.row]
             return businessTypeCell
             
         case favoritesCollectionView:

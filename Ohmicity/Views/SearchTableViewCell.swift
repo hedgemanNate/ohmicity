@@ -10,7 +10,6 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var showImage: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var secondNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -31,22 +30,22 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     
-    var xityBandShow: XityShow? {
+    var xityBand: XityBand? {
         didSet {
-            if let xityBandShow = xityBandShow {
+            if let xityBand = xityBand {
                 
                 //Photo
-                if xityBandShow.band.photo == nil {
+                if xityBand.band.photo == nil {
                     showImage.image = UIImage(named: "DefaultBand.png")
                 } else {
-                    showImage.image = UIImage(data: xityBandShow.band.photo!)
+                    showImage.image = UIImage(data: xityBand.band.photo!)
                 }
                 
                 //Labels
                 var stringArray = [String]()
-                nameLabel.text = xityBandShow.band.name
-                secondNameLabel.text = xityBandShow.business.name
-                for genre in xityBandShow.band.genre {
+                nameLabel.text = xityBand.band.name
+                secondNameLabel.text = "Next Show: \(xityBand.xityShows.first?.show.venue ?? "None Scheduled")"
+                for genre in xityBand.band.genre {
                     stringArray.append(genre.rawValue)
                 }
                 categoryLabel.text = stringArray.joined(separator: ", ")
@@ -54,18 +53,18 @@ class SearchTableViewCell: UITableViewCell {
         }
     }
     
-    var xityBusinessShow: XityShow? {
+    var xityBusiness: XityBusiness? {
             didSet {
-                if let xityBusinessShow = xityBusinessShow {
+                if let xityBusiness = xityBusiness {
                     
                     //Photo
-                    showImage.image = UIImage(data: xityBusinessShow.business.logo!)
+                    showImage.image = UIImage(data: xityBusiness.business.logo!)
                    
                     //Labels
                     var stringArray = [String]()
-                    nameLabel.text = xityBusinessShow.business.name
-                    secondNameLabel.text = xityBusinessShow.band.name
-                    for businessType in xityBusinessShow.business.businessType {
+                    nameLabel.text = xityBusiness.business.name
+                    secondNameLabel.text = "Next Show: \(xityBusiness.xityShows.first?.show.band ?? "None Scheduled")"
+                    for businessType in xityBusiness.business.businessType {
                         stringArray.append(businessType.rawValue)
                     }
                     categoryLabel.text = stringArray.joined(separator: ", ")

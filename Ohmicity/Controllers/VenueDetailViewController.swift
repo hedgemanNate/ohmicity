@@ -248,23 +248,32 @@ extension VenueDetailViewController {
         
         //MARK: -Tonights Show Logic
         let featuredBand: Band?
+        let blankBand = Band(name: "No Show")
         if featuredShow == nil {
-            featuredBand = xityBusiness.xityShows.first?.band
+            featuredBand = xityBusiness.xityShows.first?.band ?? blankBand
         } else {
             featuredBand = featuredShow!.band
         }
         
         //Find Band for Tonights Entertainment and fill out info
-        var showTimeString = timeController.dateFormatter.string(from: (xityBusiness.xityShows.first?.show.date)!)
+        var showTimeString = ""
+        if xityBusiness.xityShows.first?.show.date != nil {
+            showTimeString = timeController.dateFormatter.string(from: (xityBusiness.xityShows.first?.show.date)!)
+            
+        } else if xityBusiness.xityShows.first?.show.date == nil {
+            showTimeString = "No Shows Scheduled"
+        }
+        
         if showTimeString == timeController.todayString {
             tonightsEntLabel.text = "Tonights Entertainment"
+            
+        } else if showTimeString == "No Shows Scheduled" {
+            
         } else {
             timeController.dateFormatter.dateFormat = timeController.dayMonthDay
             showTimeString = timeController.dateFormatter.string(from: (xityBusiness.xityShows.first?.show.date)!)
             tonightsEntLabel.text = "The \(showTimeString) Show"
         }
-        
-       
         
         if let bandImageData = featuredBand!.photo {
             let bandImage = UIImage(data: bandImageData)
@@ -275,7 +284,7 @@ extension VenueDetailViewController {
         }
         bandNameLabel.text = featuredBand!.name
         
-        showTimeLabel.text = xityBusiness.xityShows.first?.show.time
+        showTimeLabel.text = featuredShow?.show.time
         
         bandGenreLabel.text = ""
         if featuredBand!.genre.count >= 1 {
@@ -393,13 +402,16 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NextShowsCell", for: indexPath)
-        let date = xityBusiness!.xityShows[indexPath.row].show.date
-        let show = xityBusiness!.xityShows[indexPath.row].show
-        timeController.dateFormatter.dateFormat = timeController.dayMonthDay
-        let stringDate = timeController.dateFormatter.string(from: date)
+        if xityBusiness?.xityShows.count != 0 {
+            let date = xityBusiness!.xityShows[indexPath.row].show.date
+            let show = xityBusiness!.xityShows[indexPath.row].show
+            timeController.dateFormatter.dateFormat = timeController.dayMonthDay
+            let stringDate = timeController.dateFormatter.string(from: date)
+            cell.textLabel?.text = "\(stringDate): \(show.band) @ \(show.time)"
+        } else {
+            cell.textLabel?.text = "No Show Scheduled"
+        }
         
-        
-        cell.textLabel?.text = "\(stringDate): \(show.band) @ \(show.time)"
         return cell
     }
 }

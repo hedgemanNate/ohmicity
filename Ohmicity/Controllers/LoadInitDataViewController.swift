@@ -136,6 +136,7 @@ extension LoadInitDataViewController {
     
     //MARK: Adding shows to Today
     @objc private func organizeData() {
+        //Collected Weekly Picks
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
         
@@ -150,6 +151,7 @@ extension LoadInitDataViewController {
         //Gathering Weekly Picks
         let op3 = BlockOperation {
             xityShowController.getWeeklyPicks()
+            xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
             
             self.syncingActionsFinished += 1
             print("*** Collected Weekly Picks ***")
@@ -157,6 +159,7 @@ extension LoadInitDataViewController {
         
         //Connecting Todays Shows to Businesses
         let op4 = BlockOperation {
+            //Collected Today's Shows
             dateFormatter.dateFormat = timeController.monthDayYear
             for todayShow in xityShowController.showArray {
                 let stringDate = dateFormatter.string(from: todayShow.show.date)
@@ -165,11 +168,13 @@ extension LoadInitDataViewController {
                     xityShowController.todayShowArray.append(todayShow)
                 }
             }
+            xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
             self.syncingActionsFinished += 1
             print("*** Collected Today's Shows ***")
         }
         
         let op1 = BlockOperation {
+            //Creating Xity Show Data
             let genericBand = Band(name: "No Name")
             let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
             print("op3 Started")
