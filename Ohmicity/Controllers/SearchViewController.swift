@@ -43,9 +43,10 @@ class SearchViewController: UIViewController {
         setUpCollectionViews()
         updateViews()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        searchBar.resignFirstResponder()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startTimer()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -117,6 +118,30 @@ extension SearchViewController {
         searchCollectionView.allowsMultipleSelection = false
     }
     
+    //MARK: Banner Ad
+    @objc private func startTimer() {
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc private func bannerChange() {
+        let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
+        let currentPath = shownPath.first
+    
+        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
+        
+        //High Count For Infinite Loop: See Banner Ad Collection View
+        if currentPath!.row < 50 {
+            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            
+        } else if currentPath!.row == 50 {
+            indexPath = IndexPath(row: 0, section: 0)
+            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        }
+    }
+    
+    //MARK: Search Function
     private func startSearch(searchText: String, genre: Genre? = nil, city: City? = nil, business: BusinessType? = nil) {
         if segmentedController.selectedSegmentIndex == 2 && genre != nil {
             print("ss1")
