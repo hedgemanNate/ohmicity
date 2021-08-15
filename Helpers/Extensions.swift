@@ -57,8 +57,8 @@ extension UIAlertController {
 }
 
 
-//MARK: ViewController
-extension UIViewController {
+//MARK: ViewController: Dismiss Keyboard
+extension UIViewController: UITextFieldDelegate {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
@@ -81,6 +81,11 @@ extension UIViewController {
         
         @objc func dismissKeyboard() {
             view.endEditing(true)
+        }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true;
         }
 }
 

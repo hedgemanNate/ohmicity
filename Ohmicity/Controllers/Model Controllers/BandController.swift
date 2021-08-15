@@ -12,12 +12,9 @@ import FirebaseFirestore
 
 class BandController {
     //Properties
-    var bandArray: [Band] = [] {
-        didSet {
-            
-        }
-    }
-    
+    var bandArray: [Band] = [] { didSet { /*function here*/  }}
+    let genreTypeArray: [Genre] = [.Blues, .Country, .DJ, .Dance, .EDM, .EasyListening, .Experimental, .FunkSoul, .Gospel, .HipHop, .JamBand, .Jazz, .Metal, .Pop, .Reggae, .Rock]
+        
     let db = Firestore.firestore()
                       .collection("remoteData")
                       .document("remoteData")
@@ -40,7 +37,7 @@ class BandController {
                         if let band = band {
                             self.bandArray.removeAll(where: {$0 == band})
                             self.bandArray.append(band)
-                            NSLog(band.name," SHOW: RECIEVED & APPENDED")
+                            NSLog(band.name," NEW SHOW: RECIEVED & APPENDED")
                         } else {
                             NSLog("Band data was nil")
                         }

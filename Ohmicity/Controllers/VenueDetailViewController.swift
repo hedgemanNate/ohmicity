@@ -15,10 +15,9 @@ class VenueDetailViewController: UIViewController {
     
     //MARK: Properties
     var currentUser = currentUserController.currentUser
-    var currentBusiness: Business?
+    var xityBusiness: XityBusiness?
+    var featuredShow: XityShow?
     var nextShowsArray = [Show]()
-    var nextShow: Show?
-    var band: Band?
     
     //Slideshow properties
     private var timer = Timer()
@@ -59,6 +58,7 @@ class VenueDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,8 +84,8 @@ class VenueDetailViewController: UIViewController {
     }
     
     @IBAction func callBusinessButtonTapped(_ sender: Any) {
-        guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
-        let num = String(currentBusiness.phoneNumber)
+        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
+        let num = String(xityBusiness.business.phoneNumber)
         
         if let url = URL(string: "tel://\(num)"),
            UIApplication.shared.canOpenURL(url) {
@@ -101,11 +101,11 @@ class VenueDetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-        guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: favoriteButtonTapped: venueDetailViewController")}
+        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: favoriteButtonTapped: venueDetailViewController")}
         
         if currentUser != nil {
-            if currentUser!.favoriteBusinesses.contains(currentBusiness.venueID!) {
-                currentUser!.favoriteBusinesses.removeAll(where: {$0 == currentBusiness.venueID})
+            if currentUser!.favoriteBusinesses.contains(xityBusiness.business.venueID) {
+                currentUser!.favoriteBusinesses.removeAll(where: {$0 == xityBusiness.business.venueID})
                 NSLog("Business Removed From Favorites")
                 currentUser?.lastModified = Timestamp()
                 
@@ -119,7 +119,7 @@ class VenueDetailViewController: UIViewController {
                     NSLog("Error Pushing favoriteBusiness")
                 }
             } else {
-                currentUser!.favoriteBusinesses.append(currentBusiness.venueID!)
+                currentUser!.favoriteBusinesses.append(xityBusiness.business.venueID)
                 currentUser!.lastModified = Timestamp()
                 
                 do {
@@ -141,7 +141,7 @@ class VenueDetailViewController: UIViewController {
     }
     
     @IBAction func listenButtonTapped(_ sender: Any) {
-        guard let bandMedia = band?.mediaLink else {return}
+        guard let bandMedia = featuredShow?.band.mediaLink else {return NSLog("Error with Featured Show Media Link")}
         guard let url = URL(string: "\(bandMedia)") else {
           return //be safe
         }
@@ -156,7 +156,7 @@ class VenueDetailViewController: UIViewController {
     @IBAction func directionsButtonTapped(_ sender: Any) {
         let placemark = MKPlacemark(coordinate: coordinate!, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = currentBusiness?.name
+        mapItem.name = xityBusiness?.business.name
 
         let regionSpan = MKCoordinateRegion(center: coordinate!, latitudinalMeters: 1000, longitudinalMeters: 1000)
         let launchOptions = [
@@ -196,8 +196,8 @@ extension VenueDetailViewController {
 extension VenueDetailViewController {
     
     private func updateViews() {
-        guard let currentBusiness = currentBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
-        guard let businessLogoData = currentBusiness.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
+        guard let xityBusiness = xityBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
+        guard let businessLogoData = xityBusiness.business.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
         
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
@@ -214,7 +214,7 @@ extension VenueDetailViewController {
         emptyHeart?.applyingSymbolConfiguration(large)
         
         if currentUserController.currentUser != nil {
-            if currentUserController.currentUser!.favoriteBusinesses.contains(currentBusiness.venueID!) {
+            if currentUserController.currentUser!.favoriteBusinesses.contains(xityBusiness.business.venueID) {
                 self.favoriteButton.setImage(fullHeart, for: .normal)
             } else {
                 self.favoriteButton.setImage(emptyHeart, for: .normal)
@@ -242,50 +242,37 @@ extension VenueDetailViewController {
         let businessLogo = UIImage(data: businessLogoData)
         businessLogoImageView.image = businessLogo
         
-        mapNameLabel.text = currentBusiness.name
-        mapAddressLabel.text = currentBusiness.address
+        mapNameLabel.text = xityBusiness.business.name
+        mapAddressLabel.text = xityBusiness.business.address
         
         
-        //MARK: - Table Logic And Tonights Show Logic
-        //Table View data source
-        var businessShows = showController.showArray.filter({$0.venue == currentBusiness.name})
-        businessShows.removeAll(where: {$0.date < timeController.twoHoursAgo})
-        var orderedShows = businessShows.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
-        //Grabs next Show for displaying
-        if self.nextShow == nil {
-            self.nextShow = orderedShows.first
-        }
-        //Removes nextShow from array so its not shown twice
-        orderedShows.removeFirst()
-        
-        if orderedShows.count >= 3 {
-            let num = orderedShows.count - 3
-            nextShowsArray = orderedShows.dropLast(num)
-        } else if orderedShows.count == 0 {
-            let blankShow = Show(band: "", venue: "", dateString: "No Shows Yet")
-            nextShowsArray.append(blankShow)
-        } else if orderedShows.count < 3 {
-            nextShowsArray = orderedShows
+        //MARK: -Tonights Show Logic
+        let featuredBand: Band?
+        let blankBand = Band(name: "No Show")
+        if featuredShow == nil {
+            featuredBand = xityBusiness.xityShows.first?.band ?? blankBand
+        } else {
+            featuredBand = featuredShow!.band
         }
         
-            
         //Find Band for Tonights Entertainment and fill out info
-        timeController.dateFormatter.dateFormat = timeController.monthDayYear
-        var showTimeString = timeController.dateFormatter.string(from: nextShow!.date)
+        var showTimeString = ""
+        if xityBusiness.xityShows.first?.show.date != nil {
+            showTimeString = timeController.dateFormatter.string(from: (xityBusiness.xityShows.first?.show.date)!)
+            
+        } else if xityBusiness.xityShows.first?.show.date == nil {
+            showTimeString = "No Shows Scheduled"
+        }
+        
         if showTimeString == timeController.todayString {
             tonightsEntLabel.text = "Tonights Entertainment"
+            
+        } else if showTimeString == "No Shows Scheduled" {
+            
         } else {
             timeController.dateFormatter.dateFormat = timeController.dayMonthDay
-            showTimeString = timeController.dateFormatter.string(from: nextShow!.date)
-            tonightsEntLabel.text = "The Next Show: \(showTimeString)"
-        }
-        
-        var featuredBand: Band?
-        if band == nil {
-            guard let featuredBand2 = bandController.bandArray.first(where: {$0.name == nextShow?.band}) else {return}
-            featuredBand = featuredBand2
-        } else {
-            featuredBand = self.band
+            showTimeString = timeController.dateFormatter.string(from: (xityBusiness.xityShows.first?.show.date)!)
+            tonightsEntLabel.text = "The \(showTimeString) Show"
         }
         
         if let bandImageData = featuredBand!.photo {
@@ -296,7 +283,8 @@ extension VenueDetailViewController {
             bandPhotoImageView.image = bandImage
         }
         bandNameLabel.text = featuredBand!.name
-        showTimeLabel.text = nextShow?.time
+        
+        showTimeLabel.text = featuredShow?.show.time
         
         bandGenreLabel.text = ""
         if featuredBand!.genre.count >= 1 {
@@ -306,16 +294,16 @@ extension VenueDetailViewController {
             }
         }
         
-        if currentBusiness.stars == 0 {
+        if xityBusiness.business.stars == 0 {
             businessRatingLabel.text = "No Rating Yet"
         } else {
-            businessRatingLabel.text = "\(currentBusiness.stars)"
+            businessRatingLabel.text = "\(xityBusiness.business.stars)"
         }
         
         //MARK: - Hours of Operations View Initiation
         //The alert itself
         let alertView: OperationHoursAlert = {
-            let view = OperationHoursAlert.instanceFromNib(business: currentBusiness)
+            let view = OperationHoursAlert.instanceFromNib(business: xityBusiness.business)
             return view
         }()
         hoursView = alertView
@@ -330,12 +318,9 @@ extension VenueDetailViewController {
         }()
         self.backgroundView = backgroundView
         
-        if band == nil {
-            band = bandController.bandArray.first(where: {$0.name == nextShow?.band})
-        }
-        if band?.mediaLink == nil {
+        if featuredBand!.mediaLink == nil || featuredBand!.mediaLink == "" {
+            listenButton.setTitle("No Media To hear", for: .normal)
             listenButton.isEnabled = false
-            listenButton.titleLabel?.text = "Band Has No Media"
         }
     }
 }
@@ -363,10 +348,10 @@ extension VenueDetailViewController {
     
     //MARK: Map
     private func mapSetup() {
-        guard let currentBusiness = currentBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
+        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
         
         let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(currentBusiness.address) { [self] placemarks, error in
+        geoCoder.geocodeAddressString(xityBusiness.business.address) { [self] placemarks, error in
             if let error = error {
                 NSLog("Error Converting Address: \(error.localizedDescription)")
             }
@@ -384,7 +369,7 @@ extension VenueDetailViewController {
             //Setup Map Pin
             let pin = MKPointAnnotation()
             pin.coordinate = coordinate!
-            pin.title = currentBusiness.name
+            pin.title = xityBusiness.business.name
             map.addAnnotation(pin)
         }
     }
@@ -412,18 +397,21 @@ extension VenueDetailViewController {
 extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nextShowsArray.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NextShowsCell", for: indexPath)
-        let date = nextShowsArray[indexPath.row].date
-        let show = nextShowsArray[indexPath.row]
-        timeController.dateFormatter.dateFormat = timeController.dayMonthDay
-        let stringDate = timeController.dateFormatter.string(from: date)
+        if xityBusiness?.xityShows.count != 0 {
+            let date = xityBusiness!.xityShows[indexPath.row].show.date
+            let show = xityBusiness!.xityShows[indexPath.row].show
+            timeController.dateFormatter.dateFormat = timeController.dayMonthDay
+            let stringDate = timeController.dateFormatter.string(from: date)
+            cell.textLabel?.text = "\(stringDate): \(show.band) @ \(show.time)"
+        } else {
+            cell.textLabel?.text = "No Show Scheduled"
+        }
         
-        
-        cell.textLabel?.text = "\(stringDate): \(show.band) @ \(show.time)"
         return cell
     }
 }
@@ -443,11 +431,11 @@ extension VenueDetailViewController: UICollectionViewDelegateFlowLayout, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let currentBusiness = currentBusiness else { NSLog("No Current Business Found: updateViews: venueDetailViewController"); return UICollectionViewCell() }
+        guard let xityBusiness = xityBusiness else { NSLog("No Current Business Found: updateViews: venueDetailViewController"); return UICollectionViewCell() }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessPicsCell", for: indexPath) as? BannerAdBusinessPicsCollectionViewCell else {return UICollectionViewCell()}
         
         //% in indexPath for infinite scrolling
-        cell.businessPic = currentBusiness.pics[indexPath.row % currentBusiness.pics.count]
+        cell.businessPic = xityBusiness.business.pics[indexPath.row % xityBusiness.business.pics.count]
         return cell
     }
 }

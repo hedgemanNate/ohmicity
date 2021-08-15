@@ -26,7 +26,14 @@ class LoadInitDataViewController: UIViewController {
     }
     
     
-    var syncingActionsFinished = 0 { didSet { if dataActionsFinished == 2 { print("DONE LOADING")}}}
+    var syncingActionsFinished = 0 {
+        didSet{
+            print(syncingActionsFinished)
+            if syncingActionsFinished == 4 {
+                doneLoading()
+            }
+        }
+    }
     
 
     override func viewDidLoad() {
@@ -129,26 +136,78 @@ extension LoadInitDataViewController {
     
     //MARK: Adding shows to Today
     @objc private func organizeData() {
+        //Collected Weekly Picks
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
         
-        //Locating Todays Shows
-        let op1 = BlockOperation {
-            for show in showController.showArray {
-                let stringDate = dateFormatter.string(from: show.date)
-                
-                if stringDate == timeController.todayString {
-                    showController.todayShowArray.append(show)
-                    showController.todayShowArray.removeDuplicates()
-                }
-            }
-            xityPickController.getWeeklyPicks()
+        //Gathering Xity Band And Business Data
+        let op2 = BlockOperation {
+            xityBandController.fillXityBandArray()
+            xityBusinessController.fillXityBusinessArray()
             self.syncingActionsFinished += 1
-            print("***Collected Shows For Today***")
+            print("*** Creating Xity Band And Business Data ***")
+        }
+        
+        //Gathering Weekly Picks
+        let op3 = BlockOperation {
+            xityShowController.getWeeklyPicks()
+            xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
+            
+            self.syncingActionsFinished += 1
+            print("*** Collected Weekly Picks ***")
         }
         
         //Connecting Todays Shows to Businesses
-        let op2 = BlockOperation {
+        let op4 = BlockOperation {
+            //Collected Today's Shows
+            dateFormatter.dateFormat = timeController.monthDayYear
+            for todayShow in xityShowController.showArray {
+                let stringDate = dateFormatter.string(from: todayShow.show.date)
+                if stringDate == timeController.todayString {
+                    xityShowController.todayShowArray.removeAll(where: {$0 == todayShow})
+                    xityShowController.todayShowArray.append(todayShow)
+                }
+            }
+            xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
+            self.syncingActionsFinished += 1
+            print("*** Collected Today's Shows ***")
+        }
+        
+        let op1 = BlockOperation {
+            //Creating Xity Show Data
+            let genericBand = Band(name: "No Name")
+            let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
+            print("op3 Started")
+            let showArray = showController.showArray.filter({$0.date >= timeController.twoHoursAgo})
+            
+            let businessArray = businessController.businessArray
+            let bandArray = bandController.bandArray
+            
+            for show in showArray {
+                print(show.band)
+                
+                //This protects against missing bands and missing businesses***
+                var  band = bandArray.first(where: {$0.name == show.band})
+                if band == nil {
+                    band = genericBand
+                }
+                
+                var business = businessArray.first(where: {$0.name == show.venue})
+                if business == nil {
+                    business = genericBusiness
+                }
+                //******
+                
+                let xity = XityShow(band: band!, business: business!, show: show)
+                xityShowController.showArray.append(xity)
+                
+            }
+            self.syncingActionsFinished += 1
+            print("*** Creating Xity Show Data ***")
+        }
+        
+        
+        /*let finalOp = BlockOperation {
             for show in showController.todayShowArray {
                 for venue in businessController.businessArray {
                     if show.venue == venue.name {
@@ -157,27 +216,13 @@ extension LoadInitDataViewController {
                 }
             }
             self.syncingActionsFinished += 1
-            print("***Synced Data***")
-        }
-        
-        let op = BlockOperation {
-            for business1 in businessController.businessArray {
-                for business2 in businessController.businessArray {
-                    if business1 == business2 && ((business1.lastModified?.compare(business2.lastModified!)) != nil) {
-                        print("\(business2) IS A DUPE!!!!!!!")
-                    }
-                }
-            }
-        }
-        
-        
-        let finalOp = BlockOperation {
-            self.doneLoading()
-        }
+            print("***Linking Shows and Venues***")
+        }*/
         
         op2.addDependency(op1)
-        finalOp.addDependency(op2)
-        opQueue.addOperations([op1, op2, finalOp], waitUntilFinished: true)
+        op3.addDependency(op2)
+        op4.addDependency(op3)
+        opQueue.addOperations([op1, op2, op3, op4], waitUntilFinished: true)
         
         
     }

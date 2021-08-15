@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-enum BusinessType: String, Codable, Equatable {
+enum BusinessType: String, Codable, Equatable, Hashable {
     case Restaurant
     case Bar
     case Club
@@ -22,12 +22,17 @@ protocol MutatingProtocolForBusinessData {
     //Empty for the purpose adding Hours to a business
 }
 
-class Business: Codable, Equatable {
+class Business: Codable, Equatable, Hashable {
     static func == (lhs: Business, rhs: Business) -> Bool {
         return lhs.venueID == rhs.venueID
     }
     
-    var venueID: String?
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(phoneNumber)
+    }
+    
+    let venueID: String
     var lastModified: Timestamp?
     var name: String?
     var address: String = ""
@@ -51,36 +56,10 @@ class Business: Codable, Equatable {
         self.phoneNumber = phoneNumber
         self.website = website
     }
-
-    
-    private init?(dictionary: [String: Any]) {
-        guard let venueID = (dictionary["venueID"] as! String?),
-              let name = dictionary["name"] as? String,
-              let address = dictionary["address"] as? String,
-              let phoneNumber = dictionary["phoneNumber"] as? Int,
-              let logo = dictionary["logo"] as? Data,
-              let hours = dictionary["hours"] as? Hours?,
-              let customer = dictionary["customer"] as? Bool,
-              let ohmPick = dictionary["ohmPick"] as? Bool,
-              let website = dictionary["website"] as? String,
-              let businessType = dictionary["businessType"] as? [BusinessType] else {return}
-        
-        self.venueID = venueID
-        self.name = name
-        self.address = address
-        self.phoneNumber = phoneNumber
-        self.logo = logo
-        self.hours = hours
-        self.customer = customer
-        self.ohmPick = ohmPick
-        self.website = website
-        self.businessType = businessType
-    }
-    
 }
 
 
-struct Hours: Codable, Equatable {
+struct Hours: Codable, Equatable, Hashable {
     var monday: String = " "
     var tuesday: String = " "
     var wednesday: String = " "
