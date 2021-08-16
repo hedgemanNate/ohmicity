@@ -112,6 +112,7 @@ extension SearchViewController {
     private func setUpCollectionViews() {
         bannerAdCollectionView.delegate = self
         bannerAdCollectionView.dataSource = self
+        bannerAdCollectionView.allowsSelection = false
         
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self

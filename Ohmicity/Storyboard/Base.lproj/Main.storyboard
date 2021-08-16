@@ -84,7 +84,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="BannerAdCell" id="kEa-Fd-PO1" customClass="BannerAdBusinessPicsCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" reuseIdentifier="BannerAdCell" id="kEa-Fd-PO1" customClass="BannerAdBusinessPicsCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fFW-1e-gOc">
@@ -1235,17 +1235,16 @@ should be on Xity?</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253.33333333333334"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="e63-2g-Vlu" secondAttribute="height" multiplier="414:245" id="Wqa-ty-OxJ"/>
-                                                </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
                                                 <rect key="frame" x="9" y="585.33333333333337" width="410" height="151"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flc-bn-8Mf">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flc-bn-8Mf">
                                                         <rect key="frame" x="21" y="14" width="368" height="53"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="flc-bn-8Mf" secondAttribute="height" multiplier="118:17" id="kQ0-hi-9iS"/>
@@ -1257,8 +1256,8 @@ should be on Xity?</string>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwy-YD-YlE">
-                                                        <rect key="frame" x="21" y="88.333333333333258" width="368" height="48.666666666666657"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwy-YD-YlE">
+                                                        <rect key="frame" x="21" y="88.333333333333343" width="368" height="49"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Fwy-YD-YlE" secondAttribute="height" multiplier="354:47" id="QAw-QI-9pW"/>
@@ -1273,29 +1272,22 @@ should be on Xity?</string>
                                                 <constraints>
                                                     <constraint firstItem="flc-bn-8Mf" firstAttribute="trailing" secondItem="Fwy-YD-YlE" secondAttribute="trailing" id="1ca-sA-Fxl"/>
                                                     <constraint firstItem="Fwy-YD-YlE" firstAttribute="top" secondItem="flc-bn-8Mf" secondAttribute="bottom" constant="21.333333333333343" id="KUV-JC-sxp"/>
-                                                    <constraint firstItem="flc-bn-8Mf" firstAttribute="centerX" secondItem="g3I-Dd-R8F" secondAttribute="centerX" id="UrH-Sc-pg8"/>
-                                                    <constraint firstAttribute="width" secondItem="g3I-Dd-R8F" secondAttribute="height" multiplier="410:151" id="ZgY-X5-Wn0"/>
-                                                    <constraint firstItem="flc-bn-8Mf" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="top" constant="14" id="ag1-Hi-rWV"/>
                                                     <constraint firstItem="flc-bn-8Mf" firstAttribute="leading" secondItem="Fwy-YD-YlE" secondAttribute="leading" id="awu-Il-JVO"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-8T-V1u">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-8T-V1u">
                                                 <rect key="frame" x="28" y="274.33333333333331" width="372" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bZ5-8T-V1u" secondAttribute="height" multiplier="372:53" id="hXe-4F-V0N"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Add Band To Favorites">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
                                                 <rect key="frame" x="28" y="348.33333333333331" width="372" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="J1J-k9-Bq7" secondAttribute="height" multiplier="372:53" id="DJS-EC-BQg"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Log Out">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1304,23 +1296,19 @@ should be on Xity?</string>
                                                     <action selector="logoutButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="8i1-ad-lL4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sf9-DL-21v">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sf9-DL-21v">
                                                 <rect key="frame" x="28" y="422.33333333333331" width="372" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="sf9-DL-21v" secondAttribute="height" multiplier="372:53" id="Mju-td-YkJ"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Add Band To Favorites">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffK-mm-yGK">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffK-mm-yGK">
                                                 <rect key="frame" x="28" y="496.33333333333337" width="372" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ffK-mm-yGK" secondAttribute="height" multiplier="372:53" id="FWm-nw-jbL"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Add Band To Favorites">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1330,24 +1318,6 @@ should be on Xity?</string>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="926" id="1vh-iS-Xmu"/>
-                                            <constraint firstAttribute="trailing" secondItem="J1J-k9-Bq7" secondAttribute="trailing" constant="28" id="2yx-cl-I9I"/>
-                                            <constraint firstItem="sf9-DL-21v" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="5Nf-jm-EEb"/>
-                                            <constraint firstItem="ffK-mm-yGK" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="5e1-Bj-DyR"/>
-                                            <constraint firstItem="sf9-DL-21v" firstAttribute="top" secondItem="J1J-k9-Bq7" secondAttribute="bottom" constant="21" id="5uP-IW-rTU"/>
-                                            <constraint firstAttribute="trailing" secondItem="e63-2g-Vlu" secondAttribute="trailing" id="AYx-Qv-2kH"/>
-                                            <constraint firstAttribute="trailing" secondItem="ffK-mm-yGK" secondAttribute="trailing" constant="28" id="GPL-us-ee0"/>
-                                            <constraint firstAttribute="trailing" secondItem="bZ5-8T-V1u" secondAttribute="trailing" constant="28" id="Gvv-JR-iud"/>
-                                            <constraint firstItem="J1J-k9-Bq7" firstAttribute="top" secondItem="bZ5-8T-V1u" secondAttribute="bottom" constant="21" id="LFz-wb-pOm"/>
-                                            <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="RgJ-yv-kmC"/>
-                                            <constraint firstItem="bZ5-8T-V1u" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="bottom" constant="21" id="aLo-HR-AzY"/>
-                                            <constraint firstItem="ffK-mm-yGK" firstAttribute="top" secondItem="sf9-DL-21v" secondAttribute="bottom" constant="21" id="bzx-Ky-wE6"/>
-                                            <constraint firstItem="J1J-k9-Bq7" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="mgt-0r-n1B"/>
-                                            <constraint firstAttribute="trailing" secondItem="g3I-Dd-R8F" secondAttribute="trailing" constant="9" id="p5V-nM-9n1"/>
-                                            <constraint firstItem="g3I-Dd-R8F" firstAttribute="top" secondItem="ffK-mm-yGK" secondAttribute="bottom" constant="36" id="rHt-IN-HZd"/>
-                                            <constraint firstItem="bZ5-8T-V1u" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="sme-X2-gkD"/>
-                                            <constraint firstItem="e63-2g-Vlu" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" id="tdZ-fc-gaS"/>
-                                            <constraint firstAttribute="trailing" secondItem="sf9-DL-21v" secondAttribute="trailing" constant="28" id="vmV-Qg-dJi"/>
-                                            <constraint firstItem="g3I-Dd-R8F" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="zod-lB-Cl2"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1358,12 +1328,10 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="6oy-Bu-Xsa" secondAttribute="bottom" constant="-127" id="bKK-Yc-rA7"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-n1-0BK" userLabel="Admob Lower Banner Ad">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-n1-0BK" userLabel="Admob Lower Banner Ad">
                                 <rect key="frame" x="28" y="786" width="372" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="VU5-n1-0BK" secondAttribute="height" multiplier="358:55" id="L2U-fD-lzq"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1oK-L6-V5b"/>
@@ -1371,15 +1339,13 @@ should be on Xity?</string>
                         <constraints>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="trailing" secondItem="1oK-L6-V5b" secondAttribute="trailing" id="0D8-Ib-Dwp"/>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="leading" secondItem="1oK-L6-V5b" secondAttribute="leading" id="5c2-AO-dZ7"/>
-                            <constraint firstItem="1oK-L6-V5b" firstAttribute="bottom" secondItem="VU5-n1-0BK" secondAttribute="bottom" id="BVV-sP-egO"/>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="top" secondItem="1oK-L6-V5b" secondAttribute="top" id="BkY-GY-JEl"/>
-                            <constraint firstItem="1oK-L6-V5b" firstAttribute="trailing" secondItem="VU5-n1-0BK" secondAttribute="trailing" constant="28" id="VBm-EG-8VT"/>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="bottom" secondItem="1oK-L6-V5b" secondAttribute="bottom" id="Z7U-Sr-8QR"/>
-                            <constraint firstItem="VU5-n1-0BK" firstAttribute="leading" secondItem="1oK-L6-V5b" secondAttribute="leading" constant="28" id="pbu-yl-yN9"/>
                             <constraint firstItem="6oy-Bu-Xsa" firstAttribute="width" secondItem="77H-gc-TUL" secondAttribute="width" id="vwf-xc-Abe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="oAu-3E-U6n"/>
+                    <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
