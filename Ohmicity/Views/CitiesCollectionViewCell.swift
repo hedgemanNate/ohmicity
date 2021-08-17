@@ -29,8 +29,6 @@ class CitiesCollectionViewCell: UICollectionViewCell {
     
     var city: City? {
         didSet {
-            self.clipsToBounds = true
-            self.layer.cornerRadius = 10
             
             if let city = city {
                 switch city {
@@ -59,8 +57,6 @@ class CitiesCollectionViewCell: UICollectionViewCell {
     
     var businessType: BusinessType? {
         didSet {
-            self.clipsToBounds = true
-            self.layer.cornerRadius = 10
             
             if let businessType = businessType {
                 switch businessType {
@@ -89,8 +85,6 @@ class CitiesCollectionViewCell: UICollectionViewCell {
     
     var bandGenre: Genre? {
         didSet {
-            self.clipsToBounds = true
-            self.layer.cornerRadius = 10
             
             if let bandGenre = bandGenre {
                 switch bandGenre {

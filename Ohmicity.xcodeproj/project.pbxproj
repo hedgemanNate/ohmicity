@@ -17,6 +17,10 @@
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 		D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* SignIn.storyboard */; };
+		F60B849626CB4D1800C9226F /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849526CB4D1600C9226F /* tabBar.png */; };
+		F60B849826CB506D00C9226F /* dashboardActive.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849726CB506A00C9226F /* dashboardActive.png */; };
+		F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849926CB507000C9226F /* dashboardInactive.png */; };
+		F60B849D26CB528700C9226F /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60B849C26CB528700C9226F /* CustomTabBarController.swift */; };
 		F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = F60DDB8D269E483E009DD827 /* BandVenueBorder.png */; };
 		F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */; };
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
@@ -98,6 +102,10 @@
 		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D8CED4052641F4100017FD28 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
+		F60B849526CB4D1600C9226F /* tabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar.png; sourceTree = "<group>"; };
+		F60B849726CB506A00C9226F /* dashboardActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboardActive.png; sourceTree = "<group>"; };
+		F60B849926CB507000C9226F /* dashboardInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboardInactive.png; sourceTree = "<group>"; };
+		F60B849C26CB528700C9226F /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		F60DDB8D269E483E009DD827 /* BandVenueBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorder.png; sourceTree = "<group>"; };
 		F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OhmicityLogoNoTag.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
@@ -234,6 +242,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F60B849B26CB507C00C9226F /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				F60B849526CB4D1600C9226F /* tabBar.png */,
+				F60B849726CB506A00C9226F /* dashboardActive.png */,
+				F60B849926CB507000C9226F /* dashboardInactive.png */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
 		F60E6BC82648F259001CA06E /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				F61C370A26B66F8500A2235B /* brickBackground.png */,
+				F60B849B26CB507C00C9226F /* Tab Bar */,
 				F61C370526B64E5A00A2235B /* Button Icons And BG's */,
 				F6F3DB3C26AF331C00C49016 /* Cell Images */,
 				F6F3DB3D26AF333B00C49016 /* City Images */,
@@ -299,6 +318,7 @@
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 				F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */,
+				F60B849C26CB528700C9226F /* CustomTabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,8 +444,8 @@
 				D8403CFF2641C4C400E95415 /* Sources */,
 				D8403D002641C4C400E95415 /* Frameworks */,
 				D8403D012641C4C400E95415 /* Resources */,
-				9945C9C3D7EAB37AD9996691 /* [CP] Embed Pods Frameworks */,
-				99690EB67567A1B994FA37B6 /* [CP] Copy Pods Resources */,
+				DA06F9BBA27A54564722A01B /* [CP] Embed Pods Frameworks */,
+				20696D9720D82753711B09E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -476,6 +496,7 @@
 				F66C99CA26BD16F600A7C135 /* band.jpg in Resources */,
 				F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */,
 				F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */,
+				F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */,
 				F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */,
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
 				F6F3DB4A26AF337C00C49016 /* family.png in Resources */,
@@ -486,7 +507,9 @@
 				D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */,
 				F696A73826AB7079009CB1BD /* ybor.png in Resources */,
 				F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */,
+				F60B849626CB4D1800C9226F /* tabBar.png in Resources */,
 				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
+				F60B849826CB506D00C9226F /* dashboardActive.png in Resources */,
 				F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */,
 				F696A73426AB7079009CB1BD /* tampa.png in Resources */,
 				F6F3DB4826AF337C00C49016 /* bar.png in Resources */,
@@ -530,24 +553,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9945C9C3D7EAB37AD9996691 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		99690EB67567A1B994FA37B6 /* [CP] Copy Pods Resources */ = {
+		20696D9720D82753711B09E6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -562,6 +568,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA06F9BBA27A54564722A01B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ohmicity/Pods-Ohmicity-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -609,6 +632,7 @@
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
+				F60B849D26CB528700C9226F /* CustomTabBarController.swift in Sources */,
 				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,

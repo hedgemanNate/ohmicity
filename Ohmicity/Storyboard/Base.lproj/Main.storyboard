@@ -14,10 +14,12 @@
         <scene sceneID="1uV-75-sbA">
             <objects>
                 <tabBarController storyboardIdentifier="DashboardTabBarController" id="K1r-XI-Dsm" customClass="DashboardTabBarController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oAv-Nx-cly">
+                    <tabBar key="tabBar" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backgroundImage="tabBar.png" id="oAv-Nx-cly">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="xaL-Zu-PHr" kind="relationship" relationship="viewControllers" id="KFL-HP-Cck"/>
@@ -62,14 +64,14 @@
             <objects>
                 <viewController id="3L6-vU-wgp" userLabel="Search View Controller" customClass="SearchViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NeU-eK-nqW">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEX-aZ-pBY">
-                                <rect key="frame" x="0.0" y="44" width="428" height="1023"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fo-n8-heq" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1125"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="900"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-8H-6Uj" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -172,11 +174,8 @@
                                                 </cells>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
-                                                <rect key="frame" x="0.0" y="413" width="428" height="329"/>
+                                                <rect key="frame" x="0.0" y="413" width="428" height="386"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="329" id="hmS-Ts-uUL"/>
-                                                </constraints>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="125" id="4Jm-KF-fRf" customClass="SearchTableViewCell" customModule="Ohmicity" customModuleProvider="target">
@@ -268,36 +267,12 @@
                                                     <outlet property="delegate" destination="3L6-vU-wgp" id="6z7-04-Yft"/>
                                                 </connections>
                                             </tableView>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Sf-ni-uYS">
-                                                <rect key="frame" x="9" y="795" width="410" height="151.33333333333337"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea5-rT-R6K">
-                                                        <rect key="frame" x="21" y="14" width="368" height="53"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Ea5-rT-R6K" secondAttribute="height" multiplier="118:17" id="G2r-WW-mfV"/>
-                                                            <constraint firstAttribute="width" secondItem="Ea5-rT-R6K" secondAttribute="height" multiplier="118:17" id="lo3-Jd-HhM"/>
-                                                        </constraints>
-                                                        <string key="text">Know a great local band or venue that
-should be on Xity?</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2n-hU-Jx3">
-                                                        <rect key="frame" x="21" y="88.333333333333343" width="368" height="48.666666666666657"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="W2n-hU-Jx3" secondAttribute="height" multiplier="354:47" id="PzF-ja-SIJ"/>
-                                                            <constraint firstAttribute="width" secondItem="W2n-hU-Jx3" secondAttribute="height" multiplier="354:47" id="SBn-2A-gPX"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="Recommend">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkH-4Y-R4L" userLabel="Spacer View">
+                                                <rect key="frame" x="0.0" y="799" width="428" height="58"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="58" id="lZp-Of-wN2"/>
+                                                </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDE-cI-8kF">
                                                 <rect key="frame" x="289" y="205" width="130" height="30"/>
@@ -316,7 +291,6 @@ should be on Xity?</string>
                                                 <segments>
                                                     <segment title="Businesses"/>
                                                     <segment title="Cities"/>
-                                                    <segment title="Bands"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="segmentedControllerTapped:" destination="3L6-vU-wgp" eventType="valueChanged" id="8yz-ML-B6S"/>
@@ -333,21 +307,25 @@ should be on Xity?</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="HkH-4Y-R4L" secondAttribute="trailing" id="2nl-0k-yOe"/>
                                             <constraint firstAttribute="trailing" secondItem="Qqa-da-gya" secondAttribute="trailing" id="5qh-lv-Peb"/>
+                                            <constraint firstAttribute="bottom" secondItem="HkH-4Y-R4L" secondAttribute="bottom" constant="43" id="7bt-kI-LuF"/>
                                             <constraint firstAttribute="trailing" secondItem="oLF-21-53M" secondAttribute="trailing" id="94m-6F-Jxg"/>
                                             <constraint firstAttribute="trailing" secondItem="hpP-mB-DHI" secondAttribute="trailing" id="BFe-2u-3Zi"/>
-                                            <constraint firstAttribute="height" constant="1125" id="BnK-Ja-xxJ"/>
+                                            <constraint firstAttribute="height" constant="900" id="BnK-Ja-xxJ"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="COI-Bv-C0C"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="DiI-lo-GOH"/>
                                             <constraint firstItem="SHN-Ay-iKj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Fw2-ih-hGa"/>
                                             <constraint firstAttribute="trailing" secondItem="0tN-8H-6Uj" secondAttribute="trailing" id="LE7-bh-T6R"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="top" secondItem="SHN-Ay-iKj" secondAttribute="bottom" id="OBj-ie-sVT"/>
+                                            <constraint firstItem="HkH-4Y-R4L" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="SGd-AS-kF0"/>
                                             <constraint firstItem="SHN-Ay-iKj" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="bottom" id="WkG-xh-9t2"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Y5x-rB-yTR"/>
                                             <constraint firstAttribute="trailing" secondItem="SHN-Ay-iKj" secondAttribute="trailing" id="YKU-O6-akm"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="top" secondItem="hpP-mB-DHI" secondAttribute="bottom" id="Ybd-nl-Lnu"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="eo9-ll-ZyN"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="top" secondItem="4Fo-n8-heq" secondAttribute="top" id="sAI-yg-yri"/>
+                                            <constraint firstItem="HkH-4Y-R4L" firstAttribute="top" secondItem="Qqa-da-gya" secondAttribute="bottom" id="xLN-5Q-Y6d"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="top" secondItem="oLF-21-53M" secondAttribute="bottom" id="yEi-ga-flW"/>
                                         </constraints>
                                     </view>
@@ -360,8 +338,8 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="4Fo-n8-heq" secondAttribute="bottom" constant="-127" id="qV3-dM-qcf"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSo-ng-eoU" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="1010" width="372" height="57"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSo-ng-eoU" userLabel="Admob Lower Banner Ad">
+                                <rect key="frame" x="28" y="786" width="372" height="57"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GSo-ng-eoU" secondAttribute="height" multiplier="358:55" id="diy-1K-d79"/>
@@ -382,7 +360,8 @@ should be on Xity?</string>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" id="00v-gD-rj0"/>
-                    <size key="freeformSize" width="428" height="1150"/>
+                    <navigationItem key="navigationItem" id="vvm-N9-IDu"/>
+                    <size key="freeformSize" width="428" height="900"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="9Zb-p5-raZ" id="Qf3-kk-oAb"/>
                         <outlet property="searchBar" destination="SHN-Ay-iKj" id="xkt-f2-8Vn"/>
@@ -393,7 +372,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-736" y="-623"/>
+            <point key="canvasLocation" x="-737.38317757009338" y="-623.32613390928725"/>
         </scene>
         <!--Venue Detail-->
         <scene sceneID="x6D-KM-3o5">
@@ -853,7 +832,7 @@ Florida 34222 </string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htM-13-0SJ">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htM-13-0SJ">
                                                 <rect key="frame" x="237" y="597.66666666666663" width="166" height="48"/>
                                                 <color key="backgroundColor" red="0.03212521773578414" green="1" blue="3.3306690738754696e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="break">
@@ -915,7 +894,7 @@ Florida 34222 </string>
                                     <constraint firstAttribute="trailing" secondItem="7W9-h7-a1s" secondAttribute="trailing" id="yve-Cn-8fo"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXW-I8-3WD" userLabel="Admob Lower Banner Ad">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXW-I8-3WD" userLabel="Admob Lower Banner Ad">
                                 <rect key="frame" x="28" y="1455" width="372" height="57"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1226,43 +1205,84 @@ should be on Xity?</string>
             <objects>
                 <viewController id="3iV-GW-bTt" customClass="ProfileViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="77H-gc-TUL">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyT-4S-Tzb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyT-4S-Tzb">
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
-                                                <rect key="frame" x="0.0" y="0.0" width="428" height="253.33333333333334"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
-                                                <rect key="frame" x="9" y="585.33333333333337" width="410" height="151"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flc-bn-8Mf">
-                                                        <rect key="frame" x="21" y="14" width="368" height="53"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="flc-bn-8Mf" secondAttribute="height" multiplier="118:17" id="kQ0-hi-9iS"/>
-                                                            <constraint firstAttribute="height" constant="53" id="y4V-QJ-azR"/>
-                                                        </constraints>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gcz-50-ukl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nuq-tW-dhG">
+                                                            <size key="itemSize" width="428" height="252"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="BannerAdCell" id="Miu-Rs-omV" customClass="BannerAdBusinessPicsCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.66666666666666663" width="428" height="252"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q5m-i0-hq6">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="428" height="252"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQG-nP-Yps">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="428" height="252"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="pQG-nP-Yps" secondAttribute="bottom" id="0XP-Et-aYy"/>
+                                                                        <constraint firstItem="pQG-nP-Yps" firstAttribute="leading" secondItem="q5m-i0-hq6" secondAttribute="leading" id="5oq-cd-8Ie"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="pQG-nP-Yps" secondAttribute="trailing" id="YTP-TX-khJ"/>
+                                                                        <constraint firstItem="pQG-nP-Yps" firstAttribute="top" secondItem="q5m-i0-hq6" secondAttribute="top" id="iVq-dm-kew"/>
+                                                                    </constraints>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="428" height="252"/>
+                                                                <connections>
+                                                                    <outlet property="bannerImage" destination="pQG-nP-Yps" id="tfa-R0-ujo"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="253" id="Ap0-nX-6O6"/>
+                                                    <constraint firstItem="gcz-50-ukl" firstAttribute="leading" secondItem="e63-2g-Vlu" secondAttribute="leading" id="Xqk-Nc-6aM"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gcz-50-ukl" secondAttribute="bottom" id="hXj-BM-pmQ"/>
+                                                    <constraint firstItem="gcz-50-ukl" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="top" id="j9N-cZ-0Oh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gcz-50-ukl" secondAttribute="trailing" id="lwQ-7d-gMV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
+                                                <rect key="frame" x="9" y="585" width="410" height="150"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="1GU-jT-GzF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="410" height="150"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flc-bn-8Mf">
+                                                        <rect key="frame" x="21" y="14" width="368" height="72"/>
                                                         <string key="text">Know a great local band or venue that
 should be on Xity?</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwy-YD-YlE">
-                                                        <rect key="frame" x="21" y="88.333333333333343" width="368" height="49"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwy-YD-YlE">
+                                                        <rect key="frame" x="21" y="86" width="368" height="50"/>
+                                                        <color key="backgroundColor" red="0.2590433359" green="0.35120689869999999" blue="0.77169251439999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Fwy-YD-YlE" secondAttribute="height" multiplier="354:47" id="QAw-QI-9pW"/>
+                                                            <constraint firstAttribute="height" constant="50" id="5nl-Fo-OY5"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <state key="normal" title="Recommend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -1270,24 +1290,26 @@ should be on Xity?</string>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="flc-bn-8Mf" firstAttribute="trailing" secondItem="Fwy-YD-YlE" secondAttribute="trailing" id="1ca-sA-Fxl"/>
-                                                    <constraint firstItem="Fwy-YD-YlE" firstAttribute="top" secondItem="flc-bn-8Mf" secondAttribute="bottom" constant="21.333333333333343" id="KUV-JC-sxp"/>
-                                                    <constraint firstItem="flc-bn-8Mf" firstAttribute="leading" secondItem="Fwy-YD-YlE" secondAttribute="leading" id="awu-Il-JVO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1GU-jT-GzF" secondAttribute="trailing" id="1Pc-37-y5c"/>
+                                                    <constraint firstItem="Fwy-YD-YlE" firstAttribute="top" secondItem="flc-bn-8Mf" secondAttribute="bottom" id="7gh-eW-zQP"/>
+                                                    <constraint firstItem="Fwy-YD-YlE" firstAttribute="leading" secondItem="g3I-Dd-R8F" secondAttribute="leading" constant="21" id="Btu-XY-tD8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Fwy-YD-YlE" secondAttribute="trailing" constant="21" id="UVL-ag-UTR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="flc-bn-8Mf" secondAttribute="trailing" constant="21" id="WJp-NO-zF5"/>
+                                                    <constraint firstItem="1GU-jT-GzF" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="top" id="X6l-DJ-ui5"/>
+                                                    <constraint firstItem="flc-bn-8Mf" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="top" constant="14" id="ZVg-ho-oqP"/>
+                                                    <constraint firstItem="1GU-jT-GzF" firstAttribute="leading" secondItem="g3I-Dd-R8F" secondAttribute="leading" id="ath-Hw-K2l"/>
+                                                    <constraint firstAttribute="height" constant="150" id="cYP-vT-5Oq"/>
+                                                    <constraint firstItem="flc-bn-8Mf" firstAttribute="leading" secondItem="g3I-Dd-R8F" secondAttribute="leading" constant="21" id="r0S-wT-Vlf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Fwy-YD-YlE" secondAttribute="bottom" constant="14" id="vJT-pr-IW3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1GU-jT-GzF" secondAttribute="bottom" id="wXD-xD-oF1"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ5-8T-V1u">
-                                                <rect key="frame" x="28" y="274.33333333333331" width="372" height="53"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
+                                                <rect key="frame" x="28" y="281" width="372" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <state key="normal" title="Add Band To Favorites">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
-                                                <rect key="frame" x="28" y="348.33333333333331" width="372" height="53"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="gs3-Dk-9YE"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Log Out">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1296,28 +1318,19 @@ should be on Xity?</string>
                                                     <action selector="logoutButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="8i1-ad-lL4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sf9-DL-21v">
-                                                <rect key="frame" x="28" y="422.33333333333331" width="372" height="53"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <state key="normal" title="Add Band To Favorites">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffK-mm-yGK">
-                                                <rect key="frame" x="28" y="496.33333333333337" width="372" height="53"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <state key="normal" title="Add Band To Favorites">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="926" id="1vh-iS-Xmu"/>
+                                            <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
+                                            <constraint firstItem="g3I-Dd-R8F" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="4ML-bD-bye"/>
+                                            <constraint firstItem="g3I-Dd-R8F" firstAttribute="top" secondItem="J1J-k9-Bq7" secondAttribute="bottom" constant="254" id="BSU-oH-iWI"/>
+                                            <constraint firstItem="J1J-k9-Bq7" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="D6r-5Q-ZOV"/>
+                                            <constraint firstAttribute="trailing" secondItem="J1J-k9-Bq7" secondAttribute="trailing" constant="28" id="M4p-RP-p3A"/>
+                                            <constraint firstItem="e63-2g-Vlu" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" id="TYF-81-BPZ"/>
+                                            <constraint firstItem="J1J-k9-Bq7" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="bottom" constant="28" id="iDx-hZ-4L8"/>
+                                            <constraint firstAttribute="trailing" secondItem="g3I-Dd-R8F" secondAttribute="trailing" constant="9" id="lUR-NA-FKo"/>
+                                            <constraint firstAttribute="trailing" secondItem="e63-2g-Vlu" secondAttribute="trailing" id="tWc-oU-a0e"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1328,14 +1341,14 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="6oy-Bu-Xsa" secondAttribute="bottom" constant="-127" id="bKK-Yc-rA7"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-n1-0BK" userLabel="Admob Lower Banner Ad">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-n1-0BK" userLabel="Admob Lower Banner Ad">
                                 <rect key="frame" x="28" y="786" width="372" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1oK-L6-V5b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1126012728" green="0.093950964509999998" blue="0.14309099319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="trailing" secondItem="1oK-L6-V5b" secondAttribute="trailing" id="0D8-Ib-Dwp"/>
                             <constraint firstItem="xyT-4S-Tzb" firstAttribute="leading" secondItem="1oK-L6-V5b" secondAttribute="leading" id="5c2-AO-dZ7"/>
@@ -1347,13 +1360,14 @@ should be on Xity?</string>
                     <tabBarItem key="tabBarItem" title="Profile" id="oAu-3E-U6n"/>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
+                        <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2115" y="452"/>
+            <point key="canvasLocation" x="-2115.4205607476633" y="451.61987041036718"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="URJ-TY-WiF">
@@ -1483,7 +1497,7 @@ should be on Xity?</string>
             <objects>
                 <viewController id="xaL-Zu-PHr" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Blf-j4-zLb">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
@@ -1637,10 +1651,10 @@ should be on Xity?</string>
                                                     <constraint firstItem="EVi-S6-JA1" firstAttribute="centerX" secondItem="MWB-JM-Q0f" secondAttribute="centerX" id="Ajb-2m-2Hc"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
-                                                <rect key="frame" x="9" y="593" width="64" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
+                                                <rect key="frame" x="9" y="593" width="182" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Cities">
+                                                <state key="normal" title="Town Exclusives">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -2058,7 +2072,7 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="PaE-9Z-b5c" secondAttribute="bottom" constant="-127" id="eT7-TK-n2O"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-SF-db0" userLabel="Admob Lower Banner Ad">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-SF-db0" userLabel="Admob Lower Banner Ad">
                                 <rect key="frame" x="28" y="1860" width="372" height="57"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -2079,7 +2093,9 @@ should be on Xity?</string>
                             <constraint firstItem="PaE-9Z-b5c" firstAttribute="width" secondItem="Blf-j4-zLb" secondAttribute="width" id="z6f-Uv-oek"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Dashboard" id="nkK-LA-BON"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboardInactive.png" id="nkK-LA-BON">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="DD0-Kn-XVT"/>
                     <size key="freeformSize" width="428" height="2000"/>
                     <connections>
@@ -2209,22 +2225,24 @@ should be on Xity?</string>
                 </view>
                 <tabBarItem title="Dashboard" id="R8M-BV-06Y"/>
             </objects>
-            <point key="canvasLocation" x="-1382.2429906542054" y="-348.59611231101513"/>
+            <point key="canvasLocation" x="-1475" y="-361"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wBn-VR-vtB"/>
+        <segue reference="g3J-Zg-qrW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
         <image name="BandVenueBorderXityPick.png" width="155" height="204"/>
         <image name="brickBackground.png" width="396" height="231"/>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="dashboardInactive.png" width="25" height="25"/>
         <image name="listenButton.png" width="196" height="38"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
+        <image name="tabBar.png" width="414" height="234"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -2239,6 +2257,9 @@ should be on Xity?</string>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

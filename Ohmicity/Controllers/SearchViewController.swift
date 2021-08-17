@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     
     var genre: Genre?
     var city: City?
-    var business: BusinessType?
+    var businessType: BusinessType?
     
     var businessSearchCache = ""
     var bandSearchCache = ""
@@ -97,7 +97,7 @@ class SearchViewController: UIViewController {
         default:
             break
         }
-        startSearch(searchText: searchBar.text!, genre: genre, city: city, business: business)
+        startSearch(searchText: searchBar.text!, genre: genre, city: city, business: businessType)
     }
     
     
@@ -310,10 +310,10 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         case 0:
             genre = nil
             city = nil
-            business = nil
+            businessType = nil
             
-            business = businessController.businessTypeArray[indexPath.row]
-            if let business = business {
+            businessType = businessController.businessTypeArray[indexPath.row]
+            if let business = businessType {
                 print(business.rawValue)
                 startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: business)
             }
@@ -321,21 +321,21 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         case 1:
             genre = nil
             city = nil
-            business = nil
+            businessType = nil
             city = businessController.citiesArray[indexPath.row]
             if let city = city {
                 print(city.rawValue)
-                startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: business)
+                startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: businessType)
             }
             
         case 2:
             genre = nil
             city = nil
-            business = nil
+            businessType = nil
             genre = bandController.genreTypeArray[indexPath.row]
             if let genre = genre {
                 print(genre.rawValue)
-                startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: business)
+                startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: businessType)
             }
             
         default:
@@ -349,7 +349,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             item.layer.borderWidth = 0
             switch segmentedController.selectedSegmentIndex {
             case 0:
-                business = nil
+                businessType = nil
                 startSearch(searchText: searchBar.text!)
             case 1:
                 city = nil

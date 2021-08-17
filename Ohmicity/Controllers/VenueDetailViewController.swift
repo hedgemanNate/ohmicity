@@ -197,6 +197,7 @@ extension VenueDetailViewController {
     
     private func updateViews() {
         guard let xityBusiness = xityBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
+        
         guard let businessLogoData = xityBusiness.business.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
         
         //SetTime
@@ -247,48 +248,39 @@ extension VenueDetailViewController {
         
         
         //MARK: -Tonights Show Logic
-        let featuredBand: Band?
-        let blankBand = Band(name: "No Show")
         if featuredShow == nil {
-            featuredBand = xityBusiness.xityShows.first?.band ?? blankBand
-        } else {
-            featuredBand = featuredShow!.band
+            featuredShow = xityBusiness.xityShows.first ?? blankXityShow
         }
+        let featuredBand = featuredShow!.band
         
         //Find Band for Tonights Entertainment and fill out info
-        var showTimeString = ""
-        if xityBusiness.xityShows.first?.show.date != nil {
-            showTimeString = timeController.dateFormatter.string(from: (xityBusiness.xityShows.first?.show.date)!)
-            
-        } else if xityBusiness.xityShows.first?.show.date == nil {
-            showTimeString = "No Shows Scheduled"
-        }
+        let showTimeString = featuredShow!.show.dateString
+        timeController.dateFormatter.dateFormat = timeController.monthDayYear
+        let shownDateString = timeController.dateFormatter.string(from: featuredShow!.show.date)
         
-        if showTimeString == timeController.todayString {
+        if shownDateString == timeController.todayString {
             tonightsEntLabel.text = "Tonights Entertainment"
-            
-        } else if showTimeString == "No Shows Scheduled" {
-            
+        } else if showTimeString == "No Show Scheduled" {
+            tonightsEntLabel.text = showTimeString
         } else {
-            timeController.dateFormatter.dateFormat = timeController.dayMonthDay
-            showTimeString = timeController.dateFormatter.string(from: (xityBusiness.xityShows.first?.show.date)!)
-            tonightsEntLabel.text = "The \(showTimeString) Show"
+            tonightsEntLabel.text = "The \(shownDateString) Show"
         }
+       
         
-        if let bandImageData = featuredBand!.photo {
+        if let bandImageData = featuredBand.photo {
             let bandImage = UIImage(data: bandImageData)
             bandPhotoImageView.image = bandImage
         } else {
             let bandImage = UIImage(named: "DefaultBand.png")
             bandPhotoImageView.image = bandImage
         }
-        bandNameLabel.text = featuredBand!.name
+        bandNameLabel.text = featuredBand.name
         
         showTimeLabel.text = featuredShow?.show.time
         
         bandGenreLabel.text = ""
-        if featuredBand!.genre.count >= 1 {
-            for genre in featuredBand!.genre {
+        if featuredBand.genre.count >= 1 {
+            for genre in featuredBand.genre {
                 let genre = genre.rawValue
                 bandGenreLabel.text! += "\(genre), "
             }
@@ -318,8 +310,8 @@ extension VenueDetailViewController {
         }()
         self.backgroundView = backgroundView
         
-        if featuredBand!.mediaLink == nil || featuredBand!.mediaLink == "" {
-            listenButton.setTitle("No Media To hear", for: .normal)
+        if featuredBand.mediaLink == nil || featuredBand.mediaLink == "" {
+            listenButton.setTitle("No Media To Hear", for: .normal)
             listenButton.isEnabled = false
         }
     }
@@ -397,7 +389,7 @@ extension VenueDetailViewController {
 extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return xityBusiness?.xityShows.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

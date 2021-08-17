@@ -44,6 +44,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet private weak var weeklyCollectionView: UICollectionView!
     @IBOutlet private weak var venueCollectionView: UICollectionView!
     @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
+    var searchCollectionViewTapped = 0
     
     //Buttons
     @IBOutlet private weak var todayButton: UIButton!
@@ -61,57 +62,17 @@ class DashboardViewController: UIViewController {
         updateViews()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        timer.invalidate()
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startTimer()
     }
     
-
-    //MARK: Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         //Pass the selected object to the new view controller.
-        if segue.identifier == "FromToday" {
-            timer.invalidate()
-            let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
-            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let selected = xityShowController.todayShowArray[indexPath!.row]
-            let business = selected.business
-            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
-            businessVC.xityBusiness = xityBusiness
-            businessVC.featuredShow = selected
-            
-        }
-        
-        if segue.identifier == "FromFav" {
-            timer.invalidate()
-            let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
-            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let business = currentUserController.favArray[indexPath!.row]
-            
-            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
-            xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.twoHoursAgo})
-            
-            businessVC.featuredShow = xityBusiness?.xityShows.first
-            businessVC.xityBusiness = xityBusiness!
-        }
-        
-        if segue.identifier == "FromXityPick" {
-            timer.invalidate()
-            let indexPath = weeklyCollectionView.indexPathsForSelectedItems?.first
-            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let pick = xityShowController.weeklyPicksArray[indexPath!.row]
-            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == pick.business})
-            businessVC.xityBusiness = xityBusiness
-            businessVC.featuredShow = pick
-            
-        }
-        
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer.invalidate()
     }
+    
     
     @IBAction func breaker(_ sender: Any) {
         
@@ -119,7 +80,7 @@ class DashboardViewController: UIViewController {
 }
 
 
-//MARK: Functions
+//MARK: ---- Functions ----
 extension DashboardViewController {
     //UI Functions
     @objc private func handleHidden() {
@@ -157,7 +118,6 @@ extension DashboardViewController {
     }
     
     //MARK: UPDATEVIEWS
-    
     private func updateViews() {
         handleHidden()
         showController.removeHolds()
@@ -230,6 +190,8 @@ extension DashboardViewController {
         //Favorites
         notificationCenter.addObserver(self, selector: #selector(getFavorites), name: notifications.userFavoritesUpdated.name, object: nil)
     }
+    
+    //MARK: ---- Functions End ----
 }
 
 
@@ -340,6 +302,43 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     
-    
-    
+    //MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         //Pass the selected object to the new view controller.
+        if segue.identifier == "FromToday" {
+            timer.invalidate()
+            let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
+            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
+            let selected = xityShowController.todayShowArray[indexPath!.row]
+            let business = selected.business
+            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
+            businessVC.xityBusiness = xityBusiness
+            businessVC.featuredShow = selected
+            
+        }
+        
+        if segue.identifier == "FromFav" {
+            timer.invalidate()
+            let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
+            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
+            let business = currentUserController.favArray[indexPath!.row]
+            
+            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
+            xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.twoHoursAgo})
+            
+            businessVC.featuredShow = xityBusiness?.xityShows.first
+            businessVC.xityBusiness = xityBusiness!
+        }
+        
+        if segue.identifier == "FromXityPick" {
+            timer.invalidate()
+            let indexPath = weeklyCollectionView.indexPathsForSelectedItems?.first
+            guard let businessVC = segue.destination as? VenueDetailViewController else {return}
+            let pick = xityShowController.weeklyPicksArray[indexPath!.row]
+            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == pick.business})
+            businessVC.xityBusiness = xityBusiness
+            businessVC.featuredShow = pick
+            
+        }
+    }
 }

@@ -151,7 +151,7 @@ extension LoadInitDataViewController {
         //Gathering Weekly Picks
         let op3 = BlockOperation {
             xityShowController.getWeeklyPicks()
-            xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
+            //xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
             
             self.syncingActionsFinished += 1
             print("*** Collected Weekly Picks ***")
