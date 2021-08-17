@@ -39,10 +39,9 @@ class LoadInitDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
-        currentUserController.assignCurrentUser()
         updateViewController()
-        lmDateHandler.checkDateAndGetData()
-        
+        currentUserController.assignCurrentUser()
+        lmDateHandler.checkDateAndGetData() 
         
         //resetCache
 //        let settings = FirestoreSettings()

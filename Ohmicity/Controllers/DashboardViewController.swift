@@ -83,7 +83,7 @@ class DashboardViewController: UIViewController {
 //MARK: ---- Functions ----
 extension DashboardViewController {
     //UI Functions
-    @objc private func handleHidden() {
+    private func handleHidden() {
         if currentUserController.currentUser == nil {
             favoritesButton.isHidden = true
             favoritesCollectionView.isHidden = true
@@ -129,13 +129,14 @@ extension DashboardViewController {
     }
     
     //MARK: UPDATEVIEWS
-    private func updateViews() {
+    @objc private func updateViews() {
         handleHidden()
         showController.removeHolds()
         setupUpCollectionViews()
         
         //UI Adjustments
         getPerksButton.layer.cornerRadius = 5
+        
 
     }
     
@@ -158,18 +159,22 @@ extension DashboardViewController {
         citiesCollectionView.delegate = self
         citiesCollectionView.dataSource = self
         citiesCollectionView.showsHorizontalScrollIndicator = false
+        citiesCollectionView.reloadData()
         
         todayCollectionView.delegate = self
         todayCollectionView.dataSource = self
         todayCollectionView.showsHorizontalScrollIndicator = false
+        todayCollectionView.reloadData()
         
         venueCollectionView.delegate = self
         venueCollectionView.dataSource = self
         venueCollectionView.showsHorizontalScrollIndicator = false
+        venueCollectionView.reloadData()
         
         bannerAdCollectionView.delegate = self
         bannerAdCollectionView.dataSource = self
         bannerAdCollectionView.showsHorizontalScrollIndicator = false
+        bannerAdCollectionView.reloadData()
         
         favoritesCollectionView.delegate = self
         favoritesCollectionView.dataSource = self
@@ -179,12 +184,13 @@ extension DashboardViewController {
         weeklyCollectionView.delegate = self
         weeklyCollectionView.dataSource = self
         weeklyCollectionView.showsHorizontalScrollIndicator = false
+        weeklyCollectionView.reloadData()
     }
     
     
     private func notificationObservers() {
         //Hide Views
-        notificationCenter.addObserver(self, selector: #selector(handleHidden), name: notifications.userAuthUpdated.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
         
         //Scroll To Top
         notificationCenter.addObserver(self, selector: #selector(scrollToTop), name: notifications.scrollToTop.name, object: nil)
