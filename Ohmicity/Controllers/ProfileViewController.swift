@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController {
             do {
                 try Auth.auth().signOut()
                 currentUserController.currentUser = nil
-                self.tabBarController?.selectedIndex = 0
+                self.tabBarController?.selectedIndex = 1
             } catch let signOutError as NSError {
                 NSLog("Sign Out Failed: %@", signOutError)
             }
@@ -102,10 +102,10 @@ class ProfileViewController: UIViewController {
         var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 50 {
+        if currentPath!.row < 25 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
-        } else if currentPath!.row == 50 {
+        } else {
             indexPath = IndexPath(row: 0, section: 0)
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }

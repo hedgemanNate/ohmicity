@@ -13,7 +13,6 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
 
     //Properties
     @IBOutlet weak var appleSignInButton: MDCButton!
-    @IBOutlet weak var signUpButton: MDCButton!
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
@@ -49,8 +48,6 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             guard let uid = authDataResult?.user.uid else {return NSLog("No uid returned from auth")}
             guard let email = authDataResult?.user.email else {return NSLog("No email retuned from auth")}
             
-            
-            
             currentUserController.currentUser = CurrentUser(userID: uid, email: email)
             notificationCenter.post(notifications.userAuthUpdated)
             
@@ -58,9 +55,9 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             if authDataResult?.additionalUserInfo?.isNewUser == true {
                 NSLog("New User Signed Up: authUI: SignInViewController")
                 currentUserController.pushCurrentUserData()
-            
-            self.dismiss(animated: true, completion: nil)
-            
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -89,9 +86,6 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
         appleSignInButton.setTitle("Sign In With Apple", for: .normal)
         appleSignInButton.backgroundColor = cc.mainColorPurple
         
-        signUpButton.layer.cornerRadius = 10
-        signUpButton.setTitle("Sign In With Email", for: .normal)
-        signUpButton.backgroundColor = cc.secondaryColorPurple
     }
     
     /*

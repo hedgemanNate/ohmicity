@@ -49,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         UIBarButtonItem.appearance().tintColor = cc.navigationTextBlue
+        
+        let segmentedControlNormalStateTextColor = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let segmentedControlSelectedStateTextColor = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlSelectedStateTextColor, for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlNormalStateTextColor, for: .normal)
         return true
         
     }

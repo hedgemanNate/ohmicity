@@ -24,6 +24,7 @@
 		F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = F60DDB8D269E483E009DD827 /* BandVenueBorder.png */; };
 		F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */; };
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
+		F60E865426CC5DB3001DE21A /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E865326CC5DB3001DE21A /* loginLogo.png */; };
 		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
 		F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C370326B64E2200A2235B /* VenueDetailViewController.swift */; };
 		F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370626B64E5A00A2235B /* directionsIcon.png */; };
@@ -109,6 +110,7 @@
 		F60DDB8D269E483E009DD827 /* BandVenueBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorder.png; sourceTree = "<group>"; };
 		F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OhmicityLogoNoTag.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
+		F60E865326CC5DB3001DE21A /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
 		F60EB6362656D3C400CDB6F6 /* goTonight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goTonight.json; sourceTree = "<group>"; };
 		F61C370326B64E2200A2235B /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		F61C370626B64E5A00A2235B /* directionsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = directionsIcon.png; sourceTree = "<group>"; };
@@ -282,11 +284,20 @@
 				F6F3DB3C26AF331C00C49016 /* Cell Images */,
 				F6F3DB3D26AF333B00C49016 /* City Images */,
 				F6F3DB3E26AF335100C49016 /* Business Type Images */,
-				F60E6BD62648F7C8001CA06E /* PurpleBG.png */,
+				F60E865526CC5DB9001DE21A /* Login Images */,
 				F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */,
 				F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		F60E865526CC5DB9001DE21A /* Login Images */ = {
+			isa = PBXGroup;
+			children = (
+				F60E6BD62648F7C8001CA06E /* PurpleBG.png */,
+				F60E865326CC5DB3001DE21A /* loginLogo.png */,
+			);
+			path = "Login Images";
 			sourceTree = "<group>";
 		};
 		F61C370526B64E5A00A2235B /* Button Icons And BG's */ = {
@@ -508,6 +519,7 @@
 				F696A73826AB7079009CB1BD /* ybor.png in Resources */,
 				F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */,
 				F60B849626CB4D1800C9226F /* tabBar.png in Resources */,
+				F60E865426CC5DB3001DE21A /* loginLogo.png in Resources */,
 				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
 				F60B849826CB506D00C9226F /* dashboardActive.png in Resources */,
 				F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */,

@@ -141,10 +141,10 @@ extension SearchViewController {
         var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 50 {
+        if currentPath!.row < 25 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
-        } else if currentPath!.row == 50 {
+        } else {
             indexPath = IndexPath(row: 0, section: 0)
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
@@ -166,7 +166,11 @@ extension SearchViewController {
             print("ss2")
             let mid = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
             print(mid)
-            businessResultsArray = mid
+            if searchText == "" {
+                businessResultsArray = mid
+            } else {
+                businessResultsArray = mid.filter({($0.business.name?.localizedStandardContains(searchText))!})
+            }
             
         } else if segmentedController.selectedSegmentIndex == 0 && business != nil {
             print("ss3")
@@ -196,7 +200,8 @@ extension SearchViewController {
     private func updateViews() {
         self.hideKeyboardWhenTappedAround()
         searchBar.delegate = self
-        searchBar.placeholder = "Search Business By Name"
+        searchBar.attributedPlaceholder = NSAttributedString(string: "Search Business By Name",                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        segmentedController.selectedSegmentTintColor = cc.highlightBlue
         
         //Collection View UI
         searchCollectionView.allowsSelection = true

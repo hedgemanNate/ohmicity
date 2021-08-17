@@ -16,20 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="p4U-tD-oOP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="p4U-tD-oOP">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OhmicityLogoNoTag.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ysw-lv-MTJ">
-                                <rect key="frame" x="30" y="409.66666666666669" width="368" height="106.66666666666669"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ysw-lv-MTJ" secondAttribute="height" multiplier="3509:1020" id="QBR-wH-yRP"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqK-sJ-0cM" customClass="MDCButton">
-                                <rect key="frame" x="50" y="546.33333333333337" width="328" height="85.666666666666629"/>
+                                <rect key="frame" x="75" y="552.66666666666663" width="278" height="75"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="mqK-sJ-0cM" secondAttribute="height" multiplier="215:56" id="hoA-8V-GFX"/>
+                                    <constraint firstAttribute="height" constant="75" id="F3j-1h-KMa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Apple">
@@ -39,53 +33,45 @@
                                     <action selector="signInButtonTapped:" destination="Wrf-EA-5Et" eventType="touchUpInside" id="EOI-yq-3eM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpV-RL-i1C" customClass="MDCButton">
-                                <rect key="frame" x="100" y="647" width="228" height="58.666666666666629"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wpV-RL-i1C" secondAttribute="height" multiplier="314:81" id="X6a-0g-oIZ"/>
-                                </constraints>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e7-Kv-IzQ">
-                                <rect key="frame" x="175" y="202" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e7-Kv-IzQ">
+                                <rect key="frame" x="174.66666666666666" y="202" width="39" height="30"/>
                                 <state key="normal" title="break"/>
                                 <connections>
                                     <action selector="breaker:" destination="Wrf-EA-5Et" eventType="touchUpInside" id="wWC-Ze-ZVo"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ysw-lv-MTJ">
+                                <rect key="frame" x="77" y="293.66666666666669" width="234" height="159"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="sT9-Vl-FYK"/>
+                                    <constraint firstAttribute="height" constant="159" id="tHR-Vv-fgs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6gM-RK-aho"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6gM-RK-aho" firstAttribute="trailing" secondItem="mqK-sJ-0cM" secondAttribute="trailing" constant="50" id="49b-43-mVh"/>
+                            <constraint firstItem="mqK-sJ-0cM" firstAttribute="leading" secondItem="6gM-RK-aho" secondAttribute="leading" constant="75" id="B4E-P5-Fd3"/>
                             <constraint firstItem="p4U-tD-oOP" firstAttribute="top" secondItem="0S8-Ri-kr7" secondAttribute="top" id="Bud-Gm-dRE"/>
-                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="leading" secondItem="0S8-Ri-kr7" secondAttribute="leading" constant="30" id="DZX-QS-rAq"/>
-                            <constraint firstItem="wpV-RL-i1C" firstAttribute="top" secondItem="mqK-sJ-0cM" secondAttribute="bottom" constant="15" id="H9x-Hd-JQp"/>
-                            <constraint firstItem="6gM-RK-aho" firstAttribute="trailing" secondItem="wpV-RL-i1C" secondAttribute="trailing" constant="100" id="MMG-zZ-Bjr"/>
+                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="centerY" secondItem="0S8-Ri-kr7" secondAttribute="centerY" constant="-90" id="MMU-Kw-84T"/>
+                            <constraint firstItem="mqK-sJ-0cM" firstAttribute="top" secondItem="Ysw-lv-MTJ" secondAttribute="bottom" constant="100" id="NKI-CY-Obk"/>
+                            <constraint firstItem="6gM-RK-aho" firstAttribute="trailing" secondItem="Ysw-lv-MTJ" secondAttribute="trailing" constant="117" id="Op2-ZR-yyf"/>
+                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="leading" secondItem="6gM-RK-aho" secondAttribute="leading" constant="77" id="PLh-OZ-8oC"/>
                             <constraint firstAttribute="bottom" secondItem="p4U-tD-oOP" secondAttribute="bottom" id="Pi1-E4-tQq"/>
-                            <constraint firstAttribute="trailing" secondItem="Ysw-lv-MTJ" secondAttribute="trailing" constant="30" id="S9h-kQ-MjZ"/>
+                            <constraint firstItem="6gM-RK-aho" firstAttribute="trailing" secondItem="mqK-sJ-0cM" secondAttribute="trailing" constant="75" id="Qpz-yy-rQ5"/>
                             <constraint firstItem="p4U-tD-oOP" firstAttribute="trailing" secondItem="6gM-RK-aho" secondAttribute="trailing" id="SEO-Az-gfR"/>
                             <constraint firstItem="p4U-tD-oOP" firstAttribute="leading" secondItem="6gM-RK-aho" secondAttribute="leading" id="XDD-eK-zSN"/>
-                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="centerX" secondItem="0S8-Ri-kr7" secondAttribute="centerX" id="ct2-LA-1Fi"/>
-                            <constraint firstItem="mqK-sJ-0cM" firstAttribute="leading" secondItem="6gM-RK-aho" secondAttribute="leading" constant="50" id="e5R-6c-j9v"/>
-                            <constraint firstItem="mqK-sJ-0cM" firstAttribute="top" secondItem="Ysw-lv-MTJ" secondAttribute="bottom" constant="30" id="pWf-6v-TE4"/>
-                            <constraint firstItem="wpV-RL-i1C" firstAttribute="leading" secondItem="6gM-RK-aho" secondAttribute="leading" constant="100" id="raU-1r-iA5"/>
-                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="centerY" secondItem="0S8-Ri-kr7" secondAttribute="centerY" id="vYp-JC-v9Q"/>
+                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="centerX" secondItem="4e7-Kv-IzQ" secondAttribute="centerX" id="pPJ-ZA-SJJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appleSignInButton" destination="mqK-sJ-0cM" id="maP-Fm-JZw"/>
-                        <outlet property="signUpButton" destination="wpV-RL-i1C" id="QWs-zA-5qi"/>
                         <segue destination="dI8-ff-XVC" kind="presentation" identifier="ToDashboard" modalPresentationStyle="fullScreen" id="U7l-t6-EkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpK-MG-b17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-494" y="1136"/>
+            <point key="canvasLocation" x="-494.85981308411215" y="1135.8531317494601"/>
         </scene>
         <!--Main-->
         <scene sceneID="RdP-c1-1T2">
@@ -99,8 +85,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="OhmicityLogoNoTag.png" width="3509" height="1020"/>
         <image name="PurpleBG.png" width="1125" height="2436"/>
+        <image name="loginLogo.png" width="548" height="380"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
