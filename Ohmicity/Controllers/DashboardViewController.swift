@@ -108,13 +108,24 @@ extension DashboardViewController {
         var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 50 {
+        if currentPath!.row < 25 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
-        } else if currentPath!.row == 50 {
+        } else {
             indexPath = IndexPath(row: 0, section: 0)
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
+    }
+    
+    @objc private func startTimer() {
+        timer.invalidate()
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc private func endTimer() {
+        timer.invalidate()
     }
     
     //MARK: UPDATEVIEWS
@@ -126,12 +137,6 @@ extension DashboardViewController {
         //UI Adjustments
         getPerksButton.layer.cornerRadius = 5
 
-    }
-    
-    @objc private func startTimer() {
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
-        }
     }
     
     //MARK: Logic Functions
@@ -189,6 +194,9 @@ extension DashboardViewController {
         
         //Favorites
         notificationCenter.addObserver(self, selector: #selector(getFavorites), name: notifications.userFavoritesUpdated.name, object: nil)
+        
+        //Background
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
     //MARK: ---- Functions End ----

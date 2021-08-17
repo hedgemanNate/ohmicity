@@ -24,6 +24,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationCenter.addObserver(self, selector: #selector(updateLogButton), name: notifications.userAuthUpdated.name, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+            
         updateViews()
     }
     
@@ -80,13 +83,17 @@ class ProfileViewController: UIViewController {
         bannerAdCollectionView.delegate = self
     }
     
-    //Banner Ad
-    
+    //MARK: Banner Ad
     @objc private func startTimer() {
         DispatchQueue.main.async {
+            self.timer.invalidate()
             self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
+    
+    @objc private func endTimer() {
+            timer.invalidate()
+        }
     
     @objc private func bannerChange() {
         let shownPath = bannerAdCollectionView.indexPathsForVisibleItems

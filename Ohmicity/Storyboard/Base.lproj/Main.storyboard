@@ -14,16 +14,17 @@
         <scene sceneID="1uV-75-sbA">
             <objects>
                 <tabBarController storyboardIdentifier="DashboardTabBarController" id="K1r-XI-Dsm" customClass="DashboardTabBarController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backgroundImage="tabBar.png" id="oAv-Nx-cly">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="oAv-Nx-cly" customClass="TabBarVC" customModule="Ohmicity" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xaL-Zu-PHr" kind="relationship" relationship="viewControllers" id="KFL-HP-Cck"/>
                         <segue destination="3L6-vU-wgp" kind="relationship" relationship="viewControllers" id="Ouw-vt-x1P"/>
+                        <segue destination="xaL-Zu-PHr" kind="relationship" relationship="viewControllers" id="KFL-HP-Cck"/>
                         <segue destination="3iV-GW-bTt" kind="relationship" relationship="viewControllers" id="5BC-eq-r0n"/>
                     </connections>
                 </tabBarController>
@@ -176,9 +177,10 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
                                                 <rect key="frame" x="0.0" y="413" width="428" height="386"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="125" id="4Jm-KF-fRf" customClass="SearchTableViewCell" customModule="Ohmicity" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="125" id="4Jm-KF-fRf" customClass="SearchTableViewCell" customModule="Ohmicity" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="125"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Jm-KF-fRf" id="OoY-3k-M0P">
@@ -359,7 +361,9 @@
                             <constraint firstItem="GSo-ng-eoU" firstAttribute="leading" secondItem="ZGp-Uf-IrR" secondAttribute="leading" constant="28" id="wq8-Dy-Wq9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="00v-gD-rj0"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="magnifyingglass" catalog="system" id="00v-gD-rj0">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="vvm-N9-IDu"/>
                     <size key="freeformSize" width="428" height="900"/>
                     <connections>
@@ -689,7 +693,7 @@ should be on Xity?</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yLX-vV-2Rk" userLabel="Next Shows Table View">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yLX-vV-2Rk" userLabel="Next Shows Table View">
                                                 <rect key="frame" x="9" y="705" width="410" height="170"/>
                                                 <color key="backgroundColor" red="0.1514229178" green="0.12524503470000001" blue="0.19481414559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -705,26 +709,6 @@ should be on Xity?</string>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="TvD-p9-E8N">
-                                                                    <rect key="frame" x="20" y="0.0" width="370" height="33"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                    <color key="textColor" red="0.93717283009999997" green="0.93730741740000001" blue="0.93714338539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </tableViewCellContentView>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </tableViewCell>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="o6g-HY-Eao" rowHeight="33" style="IBUITableViewCellStyleDefault" id="kT0-zN-vYq">
-                                                        <rect key="frame" x="0.0" y="57.333333969116211" width="410" height="33"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kT0-zN-vYq" id="SAa-76-3ns">
-                                                            <rect key="frame" x="0.0" y="0.0" width="410" height="33"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="No Show Scheduled Yet" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="o6g-HY-Eao">
                                                                     <rect key="frame" x="20" y="0.0" width="370" height="33"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1200,7 +1184,7 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="2159" y="-597"/>
         </scene>
-        <!--Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="Iqo-pK-cSs">
             <objects>
                 <viewController id="3iV-GW-bTt" customClass="ProfileViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
@@ -1357,7 +1341,11 @@ should be on Xity?</string>
                             <constraint firstItem="6oy-Bu-Xsa" firstAttribute="width" secondItem="77H-gc-TUL" secondAttribute="width" id="vwf-xc-Abe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="oAu-3E-U6n"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="person.fill" catalog="system" id="oAu-3E-U6n">
+                        <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
@@ -1492,7 +1480,7 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="2958" y="-597"/>
         </scene>
-        <!--Dashboard-->
+        <!--Dashboard View Controller-->
         <scene sceneID="Xoh-KE-nbH">
             <objects>
                 <viewController id="xaL-Zu-PHr" customClass="DashboardViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
@@ -2093,7 +2081,7 @@ should be on Xity?</string>
                             <constraint firstItem="PaE-9Z-b5c" firstAttribute="width" secondItem="Blf-j4-zLb" secondAttribute="width" id="z6f-Uv-oek"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboardInactive.png" id="nkK-LA-BON">
+                    <tabBarItem key="tabBarItem" title="" id="nkK-LA-BON">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="DD0-Kn-XVT"/>
@@ -2229,20 +2217,21 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g3J-Zg-qrW"/>
+        <segue reference="wBn-VR-vtB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
         <image name="BandVenueBorderXityPick.png" width="155" height="204"/>
         <image name="brickBackground.png" width="396" height="231"/>
         <image name="clock" catalog="system" width="128" height="121"/>
-        <image name="dashboardInactive.png" width="25" height="25"/>
         <image name="listenButton.png" width="196" height="38"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
-        <image name="tabBar.png" width="414" height="234"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

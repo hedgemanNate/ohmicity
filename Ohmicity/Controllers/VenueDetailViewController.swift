@@ -58,6 +58,7 @@ class VenueDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
     }
     
@@ -65,6 +66,7 @@ class VenueDetailViewController: UIViewController {
         super.viewDidAppear(animated)
         //Collection View Timer
         DispatchQueue.main.async {
+            self.timer.invalidate()
             self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
@@ -367,7 +369,7 @@ extension VenueDetailViewController {
     }
     
     
-    //MARK: Slide Show Functions
+    //MARK:Banner Ad
     @objc func bannerChange() {
         let shownPath = businessPicsCollectionView.indexPathsForVisibleItems
         let currentPath = shownPath.first
@@ -382,6 +384,10 @@ extension VenueDetailViewController {
             indexPath = IndexPath(row: 0, section: 0)
             self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
+    }
+    
+    @objc private func endTimer() {
+        timer.invalidate()
     }
 }
 

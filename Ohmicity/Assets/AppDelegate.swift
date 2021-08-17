@@ -49,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         UIBarButtonItem.appearance().tintColor = cc.navigationTextBlue
+        UITabBar.appearance().backgroundImage = UIImage()
+        //UITabBar.appearance().shadowImage = UIImage()
+        //UITabBar.appearance().clipsToBounds = true
         return true
         
     }

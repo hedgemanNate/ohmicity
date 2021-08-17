@@ -20,7 +20,7 @@
 		F60B849626CB4D1800C9226F /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849526CB4D1600C9226F /* tabBar.png */; };
 		F60B849826CB506D00C9226F /* dashboardActive.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849726CB506A00C9226F /* dashboardActive.png */; };
 		F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849926CB507000C9226F /* dashboardInactive.png */; };
-		F60B849D26CB528700C9226F /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60B849C26CB528700C9226F /* CustomTabBarController.swift */; };
+		F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60B849E26CB6DDA00C9226F /* DashboardTabBar.swift */; };
 		F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = F60DDB8D269E483E009DD827 /* BandVenueBorder.png */; };
 		F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */; };
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
@@ -105,7 +105,7 @@
 		F60B849526CB4D1600C9226F /* tabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar.png; sourceTree = "<group>"; };
 		F60B849726CB506A00C9226F /* dashboardActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboardActive.png; sourceTree = "<group>"; };
 		F60B849926CB507000C9226F /* dashboardInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboardInactive.png; sourceTree = "<group>"; };
-		F60B849C26CB528700C9226F /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		F60B849E26CB6DDA00C9226F /* DashboardTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBar.swift; sourceTree = "<group>"; };
 		F60DDB8D269E483E009DD827 /* BandVenueBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorder.png; sourceTree = "<group>"; };
 		F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OhmicityLogoNoTag.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
@@ -233,7 +233,6 @@
 				F640DD14264E4BB700959358 /* Login */,
 				F62FEB6B26562A1A008DEF64 /* Settings */,
 				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
-				F640DD0E264E432B00959358 /* DashboardTabBarController.swift */,
 				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
 				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
 				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
@@ -312,13 +311,14 @@
 		F640DD13264E4B9600959358 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F640DD0E264E432B00959358 /* DashboardTabBarController.swift */,
+				F60B849E26CB6DDA00C9226F /* DashboardTabBar.swift */,
 				F61C371026B727B400A2235B /* OperationHoursAlert.swift */,
 				F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */,
 				F6497F5C26BCCAAB005D2D4A /* BannerAdBusinessPicsCollectionViewCell.swift */,
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 				F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */,
-				F60B849C26CB528700C9226F /* CustomTabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -599,6 +599,7 @@
 				F67991002697AB54000FDC5E /* Notifications.swift in Sources */,
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
+				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,
 				F67E64E626B0A4DF00ED75D0 /* BannerAd.swift in Sources */,
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
@@ -632,7 +633,6 @@
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
-				F60B849D26CB528700C9226F /* CustomTabBarController.swift in Sources */,
 				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,

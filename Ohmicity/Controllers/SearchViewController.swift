@@ -42,6 +42,9 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setUpCollectionViews()
         updateViews()
+        
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+            
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,9 +125,14 @@ extension SearchViewController {
     //MARK: Banner Ad
     @objc private func startTimer() {
         DispatchQueue.main.async {
+            self.timer.invalidate()
             self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
+    
+    @objc private func endTimer() {
+            timer.invalidate()
+        }
     
     @objc private func bannerChange() {
         let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
