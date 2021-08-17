@@ -308,10 +308,10 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             if selectedIndex == indexPath.row {
                 selectedIndex = nil
                 item.layer.borderWidth = 0
-                item.layer.borderColor = UIColor.purple.cgColor
+                item.layer.borderColor = cc.highlightBlue.cgColor
             } else {
                 item.layer.borderWidth = 2
-                item.layer.borderColor = UIColor.purple.cgColor
+                item.layer.borderColor = cc.highlightBlue.cgColor
             }
         }
         switch segmentedController.selectedSegmentIndex {

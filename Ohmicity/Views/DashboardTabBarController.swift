@@ -23,9 +23,7 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
         setupMiddleButton()
         self.delegate = self
         self.selectedIndex = 1
-        self.tabBarItem.imageInsets = UIEdgeInsets(top: 30, left: 0, bottom: -30, right: 0)
-        self.title = nil
-        self.tabBar.backgroundColor = .clear
+        
     }
     
     

@@ -7,14 +7,16 @@
 
 import UIKit
 
-import UIKit
-
 class TabBarVC: UITabBar {
 
     private var shapeLayer: CALayer?
     
     
     private func addShape() {
+        self.backgroundImage = UIImage()
+        self.shadowImage = UIImage()
+        
+        
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = createPath()
         shapeLayer.strokeColor = UIColor.clear.cgColor
@@ -47,6 +49,9 @@ class TabBarVC: UITabBar {
         
         path.move(to: CGPoint(x: 0, y: -20)) //start pos
         path.addQuadCurve(to: CGPoint(x: self.frame.width, y: -20), controlPoint: CGPoint(x: centerWidth, y: height))
+        
+        
+        
         
         //close the path
         path.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height))
