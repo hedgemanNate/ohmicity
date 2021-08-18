@@ -258,14 +258,16 @@ extension VenueDetailViewController {
         //Find Band for Tonights Entertainment and fill out info
         let showTimeString = featuredShow!.show.dateString
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
-        let shownDateString = timeController.dateFormatter.string(from: featuredShow!.show.date)
+        let compareDateString = timeController.dateFormatter.string(from: featuredShow!.show.date)
         
-        if shownDateString == timeController.todayString {
+        if compareDateString == timeController.todayString {
             tonightsEntLabel.text = "Tonights Entertainment"
         } else if showTimeString == "No Show Scheduled" {
             tonightsEntLabel.text = showTimeString
         } else {
-            tonightsEntLabel.text = "The \(shownDateString) Show"
+            timeController.dateFormatter.dateFormat = timeController.dayMonthDay
+            let dayOfWeekAndDate = timeController.dateFormatter.string(from: featuredShow!.show.date)
+            tonightsEntLabel.text = "The \(dayOfWeekAndDate) Show"
         }
        
         
