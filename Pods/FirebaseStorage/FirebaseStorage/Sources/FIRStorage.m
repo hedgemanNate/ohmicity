@@ -363,10 +363,7 @@ static GTMSessionFetcherRetryBlock _retryWhenOffline;
                                                       bucket:_storageBucket
                                                         auth:_auth
                                                     appCheck:_appCheck];
-    if (_usesEmulator) {
-      _fetcherServiceForApp.allowLocalhostRequest = YES;
-      _fetcherServiceForApp.allowedInsecureSchemes = @[ @"http" ];
-    }
+    _fetcherServiceForApp.allowLocalhostRequest = _usesEmulator;
   }
 }
 

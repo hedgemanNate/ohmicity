@@ -174,7 +174,7 @@ public extension LoginManager {
   }
 
   private func convertedResultHandler(_ original: @escaping LoginResultBlock) -> LoginManagerLoginResultBlock {
-    { (result: LoginManagerLoginResult?, error: Error?) in
+    return { (result: LoginManagerLoginResult?, error: Error?) in
       let result = LoginResult(result: result, error: error)
       original(result)
     }
