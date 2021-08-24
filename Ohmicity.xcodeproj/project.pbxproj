@@ -85,7 +85,6 @@
 		F6F3DB4826AF337C00C49016 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4226AF337800C49016 /* bar.png */; };
 		F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4326AF337900C49016 /* livemusic.png */; };
 		F6F3DB4A26AF337C00C49016 /* family.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4426AF337B00C49016 /* family.png */; };
-		F6F6829126B9F530005B35A1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6829026B9F530005B35A1 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,8 +171,6 @@
 		F6F3DB4226AF337800C49016 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		F6F3DB4326AF337900C49016 /* livemusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livemusic.png; sourceTree = "<group>"; };
 		F6F3DB4426AF337B00C49016 /* family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = family.png; sourceTree = "<group>"; };
-		F6F6829026B9F530005B35A1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../../Ohmicity-Backend/ohmicity-Backend/Ohmicity Backend/Models/Message.swift"; sourceTree = "<group>"; };
-		F6F6829226B9F555005B35A1 /* Recommendation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recommendation.swift; path = "../../../../Ohmicity-Backend/ohmicity-Backend/Ohmicity Backend/Models/Recommendation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,12 +370,10 @@
 			children = (
 				F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */,
 				F676F0F426991C6C00C47599 /* Band.swift */,
-				F6F6829226B9F555005B35A1 /* Recommendation.swift */,
 				F676F0EF26991C6C00C47599 /* Rating.swift */,
 				F676F0F226991C6C00C47599 /* Show.swift */,
 				F676F0F326991C6C00C47599 /* Business.swift */,
 				F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */,
-				F6F6829026B9F530005B35A1 /* Message.swift */,
 				F66C99C726BCF5D400A7C135 /* XityShow.swift */,
 				F699FFE026C6121A00C73CD6 /* XityBusiness.swift */,
 				F699FFE226C613C400C73CD6 /* XityBand.swift */,
@@ -620,7 +615,6 @@
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
-				F6F6829126B9F530005B35A1 /* Message.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
 				F676F0FF269947B300C47599 /* BandController.swift in Sources */,

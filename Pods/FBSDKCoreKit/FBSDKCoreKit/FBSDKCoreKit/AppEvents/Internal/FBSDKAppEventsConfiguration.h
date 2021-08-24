@@ -20,14 +20,16 @@
 
 #if SWIFT_PACKAGE
 #import "FBSDKAdvertisingTrackingStatus.h"
+#import "FBSDKCopying.h"
 #else
 #import <FBSDKCoreKit/FBSDKAdvertisingTrackingStatus.h>
+#import <FBSDKCoreKit/FBSDKCopying.h>
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(AppEventsConfiguration)
-@interface FBSDKAppEventsConfiguration : NSObject<NSCopying, NSObject, NSSecureCoding>
+@interface FBSDKAppEventsConfiguration : NSObject<FBSDKCopying, NSSecureCoding>
 
 @property (nonatomic, readonly, assign) FBSDKAdvertisingTrackingStatus defaultATEStatus;
 

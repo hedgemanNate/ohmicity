@@ -23,17 +23,13 @@
  #import "FBSDKConversionValueUpdating.h"
  #import "FBSDKSKAdNetworkReporter.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface FBSDKSKAdNetworkReporter (Internal)
 
-- (instancetype)initWithRequestProvider:(id<FBSDKGraphRequestProviding>)requestProvider
++ (void)configureWithRequestProvider:(id<FBSDKGraphRequestProviding>)requestProvider
                                store:(id<FBSDKDataPersisting>)store
             conversionValueUpdatable:(Class<FBSDKConversionValueUpdating>)conversionValueUpdatable
-NS_SWIFT_NAME(init(requestProvider:store:conversionValueUpdateable:));
+NS_SWIFT_NAME(configure(requestProvider:store:conversionValueUpdateable:));
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 #endif

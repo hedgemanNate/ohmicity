@@ -30,9 +30,10 @@
 #include "Firestore/core/src/local/target_data.h"
 #include "Firestore/core/src/model/document_key.h"
 #include "Firestore/core/src/model/document_key_set.h"
+#include "Firestore/core/src/model/document_map.h"
 #include "Firestore/core/src/model/document_set.h"
-#include "Firestore/core/src/model/mutable_document.h"
 #include "Firestore/core/src/model/mutation_batch_result.h"
+#include "Firestore/core/src/model/no_document.h"
 #include "Firestore/core/src/util/async_queue.h"
 #include "Firestore/core/src/util/log.h"
 #include "Firestore/core/src/util/status.h"
@@ -59,11 +60,11 @@ using local::TargetData;
 using model::BatchId;
 using model::DocumentKey;
 using model::DocumentKeySet;
-using model::DocumentMap;
 using model::DocumentUpdateMap;
 using model::kBatchIdUnknown;
 using model::ListenSequenceNumber;
-using model::MutableDocument;
+using model::MaybeDocumentMap;
+using model::NoDocument;
 using model::SnapshotVersion;
 using model::TargetId;
 using remote::RemoteEvent;
@@ -140,7 +141,7 @@ ViewSnapshot SyncEngine::InitializeViewAndComputeSnapshot(const Query& query,
 
   View view(query, query_result.remote_keys());
   ViewDocumentChanges view_doc_changes =
-      view.ComputeDocumentChanges(query_result.documents());
+      view.ComputeDocumentChanges(query_result.documents().underlying_map());
   ViewChange view_change =
       view.ApplyChanges(view_doc_changes, synthesized_current_change);
   UpdateTrackedLimboDocuments(view_change.limbo_changes(), target_id);
@@ -258,7 +259,7 @@ void SyncEngine::HandleCredentialChange(const auth::User& user) {
         "'waitForPendingWrites' callback is cancelled due to a user change.");
     // Notify local store and emit any resulting events from swapping out the
     // mutation queue.
-    DocumentMap changes = local_store_->HandleUserChange(user);
+    MaybeDocumentMap changes = local_store_->HandleUserChange(user);
     EmitNewSnapshotsAndNotifyLocalStore(changes, absl::nullopt);
   }
 
@@ -302,7 +303,7 @@ void SyncEngine::ApplyRemoteEvent(const RemoteEvent& remote_event) {
     }
   }
 
-  DocumentMap changes = local_store_->ApplyRemoteEvent(remote_event);
+  MaybeDocumentMap changes = local_store_->ApplyRemoteEvent(remote_event);
   EmitNewSnapshotsAndNotifyLocalStore(changes, remote_event);
 }
 
@@ -324,8 +325,8 @@ void SyncEngine::HandleRejectedListen(TargetId target_id, Status error) {
     // kind of a hack. Ideally, we would have a method in the local store to
     // purge a document. However, it would be tricky to keep all of the local
     // store's invariants with another method.
-    MutableDocument doc =
-        MutableDocument::NoDocument(limbo_key, SnapshotVersion::None());
+    NoDocument doc(limbo_key, SnapshotVersion::None(),
+                   /* has_committed_mutations= */ false);
 
     // Explicitly instantiate these to work around a bug in the default
     // constructor of the std::unordered_map that comes with GCC 4.8. Without
@@ -347,7 +348,7 @@ void SyncEngine::HandleRejectedListen(TargetId target_id, Status error) {
 }
 
 void SyncEngine::HandleSuccessfulWrite(
-    model::MutationBatchResult batch_result) {
+    const model::MutationBatchResult& batch_result) {
   AssertCallbackExists("HandleSuccessfulWrite");
 
   // The local store may or may not be able to apply the write result and
@@ -358,7 +359,7 @@ void SyncEngine::HandleSuccessfulWrite(
 
   TriggerPendingWriteCallbacks(batch_result.batch().batch_id());
 
-  DocumentMap changes = local_store_->AcknowledgeBatch(batch_result);
+  MaybeDocumentMap changes = local_store_->AcknowledgeBatch(batch_result);
   EmitNewSnapshotsAndNotifyLocalStore(changes, absl::nullopt);
 }
 
@@ -366,7 +367,7 @@ void SyncEngine::HandleRejectedWrite(
     firebase::firestore::model::BatchId batch_id, Status error) {
   AssertCallbackExists("HandleRejectedWrite");
 
-  DocumentMap changes = local_store_->RejectBatch(batch_id);
+  MaybeDocumentMap changes = local_store_->RejectBatch(batch_id);
 
   if (!changes.empty() && ErrorIsInteresting(error)) {
     const DocumentKey& min_key = changes.min()->first;
@@ -463,7 +464,7 @@ void SyncEngine::FailOutstandingPendingWriteCallbacks(
 }
 
 void SyncEngine::EmitNewSnapshotsAndNotifyLocalStore(
-    const DocumentMap& changes,
+    const MaybeDocumentMap& changes,
     const absl::optional<RemoteEvent>& maybe_remote_event) {
   std::vector<ViewSnapshot> new_snapshots;
   std::vector<LocalViewChanges> document_changes_in_all_views;
@@ -478,8 +479,8 @@ void SyncEngine::EmitNewSnapshotsAndNotifyLocalStore(
       // any good docs that had been past the limit.
       QueryResult query_result = local_store_->ExecuteQuery(
           query_view->query(), /* use_previous_results= */ false);
-      view_doc_changes = view.ComputeDocumentChanges(query_result.documents(),
-                                                     view_doc_changes);
+      view_doc_changes = view.ComputeDocumentChanges(
+          query_result.documents().underlying_map(), view_doc_changes);
     }
 
     absl::optional<TargetChange> target_changes;
@@ -639,7 +640,8 @@ void SyncEngine::LoadBundle(std::shared_ptr<bundle::BundleReader> reader,
     return;
   }
 
-  util::StatusOr<DocumentMap> changes = maybe_loader.value().ApplyChanges();
+  util::StatusOr<MaybeDocumentMap> changes =
+      maybe_loader.value().ApplyChanges();
   if (!changes.ok()) {
     LOG_WARN("Failed to ApplyChanges() for bundle elements with error %s",
              changes.status().error_message());

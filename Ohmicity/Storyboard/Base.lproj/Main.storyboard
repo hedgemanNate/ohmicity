@@ -400,6 +400,7 @@
                                                 <segments>
                                                     <segment title="Businesses"/>
                                                     <segment title="Cities"/>
+                                                    <segment title="Bands"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="segmentedControllerTapped:" destination="3L6-vU-wgp" eventType="valueChanged" id="8yz-ML-B6S"/>
@@ -2426,7 +2427,7 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g3J-Zg-qrW"/>
+        <segue reference="wBn-VR-vtB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>

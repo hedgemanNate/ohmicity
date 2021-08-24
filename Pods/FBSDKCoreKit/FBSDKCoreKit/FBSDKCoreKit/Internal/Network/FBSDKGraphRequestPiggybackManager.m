@@ -161,10 +161,10 @@ static id<FBSDKGraphRequestProviding> _requestProvider;
       declinedPermissions = [NSMutableSet set];
       expiredPermissions = [NSMutableSet set];
 
-      [FBSDKInternalUtility.sharedUtility extractPermissionsFromResponse:result
-                                                      grantedPermissions:permissions
-                                                     declinedPermissions:declinedPermissions
-                                                      expiredPermissions:expiredPermissions];
+      [FBSDKInternalUtility extractPermissionsFromResponse:result
+                                        grantedPermissions:permissions
+                                       declinedPermissions:declinedPermissions
+                                        expiredPermissions:expiredPermissions];
     }
     expectingCallbackComplete();
     if (permissionHandler) {

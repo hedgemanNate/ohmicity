@@ -451,8 +451,16 @@ extension SearchViewController {
         if segue.identifier == "ToVenue" {
             guard let destinationVC = segue.destination as? VenueDetailViewController else {return}
             let indexPath = tableView.indexPathForSelectedRow
-            let business = businessResultsArray![indexPath!.row]
-            destinationVC.xityBusiness = business
+            
+            if segmentedController.selectedSegmentIndex == 2 {
+                let band = bandResultsArray![indexPath!.row]
+                let business = xityBusinessController.businessArray.first(where: {$0.business == band.xityShows.first?.business})
+                destinationVC.xityBusiness = business
+                destinationVC.featuredShow = band.xityShows.first
+            } else {
+                let business = businessResultsArray![indexPath!.row]
+                destinationVC.xityBusiness = business
+            }
         }
     }
 }

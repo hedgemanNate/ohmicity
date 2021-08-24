@@ -53,7 +53,7 @@
 
 + (NSDictionary *)queryParamsFromLoginURL:(NSURL *)url
 {
-  NSString *expectedUrlPrefix = [FBSDKInternalUtility.sharedUtility
+  NSString *expectedUrlPrefix = [FBSDKInternalUtility
                                  appURLWithHost:@"authorize"
                                  path:@""
                                  queryParameters:@{}
@@ -65,7 +65,7 @@
       return nil;
     }
   }
-  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[FBSDKInternalUtility.sharedUtility parametersFromFBURL:url]];
+  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[FBSDKInternalUtility parametersFromFBURL:url]];
 
   NSString *userID = [[self class] userIDFromSignedRequest:params[@"signed_request"]];
   if (userID) {
