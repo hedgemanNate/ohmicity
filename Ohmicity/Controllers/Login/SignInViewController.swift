@@ -49,6 +49,7 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             guard let email = authDataResult?.user.email else {return NSLog("No email retuned from auth")}
             
             currentUserController.currentUser = CurrentUser(userID: uid, email: email)
+            currentUserController.assignCurrentUser()
             notificationCenter.post(notifications.userAuthUpdated)
             
             //Checks if this is a new user and assigns them a space in the database

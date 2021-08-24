@@ -18,6 +18,7 @@ class LoadInitDataViewController: UIViewController {
     
     var dataActionsFinished = 0 {
         didSet {
+            loadingDisplay()
             print(dataActionsFinished)
             if dataActionsFinished == 7 {
                 organizeData(); print("DATA ACTIONS FIN")
@@ -28,6 +29,7 @@ class LoadInitDataViewController: UIViewController {
     
     var syncingActionsFinished = 0 {
         didSet{
+            loadingDisplay()
             print(syncingActionsFinished)
             if syncingActionsFinished == 4 {
                 doneLoading()
@@ -35,14 +37,25 @@ class LoadInitDataViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var checkingDatabaseCheck: UIImageView!
+    @IBOutlet weak var checkingDatabaseText: UILabel!
+    
+    @IBOutlet weak var downloadingShowsCheck: UIImageView!
+    @IBOutlet weak var downloadingShowsText: UILabel!
+    
+    @IBOutlet weak var updatingLocalCheck: UIImageView!
+    @IBOutlet weak var updatingLocalText: UILabel!
+    
+    @IBOutlet weak var initCheck: UIImageView!
+    @IBOutlet weak var initText: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
-        currentUserController.assignCurrentUser()
         updateViewController()
-        lmDateHandler.checkDateAndGetData()
-        
+        currentUserController.assignCurrentUser()
+        lmDateHandler.checkDateAndGetData() 
         
         //resetCache
 //        let settings = FirestoreSettings()
@@ -65,6 +78,34 @@ class LoadInitDataViewController: UIViewController {
 
 //MARK: Functions
 extension LoadInitDataViewController {
+    
+    private func loadingDisplay() {
+        DispatchQueue.main.async { [self] in
+            switch dataActionsFinished {
+            case 1...3:
+                checkingDatabaseCheck.tintColor = .green
+                checkingDatabaseText.textColor = .lightGray
+            case 3...5:
+                downloadingShowsCheck.tintColor = .green
+                downloadingShowsText.textColor = .lightGray
+                
+            case 6...7:
+                updatingLocalCheck.tintColor = .green
+                updatingLocalText.textColor = .lightGray
+            default:
+                break
+            }
+            
+            switch syncingActionsFinished {
+            case 4:
+                initCheck.tintColor = .green
+                initText.textColor = .lightGray
+            default:
+                break
+            }
+        }
+        
+    }
     
     func doneLoading() {
         print("**DONE LOADING FUNC****")

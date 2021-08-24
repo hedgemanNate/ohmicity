@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     
     //Properties
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var privacyPolicyButton: UIButton!
     
     var timer = Timer()
     
@@ -62,6 +63,19 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
+        guard let url = URL(string: "https://www.termsfeed.com/live/74628d86-471b-44e2-b598-f5ff1a3ed63c") else {
+            return //be safe
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+
+    
     
     
     @objc private func updateLogButton() {
