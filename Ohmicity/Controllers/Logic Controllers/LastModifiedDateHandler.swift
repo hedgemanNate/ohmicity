@@ -85,7 +85,6 @@ class LastModifiedDateHandler {
             }
             
             let op2 = BlockOperation {
-                
                 businessController.getNewBusinessData()
                 showController.getNewShowData()
                 bandController.getNewBandData()
@@ -97,7 +96,6 @@ class LastModifiedDateHandler {
                 businessController.fillArray()
                 showController.fillArray()
                 bandController.fillArray()
-                
             }
             
             op1.addDependency(preOp)
