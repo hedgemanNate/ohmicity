@@ -175,7 +175,7 @@ extension DashboardViewController {
         //Gathering Weekly Picks
         let op3 = BlockOperation {
             xityShowController.getWeeklyPicks()
-            //xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
+            xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
             
             print("*** Collected Weekly Picks ***")
         }
@@ -200,7 +200,8 @@ extension DashboardViewController {
             let genericBand = Band(name: "No Name")
             let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
             print("op3 Started")
-            let showArray = showController.showArray.filter({$0.date >= timeController.twoHoursAgo})
+            var showArray = showController.showArray.filter({$0.date >= timeController.twoHoursAgo})
+            showArray.removeAll(where: {$0.onHold == true})
             
             let businessArray = businessController.businessArray
             let bandArray = bandController.bandArray
