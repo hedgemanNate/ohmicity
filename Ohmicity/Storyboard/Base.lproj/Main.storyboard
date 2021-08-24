@@ -1358,6 +1358,39 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="trailing" secondItem="gcz-50-ukl" secondAttribute="trailing" id="lwQ-7d-gMV"/>
                                                 </constraints>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="U03-DP-nhM" userLabel="Button Stack View">
+                                                <rect key="frame" x="28" y="281" width="372" height="121"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="gs3-Dk-9YE"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="Log Out">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="logoutButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="8i1-ad-lL4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-H2-d2Z" userLabel="Privacy Policy">
+                                                        <rect key="frame" x="0.0" y="71" width="372" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="uHg-Yf-NeO"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="Privacy Policy">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="privacyPolicyButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="MvR-18-J6o"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
                                                 <rect key="frame" x="9" y="585" width="410" height="150"/>
                                                 <subviews>
@@ -1387,11 +1420,14 @@ should be on Xity?</string>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="1GU-jT-GzF" secondAttribute="trailing" id="1Pc-37-y5c"/>
+                                                    <constraint firstItem="1GU-jT-GzF" firstAttribute="leading" secondItem="g3I-Dd-R8F" secondAttribute="leading" id="1VY-XN-vdE"/>
                                                     <constraint firstItem="Fwy-YD-YlE" firstAttribute="top" secondItem="flc-bn-8Mf" secondAttribute="bottom" id="7gh-eW-zQP"/>
                                                     <constraint firstItem="Fwy-YD-YlE" firstAttribute="leading" secondItem="g3I-Dd-R8F" secondAttribute="leading" constant="21" id="Btu-XY-tD8"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1GU-jT-GzF" secondAttribute="bottom" id="MPY-gI-f6I"/>
+                                                    <constraint firstItem="1GU-jT-GzF" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="top" id="TIL-xm-jxB"/>
                                                     <constraint firstAttribute="trailing" secondItem="Fwy-YD-YlE" secondAttribute="trailing" constant="21" id="UVL-ag-UTR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1GU-jT-GzF" secondAttribute="trailing" id="VLO-HS-0Xe"/>
                                                     <constraint firstAttribute="trailing" secondItem="flc-bn-8Mf" secondAttribute="trailing" constant="21" id="WJp-NO-zF5"/>
-                                                    <constraint firstItem="1GU-jT-GzF" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="top" id="X6l-DJ-ui5"/>
                                                     <constraint firstItem="flc-bn-8Mf" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="top" constant="14" id="ZVg-ho-oqP"/>
                                                     <constraint firstItem="1GU-jT-GzF" firstAttribute="leading" secondItem="g3I-Dd-R8F" secondAttribute="leading" id="ath-Hw-K2l"/>
                                                     <constraint firstAttribute="height" constant="150" id="cYP-vT-5Oq"/>
@@ -1400,31 +1436,17 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="bottom" secondItem="1GU-jT-GzF" secondAttribute="bottom" id="wXD-xD-oF1"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
-                                                <rect key="frame" x="28" y="281" width="372" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="gs3-Dk-9YE"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <state key="normal" title="Log Out">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="logoutButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="8i1-ad-lL4"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="926" id="1vh-iS-Xmu"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
+                                            <constraint firstItem="U03-DP-nhM" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="3Yh-gc-MA5"/>
                                             <constraint firstItem="g3I-Dd-R8F" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="4ML-bD-bye"/>
-                                            <constraint firstItem="g3I-Dd-R8F" firstAttribute="top" secondItem="J1J-k9-Bq7" secondAttribute="bottom" constant="254" id="BSU-oH-iWI"/>
-                                            <constraint firstItem="J1J-k9-Bq7" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="D6r-5Q-ZOV"/>
-                                            <constraint firstAttribute="trailing" secondItem="J1J-k9-Bq7" secondAttribute="trailing" constant="28" id="M4p-RP-p3A"/>
+                                            <constraint firstItem="g3I-Dd-R8F" firstAttribute="top" secondItem="U03-DP-nhM" secondAttribute="bottom" constant="183" id="DOU-y7-mrw"/>
+                                            <constraint firstItem="U03-DP-nhM" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="bottom" constant="28" id="OSI-mZ-Zr8"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" id="TYF-81-BPZ"/>
-                                            <constraint firstItem="J1J-k9-Bq7" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="bottom" constant="28" id="iDx-hZ-4L8"/>
+                                            <constraint firstAttribute="trailing" secondItem="U03-DP-nhM" secondAttribute="trailing" constant="28" id="aqd-wZ-ike"/>
                                             <constraint firstAttribute="trailing" secondItem="g3I-Dd-R8F" secondAttribute="trailing" constant="9" id="lUR-NA-FKo"/>
                                             <constraint firstAttribute="trailing" secondItem="e63-2g-Vlu" secondAttribute="trailing" id="tWc-oU-a0e"/>
                                         </constraints>
@@ -1461,6 +1483,7 @@ should be on Xity?</string>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
+                        <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
                     </connections>
                 </viewController>
