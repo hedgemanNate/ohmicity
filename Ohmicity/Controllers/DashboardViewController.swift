@@ -24,12 +24,16 @@ class DashboardViewController: UIViewController {
     var timer = Timer()
     private var counter = 0
     
+    //Not Logged In
     @IBOutlet private weak var getPerksButton: UIButton!
     @IBOutlet private weak var alreadyAccountButton: UIButton!
     
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var topAdView: UIView!
     
+    
+    //Recommendation Elements
+    @IBOutlet private weak var recommendButton: UIButton!
     
     //Hidden Elements
     var showsToday: Bool = true
@@ -139,6 +143,13 @@ extension DashboardViewController {
         
         scrollView.refreshControl = UIRefreshControl()
         scrollView.refreshControl?.addTarget(self, action: #selector(organizeData), for: .valueChanged)
+        
+        //Recommendation View
+        if currentUserController.currentUser == nil {
+            recommendButton.isEnabled = false
+        } else {
+            recommendButton.isEnabled = true
+        }
 
     }
     

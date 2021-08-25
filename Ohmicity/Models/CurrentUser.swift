@@ -26,6 +26,7 @@ class CurrentUser: Codable {
     var paidServices: [String] = []
     var subscriber: Bool = false
     var adPoints: Int = 0
+    var recommendationCount: Int?
     
     init(userID: String, email: String) {
         self.userID = userID

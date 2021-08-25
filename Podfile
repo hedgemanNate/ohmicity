@@ -18,7 +18,8 @@ target 'Ohmicity' do
   pod 'FirebaseUI'
 
   pod 'Google-Mobile-Ads-SDK'
-
+  
+  pod 'MaterialComponents/TextFields'
   pod 'MaterialComponents/Buttons'
   pod 'MaterialComponents/TextControls+FilledTextAreas'
   pod 'MaterialComponents/TextControls+FilledTextFields'

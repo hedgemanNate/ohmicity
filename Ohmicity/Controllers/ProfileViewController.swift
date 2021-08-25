@@ -19,14 +19,14 @@ class ProfileViewController: UIViewController {
     var timer = Timer()
     
     @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
-
+    @IBOutlet private weak var recommendButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationCenter.addObserver(self, selector: #selector(updateLogButton), name: notifications.userAuthUpdated.name, object: nil)
-        
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
             
         updateViews()
     }
@@ -86,9 +86,17 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func updateViews() {
+    
+    //MARK: UpdateViews
+    @objc private func updateViews() {
         updateLogButton()
         setupCollectionsView()
+        
+        if currentUserController.currentUser == nil {
+            recommendButton.isEnabled = false
+        } else {
+            recommendButton.isEnabled = true
+        }
     }
     
     

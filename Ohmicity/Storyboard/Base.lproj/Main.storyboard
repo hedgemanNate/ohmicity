@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="blA-Mj-lzD">
-                                <rect key="frame" x="0.0" y="0.0" width="1125" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-v6-ALZ">
                                 <rect key="frame" x="115" y="476.99999999999994" width="279.66666666666669" height="102.33333333333331"/>
@@ -489,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-777" y="-718"/>
+            <point key="canvasLocation" x="-652" y="-718"/>
         </scene>
         <!--Venue Detail-->
         <scene sceneID="x6D-KM-3o5">
@@ -600,6 +600,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Recommend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="9Q6-x4-ZOu" kind="presentation" modalPresentationStyle="fullScreen" id="Wv8-HY-qnG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1030,6 +1033,7 @@ Florida 34222 </string>
                         <outlet property="mapBackgroundView" destination="nta-oI-Lyw" id="VK2-2a-KOZ"/>
                         <outlet property="mapNameLabel" destination="eaK-kZ-pX1" id="P61-gZ-fub"/>
                         <outlet property="nextShowsTableView" destination="yLX-vV-2Rk" id="cH1-Ue-TB1"/>
+                        <outlet property="recommendButton" destination="0XX-7s-JZD" id="Dew-ZI-PVK"/>
                         <outlet property="showTimeLabel" destination="bJS-el-yD1" id="coZ-Qa-cEm"/>
                         <outlet property="tonightsEntLabel" destination="5Ht-a8-dTe" id="7Wh-Ss-I2V"/>
                     </connections>
@@ -1037,7 +1041,7 @@ Florida 34222 </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="5ac-YL-HRn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-102" y="-492"/>
+            <point key="canvasLocation" x="-652" y="286"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="rtp-Rd-53p">
@@ -1416,6 +1420,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Recommend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="9Q6-x4-ZOu" kind="presentation" modalPresentationStyle="fullScreen" id="pjQ-BQ-c07"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1485,12 +1492,13 @@ should be on Xity?</string>
                         <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
+                        <outlet property="recommendButton" destination="Fwy-YD-YlE" id="hxM-jl-EAm"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2115.4205607476633" y="451.61987041036718"/>
+            <point key="canvasLocation" x="243" y="-710"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="URJ-TY-WiF">
@@ -2110,6 +2118,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Recommend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="9Q6-x4-ZOu" kind="presentation" modalPresentationStyle="fullScreen" id="xvY-CC-YbG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2232,6 +2243,7 @@ should be on Xity?</string>
                         <outlet property="getPerksButton" destination="z5O-HO-FdC" id="c8Y-R2-xdA"/>
                         <outlet property="hiddenSignUpView" destination="KmJ-NI-E7V" id="CAV-iF-qvC"/>
                         <outlet property="noShowsView" destination="MWB-JM-Q0f" id="XYO-lQ-WA1"/>
+                        <outlet property="recommendButton" destination="KDs-ve-Na8" id="htC-bJ-4Sm"/>
                         <outlet property="recommendView" destination="dRP-dE-0cc" id="esM-pc-LLb"/>
                         <outlet property="scrollView" destination="E7R-d7-w8P" id="ud9-2V-4mS"/>
                         <outlet property="todayButton" destination="HPd-IG-CFU" id="tmK-gb-Q8j"/>
@@ -2423,11 +2435,92 @@ should be on Xity?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs3-AJ-gcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0az-rL-VKh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-779.43925233644859" y="-14.254859611231103"/>
+            <point key="canvasLocation" x="241" y="68"/>
+        </scene>
+        <!--Recommend View Controller-->
+        <scene sceneID="N1U-dv-2PE">
+            <objects>
+                <viewController id="9Q6-x4-ZOu" customClass="RecommendViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="weH-ep-XXN">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="4UZ-Ju-Ld9" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-Ci-0MO">
+                                <rect key="frame" x="96" y="113" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Upo-bD-PB5"/>
+                                    <constraint firstAttribute="width" constant="200" id="owt-IW-r2A"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-3m-P6K" customClass="MDCFilledTextField">
+                                <rect key="frame" x="63" y="341" width="302" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caK-BJ-RaA">
+                                <rect key="frame" x="63" y="573" width="302" height="50"/>
+                                <color key="backgroundColor" red="0.22391316289999999" green="0.3513411582" blue="0.75568598509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="i2S-0G-EMR"/>
+                                </constraints>
+                                <state key="normal" title="Send Recommendation">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackButton:" destination="cl4-3c-m7h" eventType="touchUpInside" id="9lP-Qg-gPi"/>
+                                    <action selector="goBackButton:" destination="0az-rL-VKh" eventType="touchUpInside" id="Ez4-nc-VBi"/>
+                                    <action selector="sendButtonTapped:" destination="9Q6-x4-ZOu" eventType="touchUpInside" id="5d3-1d-QXA"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xHX-8M-ytV" customClass="MDCIntrinsicHeightTextView">
+                                <rect key="frame" x="63" y="410" width="302" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Pvj-v8-riA"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bMQ-me-wib"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4UZ-Ju-Ld9" secondAttribute="bottom" id="3HE-My-SQp"/>
+                            <constraint firstItem="Gl9-Ci-0MO" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" constant="96" id="CvB-Ay-A7d"/>
+                            <constraint firstItem="caK-BJ-RaA" firstAttribute="leading" secondItem="xHX-8M-ytV" secondAttribute="leading" id="K7j-0a-Tet"/>
+                            <constraint firstItem="bMQ-me-wib" firstAttribute="trailing" secondItem="pk7-3m-P6K" secondAttribute="trailing" constant="63" id="V3J-lS-oKT"/>
+                            <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="trailing" secondItem="bMQ-me-wib" secondAttribute="trailing" id="VZ1-Bf-1bX"/>
+                            <constraint firstItem="pk7-3m-P6K" firstAttribute="top" secondItem="Gl9-Ci-0MO" secondAttribute="bottom" constant="28" id="Xhx-iW-ukd"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="leading" secondItem="pk7-3m-P6K" secondAttribute="leading" id="cri-Jz-efj"/>
+                            <constraint firstItem="bMQ-me-wib" firstAttribute="trailing" secondItem="Gl9-Ci-0MO" secondAttribute="trailing" constant="132" id="fRk-aQ-WLS"/>
+                            <constraint firstItem="caK-BJ-RaA" firstAttribute="top" secondItem="xHX-8M-ytV" secondAttribute="bottom" constant="35" id="fV9-YZ-ofw"/>
+                            <constraint firstItem="Gl9-Ci-0MO" firstAttribute="centerY" secondItem="weH-ep-XXN" secondAttribute="centerY" constant="-250" id="hQz-eO-dph"/>
+                            <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="top" secondItem="weH-ep-XXN" secondAttribute="top" id="luC-Nf-1Nc"/>
+                            <constraint firstItem="caK-BJ-RaA" firstAttribute="trailing" secondItem="xHX-8M-ytV" secondAttribute="trailing" id="nej-5I-hQc"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="top" secondItem="pk7-3m-P6K" secondAttribute="bottom" constant="35" id="oRy-5D-mZN"/>
+                            <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" id="ovN-pP-isi"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="trailing" secondItem="pk7-3m-P6K" secondAttribute="trailing" id="qGN-ZE-Zx9"/>
+                            <constraint firstItem="pk7-3m-P6K" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" constant="63" id="wSv-DL-CYU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="explanationTextView" destination="xHX-8M-ytV" id="9Ij-yR-a93"/>
+                        <outlet property="sendButton" destination="caK-BJ-RaA" id="xEt-HE-Yj5"/>
+                        <outlet property="venueNameTextField" destination="pk7-3m-P6K" id="3uO-3u-Ihe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-4g-Nab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010.7476635514018" y="66.738660907127439"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LDR-xw-DX4"/>
+        <segue reference="Wv8-HY-qnG"/>
+        <segue reference="wBn-VR-vtB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
