@@ -8,17 +8,15 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import GoogleMobileAds
 
 class DashboardViewController: UIViewController {
     
     
     //Properties
-    private var weeklyVenueArray: [Business] = []
-    var weeklyShowArray: [Show] = []
-    
-    
-    private let bandVenueCellid = "MainCell"
-    private let cityCellid = "CityCell"
+    let todaySegue = "FromToday"
+    let xityPickSegue = "FromXityPick"
+    let favSegue = "FromFav"
     
     //Timer
     var timer = Timer()
@@ -45,7 +43,7 @@ class DashboardViewController: UIViewController {
     //Collections Views
     @IBOutlet private weak var todayCollectionView: UICollectionView!
     @IBOutlet private weak var citiesCollectionView: UICollectionView!
-    @IBOutlet private weak var weeklyCollectionView: UICollectionView!
+    @IBOutlet private weak var xityPickCollectionView: UICollectionView!
     @IBOutlet private weak var venueCollectionView: UICollectionView!
     @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
     var searchCollectionViewTapped = 0
@@ -59,10 +57,17 @@ class DashboardViewController: UIViewController {
     //View Backgrounds
     @IBOutlet private weak var recommendView: UIView!
     
+    //Google Ad Properties
+    private var interstitialAd: GADInterstitialAd?
+    lazy private var interstitialAdUnitID = "ca-app-pub-9052204067761521/5346686403"
+    lazy private var interstitialTestAdID = "ca-app-pub-3940256099942544/4411468910"
+    lazy private var segueToPerform = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationObservers()
+        createInterstitialAd()
         updateViews()
     }
     
@@ -74,12 +79,17 @@ class DashboardViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timer.invalidate()
+        endTimer()
     }
     
     
     @IBAction func breaker(_ sender: Any) {
-        
+        if currentUserController.currentUser?.subscriber == false {
+            if interstitialAd != nil {
+                interstitialAd?.present(fromRootViewController: self)
+                print("Showing Ad")
+            }
+        }
     }
 }
 
@@ -122,14 +132,16 @@ extension DashboardViewController {
     }
     
     @objc private func startTimer() {
-        timer.invalidate()
         DispatchQueue.main.async {
+            self.timer.invalidate()
             self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
     
     @objc private func endTimer() {
-        timer.invalidate()
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+        }
     }
     
     //MARK: UPDATEVIEWS
@@ -243,7 +255,7 @@ extension DashboardViewController {
         let finalOp = BlockOperation {
             DispatchQueue.main.async {
                 self.todayCollectionView.reloadData()
-                self.weeklyCollectionView.reloadData()
+                self.xityPickCollectionView.reloadData()
                 self.scrollView.refreshControl?.endRefreshing()
             }
         }
@@ -287,10 +299,10 @@ extension DashboardViewController {
         favoritesCollectionView.showsHorizontalScrollIndicator = false
         getFavorites()
         
-        weeklyCollectionView.delegate = self
-        weeklyCollectionView.dataSource = self
-        weeklyCollectionView.showsHorizontalScrollIndicator = false
-        weeklyCollectionView.reloadData()
+        xityPickCollectionView.delegate = self
+        xityPickCollectionView.dataSource = self
+        xityPickCollectionView.showsHorizontalScrollIndicator = false
+        xityPickCollectionView.reloadData()
     }
     
     
@@ -337,7 +349,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case citiesCollectionView:
             size = CGSize(width: 155, height: height)
             return size
-        case weeklyCollectionView:
+        case xityPickCollectionView:
             size = CGSize(width: 155, height: height)
             return size
         case venueCollectionView:
@@ -346,7 +358,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case favoritesCollectionView:
             size = CGSize(width: 155, height: height)
             return size
-        case weeklyCollectionView:
+        case xityPickCollectionView:
             size = CGSize(width: 155, height: height)
             return size
         default:
@@ -368,7 +380,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return businessController.businessTypeArray.count
         case favoritesCollectionView:
             return currentUserController.favArray.count
-        case weeklyCollectionView:
+        case xityPickCollectionView:
             return xityShowController.weeklyPicksArray.count
         default:
             return 4
@@ -392,7 +404,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return bannerAdCell
             
         case todayCollectionView:
-            venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: bandVenueCellid, for: indexPath) as! BandVenueCollectionViewCell
+            venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! BandVenueCollectionViewCell
             venueCell.venue = xityShowController.todayShowArray[indexPath.row].business
             return venueCell
             
@@ -410,7 +422,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! BandVenueCollectionViewCell
             venueCell.venue = currentUserController.favArray[indexPath.row]
             return venueCell
-        case weeklyCollectionView:
+        case xityPickCollectionView:
             xityPickCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeeklyCell", for: indexPath) as! BandVenueCollectionViewCell
             xityPickCell.xityPick = xityShowController.weeklyPicksArray[indexPath.row]
             return xityPickCell
@@ -422,11 +434,34 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case todayCollectionView:
+            if interstitialAd != nil {
+                interstitialAd?.present(fromRootViewController: self)
+                segueToPerform = todaySegue
+            }
+        case favoritesCollectionView:
+            if interstitialAd != nil {
+                interstitialAd?.present(fromRootViewController: self)
+                segueToPerform = favSegue
+            }
+        case xityPickCollectionView:
+            if interstitialAd != nil {
+                interstitialAd?.present(fromRootViewController: self)
+                segueToPerform = xityPickSegue
+            }
+        default:
+            break
+        }
+    }
+    
+    
     //MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          //Pass the selected object to the new view controller.
-        if segue.identifier == "FromToday" {
-            timer.invalidate()
+        if segue.identifier == todaySegue {
+            endTimer()
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             let selected = xityShowController.todayShowArray[indexPath!.row]
@@ -437,8 +472,8 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         }
         
-        if segue.identifier == "FromFav" {
-            timer.invalidate()
+        if segue.identifier == favSegue {
+            endTimer()
             let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             let business = currentUserController.favArray[indexPath!.row]
@@ -450,15 +485,43 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             businessVC.xityBusiness = xityBusiness!
         }
         
-        if segue.identifier == "FromXityPick" {
-            timer.invalidate()
-            let indexPath = weeklyCollectionView.indexPathsForSelectedItems?.first
+        if segue.identifier == xityPickSegue {
+            endTimer()
+            let indexPath = xityPickCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             let pick = xityShowController.weeklyPicksArray[indexPath!.row]
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == pick.business})
             businessVC.xityBusiness = xityBusiness
             businessVC.featuredShow = pick
             
+        }
+    }
+}
+
+//MARK: Google Ads Protocols/Functions
+extension DashboardViewController: GADFullScreenContentDelegate {
+    
+    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+        endTimer()
+        print("!!!!!!DASHBOARD MONEY!!!!!")
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        performSegue(withIdentifier: segueToPerform, sender: self)
+        createInterstitialAd()
+    }
+    
+    //Functions
+    private func createInterstitialAd() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: interstitialTestAdID, request: request) { [self] ad, error in
+            if let error = error {
+                //Handle Ad Error
+                NSLog("Error Displaying Ad: \(error.localizedDescription)")
+                return
+            }
+            interstitialAd = ad
+            interstitialAd?.fullScreenContentDelegate = self
         }
     }
 }

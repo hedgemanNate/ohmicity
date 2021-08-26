@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rY8-YR-ghh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rY8-YR-ghh">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -288,7 +289,7 @@
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="125" id="4Jm-KF-fRf" customClass="SearchTableViewCell" customModule="Ohmicity" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="125"/>
+                                                        <rect key="frame" x="0.0" y="50" width="428" height="125"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Jm-KF-fRf" id="OoY-3k-M0P">
                                                             <rect key="frame" x="0.0" y="0.0" width="428" height="125"/>
@@ -818,7 +819,7 @@ should be on Xity?</string>
                                                 <color key="separatorColor" red="0.1514229178" green="0.12524503470000001" blue="0.19481414559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NextShowsCell" textLabel="TvD-p9-E8N" rowHeight="33" style="IBUITableViewCellStyleDefault" id="fGN-7w-jgw">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="410" height="33"/>
+                                                        <rect key="frame" x="0.0" y="50" width="410" height="33"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fGN-7w-jgw" id="wLJ-NM-geb">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="33"/>
@@ -1041,7 +1042,7 @@ Florida 34222 </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="5ac-YL-HRn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="286"/>
+            <point key="canvasLocation" x="-493" y="284"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="rtp-Rd-53p">
@@ -1127,7 +1128,7 @@ should be on Xity?</string>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="33" id="fEh-zr-s7n">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="410" height="33"/>
+                                                        <rect key="frame" x="0.0" y="50" width="410" height="33"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fEh-zr-s7n" id="yxq-nu-i7B">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="33"/>
@@ -1218,7 +1219,7 @@ should be on Xity?</string>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="223" id="yae-wy-UHU">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="410" height="223"/>
+                                                        <rect key="frame" x="0.0" y="50" width="410" height="223"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yae-wy-UHU" id="zFz-51-VHK">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="223"/>
@@ -1226,7 +1227,7 @@ should be on Xity?</string>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="223" id="4Ln-zY-QE8">
-                                                        <rect key="frame" x="0.0" y="247.33333396911621" width="410" height="223"/>
+                                                        <rect key="frame" x="0.0" y="273" width="410" height="223"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ln-zY-QE8" id="GrR-Ou-bqD">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="223"/>
@@ -1761,7 +1762,6 @@ should be on Xity?</string>
                                                             <outlet property="borderImageView" destination="5sL-uA-mq2" id="5cz-dX-5rG"/>
                                                             <outlet property="logoImageView" destination="hhN-6i-sfM" id="pab-Ge-FTi"/>
                                                             <outlet property="nameLabel" destination="11k-Km-eNH" id="nw3-Fd-HAG"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromToday" id="g3J-Zg-qrW"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -1964,7 +1964,6 @@ should be on Xity?</string>
                                                             <outlet property="borderImageView" destination="9jR-lZ-shv" id="1nE-Yn-a56"/>
                                                             <outlet property="logoImageView" destination="5FZ-Mc-kHW" id="PhP-UV-o1a"/>
                                                             <outlet property="nameLabel" destination="tEl-lS-ATx" id="aC6-mO-KaN"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromFav" id="Bv4-4I-uus"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -2031,7 +2030,6 @@ should be on Xity?</string>
                                                         <connections>
                                                             <outlet property="logoImageView" destination="Gao-Xg-IXq" id="q6P-FD-8b2"/>
                                                             <outlet property="nameLabel" destination="rTi-Fe-fw4" id="JE0-Vj-5cd"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromXityPick" id="LDR-xw-DX4"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -2252,7 +2250,10 @@ should be on Xity?</string>
                         <outlet property="venueButton" destination="Yr5-mc-o9V" id="I0a-dO-n5z"/>
                         <outlet property="venueCollectionView" destination="vXY-nV-LWV" id="JCB-mf-fxu"/>
                         <outlet property="weeklyButton" destination="SO8-4f-hLW" id="xgL-UX-5Mi"/>
-                        <outlet property="weeklyCollectionView" destination="onA-4S-Wan" id="WAf-S7-Qqc"/>
+                        <outlet property="xityPickCollectionView" destination="onA-4S-Wan" id="WAf-S7-Qqc"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromToday" id="wJT-Pi-nZQ"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromFav" id="vKu-hG-yfy"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromXityPick" id="nhG-zm-tK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2519,8 +2520,8 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wv8-HY-qnG"/>
-        <segue reference="wBn-VR-vtB"/>
+        <segue reference="xvY-CC-YbG"/>
+        <segue reference="vKu-hG-yfy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
@@ -2560,7 +2561,7 @@ should be on Xity?</string>
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
