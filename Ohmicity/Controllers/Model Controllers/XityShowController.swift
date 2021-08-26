@@ -41,6 +41,7 @@ class XityShowController {
         let op3 = BlockOperation { [self] in
             let mid = theWeekFiltered.filter({$0.show.ohmPick == true})
             weeklyPicksArray = mid.sorted(by: {$0.show.date < $1.show.date})
+            weeklyPicksArray.removeDuplicates()
             print("******Xity Picks!")
         }
         

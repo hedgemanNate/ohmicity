@@ -611,6 +611,7 @@ PODS:
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
+  - MaterialComponents/Palettes (124.2.0)
   - MaterialComponents/private/Application (124.2.0)
   - MaterialComponents/private/Color (124.2.0):
     - MaterialComponents/Availability
@@ -685,6 +686,14 @@ PODS:
     - MaterialComponents/Availability
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
+  - MaterialComponents/TextFields (124.2.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Buttons
+    - MaterialComponents/Elevation
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/Typography
+    - MDFInternationalization
   - MaterialComponents/Typography (124.2.0):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
@@ -716,6 +725,7 @@ DEPENDENCIES:
   - "MaterialComponents/TextControls+FilledTextFields"
   - "MaterialComponents/TextControls+OutlinedTextAreas"
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - MaterialComponents/TextFields
 
 SPEC REPOS:
   trunk:
@@ -812,6 +822,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 21f5ceab4ac03cee5598e751e5fd0d044d502072
+PODFILE CHECKSUM: 9befc4f16f58f021532f2503548fcad3fe8bdd50
 
 COCOAPODS: 1.10.2

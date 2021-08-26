@@ -31,6 +31,7 @@ class CurrentUserController {
                 case.success(let user):
                     if let user = user {
                         self.currentUser = user
+                        userAdController.setUpAdsForUser()
                     } else {
                         NSLog("User Data Not Found In Database")
                     }

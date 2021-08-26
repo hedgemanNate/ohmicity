@@ -33,6 +33,7 @@
 		F61C370B26B66F8600A2235B /* brickBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370A26B66F8500A2235B /* brickBackground.png */; };
 		F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C371026B727B400A2235B /* OperationHoursAlert.swift */; };
 		F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */; };
+		F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */; };
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
 		F640DD0A264E3B7300959358 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Helper.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
@@ -43,6 +44,7 @@
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
 		F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */ = {isa = PBXBuildFile; fileRef = F65BC59D26BE8E2400B62C7C /* DefaultBand.png */; };
+		F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */; };
 		F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66206E826B4B9C800BDE93E /* TimeController.swift */; };
 		F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */; };
 		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
@@ -77,6 +79,7 @@
 		F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE426C614ED00C73CD6 /* XityBandController.swift */; };
 		F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE626C6179800C73CD6 /* XityBusinessController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
+		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
 		F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3A26AF172800C49016 /* bradenton.png */; };
 		F6F3DB4526AF337C00C49016 /* restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3F26AF337400C49016 /* restaurant.png */; };
@@ -119,6 +122,7 @@
 		F61C370A26B66F8500A2235B /* brickBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brickBackground.png; sourceTree = "<group>"; };
 		F61C371026B727B400A2235B /* OperationHoursAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHoursAlert.swift; sourceTree = "<group>"; };
 		F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F640DD09264E3B7300959358 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F640DD0E264E432B00959358 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadInitDataViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		F65BC59D26BE8E2400B62C7C /* DefaultBand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultBand.png; sourceTree = "<group>"; };
+		F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		F66206E826B4B9C800BDE93E /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationHoursAlert.xib; sourceTree = "<group>"; };
 		F66C99C326BCD83800A7C135 /* XityShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShowController.swift; sourceTree = "<group>"; };
@@ -163,6 +168,7 @@
 		F699FFE426C614ED00C73CD6 /* XityBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBandController.swift; sourceTree = "<group>"; };
 		F699FFE626C6179800C73CD6 /* XityBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBusinessController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
+		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F6F3DB3A26AF172800C49016 /* bradenton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bradenton.png; sourceTree = "<group>"; };
 		F6F3DB3F26AF337400C49016 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
@@ -234,11 +240,12 @@
 				F640DD14264E4BB700959358 /* Login */,
 				F62FEB6B26562A1A008DEF64 /* Settings */,
 				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
-				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
 				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
 				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
 				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
 				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
+				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
+				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +368,7 @@
 			children = (
 				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
+				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -377,6 +385,7 @@
 				F66C99C726BCF5D400A7C135 /* XityShow.swift */,
 				F699FFE026C6121A00C73CD6 /* XityBusiness.swift */,
 				F699FFE226C613C400C73CD6 /* XityBand.swift */,
+				F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -616,6 +625,7 @@
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
+				F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
 				F676F0FF269947B300C47599 /* BandController.swift in Sources */,
 				F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */,
@@ -633,12 +643,14 @@
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */,
+				F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,
 				F676F1032699496200C47599 /* ShowController.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
+				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BannerAdController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
@@ -797,6 +809,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -818,6 +831,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

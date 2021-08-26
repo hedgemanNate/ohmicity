@@ -53,12 +53,16 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var businessPicsCollectionView: UICollectionView!
     @IBOutlet weak var nextShowsTableView: UITableView!
     
+    //Recommendation Elements
+    @IBOutlet private weak var recommendButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
         
     }
     
@@ -197,10 +201,18 @@ extension VenueDetailViewController {
 //MARK: - ------UpdateViews--------
 extension VenueDetailViewController {
     
-    private func updateViews() {
+    @objc private func updateViews() {
         guard let xityBusiness = xityBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
         
         guard let businessLogoData = xityBusiness.business.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
+        
+        if currentUserController.currentUser == nil {
+            recommendButton.isEnabled = false
+            recommendButton.setTitle("Sign In To Recommend", for: .disabled)
+        } else {
+            recommendButton.isEnabled = true
+            recommendButton.setTitle("Recommend", for: .normal)
+        }
         
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
@@ -255,13 +267,13 @@ extension VenueDetailViewController {
         }
         let featuredBand = featuredShow!.band
         
-        //Find Band for Tonights Entertainment and fill out info
+        //Find Band for Tonight's Show and fill out info
         let showTimeString = featuredShow!.show.dateString
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         let compareDateString = timeController.dateFormatter.string(from: featuredShow!.show.date)
         
         if compareDateString == timeController.todayString {
-            tonightsEntLabel.text = "Tonights Entertainment"
+            tonightsEntLabel.text = "Tonight's Show"
         } else if showTimeString == "No Show Scheduled" {
             tonightsEntLabel.text = showTimeString
         } else {

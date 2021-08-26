@@ -61,6 +61,7 @@ class ShowController {
         }
         let temp = showArray.removingDuplicates()
         showArray = temp
+        showArray.removeAll(where: {$0.onHold == true})
     }
     
     
@@ -93,6 +94,7 @@ class ShowController {
         }
         let temp = showArray.removingDuplicates()
         showArray = temp
+        showArray.removeAll(where: {$0.onHold == true})
     }
     
     func fillArray() {
@@ -124,6 +126,7 @@ class ShowController {
         }
         let temp = showArray.removingDuplicates()
         showArray = temp
+        showArray.removeAll(where: {$0.onHold == true})
     }
 }
 

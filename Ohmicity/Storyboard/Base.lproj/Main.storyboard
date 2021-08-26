@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rY8-YR-ghh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rY8-YR-ghh">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -179,7 +180,7 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fo-n8-heq" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-8H-6Uj" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -281,14 +282,14 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
-                                                <rect key="frame" x="0.0" y="429" width="428" height="370"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="100" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
+                                                <rect key="frame" x="0.0" y="429" width="428" height="371"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchCell" rowHeight="125" id="4Jm-KF-fRf" customClass="SearchTableViewCell" customModule="Ohmicity" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="125"/>
+                                                        <rect key="frame" x="0.0" y="50" width="428" height="125"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Jm-KF-fRf" id="OoY-3k-M0P">
                                                             <rect key="frame" x="0.0" y="0.0" width="428" height="125"/>
@@ -367,7 +368,6 @@
                                                             <outlet property="nameLabel" destination="Nbj-SE-m9A" id="QoG-2K-kvN"/>
                                                             <outlet property="secondNameLabel" destination="1Ub-eV-jNu" id="I6w-OT-bMf"/>
                                                             <outlet property="showImage" destination="fge-3f-u7z" id="yfg-nk-R1s"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="ToVenue" id="wBn-VR-vtB"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -376,13 +376,6 @@
                                                     <outlet property="delegate" destination="3L6-vU-wgp" id="6z7-04-Yft"/>
                                                 </connections>
                                             </tableView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkH-4Y-R4L" userLabel="Spacer View">
-                                                <rect key="frame" x="0.0" y="799" width="428" height="58"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="58" id="lZp-Of-wN2"/>
-                                                </constraints>
-                                            </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDE-cI-8kF">
                                                 <rect key="frame" x="289" y="205" width="130" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -422,25 +415,22 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="HkH-4Y-R4L" secondAttribute="trailing" id="2nl-0k-yOe"/>
                                             <constraint firstAttribute="trailing" secondItem="Qqa-da-gya" secondAttribute="trailing" id="5qh-lv-Peb"/>
-                                            <constraint firstAttribute="bottom" secondItem="HkH-4Y-R4L" secondAttribute="bottom" constant="43" id="7bt-kI-LuF"/>
                                             <constraint firstAttribute="trailing" secondItem="oLF-21-53M" secondAttribute="trailing" id="94m-6F-Jxg"/>
                                             <constraint firstAttribute="trailing" secondItem="hpP-mB-DHI" secondAttribute="trailing" id="BFe-2u-3Zi"/>
-                                            <constraint firstAttribute="height" constant="900" id="BnK-Ja-xxJ"/>
+                                            <constraint firstAttribute="height" constant="800" id="BnK-Ja-xxJ"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="COI-Bv-C0C"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="DiI-lo-GOH"/>
                                             <constraint firstItem="SHN-Ay-iKj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Fw2-ih-hGa"/>
                                             <constraint firstAttribute="trailing" secondItem="0tN-8H-6Uj" secondAttribute="trailing" id="LE7-bh-T6R"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="top" secondItem="SHN-Ay-iKj" secondAttribute="bottom" id="OBj-ie-sVT"/>
-                                            <constraint firstItem="HkH-4Y-R4L" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="SGd-AS-kF0"/>
                                             <constraint firstItem="SHN-Ay-iKj" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="bottom" id="WkG-xh-9t2"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Y5x-rB-yTR"/>
                                             <constraint firstAttribute="trailing" secondItem="SHN-Ay-iKj" secondAttribute="trailing" id="YKU-O6-akm"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="top" secondItem="hpP-mB-DHI" secondAttribute="bottom" id="Ybd-nl-Lnu"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qqa-da-gya" secondAttribute="bottom" id="cxf-dx-24J"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="eo9-ll-ZyN"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="top" secondItem="4Fo-n8-heq" secondAttribute="top" id="sAI-yg-yri"/>
-                                            <constraint firstItem="HkH-4Y-R4L" firstAttribute="top" secondItem="Qqa-da-gya" secondAttribute="bottom" id="xLN-5Q-Y6d"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="top" secondItem="oLF-21-53M" secondAttribute="bottom" id="yEi-ga-flW"/>
                                         </constraints>
                                     </view>
@@ -453,25 +443,15 @@
                                     <constraint firstAttribute="bottom" secondItem="4Fo-n8-heq" secondAttribute="bottom" constant="-127" id="qV3-dM-qcf"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSo-ng-eoU" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="786" width="372" height="57"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="GSo-ng-eoU" secondAttribute="height" multiplier="358:55" id="diy-1K-d79"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZGp-Uf-IrR"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.094117647058823528" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZGp-Uf-IrR" firstAttribute="bottom" secondItem="GSo-ng-eoU" secondAttribute="bottom" id="AgX-Hs-dCA"/>
-                            <constraint firstItem="ZGp-Uf-IrR" firstAttribute="trailing" secondItem="GSo-ng-eoU" secondAttribute="trailing" constant="28" id="TBx-Jt-Y7T"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="bottom" secondItem="ZGp-Uf-IrR" secondAttribute="bottom" id="Vqr-aH-Igt"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="leading" secondItem="ZGp-Uf-IrR" secondAttribute="leading" id="XPT-mw-5ce"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="top" secondItem="ZGp-Uf-IrR" secondAttribute="top" id="Yf2-ud-bZW"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="trailing" secondItem="ZGp-Uf-IrR" secondAttribute="trailing" id="hqY-LG-gQa"/>
                             <constraint firstItem="4Fo-n8-heq" firstAttribute="width" secondItem="NeU-eK-nqW" secondAttribute="width" id="mJ1-pp-KTT"/>
-                            <constraint firstItem="GSo-ng-eoU" firstAttribute="leading" secondItem="ZGp-Uf-IrR" secondAttribute="leading" constant="28" id="wq8-Dy-Wq9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" selectedImage="magnifyingglass" catalog="system" id="00v-gD-rj0">
@@ -485,25 +465,26 @@
                         <outlet property="searchCollectionView" destination="oLF-21-53M" id="YzN-EV-NpS"/>
                         <outlet property="segmentedController" destination="hpP-mB-DHI" id="HQP-Cl-Lcb"/>
                         <outlet property="tableView" destination="Qqa-da-gya" id="8Ue-Eh-Yzw"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="ToVenue" id="86A-7n-n3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-777" y="-718"/>
+            <point key="canvasLocation" x="-652" y="-718"/>
         </scene>
         <!--Venue Detail-->
         <scene sceneID="x6D-KM-3o5">
             <objects>
                 <viewController id="fki-Bt-PNW" userLabel="Venue Detail" customClass="VenueDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M90-I2-fJF">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1546"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1446"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-Ve-n4N">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="1512"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="1412"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W9-h7-a1s" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1735"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1550"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hk-SP-Xj0" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="230"/>
@@ -600,6 +581,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Recommend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="9Q6-x4-ZOu" kind="presentation" modalPresentationStyle="fullScreen" id="Wv8-HY-qnG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -680,7 +664,7 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="height" constant="75" id="z71-QQ-3P1"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tonight's Entertainment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-a8-dTe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tonight's Show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-a8-dTe">
                                                 <rect key="frame" x="9" y="340" width="266" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5Ht-a8-dTe" secondAttribute="height" multiplier="133:16" id="nGf-NN-XG7"/>
@@ -797,7 +781,7 @@ should be on Xity?</string>
                                                     <constraint firstItem="xpi-G8-HgX" firstAttribute="top" secondItem="IGN-It-sRZ" secondAttribute="top" id="d7b-0j-LIt"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Next Few Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTP-jS-Lu6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTP-jS-Lu6">
                                                 <rect key="frame" x="9" y="666" width="266" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yTP-jS-Lu6" secondAttribute="height" multiplier="133:16" id="C12-1Z-1zt"/>
@@ -815,7 +799,7 @@ should be on Xity?</string>
                                                 <color key="separatorColor" red="0.1514229178" green="0.12524503470000001" blue="0.19481414559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NextShowsCell" textLabel="TvD-p9-E8N" rowHeight="33" style="IBUITableViewCellStyleDefault" id="fGN-7w-jgw">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="410" height="33"/>
+                                                        <rect key="frame" x="0.0" y="50" width="410" height="33"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fGN-7w-jgw" id="wLJ-NM-geb">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="33"/>
@@ -962,7 +946,7 @@ Florida 34222 </string>
                                             <constraint firstAttribute="trailing" secondItem="1wH-zx-jDa" secondAttribute="trailing" id="Reu-7w-t5O"/>
                                             <constraint firstAttribute="trailing" secondItem="htM-13-0SJ" secondAttribute="trailing" constant="25" id="Sfh-6z-1qI"/>
                                             <constraint firstItem="yTP-jS-Lu6" firstAttribute="top" secondItem="htM-13-0SJ" secondAttribute="bottom" constant="20.329999999999998" id="SmQ-a7-edx"/>
-                                            <constraint firstAttribute="height" constant="1735" id="TJI-S1-kJh"/>
+                                            <constraint firstAttribute="height" constant="1550" id="TJI-S1-kJh"/>
                                             <constraint firstItem="j2y-NV-c28" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="UkS-s2-7F2"/>
                                             <constraint firstItem="htM-13-0SJ" firstAttribute="leading" secondItem="0UF-od-poe" secondAttribute="trailing" constant="73" id="WHO-yJ-vSa"/>
                                             <constraint firstAttribute="trailing" secondItem="4Hk-SP-Xj0" secondAttribute="trailing" id="X8C-Q9-bBQ"/>
@@ -991,29 +975,19 @@ Florida 34222 </string>
                                     <constraint firstAttribute="trailing" secondItem="7W9-h7-a1s" secondAttribute="trailing" id="yve-Cn-8fo"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXW-I8-3WD" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="1455" width="372" height="57"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OXW-I8-3WD" secondAttribute="height" multiplier="358:55" id="dVl-Uv-6KP"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8rd-4H-tVK"/>
                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="top" secondItem="8rd-4H-tVK" secondAttribute="top" id="KnX-uP-pqX"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="leading" secondItem="8rd-4H-tVK" secondAttribute="leading" id="b0X-ZZ-Fvi"/>
-                            <constraint firstItem="8rd-4H-tVK" firstAttribute="trailing" secondItem="OXW-I8-3WD" secondAttribute="trailing" constant="28" id="b2a-2p-P7K"/>
                             <constraint firstItem="7W9-h7-a1s" firstAttribute="width" secondItem="M90-I2-fJF" secondAttribute="width" id="g5u-QE-cw5"/>
-                            <constraint firstItem="OXW-I8-3WD" firstAttribute="leading" secondItem="8rd-4H-tVK" secondAttribute="leading" constant="28" id="ieH-ui-uxB"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="trailing" secondItem="8rd-4H-tVK" secondAttribute="trailing" id="jdt-oZ-rqo"/>
-                            <constraint firstItem="8rd-4H-tVK" firstAttribute="bottom" secondItem="OXW-I8-3WD" secondAttribute="bottom" id="ois-jW-xNL"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="bottom" secondItem="8rd-4H-tVK" secondAttribute="bottom" id="ub5-GD-xgw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="lak-Zv-0cN"/>
-                    <size key="freeformSize" width="428" height="1600"/>
+                    <size key="freeformSize" width="428" height="1500"/>
                     <connections>
                         <outlet property="bandGenreLabel" destination="z9e-rP-hzg" id="1oV-92-nYN"/>
                         <outlet property="bandNameLabel" destination="0UF-od-poe" id="pb0-7d-ZUz"/>
@@ -1030,6 +1004,7 @@ Florida 34222 </string>
                         <outlet property="mapBackgroundView" destination="nta-oI-Lyw" id="VK2-2a-KOZ"/>
                         <outlet property="mapNameLabel" destination="eaK-kZ-pX1" id="P61-gZ-fub"/>
                         <outlet property="nextShowsTableView" destination="yLX-vV-2Rk" id="cH1-Ue-TB1"/>
+                        <outlet property="recommendButton" destination="0XX-7s-JZD" id="Dew-ZI-PVK"/>
                         <outlet property="showTimeLabel" destination="bJS-el-yD1" id="coZ-Qa-cEm"/>
                         <outlet property="tonightsEntLabel" destination="5Ht-a8-dTe" id="7Wh-Ss-I2V"/>
                     </connections>
@@ -1037,7 +1012,7 @@ Florida 34222 </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="5ac-YL-HRn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-102" y="-492"/>
+            <point key="canvasLocation" x="-493" y="284"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="rtp-Rd-53p">
@@ -1123,7 +1098,7 @@ should be on Xity?</string>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="33" id="fEh-zr-s7n">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="410" height="33"/>
+                                                        <rect key="frame" x="0.0" y="50" width="410" height="33"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fEh-zr-s7n" id="yxq-nu-i7B">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="33"/>
@@ -1214,7 +1189,7 @@ should be on Xity?</string>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="223" id="yae-wy-UHU">
-                                                        <rect key="frame" x="0.0" y="24.333333969116211" width="410" height="223"/>
+                                                        <rect key="frame" x="0.0" y="50" width="410" height="223"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yae-wy-UHU" id="zFz-51-VHK">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="223"/>
@@ -1222,7 +1197,7 @@ should be on Xity?</string>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="223" id="4Ln-zY-QE8">
-                                                        <rect key="frame" x="0.0" y="247.33333396911621" width="410" height="223"/>
+                                                        <rect key="frame" x="0.0" y="273" width="410" height="223"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ln-zY-QE8" id="GrR-Ou-bqD">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="223"/>
@@ -1309,7 +1284,7 @@ should be on Xity?</string>
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="921"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -1416,6 +1391,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Recommend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="9Q6-x4-ZOu" kind="presentation" modalPresentationStyle="fullScreen" id="pjQ-BQ-c07"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1440,7 +1418,7 @@ should be on Xity?</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="926" id="1vh-iS-Xmu"/>
+                                            <constraint firstAttribute="height" constant="921" id="1vh-iS-Xmu"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="3Yh-gc-MA5"/>
                                             <constraint firstItem="g3I-Dd-R8F" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="4ML-bD-bye"/>
@@ -1460,11 +1438,6 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="6oy-Bu-Xsa" secondAttribute="bottom" constant="-127" id="bKK-Yc-rA7"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-n1-0BK" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="786" width="372" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1oK-L6-V5b"/>
                         <color key="backgroundColor" red="0.1126012728" green="0.093950964509999998" blue="0.14309099319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1485,12 +1458,13 @@ should be on Xity?</string>
                         <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
+                        <outlet property="recommendButton" destination="Fwy-YD-YlE" id="hxM-jl-EAm"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2115.4205607476633" y="451.61987041036718"/>
+            <point key="canvasLocation" x="243" y="-710"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="URJ-TY-WiF">
@@ -1623,11 +1597,11 @@ should be on Xity?</string>
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
                                 <rect key="frame" x="0.0" y="44" width="428" height="1873"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaE-9Z-b5c" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="2000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1675"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8b-sK-kda" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -1753,7 +1727,6 @@ should be on Xity?</string>
                                                             <outlet property="borderImageView" destination="5sL-uA-mq2" id="5cz-dX-5rG"/>
                                                             <outlet property="logoImageView" destination="hhN-6i-sfM" id="pab-Ge-FTi"/>
                                                             <outlet property="nameLabel" destination="11k-Km-eNH" id="nw3-Fd-HAG"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromToday" id="g3J-Zg-qrW"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -1775,9 +1748,9 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
-                                                <rect key="frame" x="9" y="593" width="182" height="44"/>
+                                                <rect key="frame" x="9" y="593" width="167" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Town Exclusives">
+                                                <state key="normal" title="Xity Exclusives">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -1858,6 +1831,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Get Perks">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="VkB-f5-0Se" kind="presentation" id="Zd4-Ao-r3K"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
                                                         <rect key="frame" x="35" y="155.66666666666674" width="186" height="35"/>
@@ -1868,6 +1844,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Already have an account?">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="VkB-f5-0Se" kind="presentation" id="30H-i8-TRl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1956,7 +1935,6 @@ should be on Xity?</string>
                                                             <outlet property="borderImageView" destination="9jR-lZ-shv" id="1nE-Yn-a56"/>
                                                             <outlet property="logoImageView" destination="5FZ-Mc-kHW" id="PhP-UV-o1a"/>
                                                             <outlet property="nameLabel" destination="tEl-lS-ATx" id="aC6-mO-KaN"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromFav" id="Bv4-4I-uus"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -2023,7 +2001,6 @@ should be on Xity?</string>
                                                         <connections>
                                                             <outlet property="logoImageView" destination="Gao-Xg-IXq" id="q6P-FD-8b2"/>
                                                             <outlet property="nameLabel" destination="rTi-Fe-fw4" id="JE0-Vj-5cd"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromXityPick" id="LDR-xw-DX4"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -2110,6 +2087,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Recommend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="9Q6-x4-ZOu" kind="presentation" modalPresentationStyle="fullScreen" id="xvY-CC-YbG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2172,7 +2152,7 @@ should be on Xity?</string>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="Yle-d4-ob3"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
                                             <constraint firstAttribute="trailing" secondItem="dRP-dE-0cc" secondAttribute="trailing" constant="9" id="Zwt-8h-NtK"/>
-                                            <constraint firstAttribute="height" constant="2000" id="b3g-ap-Wy4"/>
+                                            <constraint firstAttribute="height" constant="1675" id="b3g-ap-Wy4"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="top" secondItem="HPd-IG-CFU" secondAttribute="bottom" constant="7" id="kwg-8V-sPE"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="top" secondItem="4FR-ji-xOh" secondAttribute="bottom" constant="7" id="m7q-fG-FRI"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="mgv-dy-lZm"/>
@@ -2193,26 +2173,16 @@ should be on Xity?</string>
                                     <constraint firstItem="PaE-9Z-b5c" firstAttribute="top" secondItem="E7R-d7-w8P" secondAttribute="top" id="AmW-KR-VzJ"/>
                                     <constraint firstItem="PaE-9Z-b5c" firstAttribute="leading" secondItem="E7R-d7-w8P" secondAttribute="leading" id="Xd0-SF-YnR"/>
                                     <constraint firstAttribute="trailing" secondItem="PaE-9Z-b5c" secondAttribute="trailing" id="cUv-RG-xKX"/>
-                                    <constraint firstAttribute="bottom" secondItem="PaE-9Z-b5c" secondAttribute="bottom" constant="-127" id="eT7-TK-n2O"/>
+                                    <constraint firstAttribute="bottom" secondItem="PaE-9Z-b5c" secondAttribute="bottom" id="eT7-TK-n2O"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-SF-db0" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="1860" width="372" height="57"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="6xf-SF-db0" secondAttribute="height" multiplier="358:55" id="am7-Z3-wIO"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DZh-7G-hU5"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.094117647058823528" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6xf-SF-db0" firstAttribute="leading" secondItem="DZh-7G-hU5" secondAttribute="leading" constant="28" id="Bvb-kf-dgp"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="bottom" secondItem="DZh-7G-hU5" secondAttribute="bottom" id="HM0-Of-gDz"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="leading" secondItem="DZh-7G-hU5" secondAttribute="leading" id="Jtb-NH-mj8"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="trailing" secondItem="DZh-7G-hU5" secondAttribute="trailing" id="OjO-1V-kqB"/>
-                            <constraint firstItem="DZh-7G-hU5" firstAttribute="trailing" secondItem="6xf-SF-db0" secondAttribute="trailing" constant="28" id="VCf-Dt-IAW"/>
-                            <constraint firstItem="DZh-7G-hU5" firstAttribute="bottom" secondItem="6xf-SF-db0" secondAttribute="bottom" id="cPS-k5-qXP"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="top" secondItem="DZh-7G-hU5" secondAttribute="top" id="pOt-5q-3gu"/>
                             <constraint firstItem="PaE-9Z-b5c" firstAttribute="width" secondItem="Blf-j4-zLb" secondAttribute="width" id="z6f-Uv-oek"/>
                         </constraints>
@@ -2232,6 +2202,7 @@ should be on Xity?</string>
                         <outlet property="getPerksButton" destination="z5O-HO-FdC" id="c8Y-R2-xdA"/>
                         <outlet property="hiddenSignUpView" destination="KmJ-NI-E7V" id="CAV-iF-qvC"/>
                         <outlet property="noShowsView" destination="MWB-JM-Q0f" id="XYO-lQ-WA1"/>
+                        <outlet property="recommendButton" destination="KDs-ve-Na8" id="htC-bJ-4Sm"/>
                         <outlet property="recommendView" destination="dRP-dE-0cc" id="esM-pc-LLb"/>
                         <outlet property="scrollView" destination="E7R-d7-w8P" id="ud9-2V-4mS"/>
                         <outlet property="todayButton" destination="HPd-IG-CFU" id="tmK-gb-Q8j"/>
@@ -2240,7 +2211,10 @@ should be on Xity?</string>
                         <outlet property="venueButton" destination="Yr5-mc-o9V" id="I0a-dO-n5z"/>
                         <outlet property="venueCollectionView" destination="vXY-nV-LWV" id="JCB-mf-fxu"/>
                         <outlet property="weeklyButton" destination="SO8-4f-hLW" id="xgL-UX-5Mi"/>
-                        <outlet property="weeklyCollectionView" destination="onA-4S-Wan" id="WAf-S7-Qqc"/>
+                        <outlet property="xityPickCollectionView" destination="onA-4S-Wan" id="WAf-S7-Qqc"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromToday" id="wJT-Pi-nZQ"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromFav" id="vKu-hG-yfy"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromXityPick" id="nhG-zm-tK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2349,7 +2323,7 @@ should be on Xity?</string>
                 </view>
                 <tabBarItem title="Dashboard" id="R8M-BV-06Y"/>
             </objects>
-            <point key="canvasLocation" x="-1475" y="-361"/>
+            <point key="canvasLocation" x="-1476.1682242990653" y="-361.55507559395249"/>
         </scene>
         <!--Temporary View Controller-->
         <scene sceneID="mAM-TT-s8b">
@@ -2423,11 +2397,93 @@ should be on Xity?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs3-AJ-gcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0az-rL-VKh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-779.43925233644859" y="-14.254859611231103"/>
+            <point key="canvasLocation" x="241" y="68"/>
+        </scene>
+        <!--Recommend View Controller-->
+        <scene sceneID="N1U-dv-2PE">
+            <objects>
+                <viewController id="9Q6-x4-ZOu" customClass="RecommendViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="weH-ep-XXN">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="4UZ-Ju-Ld9" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-Ci-0MO">
+                                <rect key="frame" x="96" y="113" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Upo-bD-PB5"/>
+                                    <constraint firstAttribute="width" constant="200" id="owt-IW-r2A"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-3m-P6K" customClass="MDCFilledTextField">
+                                <rect key="frame" x="63" y="341" width="302" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caK-BJ-RaA">
+                                <rect key="frame" x="63" y="573" width="302" height="50"/>
+                                <color key="backgroundColor" red="0.22391316289999999" green="0.3513411582" blue="0.75568598509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="i2S-0G-EMR"/>
+                                </constraints>
+                                <state key="normal" title="Send Recommendation">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackButton:" destination="cl4-3c-m7h" eventType="touchUpInside" id="9lP-Qg-gPi"/>
+                                    <action selector="goBackButton:" destination="0az-rL-VKh" eventType="touchUpInside" id="Ez4-nc-VBi"/>
+                                    <action selector="sendButtonTapped:" destination="9Q6-x4-ZOu" eventType="touchUpInside" id="5d3-1d-QXA"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xHX-8M-ytV" customClass="MDCIntrinsicHeightTextView">
+                                <rect key="frame" x="63" y="410" width="302" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Pvj-v8-riA"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bMQ-me-wib"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4UZ-Ju-Ld9" secondAttribute="bottom" id="3HE-My-SQp"/>
+                            <constraint firstItem="Gl9-Ci-0MO" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" constant="96" id="CvB-Ay-A7d"/>
+                            <constraint firstItem="caK-BJ-RaA" firstAttribute="leading" secondItem="xHX-8M-ytV" secondAttribute="leading" id="K7j-0a-Tet"/>
+                            <constraint firstItem="bMQ-me-wib" firstAttribute="trailing" secondItem="pk7-3m-P6K" secondAttribute="trailing" constant="63" id="V3J-lS-oKT"/>
+                            <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="trailing" secondItem="bMQ-me-wib" secondAttribute="trailing" id="VZ1-Bf-1bX"/>
+                            <constraint firstItem="pk7-3m-P6K" firstAttribute="top" secondItem="Gl9-Ci-0MO" secondAttribute="bottom" constant="28" id="Xhx-iW-ukd"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="leading" secondItem="pk7-3m-P6K" secondAttribute="leading" id="cri-Jz-efj"/>
+                            <constraint firstItem="bMQ-me-wib" firstAttribute="trailing" secondItem="Gl9-Ci-0MO" secondAttribute="trailing" constant="132" id="fRk-aQ-WLS"/>
+                            <constraint firstItem="caK-BJ-RaA" firstAttribute="top" secondItem="xHX-8M-ytV" secondAttribute="bottom" constant="35" id="fV9-YZ-ofw"/>
+                            <constraint firstItem="Gl9-Ci-0MO" firstAttribute="centerY" secondItem="weH-ep-XXN" secondAttribute="centerY" constant="-250" id="hQz-eO-dph"/>
+                            <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="top" secondItem="weH-ep-XXN" secondAttribute="top" id="luC-Nf-1Nc"/>
+                            <constraint firstItem="caK-BJ-RaA" firstAttribute="trailing" secondItem="xHX-8M-ytV" secondAttribute="trailing" id="nej-5I-hQc"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="top" secondItem="pk7-3m-P6K" secondAttribute="bottom" constant="35" id="oRy-5D-mZN"/>
+                            <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" id="ovN-pP-isi"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="trailing" secondItem="pk7-3m-P6K" secondAttribute="trailing" id="qGN-ZE-Zx9"/>
+                            <constraint firstItem="pk7-3m-P6K" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" constant="63" id="wSv-DL-CYU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="explanationTextView" destination="xHX-8M-ytV" id="9Ij-yR-a93"/>
+                        <outlet property="sendButton" destination="caK-BJ-RaA" id="xEt-HE-Yj5"/>
+                        <outlet property="venueNameTextField" destination="pk7-3m-P6K" id="3uO-3u-Ihe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-4g-Nab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010.7476635514018" y="66.738660907127439"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wBn-VR-vtB"/>
+        <segue reference="Wv8-HY-qnG"/>
+        <segue reference="phR-fw-lgs"/>
+        <segue reference="nhG-zm-tK4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
@@ -2460,14 +2516,11 @@ should be on Xity?</string>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

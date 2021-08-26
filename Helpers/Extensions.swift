@@ -74,19 +74,19 @@ extension UIViewController: UITextFieldDelegate {
     }
     
     func hideKeyboardWhenTappedAround() {
-            let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-            tap.cancelsTouchesInView = false
-            view.addGestureRecognizer(tap)
-        }
-        
-        @objc func dismissKeyboard() {
-            view.endEditing(true)
-        }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true;
-        }
+        textField.resignFirstResponder()
+        return true;
+    }
 }
 
 //MARK: ScrollView
@@ -215,6 +215,7 @@ extension Date {
 }
 
 //Helper methods
+
 extension Date {
   func getWeekDaysInEnglish() -> [String] {
     var calendar = Calendar(identifier: .gregorian)

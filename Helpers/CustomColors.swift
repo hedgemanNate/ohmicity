@@ -28,5 +28,6 @@ class CustomColors: UIColor {
     let tabBarPurple = UIColor(red: 47/255, green: 26/255, blue: 66/255, alpha: 1)
     
     let highlightBlue = UIColor(red: 74/255, green: 213/255, blue: 252/255, alpha: 1)
+    let transBlack = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
 }
 
