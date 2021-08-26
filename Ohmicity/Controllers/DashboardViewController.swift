@@ -159,8 +159,10 @@ extension DashboardViewController {
         //Recommendation View
         if currentUserController.currentUser == nil {
             recommendButton.isEnabled = false
+            recommendButton.setTitle("Sign In To Recommend", for: .disabled)
         } else {
             recommendButton.isEnabled = true
+            recommendButton.setTitle("Recommend", for: .normal)
         }
 
     }
@@ -435,21 +437,26 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shouldShowAds = userAdController.shouldShowAds
+
         switch collectionView {
         case todayCollectionView:
-            if interstitialAd != nil {
-                interstitialAd?.present(fromRootViewController: self)
-                segueToPerform = todaySegue
+            if interstitialAd != nil && shouldShowAds == true {
+                showAdSixtySixChance(segue: todaySegue)
+            } else {
+                performSegue(withIdentifier: todaySegue, sender: self)
             }
         case favoritesCollectionView:
-            if interstitialAd != nil {
-                interstitialAd?.present(fromRootViewController: self)
-                segueToPerform = favSegue
+            if interstitialAd != nil && shouldShowAds == true {
+                showAdSixtySixChance(segue: favSegue)
+            } else {
+                performSegue(withIdentifier: favSegue, sender: self)
             }
         case xityPickCollectionView:
-            if interstitialAd != nil {
-                interstitialAd?.present(fromRootViewController: self)
-                segueToPerform = xityPickSegue
+            if interstitialAd != nil && shouldShowAds == true {
+                showAdSixtySixChance(segue: xityPickSegue)
+            } else {
+                performSegue(withIdentifier: xityPickSegue, sender: self)
             }
         default:
             break
@@ -523,5 +530,19 @@ extension DashboardViewController: GADFullScreenContentDelegate {
             interstitialAd = ad
             interstitialAd?.fullScreenContentDelegate = self
         }
+    }
+    
+    private func showAdSixtySixChance(segue: String) {
+        setSegueToPerform(segue: segue)
+        let x = Int.random(in: 1...3)
+        if x == 1 || x == 3 {
+            interstitialAd?.present(fromRootViewController: self)
+        } else {
+            performSegue(withIdentifier: segue, sender: self)
+        }
+    }
+    
+    private func setSegueToPerform(segue: String) {
+        segueToPerform = segue
     }
 }

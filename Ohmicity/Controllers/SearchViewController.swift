@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import GoogleMobileAds
 
 class SearchViewController: UIViewController {
     
@@ -24,9 +25,12 @@ class SearchViewController: UIViewController {
     var selectedIndex: Int?
     
     //Search
-    
     @IBOutlet weak var searchBar: UITextField!
     
+    //Google Ad Properties
+    private var interstitialAd: GADInterstitialAd?
+    lazy private var interstitialAdUnitID = "ca-app-pub-9052204067761521/5346686403"
+    lazy private var interstitialTestAdID = "ca-app-pub-3940256099942544/4411468910"
     
     var timer = Timer()
     
@@ -41,6 +45,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionViews()
+        createInterstitialAd()
         updateViews()
         
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
@@ -54,14 +59,14 @@ class SearchViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timer.invalidate()
+        endTimer()
     }
     
     
     //MARK: Buttons Tapped
     
     @IBAction func breaker(_ sender: Any) {
-        
+        interstitialAd?.present(fromRootViewController: self)
     }
     
     @IBAction func segmentedControllerTapped(_ sender: Any) {
@@ -408,8 +413,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let shouldShowAds = userAdController.shouldShowAds
+        if interstitialAd != nil && shouldShowAds == true {
+            interstitialAd?.present(fromRootViewController: self)
+            endTimer()
+        } else {
+            performSegue(withIdentifier: "ToVenue", sender: self)
+        }
+    }
 }
 
+
+//MARK: Search Protocols
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         
@@ -447,8 +465,8 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
 //MARK: Segue
 extension SearchViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "ToVenue" {
+            endTimer()
             guard let destinationVC = segue.destination as? VenueDetailViewController else {return}
             let indexPath = tableView.indexPathForSelectedRow
             
@@ -461,6 +479,34 @@ extension SearchViewController {
                 let business = businessResultsArray![indexPath!.row]
                 destinationVC.xityBusiness = business
             }
+        }
+    }
+}
+
+//MARK: Google Ads Protocols/Functions
+extension SearchViewController: GADFullScreenContentDelegate {
+    
+    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+        print("!!!!!!DASHBOARD MONEY!!!!!")
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        endTimer()
+        performSegue(withIdentifier: "ToVenue", sender: self)
+        createInterstitialAd()
+    }
+    
+    //Functions
+    private func createInterstitialAd() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: interstitialTestAdID, request: request) { [self] ad, error in
+            if let error = error {
+                //Handle Ad Error
+                NSLog("Error Displaying Ad: \(error.localizedDescription)")
+                return
+            }
+            interstitialAd = ad
+            interstitialAd?.fullScreenContentDelegate = self
         }
     }
 }

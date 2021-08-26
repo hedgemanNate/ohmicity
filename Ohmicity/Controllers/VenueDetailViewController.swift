@@ -208,8 +208,10 @@ extension VenueDetailViewController {
         
         if currentUserController.currentUser == nil {
             recommendButton.isEnabled = false
+            recommendButton.setTitle("Sign In To Recommend", for: .disabled)
         } else {
             recommendButton.isEnabled = true
+            recommendButton.setTitle("Recommend", for: .normal)
         }
         
         //SetTime
@@ -265,13 +267,13 @@ extension VenueDetailViewController {
         }
         let featuredBand = featuredShow!.band
         
-        //Find Band for Tonights Entertainment and fill out info
+        //Find Band for Tonight's Show and fill out info
         let showTimeString = featuredShow!.show.dateString
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         let compareDateString = timeController.dateFormatter.string(from: featuredShow!.show.date)
         
         if compareDateString == timeController.todayString {
-            tonightsEntLabel.text = "Tonights Entertainment"
+            tonightsEntLabel.text = "Tonight's Show"
         } else if showTimeString == "No Show Scheduled" {
             tonightsEntLabel.text = showTimeString
         } else {

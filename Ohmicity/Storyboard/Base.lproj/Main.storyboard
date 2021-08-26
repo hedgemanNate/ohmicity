@@ -180,7 +180,7 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fo-n8-heq" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-8H-6Uj" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -282,8 +282,8 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
-                                                <rect key="frame" x="0.0" y="429" width="428" height="370"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="100" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
+                                                <rect key="frame" x="0.0" y="429" width="428" height="371"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -368,7 +368,6 @@
                                                             <outlet property="nameLabel" destination="Nbj-SE-m9A" id="QoG-2K-kvN"/>
                                                             <outlet property="secondNameLabel" destination="1Ub-eV-jNu" id="I6w-OT-bMf"/>
                                                             <outlet property="showImage" destination="fge-3f-u7z" id="yfg-nk-R1s"/>
-                                                            <segue destination="fki-Bt-PNW" kind="presentation" identifier="ToVenue" id="wBn-VR-vtB"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -377,13 +376,6 @@
                                                     <outlet property="delegate" destination="3L6-vU-wgp" id="6z7-04-Yft"/>
                                                 </connections>
                                             </tableView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkH-4Y-R4L" userLabel="Spacer View">
-                                                <rect key="frame" x="0.0" y="799" width="428" height="58"/>
-                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="58" id="lZp-Of-wN2"/>
-                                                </constraints>
-                                            </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDE-cI-8kF">
                                                 <rect key="frame" x="289" y="205" width="130" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -423,25 +415,22 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="HkH-4Y-R4L" secondAttribute="trailing" id="2nl-0k-yOe"/>
                                             <constraint firstAttribute="trailing" secondItem="Qqa-da-gya" secondAttribute="trailing" id="5qh-lv-Peb"/>
-                                            <constraint firstAttribute="bottom" secondItem="HkH-4Y-R4L" secondAttribute="bottom" constant="43" id="7bt-kI-LuF"/>
                                             <constraint firstAttribute="trailing" secondItem="oLF-21-53M" secondAttribute="trailing" id="94m-6F-Jxg"/>
                                             <constraint firstAttribute="trailing" secondItem="hpP-mB-DHI" secondAttribute="trailing" id="BFe-2u-3Zi"/>
-                                            <constraint firstAttribute="height" constant="900" id="BnK-Ja-xxJ"/>
+                                            <constraint firstAttribute="height" constant="800" id="BnK-Ja-xxJ"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="COI-Bv-C0C"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="DiI-lo-GOH"/>
                                             <constraint firstItem="SHN-Ay-iKj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Fw2-ih-hGa"/>
                                             <constraint firstAttribute="trailing" secondItem="0tN-8H-6Uj" secondAttribute="trailing" id="LE7-bh-T6R"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="top" secondItem="SHN-Ay-iKj" secondAttribute="bottom" id="OBj-ie-sVT"/>
-                                            <constraint firstItem="HkH-4Y-R4L" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="SGd-AS-kF0"/>
                                             <constraint firstItem="SHN-Ay-iKj" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="bottom" id="WkG-xh-9t2"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Y5x-rB-yTR"/>
                                             <constraint firstAttribute="trailing" secondItem="SHN-Ay-iKj" secondAttribute="trailing" id="YKU-O6-akm"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="top" secondItem="hpP-mB-DHI" secondAttribute="bottom" id="Ybd-nl-Lnu"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qqa-da-gya" secondAttribute="bottom" id="cxf-dx-24J"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="eo9-ll-ZyN"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="top" secondItem="4Fo-n8-heq" secondAttribute="top" id="sAI-yg-yri"/>
-                                            <constraint firstItem="HkH-4Y-R4L" firstAttribute="top" secondItem="Qqa-da-gya" secondAttribute="bottom" id="xLN-5Q-Y6d"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="top" secondItem="oLF-21-53M" secondAttribute="bottom" id="yEi-ga-flW"/>
                                         </constraints>
                                     </view>
@@ -454,25 +443,15 @@
                                     <constraint firstAttribute="bottom" secondItem="4Fo-n8-heq" secondAttribute="bottom" constant="-127" id="qV3-dM-qcf"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSo-ng-eoU" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="786" width="372" height="57"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="GSo-ng-eoU" secondAttribute="height" multiplier="358:55" id="diy-1K-d79"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZGp-Uf-IrR"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.094117647058823528" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZGp-Uf-IrR" firstAttribute="bottom" secondItem="GSo-ng-eoU" secondAttribute="bottom" id="AgX-Hs-dCA"/>
-                            <constraint firstItem="ZGp-Uf-IrR" firstAttribute="trailing" secondItem="GSo-ng-eoU" secondAttribute="trailing" constant="28" id="TBx-Jt-Y7T"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="bottom" secondItem="ZGp-Uf-IrR" secondAttribute="bottom" id="Vqr-aH-Igt"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="leading" secondItem="ZGp-Uf-IrR" secondAttribute="leading" id="XPT-mw-5ce"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="top" secondItem="ZGp-Uf-IrR" secondAttribute="top" id="Yf2-ud-bZW"/>
                             <constraint firstItem="oEX-aZ-pBY" firstAttribute="trailing" secondItem="ZGp-Uf-IrR" secondAttribute="trailing" id="hqY-LG-gQa"/>
                             <constraint firstItem="4Fo-n8-heq" firstAttribute="width" secondItem="NeU-eK-nqW" secondAttribute="width" id="mJ1-pp-KTT"/>
-                            <constraint firstItem="GSo-ng-eoU" firstAttribute="leading" secondItem="ZGp-Uf-IrR" secondAttribute="leading" constant="28" id="wq8-Dy-Wq9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" selectedImage="magnifyingglass" catalog="system" id="00v-gD-rj0">
@@ -486,6 +465,7 @@
                         <outlet property="searchCollectionView" destination="oLF-21-53M" id="YzN-EV-NpS"/>
                         <outlet property="segmentedController" destination="hpP-mB-DHI" id="HQP-Cl-Lcb"/>
                         <outlet property="tableView" destination="Qqa-da-gya" id="8Ue-Eh-Yzw"/>
+                        <segue destination="fki-Bt-PNW" kind="presentation" identifier="ToVenue" id="86A-7n-n3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -497,14 +477,14 @@
             <objects>
                 <viewController id="fki-Bt-PNW" userLabel="Venue Detail" customClass="VenueDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M90-I2-fJF">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1546"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1446"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-Ve-n4N">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="1512"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="1412"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W9-h7-a1s" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1735"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1550"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hk-SP-Xj0" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="230"/>
@@ -684,7 +664,7 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="height" constant="75" id="z71-QQ-3P1"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tonight's Entertainment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-a8-dTe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tonight's Show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ht-a8-dTe">
                                                 <rect key="frame" x="9" y="340" width="266" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5Ht-a8-dTe" secondAttribute="height" multiplier="133:16" id="nGf-NN-XG7"/>
@@ -801,7 +781,7 @@ should be on Xity?</string>
                                                     <constraint firstItem="xpi-G8-HgX" firstAttribute="top" secondItem="IGN-It-sRZ" secondAttribute="top" id="d7b-0j-LIt"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Next Few Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTP-jS-Lu6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTP-jS-Lu6">
                                                 <rect key="frame" x="9" y="666" width="266" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yTP-jS-Lu6" secondAttribute="height" multiplier="133:16" id="C12-1Z-1zt"/>
@@ -966,7 +946,7 @@ Florida 34222 </string>
                                             <constraint firstAttribute="trailing" secondItem="1wH-zx-jDa" secondAttribute="trailing" id="Reu-7w-t5O"/>
                                             <constraint firstAttribute="trailing" secondItem="htM-13-0SJ" secondAttribute="trailing" constant="25" id="Sfh-6z-1qI"/>
                                             <constraint firstItem="yTP-jS-Lu6" firstAttribute="top" secondItem="htM-13-0SJ" secondAttribute="bottom" constant="20.329999999999998" id="SmQ-a7-edx"/>
-                                            <constraint firstAttribute="height" constant="1735" id="TJI-S1-kJh"/>
+                                            <constraint firstAttribute="height" constant="1550" id="TJI-S1-kJh"/>
                                             <constraint firstItem="j2y-NV-c28" firstAttribute="leading" secondItem="7W9-h7-a1s" secondAttribute="leading" constant="9" id="UkS-s2-7F2"/>
                                             <constraint firstItem="htM-13-0SJ" firstAttribute="leading" secondItem="0UF-od-poe" secondAttribute="trailing" constant="73" id="WHO-yJ-vSa"/>
                                             <constraint firstAttribute="trailing" secondItem="4Hk-SP-Xj0" secondAttribute="trailing" id="X8C-Q9-bBQ"/>
@@ -995,29 +975,19 @@ Florida 34222 </string>
                                     <constraint firstAttribute="trailing" secondItem="7W9-h7-a1s" secondAttribute="trailing" id="yve-Cn-8fo"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXW-I8-3WD" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="1455" width="372" height="57"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OXW-I8-3WD" secondAttribute="height" multiplier="358:55" id="dVl-Uv-6KP"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8rd-4H-tVK"/>
                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="top" secondItem="8rd-4H-tVK" secondAttribute="top" id="KnX-uP-pqX"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="leading" secondItem="8rd-4H-tVK" secondAttribute="leading" id="b0X-ZZ-Fvi"/>
-                            <constraint firstItem="8rd-4H-tVK" firstAttribute="trailing" secondItem="OXW-I8-3WD" secondAttribute="trailing" constant="28" id="b2a-2p-P7K"/>
                             <constraint firstItem="7W9-h7-a1s" firstAttribute="width" secondItem="M90-I2-fJF" secondAttribute="width" id="g5u-QE-cw5"/>
-                            <constraint firstItem="OXW-I8-3WD" firstAttribute="leading" secondItem="8rd-4H-tVK" secondAttribute="leading" constant="28" id="ieH-ui-uxB"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="trailing" secondItem="8rd-4H-tVK" secondAttribute="trailing" id="jdt-oZ-rqo"/>
-                            <constraint firstItem="8rd-4H-tVK" firstAttribute="bottom" secondItem="OXW-I8-3WD" secondAttribute="bottom" id="ois-jW-xNL"/>
                             <constraint firstItem="R9i-Ve-n4N" firstAttribute="bottom" secondItem="8rd-4H-tVK" secondAttribute="bottom" id="ub5-GD-xgw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="lak-Zv-0cN"/>
-                    <size key="freeformSize" width="428" height="1600"/>
+                    <size key="freeformSize" width="428" height="1500"/>
                     <connections>
                         <outlet property="bandGenreLabel" destination="z9e-rP-hzg" id="1oV-92-nYN"/>
                         <outlet property="bandNameLabel" destination="0UF-od-poe" id="pb0-7d-ZUz"/>
@@ -1314,7 +1284,7 @@ should be on Xity?</string>
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="921"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -1448,7 +1418,7 @@ should be on Xity?</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="926" id="1vh-iS-Xmu"/>
+                                            <constraint firstAttribute="height" constant="921" id="1vh-iS-Xmu"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="3Yh-gc-MA5"/>
                                             <constraint firstItem="g3I-Dd-R8F" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="4ML-bD-bye"/>
@@ -1468,11 +1438,6 @@ should be on Xity?</string>
                                     <constraint firstAttribute="bottom" secondItem="6oy-Bu-Xsa" secondAttribute="bottom" constant="-127" id="bKK-Yc-rA7"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-n1-0BK" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="786" width="372" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1oK-L6-V5b"/>
                         <color key="backgroundColor" red="0.1126012728" green="0.093950964509999998" blue="0.14309099319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1636,7 +1601,7 @@ should be on Xity?</string>
                                 <rect key="frame" x="0.0" y="44" width="428" height="1873"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaE-9Z-b5c" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="2000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1675"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8b-sK-kda" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -1783,9 +1748,9 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
-                                                <rect key="frame" x="9" y="593" width="182" height="44"/>
+                                                <rect key="frame" x="9" y="593" width="167" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Town Exclusives">
+                                                <state key="normal" title="Xity Exclusives">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -1866,6 +1831,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Get Perks">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="VkB-f5-0Se" kind="presentation" id="Zd4-Ao-r3K"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
                                                         <rect key="frame" x="35" y="155.66666666666674" width="186" height="35"/>
@@ -1876,6 +1844,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Already have an account?">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="VkB-f5-0Se" kind="presentation" id="30H-i8-TRl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2181,7 +2152,7 @@ should be on Xity?</string>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="Yle-d4-ob3"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
                                             <constraint firstAttribute="trailing" secondItem="dRP-dE-0cc" secondAttribute="trailing" constant="9" id="Zwt-8h-NtK"/>
-                                            <constraint firstAttribute="height" constant="2000" id="b3g-ap-Wy4"/>
+                                            <constraint firstAttribute="height" constant="1675" id="b3g-ap-Wy4"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="top" secondItem="HPd-IG-CFU" secondAttribute="bottom" constant="7" id="kwg-8V-sPE"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="top" secondItem="4FR-ji-xOh" secondAttribute="bottom" constant="7" id="m7q-fG-FRI"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="mgv-dy-lZm"/>
@@ -2202,26 +2173,16 @@ should be on Xity?</string>
                                     <constraint firstItem="PaE-9Z-b5c" firstAttribute="top" secondItem="E7R-d7-w8P" secondAttribute="top" id="AmW-KR-VzJ"/>
                                     <constraint firstItem="PaE-9Z-b5c" firstAttribute="leading" secondItem="E7R-d7-w8P" secondAttribute="leading" id="Xd0-SF-YnR"/>
                                     <constraint firstAttribute="trailing" secondItem="PaE-9Z-b5c" secondAttribute="trailing" id="cUv-RG-xKX"/>
-                                    <constraint firstAttribute="bottom" secondItem="PaE-9Z-b5c" secondAttribute="bottom" constant="-127" id="eT7-TK-n2O"/>
+                                    <constraint firstAttribute="bottom" secondItem="PaE-9Z-b5c" secondAttribute="bottom" id="eT7-TK-n2O"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-SF-db0" userLabel="Admob Lower Banner Ad">
-                                <rect key="frame" x="28" y="1860" width="372" height="57"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="6xf-SF-db0" secondAttribute="height" multiplier="358:55" id="am7-Z3-wIO"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DZh-7G-hU5"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.094117647058823528" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6xf-SF-db0" firstAttribute="leading" secondItem="DZh-7G-hU5" secondAttribute="leading" constant="28" id="Bvb-kf-dgp"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="bottom" secondItem="DZh-7G-hU5" secondAttribute="bottom" id="HM0-Of-gDz"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="leading" secondItem="DZh-7G-hU5" secondAttribute="leading" id="Jtb-NH-mj8"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="trailing" secondItem="DZh-7G-hU5" secondAttribute="trailing" id="OjO-1V-kqB"/>
-                            <constraint firstItem="DZh-7G-hU5" firstAttribute="trailing" secondItem="6xf-SF-db0" secondAttribute="trailing" constant="28" id="VCf-Dt-IAW"/>
-                            <constraint firstItem="DZh-7G-hU5" firstAttribute="bottom" secondItem="6xf-SF-db0" secondAttribute="bottom" id="cPS-k5-qXP"/>
                             <constraint firstItem="E7R-d7-w8P" firstAttribute="top" secondItem="DZh-7G-hU5" secondAttribute="top" id="pOt-5q-3gu"/>
                             <constraint firstItem="PaE-9Z-b5c" firstAttribute="width" secondItem="Blf-j4-zLb" secondAttribute="width" id="z6f-Uv-oek"/>
                         </constraints>
@@ -2362,7 +2323,7 @@ should be on Xity?</string>
                 </view>
                 <tabBarItem title="Dashboard" id="R8M-BV-06Y"/>
             </objects>
-            <point key="canvasLocation" x="-1475" y="-361"/>
+            <point key="canvasLocation" x="-1476.1682242990653" y="-361.55507559395249"/>
         </scene>
         <!--Temporary View Controller-->
         <scene sceneID="mAM-TT-s8b">
@@ -2520,8 +2481,9 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xvY-CC-YbG"/>
-        <segue reference="vKu-hG-yfy"/>
+        <segue reference="Wv8-HY-qnG"/>
+        <segue reference="phR-fw-lgs"/>
+        <segue reference="nhG-zm-tK4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
@@ -2553,9 +2515,6 @@ should be on Xity?</string>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

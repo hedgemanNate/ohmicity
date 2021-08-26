@@ -79,6 +79,7 @@
 		F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE426C614ED00C73CD6 /* XityBandController.swift */; };
 		F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE626C6179800C73CD6 /* XityBusinessController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
+		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
 		F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3A26AF172800C49016 /* bradenton.png */; };
 		F6F3DB4526AF337C00C49016 /* restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3F26AF337400C49016 /* restaurant.png */; };
@@ -167,6 +168,7 @@
 		F699FFE426C614ED00C73CD6 /* XityBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBandController.swift; sourceTree = "<group>"; };
 		F699FFE626C6179800C73CD6 /* XityBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBusinessController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
+		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F6F3DB3A26AF172800C49016 /* bradenton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bradenton.png; sourceTree = "<group>"; };
 		F6F3DB3F26AF337400C49016 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			children = (
 				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
+				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
+				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BannerAdController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,

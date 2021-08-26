@@ -94,8 +94,10 @@ class ProfileViewController: UIViewController {
         
         if currentUserController.currentUser == nil {
             recommendButton.isEnabled = false
+            recommendButton.setTitle("Sign In To Recommend", for: .disabled)
         } else {
             recommendButton.isEnabled = true
+            recommendButton.setTitle("Recommend", for: .normal)
         }
     }
     
