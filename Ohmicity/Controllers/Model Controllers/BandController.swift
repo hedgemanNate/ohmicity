@@ -37,7 +37,7 @@ class BandController {
                         if let band = band {
                             self.bandArray.removeAll(where: {$0 == band})
                             self.bandArray.append(band)
-                            NSLog(band.name," NEW SHOW: RECIEVED & APPENDED")
+                            //NSLog(band.name," NEW SHOW: RECIEVED & APPENDED")
                         } else {
                             NSLog("Band data was nil")
                         }
@@ -46,7 +46,7 @@ class BandController {
                     }
                 }
                 notificationCenter.post(notifications.gotBandData)
-                NSLog("*****GET NEW BAND DATA HIT*****")
+                NSLog("*****gotBandData DATA HIT*****")
             }
         }
     }
@@ -65,7 +65,7 @@ class BandController {
                     case .success(let band):
                         if let band = band {
                             self.bandArray.append(band)
-                            NSLog(band.name," SHOW: RECIEVED & APPENDED")
+                            //NSLog(band.name," SHOW: RECIEVED & APPENDED")
                         } else {
                             NSLog("Band data was nil")
                         }
@@ -74,7 +74,7 @@ class BandController {
                     }
                 }
                 notificationCenter.post(notifications.gotAllBandData)
-                NSLog("*****GET ALL BAND DATA HIT*****")
+                NSLog("*****gotAllBandData DATA HIT*****")
             }
         }
     }
@@ -92,7 +92,7 @@ class BandController {
                         case .success(let band):
                             if let band = band {
                                 self.bandArray.append(band)
-                                NSLog(band.name,"FILLING LOCAL ARRAY")
+                                //NSLog(band.name,"FILLING LOCAL ARRAY")
                             } else {
                                 NSLog("Business data was nil")
                             }
@@ -101,7 +101,7 @@ class BandController {
                         }
                     }
                     notificationCenter.post(notifications.gotCacheBandData)
-                    NSLog("*****FILL BAND DATA ARRAY HIT*****")
+                    NSLog("*****gotCacheBandData HIT*****")
                 }
             }
         }

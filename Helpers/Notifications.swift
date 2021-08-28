@@ -27,7 +27,7 @@ class Notifications {
     let gotBusinessData = Notification(name: Notification.Name(rawValue: "GotBusinessData"))
     let gotBandData = Notification(name: Notification.Name(rawValue: "GotBandData"))
     let gotShowData = Notification(name: Notification.Name(rawValue: "GotShowData"))
-    let gotBusinessAdData = Notification(name: Notification.Name(rawValue: "gotBusinessAdData"))
+    let gotBusinessAdData = Notification(name: Notification.Name(rawValue: "GotBusinessAdData"))
     
     let gotAllBusinessData = Notification(name: Notification.Name(rawValue: "GotAllBusinessData"))
     let gotAllBandData = Notification(name: Notification.Name(rawValue: "GotAllBandData"))

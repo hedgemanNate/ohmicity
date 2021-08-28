@@ -45,7 +45,7 @@ class BusinessController {
                         if let business = business {
                             self.businessArray.removeAll(where: {$0 == business})
                             self.businessArray.append(business)
-                            NSLog(business.name,"RECIEVED & APPENDED")
+                            //NSLog(business.name,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }
@@ -54,7 +54,7 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotBusinessData)
-                NSLog("*****GET NEW BUSINESS DATA HIT*****")
+                NSLog("*****gotBusinessData DATA HIT*****")
             }
         }
     }
@@ -74,7 +74,7 @@ class BusinessController {
                     case .success(let business):
                         if let business = business {
                             self.businessArray.append(business)
-                            NSLog(business.name,"RECIEVED & APPENDED")
+                            //NSLog(business.name,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }
@@ -83,7 +83,7 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotAllBusinessData)
-                NSLog("*****GET ALL BUSINESS DATA HIT*****")
+                NSLog("*****gotAllBusinessData DATA HIT*****")
             }
         }
     }
@@ -101,7 +101,7 @@ class BusinessController {
                     case .success(let business):
                         if let business = business {
                             self.businessArray.append(business)
-                            NSLog(business.name,"RECIEVED & APPENDED")
+                            //NSLog(business.name,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }
@@ -110,7 +110,7 @@ class BusinessController {
                     }
                 }
                 notificationCenter.post(notifications.gotCacheBusinessData)
-                NSLog("*****FILL BUSINESS DATA ARRAY HIT*****")
+                NSLog("*****gotCacheBusinessData HIT*****")
             }
         }
     }

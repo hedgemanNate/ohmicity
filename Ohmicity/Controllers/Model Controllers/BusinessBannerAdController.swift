@@ -53,7 +53,7 @@ extension BusinessBannerAdController {
                     }
                 }
                 notificationCenter.post(notifications.gotAllBusinessAdData)
-                NSLog("*****GET ALL BUSINESS AD DATA HIT*****")
+                NSLog("*****gotAllBusinessAdData DATA HIT*****")
             }
         }
         businessAdArray.removeAll(where: {$0.isPublished == false})
@@ -84,7 +84,7 @@ extension BusinessBannerAdController {
                     }
                 }
                 notificationCenter.post(notifications.gotBusinessAdData)
-                NSLog("*****GET NEW BUSINESS AD DATA HIT*****")
+                NSLog("*****gotBusinessAdData DATA HIT*****")
             }
         }
         businessAdArray.removeAll(where: {$0.isPublished == false})
@@ -113,7 +113,7 @@ extension BusinessBannerAdController {
                     }
                 }
                 notificationCenter.post(notifications.bannerAdsLoaded)
-                NSLog("*****FILL BUSINESS DATA ARRAY HIT*****")
+                NSLog("*****bannerAdsLoaded HIT*****")
             }
         }
     }

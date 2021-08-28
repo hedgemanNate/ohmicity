@@ -56,7 +56,7 @@ class ShowController {
                     }
                 }
                 notificationCenter.post(notifications.gotShowData)
-                NSLog("*****GET NEW SHOW DATA HIT*****")
+                NSLog("*****gotShowData DATA HIT*****")
             }
         }
         let temp = showArray.removingDuplicates()
@@ -89,7 +89,7 @@ class ShowController {
                     }
                 }
                 notificationCenter.post(notifications.gotAllShowData)
-                NSLog("*****GET ALL SHOW DATA HIT*****")
+                NSLog("*****gotAllShowData DATA HIT*****")
             }
         }
         let temp = showArray.removingDuplicates()
@@ -121,7 +121,7 @@ class ShowController {
                     }
                 }
                 notificationCenter.post(notifications.gotCacheShowData)
-                NSLog("*****FILL SHOW DATA ARRAY HIT*****")
+                NSLog("*****gotCacheShowData HIT*****")
             }
         }
         let temp = showArray.removingDuplicates()

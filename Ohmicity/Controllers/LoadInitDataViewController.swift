@@ -20,7 +20,7 @@ class LoadInitDataViewController: UIViewController {
         didSet {
             loadingDisplayColorAnimations()
             print("####Current Data Action: \(dataActionsFinished)")
-            if dataActionsFinished == 7 {
+            if dataActionsFinished >= 8 {
                 organizeData(); print("DATA ACTIONS FIN")
             }
         }
@@ -82,14 +82,14 @@ extension LoadInitDataViewController {
     private func loadingDisplayColorAnimations() {
         DispatchQueue.main.async { [self] in
             switch dataActionsFinished {
-            case 1...3:
+            case 1..<3:
                 checkingDatabaseCheck.tintColor = .green
                 checkingDatabaseText.textColor = .lightGray
-            case 3...5:
+            case 3..<6:
                 downloadingShowsCheck.tintColor = .green
                 downloadingShowsText.textColor = .lightGray
                 
-            case 6...7:
+            case 6...8:
                 updatingLocalCheck.tintColor = .green
                 updatingLocalText.textColor = .lightGray
             default:
@@ -134,6 +134,7 @@ extension LoadInitDataViewController {
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessAdData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessData.name, object: nil)
@@ -152,19 +153,27 @@ extension LoadInitDataViewController {
             dataActionsFinished += 1
         case notifications.businessArraySet.name:
             dataActionsFinished += 1
+        case notifications.businessAdArraySet.name:
+            dataActionsFinished += 1
         case notifications.gotBandData.name:
             dataActionsFinished += 1
         case notifications.gotBusinessData.name:
+            dataActionsFinished += 2
+        case notifications.gotBusinessAdData.name:
             dataActionsFinished += 1
         case notifications.gotCacheBandData.name:
             dataActionsFinished += 1
         case notifications.gotCacheBusinessData.name:
+            dataActionsFinished += 1
+        case notifications.gotCacheBusinessAdData.name:
             dataActionsFinished += 1
         case notifications.gotShowData.name:
             dataActionsFinished += 1
         case notifications.gotCacheShowData.name:
             dataActionsFinished += 1
         case notifications.gotAllBandData.name:
+            dataActionsFinished += 2
+        case notifications.gotAllBusinessAdData.name:
             dataActionsFinished += 2
         case notifications.gotAllBusinessData.name:
             dataActionsFinished += 2
@@ -227,7 +236,6 @@ extension LoadInitDataViewController {
             let bandArray = bandController.bandArray
             
             for show in showArray {
-                print(show.band)
                 
                 //This protects against missing bands and missing businesses***
                 var  band = bandArray.first(where: {$0.name == show.band})
@@ -239,7 +247,6 @@ extension LoadInitDataViewController {
                 if business == nil {
                     business = genericBusiness
                 }
-                //******
                 
                 let xity = XityShow(band: band!, business: business!, show: show)
                 xityShowController.showArray.append(xity)
