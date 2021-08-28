@@ -23,14 +23,10 @@ class BannerAdBusinessPicsCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    var bannerAd: BannerAd? {
+    var bannerAd: BusinessBannerAd? {
         didSet {
             if let bannerAd = bannerAd {
-                if bannerAd.imageData != nil {
-                    bannerImage.image = UIImage(data: bannerAd.imageData!)
-                } else {
-                    bannerImage.image = bannerAd.image
-                }
+                bannerImage.image = UIImage(data: bannerAd.image)
             }
         }
     }

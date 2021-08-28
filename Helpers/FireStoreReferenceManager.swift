@@ -18,7 +18,7 @@ class FireStoreReferenceManager {
     static let showDataPath = fireDataBase.collection(environment).document(environment).collection("showData")
     static let userDataPath = fireDataBase.collection(environment).document(environment).collection("userData")
     static let recommendationPath = fireDataBase.collection(environment).document(environment).collection("recommendationData")
-//    static let businessBasicDataPath = fireDataBase.collection(environment).document(environment).collection("businesBasicData")
+    static let businessBannerAdDataPath = fireDataBase.collection(environment).document(environment).collection("businessBannerAdData")
 }
 
 let ref = FireStoreReferenceManager.self

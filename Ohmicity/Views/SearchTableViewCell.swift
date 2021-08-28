@@ -58,7 +58,7 @@ class SearchTableViewCell: UITableViewCell {
                 if let xityBusiness = xityBusiness {
                     
                     //Photo
-                    showImage.image = UIImage(data: xityBusiness.business.logo!)
+                    showImage.image = UIImage(data: xityBusiness.business.logo)
                    
                     //Labels
                     var stringArray = [String]()

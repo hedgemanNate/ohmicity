@@ -18,8 +18,8 @@ class LoadInitDataViewController: UIViewController {
     
     var dataActionsFinished = 0 {
         didSet {
-            loadingDisplay()
-            print(dataActionsFinished)
+            loadingDisplayColorAnimations()
+            print("####Current Data Action: \(dataActionsFinished)")
             if dataActionsFinished == 7 {
                 organizeData(); print("DATA ACTIONS FIN")
             }
@@ -29,7 +29,7 @@ class LoadInitDataViewController: UIViewController {
     
     var syncingActionsFinished = 0 {
         didSet{
-            loadingDisplay()
+            loadingDisplayColorAnimations()
             print(syncingActionsFinished)
             if syncingActionsFinished == 4 {
                 doneLoading()
@@ -79,7 +79,7 @@ class LoadInitDataViewController: UIViewController {
 //MARK: Functions
 extension LoadInitDataViewController {
     
-    private func loadingDisplay() {
+    private func loadingDisplayColorAnimations() {
         DispatchQueue.main.async { [self] in
             switch dataActionsFinished {
             case 1...3:
@@ -127,6 +127,8 @@ extension LoadInitDataViewController {
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessAdData.name, object: nil)
+        
         
         //Database Loading Notifications
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllShowData.name, object: nil)
@@ -140,8 +142,7 @@ extension LoadInitDataViewController {
     
     //@objc Functions
     @objc private func counting(_ notification: NSNotification) {
-        
-        
+
         switch notification.name {
         case notifications.bandArraySet.name:
             dataActionsFinished += 1

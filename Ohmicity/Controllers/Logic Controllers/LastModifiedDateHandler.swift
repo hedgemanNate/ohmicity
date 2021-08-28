@@ -29,37 +29,6 @@ class LastModifiedDateHandler {
     }
     
     
-    func checkDateAndGetData(complete:() -> Void) {
-        if UserDefaults.standard.object(forKey: "SavedDate") == nil {
-            NSLog("!*!*!First Open!*!*!")
-            //ALL BUSINESS DATA
-            businessController.getAllBusinessData()
-
-            //ALL SHOW DATA
-            showController.getAllShowData()
-            
-            //ALL BAND DATA
-            bandController.getAllBandData()
-            saveDate()
-            complete()
-        } else {
-            NSLog("!*!*!Repeat Open!*!*!")
-            loadDate()
-            //NEW BUSINESS DATA
-            businessController.getNewBusinessData()
-            businessController.fillArray()
-            
-            //NEW SHOW DATA
-            showController.getNewShowData()
-            showController.fillArray()
-            
-            //NEW BAND DATA
-            bandController.getNewBandData()
-            bandController.fillArray()
-            saveDate()
-            complete()
-        }
-    }
     
     func checkDateAndGetData() {
         if UserDefaults.standard.object(forKey: "SavedDate") == nil {
@@ -73,8 +42,8 @@ class LastModifiedDateHandler {
             //ALL BAND DATA
             bandController.getAllBandData()
             
-            //TEMP BANNER DATA
-            bannerAdController.fillArray()
+            //ALL BANNER DATA
+            businessBannerAdController.getAllBusinessAdData()
             saveDate()
         } else {
             NSLog("!*!*!Repeat Open!*!*!")
@@ -88,14 +57,15 @@ class LastModifiedDateHandler {
                 businessController.getNewBusinessData()
                 showController.getNewShowData()
                 bandController.getNewBandData()
+                businessBannerAdController.getNewBusinessAdData()
                 self.saveDate()
             }
             
             let op1 = BlockOperation {
-                bannerAdController.fillArray()
-                businessController.fillArray()
-                showController.fillArray()
-                bandController.fillArray()
+                businessBannerAdController.fillArrayFromCache()
+                businessController.fillArrayFromCache()
+                showController.fillArrayFromCache()
+                bandController.fillArrayFromCache()
             }
             
             op1.addDependency(preOp)

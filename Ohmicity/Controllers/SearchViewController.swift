@@ -174,7 +174,7 @@ extension SearchViewController {
             if searchText == "" {
                 businessResultsArray = mid
             } else {
-                businessResultsArray = mid.filter({($0.business.name?.localizedStandardContains(searchText))!})
+                businessResultsArray = mid.filter({($0.business.name.localizedStandardContains(searchText))})
             }
             
         } else if segmentedController.selectedSegmentIndex == 0 && business != nil {
@@ -184,13 +184,13 @@ extension SearchViewController {
             if searchText == "" {
                 businessResultsArray = mid
             } else {
-                businessResultsArray = mid.filter({($0.business.name?.localizedStandardContains(searchText))!})
+                businessResultsArray = mid.filter({($0.business.name.localizedStandardContains(searchText))})
             }
             
             
         } else if segmentedController.selectedSegmentIndex == 0 {
             print("ss4")
-            businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name?.localizedStandardContains(searchText))!})
+            businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
             
         } else if segmentedController.selectedSegmentIndex == 2 {
             print("ss5")
@@ -260,7 +260,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         
         switch collectionView {
         case bannerAdCollectionView:
-            bannerAdController.bannerAdArray.shuffle()
+            businessBannerAdController.businessAdArray.shuffle()
             return 50
         case searchCollectionView:
             switch segmentedController.selectedSegmentIndex {
@@ -286,7 +286,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         case bannerAdCollectionView:
             bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
             //% for indexpath to allow for infinite loop: See Banner Ad Section
-            bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row % bannerAdController.bannerAdArray.count]
+            bannerAdCell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
             return bannerAdCell
         
         case searchCollectionView:

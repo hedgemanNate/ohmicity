@@ -30,10 +30,7 @@ class RecommendViewController: UIViewController {
         updateViews()
     }
     
-    
-    
-    
-    
+    //MARK: Button Actions
     @IBAction func sendButtonTapped(_ sender: Any) {
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
@@ -87,6 +84,11 @@ class RecommendViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func backToMusicButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     private func updateViews() {
         self.hideKeyboardWhenTappedAround()

@@ -45,7 +45,7 @@ class BusinessController {
                         if let business = business {
                             self.businessArray.removeAll(where: {$0 == business})
                             self.businessArray.append(business)
-                            NSLog(business.name!,"RECIEVED & APPENDED")
+                            NSLog(business.name,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }
@@ -74,7 +74,7 @@ class BusinessController {
                     case .success(let business):
                         if let business = business {
                             self.businessArray.append(business)
-                            NSLog(business.name!,"RECIEVED & APPENDED")
+                            NSLog(business.name,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }
@@ -88,7 +88,7 @@ class BusinessController {
         }
     }
     
-    func fillArray() {
+    func fillArrayFromCache() {
         db.getDocuments(source: .cache) { querySnapshot, error in
             if let error = error {
                 NSLog(error.localizedDescription)
@@ -101,7 +101,7 @@ class BusinessController {
                     case .success(let business):
                         if let business = business {
                             self.businessArray.append(business)
-                            NSLog(business.name!,"RECIEVED & APPENDED")
+                            NSLog(business.name,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }

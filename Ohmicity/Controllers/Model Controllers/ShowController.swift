@@ -97,7 +97,7 @@ class ShowController {
         showArray.removeAll(where: {$0.onHold == true})
     }
     
-    func fillArray() {
+    func fillArrayFromCache() {
         var showCount = 0
         db.getDocuments(source: .cache) { querySnapshot, error in
             if let error = error {
