@@ -20,7 +20,7 @@ class LoadInitDataViewController: UIViewController {
         didSet {
             loadingDisplayColorAnimations()
             print("####Current Data Action: \(dataActionsFinished)")
-            if dataActionsFinished == 6 {
+            if dataActionsFinished == 7 {
                 organizeData(); print("DATA ACTIONS FIN")
             }
         }
@@ -89,7 +89,7 @@ extension LoadInitDataViewController {
                 downloadingShowsCheck.tintColor = .green
                 downloadingShowsText.textColor = .lightGray
                 
-            case 6...8:
+            case 6...7:
                 updatingLocalCheck.tintColor = .green
                 updatingLocalText.textColor = .lightGray
             default:
@@ -149,7 +149,7 @@ extension LoadInitDataViewController {
         case notifications.bannerAdsCollected.name:
             dataActionsFinished += 1
         case notifications.bannerAdsLoaded.name:
-            dataActionsFinished += 2
+            dataActionsFinished += 1
         case notifications.businessArraySet.name:
             dataActionsFinished += 1
         case notifications.gotBandData.name:
