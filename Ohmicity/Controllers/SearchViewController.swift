@@ -190,7 +190,9 @@ extension SearchViewController {
             
         } else if segmentedController.selectedSegmentIndex == 0 {
             print("ss4")
-            businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
+            businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))
+                
+            })
             
         } else if segmentedController.selectedSegmentIndex == 2 {
             print("ss5")
