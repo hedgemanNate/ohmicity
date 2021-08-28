@@ -42,13 +42,13 @@ class OperationHoursAlert: UIView {
     
     private func setupView(business: Business) {
         //Present Data
-        monTimeLabel.text = business.hours?.monday
-        tueTimeLabel.text = business.hours?.tuesday
-        wedTimeLabel.text = business.hours?.wednesday
-        thuTimeLabel.text = business.hours?.thursday
-        friTimeLabel.text = business.hours?.friday
-        satTimeLabel.text = business.hours?.saturday
-        sunTimeLabel.text = business.hours?.sunday
+        monTimeLabel.text = business.hours.monday
+        tueTimeLabel.text = business.hours.tuesday
+        wedTimeLabel.text = business.hours.wednesday
+        thuTimeLabel.text = business.hours.thursday
+        friTimeLabel.text = business.hours.friday
+        satTimeLabel.text = business.hours.saturday
+        sunTimeLabel.text = business.hours.sunday
         
         //Default UI
         monTimeLabel.layer.cornerRadius = 0

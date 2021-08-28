@@ -205,7 +205,7 @@ extension VenueDetailViewController {
     @objc private func updateViews() {
         guard let xityBusiness = xityBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
         
-        guard let businessLogoData = xityBusiness.business.logo else {return NSLog("No Business logo found: updateViews: venueDetailViewController")}
+        let businessLogoData = xityBusiness.business.logo 
         
         if currentUserController.currentUser == nil {
             recommendButton.isEnabled = false

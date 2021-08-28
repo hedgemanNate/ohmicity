@@ -112,7 +112,7 @@ extension BusinessBannerAdController {
                         NSLog("Error decoding businessAd: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotCacheBusinessAdData)
+                notificationCenter.post(notifications.bannerAdsLoaded)
                 NSLog("*****FILL BUSINESS DATA ARRAY HIT*****")
             }
         }

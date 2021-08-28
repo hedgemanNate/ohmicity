@@ -35,7 +35,7 @@ class BandVenueCollectionViewCell: UICollectionViewCell {
                 //logoImageView.contentMode = .center
                 
                 borderImageView.image = UIImage(named: "BandVenueBorder.png")
-                logoImageView.image = UIImage(data: venue.logo!)
+                logoImageView.image = UIImage(data: venue.logo)
                 nameLabel.text = venue.name
                 
                 if venue.ohmPick == true {

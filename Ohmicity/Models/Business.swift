@@ -34,12 +34,12 @@ class Business: Codable, Equatable, Hashable {
     
     let venueID: String
     var lastModified: Timestamp?
-    var name: String?
+    var name: String
     var address: String = ""
     var city: [City] = []
     var phoneNumber: Int = 0
-    var hours: Hours?
-    var logo: Data?
+    var hours: Hours = Hours(mon: "", tues: "", wed: "", thur: "", fri: "", sat: "", sun: "")
+    var logo: Data = Data()
     var pics: [Data] = []
     var stars: Int = 0
     var customer: Bool = false
