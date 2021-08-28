@@ -64,8 +64,8 @@
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
 		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
 		F67E64E426B0A4A400ED75D0 /* bannerAdExample1.png in Resources */ = {isa = PBXBuildFile; fileRef = F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */; };
-		F67E64E626B0A4DF00ED75D0 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */; };
-		F67E64E826B0D27900ED75D0 /* BannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BannerAdController.swift */; };
+		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
+		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
 		F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6923D25264E7F6400A2E036 /* DashboardViewController.swift */; };
 		F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */; };
 		F696A73426AB7079009CB1BD /* tampa.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A72E26AB7072009CB1BD /* tampa.png */; };
@@ -153,8 +153,8 @@
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
 		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
 		F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerAdExample1.png; sourceTree = "<group>"; };
-		F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
-		F67E64E726B0D27900ED75D0 /* BannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdController.swift; sourceTree = "<group>"; };
+		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
+		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
 		F6923D25264E7F6400A2E036 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		F696A72E26AB7072009CB1BD /* tampa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tampa.png; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 				F676F0EF26991C6C00C47599 /* Rating.swift */,
 				F676F0F226991C6C00C47599 /* Show.swift */,
 				F676F0F326991C6C00C47599 /* Business.swift */,
-				F67E64E526B0A4DF00ED75D0 /* BannerAd.swift */,
+				F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */,
 				F66C99C726BCF5D400A7C135 /* XityShow.swift */,
 				F699FFE026C6121A00C73CD6 /* XityBusiness.swift */,
 				F699FFE226C613C400C73CD6 /* XityBand.swift */,
@@ -399,7 +399,7 @@
 				F67991042697E2A0000FDC5E /* BusinessController.swift */,
 				F676F0FE269947B300C47599 /* BandController.swift */,
 				F676F1022699496200C47599 /* ShowController.swift */,
-				F67E64E726B0D27900ED75D0 /* BannerAdController.swift */,
+				F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */,
 				F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */,
 			);
 			path = "Model Controllers";
@@ -619,7 +619,7 @@
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,
-				F67E64E626B0A4DF00ED75D0 /* BannerAd.swift in Sources */,
+				F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */,
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
@@ -651,7 +651,7 @@
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
-				F67E64E826B0D27900ED75D0 /* BannerAdController.swift in Sources */,
+				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,

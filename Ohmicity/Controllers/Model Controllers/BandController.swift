@@ -79,7 +79,7 @@ class BandController {
         }
     }
     
-    func fillArray() {
+    func fillArrayFromCache() {
             db.getDocuments(source: .cache) { querySnapshot, error in
                 if let error = error {
                     NSLog(error.localizedDescription)

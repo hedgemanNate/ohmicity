@@ -10,6 +10,7 @@ import MapKit
 import CoreLocation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import SwiftUI
 
 class VenueDetailViewController: UIViewController {
     
@@ -452,3 +453,9 @@ extension VenueDetailViewController: UICollectionViewDelegateFlowLayout, UIColle
     }
 }
 
+
+struct VenueDetailViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

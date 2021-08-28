@@ -260,7 +260,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         
         switch collectionView {
         case bannerAdCollectionView:
-            bannerAdController.bannerAdArray.shuffle()
+            businessBannerAdController.businessAdArray.shuffle()
             return 50
         case searchCollectionView:
             switch segmentedController.selectedSegmentIndex {
@@ -286,7 +286,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         case bannerAdCollectionView:
             bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
             //% for indexpath to allow for infinite loop: See Banner Ad Section
-            bannerAdCell.bannerAd = bannerAdController.bannerAdArray[indexPath.row % bannerAdController.bannerAdArray.count]
+            bannerAdCell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
             return bannerAdCell
         
         case searchCollectionView:
