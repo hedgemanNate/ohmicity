@@ -24,7 +24,7 @@ protocol MutatingProtocolForBusinessData {
 
 class Business: Codable, Equatable, Hashable {
     static func == (lhs: Business, rhs: Business) -> Bool {
-        return lhs.venueID == rhs.venueID
+        return lhs.name == rhs.name
     }
     
     func hash(into hasher: inout Hasher) {

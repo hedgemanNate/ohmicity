@@ -59,8 +59,6 @@ class DashboardViewController: UIViewController {
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
-    lazy private var interstitialAdUnitID = "ca-app-pub-9052204067761521/5346686403"
-    lazy private var interstitialTestAdID = "ca-app-pub-3940256099942544/4411468910"
     lazy private var segueToPerform = ""
     
     
@@ -442,19 +440,19 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         switch collectionView {
         case todayCollectionView:
             if interstitialAd != nil && shouldShowAds == true {
-                showAdSixtySixChance(segue: todaySegue)
+                showAdThirtyThreeChance(segue: todaySegue)
             } else {
                 performSegue(withIdentifier: todaySegue, sender: self)
             }
         case favoritesCollectionView:
             if interstitialAd != nil && shouldShowAds == true {
-                showAdSixtySixChance(segue: favSegue)
+                showAdThirtyThreeChance(segue: favSegue)
             } else {
                 performSegue(withIdentifier: favSegue, sender: self)
             }
         case xityPickCollectionView:
             if interstitialAd != nil && shouldShowAds == true {
-                showAdSixtySixChance(segue: xityPickSegue)
+                showAdThirtyThreeChance(segue: xityPickSegue)
             } else {
                 performSegue(withIdentifier: xityPickSegue, sender: self)
             }
@@ -521,7 +519,7 @@ extension DashboardViewController: GADFullScreenContentDelegate {
     //Functions
     private func createInterstitialAd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: interstitialTestAdID, request: request) { [self] ad, error in
+        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialAdUnitID, request: request) { [self] ad, error in
             if let error = error {
                 //Handle Ad Error
                 NSLog("Error Displaying Ad: \(error.localizedDescription)")
@@ -532,10 +530,10 @@ extension DashboardViewController: GADFullScreenContentDelegate {
         }
     }
     
-    private func showAdSixtySixChance(segue: String) {
+    private func showAdThirtyThreeChance(segue: String) {
         setSegueToPerform(segue: segue)
-        let x = Int.random(in: 1...3)
-        if x == 1 || x == 3 {
+        let x = Int.random(in: 1...10)
+        if x == 1 || x == 3 || x == 6 {
             interstitialAd?.present(fromRootViewController: self)
         } else {
             performSegue(withIdentifier: segue, sender: self)
