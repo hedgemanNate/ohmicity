@@ -23,8 +23,8 @@ class TimeController {
     let year = "yyyy"
     
     let now = Date()
-    let inTwoHours = Date().addingTimeInterval(7200)
-    let twoHoursAgo = Date().addingTimeInterval(-7200)
+    let inThreeHours = Date().addingTimeInterval(10800)
+    let threeHoursAgo = Date().addingTimeInterval(-10800)
     
     //Calendar
     let userCalendar = Calendar.current

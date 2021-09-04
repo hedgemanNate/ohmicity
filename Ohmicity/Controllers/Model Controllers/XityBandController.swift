@@ -24,6 +24,7 @@ class XityBandController {
             newBand.xityShows = orderedShows
             self.bandArray.append(newBand)
         }
+        bandArray.removeDuplicates()
     }
 }
 

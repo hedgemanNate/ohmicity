@@ -229,7 +229,7 @@ extension LoadInitDataViewController {
             let genericBand = Band(name: "No Name")
             let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
             print("op3 Started")
-            var showArray = showController.showArray.filter({$0.date >= timeController.twoHoursAgo})
+            var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             showArray.removeAll(where: {$0.onHold == true})
             
             let businessArray = businessController.businessArray

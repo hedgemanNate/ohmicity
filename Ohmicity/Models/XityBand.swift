@@ -9,7 +9,7 @@ import Foundation
 
 class XityBand: Equatable, Hashable {
     static func == (lhs: XityBand, rhs: XityBand) -> Bool {
-        lhs.band.bandID == rhs.band.bandID
+        lhs.band.name == rhs.band.name
     }
     
     func hash(into hasher: inout Hasher) {

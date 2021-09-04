@@ -185,6 +185,7 @@ extension DashboardViewController {
         
         //Check Database
         let checkDataBase = BlockOperation {
+            lmDateHandler.saveDate()
             lmDateHandler.checkDateAndGetData()
         }
         
@@ -223,7 +224,7 @@ extension DashboardViewController {
             let genericBand = Band(name: "No Name")
             let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
             print("op3 Started")
-            var showArray = showController.showArray.filter({$0.date >= timeController.twoHoursAgo})
+            var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             showArray.removeAll(where: {$0.onHold == true})
             
             let businessArray = businessController.businessArray
@@ -484,7 +485,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             let business = currentUserController.favArray[indexPath!.row]
             
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
-            xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.twoHoursAgo})
+            xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             
             businessVC.featuredShow = xityBusiness?.xityShows.first
             businessVC.xityBusiness = xityBusiness!
