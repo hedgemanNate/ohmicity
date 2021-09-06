@@ -204,6 +204,9 @@ extension SearchViewController {
         //Collection View UI
         searchCollectionView.allowsSelection = true
         searchCollectionView.allowsMultipleSelection = true
+        
+        //Add space to bottom of search table view to clear the tab view
+        tableView.contentInset.bottom = 40
 
     }
     

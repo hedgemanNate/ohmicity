@@ -179,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fo-n8-heq" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="799"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-8H-6Uj" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -281,8 +281,8 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="100" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
-                                                <rect key="frame" x="0.0" y="429" width="428" height="371"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="100" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
+                                                <rect key="frame" x="0.0" y="429" width="428" height="370"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -416,7 +416,6 @@
                                             <constraint firstAttribute="trailing" secondItem="Qqa-da-gya" secondAttribute="trailing" id="5qh-lv-Peb"/>
                                             <constraint firstAttribute="trailing" secondItem="oLF-21-53M" secondAttribute="trailing" id="94m-6F-Jxg"/>
                                             <constraint firstAttribute="trailing" secondItem="hpP-mB-DHI" secondAttribute="trailing" id="BFe-2u-3Zi"/>
-                                            <constraint firstAttribute="height" constant="800" id="BnK-Ja-xxJ"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="COI-Bv-C0C"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="DiI-lo-GOH"/>
                                             <constraint firstItem="SHN-Ay-iKj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Fw2-ih-hGa"/>
@@ -438,7 +437,8 @@
                                     <constraint firstAttribute="trailing" secondItem="4Fo-n8-heq" secondAttribute="trailing" id="Tbf-as-VGj"/>
                                     <constraint firstItem="4Fo-n8-heq" firstAttribute="leading" secondItem="oEX-aZ-pBY" secondAttribute="leading" id="hbV-F6-br3"/>
                                     <constraint firstItem="4Fo-n8-heq" firstAttribute="top" secondItem="oEX-aZ-pBY" secondAttribute="top" id="o3a-u8-IX4"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Fo-n8-heq" secondAttribute="bottom" constant="-127" id="qV3-dM-qcf"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Fo-n8-heq" secondAttribute="bottom" id="qV3-dM-qcf"/>
+                                    <constraint firstItem="4Fo-n8-heq" firstAttribute="centerY" secondItem="oEX-aZ-pBY" secondAttribute="centerY" id="vYw-Ch-iNz"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
