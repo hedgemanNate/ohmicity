@@ -293,7 +293,9 @@ extension VenueDetailViewController {
         }
         bandNameLabel.text = featuredBand.name
         
-        showTimeLabel.text = featuredShow?.show.time
+        timeController.dateFormatter.dateFormat = timeController.time
+        let time = timeController.dateFormatter.string(from: (featuredShow?.show.date)!)
+        showTimeLabel.text = time
         
         bandGenreLabel.text = ""
         if featuredBand.genre.count >= 1 {
@@ -420,7 +422,9 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
             let show = xityBusiness!.xityShows[indexPath.row].show
             timeController.dateFormatter.dateFormat = timeController.dayMonthDay
             let stringDate = timeController.dateFormatter.string(from: date)
-            cell.textLabel?.text = "\(stringDate): \(show.band) @ \(show.time)"
+            timeController.dateFormatter.dateFormat = timeController.time
+            let time = timeController.dateFormatter.string(from: date)
+            cell.textLabel?.text = "\(stringDate): \(show.band) @ \(time)"
         } else {
             cell.textLabel?.text = "No Show Scheduled"
         }

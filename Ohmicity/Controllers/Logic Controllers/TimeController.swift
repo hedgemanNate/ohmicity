@@ -13,7 +13,8 @@ class TimeController {
     var thisYear = ""
     var dayOfWeek = ""
     
-    let dateFormatter = DateFormatter() 
+    let dateFormatter = DateFormatter()
+    let time = "ha"
     let dayMonthDayYearTime = "E, MMMM d, yyyy ha" //1
     let dayMonthDay = "E, MMMM d"
     let monthDayYearTime = "MMMM d, yyyy ha" //2
