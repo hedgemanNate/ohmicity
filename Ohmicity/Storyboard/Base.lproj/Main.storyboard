@@ -539,6 +539,31 @@
                                                             <constraint firstAttribute="height" constant="76" id="sMH-ft-85b"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <view userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uKK-NO-fSh">
+                                                        <rect key="frame" x="85" y="145" width="270" height="76"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BusinessBandNameBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="9l6-iS-Qla">
+                                                                <rect key="frame" x="0.0" y="0.0" width="270" height="76"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16b-FN-6U4">
+                                                                <rect key="frame" x="14" y="26.666666666666657" width="49" height="23"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                                <color key="textColor" red="0.88258192274305558" green="0.87586465658063117" blue="0.88216838369452499" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="16b-FN-6U4" firstAttribute="leading" secondItem="uKK-NO-fSh" secondAttribute="leading" constant="14" id="7Aj-OU-V5G"/>
+                                                            <constraint firstAttribute="width" constant="270" id="L7S-Ic-EwA"/>
+                                                            <constraint firstAttribute="trailing" secondItem="9l6-iS-Qla" secondAttribute="trailing" id="TGJ-7E-7ce"/>
+                                                            <constraint firstItem="9l6-iS-Qla" firstAttribute="top" secondItem="uKK-NO-fSh" secondAttribute="top" id="kgC-St-FhP"/>
+                                                            <constraint firstAttribute="bottom" secondItem="9l6-iS-Qla" secondAttribute="bottom" id="lJC-nd-qu9"/>
+                                                            <constraint firstItem="16b-FN-6U4" firstAttribute="centerY" secondItem="uKK-NO-fSh" secondAttribute="centerY" id="mDP-Cf-uUl"/>
+                                                            <constraint firstAttribute="height" constant="76" id="ncK-Gf-zGl"/>
+                                                            <constraint firstItem="9l6-iS-Qla" firstAttribute="leading" secondItem="uKK-NO-fSh" secondAttribute="leading" id="zuS-D1-IZN"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -551,8 +576,10 @@
                                                     <constraint firstItem="Y1u-QM-zqz" firstAttribute="leading" secondItem="4Hk-SP-Xj0" secondAttribute="leading" constant="9" id="Xg0-fg-hlI"/>
                                                     <constraint firstItem="3Ls-J7-E6e" firstAttribute="leading" secondItem="4Hk-SP-Xj0" secondAttribute="leading" id="Xoq-cE-zZI"/>
                                                     <constraint firstItem="g5t-ZX-m6J" firstAttribute="top" secondItem="4Hk-SP-Xj0" secondAttribute="top" id="gdM-mM-4XO"/>
+                                                    <constraint firstItem="uKK-NO-fSh" firstAttribute="leading" secondItem="Y1u-QM-zqz" secondAttribute="trailing" id="h2u-Kx-HMX"/>
                                                     <constraint firstAttribute="height" constant="230" id="ptx-9i-V08"/>
                                                     <constraint firstAttribute="trailing" secondItem="3Ls-J7-E6e" secondAttribute="trailing" id="qDg-Fn-Ekz"/>
+                                                    <constraint firstItem="Y1u-QM-zqz" firstAttribute="centerY" secondItem="uKK-NO-fSh" secondAttribute="centerY" id="tdA-mI-LW4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25w-CZ-cPi" userLabel="Reccomend View">
@@ -991,6 +1018,7 @@ Florida 34222 </string>
                         <outlet property="bandNameLabel" destination="0UF-od-poe" id="pb0-7d-ZUz"/>
                         <outlet property="bandPhotoImageView" destination="xpi-G8-HgX" id="8dr-gt-2Uh"/>
                         <outlet property="businessLogoImageView" destination="Y1u-QM-zqz" id="tWY-PX-6xo"/>
+                        <outlet property="businessNameLabel" destination="16b-FN-6U4" id="gH4-Np-bgT"/>
                         <outlet property="businessPicsCollectionView" destination="3Ls-J7-E6e" id="Dvy-wn-5cy"/>
                         <outlet property="businessRatingLabel" destination="u1P-MG-u2D" id="eOI-7s-Dpn"/>
                         <outlet property="directionsButton" destination="Dyt-Bt-nw6" id="LnT-1w-jsp"/>
@@ -1010,7 +1038,7 @@ Florida 34222 </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="5ac-YL-HRn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-493" y="284"/>
+            <point key="canvasLocation" x="-493.45794392523362" y="283.80129589632833"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="rtp-Rd-53p">
@@ -2501,6 +2529,7 @@ should be on Xity?</string>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
         <image name="BandVenueBorderXityPick.png" width="155" height="204"/>
+        <image name="BusinessBandNameBackground.png" width="120" height="36"/>
         <image name="PurpleBG.png" width="1125" height="2436"/>
         <image name="brickBackground.png" width="396" height="231"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>

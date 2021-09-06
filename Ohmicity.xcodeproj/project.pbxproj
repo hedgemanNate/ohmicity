@@ -50,6 +50,7 @@
 		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
 		F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityShow.swift */; };
 		F66C99CA26BD16F600A7C135 /* band.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C926BD16F400A7C135 /* band.jpg */; };
+		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
 		F676F0F626991C6C00C47599 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Rating.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
 		F676F0FA26991C6C00C47599 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F326991C6C00C47599 /* Business.swift */; };
@@ -139,6 +140,7 @@
 		F66C99C626BCDA6200A7C135 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F66C99C726BCF5D400A7C135 /* XityShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShow.swift; sourceTree = "<group>"; };
 		F66C99C926BD16F400A7C135 /* band.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = band.jpg; sourceTree = "<group>"; };
+		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		F676F0F326991C6C00C47599 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		F60E6BCD2648F36B001CA06E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F6761ED026E6C0A400604E94 /* Business Band Shared Images */,
 				F61C370A26B66F8500A2235B /* brickBackground.png */,
 				F60B849B26CB507C00C9226F /* Tab Bar */,
 				F61C370526B64E5A00A2235B /* Button Icons And BG's */,
@@ -388,6 +391,14 @@
 				F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F6761ED026E6C0A400604E94 /* Business Band Shared Images */ = {
+			isa = PBXGroup;
+			children = (
+				F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */,
+			);
+			path = "Business Band Shared Images";
 			sourceTree = "<group>";
 		};
 		F67991032697E278000FDC5E /* Model Controllers */ = {
@@ -536,6 +547,7 @@
 				F61C370926B64E5B00A2235B /* listenButton.png in Resources */,
 				F67E64E426B0A4A400ED75D0 /* bannerAdExample1.png in Resources */,
 				F696A73726AB7079009CB1BD /* venice.png in Resources */,
+				F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */,
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
