@@ -159,41 +159,32 @@ extension SearchViewController {
     private func startSearch(searchText: String, genre: Genre? = nil, city: City? = nil, business: BusinessType? = nil) {
         if segmentedController.selectedSegmentIndex == 2 && genre != nil {
             print("ss1")
-            let mid = xityBandController.bandArray.filter({$0.band.genre.contains(genre!)})
-            print(mid)
             if searchText == "" {
-              bandResultsArray = mid
+              bandResultsArray = xityBandController.bandArray.filter({$0.band.genre.contains(genre!)})
             } else {
-                bandResultsArray = mid.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
+                bandResultsArray = xityBandController.bandArray.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
             }
             
         } else if segmentedController.selectedSegmentIndex == 1 && city != nil {
             print("ss2")
-            let mid = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
-            print(mid)
             if searchText == "" {
-                businessResultsArray = mid
+                businessResultsArray = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
             } else {
-                businessResultsArray = mid.filter({($0.business.name.localizedStandardContains(searchText))})
+                businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
             }
             
         } else if segmentedController.selectedSegmentIndex == 0 && business != nil {
             print("ss3")
-            let mid = xityBusinessController.businessArray.filter({$0.business.businessType.contains(business!)})
-            print(mid)
             if searchText == "" {
-                businessResultsArray = mid
+                businessResultsArray = xityBusinessController.businessArray.filter({$0.business.businessType.contains(business!)})
             } else {
-                businessResultsArray = mid.filter({($0.business.name.localizedStandardContains(searchText))})
+                businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
             }
             
             
         } else if segmentedController.selectedSegmentIndex == 0 {
             print("ss4")
-            businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))
-                
-            })
-            
+            businessResultsArray = xityBusinessController.businessArray.filter({$0.business.name.localizedStandardContains(searchText)})
         } else if segmentedController.selectedSegmentIndex == 2 {
             print("ss5")
             bandResultsArray = xityBandController.bandArray.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
@@ -213,6 +204,9 @@ extension SearchViewController {
         //Collection View UI
         searchCollectionView.allowsSelection = true
         searchCollectionView.allowsMultipleSelection = true
+        
+        //Add space to bottom of search table view to clear the tab view
+        tableView.contentInset.bottom = 40
 
     }
     

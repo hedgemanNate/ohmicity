@@ -212,14 +212,17 @@ extension LoadInitDataViewController {
         let op4 = BlockOperation {
             //Collected Today's Shows
             dateFormatter.dateFormat = timeController.monthDayYear
+            
+            //Initialize todayShowArray to prevent crashing because it is optional and can be nil
+            xityShowController.todayShowArray = []
             for todayShow in xityShowController.showArray {
                 let stringDate = dateFormatter.string(from: todayShow.show.date)
                 if stringDate == timeController.todayString {
-                    xityShowController.todayShowArray.removeAll(where: {$0 == todayShow})
-                    xityShowController.todayShowArray.append(todayShow)
+                    xityShowController.todayShowArray!.removeAll(where: {$0 == todayShow})
+                    xityShowController.todayShowArray!.append(todayShow)
                 }
             }
-            xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
+            xityShowController.todayShowArray!.sort(by: {$0.show.date < $1.show.date})
             self.syncingActionsFinished += 1
             print("*** Collected Today's Shows ***")
         }
@@ -229,7 +232,7 @@ extension LoadInitDataViewController {
             let genericBand = Band(name: "No Name")
             let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
             print("op3 Started")
-            var showArray = showController.showArray.filter({$0.date >= timeController.twoHoursAgo})
+            var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             showArray.removeAll(where: {$0.onHold == true})
             
             let businessArray = businessController.businessArray

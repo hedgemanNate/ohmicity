@@ -13,7 +13,8 @@ class TimeController {
     var thisYear = ""
     var dayOfWeek = ""
     
-    let dateFormatter = DateFormatter() 
+    let dateFormatter = DateFormatter()
+    let time = "ha"
     let dayMonthDayYearTime = "E, MMMM d, yyyy ha" //1
     let dayMonthDay = "E, MMMM d"
     let monthDayYearTime = "MMMM d, yyyy ha" //2
@@ -23,8 +24,8 @@ class TimeController {
     let year = "yyyy"
     
     let now = Date()
-    let inTwoHours = Date().addingTimeInterval(7200)
-    let twoHoursAgo = Date().addingTimeInterval(-7200)
+    let inThreeHours = Date().addingTimeInterval(10800)
+    let threeHoursAgo = Date().addingTimeInterval(-10800)
     
     //Calendar
     let userCalendar = Calendar.current

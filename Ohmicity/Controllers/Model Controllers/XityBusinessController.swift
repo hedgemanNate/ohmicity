@@ -24,6 +24,7 @@ class XityBusinessController {
             newBusiness.xityShows = orderedShows
             self.businessArray.append(newBusiness)
         }
+        businessArray.removeDuplicates()
     }
 }
 

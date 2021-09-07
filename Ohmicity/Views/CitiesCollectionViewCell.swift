@@ -50,6 +50,8 @@ class CitiesCollectionViewCell: UICollectionViewCell {
                 case .Ybor:
                     imageView.image = UIImage(named: "ybor.png")
                     nameLabel.text = city.rawValue
+                case .All:
+                    break
                 }
             }
         }

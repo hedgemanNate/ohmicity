@@ -50,6 +50,7 @@
 		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
 		F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityShow.swift */; };
 		F66C99CA26BD16F600A7C135 /* band.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C926BD16F400A7C135 /* band.jpg */; };
+		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
 		F676F0F626991C6C00C47599 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Rating.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
 		F676F0FA26991C6C00C47599 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F326991C6C00C47599 /* Business.swift */; };
@@ -81,6 +82,9 @@
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
+		F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */; };
+		F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */; };
+		F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5C26E71E4F00831544 /* SettingsController.swift */; };
 		F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3A26AF172800C49016 /* bradenton.png */; };
 		F6F3DB4526AF337C00C49016 /* restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3F26AF337400C49016 /* restaurant.png */; };
 		F6F3DB4626AF337C00C49016 /* club.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4026AF337600C49016 /* club.png */; };
@@ -139,6 +143,7 @@
 		F66C99C626BCDA6200A7C135 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F66C99C726BCF5D400A7C135 /* XityShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShow.swift; sourceTree = "<group>"; };
 		F66C99C926BD16F400A7C135 /* band.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = band.jpg; sourceTree = "<group>"; };
+		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		F676F0F326991C6C00C47599 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
@@ -170,6 +175,9 @@
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewCell.swift; sourceTree = "<group>"; };
+		F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewController.swift; sourceTree = "<group>"; };
+		F6E8EF5C26E71E4F00831544 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		F6F3DB3A26AF172800C49016 /* bradenton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bradenton.png; sourceTree = "<group>"; };
 		F6F3DB3F26AF337400C49016 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
 		F6F3DB4026AF337600C49016 /* club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club.png; sourceTree = "<group>"; };
@@ -285,6 +293,7 @@
 		F60E6BCD2648F36B001CA06E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F6761ED026E6C0A400604E94 /* Business Band Shared Images */,
 				F61C370A26B66F8500A2235B /* brickBackground.png */,
 				F60B849B26CB507C00C9226F /* Tab Bar */,
 				F61C370526B64E5A00A2235B /* Button Icons And BG's */,
@@ -322,6 +331,7 @@
 				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
 				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				F62FEB6F26562A59008DEF64 /* ResetViewController.swift */,
+				F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -337,6 +347,7 @@
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 				F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */,
+				F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -369,6 +380,7 @@
 				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
+				F6E8EF5C26E71E4F00831544 /* SettingsController.swift */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -388,6 +400,14 @@
 				F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F6761ED026E6C0A400604E94 /* Business Band Shared Images */ = {
+			isa = PBXGroup;
+			children = (
+				F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */,
+			);
+			path = "Business Band Shared Images";
 			sourceTree = "<group>";
 		};
 		F67991032697E278000FDC5E /* Model Controllers */ = {
@@ -536,6 +556,7 @@
 				F61C370926B64E5B00A2235B /* listenButton.png in Resources */,
 				F67E64E426B0A4A400ED75D0 /* bannerAdExample1.png in Resources */,
 				F696A73726AB7079009CB1BD /* venice.png in Resources */,
+				F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */,
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
@@ -619,6 +640,7 @@
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,
+				F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */,
 				F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */,
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
@@ -641,6 +663,7 @@
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
+				F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */,
 				F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */,
@@ -652,6 +675,7 @@
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,
+				F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
@@ -809,7 +833,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -832,7 +856,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -39,6 +39,8 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var listenButton: UIButton!
     
     @IBOutlet weak var businessLogoImageView: UIImageView!
+    @IBOutlet weak var businessNameLabel: UILabel!
+    
     @IBOutlet weak var bandPhotoImageView: UIImageView!
     
     @IBOutlet weak var tonightsEntLabel: UILabel!
@@ -205,7 +207,7 @@ extension VenueDetailViewController {
     @objc private func updateViews() {
         guard let xityBusiness = xityBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
         
-        let businessLogoData = xityBusiness.business.logo 
+        let businessLogoData = xityBusiness.business.logo
         
         if currentUserController.currentUser == nil {
             recommendButton.isEnabled = false
@@ -215,11 +217,13 @@ extension VenueDetailViewController {
             recommendButton.setTitle("Recommend", for: .normal)
         }
         
+        
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         
-        //Banner Photo Adjustments
-        businessLogoImageView.layer.cornerRadius = businessLogoImageView.frame.height / 2
+        //Banner Photo/Info Adjustments
+        //businessLogoImageView.layer.cornerRadius = businessLogoImageView.frame.height / 2
+        businessNameLabel.text = xityBusiness.business.name
         
         //Top Buttons UI -
                 //This sets the hearts sizes programmatically
@@ -293,7 +297,9 @@ extension VenueDetailViewController {
         }
         bandNameLabel.text = featuredBand.name
         
-        showTimeLabel.text = featuredShow?.show.time
+        timeController.dateFormatter.dateFormat = timeController.time
+        let time = timeController.dateFormatter.string(from: (featuredShow?.show.date)!)
+        showTimeLabel.text = time
         
         bandGenreLabel.text = ""
         if featuredBand.genre.count >= 1 {
@@ -420,7 +426,9 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
             let show = xityBusiness!.xityShows[indexPath.row].show
             timeController.dateFormatter.dateFormat = timeController.dayMonthDay
             let stringDate = timeController.dateFormatter.string(from: date)
-            cell.textLabel?.text = "\(stringDate): \(show.band) @ \(show.time)"
+            timeController.dateFormatter.dateFormat = timeController.time
+            let time = timeController.dateFormatter.string(from: date)
+            cell.textLabel?.text = "\(stringDate): \(show.band) @ \(time)"
         } else {
             cell.textLabel?.text = "No Show Scheduled"
         }

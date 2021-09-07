@@ -11,7 +11,18 @@ class XityShowController {
     
     //Properties
     var showArray = [XityShow]()
-    var todayShowArray = [XityShow]()
+    var todayShowArrayFilter: City? {
+        didSet {
+            todayShowResultsArray = todayShowArray!.filter({($0.show.city?.contains(todayShowArrayFilter!))!})
+            notificationCenter.post(notifications.reloadDashboardCVData)
+        }
+    }
+    var todayShowArray: [XityShow]? {
+        didSet {
+            todayShowResultsArray = todayShowArray!
+        }
+    }
+    var todayShowResultsArray = [XityShow]()
     var weeklyPicksArray = [XityShow]()
     var xityShowSearchArray = [XityShow]()
     
