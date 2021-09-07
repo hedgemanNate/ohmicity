@@ -16,6 +16,17 @@ class CurrentUserController {
         }
     }
     
+    var preferredCity: City? {
+        didSet {
+            currentUser?.preferredCity = preferredCity
+            xityShowController.todayShowArrayFilter = preferredCity
+            //Can be more financially efficient
+            currentUserController.pushCurrentUserData()
+            
+        }
+        
+    }
+    
     var favArray = [Business]()
     
     
@@ -31,7 +42,7 @@ class CurrentUserController {
                 case.success(let user):
                     if let user = user {
                         self.currentUser = user
-                        userAdController.setUpAdsForUser()
+                        self.setUpCurrentUserPreferences()
                     } else {
                         NSLog("User Data Not Found In Database")
                     }
@@ -40,6 +51,18 @@ class CurrentUserController {
                 }
             }
         }
+    
+    func setUpCurrentUserPreferences() {
+        //Ad Experience Setup
+        userAdController.setUpAdsForUser()
+        
+        //Preferred City Setup
+        if currentUser?.preferredCity == nil {
+            xityShowController.todayShowArrayFilter = .All
+        } else {
+            xityShowController.todayShowArrayFilter = currentUser?.preferredCity
+        }
+    }
     
     func pushCurrentUserData() {
         guard let uid = currentUserController.currentUser?.userID else {return NSLog("No Current User Found/Set")}

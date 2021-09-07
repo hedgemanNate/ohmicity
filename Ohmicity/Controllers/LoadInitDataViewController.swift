@@ -212,14 +212,17 @@ extension LoadInitDataViewController {
         let op4 = BlockOperation {
             //Collected Today's Shows
             dateFormatter.dateFormat = timeController.monthDayYear
+            
+            //Initialize todayShowArray to prevent crashing because it is optional and can be nil
+            xityShowController.todayShowArray = []
             for todayShow in xityShowController.showArray {
                 let stringDate = dateFormatter.string(from: todayShow.show.date)
                 if stringDate == timeController.todayString {
-                    xityShowController.todayShowArray.removeAll(where: {$0 == todayShow})
-                    xityShowController.todayShowArray.append(todayShow)
+                    xityShowController.todayShowArray!.removeAll(where: {$0 == todayShow})
+                    xityShowController.todayShowArray!.append(todayShow)
                 }
             }
-            xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
+            xityShowController.todayShowArray!.sort(by: {$0.show.date < $1.show.date})
             self.syncingActionsFinished += 1
             print("*** Collected Today's Shows ***")
         }

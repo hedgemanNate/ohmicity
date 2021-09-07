@@ -82,6 +82,9 @@
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
+		F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */; };
+		F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */; };
+		F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5C26E71E4F00831544 /* SettingsController.swift */; };
 		F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3A26AF172800C49016 /* bradenton.png */; };
 		F6F3DB4526AF337C00C49016 /* restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB3F26AF337400C49016 /* restaurant.png */; };
 		F6F3DB4626AF337C00C49016 /* club.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4026AF337600C49016 /* club.png */; };
@@ -172,6 +175,9 @@
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewCell.swift; sourceTree = "<group>"; };
+		F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewController.swift; sourceTree = "<group>"; };
+		F6E8EF5C26E71E4F00831544 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		F6F3DB3A26AF172800C49016 /* bradenton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bradenton.png; sourceTree = "<group>"; };
 		F6F3DB3F26AF337400C49016 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
 		F6F3DB4026AF337600C49016 /* club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club.png; sourceTree = "<group>"; };
@@ -325,6 +331,7 @@
 				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
 				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				F62FEB6F26562A59008DEF64 /* ResetViewController.swift */,
+				F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -340,6 +347,7 @@
 				F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */,
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 				F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */,
+				F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,6 +380,7 @@
 				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
+				F6E8EF5C26E71E4F00831544 /* SettingsController.swift */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -631,6 +640,7 @@
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,
+				F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */,
 				F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */,
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
@@ -653,6 +663,7 @@
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
+				F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */,
 				F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */,
@@ -664,6 +675,7 @@
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,
+				F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,

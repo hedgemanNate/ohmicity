@@ -19,6 +19,7 @@ enum City: String, Codable, Hashable {
     case StPete
     case Tampa
     case Ybor
+    case All
 }
 
 enum LoadingScreenInfo: String {

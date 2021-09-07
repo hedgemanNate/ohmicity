@@ -29,12 +29,13 @@ class DashboardViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var topAdView: UIView!
     
+    //Labels
+    @IBOutlet weak var cityFilterLabel: UILabel!
     
     //Recommendation Elements
     @IBOutlet private weak var recommendButton: UIButton!
     
     //Hidden Elements
-    var showsToday: Bool = true
     @IBOutlet private weak var favoritesButton: UIButton!
     @IBOutlet private weak var favoritesCollectionView: UICollectionView!
     @IBOutlet private weak var hiddenSignUpView: UIView!
@@ -82,11 +83,8 @@ class DashboardViewController: UIViewController {
     
     
     @IBAction func breaker(_ sender: Any) {
-        if currentUserController.currentUser?.subscriber == false {
-            if interstitialAd != nil {
-                interstitialAd?.present(fromRootViewController: self)
-                print("Showing Ad")
-            }
+        for show in xityShowController.todayShowResultsArray {
+            print(show.show.city)
         }
     }
 }
@@ -106,6 +104,43 @@ extension DashboardViewController {
             hiddenSignUpView.isHidden = true
         }
         
+    }
+    
+    @objc private func reloadData() {
+        DispatchQueue.main.async { [self] in
+            self.todayCollectionView.reloadData()
+            self.favoritesCollectionView.reloadData()
+            self.xityPickCollectionView.reloadData()
+            
+//            switch xityShowController.todayShowArrayFilter {
+//            case .some(.All):
+//                cityFilterLabel.text = "in All Cities"
+//            case .some(.Sarasota):
+//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+//            case .some(.Bradenton):
+//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+//            case .some(.Venice):
+//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+//            case .some(.StPete):
+//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+//            case .some(.Tampa):
+//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+//            case .some(.Ybor):
+//                ç
+//            case .none:
+//                break
+//            }
+            
+            switch xityShowController.todayShowArrayFilter {
+            case .All:
+                cityFilterLabel.text = "in All Cities"
+            case .some(_):
+                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+            case .none:
+                break
+            }
+        }
+        print("Dashboard Reloaded")
     }
     
     @objc private func scrollToTop() {
@@ -179,95 +214,7 @@ extension DashboardViewController {
     
     //----- Refresh Data Start -----
     @objc private func organizeData() {
-        //Collected Weekly Picks
-        let opQueue = OperationQueue()
-        opQueue.maxConcurrentOperationCount = 1
-        
-        //Check Database
-        let checkDataBase = BlockOperation {
-            lmDateHandler.saveDate()
-            lmDateHandler.checkDateAndGetData()
-        }
-        
-        //Gathering Xity Band And Business Data
-        let op2 = BlockOperation {
-            xityBandController.fillXityBandArray()
-            xityBusinessController.fillXityBusinessArray()
-            print("*** Creating Xity Band And Business Data ***")
-        }
-        
-        //Gathering Weekly Picks
-        let op3 = BlockOperation {
-            xityShowController.getWeeklyPicks()
-            xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
-            
-            print("*** Collected Weekly Picks ***")
-        }
-        
-        //Connecting Todays Shows to Businesses
-        let op4 = BlockOperation {
-            //Collected Today's Shows
-            dateFormatter.dateFormat = timeController.monthDayYear
-            for todayShow in xityShowController.showArray {
-                let stringDate = dateFormatter.string(from: todayShow.show.date)
-                if stringDate == timeController.todayString {
-                    xityShowController.todayShowArray.removeAll(where: {$0 == todayShow})
-                    xityShowController.todayShowArray.append(todayShow)
-                }
-            }
-            xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
-            print("*** Collected Today's Shows ***")
-        }
-        
-        let op1 = BlockOperation {
-            //Creating Xity Show Data
-            let genericBand = Band(name: "No Name")
-            let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
-            print("op3 Started")
-            var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
-            showArray.removeAll(where: {$0.onHold == true})
-            
-            let businessArray = businessController.businessArray
-            let bandArray = bandController.bandArray
-            
-            for show in showArray {
-                print(show.band)
-                
-                //This protects against missing bands and missing businesses***
-                var  band = bandArray.first(where: {$0.name == show.band})
-                if band == nil {
-                    band = genericBand
-                }
-                
-                var business = businessArray.first(where: {$0.name == show.venue})
-                if business == nil {
-                    business = genericBusiness
-                }
-                //******
-                
-                let xity = XityShow(band: band!, business: business!, show: show)
-                xityShowController.showArray.append(xity)
-                
-            }
-            print("*** Creating Xity Show Data ***")
-        }
-        
-        
-        let finalOp = BlockOperation {
-            DispatchQueue.main.async {
-                self.todayCollectionView.reloadData()
-                self.xityPickCollectionView.reloadData()
-                self.scrollView.refreshControl?.endRefreshing()
-            }
-        }
-        
-        op1.addDependency(checkDataBase)
-        op2.addDependency(op1)
-        op3.addDependency(op2)
-        op4.addDependency(op3)
-        opQueue.addOperations([checkDataBase, op1, op2, op3, op4, finalOp], waitUntilFinished: true)
-        
-        
+        //Future SwipeDown Refresh
     }
     //----- Refresh Data End -----
     
@@ -308,6 +255,9 @@ extension DashboardViewController {
     
     
     private func notificationObservers() {
+        //Reload Collection View Data
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadDashboardCVData.name, object: nil)
+        
         //Hide Views
         notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
         
@@ -374,7 +324,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
             return 50
         case todayCollectionView:
-            return xityShowController.todayShowArray.count
+            return xityShowController.todayShowResultsArray.count
         case citiesCollectionView:
             return businessController.citiesArray.count
         case venueCollectionView:
@@ -406,7 +356,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! BandVenueCollectionViewCell
-            venueCell.venue = xityShowController.todayShowArray[indexPath.row].business
+            venueCell.venue = xityShowController.todayShowResultsArray[indexPath.row].business
             return venueCell
             
         case citiesCollectionView:
@@ -470,7 +420,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             endTimer()
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let selected = xityShowController.todayShowArray[indexPath!.row]
+            let selected = xityShowController.todayShowResultsArray[indexPath!.row]
             let business = selected.business
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
             businessVC.xityBusiness = xityBusiness

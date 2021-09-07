@@ -39,7 +39,6 @@ class Notifications {
     let gotCacheShowData = Notification(name: Notification.Name(rawValue: "GotCacheShowData"))
     let gotCacheBusinessAdData = Notification(name: Notification.Name(rawValue: "GotCacheBusinessAdData"))
     
-    
     let databaseError = Notification(name: Notification.Name(rawValue: "DatabaseError"))
     let databaseSuccess = Notification(name: Notification.Name(rawValue: "DatabaseSuccess"))
     
@@ -54,6 +53,9 @@ class Notifications {
     
     //UI
     let modalDismissed = Notification(name: Notification.Name(rawValue: "ModalDismissed"))
+    
+    //Dashboard notifications
+    let reloadDashboardCVData = Notification(name: Notification.Name(rawValue: "reloadDashboardCVData"))
 }
 
 let notifications = Notifications()
