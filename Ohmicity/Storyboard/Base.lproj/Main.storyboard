@@ -31,7 +31,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHT-cb-nit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2115" y="-306"/>
+            <point key="canvasLocation" x="-3343" y="-975"/>
         </scene>
         <!--Load Init Data View Controller-->
         <scene sceneID="Rvk-4W-YPJ">
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCs-Pg-jIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2896.2616822429904" y="-306.47948164146868"/>
+            <point key="canvasLocation" x="-4124" y="-975"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="awe-Of-PtB">
@@ -1505,7 +1505,7 @@ should be on Xity?</string>
             <objects>
                 <tableViewController id="evY-Al-06O" customClass="PreferredCityTableViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="75" sectionFooterHeight="1" id="E6c-FS-LnG">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.094117647058823528" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="PCx-l0-vAd"/>
@@ -1876,6 +1876,9 @@ should be on Xity?</string>
                                                 <state key="normal" title="Xity Exclusives">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="cl4-3c-m7h" kind="presentation" modalPresentationStyle="fullScreen" id="DTx-Mo-6M0"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PRD-v0-GZh" userLabel="Citites Collection View">
                                                 <rect key="frame" x="0.0" y="644" width="428" height="105"/>
@@ -2062,7 +2065,7 @@ should be on Xity?</string>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
                                                 <rect key="frame" x="9" y="1117" width="197" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Xity Weekly Picks">
@@ -2648,9 +2651,10 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pjQ-BQ-c07"/>
-        <segue reference="phR-fw-lgs"/>
-        <segue reference="TcN-tS-g4U"/>
+        <segue reference="xvY-CC-YbG"/>
+        <segue reference="DTx-Mo-6M0"/>
+        <segue reference="30H-i8-TRl"/>
+        <segue reference="K8R-a5-UCO"/>
         <segue reference="nhG-zm-tK4"/>
     </inferredMetricsTieBreakers>
     <resources>
