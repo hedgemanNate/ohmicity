@@ -17,6 +17,7 @@ enum AccountType: String, Codable, Equatable {
 class CurrentUser: Codable {
     let userID: String
     var accountType: AccountType = .Consumer
+    var subscription: SubscriptionType = .None
     var lastModified: Timestamp?
     var email: String
     var savedShows: [String] = []

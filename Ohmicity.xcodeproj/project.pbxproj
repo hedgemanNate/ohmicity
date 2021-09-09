@@ -22,9 +22,7 @@
 		F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849926CB507000C9226F /* dashboardInactive.png */; };
 		F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60B849E26CB6DDA00C9226F /* DashboardTabBar.swift */; };
 		F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = F60DDB8D269E483E009DD827 /* BandVenueBorder.png */; };
-		F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */; };
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
-		F60E865426CC5DB3001DE21A /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E865326CC5DB3001DE21A /* loginLogo.png */; };
 		F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E865626CC8952001DE21A /* TemporaryViewController.swift */; };
 		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
 		F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C370326B64E2200A2235B /* VenueDetailViewController.swift */; };
@@ -64,7 +62,6 @@
 		F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991042697E2A0000FDC5E /* BusinessController.swift */; };
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
 		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
-		F67E64E426B0A4A400ED75D0 /* bannerAdExample1.png in Resources */ = {isa = PBXBuildFile; fileRef = F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
 		F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6923D25264E7F6400A2E036 /* DashboardViewController.swift */; };
@@ -81,6 +78,12 @@
 		F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE626C6179800C73CD6 /* XityBusinessController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
+		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
+		F6DBFDAB26E9BB5D001D7520 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */; };
+		F6DBFDAE26E9CE45001D7520 /* noAds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDAC26E9CE42001D7520 /* noAds.jpg */; };
+		F6DBFDB126E9CE56001D7520 /* unltdFavs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDB026E9CE53001D7520 /* unltdFavs.jpg */; };
+		F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */; };
+		F6DBFDB526E9DCC0001D7520 /* SubscriptionTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
 		F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */; };
 		F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */; };
@@ -115,9 +118,7 @@
 		F60B849926CB507000C9226F /* dashboardInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboardInactive.png; sourceTree = "<group>"; };
 		F60B849E26CB6DDA00C9226F /* DashboardTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBar.swift; sourceTree = "<group>"; };
 		F60DDB8D269E483E009DD827 /* BandVenueBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorder.png; sourceTree = "<group>"; };
-		F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OhmicityLogoNoTag.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
-		F60E865326CC5DB3001DE21A /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
 		F60E865626CC8952001DE21A /* TemporaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TemporaryViewController.swift; path = Temporary/TemporaryViewController.swift; sourceTree = "<group>"; };
 		F60EB6362656D3C400CDB6F6 /* goTonight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goTonight.json; sourceTree = "<group>"; };
 		F61C370326B64E2200A2235B /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		F67991042697E2A0000FDC5E /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
 		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
-		F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerAdExample1.png; sourceTree = "<group>"; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
 		F6923D25264E7F6400A2E036 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +174,12 @@
 		F699FFE626C6179800C73CD6 /* XityBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBusinessController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
+		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
+		F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		F6DBFDAC26E9CE42001D7520 /* noAds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noAds.jpg; sourceTree = "<group>"; };
+		F6DBFDB026E9CE53001D7520 /* unltdFavs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unltdFavs.jpg; sourceTree = "<group>"; };
+		F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionType.swift; sourceTree = "<group>"; };
+		F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTypeController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewCell.swift; sourceTree = "<group>"; };
 		F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewController.swift; sourceTree = "<group>"; };
@@ -248,12 +254,11 @@
 				F640DD14264E4BB700959358 /* Login */,
 				F62FEB6B26562A1A008DEF64 /* Settings */,
 				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
-				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
+				F6DBFDA926E9BAE6001D7520 /* Tab View Controllers */,
 				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
-				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
-				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
 				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
 				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
+				F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,14 +300,13 @@
 			children = (
 				F6761ED026E6C0A400604E94 /* Business Band Shared Images */,
 				F61C370A26B66F8500A2235B /* brickBackground.png */,
+				F6DBFDA826E9B161001D7520 /* Puchase Images */,
 				F60B849B26CB507C00C9226F /* Tab Bar */,
 				F61C370526B64E5A00A2235B /* Button Icons And BG's */,
 				F6F3DB3C26AF331C00C49016 /* Cell Images */,
 				F6F3DB3D26AF333B00C49016 /* City Images */,
 				F6F3DB3E26AF335100C49016 /* Business Type Images */,
 				F60E865526CC5DB9001DE21A /* Login Images */,
-				F60E6BCE2648F48A001CA06E /* OhmicityLogoNoTag.png */,
-				F67E64E326B0A4A200ED75D0 /* bannerAdExample1.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -311,7 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				F60E6BD62648F7C8001CA06E /* PurpleBG.png */,
-				F60E865326CC5DB3001DE21A /* loginLogo.png */,
+				F6DBFDA626E9900B001D7520 /* loginLogo.png */,
 			);
 			path = "Login Images";
 			sourceTree = "<group>";
@@ -398,6 +402,7 @@
 				F699FFE026C6121A00C73CD6 /* XityBusiness.swift */,
 				F699FFE226C613C400C73CD6 /* XityBand.swift */,
 				F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */,
+				F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,8 +426,28 @@
 				F676F1022699496200C47599 /* ShowController.swift */,
 				F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */,
 				F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */,
+				F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		F6DBFDA826E9B161001D7520 /* Puchase Images */ = {
+			isa = PBXGroup;
+			children = (
+				F6DBFDAC26E9CE42001D7520 /* noAds.jpg */,
+				F6DBFDB026E9CE53001D7520 /* unltdFavs.jpg */,
+			);
+			path = "Puchase Images";
+			sourceTree = "<group>";
+		};
+		F6DBFDA926E9BAE6001D7520 /* Tab View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
+				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
+				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
+			);
+			path = "Tab View Controllers";
 			sourceTree = "<group>";
 		};
 		F6F3DB3C26AF331C00C49016 /* Cell Images */ = {
@@ -539,22 +564,22 @@
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
 				F6F3DB4A26AF337C00C49016 /* family.png in Resources */,
 				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
-				F60E6BCF2648F48A001CA06E /* OhmicityLogoNoTag.png in Resources */,
 				F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */,
 				F696A73826AB7079009CB1BD /* ybor.png in Resources */,
 				F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */,
 				F60B849626CB4D1800C9226F /* tabBar.png in Resources */,
-				F60E865426CC5DB3001DE21A /* loginLogo.png in Resources */,
 				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
+				F6DBFDB126E9CE56001D7520 /* unltdFavs.jpg in Resources */,
 				F60B849826CB506D00C9226F /* dashboardActive.png in Resources */,
 				F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */,
 				F696A73426AB7079009CB1BD /* tampa.png in Resources */,
+				F6DBFDAE26E9CE45001D7520 /* noAds.jpg in Resources */,
 				F6F3DB4826AF337C00C49016 /* bar.png in Resources */,
+				F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */,
 				F6F3DB4626AF337C00C49016 /* club.png in Resources */,
 				F61C370926B64E5B00A2235B /* listenButton.png in Resources */,
-				F67E64E426B0A4A400ED75D0 /* bannerAdExample1.png in Resources */,
 				F696A73726AB7079009CB1BD /* venice.png in Resources */,
 				F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */,
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
@@ -636,6 +661,7 @@
 			files = (
 				F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */,
 				F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */,
+				F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */,
 				F67991002697AB54000FDC5E /* Notifications.swift in Sources */,
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
@@ -654,6 +680,7 @@
 				F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */,
 				F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */,
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
+				F6DBFDAB26E9BB5D001D7520 /* PurchaseViewController.swift in Sources */,
 				F676F0F926991C6C00C47599 /* Show.swift in Sources */,
 				F699FFE126C6121A00C73CD6 /* XityBusiness.swift in Sources */,
 				F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */,
@@ -665,6 +692,7 @@
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
+				F6DBFDB526E9DCC0001D7520 /* SubscriptionTypeController.swift in Sources */,
 				F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */,
 				F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,
