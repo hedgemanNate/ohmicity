@@ -1033,12 +1033,14 @@ Florida 34222 </string>
                         <outlet property="recommendButton" destination="0XX-7s-JZD" id="Dew-ZI-PVK"/>
                         <outlet property="showTimeLabel" destination="bJS-el-yD1" id="coZ-Qa-cEm"/>
                         <outlet property="tonightsEntLabel" destination="5Ht-a8-dTe" id="7Wh-Ss-I2V"/>
+                        <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="399-hH-aSp"/>
+                        <segue destination="2DA-HL-hxQ" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="Yuz-ED-LqK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="5ac-YL-HRn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-493.45794392523362" y="283.80129589632833"/>
+            <point key="canvasLocation" x="-464" y="275"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="rtp-Rd-53p">
@@ -2929,9 +2931,10 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xvY-CC-YbG"/>
+        <segue reference="Yuz-ED-LqK"/>
+        <segue reference="Wv8-HY-qnG"/>
         <segue reference="DTx-Mo-6M0"/>
-        <segue reference="30H-i8-TRl"/>
+        <segue reference="399-hH-aSp"/>
         <segue reference="kUb-o8-2UV"/>
         <segue reference="nhG-zm-tK4"/>
     </inferredMetricsTieBreakers>

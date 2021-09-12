@@ -112,7 +112,9 @@ class VenueDetailViewController: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: favoriteButtonTapped: venueDetailViewController")}
         
-        if currentUser != nil {
+        
+        
+        if currentUser != nil && (currentUser?.subscription == .BackStagePass || currentUser?.subscription == .FullAccessPass) {
             if currentUser!.favoriteBusinesses.contains(xityBusiness.business.venueID) {
                 currentUser!.favoriteBusinesses.removeAll(where: {$0 == xityBusiness.business.venueID})
                 NSLog("Business Removed From Favorites")
@@ -141,9 +143,10 @@ class VenueDetailViewController: UIViewController {
                     NSLog("Error Pushing favoriteBusiness")
                 }
             }
-        } else {
-            return
-            //Present Alert View To Tell User To Sign iIn
+        } else if currentUser == nil {
+            self.performSegue(withIdentifier: "ToSignIn", sender: self)
+        } else if currentUser?.subscription == .FrontRowPass {
+            performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
         }
         
         print(currentUser!.favoriteBusinesses)
