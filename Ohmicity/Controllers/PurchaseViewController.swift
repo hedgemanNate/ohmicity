@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class PurchaseViewController: UIViewController {
     //Properties
@@ -18,29 +20,36 @@ class PurchaseViewController: UIViewController {
     @IBOutlet weak var priceTextField: UILabel!
     @IBOutlet weak var pageController: UIPageControl!
     
+    //Views
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        initSubscriptionType()
         setupCollectionView()
     }
     
     //MARK: Button Actions
     @IBAction func dismissButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func try7DaysFreeButtonTapped(_ sender: Any) {
     }
     
+    @IBAction func listOfPassFeaturesButtonTapped(_ sender: Any) {
+    }
+    
+    
     @IBAction func pageControllerValueChanged(_ sender: Any) {
         switch pageController.currentPage {
-        case 1:
+        case 0:
             priceTextField.text = "Then $1.99 per month. Cancel Anytime."
-        case 2:
+        case 1:
             priceTextField.text = "Then $4.99 per month. Cancel Anytime."
-        case 3:
+        case 2:
             priceTextField.text = "Then $6.99 per month. Cancel Anytime."
         default:
             break
@@ -51,8 +60,22 @@ class PurchaseViewController: UIViewController {
     
     //MARK: UpdateViews
     private func updateViews() {
-        try7DaysFreeButton.layer.cornerRadius = 25
+        try7DaysFreeButton.layer.cornerRadius = 6
         
+    }
+    
+    private func initSubscriptionType() {
+        if currentUserController.currentUser != nil && currentUserController.currentUser?.subscription == nil {
+            currentUserController.currentUser?.subscription = .None
+            
+            do {
+                currentUserController.currentUser?.lastModified = Timestamp()
+                try ref.userDataPath.document(currentUserController.currentUser!.userID).setData(from: currentUserController.currentUser)
+            } catch {
+                NSLog("Error setting subscriptionType to currentUser in Firebase: PurchaseViewController")
+            }
+            
+        }
     }
     
     //MARK: Functions
@@ -77,7 +100,7 @@ class PurchaseViewController: UIViewController {
 //MARK: Collection VIew
 extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return subscriptionTypeController.inAppPurchaseArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,6 +120,7 @@ extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDe
         case purchaseCollectionView:
             let x = targetContentOffset.pointee.x
             pageController.currentPage = Int(x / view.frame.width)
+            print(x/view.frame.width)
         default:
             break
         }

@@ -74,7 +74,8 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             if user == nil {
                 //Future function for no user signed in
                 print("NO USERS SIGN IN!!!!!!!")
-            } else {                
+            } else {
+                currentUserController.assignCurrentUser()
                 self.dismiss(animated: true, completion: nil)
             }
       }

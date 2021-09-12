@@ -64,6 +64,8 @@
 		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
+		F68848C126ED8782001D06C5 /* rate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F68848BF26ED8779001D06C5 /* rate.jpg */; };
+		F68848C226ED8782001D06C5 /* reminders.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F68848C026ED877E001D06C5 /* reminders.jpg */; };
 		F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6923D25264E7F6400A2E036 /* DashboardViewController.swift */; };
 		F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */; };
 		F696A73426AB7079009CB1BD /* tampa.png in Resources */ = {isa = PBXBuildFile; fileRef = F696A72E26AB7072009CB1BD /* tampa.png */; };
@@ -161,6 +163,8 @@
 		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
+		F68848BF26ED8779001D06C5 /* rate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rate.jpg; sourceTree = "<group>"; };
+		F68848C026ED877E001D06C5 /* reminders.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reminders.jpg; sourceTree = "<group>"; };
 		F6923D25264E7F6400A2E036 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		F696A72E26AB7072009CB1BD /* tampa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tampa.png; sourceTree = "<group>"; };
@@ -437,6 +441,8 @@
 		F6DBFDA826E9B161001D7520 /* Puchase Images */ = {
 			isa = PBXGroup;
 			children = (
+				F68848BF26ED8779001D06C5 /* rate.jpg */,
+				F68848C026ED877E001D06C5 /* reminders.jpg */,
 				F6DBFDAC26E9CE42001D7520 /* noAds.jpg */,
 				F6DBFDB026E9CE53001D7520 /* unltdFavs.jpg */,
 			);
@@ -570,7 +576,9 @@
 				F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */,
+				F68848C126ED8782001D06C5 /* rate.jpg in Resources */,
 				F696A73826AB7079009CB1BD /* ybor.png in Resources */,
+				F68848C226ED8782001D06C5 /* reminders.jpg in Resources */,
 				F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */,
 				F60B849626CB4D1800C9226F /* tabBar.png in Resources */,
 				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,

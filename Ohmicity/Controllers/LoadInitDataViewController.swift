@@ -55,6 +55,7 @@ class LoadInitDataViewController: UIViewController {
         addNotificationObservers()
         updateViewController()
         currentUserController.assignCurrentUser()
+        subscriptionTypeController.setUpInAppPurchaseArray()
         lmDateHandler.checkDateAndGetData() 
         
         //resetCache

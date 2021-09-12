@@ -73,6 +73,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         startTimer()
     }
     
@@ -81,11 +82,24 @@ class DashboardViewController: UIViewController {
         endTimer()
     }
     
+    @IBAction func cityFilterButtonTapped(_ sender: Any) {
+        switch currentUserController.currentUser?.subscription {
+        case .none:
+            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+        case .some(.FrontRowPass):
+            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+        case .some(.FullAccessPass):
+            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
+        case .some(.None):
+            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+        case .some(.BackStagePass):
+            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
+        
+        }
+    }
     
     @IBAction func breaker(_ sender: Any) {
-        for show in xityShowController.todayShowResultsArray {
-            print(show.show.city)
-        }
+        
     }
 }
 
@@ -104,6 +118,15 @@ extension DashboardViewController {
             hiddenSignUpView.isHidden = true
         }
         
+    }
+    
+    private func checkSubscription() {
+        switch userAdController.shouldShowAds {
+        case true:
+            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+        default:
+            break
+        }
     }
     
     @objc private func reloadData() {
