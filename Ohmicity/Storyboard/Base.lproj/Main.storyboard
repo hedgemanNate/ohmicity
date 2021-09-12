@@ -2625,10 +2625,10 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="1010.7476635514018" y="66.738660907127439"/>
         </scene>
-        <!--View Controller-->
+        <!--Purchase View Controller-->
         <scene sceneID="hcL-OL-xMo">
             <objects>
-                <viewController id="2DA-HL-hxQ" sceneMemberID="viewController">
+                <viewController id="2DA-HL-hxQ" customClass="PurchaseViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B2a-bI-qgV">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2663,7 +2663,7 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="trailing" secondItem="LIA-E9-z5K" secondAttribute="trailing" id="ujX-an-HIv"/>
                                                 </constraints>
                                             </stackView>
-                                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OFZ-qK-io6">
+                                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OFZ-qK-io6">
                                                 <rect key="frame" x="0.0" y="250.66666666666663" width="428" height="325"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="325" id="2iV-pZ-356"/>
@@ -2675,7 +2675,7 @@ should be on Xity?</string>
                                                     <inset key="sectionInset" minX="47" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ymR-d0-fo9">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PurchaseCell" id="ymR-d0-fo9" customClass="PurchaseCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
                                                         <rect key="frame" x="47" y="-13.666666666666666" width="333" height="352"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hme-Il-KHw">
@@ -2685,21 +2685,24 @@ should be on Xity?</string>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxx-cn-QE3" userLabel="Whole View Holder">
                                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="352"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-Ij-TXX" userLabel="Whole Stack View">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-Ij-TXX" userLabel="Whole Stack View">
                                                                             <rect key="frame" x="52" y="46" width="229" height="260"/>
                                                                             <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="feD-zL-Bhn" userLabel="Top Text Stack View">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="82"/>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feD-zL-Bhn" userLabel="Top Text Stack View">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="79"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nah-q0-wWe">
-                                                                                            <rect key="frame" x="90.333333333333343" y="0.0" width="48.666666666666657" height="30.333333333333332"/>
+                                                                                            <rect key="frame" x="90.333333333333343" y="0.0" width="48.666666666666657" height="21.666666666666668"/>
                                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
                                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some Description of services and features granted by the pass." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rMJ-EE-qrK">
-                                                                                            <rect key="frame" x="0.0" y="38.333333333333329" width="229" height="43.666666666666671"/>
+                                                                                            <rect key="frame" x="0.0" y="29" width="229" height="50"/>
                                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="50" id="Lpc-bq-iRe"/>
+                                                                                            </constraints>
                                                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2773,11 +2776,19 @@ should be on Xity?</string>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="333" height="352"/>
+                                                        <connections>
+                                                            <outlet property="descriptionTextView" destination="rMJ-EE-qrK" id="oHT-qp-P9L"/>
+                                                            <outlet property="icon1ImageView" destination="s9f-p4-8X9" id="W0k-28-73q"/>
+                                                            <outlet property="icon1Label" destination="yPf-r6-eYO" id="aw2-xk-Gg7"/>
+                                                            <outlet property="icon2ImageView" destination="1T2-pz-vbc" id="tOh-JL-taJ"/>
+                                                            <outlet property="icon2Label" destination="Ssc-rt-BPm" id="H1e-iy-V1B"/>
+                                                            <outlet property="titleLabel" destination="nah-q0-wWe" id="0mc-eU-ux2"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-l8-UpU" userLabel="Bottom Button Stack View">
-                                                <rect key="frame" x="70" y="596.66666666666663" width="288" height="103"/>
+                                                <rect key="frame" x="70" y="603.66666666666663" width="288" height="103"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exd-CX-ug6">
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="72"/>
@@ -2789,6 +2800,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Try 7 Days Free">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="try7DaysFreeButtonTapped:" destination="2DA-HL-hxQ" eventType="touchUpInside" id="6NO-Ux-O9r"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then $1.99 per month. Cancel Anytime." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5un-kX-t3H">
                                                         <rect key="frame" x="0.0" y="86" width="288" height="17"/>
@@ -2799,28 +2813,48 @@ should be on Xity?</string>
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UWV-iz-fdY">
-                                                <rect key="frame" x="14" y="741.66666666666663" width="400" height="168.33333333333337"/>
+                                                <rect key="frame" x="14" y="748.66666666666663" width="400" height="161.33333333333337"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Subscription automatically renews, unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. Subscriptions may be managed and auto- renewal turned off in Account Settings. The subscription fee will be charged to iTunes account at confirmation of purchase. Any unused portion of a trial period will be forfeited once upgraded to the subscription.</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knl-sZ-A3I">
+                                                <rect key="frame" x="357" y="62.999999999999993" width="24.333333333333314" height="23.666666666666664"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="dismissButtonTapped:" destination="2DA-HL-hxQ" eventType="touchUpInside" id="yF0-hv-XeR"/>
+                                                </connections>
+                                            </button>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-Gy-e1Q">
+                                                <rect key="frame" x="154" y="575.66666666666663" width="120.33333333333331" height="26.333333333333371"/>
+                                                <connections>
+                                                    <action selector="pageControllerValueChanged:" destination="2DA-HL-hxQ" eventType="valueChanged" id="8Wk-kt-nFY"/>
+                                                </connections>
+                                            </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Knl-sZ-A3I" firstAttribute="leading" secondItem="nyp-nA-YWU" secondAttribute="trailing" constant="32" id="1E3-0r-Jff"/>
+                                            <constraint firstItem="BlX-Gy-e1Q" firstAttribute="top" secondItem="OFZ-qK-io6" secondAttribute="bottom" id="2F5-Si-DmG"/>
                                             <constraint firstItem="UWV-iz-fdY" firstAttribute="leading" secondItem="tqf-J5-Wz6" secondAttribute="leading" constant="14" id="4JW-4S-W8h"/>
                                             <constraint firstAttribute="trailing" secondItem="3gT-l8-UpU" secondAttribute="trailing" constant="70" id="8Os-4R-cYx"/>
+                                            <constraint firstItem="BlX-Gy-e1Q" firstAttribute="centerX" secondItem="tqf-J5-Wz6" secondAttribute="centerX" id="9pB-d2-by3"/>
                                             <constraint firstItem="nyp-nA-YWU" firstAttribute="top" secondItem="tqf-J5-Wz6" secondAttribute="top" constant="63" id="DbC-D8-hP2"/>
                                             <constraint firstAttribute="height" constant="926" id="Hau-tn-s9q"/>
                                             <constraint firstItem="3gT-l8-UpU" firstAttribute="leading" secondItem="tqf-J5-Wz6" secondAttribute="leading" constant="70" id="TtJ-Yb-VaJ"/>
                                             <constraint firstAttribute="trailing" secondItem="OFZ-qK-io6" secondAttribute="trailing" id="WP0-qq-b9s"/>
                                             <constraint firstItem="OFZ-qK-io6" firstAttribute="centerY" secondItem="tqf-J5-Wz6" secondAttribute="centerY" constant="-50" id="XrZ-bl-RS7"/>
-                                            <constraint firstItem="3gT-l8-UpU" firstAttribute="top" secondItem="OFZ-qK-io6" secondAttribute="bottom" constant="21" id="ZxK-2A-Pf6"/>
+                                            <constraint firstItem="3gT-l8-UpU" firstAttribute="top" secondItem="OFZ-qK-io6" secondAttribute="bottom" constant="28" id="ZxK-2A-Pf6"/>
                                             <constraint firstItem="UWV-iz-fdY" firstAttribute="top" secondItem="3gT-l8-UpU" secondAttribute="bottom" constant="42" id="b34-Ca-BW7"/>
                                             <constraint firstItem="nyp-nA-YWU" firstAttribute="centerX" secondItem="tqf-J5-Wz6" secondAttribute="centerX" id="cxE-ed-K05"/>
                                             <constraint firstItem="OFZ-qK-io6" firstAttribute="leading" secondItem="tqf-J5-Wz6" secondAttribute="leading" id="dTX-Ww-r8m"/>
                                             <constraint firstItem="OFZ-qK-io6" firstAttribute="centerX" secondItem="tqf-J5-Wz6" secondAttribute="centerX" id="eje-11-aAH"/>
+                                            <constraint firstItem="Knl-sZ-A3I" firstAttribute="top" secondItem="nyp-nA-YWU" secondAttribute="top" id="f6z-AX-rpc"/>
                                             <constraint firstAttribute="trailing" secondItem="UWV-iz-fdY" secondAttribute="trailing" constant="14" id="hEt-4G-DSg"/>
                                             <constraint firstItem="OFZ-qK-io6" firstAttribute="top" secondItem="nyp-nA-YWU" secondAttribute="bottom" constant="21" id="t9s-WC-Y9i"/>
                                             <constraint firstAttribute="bottom" secondItem="UWV-iz-fdY" secondAttribute="bottom" constant="16" id="vog-1a-GMK"/>
@@ -2846,6 +2880,13 @@ should be on Xity?</string>
                             <constraint firstItem="J5M-yW-OuG" firstAttribute="trailing" secondItem="HMV-Ma-T5M" secondAttribute="trailing" id="ges-gU-MoG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="Knl-sZ-A3I" id="63v-Kn-W3I"/>
+                        <outlet property="pageController" destination="BlX-Gy-e1Q" id="t5v-He-XfJ"/>
+                        <outlet property="priceTextField" destination="5un-kX-t3H" id="LoU-ru-LLX"/>
+                        <outlet property="purchaseCollectionView" destination="OFZ-qK-io6" id="6jq-Vl-89d"/>
+                        <outlet property="try7DaysFreeButton" destination="exd-CX-ug6" id="0HH-Rm-XWE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyG-7O-q1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2901,6 +2942,7 @@ should be on Xity?</string>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="unltdFavs.jpg" width="500" height="500"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

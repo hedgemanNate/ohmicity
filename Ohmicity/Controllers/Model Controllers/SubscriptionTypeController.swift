@@ -13,19 +13,17 @@ class SubscriptionTypeController {
     //Properties
     var inAppPurchaseArray: [Subscription] = []
     
-    //Icons
-    let noAdsIcon = UIImage(named: "noAds.jpg")
-    let unlimitedFavsIcon = UIImage(named: "unltdFavs.jpg")
+    //Features
+    let noAdsFeature = Feature(image: UIImage(named: "noAds.jpg") ?? UIImage(), name: "No Ads")
+    let unlimitedFavsFeature = Feature(image: UIImage(named: "unltdFavs.jpg") ?? UIImage(), name: "Unlimited Favorites")
     
     //Descriptions
-    let frpDescription = ""
+    let frpDescription = "No more Popup Ads and save as many Bands and Venues as you like!"
     let bspDescription = ""
     let fapDescription = ""
     
     func setUpInAppPurchaseArray() {
-        guard let noAdsIcon = noAdsIcon else {return}
-        guard let unlimitedFavsIcon = unlimitedFavsIcon else {return}
-        let frpPurchase = Subscription(type: .FrontRowPass, description: frpDescription, icons: [noAdsIcon, unlimitedFavsIcon], price: "$1.99")
+        let frpPurchase = Subscription(type: .FrontRowPass, description: frpDescription, features: [noAdsFeature, unlimitedFavsFeature], price: "$1.99")
         
         
         
@@ -33,3 +31,5 @@ class SubscriptionTypeController {
     }
     
 }
+
+let subscriptionTypeController = SubscriptionTypeController()

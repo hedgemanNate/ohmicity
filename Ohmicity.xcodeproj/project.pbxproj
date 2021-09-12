@@ -95,6 +95,7 @@
 		F6F3DB4826AF337C00C49016 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4226AF337800C49016 /* bar.png */; };
 		F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4326AF337900C49016 /* livemusic.png */; };
 		F6F3DB4A26AF337C00C49016 /* family.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4426AF337B00C49016 /* family.png */; };
+		F6FD18CA26EAB74400B145AC /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD18C926EAB74400B145AC /* PurchaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +192,7 @@
 		F6F3DB4226AF337800C49016 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		F6F3DB4326AF337900C49016 /* livemusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livemusic.png; sourceTree = "<group>"; };
 		F6F3DB4426AF337B00C49016 /* family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = family.png; sourceTree = "<group>"; };
+		F6FD18C926EAB74400B145AC /* PurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 				F696A72C26AB623A009CB1BD /* CitiesCollectionViewCell.swift */,
 				F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */,
 				F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */,
+				F6FD18C926EAB74400B145AC /* PurchaseCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */,
 				F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */,
 				F67991002697AB54000FDC5E /* Notifications.swift in Sources */,
+				F6FD18CA26EAB74400B145AC /* PurchaseCollectionViewCell.swift in Sources */,
 				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,

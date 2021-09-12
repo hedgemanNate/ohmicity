@@ -18,6 +18,11 @@ enum SubscriptionType: String, Codable, Equatable {
 struct Subscription {
     var type: SubscriptionType
     var description: String
-    var icons: [UIImage] = []
+    var features: [Feature] = []
     var price: String
+}
+
+struct Feature {
+    let image: UIImage
+    let name: String
 }
