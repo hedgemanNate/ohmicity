@@ -21,7 +21,23 @@ class PurchaseViewController: UIViewController {
     @IBOutlet weak var pageController: UIPageControl!
     
     //Views
-    
+    var purchaseDetailsSet: Int? {
+        didSet {
+            print(purchaseDetailsSet!)
+            DispatchQueue.main.async { [self] in
+                switch purchaseDetailsSet {
+                case 0:
+                    priceTextField.text = "Then $1.99 per month. Cancel Anytime."
+                case 347:
+                    priceTextField.text = "Then $4.99 per month. Cancel Anytime."
+                case 2:
+                    priceTextField.text = "Then $6.99 per month. Cancel Anytime."
+                default:
+                    break
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +60,7 @@ class PurchaseViewController: UIViewController {
     
     
     @IBAction func pageControllerValueChanged(_ sender: Any) {
-        switch pageController.currentPage {
-        case 0:
-            priceTextField.text = "Then $1.99 per month. Cancel Anytime."
-        case 1:
-            priceTextField.text = "Then $4.99 per month. Cancel Anytime."
-        case 2:
-            priceTextField.text = "Then $6.99 per month. Cancel Anytime."
-        default:
-            break
-        }
+        
     }
     
     
@@ -111,6 +118,10 @@ extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDe
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 45
+    }
+    
     
     
     
@@ -118,9 +129,14 @@ extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDe
         
         switch scrollView {
         case purchaseCollectionView:
+            
+            //Page Controller Code
             let x = targetContentOffset.pointee.x
-            pageController.currentPage = Int(x / view.frame.width)
-            print(x/view.frame.width)
+            let num = x.rounded(.awayFromZero)
+            print(num)
+            purchaseDetailsSet = Int(num)
+            pageController.currentPage = Int(num)
+           
         default:
             break
         }

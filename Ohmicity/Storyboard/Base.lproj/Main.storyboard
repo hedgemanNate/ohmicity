@@ -2236,7 +2236,7 @@ should be on Xity?</string>
                                                     <constraint firstItem="eln-43-wph" firstAttribute="leading" secondItem="dRP-dE-0cc" secondAttribute="leading" id="yUI-tN-HQ8"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
                                                 <rect key="frame" x="312" y="260.66666666666669" width="100" height="30"/>
                                                 <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Break">
@@ -2674,31 +2674,31 @@ should be on Xity?</string>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="352" id="2iV-pZ-356"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OUj-IX-6vr">
-                                                    <size key="itemSize" width="278" height="352"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OUj-IX-6vr">
+                                                    <size key="itemSize" width="300" height="352"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="47" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="sectionInset" minX="65" minY="0.0" maxX="65" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PurchaseCell" id="ymR-d0-fo9" customClass="PurchaseCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
-                                                        <rect key="frame" x="47" y="0.0" width="333" height="352"/>
+                                                        <rect key="frame" x="65" y="0.0" width="300" height="352"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sIn-oZ-xuN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="333" height="352"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="352"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxx-cn-QE3" userLabel="Whole View Holder">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="352"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="352"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nah-q0-wWe">
-                                                                            <rect key="frame" x="52" y="35" width="229" height="30.333333333333329"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                                                            <rect key="frame" x="14" y="35" width="272" height="31"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Some Description of services and features granted by the pass." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rMJ-EE-qrK">
-                                                                            <rect key="frame" x="52" y="72.333333333333329" width="229" height="86.999999999999986"/>
+                                                                            <rect key="frame" x="35" y="73" width="230" height="87"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="87" id="9rK-0K-v9J"/>
@@ -2708,14 +2708,14 @@ should be on Xity?</string>
                                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                         </textView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noAds.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s9f-p4-8X9">
-                                                                            <rect key="frame" x="52" y="166.33333333333334" width="99" height="99.000000000000028"/>
+                                                                            <rect key="frame" x="35" y="167" width="99" height="99"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="99" id="Dt6-sX-SBz"/>
                                                                                 <constraint firstAttribute="width" constant="99" id="Zn3-fU-pJJ"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Ads" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-r6-eYO">
-                                                                            <rect key="frame" x="52" y="272.33333333333331" width="99" height="45"/>
+                                                                            <rect key="frame" x="35" y="273" width="99" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="djO-sG-70F"/>
                                                                                 <constraint firstAttribute="height" constant="45" id="iXm-3n-Uf2"/>
@@ -2726,14 +2726,14 @@ should be on Xity?</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unltdFavs.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1T2-pz-vbc">
-                                                                            <rect key="frame" x="182" y="166.33333333333334" width="99" height="99.000000000000028"/>
+                                                                            <rect key="frame" x="166" y="167" width="99" height="99"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="99" id="FRC-BN-alp"/>
                                                                                 <constraint firstAttribute="width" constant="99" id="lCV-IR-9h8"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited Favorites" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssc-rt-BPm">
-                                                                            <rect key="frame" x="182" y="272.33333333333331" width="99" height="45"/>
+                                                                            <rect key="frame" x="166" y="273" width="99" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="n8F-vZ-cBe"/>
                                                                                 <constraint firstAttribute="height" constant="45" id="s30-wb-xYn"/>
@@ -2746,24 +2746,24 @@ should be on Xity?</string>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="s9f-p4-8X9" firstAttribute="leading" secondItem="nah-q0-wWe" secondAttribute="leading" id="3f9-AA-50w"/>
-                                                                        <constraint firstItem="nah-q0-wWe" firstAttribute="leading" secondItem="Oxx-cn-QE3" secondAttribute="leading" constant="52" id="5Y2-AD-vaI"/>
+                                                                        <constraint firstItem="nah-q0-wWe" firstAttribute="leading" secondItem="Oxx-cn-QE3" secondAttribute="leading" constant="14" id="5Y2-AD-vaI"/>
                                                                         <constraint firstAttribute="height" constant="352" id="AaP-OU-WeZ"/>
+                                                                        <constraint firstItem="rMJ-EE-qrK" firstAttribute="leading" secondItem="Oxx-cn-QE3" secondAttribute="leading" constant="35" id="BLA-9t-kaa"/>
                                                                         <constraint firstItem="rMJ-EE-qrK" firstAttribute="top" secondItem="nah-q0-wWe" secondAttribute="bottom" constant="7" id="Ct9-t6-ylZ"/>
+                                                                        <constraint firstItem="yPf-r6-eYO" firstAttribute="centerX" secondItem="s9f-p4-8X9" secondAttribute="centerX" id="FTR-ch-tyk"/>
                                                                         <constraint firstItem="1T2-pz-vbc" firstAttribute="top" secondItem="rMJ-EE-qrK" secondAttribute="bottom" constant="7" id="Fdc-DK-7mU"/>
-                                                                        <constraint firstItem="yPf-r6-eYO" firstAttribute="leading" secondItem="nah-q0-wWe" secondAttribute="leading" id="G1O-Ez-SMQ"/>
                                                                         <constraint firstItem="yPf-r6-eYO" firstAttribute="top" secondItem="s9f-p4-8X9" secondAttribute="bottom" constant="7" id="Mt8-Db-eaW"/>
-                                                                        <constraint firstItem="1T2-pz-vbc" firstAttribute="trailing" secondItem="nah-q0-wWe" secondAttribute="trailing" id="TJY-TY-S3K"/>
-                                                                        <constraint firstItem="Ssc-rt-BPm" firstAttribute="trailing" secondItem="nah-q0-wWe" secondAttribute="trailing" id="TXI-zb-uFC"/>
+                                                                        <constraint firstItem="s9f-p4-8X9" firstAttribute="leading" secondItem="Oxx-cn-QE3" secondAttribute="leading" constant="35" id="Ne8-v7-u66"/>
                                                                         <constraint firstItem="yPf-r6-eYO" firstAttribute="trailing" secondItem="s9f-p4-8X9" secondAttribute="trailing" id="TcQ-ZM-Kmw"/>
                                                                         <constraint firstAttribute="width" constant="333" id="Zuq-lW-WeL"/>
-                                                                        <constraint firstItem="rMJ-EE-qrK" firstAttribute="leading" secondItem="nah-q0-wWe" secondAttribute="leading" id="aE8-tC-bEt"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="rMJ-EE-qrK" secondAttribute="trailing" constant="35" id="bpb-rS-lNf"/>
                                                                         <constraint firstItem="s9f-p4-8X9" firstAttribute="top" secondItem="rMJ-EE-qrK" secondAttribute="bottom" constant="7" id="f32-xH-HXW"/>
+                                                                        <constraint firstItem="Ssc-rt-BPm" firstAttribute="centerX" secondItem="1T2-pz-vbc" secondAttribute="centerX" id="jNg-Zz-7Mu"/>
                                                                         <constraint firstItem="Ssc-rt-BPm" firstAttribute="top" secondItem="1T2-pz-vbc" secondAttribute="bottom" constant="7" id="kB2-3N-KtS"/>
                                                                         <constraint firstItem="nah-q0-wWe" firstAttribute="top" secondItem="Oxx-cn-QE3" secondAttribute="top" constant="35" id="lHd-7K-Eq4"/>
                                                                         <constraint firstItem="Ssc-rt-BPm" firstAttribute="leading" secondItem="1T2-pz-vbc" secondAttribute="leading" id="mDD-9H-TRR"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="nah-q0-wWe" secondAttribute="trailing" constant="52" id="nS3-RE-zsz"/>
-                                                                        <constraint firstItem="rMJ-EE-qrK" firstAttribute="trailing" secondItem="nah-q0-wWe" secondAttribute="trailing" id="y2k-rf-JFJ"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="nah-q0-wWe" secondAttribute="trailing" constant="14" id="nS3-RE-zsz"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="1T2-pz-vbc" secondAttribute="trailing" constant="35" id="rxy-eH-TeY"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -2775,7 +2775,7 @@ should be on Xity?</string>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <size key="customSize" width="333" height="352"/>
+                                                        <size key="customSize" width="300" height="352"/>
                                                         <connections>
                                                             <outlet property="descriptionTextView" destination="rMJ-EE-qrK" id="oHT-qp-P9L"/>
                                                             <outlet property="icon1ImageView" destination="s9f-p4-8X9" id="W0k-28-73q"/>
@@ -2844,7 +2844,7 @@ should be on Xity?</string>
                                                     <action selector="dismissButtonTapped:" destination="2DA-HL-hxQ" eventType="touchUpInside" id="yF0-hv-XeR"/>
                                                 </connections>
                                             </button>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-Gy-e1Q">
+                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-Gy-e1Q">
                                                 <rect key="frame" x="163" y="605.66666666666663" width="102.33333333333331" height="26"/>
                                                 <connections>
                                                     <action selector="pageControllerValueChanged:" destination="2DA-HL-hxQ" eventType="valueChanged" id="8Wk-kt-nFY"/>
@@ -2905,7 +2905,22 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyG-7O-q1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1.4018691588785046" y="-1521.3822894168468"/>
+            <point key="canvasLocation" x="-189" y="-1414"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bfd-No-aXW">
+            <objects>
+                <viewController id="mSG-LM-SfR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jHi-HU-slR">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="CMk-Bp-8ws"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJP-sy-Wya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="-1414"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9kl-2i-Ufr">
@@ -2931,10 +2946,10 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yuz-ED-LqK"/>
-        <segue reference="Wv8-HY-qnG"/>
+        <segue reference="Zxp-OZ-fdc"/>
+        <segue reference="xvY-CC-YbG"/>
         <segue reference="DTx-Mo-6M0"/>
-        <segue reference="399-hH-aSp"/>
+        <segue reference="30H-i8-TRl"/>
         <segue reference="kUb-o8-2UV"/>
         <segue reference="nhG-zm-tK4"/>
     </inferredMetricsTieBreakers>

@@ -31,6 +31,6 @@ class CustomColors: UIColor {
     let transBlack = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
     
     //Purchase
-    let purchaseCellBGColor = UIColor(red: 46/255, green: 54/255, blue: 82/255, alpha: 0.45)
+    let purchaseCellBGColor = UIColor(red: 46/255, green: 54/255, blue: 82/255, alpha: 0.6)
 }
 
