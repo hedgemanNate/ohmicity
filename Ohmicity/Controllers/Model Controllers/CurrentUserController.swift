@@ -58,7 +58,7 @@ class CurrentUserController {
         
         //Preferred City Setup
         if currentUser?.preferredCity == nil {
-            xityShowController.todayShowArrayFilter = .All
+            return
         } else {
             xityShowController.todayShowArrayFilter = currentUser?.preferredCity
         }

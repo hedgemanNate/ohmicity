@@ -75,6 +75,13 @@ class ProfileViewController: UIViewController {
         }
     }
 
+    @IBAction func preferredCityButtonTapped(_ sender: Any) {
+        if currentUserController.currentUser == nil {
+            self.performSegue(withIdentifier: "ToSignIn", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "ToFilterCity", sender: self)
+        }
+    }
     
     
     

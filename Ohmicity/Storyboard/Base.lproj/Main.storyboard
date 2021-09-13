@@ -1390,7 +1390,7 @@ should be on Xity?</string>
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="evY-Al-06O" kind="show" id="TcN-tS-g4U"/>
+                                                            <action selector="preferredCityButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="mrH-jO-AP4"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-H2-d2Z" userLabel="Privacy Policy">
@@ -1496,11 +1496,12 @@ should be on Xity?</string>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
                         <outlet property="recommendButton" destination="Fwy-YD-YlE" id="hxM-jl-EAm"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
+                        <segue destination="evY-Al-06O" kind="presentation" identifier="ToFilterCity" id="Iq0-3N-MXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142.5233644859813" y="-710.15118790496763"/>
+            <point key="canvasLocation" x="1116" y="-710"/>
         </scene>
         <!--Choose Preferred City-->
         <scene sceneID="XSJ-gK-uvf">
@@ -1942,7 +1943,7 @@ should be on Xity?</string>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-3o-0eE">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="232"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your favorite venues and bands and get our list of the best shows in the Bay Area. Every Week." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-Bs-Wlj">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your favorite venue or band and get our list of the best shows in the Bay Area. Every Week." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-Bs-Wlj">
                                                         <rect key="frame" x="35" y="21" width="340" height="64.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2352,6 +2353,7 @@ should be on Xity?</string>
                         <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromXityPick" id="nhG-zm-tK4"/>
                         <segue destination="N6i-M7-k20" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="Zxp-OZ-fdc"/>
                         <segue destination="evY-Al-06O" kind="presentation" identifier="ToCityFilterSegue" id="kUb-o8-2UV"/>
+                        <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="pYi-uV-Zx2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2487,7 +2489,7 @@ should be on Xity?</string>
                                     <constraint firstAttribute="height" constant="113" id="1El-Dd-RrM"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Offers and free products from music venues all over the Bay Area, EXCLUSIVE to Xity members. COMING SOON. ">
+                                    <fragment content="Offers and free products from music venues all over the Bay Area, EXCLUSIVE to Xity Access Pass holders. COMING SOON. ">
                                         <attributes>
                                             <color key="NSColor" red="0.91871463710000001" green="0.91871463710000001" blue="0.91871463710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" metaFont="system" size="18"/>
@@ -2499,12 +2501,12 @@ should be on Xity?</string>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKa-ab-tGy">
                                 <rect key="frame" x="100" y="561" width="228" height="50"/>
-                                <color key="backgroundColor" red="0.22391316289999999" green="0.3513411582" blue="0.75568598509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0Zr-ob-Q5g"/>
                                 </constraints>
                                 <state key="normal" title="Back To The Music!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
                                 <connections>
                                     <action selector="goBackButton:" destination="0az-rL-VKh" eventType="touchUpInside" id="4Rf-dn-ObW"/>
@@ -2590,7 +2592,7 @@ should be on Xity?</string>
                                     <constraint firstAttribute="height" constant="30" id="X0S-mu-PAo"/>
                                 </constraints>
                                 <state key="normal" title="Back To The Music">
-                                    <color key="titleColor" red="0.91871463710000001" green="0.91871463710000001" blue="0.91871463710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
                                 <connections>
                                     <action selector="backToMusicButtonTapped:" destination="9Q6-x4-ZOu" eventType="touchUpInside" id="p2w-JT-HA2"/>
@@ -3112,10 +3114,10 @@ should be on Xity?</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Zxp-OZ-fdc"/>
-        <segue reference="xvY-CC-YbG"/>
+        <segue reference="pjQ-BQ-c07"/>
         <segue reference="DTx-Mo-6M0"/>
-        <segue reference="30H-i8-TRl"/>
-        <segue reference="kUb-o8-2UV"/>
+        <segue reference="phR-fw-lgs"/>
+        <segue reference="Iq0-3N-MXY"/>
         <segue reference="nhG-zm-tK4"/>
     </inferredMetricsTieBreakers>
     <resources>

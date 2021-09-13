@@ -83,19 +83,29 @@ class DashboardViewController: UIViewController {
     }
     
     @IBAction func cityFilterButtonTapped(_ sender: Any) {
-        switch currentUserController.currentUser?.subscription {
-        case .none:
-            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
-        case .some(.FrontRowPass):
-            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
-        case .some(.FullAccessPass):
-            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
-        case .some(.None):
-            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
-        case .some(.BackStagePass):
-            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
         
+        if currentUserController.currentUser == nil {
+            self.performSegue(withIdentifier: "ToSignIn", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
         }
+       
+        
+        
+        //MARK: BETA
+//        switch currentUserController.currentUser?.subscription {
+//        case .none:
+//            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+//        case .some(.FrontRowPass):
+//            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+//        case .some(.FullAccessPass):
+//            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
+//        case .some(.None):
+//            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+//        case .some(.BackStagePass):
+//            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
+//
+//        }
     }
     
     @IBAction func breaker(_ sender: Any) {
@@ -355,7 +365,13 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case favoritesCollectionView:
             return currentUserController.favArray.count
         case xityPickCollectionView:
-            return xityShowController.weeklyPicksArray.count
+            if currentUserController.currentUser == nil {
+                xityShowController.weeklyPicksArray.shuffle()
+                return 1
+            } else {
+                xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
+                return xityShowController.weeklyPicksArray.count
+            }
         default:
             return 4
         }

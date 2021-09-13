@@ -112,9 +112,8 @@ class VenueDetailViewController: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: favoriteButtonTapped: venueDetailViewController")}
         
-        
-        
-        if currentUser != nil && (currentUser?.subscription == .BackStagePass || currentUser?.subscription == .FullAccessPass) {
+        //MARK: BETA
+        if currentUser != nil /*&& (currentUser?.subscription == .BackStagePass || currentUser?.subscription == .FullAccessPass) */{
             if currentUser!.favoriteBusinesses.contains(xityBusiness.business.venueID) {
                 currentUser!.favoriteBusinesses.removeAll(where: {$0 == xityBusiness.business.venueID})
                 NSLog("Business Removed From Favorites")
@@ -145,11 +144,10 @@ class VenueDetailViewController: UIViewController {
             }
         } else if currentUser == nil {
             self.performSegue(withIdentifier: "ToSignIn", sender: self)
-        } else if currentUser?.subscription == .FrontRowPass {
+        } else if currentUser?.subscription == .FrontRowPass || currentUser?.subscription == .None {
             performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
         }
         
-        print(currentUser!.favoriteBusinesses)
     }
     
     @IBAction func listenButtonTapped(_ sender: Any) {
@@ -243,9 +241,7 @@ extension VenueDetailViewController {
                 self.favoriteButton.setImage(emptyHeart, for: .normal)
             }
         } else {
-            //MARK: FavoriteButton Not Finished
-            //Create an alert to let them login if they try to favorite
-            self.favoriteButton.isEnabled = false
+            
         }
         
         
