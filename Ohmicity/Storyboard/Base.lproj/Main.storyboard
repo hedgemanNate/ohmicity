@@ -1034,7 +1034,7 @@ Florida 34222 </string>
                         <outlet property="showTimeLabel" destination="bJS-el-yD1" id="coZ-Qa-cEm"/>
                         <outlet property="tonightsEntLabel" destination="5Ht-a8-dTe" id="7Wh-Ss-I2V"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="399-hH-aSp"/>
-                        <segue destination="2DA-HL-hxQ" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="Yuz-ED-LqK"/>
+                        <segue destination="N6i-M7-k20" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="Yuz-ED-LqK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4e4-jZ-dW9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2350,7 +2350,7 @@ should be on Xity?</string>
                         <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromToday" id="wJT-Pi-nZQ"/>
                         <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromFav" id="vKu-hG-yfy"/>
                         <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromXityPick" id="nhG-zm-tK4"/>
-                        <segue destination="2DA-HL-hxQ" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="Zxp-OZ-fdc"/>
+                        <segue destination="N6i-M7-k20" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="Zxp-OZ-fdc"/>
                         <segue destination="evY-Al-06O" kind="presentation" identifier="ToCityFilterSegue" id="kUb-o8-2UV"/>
                     </connections>
                 </viewController>
@@ -2637,9 +2637,8 @@ should be on Xity?</string>
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="cG8-zw-FXn">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="cG8-zw-FXn">
+                                <rect key="frame" x="0.0" y="88" width="428" height="838"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5M-yW-OuG">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
@@ -2648,13 +2647,13 @@ should be on Xity?</string>
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nyp-nA-YWU" userLabel="Top Logo Stack View">
-                                                <rect key="frame" x="103" y="62.999999999999986" width="222" height="166.66666666666663"/>
+                                                <rect key="frame" x="101.66666666666669" y="100" width="225" height="187"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="LIA-E9-z5K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="222" height="133.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="154"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgraded Access Passes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-5D-Ea5">
-                                                        <rect key="frame" x="0.0" y="143.66666666666666" width="222" height="23"/>
+                                                        <rect key="frame" x="0.0" y="164" width="225" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2663,13 +2662,12 @@ should be on Xity?</string>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="LIA-E9-z5K" firstAttribute="leading" secondItem="nyp-nA-YWU" secondAttribute="leading" id="CTA-e3-G2d"/>
-                                                    <constraint firstAttribute="width" secondItem="nyp-nA-YWU" secondAttribute="height" multiplier="4:3" id="clc-xw-rpp"/>
-                                                    <constraint firstItem="LIA-E9-z5K" firstAttribute="top" secondItem="nyp-nA-YWU" secondAttribute="top" id="e2K-Qq-bXJ"/>
+                                                    <constraint firstAttribute="width" constant="225" id="VBm-CL-RO3"/>
                                                     <constraint firstAttribute="trailing" secondItem="LIA-E9-z5K" secondAttribute="trailing" id="ujX-an-HIv"/>
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OFZ-qK-io6">
-                                                <rect key="frame" x="0.0" y="250.66666666666663" width="428" height="352"/>
+                                                <rect key="frame" x="0.0" y="308" width="428" height="352"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="352" id="2iV-pZ-356"/>
@@ -2789,7 +2787,7 @@ should be on Xity?</string>
                                                 </cells>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-l8-UpU" userLabel="Bottom Button Stack View">
-                                                <rect key="frame" x="60" y="634.66666666666663" width="308" height="121"/>
+                                                <rect key="frame" x="60" y="692" width="308" height="121"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exd-CX-ug6">
                                                         <rect key="frame" x="0.0" y="0.0" width="308" height="72"/>
@@ -2822,30 +2820,21 @@ should be on Xity?</string>
                                                         </state>
                                                         <connections>
                                                             <action selector="listOfPassFeaturesButtonTapped:" destination="2DA-HL-hxQ" eventType="touchUpInside" id="Mat-gk-nCm"/>
+                                                            <segue destination="mSG-LM-SfR" kind="show" id="fEQ-np-4tg"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWV-iz-fdY">
-                                                <rect key="frame" x="14" y="776.66666666666663" width="400" height="133.33333333333337"/>
+                                                <rect key="frame" x="14" y="820" width="400" height="90"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Subscription automatically renews, unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. Subscriptions may be managed and auto- renewal turned off in Apple Account Settings. The subscription fee will be charged to iTunes account at confirmation of purchase. Any unused portion of a trial period will be forfeited once upgraded to the subscription.</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knl-sZ-A3I">
-                                                <rect key="frame" x="357" y="62.999999999999993" width="24.333333333333314" height="23.666666666666664"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="dismissButtonTapped:" destination="2DA-HL-hxQ" eventType="touchUpInside" id="yF0-hv-XeR"/>
-                                                </connections>
-                                            </button>
                                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-Gy-e1Q">
-                                                <rect key="frame" x="163" y="605.66666666666663" width="102.33333333333331" height="26"/>
+                                                <rect key="frame" x="163" y="663" width="102.33333333333331" height="26"/>
                                                 <connections>
                                                     <action selector="pageControllerValueChanged:" destination="2DA-HL-hxQ" eventType="valueChanged" id="8Wk-kt-nFY"/>
                                                 </connections>
@@ -2853,20 +2842,18 @@ should be on Xity?</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Knl-sZ-A3I" firstAttribute="leading" secondItem="nyp-nA-YWU" secondAttribute="trailing" constant="32" id="1E3-0r-Jff"/>
                                             <constraint firstItem="UWV-iz-fdY" firstAttribute="leading" secondItem="tqf-J5-Wz6" secondAttribute="leading" constant="14" id="4JW-4S-W8h"/>
                                             <constraint firstItem="BlX-Gy-e1Q" firstAttribute="top" secondItem="OFZ-qK-io6" secondAttribute="bottom" constant="3" id="4Lc-WU-zzV"/>
-                                            <constraint firstItem="nyp-nA-YWU" firstAttribute="top" secondItem="tqf-J5-Wz6" secondAttribute="top" constant="63" id="DbC-D8-hP2"/>
                                             <constraint firstAttribute="height" constant="926" id="Hau-tn-s9q"/>
+                                            <constraint firstItem="nyp-nA-YWU" firstAttribute="top" secondItem="tqf-J5-Wz6" secondAttribute="top" constant="100" id="Kux-x3-q0b"/>
+                                            <constraint firstItem="UWV-iz-fdY" firstAttribute="top" secondItem="3gT-l8-UpU" secondAttribute="bottom" constant="7" id="UWS-Ma-Tpg"/>
                                             <constraint firstAttribute="trailing" secondItem="OFZ-qK-io6" secondAttribute="trailing" id="WP0-qq-b9s"/>
-                                            <constraint firstItem="OFZ-qK-io6" firstAttribute="centerY" secondItem="tqf-J5-Wz6" secondAttribute="centerY" constant="-36.333333333333371" id="XrZ-bl-RS7"/>
+                                            <constraint firstItem="OFZ-qK-io6" firstAttribute="centerY" secondItem="tqf-J5-Wz6" secondAttribute="centerY" constant="21" id="XrZ-bl-RS7"/>
                                             <constraint firstItem="3gT-l8-UpU" firstAttribute="top" secondItem="OFZ-qK-io6" secondAttribute="bottom" constant="32" id="ZxK-2A-Pf6"/>
-                                            <constraint firstItem="UWV-iz-fdY" firstAttribute="top" secondItem="3gT-l8-UpU" secondAttribute="bottom" constant="21" id="b34-Ca-BW7"/>
                                             <constraint firstItem="3gT-l8-UpU" firstAttribute="leading" secondItem="tqf-J5-Wz6" secondAttribute="leading" constant="60" id="cBP-dh-9CB"/>
                                             <constraint firstItem="nyp-nA-YWU" firstAttribute="centerX" secondItem="tqf-J5-Wz6" secondAttribute="centerX" id="cxE-ed-K05"/>
                                             <constraint firstItem="OFZ-qK-io6" firstAttribute="leading" secondItem="tqf-J5-Wz6" secondAttribute="leading" id="dTX-Ww-r8m"/>
                                             <constraint firstItem="OFZ-qK-io6" firstAttribute="centerX" secondItem="tqf-J5-Wz6" secondAttribute="centerX" id="eje-11-aAH"/>
-                                            <constraint firstItem="Knl-sZ-A3I" firstAttribute="top" secondItem="nyp-nA-YWU" secondAttribute="top" id="f6z-AX-rpc"/>
                                             <constraint firstAttribute="trailing" secondItem="UWV-iz-fdY" secondAttribute="trailing" constant="14" id="hEt-4G-DSg"/>
                                             <constraint firstAttribute="trailing" secondItem="3gT-l8-UpU" secondAttribute="trailing" constant="60" id="jJp-RY-nYN"/>
                                             <constraint firstItem="3gT-l8-UpU" firstAttribute="top" secondItem="BlX-Gy-e1Q" secondAttribute="bottom" constant="3" id="mlr-JQ-PgL"/>
@@ -2888,15 +2875,25 @@ should be on Xity?</string>
                         <viewLayoutGuide key="safeArea" id="HMV-Ma-T5M"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cG8-zw-FXn" firstAttribute="top" secondItem="HMV-Ma-T5M" secondAttribute="top" id="7bF-Id-Iey"/>
                             <constraint firstItem="J5M-yW-OuG" firstAttribute="leading" secondItem="HMV-Ma-T5M" secondAttribute="leading" id="7n8-zc-RpQ"/>
                             <constraint firstItem="tqf-J5-Wz6" firstAttribute="width" secondItem="B2a-bI-qgV" secondAttribute="width" id="Bks-Pd-dZY"/>
                             <constraint firstItem="J5M-yW-OuG" firstAttribute="top" secondItem="B2a-bI-qgV" secondAttribute="top" id="OkH-To-gEp"/>
+                            <constraint firstItem="cG8-zw-FXn" firstAttribute="trailing" secondItem="HMV-Ma-T5M" secondAttribute="trailing" id="S7x-97-GQ2"/>
+                            <constraint firstAttribute="bottom" secondItem="cG8-zw-FXn" secondAttribute="bottom" id="SbF-Iy-Mkf"/>
                             <constraint firstAttribute="bottom" secondItem="J5M-yW-OuG" secondAttribute="bottom" id="UBv-IJ-A8s"/>
                             <constraint firstItem="J5M-yW-OuG" firstAttribute="trailing" secondItem="HMV-Ma-T5M" secondAttribute="trailing" id="ges-gU-MoG"/>
+                            <constraint firstItem="cG8-zw-FXn" firstAttribute="leading" secondItem="HMV-Ma-T5M" secondAttribute="leading" id="n7t-WO-7Ns"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7Zb-GO-mNK">
+                        <barButtonItem key="leftBarButtonItem" title="Go Back" id="WyS-a4-Hhb">
+                            <connections>
+                                <action selector="dismissButtonTapped:" destination="2DA-HL-hxQ" id="jQo-In-dTh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="dismissButton" destination="Knl-sZ-A3I" id="63v-Kn-W3I"/>
                         <outlet property="pageController" destination="BlX-Gy-e1Q" id="t5v-He-XfJ"/>
                         <outlet property="priceTextField" destination="5un-kX-t3H" id="LoU-ru-LLX"/>
                         <outlet property="purchaseCollectionView" destination="OFZ-qK-io6" id="6jq-Vl-89d"/>
@@ -2905,7 +2902,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyG-7O-q1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-189" y="-1414"/>
+            <point key="canvasLocation" x="710.74766355140184" y="-1414.4708423326135"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bfd-No-aXW">
@@ -2914,13 +2911,163 @@ should be on Xity?</string>
                     <view key="view" contentMode="scaleToFill" id="jHi-HU-slR">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="qMz-H2-4tY">
+                                <rect key="frame" x="0.0" y="88" width="428" height="838"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Izn-EB-e7y">
+                                <rect key="frame" x="0.0" y="88" width="428" height="838"/>
+                                <subviews>
+                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mev-ID-MRx" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ8-wX-2VC">
+                                                <rect key="frame" x="27" y="48" width="374" height="283.66666666666669"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="rLD-Ux-Frw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="214" height="55.666666666666664"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front Row Pass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02n-J3-Ypp">
+                                                                <rect key="frame" x="0.0" y="0.0" width="214" height="36"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99/Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-X5-7FO">
+                                                                <rect key="frame" x="0.0" y="34" width="106.66666666666667" height="21.666666666666671"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove all popup ads. Navigate the app without slowing down." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWI-IN-pg7">
+                                                        <rect key="frame" x="0.0" y="70.666666666666657" width="371" height="40.666666666666657"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite as many bands or venues that you like without limits." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWP-2z-TNZ">
+                                                        <rect key="frame" x="0.0" y="126.33333333333333" width="358" height="40.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09d-lD-dQC">
+                                                        <rect key="frame" x="0.0" y="182" width="365" height="101.66666666666669"/>
+                                                        <string key="text">Be notified when free merch from your  favorite bands, special offers from your favorite venues, Xity Access Passes and Upgrades and other local goods and services are available to claim. (While Supplies Last)</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="PtG-UE-GLU">
+                                                <rect key="frame" x="27" y="387.66666666666663" width="374" height="405.66666666666663"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="am9-eU-rWt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="231.33333333333334" height="56.666666666666664"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back Stage Pass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV3-HR-hhU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="231.33333333333334" height="36"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$4.99/Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acC-Xc-5gH">
+                                                                <rect key="frame" x="0.0" y="35" width="109.66666666666667" height="21.666666666666671"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove all popup ads. Navigate the app without slowing down." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSL-tM-Faa">
+                                                        <rect key="frame" x="0.0" y="71.666666666666686" width="371" height="40.666666666666657"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite as many bands or venues that you like without limits." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVd-Xf-yOB">
+                                                        <rect key="frame" x="0.0" y="127.33333333333333" width="358" height="40.666666666666671"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filtering by city activated for Today's shows. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgf-dS-ihh">
+                                                        <rect key="frame" x="0.0" y="182.99999999999994" width="340.33333333333331" height="20.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmQ-0M-zzA">
+                                                        <rect key="frame" x="0.0" y="218.33333333333334" width="368" height="81.333333333333343"/>
+                                                        <string key="text">Early notification when free merch, special offers, free Xity Access Passes and Upgrades and other local goods and services are available to claim. (While Supplies Last)</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminders for shows you don't want to miss." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I7-1R-yJx">
+                                                        <rect key="frame" x="0.0" y="314.66666666666669" width="369" height="20.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add shows to your Apple Calendar to share." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiX-Kk-8O6">
+                                                        <rect key="frame" x="0.0" y="349.99999999999994" width="332.66666666666669" height="20.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help curate Town by rating Bands and Venues" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvY-nf-xss">
+                                                        <rect key="frame" x="0.0" y="385.33333333333331" width="349.33333333333331" height="20.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="PtG-UE-GLU" secondAttribute="trailing" constant="27" id="8kn-X5-qr3"/>
+                                            <constraint firstItem="PtG-UE-GLU" firstAttribute="leading" secondItem="Mev-ID-MRx" secondAttribute="leading" constant="27" id="8mR-I4-FBM"/>
+                                            <constraint firstItem="ZZ8-wX-2VC" firstAttribute="top" secondItem="Mev-ID-MRx" secondAttribute="top" constant="48" id="MXb-UB-1tI"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZZ8-wX-2VC" secondAttribute="trailing" constant="27" id="SA3-Yi-IIt"/>
+                                            <constraint firstAttribute="height" constant="838" id="b57-JM-834"/>
+                                            <constraint firstItem="ZZ8-wX-2VC" firstAttribute="leading" secondItem="Mev-ID-MRx" secondAttribute="leading" constant="27" id="gME-uv-7MC"/>
+                                            <constraint firstItem="PtG-UE-GLU" firstAttribute="top" secondItem="ZZ8-wX-2VC" secondAttribute="bottom" constant="56" id="zLS-xz-fcS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Mev-ID-MRx" firstAttribute="leading" secondItem="Izn-EB-e7y" secondAttribute="leading" id="5HX-Np-RBR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mev-ID-MRx" secondAttribute="trailing" id="MYo-J3-ggQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mev-ID-MRx" secondAttribute="bottom" id="Nsg-is-V7H"/>
+                                    <constraint firstItem="Mev-ID-MRx" firstAttribute="top" secondItem="Izn-EB-e7y" secondAttribute="top" id="pBt-0P-onk"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CMk-Bp-8ws"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qMz-H2-4tY" firstAttribute="top" secondItem="jHi-HU-slR" secondAttribute="top" constant="88" id="CEr-VM-dhQ"/>
+                            <constraint firstItem="qMz-H2-4tY" firstAttribute="trailing" secondItem="CMk-Bp-8ws" secondAttribute="trailing" id="GFy-fA-Tb1"/>
+                            <constraint firstItem="Izn-EB-e7y" firstAttribute="leading" secondItem="CMk-Bp-8ws" secondAttribute="leading" id="GgY-Sf-ohv"/>
+                            <constraint firstAttribute="bottom" secondItem="qMz-H2-4tY" secondAttribute="bottom" id="Jss-cZ-q8k"/>
+                            <constraint firstItem="Mev-ID-MRx" firstAttribute="width" secondItem="jHi-HU-slR" secondAttribute="width" id="O6H-x2-v58"/>
+                            <constraint firstAttribute="bottom" secondItem="Izn-EB-e7y" secondAttribute="bottom" id="Zfx-sj-T6z"/>
+                            <constraint firstItem="Izn-EB-e7y" firstAttribute="top" secondItem="CMk-Bp-8ws" secondAttribute="top" id="teB-35-Hjw"/>
+                            <constraint firstItem="CMk-Bp-8ws" firstAttribute="trailing" secondItem="Izn-EB-e7y" secondAttribute="trailing" id="vNe-Ml-vzb"/>
+                            <constraint firstItem="qMz-H2-4tY" firstAttribute="leading" secondItem="CMk-Bp-8ws" secondAttribute="leading" id="vYd-3Y-Ruj"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bJs-4d-fmQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJP-sy-Wya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="-1414"/>
+            <point key="canvasLocation" x="1635.981308411215" y="-1414.4708423326135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9kl-2i-Ufr">
@@ -2943,6 +3090,24 @@ should be on Xity?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4t-dZ-E6E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="242.52336448598129" y="-710.15118790496763"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9YA-5b-NAc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N6i-M7-k20" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7pX-VN-99s">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2DA-HL-hxQ" kind="relationship" relationship="rootViewController" id="6Yr-yN-hjb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G56-Qu-sou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-189.25233644859813" y="-1414.4708423326135"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -2973,7 +3138,6 @@ should be on Xity?</string>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="unltdFavs.jpg" width="500" height="500"/>
-        <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

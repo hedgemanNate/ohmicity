@@ -15,7 +15,6 @@ class PurchaseViewController: UIViewController {
     @IBOutlet weak var purchaseCollectionView: UICollectionView!
     
     //Buttons
-    @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var try7DaysFreeButton: UIButton!
     @IBOutlet weak var priceTextField: UILabel!
     @IBOutlet weak var pageController: UIPageControl!
@@ -47,6 +46,7 @@ class PurchaseViewController: UIViewController {
     }
     
     //MARK: Button Actions
+    
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -68,7 +68,6 @@ class PurchaseViewController: UIViewController {
     //MARK: UpdateViews
     private func updateViews() {
         try7DaysFreeButton.layer.cornerRadius = 6
-        
     }
     
     private func initSubscriptionType() {
