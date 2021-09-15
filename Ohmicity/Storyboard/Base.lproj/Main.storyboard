@@ -2744,7 +2744,7 @@ should be on Xity?</string>
         <!--Profile-->
         <scene sceneID="GrE-Gp-1hN">
             <objects>
-                <viewController id="yd1-jP-T9a" customClass="ProfileViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yd1-jP-T9a" customClass="BandDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UvH-r8-m3m">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2814,6 +2814,7 @@ should be on Xity?</string>
                                                             <color key="titleColor" red="0.97331575960000005" green="0.97169534209999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="bandNotificationsButtonTapped:" destination="yd1-jP-T9a" eventType="touchUpInside" id="ERN-3e-Ogp"/>
                                                             <action selector="hoursButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="1Zb-Gn-iOt"/>
                                                         </connections>
                                                     </button>
@@ -2832,6 +2833,7 @@ should be on Xity?</string>
                                                         <connections>
                                                             <action selector="callBusinessButton:" destination="5ac-YL-HRn" eventType="touchUpInside" id="9Wz-1e-0zL"/>
                                                             <action selector="callBusinessButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="4UQ-21-zvu"/>
+                                                            <action selector="rateButtonTapped:" destination="yd1-jP-T9a" eventType="touchUpInside" id="8ae-CM-n7g"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8m-wq-xkZ" userLabel="Favorite Button">
@@ -2846,6 +2848,7 @@ should be on Xity?</string>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="favoriteButtonTapped:" destination="yd1-jP-T9a" eventType="touchUpInside" id="Y9R-9E-Wt2"/>
                                                             <action selector="favoriteButtonTapped:" destination="fki-Bt-PNW" eventType="touchUpInside" id="b0c-gn-kOt"/>
                                                         </connections>
                                                     </button>
@@ -2879,7 +2882,7 @@ should be on Xity?</string>
                                                     <inset key="sectionInset" minX="9" minY="0.0" maxX="9" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="SearchCell" id="hgM-qo-mQ6" customClass="CitiesCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="GenreCell" id="hgM-qo-mQ6" customClass="CitiesCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
                                                         <rect key="frame" x="9" y="12.666666666666666" width="103" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5CH-kV-tBA">
@@ -2992,6 +2995,9 @@ should be on Xity?</string>
                                                         <state key="normal" title="Give Your Support">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="supportButtonTapped:" destination="yd1-jP-T9a" eventType="touchUpInside" id="qxL-gJ-36Z"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3095,6 +3101,17 @@ should be on Xity?</string>
                                     <constraint firstItem="4aF-Pp-B2O" firstAttribute="top" secondItem="s0X-fT-ovN" secondAttribute="top" id="vYl-uD-AWI"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVh-0N-vQB">
+                                <rect key="frame" x="341" y="149" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Break">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="breaker:" destination="yd1-jP-T9a" eventType="touchUpInside" id="hEx-Gm-EFI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uxP-jc-eIw"/>
                         <color key="backgroundColor" red="0.1137254902" green="0.094117647060000004" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3109,7 +3126,14 @@ should be on Xity?</string>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="VCk-uE-Tek"/>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
-                        <outlet property="bannerAdCollectionView" destination="RmH-HW-dTj" id="2sT-X3-inP"/>
+                        <outlet property="bandImage" destination="AQq-4q-f3y" id="QTQ-Lx-aCi"/>
+                        <outlet property="bandNameLabel" destination="xLb-De-3T4" id="url-WS-Vdj"/>
+                        <outlet property="bannerAdCollectionView" destination="RmH-HW-dTj" id="zab-S8-c7Z"/>
+                        <outlet property="favoriteButton" destination="a8m-wq-xkZ" id="bt6-X5-HvB"/>
+                        <outlet property="genreCollectionView" destination="Bll-jc-aDY" id="ieQ-FY-Dph"/>
+                        <outlet property="mediaTableView" destination="oUa-Qp-oKF" id="NLS-Q5-vYe"/>
+                        <outlet property="supportButton" destination="hYL-Au-TBy" id="T9t-6s-qkl"/>
+                        <outlet property="upcomingShowsTableView" destination="ePp-Tl-g1x" id="F16-wF-JNj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uEe-vH-3kn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
