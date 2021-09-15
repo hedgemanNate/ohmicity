@@ -26,11 +26,12 @@ extension BusinessBannerAdController {
     
     func removeNonPublished() {
         businessAdArray.removeAll(where: {$0.isPublished == false})
+        businessAdArray.removeAll(where: {$0.endDate <= Date()})
     }
     
     func getAllBusinessAdData() {
         var businessAdCount = 0
-        db.getDocuments { (querySnapshot, error) in
+        db.getDocuments { [self] (querySnapshot, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
@@ -54,14 +55,14 @@ extension BusinessBannerAdController {
                 }
                 notificationCenter.post(notifications.gotAllBusinessAdData)
                 NSLog("*****gotAllBusinessAdData DATA HIT*****")
+                removeNonPublished()
             }
         }
-        businessAdArray.removeAll(where: {$0.isPublished == false})
     }
     
     func getNewBusinessAdData() {
         var businessAdCount = 0
-        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: lmDateHandler.savedDate!).getDocuments() { (querySnapshot, error) in
+        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: lmDateHandler.savedDate!).getDocuments() { [self] (querySnapshot, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
@@ -85,14 +86,14 @@ extension BusinessBannerAdController {
                 }
                 notificationCenter.post(notifications.gotBusinessAdData)
                 NSLog("*****gotBusinessAdData DATA HIT*****")
+                removeNonPublished()
             }
         }
-        businessAdArray.removeAll(where: {$0.isPublished == false})
     }
     
     
     func fillArrayFromCache() {
-        db.getDocuments(source: .cache) { (querySnapshot, error) in
+        db.getDocuments(source: .cache) { [self] (querySnapshot, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
@@ -114,8 +115,10 @@ extension BusinessBannerAdController {
                 }
                 notificationCenter.post(notifications.bannerAdsLoaded)
                 NSLog("*****bannerAdsLoaded HIT*****")
+                removeNonPublished()
             }
         }
+        
     }
 }
 
