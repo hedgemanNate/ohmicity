@@ -14,6 +14,7 @@
         <scene sceneID="1uV-75-sbA">
             <objects>
                 <tabBarController storyboardIdentifier="DashboardTabBarController" id="K1r-XI-Dsm" customClass="DashboardTabBarController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="6f6-zG-gP6"/>
                     <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="oAv-Nx-cly" customClass="TabBarVC" customModule="Ohmicity" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -24,9 +25,11 @@
                         <color key="selectedImageTintColor" red="0.45459836720000002" green="0.8259726167" blue="0.97133558990000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="3L6-vU-wgp" kind="relationship" relationship="viewControllers" id="Ouw-vt-x1P"/>
-                        <segue destination="xaL-Zu-PHr" kind="relationship" relationship="viewControllers" id="KFL-HP-Cck"/>
-                        <segue destination="Omr-9k-k2T" kind="relationship" relationship="viewControllers" id="5BC-eq-r0n"/>
+                        <segue destination="3L6-vU-wgp" kind="relationship" relationship="viewControllers" id="AeU-CN-abq"/>
+                        <segue destination="cl4-3c-m7h" kind="relationship" relationship="viewControllers" id="XLz-vp-Zxo"/>
+                        <segue destination="xaL-Zu-PHr" kind="relationship" relationship="viewControllers" id="8WP-cZ-c1t"/>
+                        <segue destination="yd1-jP-T9a" kind="relationship" relationship="viewControllers" id="QjS-Sr-8a9"/>
+                        <segue destination="Omr-9k-k2T" kind="relationship" relationship="viewControllers" id="m4g-Nf-sTx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHT-cb-nit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,7 +82,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="progressView" destination="pV7-Ok-08P" id="kzV-rC-uTd"/>
                         <segue destination="K1r-XI-Dsm" kind="presentation" identifier="ToDashboard" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="fjy-9t-unJ"/>
                     </connections>
                 </viewController>
@@ -372,8 +374,9 @@
                             <constraint firstItem="4Fo-n8-heq" firstAttribute="width" secondItem="NeU-eK-nqW" secondAttribute="width" id="mJ1-pp-KTT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="magnifyingglass" catalog="system" id="00v-gD-rj0">
+                    <tabBarItem key="tabBarItem" title="" id="00v-gD-rj0">
                         <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="magnifyingglass" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="vvm-N9-IDu"/>
                     <size key="freeformSize" width="428" height="900"/>
@@ -971,7 +974,7 @@ Florida 34222 </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyT-4S-Tzb">
-                                <rect key="frame" x="0.0" y="140" width="428" height="703"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="921"/>
@@ -1150,6 +1153,7 @@ should be on Xity?</string>
                             <constraint firstItem="6oy-Bu-Xsa" firstAttribute="width" secondItem="77H-gc-TUL" secondAttribute="width" id="vwf-xc-Abe"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Iha-fb-wQN"/>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="tyV-4n-Wcb"/>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
@@ -1784,7 +1788,7 @@ should be on Xity?</string>
                                                     <constraint firstItem="eln-43-wph" firstAttribute="leading" secondItem="dRP-dE-0cc" secondAttribute="leading" id="yUI-tN-HQ8"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
                                                 <rect key="frame" x="312" y="260.66666666666669" width="100" height="30"/>
                                                 <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Break">
@@ -1870,7 +1874,7 @@ should be on Xity?</string>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="nkK-LA-BON">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                        <imageReference key="image" image="dot.circle" catalog="system" symbolScale="default"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="DD0-Kn-XVT"/>
                     <size key="freeformSize" width="428" height="2000"/>
@@ -2016,22 +2020,22 @@ should be on Xity?</string>
             <objects>
                 <viewController id="cl4-3c-m7h" customClass="TemporaryViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1MJ-AR-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-Rj-3Rr" userLabel="Background Image">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="G8A-5p-Zzm">
-                                <rect key="frame" x="114" y="213" width="200" height="200"/>
+                                <rect key="frame" x="114" y="171.66666666666663" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="7nq-eB-nS6"/>
                                     <constraint firstAttribute="height" constant="200" id="ihN-aQ-Xbu"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" allowsEditingTextAttributes="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9D-1K-loc">
-                                <rect key="frame" x="55" y="420" width="318" height="113"/>
+                                <rect key="frame" x="55" y="378.66666666666669" width="318" height="113"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="113" id="1El-Dd-RrM"/>
@@ -2048,7 +2052,7 @@ should be on Xity?</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKa-ab-tGy">
-                                <rect key="frame" x="100" y="561" width="228" height="50"/>
+                                <rect key="frame" x="100" y="519.66666666666663" width="228" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0Zr-ob-Q5g"/>
@@ -2079,6 +2083,10 @@ should be on Xity?</string>
                             <constraint firstItem="b9D-1K-loc" firstAttribute="top" secondItem="G8A-5p-Zzm" secondAttribute="bottom" constant="7" id="uVG-5i-cOK"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" id="hKo-qg-irv">
+                        <imageReference key="image" image="ticket" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="ticket.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs3-AJ-gcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0az-rL-VKh" userLabel="Exit" sceneMemberID="exit"/>
@@ -2624,17 +2632,20 @@ should be on Xity?</string>
         <!--Navigation Controller-->
         <scene sceneID="9kl-2i-Ufr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Omr-9k-k2T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="person.fill" catalog="system" id="oAu-3E-U6n">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Omr-9k-k2T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="oAu-3E-U6n">
                         <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
                         <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="selectedImage" image="person.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="K0T-WC-RZt">
-                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e8x-uW-GHr">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="3iV-GW-bTt" kind="relationship" relationship="rootViewController" id="kQZ-ue-Gfp"/>
                     </connections>
@@ -2666,11 +2677,11 @@ should be on Xity?</string>
             <objects>
                 <viewController id="yd1-jP-T9a" customClass="BandDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UvH-r8-m3m">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0X-fT-ovN">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-Pp-B2O" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="2000"/>
@@ -3043,6 +3054,11 @@ should be on Xity?</string>
                             <constraint firstItem="s0X-fT-ovN" firstAttribute="bottom" secondItem="uxP-jc-eIw" secondAttribute="bottom" id="cjD-cz-VQR"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" id="wRt-bF-8Uv">
+                        <imageReference key="image" image="music.mic" catalog="system" symbolScale="large"/>
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="selectedImage" image="music.mic" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="VCk-uE-Tek"/>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
@@ -3162,11 +3178,11 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yuz-ED-LqK"/>
-        <segue reference="Wv8-HY-qnG"/>
-        <segue reference="DTx-Mo-6M0"/>
-        <segue reference="399-hH-aSp"/>
-        <segue reference="kUb-o8-2UV"/>
+        <segue reference="Zxp-OZ-fdc"/>
+        <segue reference="pjQ-BQ-c07"/>
+        <segue reference="XLz-vp-Zxo"/>
+        <segue reference="phR-fw-lgs"/>
+        <segue reference="Iq0-3N-MXY"/>
         <segue reference="86A-7n-n3z"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -3177,9 +3193,11 @@ should be on Xity?</string>
         <image name="brickBackground.png" width="396" height="231"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="dot.circle" catalog="system" width="128" height="121"/>
         <image name="listenButton.png" width="196" height="38"/>
         <image name="loginLogo.png" width="624" height="380"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="music.mic" catalog="system" width="128" height="121"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
         <image name="noAds.jpg" width="500" height="500"/>
         <image name="person" catalog="system" width="128" height="117"/>
@@ -3187,6 +3205,8 @@ should be on Xity?</string>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
+        <image name="ticket" catalog="system" width="128" height="84"/>
+        <image name="ticket.fill" catalog="system" width="128" height="84"/>
         <image name="unltdFavs.jpg" width="500" height="500"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

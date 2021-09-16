@@ -38,7 +38,6 @@ class LoadInitDataViewController: UIViewController {
     
     
     //Loader
-    @IBOutlet weak var progressView: UIView!
     let activityIndicator = MDCActivityIndicator()
     
     override func viewDidLoad() {
@@ -86,7 +85,7 @@ extension LoadInitDataViewController {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.radius = 150
-        activityIndicator.cycleColors = [cc.mainColorPurple, cc.highlightBlue, cc.highlightPurple]
+        activityIndicator.cycleColors = [cc.highlightBlue, UIColor.yellow, cc.tabBarButtonPurple]
         activityIndicator.startAnimating()
     }
     
