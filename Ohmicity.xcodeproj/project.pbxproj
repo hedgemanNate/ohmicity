@@ -44,6 +44,7 @@
 		F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */ = {isa = PBXBuildFile; fileRef = F65BC59D26BE8E2400B62C7C /* DefaultBand.png */; };
 		F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */; };
 		F6615ADD26F2746B0096D59D /* BandDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */; };
+		F6615ADF26F2CC450096D59D /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6615ADE26F2CC450096D59D /* ProgressCircle.swift */; };
 		F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66206E826B4B9C800BDE93E /* TimeController.swift */; };
 		F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */; };
 		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
@@ -143,6 +144,7 @@
 		F65BC59D26BE8E2400B62C7C /* DefaultBand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultBand.png; sourceTree = "<group>"; };
 		F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailViewController.swift; sourceTree = "<group>"; };
+		F6615ADE26F2CC450096D59D /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		F66206E826B4B9C800BDE93E /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationHoursAlert.xib; sourceTree = "<group>"; };
 		F66C99C326BCD83800A7C135 /* XityShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShowController.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */,
 				F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */,
 				F6FD18C926EAB74400B145AC /* PurchaseCollectionViewCell.swift */,
+				F6615ADE26F2CC450096D59D /* ProgressCircle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,
+				F6615ADF26F2CC450096D59D /* ProgressCircle.swift in Sources */,
 				F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,

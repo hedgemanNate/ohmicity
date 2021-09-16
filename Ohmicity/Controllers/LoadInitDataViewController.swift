@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import MaterialComponents.MaterialActivityIndicator
 
 class LoadInitDataViewController: UIViewController {
     
@@ -18,7 +19,6 @@ class LoadInitDataViewController: UIViewController {
     
     var dataActionsFinished = 0 {
         didSet {
-            loadingDisplayColorAnimations()
             print("####Current Data Action: \(dataActionsFinished)")
             if dataActionsFinished >= 8 {
                 organizeData(); print("DATA ACTIONS FIN")
@@ -29,7 +29,6 @@ class LoadInitDataViewController: UIViewController {
     
     var syncingActionsFinished = 0 {
         didSet{
-            loadingDisplayColorAnimations()
             print(syncingActionsFinished)
             if syncingActionsFinished == 4 {
                 doneLoading()
@@ -37,23 +36,16 @@ class LoadInitDataViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var checkingDatabaseCheck: UIImageView!
-    @IBOutlet weak var checkingDatabaseText: UILabel!
     
-    @IBOutlet weak var downloadingShowsCheck: UIImageView!
-    @IBOutlet weak var downloadingShowsText: UILabel!
+    //Loader
+    @IBOutlet weak var progressView: UIView!
+    let activityIndicator = MDCActivityIndicator()
     
-    @IBOutlet weak var updatingLocalCheck: UIImageView!
-    @IBOutlet weak var updatingLocalText: UILabel!
-    
-    @IBOutlet weak var initCheck: UIImageView!
-    @IBOutlet weak var initText: UILabel!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
         updateViewController()
+        setupProgressView()
         currentUserController.assignCurrentUser()
         subscriptionTypeController.setUpInAppPurchaseArray()
         lmDateHandler.checkDateAndGetData() 
@@ -80,33 +72,6 @@ class LoadInitDataViewController: UIViewController {
 //MARK: Functions
 extension LoadInitDataViewController {
     
-    private func loadingDisplayColorAnimations() {
-        DispatchQueue.main.async { [self] in
-            switch dataActionsFinished {
-            case 1..<3:
-                checkingDatabaseCheck.tintColor = .green
-                checkingDatabaseText.textColor = .lightGray
-            case 3..<6:
-                downloadingShowsCheck.tintColor = .green
-                downloadingShowsText.textColor = .lightGray
-                
-            case 6...8:
-                updatingLocalCheck.tintColor = .green
-                updatingLocalText.textColor = .lightGray
-            default:
-                break
-            }
-            
-            switch syncingActionsFinished {
-            case 4:
-                initCheck.tintColor = .green
-                initText.textColor = .lightGray
-            default:
-                break
-            }
-        }
-        
-    }
     
     func doneLoading() {
         print("**DONE LOADING FUNC****")
@@ -114,11 +79,19 @@ extension LoadInitDataViewController {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
     }
-        
+    
+    //MARK: Progress Bar Functions
+    private func setupProgressView() {
+        activityIndicator.transform = CGAffineTransform(scaleX: 1, y: 1)
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.radius = 150
+        activityIndicator.cycleColors = [cc.mainColorPurple, cc.highlightBlue, cc.highlightPurple]
+        activityIndicator.startAnimating()
+    }
     
     //MARK: UpdateViews
     private func updateViewController() {
-        dateFormatter.dateFormat = dateFormat3
         timeController.setTime()
         //setTime(enterTime) format July 31, 2021
     }
