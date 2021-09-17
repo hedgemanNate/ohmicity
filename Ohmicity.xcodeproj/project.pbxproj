@@ -31,6 +31,7 @@
 		F61C370B26B66F8600A2235B /* brickBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370A26B66F8500A2235B /* brickBackground.png */; };
 		F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C371026B727B400A2235B /* OperationHoursAlert.swift */; };
 		F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */; };
+		F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BC4D326F54866004177BD /* SupportInfoViewController.swift */; };
 		F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */; };
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
 		F640DD0A264E3B7300959358 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Helper.swift */; };
@@ -135,6 +136,7 @@
 		F61C370A26B66F8500A2235B /* brickBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brickBackground.png; sourceTree = "<group>"; };
 		F61C371026B727B400A2235B /* OperationHoursAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHoursAlert.swift; sourceTree = "<group>"; };
 		F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		F62BC4D326F54866004177BD /* SupportInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportInfoViewController.swift; sourceTree = "<group>"; };
 		F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F640DD09264E3B7300959358 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				F6DBFDA926E9BAE6001D7520 /* Tab View Controllers */,
 				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
 				F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */,
+				F62BC4D226F54839004177BD /* Info View Controllers */,
 				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
 				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
 				F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */,
@@ -345,6 +348,14 @@
 				F61C370726B64E5A00A2235B /* listenButton.png */,
 			);
 			path = "Button Icons And BG's";
+			sourceTree = "<group>";
+		};
+		F62BC4D226F54839004177BD /* Info View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
+			);
+			path = "Info View Controllers";
 			sourceTree = "<group>";
 		};
 		F62FEB6B26562A1A008DEF64 /* Settings */ = {
@@ -708,6 +719,7 @@
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F687CD6926F45EF300412C07 /* XitySupport.swift in Sources */,
+				F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,

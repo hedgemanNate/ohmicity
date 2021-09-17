@@ -47,6 +47,7 @@ class BandDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         delegateDataSourceSetup()
+        notificationObservers()
         // Do any additional setup after loading the view.
     }
     
@@ -79,7 +80,7 @@ class BandDetailViewController: UIViewController {
     
     
     //MARK: Update Views
-    private func updateViews() {
+   @objc private func updateViews() {
         supportIndicatorSetup()
         supportLabel.layer.zPosition = 100
         supportView.layer.zPosition = 98
@@ -116,6 +117,10 @@ class BandDetailViewController: UIViewController {
         upcomingShowsTableView.dataSource = self
         mediaTableView.delegate = self
         mediaTableView.dataSource = self
+    }
+    
+    private func notificationObservers() {
+        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
     }
     
     /*
@@ -235,10 +240,23 @@ extension BandDetailViewController {
     
     @objc private func supportButtonTapped() {
         //Logic
+        if currentUserController.currentUser == nil {
+            performSegue(withIdentifier: "ToSignIn", sender: self)
+            return
+        }
+        
+        guard let currentUser = currentUserController.currentUser else {return}
+        guard let currentBand = currentBand else {return}
+        
+        let support = XitySupport(userID: currentUser.userID, bandName: currentBand.band.name)
+        xitySupportController.pushXitySupport(xitySupport: support)
         
         //Support UI
         hapticGenerator.impactOccurred(intensity: 1)
-        
+        supportButtonPushedAnimation()
+    }
+    
+    private func supportButtonPushedAnimation() {
         UIView.animate(withDuration: 1) {
             self.xityLogoImageView.alpha = 1
             self.supportIndicator1.alpha = 0

@@ -1260,7 +1260,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="SignIn" id="VkB-f5-0Se" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtj-5X-GBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2931" y="160"/>
+            <point key="canvasLocation" x="-3343" y="-86"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="Xoh-KE-nbH">
@@ -2108,7 +2108,7 @@ should be on Xity?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs3-AJ-gcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0az-rL-VKh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2607" y="-1446"/>
+            <point key="canvasLocation" x="2602" y="-1414"/>
         </scene>
         <!--Recommend View Controller-->
         <scene sceneID="N1U-dv-2PE">
@@ -2203,7 +2203,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-4g-Nab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3379" y="-1447"/>
+            <point key="canvasLocation" x="3332" y="-1414"/>
         </scene>
         <!--Purchase View Controller-->
         <scene sceneID="hcL-OL-xMo">
@@ -2478,7 +2478,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyG-7O-q1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710.74766355140184" y="-1414.4708423326135"/>
+            <point key="canvasLocation" x="639" y="-1414"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bfd-No-aXW">
@@ -2644,7 +2644,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJP-sy-Wya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1635.981308411215" y="-1414.4708423326135"/>
+            <point key="canvasLocation" x="1522" y="-1414"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9kl-2i-Ufr">
@@ -2950,7 +2950,7 @@ should be on Xity?</string>
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Support This Band" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb6-JU-ZAI">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Show Your Support" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb6-JU-ZAI">
                                                         <rect key="frame" x="0.0" y="0.0" width="241" height="204"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3111,6 +3111,8 @@ should be on Xity?</string>
                         <outlet property="supportView" destination="NBd-bg-blX" id="cwP-ew-AT7"/>
                         <outlet property="upcomingShowsTableView" destination="ePp-Tl-g1x" id="F16-wF-JNj"/>
                         <outlet property="xityLogoImageView" destination="kRG-7s-5xa" id="emw-e6-ImA"/>
+                        <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="2dm-xA-Xcg"/>
+                        <segue destination="Jv7-fT-gPi" kind="presentation" identifier="SupportInfoSegue" id="rGN-kL-UKQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uEe-vH-3kn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3215,14 +3217,79 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KrL-MU-LVT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="236"/>
+            <point key="canvasLocation" x="2987" y="81"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="exX-xE-57K">
+            <objects>
+                <viewController id="Jv7-fT-gPi" customClass="SupportInfoViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X2V-oD-MSQ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dS-BP-5pb">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gN5-eX-v7Z" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="921"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpz-Xa-5PS">
+                                                <rect key="frame" x="94" y="63" width="240" height="170"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xitySupportIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="8jR-tM-MaN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="170"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="8jR-tM-MaN" secondAttribute="trailing" id="38b-z2-yIQ"/>
+                                                    <constraint firstAttribute="width" constant="240" id="Est-b1-5k7"/>
+                                                    <constraint firstAttribute="height" constant="170" id="NJ5-0X-ZSe"/>
+                                                    <constraint firstItem="8jR-tM-MaN" firstAttribute="top" secondItem="Lpz-Xa-5PS" secondAttribute="top" id="dis-KK-EML"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8jR-tM-MaN" secondAttribute="bottom" id="hXV-CR-VOJ"/>
+                                                    <constraint firstItem="8jR-tM-MaN" firstAttribute="leading" secondItem="Lpz-Xa-5PS" secondAttribute="leading" id="s6J-EV-76w"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Lpz-Xa-5PS" firstAttribute="top" secondItem="gN5-eX-v7Z" secondAttribute="top" constant="63" id="K0a-Nt-8Sw"/>
+                                            <constraint firstAttribute="height" constant="921" id="KlO-OF-rNI"/>
+                                            <constraint firstItem="Lpz-Xa-5PS" firstAttribute="centerX" secondItem="gN5-eX-v7Z" secondAttribute="centerX" id="hti-Mo-oMQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gN5-eX-v7Z" secondAttribute="trailing" id="1ii-3S-e7g"/>
+                                    <constraint firstItem="gN5-eX-v7Z" firstAttribute="leading" secondItem="5dS-BP-5pb" secondAttribute="leading" id="Msy-6H-afH"/>
+                                    <constraint firstAttribute="bottom" secondItem="gN5-eX-v7Z" secondAttribute="bottom" constant="-127" id="b06-6b-Fgt"/>
+                                    <constraint firstItem="gN5-eX-v7Z" firstAttribute="top" secondItem="5dS-BP-5pb" secondAttribute="top" id="jYN-ad-Zls"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xrd-ph-VcP"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.094117647060000004" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gN5-eX-v7Z" firstAttribute="width" secondItem="X2V-oD-MSQ" secondAttribute="width" id="5Ne-fn-ChL"/>
+                            <constraint firstItem="5dS-BP-5pb" firstAttribute="leading" secondItem="xrd-ph-VcP" secondAttribute="leading" id="DPu-Of-n5U"/>
+                            <constraint firstItem="5dS-BP-5pb" firstAttribute="top" secondItem="xrd-ph-VcP" secondAttribute="top" id="QJr-xA-9J3"/>
+                            <constraint firstItem="5dS-BP-5pb" firstAttribute="bottom" secondItem="xrd-ph-VcP" secondAttribute="bottom" id="mfd-9K-rqS"/>
+                            <constraint firstItem="5dS-BP-5pb" firstAttribute="trailing" secondItem="xrd-ph-VcP" secondAttribute="trailing" id="qCb-zC-a0R"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="byu-gD-4gd"/>
+                    <size key="freeformSize" width="428" height="926"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6k3-2s-O0x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687.8504672897195" y="114.68682505399569"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Yuz-ED-LqK"/>
         <segue reference="Wv8-HY-qnG"/>
         <segue reference="XLz-vp-Zxo"/>
-        <segue reference="399-hH-aSp"/>
+        <segue reference="2dm-xA-Xcg"/>
         <segue reference="kUb-o8-2UV"/>
         <segue reference="86A-7n-n3z"/>
     </inferredMetricsTieBreakers>
