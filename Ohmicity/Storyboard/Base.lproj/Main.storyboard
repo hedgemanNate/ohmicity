@@ -2689,16 +2689,16 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-189.25233644859813" y="-1414.4708423326135"/>
         </scene>
-        <!--Profile-->
+        <!--Band Scene-->
         <scene sceneID="GrE-Gp-1hN">
             <objects>
-                <viewController id="yd1-jP-T9a" customClass="BandDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yd1-jP-T9a" userLabel="Band Scene" customClass="BandDetailViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UvH-r8-m3m">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1617"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0X-fT-ovN">
-                                <rect key="frame" x="0.0" y="44" width="428" height="799"/>
+                                <rect key="frame" x="0.0" y="44" width="428" height="1573"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aF-Pp-B2O" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="2000"/>
@@ -2933,34 +2933,48 @@ should be on Xity?</string>
                                                     <constraint firstItem="AQq-4q-f3y" firstAttribute="top" secondItem="VP7-W4-f6J" secondAttribute="top" id="yqM-1i-rnG"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBd-bg-blX" userLabel="Support View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRJ-sW-1Ke" userLabel="Top Support View">
                                                 <rect key="frame" x="178" y="402" width="241" height="204"/>
                                                 <subviews>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYL-Au-TBy">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xitySupportIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="kRG-7s-5xa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="241" height="204"/>
+                                                    </imageView>
+                                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBd-bg-blX" userLabel="Support Indication View">
                                                         <rect key="frame" x="0.0" y="0.0" width="241" height="204"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZc-9F-gjl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="241" height="204"/>
+                                                        <fontDescription key="fontDescription" name="CourierPrime-Bold" family="Courier Prime" pointSize="25"/>
                                                         <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Give Your Support">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" metaFont="system" size="18"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="supportButtonTapped:" destination="yd1-jP-T9a" eventType="touchUpInside" id="qxL-gJ-36Z"/>
-                                                        </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Support This Band" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb6-JU-ZAI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="241" height="204"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="hYL-Au-TBy" firstAttribute="leading" secondItem="NBd-bg-blX" secondAttribute="leading" id="0lT-Ca-9hg"/>
-                                                    <constraint firstItem="hYL-Au-TBy" firstAttribute="top" secondItem="NBd-bg-blX" secondAttribute="top" id="KJ7-UA-WVN"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hYL-Au-TBy" secondAttribute="bottom" id="YzO-jL-jwl"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hYL-Au-TBy" secondAttribute="trailing" id="dzX-5c-GZs"/>
+                                                    <constraint firstAttribute="bottom" secondItem="NBd-bg-blX" secondAttribute="bottom" id="1C7-c6-KW3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="iZc-9F-gjl" secondAttribute="trailing" id="1mB-OZ-gsZ"/>
+                                                    <constraint firstItem="NBd-bg-blX" firstAttribute="leading" secondItem="pRJ-sW-1Ke" secondAttribute="leading" id="7hn-lL-cTY"/>
+                                                    <constraint firstItem="Fb6-JU-ZAI" firstAttribute="top" secondItem="pRJ-sW-1Ke" secondAttribute="top" id="JqE-ve-yJ5"/>
+                                                    <constraint firstItem="iZc-9F-gjl" firstAttribute="top" secondItem="pRJ-sW-1Ke" secondAttribute="top" id="LqJ-TM-Wfq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Fb6-JU-ZAI" secondAttribute="trailing" id="PZi-I7-Uz6"/>
+                                                    <constraint firstItem="NBd-bg-blX" firstAttribute="top" secondItem="pRJ-sW-1Ke" secondAttribute="top" id="SH8-Bo-Clc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NBd-bg-blX" secondAttribute="trailing" id="Um2-KM-N4g"/>
+                                                    <constraint firstAttribute="bottom" secondItem="iZc-9F-gjl" secondAttribute="bottom" id="b26-mC-AvA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kRG-7s-5xa" secondAttribute="trailing" id="eTR-dC-v0B"/>
+                                                    <constraint firstItem="kRG-7s-5xa" firstAttribute="top" secondItem="pRJ-sW-1Ke" secondAttribute="top" id="fma-2R-XYm"/>
+                                                    <constraint firstItem="Fb6-JU-ZAI" firstAttribute="leading" secondItem="pRJ-sW-1Ke" secondAttribute="leading" id="grm-ay-2QI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Fb6-JU-ZAI" secondAttribute="bottom" id="qZX-YG-m0p"/>
+                                                    <constraint firstAttribute="bottom" secondItem="kRG-7s-5xa" secondAttribute="bottom" id="rwN-j8-PUM"/>
+                                                    <constraint firstItem="kRG-7s-5xa" firstAttribute="leading" secondItem="pRJ-sW-1Ke" secondAttribute="leading" id="wRT-Ol-qv4"/>
+                                                    <constraint firstItem="iZc-9F-gjl" firstAttribute="leading" secondItem="pRJ-sW-1Ke" secondAttribute="leading" id="xg7-FR-HgF"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrr-dh-GFh">
@@ -3012,7 +3026,6 @@ should be on Xity?</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="NBd-bg-blX" firstAttribute="leading" secondItem="VP7-W4-f6J" secondAttribute="trailing" constant="14" id="2oG-aW-kXA"/>
                                             <constraint firstItem="dtn-X4-QGB" firstAttribute="top" secondItem="4aF-Pp-B2O" secondAttribute="top" id="3Jd-NF-5l6"/>
                                             <constraint firstAttribute="trailing" secondItem="HKu-bL-o5c" secondAttribute="trailing" id="4cO-bL-VmP"/>
                                             <constraint firstItem="Bll-jc-aDY" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" constant="9" id="6Ip-6G-B2g"/>
@@ -3026,25 +3039,26 @@ should be on Xity?</string>
                                             <constraint firstAttribute="trailing" secondItem="Rrr-dh-GFh" secondAttribute="trailing" constant="9" id="HLu-bn-ccb"/>
                                             <constraint firstItem="tEu-fi-Cnm" firstAttribute="top" secondItem="VP7-W4-f6J" secondAttribute="bottom" constant="35" id="IYs-fW-91f"/>
                                             <constraint firstItem="oUa-Qp-oKF" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" constant="9" id="J7e-eC-vDr"/>
-                                            <constraint firstItem="NBd-bg-blX" firstAttribute="top" secondItem="VP7-W4-f6J" secondAttribute="top" id="JAz-Tl-G5I"/>
                                             <constraint firstAttribute="trailing" secondItem="tEu-fi-Cnm" secondAttribute="trailing" constant="9" id="KSG-AR-uoa"/>
                                             <constraint firstItem="HKu-bL-o5c" firstAttribute="top" secondItem="dtn-X4-QGB" secondAttribute="bottom" id="LQg-cZ-aje"/>
                                             <constraint firstItem="Rrr-dh-GFh" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" constant="9" id="RSF-8o-FTZ"/>
+                                            <constraint firstItem="pRJ-sW-1Ke" firstAttribute="bottom" secondItem="VP7-W4-f6J" secondAttribute="bottom" id="TNy-tx-hYF"/>
                                             <constraint firstItem="VP7-W4-f6J" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" constant="9" id="UqR-fR-H96"/>
                                             <constraint firstAttribute="trailing" secondItem="dtn-X4-QGB" secondAttribute="trailing" id="WTe-og-Uq3"/>
                                             <constraint firstItem="xLb-De-3T4" firstAttribute="top" secondItem="HKu-bL-o5c" secondAttribute="bottom" constant="21" id="akI-bG-k1k"/>
                                             <constraint firstAttribute="trailing" secondItem="ePp-Tl-g1x" secondAttribute="trailing" constant="9" id="aov-Tj-cs0"/>
                                             <constraint firstItem="xLb-De-3T4" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" constant="9" id="el9-BD-dz6"/>
+                                            <constraint firstItem="pRJ-sW-1Ke" firstAttribute="leading" secondItem="VP7-W4-f6J" secondAttribute="trailing" constant="14" id="ey9-QW-OJn"/>
                                             <constraint firstItem="Bll-jc-aDY" firstAttribute="top" secondItem="tEu-fi-Cnm" secondAttribute="bottom" constant="7" id="gPp-jl-yAy"/>
                                             <constraint firstAttribute="height" constant="2000" id="gfy-cA-VDM"/>
                                             <constraint firstItem="tEu-fi-Cnm" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" constant="9" id="hLf-4g-i9I"/>
+                                            <constraint firstItem="pRJ-sW-1Ke" firstAttribute="top" secondItem="VP7-W4-f6J" secondAttribute="top" id="ip3-KR-f8D"/>
                                             <constraint firstItem="VP7-W4-f6J" firstAttribute="top" secondItem="xLb-De-3T4" secondAttribute="bottom" constant="21" id="jid-Ds-h4Q"/>
                                             <constraint firstItem="dtn-X4-QGB" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" id="jmV-iR-Pam"/>
                                             <constraint firstItem="HKu-bL-o5c" firstAttribute="leading" secondItem="4aF-Pp-B2O" secondAttribute="leading" id="nln-wh-XkG"/>
-                                            <constraint firstAttribute="trailing" secondItem="NBd-bg-blX" secondAttribute="trailing" constant="9" id="nmJ-7f-hNN"/>
                                             <constraint firstAttribute="trailing" secondItem="oUa-Qp-oKF" secondAttribute="trailing" constant="9" id="pm4-zU-TUV"/>
                                             <constraint firstItem="ePp-Tl-g1x" firstAttribute="top" secondItem="ntW-y3-49X" secondAttribute="bottom" constant="7" id="t88-cP-uiw"/>
-                                            <constraint firstItem="NBd-bg-blX" firstAttribute="bottom" secondItem="VP7-W4-f6J" secondAttribute="bottom" id="tAI-1i-XwS"/>
+                                            <constraint firstAttribute="trailing" secondItem="pRJ-sW-1Ke" secondAttribute="trailing" constant="9" id="uc3-gT-Vzb"/>
                                             <constraint firstItem="Rrr-dh-GFh" firstAttribute="top" secondItem="ePp-Tl-g1x" secondAttribute="bottom" constant="35" id="uuK-2L-Ptc"/>
                                         </constraints>
                                     </view>
@@ -3084,7 +3098,7 @@ should be on Xity?</string>
                         <imageReference key="selectedImage" image="music.mic" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="VCk-uE-Tek"/>
-                    <size key="freeformSize" width="428" height="926"/>
+                    <size key="freeformSize" width="428" height="1700"/>
                     <connections>
                         <outlet property="bandImage" destination="AQq-4q-f3y" id="QTQ-Lx-aCi"/>
                         <outlet property="bandNameLabel" destination="xLb-De-3T4" id="url-WS-Vdj"/>
@@ -3092,14 +3106,16 @@ should be on Xity?</string>
                         <outlet property="favoriteButton" destination="a8m-wq-xkZ" id="bt6-X5-HvB"/>
                         <outlet property="genreCollectionView" destination="Bll-jc-aDY" id="ieQ-FY-Dph"/>
                         <outlet property="mediaTableView" destination="oUa-Qp-oKF" id="NLS-Q5-vYe"/>
-                        <outlet property="supportButton" destination="hYL-Au-TBy" id="T9t-6s-qkl"/>
+                        <outlet property="supportButton" destination="iZc-9F-gjl" id="Bbw-Ab-aoa"/>
+                        <outlet property="supportLabel" destination="Fb6-JU-ZAI" id="9Sy-Jb-1vY"/>
                         <outlet property="supportView" destination="NBd-bg-blX" id="cwP-ew-AT7"/>
                         <outlet property="upcomingShowsTableView" destination="ePp-Tl-g1x" id="F16-wF-JNj"/>
+                        <outlet property="xityLogoImageView" destination="kRG-7s-5xa" id="emw-e6-ImA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uEe-vH-3kn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="363.0841121495327" y="121.81425485961124"/>
+            <point key="canvasLocation" x="637.85046728971963" y="372.57019438444928"/>
         </scene>
         <!--Profile-->
         <scene sceneID="bF3-F7-bdf">
@@ -3199,14 +3215,14 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KrL-MU-LVT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1635" y="175"/>
+            <point key="canvasLocation" x="2201" y="236"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zxp-OZ-fdc"/>
-        <segue reference="xvY-CC-YbG"/>
+        <segue reference="Yuz-ED-LqK"/>
+        <segue reference="Wv8-HY-qnG"/>
         <segue reference="XLz-vp-Zxo"/>
-        <segue reference="Zd4-Ao-r3K"/>
+        <segue reference="399-hH-aSp"/>
         <segue reference="kUb-o8-2UV"/>
         <segue reference="86A-7n-n3z"/>
     </inferredMetricsTieBreakers>
@@ -3233,6 +3249,7 @@ should be on Xity?</string>
         <image name="ticket" catalog="system" width="128" height="84"/>
         <image name="ticket.fill" catalog="system" width="128" height="84"/>
         <image name="unltdFavs.jpg" width="500" height="500"/>
+        <image name="xitySupportIcon.png" width="192.47999572753906" height="192.47999572753906"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

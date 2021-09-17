@@ -26,6 +26,7 @@ class TimeController {
     let now = Date()
     let inThreeHours = Date().addingTimeInterval(10800)
     let threeHoursAgo = Date().addingTimeInterval(-10800)
+    let aDayAgo = Date().addingTimeInterval(-86400)
     
     //Calendar
     let userCalendar = Calendar.current

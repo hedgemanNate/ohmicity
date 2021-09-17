@@ -42,6 +42,7 @@ class Band: Codable, Equatable, Hashable {
     var photo: Data?
     var genre: [Genre] = []
     var mediaLink: String?
+    var xitySupport: Int?
     var ohmPick: Bool = false
     
     init(name: String) {

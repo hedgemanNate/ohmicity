@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
 enum AccountType: String, Codable, Equatable {
     case Consumer

@@ -63,9 +63,12 @@
 		F67991002697AB54000FDC5E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67990FF2697AB54000FDC5E /* Notifications.swift */; };
 		F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991042697E2A0000FDC5E /* BusinessController.swift */; };
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
-		F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
+		F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687CD6626F45ECA00412C07 /* CurrentUser.swift */; };
+		F687CD6926F45EF300412C07 /* XitySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687CD6826F45EF300412C07 /* XitySupport.swift */; };
+		F687CD6B26F46AC500412C07 /* XitySupportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687CD6A26F46AC500412C07 /* XitySupportController.swift */; };
+		F687CD6D26F4980100412C07 /* xitySupportIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F687CD6C26F4980000412C07 /* xitySupportIcon.png */; };
 		F68848C126ED8782001D06C5 /* rate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F68848BF26ED8779001D06C5 /* rate.jpg */; };
 		F68848C226ED8782001D06C5 /* reminders.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F68848C026ED877E001D06C5 /* reminders.jpg */; };
 		F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6923D25264E7F6400A2E036 /* DashboardViewController.swift */; };
@@ -164,9 +167,12 @@
 		F67990FF2697AB54000FDC5E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		F67991042697E2A0000FDC5E /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
-		F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Ohmicity/Models/CurrentUser.swift; sourceTree = SOURCE_ROOT; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
+		F687CD6626F45ECA00412C07 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		F687CD6826F45EF300412C07 /* XitySupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XitySupport.swift; sourceTree = "<group>"; };
+		F687CD6A26F46AC500412C07 /* XitySupportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XitySupportController.swift; sourceTree = "<group>"; };
+		F687CD6C26F4980000412C07 /* xitySupportIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xitySupportIcon.png; sourceTree = "<group>"; };
 		F68848BF26ED8779001D06C5 /* rate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rate.jpg; sourceTree = "<group>"; };
 		F68848C026ED877E001D06C5 /* reminders.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reminders.jpg; sourceTree = "<group>"; };
 		F6923D25264E7F6400A2E036 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +340,7 @@
 		F61C370526B64E5A00A2235B /* Button Icons And BG's */ = {
 			isa = PBXGroup;
 			children = (
+				F687CD6C26F4980000412C07 /* xitySupportIcon.png */,
 				F61C370626B64E5A00A2235B /* directionsIcon.png */,
 				F61C370726B64E5A00A2235B /* listenButton.png */,
 			);
@@ -405,7 +412,7 @@
 		F67109EF264B64F000FC479B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F67B3FAB264A0B7500D3FC88 /* CurrentUser.swift */,
+				F687CD6526F45E8600412C07 /* User Models */,
 				F676F0F426991C6C00C47599 /* Band.swift */,
 				F676F0EF26991C6C00C47599 /* Rating.swift */,
 				F676F0F226991C6C00C47599 /* Show.swift */,
@@ -434,14 +441,24 @@
 				F66C99C326BCD83800A7C135 /* XityShowController.swift */,
 				F699FFE426C614ED00C73CD6 /* XityBandController.swift */,
 				F699FFE626C6179800C73CD6 /* XityBusinessController.swift */,
-				F67991042697E2A0000FDC5E /* BusinessController.swift */,
-				F676F0FE269947B300C47599 /* BandController.swift */,
-				F676F1022699496200C47599 /* ShowController.swift */,
+				F687CD6A26F46AC500412C07 /* XitySupportController.swift */,
 				F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */,
 				F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */,
 				F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */,
+				F67991042697E2A0000FDC5E /* BusinessController.swift */,
+				F676F0FE269947B300C47599 /* BandController.swift */,
+				F676F1022699496200C47599 /* ShowController.swift */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		F687CD6526F45E8600412C07 /* User Models */ = {
+			isa = PBXGroup;
+			children = (
+				F687CD6626F45ECA00412C07 /* CurrentUser.swift */,
+				F687CD6826F45EF300412C07 /* XitySupport.swift */,
+			);
+			path = "User Models";
 			sourceTree = "<group>";
 		};
 		F6DBFDA826E9B161001D7520 /* Puchase Images */ = {
@@ -597,6 +614,7 @@
 				F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */,
 				F6F3DB4626AF337C00C49016 /* club.png in Resources */,
 				F61C370926B64E5B00A2235B /* listenButton.png in Resources */,
+				F687CD6D26F4980100412C07 /* xitySupportIcon.png in Resources */,
 				F696A73726AB7079009CB1BD /* venice.png in Resources */,
 				F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */,
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
@@ -689,6 +707,7 @@
 				F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */,
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
+				F687CD6926F45EF300412C07 /* XitySupport.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
@@ -724,13 +743,14 @@
 				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,
 				F6615ADF26F2CC450096D59D /* ProgressCircle.swift in Sources */,
 				F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */,
+				F687CD6B26F46AC500412C07 /* XitySupportController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
-				F67B3FAC264A0B7500D3FC88 /* CurrentUser.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,
 				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
+				F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */,
 				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
