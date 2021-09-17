@@ -20,9 +20,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.45459836720000002" green="0.8259726167" blue="0.97133558990000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.45459836720000002" green="0.8259726167" blue="0.97133558990000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="selectedImageTintColor" red="0.45459836720000002" green="0.8259726167" blue="0.97133558990000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="systemYellowColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="3L6-vU-wgp" kind="relationship" relationship="viewControllers" id="AeU-CN-abq"/>
@@ -375,8 +382,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="00v-gD-rj0">
-                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
-                        <imageReference key="selectedImage" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large" renderingMode="template"/>
+                        <imageReference key="selectedImage" image="magnifyingglass" catalog="system" symbolScale="large" renderingMode="template"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="systemYellowColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="vvm-N9-IDu"/>
                     <size key="freeformSize" width="428" height="900"/>
@@ -2084,8 +2096,13 @@ should be on Xity?</string>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="hKo-qg-irv">
-                        <imageReference key="image" image="ticket" catalog="system" symbolScale="large"/>
-                        <imageReference key="selectedImage" image="ticket.fill" catalog="system" symbolScale="large"/>
+                        <imageReference key="image" image="ticket" catalog="system" symbolScale="large" renderingMode="template"/>
+                        <imageReference key="selectedImage" image="ticket.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" systemColor="systemYellowColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs3-AJ-gcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2854,7 +2871,7 @@ should be on Xity?</string>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Few Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntW-y3-49X">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntW-y3-49X">
                                                 <rect key="frame" x="9" y="810" width="410" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2919,19 +2936,26 @@ should be on Xity?</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBd-bg-blX" userLabel="Support View">
                                                 <rect key="frame" x="178" y="402" width="241" height="204"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYL-Au-TBy">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYL-Au-TBy">
                                                         <rect key="frame" x="0.0" y="0.0" width="241" height="204"/>
-                                                        <color key="backgroundColor" red="0.18039215689999999" green="0.21176470589999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                        <state key="normal" title="Give Your Support">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Give Your Support">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <font key="NSFont" metaFont="system" size="18"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </state>
                                                         <connections>
                                                             <action selector="supportButtonTapped:" destination="yd1-jP-T9a" eventType="touchUpInside" id="qxL-gJ-36Z"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="hYL-Au-TBy" firstAttribute="leading" secondItem="NBd-bg-blX" secondAttribute="leading" id="0lT-Ca-9hg"/>
                                                     <constraint firstItem="hYL-Au-TBy" firstAttribute="top" secondItem="NBd-bg-blX" secondAttribute="top" id="KJ7-UA-WVN"/>
@@ -3069,6 +3093,7 @@ should be on Xity?</string>
                         <outlet property="genreCollectionView" destination="Bll-jc-aDY" id="ieQ-FY-Dph"/>
                         <outlet property="mediaTableView" destination="oUa-Qp-oKF" id="NLS-Q5-vYe"/>
                         <outlet property="supportButton" destination="hYL-Au-TBy" id="T9t-6s-qkl"/>
+                        <outlet property="supportView" destination="NBd-bg-blX" id="cwP-ew-AT7"/>
                         <outlet property="upcomingShowsTableView" destination="ePp-Tl-g1x" id="F16-wF-JNj"/>
                     </connections>
                 </viewController>
@@ -3179,10 +3204,10 @@ should be on Xity?</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Zxp-OZ-fdc"/>
-        <segue reference="pjQ-BQ-c07"/>
+        <segue reference="xvY-CC-YbG"/>
         <segue reference="XLz-vp-Zxo"/>
-        <segue reference="phR-fw-lgs"/>
-        <segue reference="Iq0-3N-MXY"/>
+        <segue reference="Zd4-Ao-r3K"/>
+        <segue reference="kUb-o8-2UV"/>
         <segue reference="86A-7n-n3z"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -3219,6 +3244,9 @@ should be on Xity?</string>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

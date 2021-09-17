@@ -85,7 +85,7 @@ extension LoadInitDataViewController {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
         activityIndicator.radius = 150
-        activityIndicator.cycleColors = [cc.highlightBlue, UIColor.yellow, cc.tabBarButtonPurple]
+        activityIndicator.cycleColors = [cc.highlightBlue, UIColor.yellow, UIColor.systemPurple, UIColor.green]
         activityIndicator.startAnimating()
     }
     

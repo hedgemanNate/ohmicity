@@ -145,25 +145,6 @@ extension DashboardViewController {
             self.favoritesCollectionView.reloadData()
             self.xityPickCollectionView.reloadData()
             
-//            switch xityShowController.todayShowArrayFilter {
-//            case .some(.All):
-//                cityFilterLabel.text = "in All Cities"
-//            case .some(.Sarasota):
-//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
-//            case .some(.Bradenton):
-//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
-//            case .some(.Venice):
-//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
-//            case .some(.StPete):
-//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
-//            case .some(.Tampa):
-//                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
-//            case .some(.Ybor):
-//                ç
-//            case .none:
-//                break
-//            }
-            
             switch xityShowController.todayShowArrayFilter {
             case .All:
                 cityFilterLabel.text = "in All Cities"
@@ -218,6 +199,11 @@ extension DashboardViewController {
         
         //UI Adjustments
         getPerksButton.layer.cornerRadius = 5
+        if currentUserController.currentUser?.preferredCity != nil {
+            cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+        } else {
+            cityFilterLabel.text = "in All Cities"
+        }
         
         scrollView.refreshControl = UIRefreshControl()
         scrollView.refreshControl?.addTarget(self, action: #selector(organizeData), for: .valueChanged)
@@ -357,7 +343,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
             return 50
         case todayCollectionView:
-            return xityShowController.todayShowResultsArray.count
+            return xityShowController.todayShowResultsArray?.count ?? 0
         case citiesCollectionView:
             return businessController.citiesArray.count
         case venueCollectionView:
@@ -395,7 +381,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! BandVenueCollectionViewCell
-            venueCell.venue = xityShowController.todayShowResultsArray[indexPath.row].business
+            venueCell.venue = xityShowController.todayShowResultsArray?[indexPath.row].business
             return venueCell
             
         case citiesCollectionView:
@@ -459,8 +445,8 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             endTimer()
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let selected = xityShowController.todayShowResultsArray[indexPath!.row]
-            let business = selected.business
+            let selected = xityShowController.todayShowResultsArray?[indexPath!.row]
+            let business = selected?.business
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
             businessVC.xityBusiness = xityBusiness
             businessVC.featuredShow = selected

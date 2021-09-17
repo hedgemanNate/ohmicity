@@ -15,7 +15,8 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     //Properties
     var menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
     let activityIndicator = MDCActivityIndicator()
-    var activityIndicatorColors = [cc.highlightBlue, UIColor.yellow, UIColor.systemPurple, UIColor.green]
+    var activityIndicatorColors = [cc.highlightBlue, UIColor.yellow, UIColor.systemPurple, UIColor.green, UIColor.orange]
+    let hapticGenerator = UISelectionFeedbackGenerator()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -26,7 +27,7 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
         setupMiddleButton()
         self.delegate = self
         self.selectedIndex = 2 
-        
+        hapticGenerator.prepare()
     }
     
     
@@ -62,11 +63,11 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     }
     
     private func setupProgressView() {
-        activityIndicator.transform = CGAffineTransform(scaleX: 1, y: 1)
         menuButton.addSubview(activityIndicator)
         activityIndicator.center = menuButton.center
         activityIndicator.radius = 27
         activityIndicator.cycleColors = activityIndicatorColors
+        activityIndicator.trackEnabled = true
         activityIndicator.bringSubviewToFront(menuButton)
     }
 
@@ -75,11 +76,14 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
 
     @objc private func menuButtonAction(sender: UIButton) {
         selectedIndex = 2
+        self.hapticGenerator.selectionChanged()
         activityIndicator.startAnimating()
         activityIndicatorColors.shuffle()
+        xityShowController.todayShowArray?.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
         activityIndicator.cycleColors = activityIndicatorColors
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             self.activityIndicator.stopAnimating()
+            
         }
     }
 }

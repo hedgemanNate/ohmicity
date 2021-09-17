@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import MaterialComponents.MaterialActivityIndicator
 
 class BandDetailViewController: UIViewController {
 
@@ -29,6 +30,14 @@ class BandDetailViewController: UIViewController {
     @IBOutlet weak var upcomingShowsTableView: UITableView!
     @IBOutlet weak var mediaTableView: UITableView!
     
+    //Loader
+    @IBOutlet weak var supportView: UIView!
+
+    let supportIndicator5 = MDCActivityIndicator()
+    let supportIndicator4 = MDCActivityIndicator()
+    let supportIndicator3 = MDCActivityIndicator()
+    let supportIndicator2 = MDCActivityIndicator()
+    let supportIndicator1 = MDCActivityIndicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +67,7 @@ class BandDetailViewController: UIViewController {
     
     //MARK: Functions
     private func updateViews() {
+        supportIndicatorSetup()
         guard let currentBand = currentBand else { NSLog("No current band found"); return}
         
         if let bandImage = UIImage(data: currentBand.band.photo!) {
@@ -73,6 +83,9 @@ class BandDetailViewController: UIViewController {
         } else {
             favoriteButton.imageView?.image = UIImage(systemName: "suit.heart")
         }
+        
+        //Support View
+        supportIndicatorSetup()
     }
     
     private func delegateDataSourceSetup() {
@@ -84,6 +97,88 @@ class BandDetailViewController: UIViewController {
         upcomingShowsTableView.dataSource = self
         mediaTableView.delegate = self
         mediaTableView.dataSource = self
+    }
+    
+    private func supportIndicatorSetup() {
+        supportIndicator5.setProgress(0.5, animated: true)
+        supportView.addSubview(supportIndicator5)
+        supportIndicator5.startAnimating()
+        
+        supportIndicator4.setProgress(0.5, animated: true)
+        supportView.addSubview(supportIndicator4)
+        supportIndicator4.startAnimating()
+
+        supportIndicator3.setProgress(0.5, animated: true)
+        supportView.addSubview(supportIndicator3)
+        supportIndicator3.startAnimating()
+        
+        supportIndicator2.setProgress(0.5, animated: true)
+        supportView.addSubview(supportIndicator2)
+        supportIndicator2.startAnimating()
+        
+        supportIndicator1.setProgress(0.5, animated: true)
+        supportView.addSubview(supportIndicator1)
+        supportIndicator1.startAnimating()
+        
+        //supportIndicator 5 UI
+        supportIndicator5.indicatorMode = .determinate
+        supportIndicator5.radius = supportView.frame.height / 2
+        supportIndicator5.strokeWidth = 10
+        supportIndicator5.trackEnabled = true
+        
+        supportView.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator5.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator5.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
+        supportIndicator5.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        
+        
+        //SupportIndicator 4 UI
+        supportIndicator4.indicatorMode = .determinate
+        supportIndicator4.radius = supportView.frame.height / 2.5
+        supportIndicator4.strokeWidth = 10
+        supportIndicator4.trackEnabled = true
+        
+        supportView.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator4.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator4.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
+        supportIndicator4.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        
+        //SupportIndicator 3 UI
+        supportIndicator3.indicatorMode = .determinate
+        supportIndicator3.radius = supportView.frame.height / 3.3
+        supportIndicator3.strokeWidth = 10
+        supportIndicator3.trackEnabled = true
+        
+        
+        supportView.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator3.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator3.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
+        supportIndicator3.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        
+        //SupportIndicator 2 UI
+        supportIndicator2.indicatorMode = .determinate
+        supportIndicator2.radius = supportView.frame.height / 5
+        supportIndicator2.strokeWidth = 10
+        supportIndicator2.trackEnabled = true
+        
+        supportView.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator2.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator2.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
+        supportIndicator2.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        
+        //SupportIndicator 1 UI
+        supportIndicator1.indicatorMode = .determinate
+        supportIndicator1.radius = supportView.frame.height / 10
+        supportIndicator1.strokeWidth = 10
+        supportIndicator1.trackEnabled = true
+        
+        
+        supportView.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator1.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicator1.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
+        supportIndicator1.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        
+        supportButton.bringSubviewToFront(supportView)
     }
     
     /*
