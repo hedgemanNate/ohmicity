@@ -721,6 +721,7 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - youtube-ios-player-helper (1.0.3)
 
 DEPENDENCIES:
   - Firebase
@@ -740,6 +741,7 @@ DEPENDENCIES:
   - "MaterialComponents/TextControls+OutlinedTextAreas"
   - "MaterialComponents/TextControls+OutlinedTextFields"
   - MaterialComponents/TextFields
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
@@ -790,6 +792,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -839,7 +842,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: ea98c7d13e6628f31c6acea8627a23d9703ec131
+PODFILE CHECKSUM: 40f14c89a9b0d79bc1dbe484109ea0d01d231dfd
 
 COCOAPODS: 1.10.2

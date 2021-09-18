@@ -18,6 +18,7 @@ target 'Ohmicity' do
   pod 'FirebaseUI'
 
   pod 'Google-Mobile-Ads-SDK'
+  pod 'youtube-ios-player-helper'
   
   pod 'MaterialComponents/TextFields'
   pod 'MaterialComponents/Buttons'

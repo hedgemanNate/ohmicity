@@ -52,7 +52,7 @@
 		F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityShow.swift */; };
 		F66C99CA26BD16F600A7C135 /* band.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C926BD16F400A7C135 /* band.jpg */; };
 		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
-		F676F0F626991C6C00C47599 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Rating.swift */; };
+		F676F0F626991C6C00C47599 /* BandsRatings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* BandsRatings.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
 		F676F0FA26991C6C00C47599 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F326991C6C00C47599 /* Business.swift */; };
 		F676F0FB26991C6C00C47599 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F426991C6C00C47599 /* Band.swift */; };
@@ -157,7 +157,7 @@
 		F66C99C726BCF5D400A7C135 /* XityShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShow.swift; sourceTree = "<group>"; };
 		F66C99C926BD16F400A7C135 /* band.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = band.jpg; sourceTree = "<group>"; };
 		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
-		F676F0EF26991C6C00C47599 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		F676F0EF26991C6C00C47599 /* BandsRatings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandsRatings.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		F676F0F326991C6C00C47599 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		F676F0F426991C6C00C47599 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 			children = (
 				F687CD6526F45E8600412C07 /* User Models */,
 				F676F0F426991C6C00C47599 /* Band.swift */,
-				F676F0EF26991C6C00C47599 /* Rating.swift */,
+				F676F0EF26991C6C00C47599 /* BandsRatings.swift */,
 				F676F0F226991C6C00C47599 /* Show.swift */,
 				F676F0F326991C6C00C47599 /* Business.swift */,
 				F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */,
@@ -757,7 +757,7 @@
 				F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */,
 				F687CD6B26F46AC500412C07 /* XitySupportController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
-				F676F0F626991C6C00C47599 /* Rating.swift in Sources */,
+				F676F0F626991C6C00C47599 /* BandsRatings.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,

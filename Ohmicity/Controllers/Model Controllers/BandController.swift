@@ -24,7 +24,7 @@ class BandController {
     //Functions
     
     func getNewBandData() {
-        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: lmDateHandler.savedDate!).getDocuments() { (querySnapshot, error) in
+        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { (querySnapshot, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {

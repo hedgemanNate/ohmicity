@@ -62,7 +62,7 @@ extension BusinessBannerAdController {
     
     func getNewBusinessAdData() {
         var businessAdCount = 0
-        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: lmDateHandler.savedDate!).getDocuments() { [self] (querySnapshot, error) in
+        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { [self] (querySnapshot, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
