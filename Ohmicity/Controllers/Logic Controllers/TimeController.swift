@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 
 class TimeController {
+    var savedDateForDatabaseUse: Date?
     var todayString = ""
     var thisYear = ""
     var dayOfWeek = ""
@@ -27,6 +28,8 @@ class TimeController {
     let inThreeHours = Date().addingTimeInterval(10800)
     let threeHoursAgo = Date().addingTimeInterval(-10800)
     let aDayAgo = Date().addingTimeInterval(-86400)
+    
+    let remove4HoursForBug = Date().addingTimeInterval(-14400)
     
     //Calendar
     let userCalendar = Calendar.current

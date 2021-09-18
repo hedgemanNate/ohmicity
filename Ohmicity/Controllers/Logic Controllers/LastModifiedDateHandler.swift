@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 class LastModifiedDateHandler {
     //MARK: Properties
-    var savedDate: Date?
+    //var savedDate: Date?
     let opQueue = OperationQueue()
     
     
@@ -18,14 +18,14 @@ class LastModifiedDateHandler {
     //MARK: Functions
     // Stores and checks current time and date for fewer data calls
     func loadDate() {
-        savedDate = (UserDefaults.standard.object(forKey: "SavedDate") as! Date)
+        timeController.savedDateForDatabaseUse = (UserDefaults.standard.object(forKey: "SavedDate") as! Date)
     }
     
     //After database has been queried, save the date
     func saveDate() {
-        savedDate = Date()
-        UserDefaults.standard.set(savedDate, forKey: "SavedDate")
-        print("!!!SAVEDDATE: \(Timestamp(date: savedDate!).dateValue())")
+        timeController.savedDateForDatabaseUse = timeController.remove4HoursForBug
+        UserDefaults.standard.set(timeController.savedDateForDatabaseUse, forKey: "SavedDate")
+        print("!!!SAVEDDATE: \(Timestamp(date: timeController.savedDateForDatabaseUse!).dateValue())")
     }
     
     
