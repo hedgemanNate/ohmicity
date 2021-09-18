@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseOAuthUI
 import MaterialComponents
+import FirebaseFirestore
 
 class SignInViewController: UIViewController, FUIAuthDelegate {
 

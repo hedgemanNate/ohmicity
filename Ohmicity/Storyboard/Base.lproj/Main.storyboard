@@ -41,7 +41,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHT-cb-nit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3343" y="-975"/>
+            <point key="canvasLocation" x="-3193" y="-2342"/>
         </scene>
         <!--Load Init Data View Controller-->
         <scene sceneID="Rvk-4W-YPJ">
@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCs-Pg-jIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4124.2990654205605" y="-975.16198704103681"/>
+            <point key="canvasLocation" x="-3974" y="-2342"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="awe-Of-PtB">
@@ -404,6 +404,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-652" y="-718"/>
+        </scene>
+        <!--XityDeals-->
+        <scene sceneID="LMF-3p-EZa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="XityDeals" id="J6f-dj-eee" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="215-eA-XtH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2535" y="-2465"/>
         </scene>
         <!--Venue Detail-->
         <scene sceneID="x6D-KM-3o5">
@@ -1260,7 +1268,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="SignIn" id="VkB-f5-0Se" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtj-5X-GBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3343" y="-86"/>
+            <point key="canvasLocation" x="-2464" y="-2218"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="Xoh-KE-nbH">
@@ -1442,9 +1450,6 @@ should be on Xity?</string>
                                                 <state key="normal" title="Xity Exclusives">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="cl4-3c-m7h" kind="presentation" modalPresentationStyle="fullScreen" id="DTx-Mo-6M0"/>
-                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PRD-v0-GZh" userLabel="Citites Collection View">
                                                 <rect key="frame" x="0.0" y="644" width="428" height="105"/>
@@ -1491,7 +1496,6 @@ should be on Xity?</string>
                                                         <connections>
                                                             <outlet property="imageView" destination="EfW-Ip-Hi4" id="iTs-7O-BHN"/>
                                                             <outlet property="nameLabel" destination="JCx-2B-oVB" id="RQG-kQ-jH6"/>
-                                                            <segue destination="cl4-3c-m7h" kind="presentation" modalPresentationStyle="fullScreen" id="RRV-Lx-2Z7"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -1917,6 +1921,7 @@ should be on Xity?</string>
                         <segue destination="N6i-M7-k20" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="Zxp-OZ-fdc"/>
                         <segue destination="evY-Al-06O" kind="presentation" identifier="ToCityFilterSegue" id="kUb-o8-2UV"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="pYi-uV-Zx2"/>
+                        <segue destination="cl4-3c-m7h" kind="presentation" identifier="DealsComingSoonSegue" id="KpL-6c-PpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2025,29 +2030,29 @@ should be on Xity?</string>
                 </view>
                 <tabBarItem title="Dashboard" id="R8M-BV-06Y"/>
             </objects>
-            <point key="canvasLocation" x="-1445" y="-362"/>
+            <point key="canvasLocation" x="-3192" y="-1122"/>
         </scene>
         <!--Temporary View Controller-->
         <scene sceneID="mAM-TT-s8b">
             <objects>
                 <viewController id="cl4-3c-m7h" customClass="TemporaryViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1MJ-AR-Gae">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-Rj-3Rr" userLabel="Background Image">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="G8A-5p-Zzm">
-                                <rect key="frame" x="114" y="213" width="200" height="200"/>
+                                <rect key="frame" x="114" y="186" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="7nq-eB-nS6"/>
                                     <constraint firstAttribute="height" constant="200" id="ihN-aQ-Xbu"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" allowsEditingTextAttributes="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9D-1K-loc">
-                                <rect key="frame" x="55" y="420" width="318" height="113"/>
+                                <rect key="frame" x="55" y="393" width="318" height="113"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="113" id="1El-Dd-RrM"/>
@@ -2064,7 +2069,7 @@ should be on Xity?</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKa-ab-tGy">
-                                <rect key="frame" x="100" y="561" width="228" height="50"/>
+                                <rect key="frame" x="100" y="534" width="228" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0Zr-ob-Q5g"/>
@@ -2108,7 +2113,7 @@ should be on Xity?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs3-AJ-gcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0az-rL-VKh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2602" y="-1414"/>
+            <point key="canvasLocation" x="2553" y="-1541"/>
         </scene>
         <!--Recommend View Controller-->
         <scene sceneID="N1U-dv-2PE">
@@ -2837,7 +2842,7 @@ should be on Xity?</string>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUe-Oz-MG7" userLabel="Hide Ratings View">
                                                 <rect key="frame" x="0.0" y="328" width="428" height="128"/>
-                                                <color key="backgroundColor" red="0.1718570888" green="0.16069284079999999" blue="0.1935454905" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.11372549019607843" green="0.094117647058823528" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="Xam-32-Qc1"/>
                                                 </constraints>
@@ -3433,7 +3438,7 @@ should be on Xity?</string>
     <inferredMetricsTieBreakers>
         <segue reference="Zxp-OZ-fdc"/>
         <segue reference="xvY-CC-YbG"/>
-        <segue reference="DTx-Mo-6M0"/>
+        <segue reference="KpL-6c-PpP"/>
         <segue reference="2dm-xA-Xcg"/>
         <segue reference="kUb-o8-2UV"/>
         <segue reference="wJT-Pi-nZQ"/>

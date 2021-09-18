@@ -15,14 +15,20 @@ enum SubscriptionType: String, Codable, Equatable {
     case FullAccessPass = "Full Access Pass"
 }
 
+enum Features: String, Codable {
+    case Favorites
+    case NoPopupAds
+    
+}
+
 struct Subscription {
     var type: SubscriptionType
     var description: String
-    var features: [Feature] = []
+    var features: [PaywallFeature] = []
     var price: String
 }
 
-struct Feature {
+struct PaywallFeature {
     let image: UIImage
     let name: String
 }

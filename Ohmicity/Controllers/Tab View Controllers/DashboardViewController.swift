@@ -17,6 +17,7 @@ class DashboardViewController: UIViewController {
     let todaySegue = "FromToday"
     let xityPickSegue = "FromXityPick"
     let favSegue = "FromFav"
+    let dealsSoonSegue = "DealsComingSoonSegue"
     
     //Timer
     var timer = Timer()
@@ -342,14 +343,19 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case bannerAdCollectionView:
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
             return 50
+            
         case todayCollectionView:
             return xityShowController.todayShowResultsArray?.count ?? 0
+            
         case citiesCollectionView:
             return businessController.citiesArray.count
+            
         case venueCollectionView:
             return businessController.businessTypeArray.count
+            
         case favoritesCollectionView:
             return currentUserController.favArray.count
+            
         case xityPickCollectionView:
             if currentUserController.currentUser == nil {
                 xityShowController.weeklyPicksArray.shuffle()
@@ -415,6 +421,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
 
         switch collectionView {
         case todayCollectionView:
+            
             if interstitialAd != nil && shouldShowAds == true {
                 showAdThirtyThreeChance(segue: todaySegue)
             } else {
@@ -474,6 +481,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == pick.business})
             businessVC.xityBusiness = xityBusiness
             businessVC.featuredShow = pick
+            
+        }
+        
+        if segue.identifier == dealsSoonSegue {
             
         }
     }
