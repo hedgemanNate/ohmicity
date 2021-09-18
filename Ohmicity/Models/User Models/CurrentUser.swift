@@ -24,6 +24,7 @@ class CurrentUser: Codable {
     var savedShows: [String] = []
     var favoriteBusinesses: [String] = []
     var favoriteBands: [String] = []
+    var bandRatings: [UsersRatings]?
     var usedPromotions: [String] = []
     var paidServices: [String] = []
     var subscriber: Bool = false { didSet {userAdController.setUpAdsForUser()}}
