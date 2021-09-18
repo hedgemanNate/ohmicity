@@ -21,6 +21,21 @@ class BandDetailViewController: UIViewController {
     @IBOutlet weak var supportButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    //Ratings
+    @IBOutlet weak var ratingsLabel: UILabel!
+    @IBOutlet weak var ratingButton: UIButton!
+    @IBOutlet weak var ratingsView: UIView!
+    @IBOutlet weak var star1Button: UIButton!
+    @IBOutlet weak var star2Button: UIButton!
+    @IBOutlet weak var star3Button: UIButton!
+    @IBOutlet weak var star4Button: UIButton!
+    @IBOutlet weak var star5Button: UIButton!
+    var largeSymbolScaleConfig = UIImage.SymbolConfiguration(scale: .large)
+    var starFilledImage = UIImage()
+    var starEmptyImage = UIImage()
+    var ratingViewIsShown = false
+    var givenRating = 0
+    var ratingTimer = Timer()
     
     //Collection View
     @IBOutlet weak var bannerAdCollectionView: UICollectionView!
@@ -64,10 +79,80 @@ class BandDetailViewController: UIViewController {
     
     //MARK: Button Actions
     @IBAction func breaker(_ sender: Any) {
-        supportButtonTapped()
+        
     }
     
     @IBAction func rateButtonTapped(_ sender: Any) {
+        if ratingViewIsShown {
+            ratingTimer.invalidate()
+            closeRatingView()
+        } else {
+            ratingViewIsShown = !ratingViewIsShown
+            UIView.animate(withDuration: 0.5, delay: 0, options: []) {
+                self.ratingsView.transform = CGAffineTransform(translationX: 0, y: -115)
+            } completion: { complete in
+                if complete == true {
+                    self.startHideRatingsViewTimer()
+                }
+            }
+
+        }
+    }
+    
+    @IBAction func star1ButtonTapped(_ sender: Any) {
+        //UI Changes
+        self.star1Button.setImage(starFilledImage, for: .normal)
+        self.star2Button.setImage(starEmptyImage, for: .normal)
+        self.star3Button.setImage(starEmptyImage, for: .normal)
+        self.star4Button.setImage(starEmptyImage, for: .normal)
+        self.star5Button.setImage(starEmptyImage, for: .normal)
+        givenRating = 1
+        ratingsLabel.text = "Rating Received"
+        startHideRatingsViewTimer()
+    }
+    
+    @IBAction func star2ButtonTapped(_ sender: Any) {
+        self.star1Button.setImage(starFilledImage, for: .normal)
+        self.star2Button.setImage(starFilledImage, for: .normal)
+        self.star3Button.setImage(starEmptyImage, for: .normal)
+        self.star4Button.setImage(starEmptyImage, for: .normal)
+        self.star5Button.setImage(starEmptyImage, for: .normal)
+        givenRating = 2
+        ratingsLabel.text = "Rating Received"
+        startHideRatingsViewTimer()
+    }
+    
+    @IBAction func star3ButtonTapped(_ sender: Any) {
+        self.star1Button.setImage(starFilledImage, for: .normal)
+        self.star2Button.setImage(starFilledImage, for: .normal)
+        self.star3Button.setImage(starFilledImage, for: .normal)
+        self.star4Button.setImage(starEmptyImage, for: .normal)
+        self.star5Button.setImage(starEmptyImage, for: .normal)
+        givenRating = 3
+        ratingsLabel.text = "Rating Received"
+        startHideRatingsViewTimer()
+    }
+    
+    @IBAction func star4ButtonTapped(_ sender: Any) {
+        self.star1Button.setImage(starFilledImage, for: .normal)
+        self.star2Button.setImage(starFilledImage, for: .normal)
+        self.star3Button.setImage(starFilledImage, for: .normal)
+        self.star4Button.setImage(starFilledImage, for: .normal)
+        self.star5Button.setImage(starEmptyImage, for: .normal)
+        givenRating = 4
+        ratingsLabel.text = "Rating Received"
+        startHideRatingsViewTimer()
+    }
+    
+    @IBAction func star5ButtonTapped(_ sender: Any) {
+        self.star1Button.setImage(starFilledImage, for: .normal)
+        self.star2Button.setImage(starFilledImage, for: .normal)
+        self.star3Button.setImage(starFilledImage, for: .normal)
+        self.star4Button.setImage(starFilledImage, for: .normal)
+        self.star5Button.setImage(starFilledImage, for: .normal)
+        givenRating = 5
+        ratingsLabel.text = "Rating Received"
+        startHideRatingsViewTimer()
     }
     
     @IBAction func bandNotificationsButtonTapped(_ sender: Any) {
@@ -81,30 +166,41 @@ class BandDetailViewController: UIViewController {
     
     //MARK: Update Views
    @objc private func updateViews() {
-        supportIndicatorSetup()
-        supportLabel.layer.zPosition = 100
-        supportView.layer.zPosition = 98
-        xityLogoImageView.layer.zPosition = 97
-        xityLogoImageView.alpha = 0
-        
-        
-        guard let currentBand = currentBand else { NSLog("No current band found"); return}
-        
-        if let bandImage = UIImage(data: currentBand.band.photo!) {
-            self.bandImage.image = bandImage
-        } else {
-            self.bandImage.image = UIImage(named: "DefaultBand.png")
-        }
-        
-        //Top Area Under Banner Ads
-        bandNameLabel.text = currentBand.band.name
-        if ((currentUserController.currentUser?.favoriteBands.contains(currentBand.band.bandID)) != nil) {
-            favoriteButton.imageView?.image = UIImage(systemName: "suit.heart.fill")
-        } else {
-            favoriteButton.imageView?.image = UIImage(systemName: "suit.heart")
-        }
+    //Support UI
+    supportIndicatorSetup()
+    supportLabel.layer.zPosition = 100
+    supportView.layer.zPosition = 98
+    xityLogoImageView.layer.zPosition = 97
+    xityLogoImageView.alpha = 0
     
+    //Rating UI
+    if currentUserController.currentUser == nil {
+        ratingButton.isEnabled = false
     }
+    ratingsView.layer.zPosition = -1
+    guard let starFilledImage = UIImage(systemName: "star.fill", withConfiguration: largeSymbolScaleConfig) else {return}
+    self.starFilledImage = starFilledImage
+    guard let starEmptyImage = UIImage(systemName: "star", withConfiguration: largeSymbolScaleConfig) else {return}
+    self.starEmptyImage = starEmptyImage
+    
+    
+    guard let currentBand = currentBand else { NSLog("No current band found"); return}
+    
+    if let bandImage = UIImage(data: currentBand.band.photo!) {
+        self.bandImage.image = bandImage
+    } else {
+        self.bandImage.image = UIImage(named: "DefaultBand.png")
+    }
+    
+    //Top Area Under Banner Ads
+    bandNameLabel.text = currentBand.band.name
+    if ((currentUserController.currentUser?.favoriteBands.contains(currentBand.band.bandID)) != nil) {
+        favoriteButton.imageView?.image = UIImage(systemName: "suit.heart.fill")
+    } else {
+        favoriteButton.imageView?.image = UIImage(systemName: "suit.heart")
+    }
+    
+   }
     
     
     //MARK: Functions
@@ -123,19 +219,53 @@ class BandDetailViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc private func closeRatingView() {
+        ratingViewIsShown = !ratingViewIsShown
+        UIView.animate(withDuration: 0.5, delay: 0, options: []) { [self] in
+            
+            self.ratingsView.transform = .identity
+            
+        } completion: { [self] complete in
+            if complete == true && givenRating != 0 {
+                print("Rating Creating")
+                let userRating = UsersRatings(bandName: currentBand?.band.name ?? "testBand", rating: givenRating)
+                let bandRating = BandsRatings(bandName: currentBand?.band.name ?? "testBand", userID: currentUserController.currentUser!.userID, stars: givenRating)
+                
+                if currentUserController.currentUser?.bandRatings == nil {
+                    currentUserController.currentUser?.bandRatings = []
+                    currentUserController.currentUser?.bandRatings?.append(userRating)
+                    do {
+                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
+                    } catch (let error) {
+                        NSLog(error.localizedDescription)
+                    }
+                } else {
+                    currentUserController.currentUser?.bandRatings?.append(userRating)
+                    do {
+                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
+                    } catch (let error) {
+                        NSLog(error.localizedDescription)
+                    }
+                }
+            }
+        }
     }
-    */
     
+    private func startHideRatingsViewTimer() {
+        ratingTimer.invalidate()
+        ratingTimer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(closeRatingView), userInfo: nil, repeats: false)
+    }
     
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
-
 }
 
 
@@ -181,12 +311,12 @@ extension BandDetailViewController: UICollectionViewDelegateFlowLayout, UICollec
             
             cell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
             return cell
-        
+            
         case genreCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCell", for: indexPath) as? CitiesCollectionViewCell else {return UICollectionViewCell()}
             cell.bandGenre = currentBand.band.genre[indexPath.row]
             return cell
-        
+            
         default:
             return UICollectionViewCell()
         }
@@ -204,10 +334,10 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch tableView {
         case upcomingShowsTableView:
             return currentBand.xityShows.count
-        
+            
         case mediaTableView:
             return 1
-        
+            
         default:
             return 0
         }
@@ -224,7 +354,7 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NextShowsCell", for: indexPath)
             cell.textLabel?.text = "\(dateFormatter.string(from: upcomingShow.date)): \(upcomingShow.venue) @ \(dateFormatter2.string(from: upcomingShow.date))"
             return cell
-        
+            
         case mediaTableView:
             //Create a custom cell to hold the media
             return UITableViewCell()
@@ -239,6 +369,10 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
 extension BandDetailViewController {
     
     @objc private func supportButtonTapped() {
+        //Support UI
+        hapticGenerator.impactOccurred(intensity: 1)
+        supportButtonPushedAnimation()
+        
         //Logic
         if currentUserController.currentUser == nil {
             performSegue(withIdentifier: "ToSignIn", sender: self)
@@ -251,9 +385,6 @@ extension BandDetailViewController {
         let support = XitySupport(userID: currentUser.userID, bandName: currentBand.band.name)
         xitySupportController.pushXitySupport(xitySupport: support)
         
-        //Support UI
-        hapticGenerator.impactOccurred(intensity: 1)
-        supportButtonPushedAnimation()
     }
     
     private func supportButtonPushedAnimation() {
@@ -288,15 +419,15 @@ extension BandDetailViewController {
         supportIndicator4.setProgress(0.15, animated: true)
         supportView.addSubview(supportIndicator4)
         supportIndicator4.startAnimating()
-
+        
         supportIndicator3.setProgress(0.27, animated: true)
         supportView.addSubview(supportIndicator3)
         supportIndicator3.startAnimating()
-
+        
         supportIndicator2.setProgress(0.45, animated: true)
         supportView.addSubview(supportIndicator2)
         supportIndicator2.startAnimating()
-
+        
         supportIndicator1.setProgress(0.78, animated: true)
         supportView.addSubview(supportIndicator1)
         supportIndicator1.startAnimating()
@@ -320,44 +451,44 @@ extension BandDetailViewController {
         supportIndicator4.cycleColors = [UIColor.systemPink]
         supportIndicator4.strokeWidth = strokeWidth
         supportIndicator4.trackEnabled = true
-
+        
         supportView.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator4.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator4.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
         supportIndicator4.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
-
+        
         //SupportIndicator 3 UI
         supportIndicator3.indicatorMode = .determinate
         supportIndicator3.radius = supportView.frame.height / 3.3
         supportIndicator3.cycleColors = [UIColor.systemBlue]
         supportIndicator3.strokeWidth = strokeWidth
         supportIndicator3.trackEnabled = true
-
-
+        
+        
         supportView.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator3.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator3.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
         supportIndicator3.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
-
+        
         //SupportIndicator 2 UI
         supportIndicator2.indicatorMode = .determinate
         supportIndicator2.radius = supportView.frame.height / 5
         supportIndicator2.cycleColors = [UIColor.systemOrange]
         supportIndicator2.strokeWidth = strokeWidth
         supportIndicator2.trackEnabled = true
-
+        
         supportView.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator2.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator2.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
         supportIndicator2.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
-
+        
         //SupportIndicator 1 UI
         supportIndicator1.indicatorMode = .determinate
         supportIndicator1.radius = supportView.frame.height / 10
         supportIndicator1.cycleColors = [UIColor.systemTeal]
         supportIndicator1.strokeWidth = strokeWidth
         supportIndicator1.trackEnabled = true
-
+        
         supportView.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator1.translatesAutoresizingMaskIntoConstraints = false
         supportIndicator1.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
@@ -376,6 +507,5 @@ extension BandDetailViewController {
         
         self.supportButton.addTarget(self, action: #selector(supportButtonTapped), for: .touchDown)
     }
-    
     
 }
