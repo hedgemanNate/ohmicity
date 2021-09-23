@@ -53,7 +53,7 @@ class BusinessController {
                         NSLog("Error decoding Business: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotBusinessData)
+                notificationCenter.post(notifications.gotNewBusinessData)
                 NSLog("*****gotBusinessData DATA HIT*****")
             }
         }

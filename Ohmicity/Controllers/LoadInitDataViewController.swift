@@ -19,7 +19,7 @@ class LoadInitDataViewController: UIViewController {
     
     var dataActionsFinished = 0 {
         didSet {
-            print("####Current Data Action: \(dataActionsFinished)")
+            print("####Current Data Action Amount: \(dataActionsFinished)")
             if dataActionsFinished >= 8 {
                 organizeData(); print("DATA ACTIONS FIN")
             }
@@ -36,9 +36,9 @@ class LoadInitDataViewController: UIViewController {
         }
     }
     
-    
     //Loader
     let activityIndicator = MDCActivityIndicator()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class LoadInitDataViewController: UIViewController {
         setupProgressView()
         currentUserController.assignCurrentUser()
         subscriptionTypeController.setUpInAppPurchaseArray()
-        lmDateHandler.checkDateAndGetData() 
+        lmDateHandler.checkDateAndGetData()
         
         //resetCache
 //        let settings = FirestoreSettings()
@@ -55,8 +55,9 @@ class LoadInitDataViewController: UIViewController {
 //        settings.isPersistenceEnabled = true
         
     }
-    @IBAction func btn(_ sender: Any) {
-        print("****Tapped****")
+    
+    @IBAction func breaker(_ sender: Any) {
+        print(businessBannerAdController.businessAdArray)
     }
     
 
@@ -97,62 +98,67 @@ extension LoadInitDataViewController {
     
     private func addNotificationObservers() {
         //Cache Loading Notifications
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessAdData.name, object: nil)
-        
+//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessAdData.name, object: nil)
         
         //Database Loading Notifications
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessAdData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotShowData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBandData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.bannerAdsLoaded.name, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewShowData.name, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBandData.name, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessData.name, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessAdData.name, object: nil)
     }
     
     //@objc Functions
     @objc private func counting(_ notification: NSNotification) {
 
         switch notification.name {
-        case notifications.bandArraySet.name:
+        
+        case notifications.gotNewBandData.name:
             dataActionsFinished += 1
-        case notifications.bannerAdsCollected.name:
+            print("gotNewBandData")
+        case notifications.gotNewBusinessData.name:
             dataActionsFinished += 1
-        case notifications.bannerAdsLoaded.name:
+            print("gotNewBusinessData")
+        case notifications.gotNewBusinessAdData.name:
             dataActionsFinished += 1
-        case notifications.businessArraySet.name:
+            print("gotNewBusinessAdData")
+        case notifications.gotNewShowData.name:
             dataActionsFinished += 1
-        case notifications.businessAdArraySet.name:
-            dataActionsFinished += 1
-        case notifications.gotBandData.name:
-            dataActionsFinished += 1
-        case notifications.gotBusinessData.name:
-            dataActionsFinished += 2
-        case notifications.gotBusinessAdData.name:
-            dataActionsFinished += 1
+            print("gotNewShowData")
+            
+        
         case notifications.gotCacheBandData.name:
             dataActionsFinished += 1
+            print("gotCacheBandData")
         case notifications.gotCacheBusinessData.name:
             dataActionsFinished += 1
-        case notifications.gotCacheBusinessAdData.name:
-            dataActionsFinished += 1
-        case notifications.gotShowData.name:
-            dataActionsFinished += 1
+            print("gotCacheBusinessData")
         case notifications.gotCacheShowData.name:
             dataActionsFinished += 1
+            print("gotCacheShowData")
+        case notifications.gotCacheBusinessAdData.name:
+           dataActionsFinished += 1
+            print("gotCacheBusinessAdData")
+        
+        
         case notifications.gotAllBandData.name:
-            dataActionsFinished += 2
+            dataActionsFinished += 1
+            print("gotAllBandData")
         case notifications.gotAllBusinessAdData.name:
-            dataActionsFinished += 2
+            dataActionsFinished += 1
+            print("gotAllBusinessAdData")
         case notifications.gotAllBusinessData.name:
-            dataActionsFinished += 2
+            dataActionsFinished += 1
+            print("gotAllBusinessData")
         case notifications.gotAllShowData.name:
-            dataActionsFinished += 2
-            
+            dataActionsFinished += 1
+            print("gotAllShowData")
         default:
             break
         }

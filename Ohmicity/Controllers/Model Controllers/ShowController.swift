@@ -55,7 +55,7 @@ class ShowController {
                         NSLog("Error decoding show: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotShowData)
+                notificationCenter.post(notifications.gotNewShowData)
                 NSLog("*****gotShowData DATA HIT*****")
             }
         }

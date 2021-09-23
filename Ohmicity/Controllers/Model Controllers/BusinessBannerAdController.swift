@@ -29,33 +29,16 @@ extension BusinessBannerAdController {
         businessAdArray.removeAll(where: {$0.endDate <= Date()})
     }
     
+    
+    
     func getAllBusinessAdData() {
-        var businessAdCount = 0
-        db.getDocuments { [self] (querySnapshot, error) in
+        db.getDocuments { [self] (_ , error) in
             if let error = error {
                 NSLog(error.localizedDescription)
+                //what to do if theres not internet connection
             } else {
-                for businessAd in querySnapshot!.documents {
-                    let result = Result {
-                        try businessAd.data(as: BusinessBannerAd.self)
-                    }
-                    switch result {
-                    case .success(let businessAd):
-                        if let businessAd = businessAd {
-                            self.businessAdArray.removeAll(where: {$0 == businessAd})
-                            self.businessAdArray.append(businessAd)
-                            
-                            businessAdCount += 1
-                        } else {
-                            NSLog("Show data was nil")
-                        }
-                    case .failure(let error):
-                        NSLog("Error decoding businessAd: \(error)")
-                    }
-                }
                 notificationCenter.post(notifications.gotAllBusinessAdData)
-                NSLog("*****gotAllBusinessAdData DATA HIT*****")
-                removeNonPublished()
+                fillBusinessAdArrayFromCache()
             }
         }
     }
@@ -84,7 +67,7 @@ extension BusinessBannerAdController {
                         NSLog("Error decoding businessAd: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotBusinessAdData)
+                notificationCenter.post(notifications.gotNewBusinessAdData)
                 NSLog("*****gotBusinessAdData DATA HIT*****")
                 removeNonPublished()
             }
@@ -92,7 +75,7 @@ extension BusinessBannerAdController {
     }
     
     
-    func fillArrayFromCache() {
+    func fillBusinessAdArrayFromCache() {
         db.getDocuments(source: .cache) { [self] (querySnapshot, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
@@ -113,8 +96,8 @@ extension BusinessBannerAdController {
                         NSLog("Error decoding businessAd: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.bannerAdsLoaded)
-                NSLog("*****bannerAdsLoaded HIT*****")
+                notificationCenter.post(notifications.gotCacheBusinessAdData)
+                NSLog("*****FillBusinessAdArrayFromCache*****")
                 removeNonPublished()
             }
         }

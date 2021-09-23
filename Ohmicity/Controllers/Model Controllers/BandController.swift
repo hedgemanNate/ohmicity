@@ -45,7 +45,7 @@ class BandController {
                         NSLog("Error decoding band: \(error)")
                     }
                 }
-                notificationCenter.post(notifications.gotBandData)
+                notificationCenter.post(notifications.gotNewBandData)
                 NSLog("*****gotBandData DATA HIT*****")
             }
         }
