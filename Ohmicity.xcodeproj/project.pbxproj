@@ -272,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				F66C99C526BCD83E00A7C135 /* Logic Controllers */,
-				F67991032697E278000FDC5E /* Model Controllers */,
 				F640DD14264E4BB700959358 /* Login */,
 				F62FEB6B26562A1A008DEF64 /* Settings */,
 				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
@@ -417,6 +416,7 @@
 		F66C99C526BCD83E00A7C135 /* Logic Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F67991032697E278000FDC5E /* Model Controllers */,
 				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
@@ -457,8 +457,8 @@
 				F699FFE426C614ED00C73CD6 /* XityBandController.swift */,
 				F699FFE626C6179800C73CD6 /* XityBusinessController.swift */,
 				F687CD6A26F46AC500412C07 /* XitySupportController.swift */,
-				F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */,
 				F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */,
+				F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */,
 				F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */,
 				F67991042697E2A0000FDC5E /* BusinessController.swift */,
 				F676F0FE269947B300C47599 /* BandController.swift */,

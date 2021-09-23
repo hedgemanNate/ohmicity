@@ -24,62 +24,29 @@ class BandController {
     //Functions
     
     func getNewBandData() {
-        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { (querySnapshot, error) in
+        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { [self] (_, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
-                for band in querySnapshot!.documents {
-                    let result = Result {
-                        try band.data(as: Band.self)
-                    }
-                    switch result {
-                    case .success(let band):
-                        if let band = band {
-                            self.bandArray.removeAll(where: {$0 == band})
-                            self.bandArray.append(band)
-                            //NSLog(band.name," NEW SHOW: RECIEVED & APPENDED")
-                        } else {
-                            NSLog("Band data was nil")
-                        }
-                    case .failure(let error):
-                        NSLog("Error decoding band: \(error)")
-                    }
-                }
                 notificationCenter.post(notifications.gotNewBandData)
-                NSLog("*****gotBandData DATA HIT*****")
+                fillBandArrayFromCache()
             }
         }
     }
     
     
     func getAllBandData() {
-        db.getDocuments { querySnapshot, error in
+        db.getDocuments { [self] (_, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
-                for band in querySnapshot!.documents {
-                    let result = Result {
-                        try band.data(as: Band.self)
-                    }
-                    switch result {
-                    case .success(let band):
-                        if let band = band {
-                            self.bandArray.append(band)
-                            //NSLog(band.name," SHOW: RECIEVED & APPENDED")
-                        } else {
-                            NSLog("Band data was nil")
-                        }
-                    case .failure(let error):
-                        NSLog("Error decoding band: \(error)")
-                    }
-                }
                 notificationCenter.post(notifications.gotAllBandData)
-                NSLog("*****gotAllBandData DATA HIT*****")
+                fillBandArrayFromCache()
             }
         }
     }
     
-    func fillArrayFromCache() {
+    func fillBandArrayFromCache() {
             db.getDocuments(source: .cache) { querySnapshot, error in
                 if let error = error {
                     NSLog(error.localizedDescription)
@@ -91,8 +58,8 @@ class BandController {
                         switch result {
                         case .success(let band):
                             if let band = band {
+                                self.bandArray.removeAll(where: {$0 == band})
                                 self.bandArray.append(band)
-                                //NSLog(band.name,"FILLING LOCAL ARRAY")
                             } else {
                                 NSLog("Business data was nil")
                             }

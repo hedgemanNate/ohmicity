@@ -31,30 +31,12 @@ class BusinessController {
     //Functions
     
     func getNewBusinessData() {
-        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { (querySnapshot, error) in
+        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { [self] (_, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
-                NSLog("Business Data Cached")
-                for business in querySnapshot!.documents {
-                    let result = Result {
-                        try business.data(as: Business.self)
-                    }
-                    switch result {
-                    case .success(let business):
-                        if let business = business {
-                            self.businessArray.removeAll(where: {$0 == business})
-                            self.businessArray.append(business)
-                            //NSLog(business.name,"RECIEVED & APPENDED")
-                        } else {
-                            NSLog("Business data was nil")
-                        }
-                    case .failure(let error):
-                        NSLog("Error decoding Business: \(error)")
-                    }
-                }
                 notificationCenter.post(notifications.gotNewBusinessData)
-                NSLog("*****gotBusinessData DATA HIT*****")
+                fillBusinessArrayFromCache()
             }
         }
     }
@@ -62,33 +44,18 @@ class BusinessController {
     
     
     func getAllBusinessData() {
-        db.getDocuments { querySnapshot, error in
+        db.getDocuments { [self] (_, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
+                //what to do if theres not internet connection
             } else {
-                for business in querySnapshot!.documents {
-                    let result = Result {
-                        try business.data(as: Business.self)
-                    }
-                    switch result {
-                    case .success(let business):
-                        if let business = business {
-                            self.businessArray.append(business)
-                            //NSLog(business.name,"RECIEVED & APPENDED")
-                        } else {
-                            NSLog("Business data was nil")
-                        }
-                    case .failure(let error):
-                        NSLog("Error decoding Business: \(error)")
-                    }
-                }
                 notificationCenter.post(notifications.gotAllBusinessData)
-                NSLog("*****gotAllBusinessData DATA HIT*****")
+                fillBusinessArrayFromCache()
             }
         }
     }
     
-    func fillArrayFromCache() {
+    func fillBusinessArrayFromCache() {
         db.getDocuments(source: .cache) { querySnapshot, error in
             if let error = error {
                 NSLog(error.localizedDescription)
@@ -100,8 +67,8 @@ class BusinessController {
                     switch result {
                     case .success(let business):
                         if let business = business {
+                            self.businessArray.removeAll(where: {$0 == business})
                             self.businessArray.append(business)
-                            //NSLog(business.name,"RECIEVED & APPENDED")
                         } else {
                             NSLog("Business data was nil")
                         }

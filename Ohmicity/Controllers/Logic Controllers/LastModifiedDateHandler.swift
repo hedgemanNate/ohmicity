@@ -67,9 +67,9 @@ class LastModifiedDateHandler {
             
             let op1 = BlockOperation {
                 businessBannerAdController.fillBusinessAdArrayFromCache()
-                businessController.fillArrayFromCache()
-                showController.fillArrayFromCache()
-                bandController.fillArrayFromCache()
+                businessController.fillBusinessArrayFromCache()
+                showController.fillShowArrayFromCache()
+                bandController.fillBandArrayFromCache()
             }
             
             op1.addDependency(preOp)

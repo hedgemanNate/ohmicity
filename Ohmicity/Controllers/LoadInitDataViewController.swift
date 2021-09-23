@@ -98,20 +98,22 @@ extension LoadInitDataViewController {
     
     private func addNotificationObservers() {
         //Cache Loading Notifications
-//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
+       notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
+       notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessAdData.name, object: nil)
         
-        //Database Loading Notifications
+        //Database Loading All Notifications
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessAdData.name, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewShowData.name, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBandData.name, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessData.name, object: nil)
-//        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessAdData.name, object: nil)
+
+        //Database Loading New Notifications
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewShowData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBandData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessAdData.name, object: nil)
     }
     
     //@objc Functions
