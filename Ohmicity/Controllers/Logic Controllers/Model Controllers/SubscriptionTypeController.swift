@@ -14,10 +14,10 @@ class SubscriptionTypeController {
     var inAppPurchaseArray: [Subscription] = []
     
     //Features
-    let noAdsFeature = Feature(image: UIImage(named: "noAds.jpg") ?? UIImage(), name: "No Ads")
-    let unlimitedFavsFeature = Feature(image: UIImage(named: "unltdFavs.jpg") ?? UIImage(), name: "Unlimited Favorites")
-    let ratingFeature = Feature(image: UIImage(named: "rate.jpg") ?? UIImage(), name: "Rate Bands and Venues")
-    let remindersFeature = Feature(image: UIImage(named: "reminders.jpg") ?? UIImage(), name: "Never Miss a Show")
+    let noAdsFeature = PaywallFeature(image: UIImage(named: "noAds.jpg") ?? UIImage(), name: "No Ads")
+    let unlimitedFavsFeature = PaywallFeature(image: UIImage(named: "unltdFavs.jpg") ?? UIImage(), name: "Unlimited Favorites")
+    let ratingFeature = PaywallFeature(image: UIImage(named: "rate.jpg") ?? UIImage(), name: "Rate Bands and Venues")
+    let remindersFeature = PaywallFeature(image: UIImage(named: "reminders.jpg") ?? UIImage(), name: "Never Miss a Show")
                 
     //Descriptions
     let frpDescription = "No more popup ads and save as many bands and venues as you like!"

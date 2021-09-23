@@ -1,27 +1,20 @@
 //
-//  TemporaryViewController.swift
+//  XityDealsViewController.swift
 //  Ohmicity
 //
-//  Created by Nathan Hedgeman on 8/17/21.
+//  Created by Nathan Hedgeman on 9/18/21.
 //
 
 import UIKit
 
-class TemporaryViewController: UIViewController {
-    
-    //Properties
-    
-    
-    
+class XityDealsViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func goBackButton(_ sender: Any) {
-        tabBarController?.selectedIndex = 2
-    }
 
     /*
     // MARK: - Navigation
@@ -32,5 +25,8 @@ class TemporaryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func dismissButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

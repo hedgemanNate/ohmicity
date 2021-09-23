@@ -27,7 +27,7 @@ class CurrentUser: Codable {
     var bandRatings: [UsersRatings]?
     var usedPromotions: [String] = []
     var paidServices: [String] = []
-    var subscriber: Bool = false { didSet {userAdController.setUpAdsForUser()}}
+    var features: [Features]?
     var adPoints: Int = 0
     var preferredCity: City?
     var recommendationCount: Int?
@@ -35,6 +35,10 @@ class CurrentUser: Codable {
     init(userID: String, email: String) {
         self.userID = userID
         self.email = email
+        self.lastModified = Timestamp()
+        self.bandRatings = []
+        self.preferredCity = .All
+        self.recommendationCount = 0
     }
 }
 

@@ -16,7 +16,7 @@ class CurrentUserController {
         }
     }
     
-    var preferredCity: City? {
+    var preferredCity: City = .All {
         didSet {
             currentUser?.preferredCity = preferredCity
             xityShowController.todayShowArrayFilter = preferredCity
@@ -88,7 +88,7 @@ class CurrentUserController {
         if currentUser?.preferredCity == nil {
             return
         } else {
-            xityShowController.todayShowArrayFilter = currentUser?.preferredCity
+            xityShowController.todayShowArrayFilter = currentUser?.preferredCity ?? .All
         }
     }
     

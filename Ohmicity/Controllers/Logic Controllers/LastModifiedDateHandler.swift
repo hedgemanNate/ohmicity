@@ -19,6 +19,7 @@ class LastModifiedDateHandler {
     // Stores and checks current time and date for fewer data calls
     func loadDate() {
         timeController.savedDateForDatabaseUse = (UserDefaults.standard.object(forKey: "SavedDate") as! Date)
+        print("!!!!Loading Date: \(timeController.savedDateForDatabaseUse!)")
     }
     
     //After database has been queried, save the date
@@ -32,6 +33,8 @@ class LastModifiedDateHandler {
     
     func checkDateAndGetData() {
         if UserDefaults.standard.object(forKey: "SavedDate") == nil {
+            opQueue.maxConcurrentOperationCount = 1
+            
             NSLog("!*!*!First Open!*!*!")
             //ALL BUSINESS DATA
             businessController.getAllBusinessData()
@@ -45,6 +48,8 @@ class LastModifiedDateHandler {
             //ALL BANNER DATA
             businessBannerAdController.getAllBusinessAdData()
             saveDate()
+            
+            
         } else {
             NSLog("!*!*!Repeat Open!*!*!")
             opQueue.maxConcurrentOperationCount = 1
@@ -62,10 +67,10 @@ class LastModifiedDateHandler {
             }
             
             let op1 = BlockOperation {
-                businessBannerAdController.fillArrayFromCache()
-                businessController.fillArrayFromCache()
-                showController.fillArrayFromCache()
-                bandController.fillArrayFromCache()
+                businessBannerAdController.fillBusinessAdArrayFromCache()
+                businessController.fillBusinessArrayFromCache()
+                showController.fillShowArrayFromCache()
+                bandController.fillBandArrayFromCache()
             }
             
             op1.addDependency(preOp)
