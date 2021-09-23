@@ -44,7 +44,7 @@ class DashboardViewController: UIViewController {
     
     //Collections Views
     @IBOutlet private weak var todayCollectionView: UICollectionView!
-    @IBOutlet private weak var citiesCollectionView: UICollectionView!
+    @IBOutlet private weak var xityExclusivesCollectionView: UICollectionView!
     @IBOutlet private weak var xityPickCollectionView: UICollectionView!
     @IBOutlet private weak var venueCollectionView: UICollectionView!
     @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
@@ -147,12 +147,20 @@ extension DashboardViewController {
             self.xityPickCollectionView.reloadData()
             
             switch xityShowController.todayShowArrayFilter {
+            case .Sarasota:
+                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+            case .Bradenton:
+                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+            case .Venice:
+                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+            case .StPete:
+                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+            case .Tampa:
+                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+            case .Ybor:
+                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .All:
                 cityFilterLabel.text = "in All Cities"
-            case .some(_):
-                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
-            case .none:
-                break
             }
         }
         print("Dashboard Reloaded")
@@ -201,7 +209,7 @@ extension DashboardViewController {
         //UI Adjustments
         getPerksButton.layer.cornerRadius = 5
         if currentUserController.currentUser?.preferredCity != nil {
-            cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter!.rawValue)"
+            cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
         } else {
             cityFilterLabel.text = "in All Cities"
         }
@@ -242,10 +250,10 @@ extension DashboardViewController {
     //MARK: Setup CollectionViews
     private func setupUpCollectionViews() {
         
-        citiesCollectionView.delegate = self
-        citiesCollectionView.dataSource = self
-        citiesCollectionView.showsHorizontalScrollIndicator = false
-        citiesCollectionView.reloadData()
+        xityExclusivesCollectionView.delegate = self
+        xityExclusivesCollectionView.dataSource = self
+        xityExclusivesCollectionView.showsHorizontalScrollIndicator = false
+        xityExclusivesCollectionView.reloadData()
         
         todayCollectionView.delegate = self
         todayCollectionView.dataSource = self
@@ -273,6 +281,13 @@ extension DashboardViewController {
         xityPickCollectionView.reloadData()
     }
     
+    @objc private func lostNetworkConnection() {
+        print("!!!!!!!Show Perform Segue!!!!!!!!!")
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
+        }
+        
+    }
     
     private func notificationObservers() {
         //Reload Collection View Data
@@ -292,6 +307,9 @@ extension DashboardViewController {
         
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        //Network Connection
+        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
     //MARK: ---- Functions End ----
@@ -317,7 +335,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case todayCollectionView:
             size = CGSize(width: 155, height: height)
             return size
-        case citiesCollectionView:
+        case xityExclusivesCollectionView:
             size = CGSize(width: 155, height: height)
             return size
         case xityPickCollectionView:
@@ -345,9 +363,9 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return 50
             
         case todayCollectionView:
-            return xityShowController.todayShowResultsArray?.count ?? 0
+            return xityShowController.todayShowResultsArray.count
             
-        case citiesCollectionView:
+        case xityExclusivesCollectionView:
             return businessController.citiesArray.count
             
         case venueCollectionView:
@@ -387,10 +405,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! BandVenueCollectionViewCell
-            venueCell.venue = xityShowController.todayShowResultsArray?[indexPath.row].business
+            venueCell.venue = xityShowController.todayShowResultsArray[indexPath.row].business
             return venueCell
             
-        case citiesCollectionView:
+        case xityExclusivesCollectionView:
             cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell
             cityCell.city = businessController.citiesArray[indexPath.row]
             return cityCell
@@ -439,6 +457,9 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             } else {
                 performSegue(withIdentifier: xityPickSegue, sender: self)
             }
+            
+        case xityExclusivesCollectionView:
+            tabBarController?.selectedIndex = 1
         default:
             break
         }
@@ -452,8 +473,8 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             endTimer()
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let selected = xityShowController.todayShowResultsArray?[indexPath!.row]
-            let business = selected?.business
+            let selected = xityShowController.todayShowResultsArray[indexPath!.row]
+            let business = selected.business
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
             businessVC.xityBusiness = xityBusiness
             businessVC.featuredShow = selected

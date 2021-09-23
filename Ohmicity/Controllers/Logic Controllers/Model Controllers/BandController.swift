@@ -28,6 +28,7 @@ class BandController {
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
+                print("GETTING NEW BAND DATA: Time \(timeController.savedDateForDatabaseUse!)")
                 notificationCenter.post(notifications.gotNewBandData)
                 fillBandArrayFromCache()
             }

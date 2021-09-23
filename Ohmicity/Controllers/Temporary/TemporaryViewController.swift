@@ -20,7 +20,7 @@ class TemporaryViewController: UIViewController {
     }
     
     @IBAction func goBackButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        tabBarController?.selectedIndex = 2
     }
 
     /*

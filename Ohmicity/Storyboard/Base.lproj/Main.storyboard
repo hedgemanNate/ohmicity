@@ -404,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="-718"/>
+            <point key="canvasLocation" x="-607" y="-710"/>
         </scene>
         <!--XityDeals-->
         <scene sceneID="LMF-3p-EZa">
@@ -1188,7 +1188,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="-727"/>
+            <point key="canvasLocation" x="1117" y="-710"/>
         </scene>
         <!--Choose Preferred City-->
         <scene sceneID="XSJ-gK-uvf">
@@ -1899,7 +1899,6 @@ should be on Xity?</string>
                         <outlet property="alreadyAccountButton" destination="zgl-sI-FPH" id="sZl-gN-H2n"/>
                         <outlet property="bannerAdCollectionView" destination="sk0-Ih-96d" id="gA5-7E-0rw"/>
                         <outlet property="citiesButton" destination="4FR-ji-xOh" id="AZb-oA-dOs"/>
-                        <outlet property="citiesCollectionView" destination="PRD-v0-GZh" id="nY6-LR-kFt"/>
                         <outlet property="cityFilterLabel" destination="RHp-aE-CIZ" id="oJC-sg-Bbx"/>
                         <outlet property="favoritesButton" destination="1aR-43-dSL" id="JRI-xi-Ikh"/>
                         <outlet property="favoritesCollectionView" destination="x8J-nE-HSo" id="m3t-FR-ZMi"/>
@@ -1915,6 +1914,7 @@ should be on Xity?</string>
                         <outlet property="venueButton" destination="Yr5-mc-o9V" id="I0a-dO-n5z"/>
                         <outlet property="venueCollectionView" destination="vXY-nV-LWV" id="JCB-mf-fxu"/>
                         <outlet property="weeklyButton" destination="SO8-4f-hLW" id="xgL-UX-5Mi"/>
+                        <outlet property="xityExclusivesCollectionView" destination="PRD-v0-GZh" id="nY6-LR-kFt"/>
                         <outlet property="xityPickCollectionView" destination="onA-4S-Wan" id="WAf-S7-Qqc"/>
                         <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromToday" id="wJT-Pi-nZQ"/>
                         <segue destination="fki-Bt-PNW" kind="presentation" identifier="FromFav" id="vKu-hG-yfy"/>
@@ -1923,6 +1923,7 @@ should be on Xity?</string>
                         <segue destination="evY-Al-06O" kind="presentation" identifier="ToCityFilterSegue" id="kUb-o8-2UV"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="pYi-uV-Zx2"/>
                         <segue destination="cl4-3c-m7h" kind="presentation" identifier="DealsComingSoonSegue" id="KpL-6c-PpP"/>
+                        <segue destination="zSR-Kv-Mqu" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="hUJ-mK-71L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2114,7 +2115,7 @@ should be on Xity?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hs3-AJ-gcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0az-rL-VKh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="-1541"/>
+            <point key="canvasLocation" x="2372" y="-1415"/>
         </scene>
         <!--Recommend View Controller-->
         <scene sceneID="N1U-dv-2PE">
@@ -2209,7 +2210,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZZ-4g-Nab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3332" y="-1414"/>
+            <point key="canvasLocation" x="3214" y="-1415"/>
         </scene>
         <!--Purchase View Controller-->
         <scene sceneID="hcL-OL-xMo">
@@ -3435,12 +3436,72 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="1685.0467289719625" y="832.61339092872572"/>
         </scene>
+        <!--Lost Internet Connection View Controller-->
+        <scene sceneID="yoN-RI-MVU">
+            <objects>
+                <viewController id="zSR-Kv-Mqu" customClass="LostInternetConnectionViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AUl-aX-13z">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="u4h-co-5id">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="bR1-4e-6YA">
+                                <rect key="frame" x="114" y="363" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="AVi-s1-F5h"/>
+                                    <constraint firstAttribute="width" constant="200" id="vxh-yG-2tx"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xI2-xN-xQz">
+                                <rect key="frame" x="188" y="182" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="breaker"/>
+                                <connections>
+                                    <action selector="breaker:" destination="zSR-Kv-Mqu" eventType="touchUpInside" id="uOW-6x-I6q"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jF0-xf-FD7">
+                                <rect key="frame" x="89" y="338" width="250" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="DDS-1w-Lja"/>
+                                    <constraint firstAttribute="width" constant="250" id="vLQ-i1-5Na"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lost connection to Xity's database. Please check your Internet connection." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-o8-quO">
+                                <rect key="frame" x="35" y="746.33333333333337" width="358" height="45.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aCw-Ka-qOv"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="bR1-4e-6YA" firstAttribute="centerY" secondItem="AUl-aX-13z" secondAttribute="centerY" id="PGb-J2-wOs"/>
+                            <constraint firstItem="jF0-xf-FD7" firstAttribute="centerY" secondItem="AUl-aX-13z" secondAttribute="centerY" id="VTX-cf-jyA"/>
+                            <constraint firstItem="bR1-4e-6YA" firstAttribute="centerX" secondItem="AUl-aX-13z" secondAttribute="centerX" id="owX-tt-2LF"/>
+                            <constraint firstItem="jF0-xf-FD7" firstAttribute="centerX" secondItem="AUl-aX-13z" secondAttribute="centerX" id="pTZ-kj-TBO"/>
+                            <constraint firstAttribute="trailing" secondItem="Uh0-o8-quO" secondAttribute="trailing" constant="35" id="q0g-C1-vYy"/>
+                            <constraint firstItem="Uh0-o8-quO" firstAttribute="centerX" secondItem="AUl-aX-13z" secondAttribute="centerX" id="s10-q4-9Bo"/>
+                            <constraint firstItem="Uh0-o8-quO" firstAttribute="leading" secondItem="AUl-aX-13z" secondAttribute="leading" constant="35" id="wu3-ms-9uO"/>
+                            <constraint firstItem="aCw-Ka-qOv" firstAttribute="bottom" secondItem="Uh0-o8-quO" secondAttribute="bottom" constant="100" id="yUz-HY-qb2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="poh-hb-gXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-189" y="-2377"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Zxp-OZ-fdc"/>
         <segue reference="xvY-CC-YbG"/>
         <segue reference="KpL-6c-PpP"/>
-        <segue reference="2dm-xA-Xcg"/>
+        <segue reference="Zd4-Ao-r3K"/>
         <segue reference="kUb-o8-2UV"/>
         <segue reference="wJT-Pi-nZQ"/>
     </inferredMetricsTieBreakers>

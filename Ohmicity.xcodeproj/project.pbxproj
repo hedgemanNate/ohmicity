@@ -53,6 +53,9 @@
 		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
 		F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityShow.swift */; };
 		F66C99CA26BD16F600A7C135 /* band.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C926BD16F400A7C135 /* band.jpg */; };
+		F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */; };
+		F66CB28126FC683600B26EE3 /* GlobalAlerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */; };
+		F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */; };
 		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
 		F676F0F626991C6C00C47599 /* BandsRatings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* BandsRatings.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
@@ -160,6 +163,9 @@
 		F66C99C626BCDA6200A7C135 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F66C99C726BCF5D400A7C135 /* XityShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShow.swift; sourceTree = "<group>"; };
 		F66C99C926BD16F400A7C135 /* band.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = band.jpg; sourceTree = "<group>"; };
+		F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobalAlerts.storyboard; sourceTree = "<group>"; };
+		F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostInternetConnectionViewController.swift; sourceTree = "<group>"; };
 		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* BandsRatings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandsRatings.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
@@ -301,6 +307,7 @@
 			children = (
 				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
 				D8403D0C2641C4C400E95415 /* Main.storyboard */,
+				F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */,
 				D8CED4052641F4100017FD28 /* SignIn.storyboard */,
 				F661A5FD26F6950F00A059E2 /* XityDeals.storyboard */,
 			);
@@ -358,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
+				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -409,6 +417,7 @@
 				F67990FF2697AB54000FDC5E /* Notifications.swift */,
 				F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */,
 				F676F100269947D300C47599 /* Enumerations.swift */,
+				F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -623,6 +632,7 @@
 				F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */,
 				F60B849626CB4D1800C9226F /* tabBar.png in Resources */,
 				D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */,
+				F66CB28126FC683600B26EE3 /* GlobalAlerts.storyboard in Resources */,
 				F6DBFDB126E9CE56001D7520 /* unltdFavs.jpg in Resources */,
 				F60B849826CB506D00C9226F /* dashboardActive.png in Resources */,
 				F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */,
@@ -745,6 +755,7 @@
 				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
 				F6497F5D26BCCAAB005D2D4A /* BannerAdBusinessPicsCollectionViewCell.swift in Sources */,
 				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
+				F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */,
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
@@ -758,6 +769,7 @@
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
+				F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
 				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,

@@ -34,11 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ref.fireDataBase.settings = settings
         
         
-        //Get Data
-        
-        
         //Admob
         GADMobileAds.sharedInstance().start(completionHandler: nil) /*set up MEDIATION in here in handler*/
+        
+        //Network Monitoring
+        networkMonitor.startMonitoring()
 
         //Navigation UI
         UINavigationBar.appearance().backgroundColor = cc.navigationBGPurple

@@ -19,6 +19,7 @@ class LastModifiedDateHandler {
     // Stores and checks current time and date for fewer data calls
     func loadDate() {
         timeController.savedDateForDatabaseUse = (UserDefaults.standard.object(forKey: "SavedDate") as! Date)
+        print("!!!!Loading Date: \(timeController.savedDateForDatabaseUse!)")
     }
     
     //After database has been queried, save the date

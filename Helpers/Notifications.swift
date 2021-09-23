@@ -17,6 +17,7 @@ class Notifications {
     //UI Notifications
     let scrollToTop = Notification(name: Notification.Name(rawValue: "ScrollToTop"))
     let dismiss = Notification(name: Notification.Name(rawValue: "Dismiss"))
+    let modalDismissed = Notification(name: Notification.Name(rawValue: "ModalDismissed"))
     
     //Database Notifications
     let businessArraySet = Notification(name: Notification.Name(rawValue: "BusinessArraySet"))
@@ -52,8 +53,10 @@ class Notifications {
     let op2Finished = Notification(name: Notification.Name(rawValue: "op2Finished"))
     let op3Finished = Notification(name: Notification.Name(rawValue: "op3Finished"))
     
-    //UI
-    let modalDismissed = Notification(name: Notification.Name(rawValue: "ModalDismissed"))
+    //Network Notifications
+    let lostConnection = Notification(name: Notification.Name(rawValue: "lostConnection"))
+    let hasConnection = Notification(name: Notification.Name(rawValue: "hasConnection"))
+    
     
     //Dashboard notifications
     let reloadDashboardCVData = Notification(name: Notification.Name(rawValue: "reloadDashboardCVData"))
