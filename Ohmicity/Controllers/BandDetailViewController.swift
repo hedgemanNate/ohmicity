@@ -47,6 +47,7 @@ class BandDetailViewController: UIViewController {
     
     //Loader
     @IBOutlet weak var supportView: UIView!
+    @IBOutlet weak var supportIndicatorView: UIView!
     @IBOutlet weak var xityLogoImageView: UIImageView!
     @IBOutlet weak var supportLabel: UILabel!
     let supportIndicator5 = MDCActivityIndicator()
@@ -55,6 +56,7 @@ class BandDetailViewController: UIViewController {
     let supportIndicator2 = MDCActivityIndicator()
     let supportIndicator1 = MDCActivityIndicator()
     let hapticGenerator = UIImpactFeedbackGenerator(style: .heavy)
+    var shouldShowSupportInfo = false
     
     let strokeWidth: CGFloat = 9
     
@@ -168,8 +170,8 @@ class BandDetailViewController: UIViewController {
    @objc private func updateViews() {
     //Support UI
     supportIndicatorSetup()
-    supportLabel.layer.zPosition = 100
-    supportView.layer.zPosition = 98
+    supportLabel.layer.zPosition = 98
+    supportButton.layer.zPosition = 100
     xityLogoImageView.layer.zPosition = 97
     xityLogoImageView.alpha = 0
     
@@ -369,15 +371,25 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
 extension BandDetailViewController {
     
     @objc private func supportButtonTapped() {
+        
+        //Logic
+        /*if currentUserController.currentUser == nil {
+            performSegue(withIdentifier: "ToSignIn", sender: self)
+            return
+        }*/
+        
+        if shouldShowSupportInfo == true {
+            performSegue(withIdentifier: "SupportInfoSegue", sender: self)
+            return
+        }
+        
+        if shouldShowSupportInfo == false {
+            shouldShowSupportInfo = true
+        }
+        
         //Support UI
         hapticGenerator.impactOccurred(intensity: 1)
         supportButtonPushedAnimation()
-        
-        //Logic
-        if currentUserController.currentUser == nil {
-            performSegue(withIdentifier: "ToSignIn", sender: self)
-            return
-        }
         
         guard let currentUser = currentUserController.currentUser else {return}
         guard let currentBand = currentBand else {return}
@@ -394,7 +406,7 @@ extension BandDetailViewController {
             self.supportIndicator2.alpha = 0
             self.supportIndicator3.alpha = 0
             self.supportIndicator5.alpha = 0
-            self.supportLabel.alpha = 0
+            
             
             self.supportIndicator4.strokeWidth = 3
         }
@@ -409,90 +421,94 @@ extension BandDetailViewController {
         supportIndicator4.indicatorMode = .indeterminate
         supportIndicator4.trackEnabled = false
         supportIndicator4.startAnimating()
+        
+        supportLabel.text = "Tap Again To Learn More"
     }
     
     private func supportIndicatorSetup() {
         supportIndicator5.setProgress(0.1, animated: true)
-        supportView.addSubview(supportIndicator5)
+        supportIndicatorView.addSubview(supportIndicator5)
         supportIndicator5.startAnimating()
         
         supportIndicator4.setProgress(0.15, animated: true)
-        supportView.addSubview(supportIndicator4)
+        supportIndicatorView.addSubview(supportIndicator4)
         supportIndicator4.startAnimating()
         
         supportIndicator3.setProgress(0.27, animated: true)
-        supportView.addSubview(supportIndicator3)
+        supportIndicatorView.addSubview(supportIndicator3)
         supportIndicator3.startAnimating()
         
         supportIndicator2.setProgress(0.45, animated: true)
-        supportView.addSubview(supportIndicator2)
+        supportIndicatorView.addSubview(supportIndicator2)
         supportIndicator2.startAnimating()
         
         supportIndicator1.setProgress(0.78, animated: true)
-        supportView.addSubview(supportIndicator1)
+        supportIndicatorView.addSubview(supportIndicator1)
         supportIndicator1.startAnimating()
+        
+        supportIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         
         //supportIndicator 5 UI
         supportIndicator5.indicatorMode = .determinate
-        supportIndicator5.radius = supportView.frame.height / 2
+        supportIndicator5.radius = supportIndicatorView.frame.height / 2
         supportIndicator5.cycleColors = [UIColor.systemPurple]
         supportIndicator5.strokeWidth = strokeWidth
         supportIndicator5.trackEnabled = true
         
-        supportView.translatesAutoresizingMaskIntoConstraints = false
+        
         supportIndicator5.translatesAutoresizingMaskIntoConstraints = false
-        supportIndicator5.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
-        supportIndicator5.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        supportIndicator5.centerXAnchor.constraint(equalTo: supportIndicatorView.centerXAnchor).isActive = true
+        supportIndicator5.centerYAnchor.constraint(equalTo: supportIndicatorView.centerYAnchor).isActive = true
         
         
         //SupportIndicator 4 UI
         supportIndicator4.indicatorMode = .determinate
-        supportIndicator4.radius = supportView.frame.height / 2.5
+        supportIndicator4.radius = supportIndicatorView.frame.height / 2.5
         supportIndicator4.cycleColors = [UIColor.systemPink]
         supportIndicator4.strokeWidth = strokeWidth
         supportIndicator4.trackEnabled = true
         
-        supportView.translatesAutoresizingMaskIntoConstraints = false
+        
         supportIndicator4.translatesAutoresizingMaskIntoConstraints = false
-        supportIndicator4.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
-        supportIndicator4.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        supportIndicator4.centerXAnchor.constraint(equalTo: supportIndicatorView.centerXAnchor).isActive = true
+        supportIndicator4.centerYAnchor.constraint(equalTo: supportIndicatorView.centerYAnchor).isActive = true
         
         //SupportIndicator 3 UI
         supportIndicator3.indicatorMode = .determinate
-        supportIndicator3.radius = supportView.frame.height / 3.3
+        supportIndicator3.radius = supportIndicatorView.frame.height / 3.3
         supportIndicator3.cycleColors = [UIColor.systemBlue]
         supportIndicator3.strokeWidth = strokeWidth
         supportIndicator3.trackEnabled = true
         
         
-        supportView.translatesAutoresizingMaskIntoConstraints = false
+        
         supportIndicator3.translatesAutoresizingMaskIntoConstraints = false
-        supportIndicator3.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
-        supportIndicator3.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        supportIndicator3.centerXAnchor.constraint(equalTo: supportIndicatorView.centerXAnchor).isActive = true
+        supportIndicator3.centerYAnchor.constraint(equalTo: supportIndicatorView.centerYAnchor).isActive = true
         
         //SupportIndicator 2 UI
         supportIndicator2.indicatorMode = .determinate
-        supportIndicator2.radius = supportView.frame.height / 5
+        supportIndicator2.radius = supportIndicatorView.frame.height / 5
         supportIndicator2.cycleColors = [UIColor.systemOrange]
         supportIndicator2.strokeWidth = strokeWidth
         supportIndicator2.trackEnabled = true
         
-        supportView.translatesAutoresizingMaskIntoConstraints = false
+        
         supportIndicator2.translatesAutoresizingMaskIntoConstraints = false
-        supportIndicator2.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
-        supportIndicator2.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        supportIndicator2.centerXAnchor.constraint(equalTo: supportIndicatorView.centerXAnchor).isActive = true
+        supportIndicator2.centerYAnchor.constraint(equalTo: supportIndicatorView.centerYAnchor).isActive = true
         
         //SupportIndicator 1 UI
         supportIndicator1.indicatorMode = .determinate
-        supportIndicator1.radius = supportView.frame.height / 10
+        supportIndicator1.radius = supportIndicatorView.frame.height / 10
         supportIndicator1.cycleColors = [UIColor.systemTeal]
         supportIndicator1.strokeWidth = strokeWidth
         supportIndicator1.trackEnabled = true
         
-        supportView.translatesAutoresizingMaskIntoConstraints = false
+        
         supportIndicator1.translatesAutoresizingMaskIntoConstraints = false
-        supportIndicator1.centerXAnchor.constraint(equalTo: supportView.centerXAnchor).isActive = true
-        supportIndicator1.centerYAnchor.constraint(equalTo: supportView.centerYAnchor).isActive = true
+        supportIndicator1.centerXAnchor.constraint(equalTo: supportIndicatorView.centerXAnchor).isActive = true
+        supportIndicator1.centerYAnchor.constraint(equalTo: supportIndicatorView.centerYAnchor).isActive = true
         
         self.supportIndicator1.alpha = 1
         self.supportIndicator2.alpha = 1

@@ -15,6 +15,7 @@ class XitySupportController {
     func pushXitySupport(xitySupport: XitySupport) {
         do {
             try ref.xitySupportDataPath.document(xitySupport.uid).setData(from: xitySupport)
+            print("Support Pushed")
         } catch let error {
             NSLog(error.localizedDescription)
         }

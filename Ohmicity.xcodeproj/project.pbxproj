@@ -56,6 +56,7 @@
 		F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */; };
 		F66CB28126FC683600B26EE3 /* GlobalAlerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */; };
 		F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */; };
+		F66CB28526FD113800B26EE3 /* Band.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28426FD113800B26EE3 /* Band.storyboard */; };
 		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
 		F676F0F626991C6C00C47599 /* BandsRatings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* BandsRatings.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
@@ -166,6 +167,7 @@
 		F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobalAlerts.storyboard; sourceTree = "<group>"; };
 		F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostInternetConnectionViewController.swift; sourceTree = "<group>"; };
+		F66CB28426FD113800B26EE3 /* Band.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Band.storyboard; sourceTree = "<group>"; };
 		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* BandsRatings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandsRatings.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			children = (
 				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
 				D8403D0C2641C4C400E95415 /* Main.storyboard */,
+				F66CB28426FD113800B26EE3 /* Band.storyboard */,
 				F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */,
 				D8CED4052641F4100017FD28 /* SignIn.storyboard */,
 				F661A5FD26F6950F00A059E2 /* XityDeals.storyboard */,
@@ -617,6 +620,7 @@
 				F66C99CA26BD16F600A7C135 /* band.jpg in Resources */,
 				F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */,
 				F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */,
+				F66CB28526FD113800B26EE3 /* Band.storyboard in Resources */,
 				F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */,
 				F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */,
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
