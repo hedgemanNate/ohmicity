@@ -90,6 +90,7 @@
 		F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE226C613C400C73CD6 /* XityBand.swift */; };
 		F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE426C614ED00C73CD6 /* XityBandController.swift */; };
 		F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE626C6179800C73CD6 /* XityBusinessController.swift */; };
+		F69EEB8726FD8124001C342E /* BandSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69EEB8626FD8124001C342E /* BandSearchViewController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -201,6 +202,7 @@
 		F699FFE226C613C400C73CD6 /* XityBand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBand.swift; sourceTree = "<group>"; };
 		F699FFE426C614ED00C73CD6 /* XityBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBandController.swift; sourceTree = "<group>"; };
 		F699FFE626C6179800C73CD6 /* XityBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBusinessController.swift; sourceTree = "<group>"; };
+		F69EEB8626FD8124001C342E /* BandSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandSearchViewController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 				F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */,
 				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
 				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
+				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
 			);
 			path = "Tab View Controllers";
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
 				F6497F5D26BCCAAB005D2D4A /* BannerAdBusinessPicsCollectionViewCell.swift in Sources */,
 				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
+				F69EEB8726FD8124001C342E /* BandSearchViewController.swift in Sources */,
 				F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */,
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
@@ -937,7 +941,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -960,7 +964,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

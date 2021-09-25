@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateLogButton()
+        tabBarController?.tabBar.tintColor = UIColor.systemTeal
     }
     
     override func viewDidAppear(_ animated: Bool) {

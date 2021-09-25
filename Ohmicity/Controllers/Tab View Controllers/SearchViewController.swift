@@ -52,6 +52,11 @@ class SearchViewController: UIViewController {
             
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor.red
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startTimer()
@@ -468,9 +473,9 @@ extension SearchViewController {
             
             if segmentedController.selectedSegmentIndex == 2 {
                 let band = bandResultsArray![indexPath!.row]
-                let business = xityBusinessController.businessArray.first(where: {$0.business == band.xityShows.first?.business})
+                let business = xityBusinessController.businessArray.first(where: {$0.business == band.xityShows?.first?.business})
                 destinationVC.xityBusiness = business
-                destinationVC.featuredShow = band.xityShows.first
+                destinationVC.featuredShow = band.xityShows?.first
             } else {
                 let business = businessResultsArray![indexPath!.row]
                 destinationVC.xityBusiness = business

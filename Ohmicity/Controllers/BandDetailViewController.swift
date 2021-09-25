@@ -11,8 +11,8 @@ import FirebaseFirestoreSwift
 import MaterialComponents.MaterialActivityIndicator
 
 class BandDetailViewController: UIViewController {
-
-   //Properties
+    
+    //Properties
     var currentBand: XityBand?
     @IBOutlet weak var bandImage: UIImageView!
     @IBOutlet weak var bandNameLabel: UILabel!
@@ -45,6 +45,10 @@ class BandDetailViewController: UIViewController {
     @IBOutlet weak var upcomingShowsTableView: UITableView!
     @IBOutlet weak var mediaTableView: UITableView!
     
+    //BannerAd
+    var timer = Timer()
+    @IBOutlet weak var topAdView: UIView!
+    
     //Loader
     @IBOutlet weak var supportView: UIView!
     @IBOutlet weak var supportIndicatorView: UIView!
@@ -57,7 +61,6 @@ class BandDetailViewController: UIViewController {
     let supportIndicator1 = MDCActivityIndicator()
     let hapticGenerator = UIImpactFeedbackGenerator(style: .heavy)
     var shouldShowSupportInfo = false
-    
     let strokeWidth: CGFloat = 9
     
     override func viewDidLoad() {
@@ -71,11 +74,13 @@ class BandDetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         supportIndicatorSetup()
         hapticGenerator.prepare()
+        startTimer()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         supportIndicatorSetup()
+        endTimer()
     }
     
     
@@ -97,7 +102,7 @@ class BandDetailViewController: UIViewController {
                     self.startHideRatingsViewTimer()
                 }
             }
-
+            
         }
     }
     
@@ -161,48 +166,116 @@ class BandDetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
+        guard let currentBand = currentBand else {NSLog("No Current Band Found: favoriteButtonTapped: bandDetailViewController"); return }
+        let currentUser = currentUserController.currentUser
+        
+        //MARK: BETA
+        if currentUser != nil /*&& (currentUser?.subscription == .BackStagePass || currentUser?.subscription == .FullAccessPass) */{
+            if currentUser!.favoriteBands.contains(currentBand.band.bandID) {
+                currentUser!.favoriteBands.removeAll(where: {$0 == currentBand.band.bandID})
+                NSLog("Business Removed From Favorites")
+                currentUser!.lastModified = Timestamp()
+                
+                do {
+                    try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    notificationCenter.post(notifications.userFavoritesUpdated)
+                    DispatchQueue.main.async {
+                        self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+                    }
+                } catch {
+                    NSLog("Error Pushing favoriteBands")
+                }
+            } else {
+                currentUser!.favoriteBands .append(currentBand.band.bandID)
+                currentUser!.lastModified = Timestamp()
+                
+                do {
+                    try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    notificationCenter.post(notifications.userFavoritesUpdated)
+                    DispatchQueue.main.async {
+                        self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+                    }
+                } catch {
+                    NSLog("Error Pushing favoriteBusiness")
+                }
+            }
+        } else if currentUser == nil {
+            self.performSegue(withIdentifier: "ToSignIn", sender: self)
+        } else if currentUser?.subscription == .FrontRowPass || currentUser?.subscription == .None {
+            performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+        }
+        
     }
     
-
+    //MARK: Banner Ad
+    @objc private func bannerChange() {
+        let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
+        let currentPath = shownPath.first
+        
+        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
+        
+        //High Count For Infinite Loop: See Banner Ad Collection View
+        if currentPath!.row < 25 {
+            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            
+        } else {
+            indexPath = IndexPath(row: 0, section: 0)
+            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        }
+    }
     
+    @objc private func startTimer() {
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc private func endTimer() {
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+        }
+    }
     
     //MARK: Update Views
-   @objc private func updateViews() {
-    //Support UI
-    supportIndicatorSetup()
-    supportLabel.layer.zPosition = 98
-    supportButton.layer.zPosition = 100
-    xityLogoImageView.layer.zPosition = 97
-    xityLogoImageView.alpha = 0
-    
-    //Rating UI
-    if currentUserController.currentUser == nil {
-        ratingButton.isEnabled = false
+    @objc private func updateViews() {
+        //Support UI
+        supportIndicatorSetup()
+        supportLabel.layer.zPosition = 98
+        supportButton.layer.zPosition = 100
+        xityLogoImageView.layer.zPosition = 97
+        xityLogoImageView.alpha = 0
+        bannerAdCollectionView.sendSubviewToBack(self.view)
+        
+        
+        //Rating UI
+        if currentUserController.currentUser == nil {
+            ratingButton.isEnabled = false
+        }
+        ratingsView.layer.zPosition = -1
+        guard let starFilledImage = UIImage(systemName: "star.fill", withConfiguration: largeSymbolScaleConfig) else {return}
+        self.starFilledImage = starFilledImage
+        guard let starEmptyImage = UIImage(systemName: "star", withConfiguration: largeSymbolScaleConfig) else {return}
+        self.starEmptyImage = starEmptyImage
+        
+        
+        guard let currentBand = currentBand else { NSLog("No current band found"); return}
+        
+        if let bandImage = UIImage(data: currentBand.band.photo!) {
+            self.bandImage.image = bandImage
+        } else {
+            self.bandImage.image = UIImage(named: "DefaultBand.png")
+        }
+        
+        //Top Area Under Banner Ads
+        bandNameLabel.text = currentBand.band.name
+        if ((currentUserController.currentUser?.favoriteBands.contains(currentBand.band.bandID)) != nil) {
+            favoriteButton.imageView?.image = UIImage(systemName: "suit.heart.fill")
+        } else {
+            favoriteButton.imageView?.image = UIImage(systemName: "suit.heart")
+        }
+        
     }
-    ratingsView.layer.zPosition = -1
-    guard let starFilledImage = UIImage(systemName: "star.fill", withConfiguration: largeSymbolScaleConfig) else {return}
-    self.starFilledImage = starFilledImage
-    guard let starEmptyImage = UIImage(systemName: "star", withConfiguration: largeSymbolScaleConfig) else {return}
-    self.starEmptyImage = starEmptyImage
-    
-    
-    guard let currentBand = currentBand else { NSLog("No current band found"); return}
-    
-    if let bandImage = UIImage(data: currentBand.band.photo!) {
-        self.bandImage.image = bandImage
-    } else {
-        self.bandImage.image = UIImage(named: "DefaultBand.png")
-    }
-    
-    //Top Area Under Banner Ads
-    bandNameLabel.text = currentBand.band.name
-    if ((currentUserController.currentUser?.favoriteBands.contains(currentBand.band.bandID)) != nil) {
-        favoriteButton.imageView?.image = UIImage(systemName: "suit.heart.fill")
-    } else {
-        favoriteButton.imageView?.image = UIImage(systemName: "suit.heart")
-    }
-    
-   }
     
     
     //MARK: Functions
@@ -335,7 +408,7 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch tableView {
         case upcomingShowsTableView:
-            return currentBand.xityShows.count
+            return currentBand.xityShows?.count ?? 0
             
         case mediaTableView:
             return 1
@@ -346,14 +419,19 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let currentBand = currentBand else {return UITableViewCell()}
-        let upcomingShow = currentBand.xityShows[indexPath.row].show
+        
         dateFormatter.dateFormat = timeController.dayMonthDay
         dateFormatter2.dateFormat = timeController.time
         
         switch tableView {
         case upcomingShowsTableView:
+            let noShow = tableView.dequeueReusableCell(withIdentifier: "NoShowsCell", for: indexPath)
+            noShow.textLabel?.text = "No Shows Found"
             let cell = tableView.dequeueReusableCell(withIdentifier: "NextShowsCell", for: indexPath)
+            
+            guard let currentBand = currentBand else {return noShow}
+            guard let upcomingShow = currentBand.xityShows?[indexPath.row].show else {return noShow}
+            
             cell.textLabel?.text = "\(dateFormatter.string(from: upcomingShow.date)): \(upcomingShow.venue) @ \(dateFormatter2.string(from: upcomingShow.date))"
             return cell
             
@@ -374,9 +452,9 @@ extension BandDetailViewController {
         
         //Logic
         /*if currentUserController.currentUser == nil {
-            performSegue(withIdentifier: "ToSignIn", sender: self)
-            return
-        }*/
+         performSegue(withIdentifier: "ToSignIn", sender: self)
+         return
+         }*/
         
         if shouldShowSupportInfo == true {
             performSegue(withIdentifier: "SupportInfoSegue", sender: self)

@@ -44,7 +44,7 @@ class SearchTableViewCell: UITableViewCell {
                 //Labels
                 var stringArray = [String]()
                 nameLabel.text = xityBand.band.name
-                secondNameLabel.text = "Next Show: \(xityBand.xityShows.first?.show.venue ?? "None Scheduled")"
+                secondNameLabel.text = "Next Show: \(xityBand.xityShows?.first?.show.venue ?? "None Scheduled")"
                 for genre in xityBand.band.genre {
                     stringArray.append(genre.rawValue)
                 }

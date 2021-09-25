@@ -19,9 +19,9 @@ class DashboardViewController: UIViewController {
     let favSegue = "FromFav"
     let dealsSoonSegue = "DealsComingSoonSegue"
     
-    //Timer
+    //Banner
     var timer = Timer()
-    private var counter = 0
+    
     
     //Not Logged In
     @IBOutlet private weak var getPerksButton: UIButton!
@@ -71,6 +71,10 @@ class DashboardViewController: UIViewController {
         updateViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor.clear
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
