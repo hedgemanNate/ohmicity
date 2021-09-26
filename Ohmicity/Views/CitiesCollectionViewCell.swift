@@ -80,6 +80,8 @@ class CitiesCollectionViewCell: UICollectionViewCell {
                 case .Restaurant:
                     imageView.image = UIImage(named: "restaurant.png")
                     nameLabel.text = businessType.rawValue
+                case .None:
+                    break
                 }
             }
         }

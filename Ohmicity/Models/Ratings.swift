@@ -25,6 +25,21 @@ struct BandsRatings: Codable {
 
 
 struct UsersRatings: Codable {
-    var bandName: String
+    var businessName: String?
+    var bandName: String?
     var rating: Int
+}
+
+struct BusinessRatings: Codable {
+    let businessRatingsID: String
+    var businessName: String
+    let userID: String
+    var stars: Int
+    
+    init(businessName: String, userID: String, stars: Int) {
+        self.businessRatingsID = UUID().uuidString
+        self.businessName = businessName
+        self.userID = userID
+        self.stars = stars
+    }
 }

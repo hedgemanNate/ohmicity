@@ -22,20 +22,11 @@ class BandDetailViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     
     //Ratings
-    @IBOutlet weak var ratingsLabel: UILabel!
     @IBOutlet weak var ratingButton: UIButton!
-    @IBOutlet weak var ratingsView: UIView!
-    @IBOutlet weak var star1Button: UIButton!
-    @IBOutlet weak var star2Button: UIButton!
-    @IBOutlet weak var star3Button: UIButton!
-    @IBOutlet weak var star4Button: UIButton!
-    @IBOutlet weak var star5Button: UIButton!
-    var largeSymbolScaleConfig = UIImage.SymbolConfiguration(scale: .large)
-    var starFilledImage = UIImage()
-    var starEmptyImage = UIImage()
-    var ratingViewIsShown = false
-    var givenRating = 0
-    var ratingTimer = Timer()
+    
+    //Segue
+    let signInSegue = "ToSignIn"
+    let ratingsSegue = "ToRatings"
     
     //Collection View
     @IBOutlet weak var bannerAdCollectionView: UICollectionView!
@@ -88,81 +79,9 @@ class BandDetailViewController: UIViewController {
         
     }
     
-    @IBAction func rateButtonTapped(_ sender: Any) {
-        if ratingViewIsShown {
-            ratingTimer.invalidate()
-            closeRatingView()
-        } else {
-            ratingViewIsShown = !ratingViewIsShown
-            UIView.animate(withDuration: 0.5, delay: 0, options: []) {
-                self.ratingsView.transform = CGAffineTransform(translationX: 0, y: -115)
-            } completion: { complete in
-                if complete == true {
-                    self.startHideRatingsViewTimer()
-                }
-            }
-            
-        }
-    }
-    
-    @IBAction func star1ButtonTapped(_ sender: Any) {
-        //UI Changes
-        self.star1Button.setImage(starFilledImage, for: .normal)
-        self.star2Button.setImage(starEmptyImage, for: .normal)
-        self.star3Button.setImage(starEmptyImage, for: .normal)
-        self.star4Button.setImage(starEmptyImage, for: .normal)
-        self.star5Button.setImage(starEmptyImage, for: .normal)
-        givenRating = 1
-        ratingsLabel.text = "Rating Received"
-        startHideRatingsViewTimer()
-    }
-    
-    @IBAction func star2ButtonTapped(_ sender: Any) {
-        self.star1Button.setImage(starFilledImage, for: .normal)
-        self.star2Button.setImage(starFilledImage, for: .normal)
-        self.star3Button.setImage(starEmptyImage, for: .normal)
-        self.star4Button.setImage(starEmptyImage, for: .normal)
-        self.star5Button.setImage(starEmptyImage, for: .normal)
-        givenRating = 2
-        ratingsLabel.text = "Rating Received"
-        startHideRatingsViewTimer()
-    }
-    
-    @IBAction func star3ButtonTapped(_ sender: Any) {
-        self.star1Button.setImage(starFilledImage, for: .normal)
-        self.star2Button.setImage(starFilledImage, for: .normal)
-        self.star3Button.setImage(starFilledImage, for: .normal)
-        self.star4Button.setImage(starEmptyImage, for: .normal)
-        self.star5Button.setImage(starEmptyImage, for: .normal)
-        givenRating = 3
-        ratingsLabel.text = "Rating Received"
-        startHideRatingsViewTimer()
-    }
-    
-    @IBAction func star4ButtonTapped(_ sender: Any) {
-        self.star1Button.setImage(starFilledImage, for: .normal)
-        self.star2Button.setImage(starFilledImage, for: .normal)
-        self.star3Button.setImage(starFilledImage, for: .normal)
-        self.star4Button.setImage(starFilledImage, for: .normal)
-        self.star5Button.setImage(starEmptyImage, for: .normal)
-        givenRating = 4
-        ratingsLabel.text = "Rating Received"
-        startHideRatingsViewTimer()
-    }
-    
-    @IBAction func star5ButtonTapped(_ sender: Any) {
-        self.star1Button.setImage(starFilledImage, for: .normal)
-        self.star2Button.setImage(starFilledImage, for: .normal)
-        self.star3Button.setImage(starFilledImage, for: .normal)
-        self.star4Button.setImage(starFilledImage, for: .normal)
-        self.star5Button.setImage(starFilledImage, for: .normal)
-        givenRating = 5
-        ratingsLabel.text = "Rating Received"
-        startHideRatingsViewTimer()
-    }
-    
     @IBAction func bandNotificationsButtonTapped(_ sender: Any) {
     }
+    
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         guard let currentBand = currentBand else {NSLog("No Current Band Found: favoriteButtonTapped: bandDetailViewController"); return }
@@ -182,9 +101,10 @@ class BandDetailViewController: UIViewController {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
                     }
                 } catch {
-                    NSLog("Error Pushing favoriteBands")
+                    NSLog("Error Removing favoriteBands from database")
                 }
             } else {
+                NSLog("\(currentBand.band.bandID) added to Favorites")
                 currentUser!.favoriteBands .append(currentBand.band.bandID)
                 currentUser!.lastModified = Timestamp()
                 
@@ -195,7 +115,7 @@ class BandDetailViewController: UIViewController {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
                     }
                 } catch {
-                    NSLog("Error Pushing favoriteBusiness")
+                    NSLog("Error Adding favoriteBusiness to database")
                 }
             }
         } else if currentUser == nil {
@@ -205,6 +125,15 @@ class BandDetailViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func ratingsButtonTapped(_ sender: Any) {
+        if currentUserController.currentUser == nil {
+            performSegue(withIdentifier: signInSegue, sender: self)
+        } else {
+            performSegue(withIdentifier: ratingsSegue, sender: self)
+        }
+    }
+    
     
     //MARK: Banner Ad
     @objc private func bannerChange() {
@@ -245,17 +174,7 @@ class BandDetailViewController: UIViewController {
         xityLogoImageView.layer.zPosition = 97
         xityLogoImageView.alpha = 0
         bannerAdCollectionView.sendSubviewToBack(self.view)
-        
-        
-        //Rating UI
-        if currentUserController.currentUser == nil {
-            ratingButton.isEnabled = false
-        }
-        ratingsView.layer.zPosition = -1
-        guard let starFilledImage = UIImage(systemName: "star.fill", withConfiguration: largeSymbolScaleConfig) else {return}
-        self.starFilledImage = starFilledImage
-        guard let starEmptyImage = UIImage(systemName: "star", withConfiguration: largeSymbolScaleConfig) else {return}
-        self.starEmptyImage = starEmptyImage
+       
         
         
         guard let currentBand = currentBand else { NSLog("No current band found"); return}
@@ -271,12 +190,13 @@ class BandDetailViewController: UIViewController {
         
         //Top Area Under Banner Ads
         bandNameLabel.text = currentBand.band.name
-        if ((currentUserController.currentUser?.favoriteBands.contains(currentBand.band.bandID)) != nil) {
-            favoriteButton.imageView?.image = UIImage(systemName: "suit.heart.fill")
-        } else {
-            favoriteButton.imageView?.image = UIImage(systemName: "suit.heart")
-        }
+        guard let currentUser = currentUserController.currentUser else { NSLog("no current user for favorites"); return}
         
+        if currentUser.favoriteBands.contains(currentBand.band.bandID) {
+            favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+        }
     }
     
     
@@ -296,52 +216,20 @@ class BandDetailViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
     }
     
-    @objc private func closeRatingView() {
-        ratingViewIsShown = !ratingViewIsShown
-        UIView.animate(withDuration: 0.5, delay: 0, options: []) { [self] in
-            
-            self.ratingsView.transform = .identity
-            
-        } completion: { [self] complete in
-            if complete == true && givenRating != 0 {
-                print("Rating Creating")
-                let userRating = UsersRatings(bandName: currentBand?.band.name ?? "testBand", rating: givenRating)
-                let bandRating = BandsRatings(bandName: currentBand?.band.name ?? "testBand", userID: currentUserController.currentUser!.userID, stars: givenRating)
-                
-                if currentUserController.currentUser?.bandRatings == nil {
-                    currentUserController.currentUser?.bandRatings = []
-                    currentUserController.currentUser?.bandRatings?.append(userRating)
-                    do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
-                    } catch (let error) {
-                        NSLog(error.localizedDescription)
-                    }
-                } else {
-                    currentUserController.currentUser?.bandRatings?.append(userRating)
-                    do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
-                    } catch (let error) {
-                        NSLog(error.localizedDescription)
-                    }
-                }
-            }
-        }
-    }
     
-    private func startHideRatingsViewTimer() {
-        ratingTimer.invalidate()
-        ratingTimer = Timer.scheduledTimer(timeInterval: 6.0, target: self, selector: #selector(closeRatingView), userInfo: nil, repeats: false)
-    }
-    
-    /*
-     // MARK: - Navigation
+     // MARK: Segue
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
+         if segue.identifier == ratingsSegue {
+             guard let destinationVC = segue.destination as? RatingsViewController else {return}
+             destinationVC.currentBand = currentBand
+             
+         }
      // Pass the selected object to the new view controller.
      }
-     */
+     
     
 }
 
@@ -453,10 +341,10 @@ extension BandDetailViewController {
     @objc private func supportButtonTapped() {
         
         //Logic
-        /*if currentUserController.currentUser == nil {
+        if currentUserController.currentUser == nil {
          performSegue(withIdentifier: "ToSignIn", sender: self)
          return
-         }*/
+         }
         
         if shouldShowSupportInfo == true {
             performSegue(withIdentifier: "SupportInfoSegue", sender: self)

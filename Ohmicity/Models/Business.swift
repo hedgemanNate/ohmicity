@@ -16,6 +16,7 @@ enum BusinessType: String, Codable, Equatable, Hashable {
     case Outdoors
     case LiveMusic = "Live Music"
     case Family = "Family Friendly"
+    case None
 }
 
 protocol MutatingProtocolForBusinessData {

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* SearchViewController.swift */; };
+		D8262F01264466FA0050F9CA /* VenueSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */; };
 		D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0A264467A90050F9CA /* SuggestViewController.swift */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
 		D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D082641C4C400E95415 /* SceneDelegate.swift */; };
@@ -34,6 +34,9 @@
 		F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BC4D326F54866004177BD /* SupportInfoViewController.swift */; };
 		F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */; };
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
+		F63D191827006435004379D5 /* MenuPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F63D191727006435004379D5 /* MenuPopUp.storyboard */; };
+		F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */; };
+		F63D191C27006818004379D5 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D191B27006818004379D5 /* RatingsViewController.swift */; };
 		F640DD0A264E3B7300959358 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD09264E3B7300959358 /* Helper.swift */; };
 		F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640DD0E264E432B00959358 /* DashboardTabBarController.swift */; };
 		F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */; };
@@ -58,7 +61,7 @@
 		F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */; };
 		F66CB28526FD113800B26EE3 /* Band.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28426FD113800B26EE3 /* Band.storyboard */; };
 		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
-		F676F0F626991C6C00C47599 /* BandsRatings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* BandsRatings.swift */; };
+		F676F0F626991C6C00C47599 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Ratings.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
 		F676F0FA26991C6C00C47599 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F326991C6C00C47599 /* Business.swift */; };
 		F676F0FB26991C6C00C47599 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F426991C6C00C47599 /* Band.swift */; };
@@ -116,7 +119,7 @@
 /* Begin PBXFileReference section */
 		59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ohmicity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
-		D8262F00264466FA0050F9CA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueSearchViewController.swift; sourceTree = "<group>"; };
 		D8262F0A264467A90050F9CA /* SuggestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
 		D8403D032641C4C400E95415 /* Ohmicity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohmicity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8403D062641C4C400E95415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +149,9 @@
 		F62BC4D326F54866004177BD /* SupportInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportInfoViewController.swift; sourceTree = "<group>"; };
 		F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
+		F63D191727006435004379D5 /* MenuPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuPopUp.storyboard; sourceTree = "<group>"; };
+		F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopUpLogicViewController.swift; sourceTree = "<group>"; };
+		F63D191B27006818004379D5 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
 		F640DD09264E3B7300959358 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F640DD0E264E432B00959358 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		F6497F5C26BCCAAB005D2D4A /* BannerAdBusinessPicsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAdBusinessPicsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -170,7 +176,7 @@
 		F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostInternetConnectionViewController.swift; sourceTree = "<group>"; };
 		F66CB28426FD113800B26EE3 /* Band.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Band.storyboard; sourceTree = "<group>"; };
 		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
-		F676F0EF26991C6C00C47599 /* BandsRatings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandsRatings.swift; sourceTree = "<group>"; };
+		F676F0EF26991C6C00C47599 /* Ratings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ratings.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		F676F0F326991C6C00C47599 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		F676F0F426991C6C00C47599 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
@@ -315,6 +321,7 @@
 				F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */,
 				D8CED4052641F4100017FD28 /* SignIn.storyboard */,
 				F661A5FD26F6950F00A059E2 /* XityDeals.storyboard */,
+				F63D191727006435004379D5 /* MenuPopUp.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -378,10 +385,11 @@
 		F62FEB6B26562A1A008DEF64 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */,
+				F63D191B27006818004379D5 /* RatingsViewController.swift */,
 				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
 				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				F62FEB6F26562A59008DEF64 /* ResetViewController.swift */,
-				F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -423,6 +431,7 @@
 				F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */,
 				F676F100269947D300C47599 /* Enumerations.swift */,
 				F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */,
+				F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -444,7 +453,7 @@
 			children = (
 				F687CD6526F45E8600412C07 /* User Models */,
 				F676F0F426991C6C00C47599 /* Band.swift */,
-				F676F0EF26991C6C00C47599 /* BandsRatings.swift */,
+				F676F0EF26991C6C00C47599 /* Ratings.swift */,
 				F676F0F226991C6C00C47599 /* Show.swift */,
 				F676F0F326991C6C00C47599 /* Business.swift */,
 				F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */,
@@ -508,7 +517,7 @@
 				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
 				F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */,
 				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
-				D8262F00264466FA0050F9CA /* SearchViewController.swift */,
+				D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */,
 				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
 			);
 			path = "Tab View Controllers";
@@ -657,6 +666,7 @@
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
 				F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */,
 				F6F3DB4726AF337C00C49016 /* outdoors.png in Resources */,
+				F63D191827006435004379D5 /* MenuPopUp.storyboard in Resources */,
 				D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */,
 				F696A73526AB7079009CB1BD /* stpete.png in Resources */,
 				F6F3DB4526AF337C00C49016 /* restaurant.png in Resources */,
@@ -734,7 +744,7 @@
 				F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */,
 				F67991002697AB54000FDC5E /* Notifications.swift in Sources */,
 				F6FD18CA26EAB74400B145AC /* PurchaseCollectionViewCell.swift in Sources */,
-				D8262F01264466FA0050F9CA /* SearchViewController.swift in Sources */,
+				D8262F01264466FA0050F9CA /* VenueSearchViewController.swift in Sources */,
 				F6615ADD26F2746B0096D59D /* BandDetailViewController.swift in Sources */,
 				D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */,
 				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,
@@ -754,6 +764,7 @@
 				F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */,
 				F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */,
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
+				F63D191C27006818004379D5 /* RatingsViewController.swift in Sources */,
 				F6DBFDAB26E9BB5D001D7520 /* PurchaseViewController.swift in Sources */,
 				F661A60026F6959E00A059E2 /* XityDealsViewController.swift in Sources */,
 				F676F0F926991C6C00C47599 /* Show.swift in Sources */,
@@ -785,13 +796,14 @@
 				F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */,
 				F687CD6B26F46AC500412C07 /* XitySupportController.swift in Sources */,
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
-				F676F0F626991C6C00C47599 /* BandsRatings.swift in Sources */,
+				F676F0F626991C6C00C47599 /* Ratings.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,
 				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
 				F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */,
 				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,
+				F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

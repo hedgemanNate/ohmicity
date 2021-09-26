@@ -32,3 +32,7 @@ enum LoadingScreenInfo: String {
     case BandsLoaded
     case BandsCollected
 }
+
+enum MenuType {
+    case Rating
+}

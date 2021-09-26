@@ -28,7 +28,7 @@ class CurrentUser: Codable {
     var usedPromotions: [String] = []
     var paidServices: [String] = []
     var features: [Features]?
-    var adPoints: Int = 0
+    //var adPoints: Int = 0
     var preferredCity: City?
     var recommendationCount: Int?
     

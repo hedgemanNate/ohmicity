@@ -84,7 +84,7 @@ class VenueSearchViewController: UIViewController {
             //print("Segmented Business")
             searchBar.isUserInteractionEnabled = true
         case 1:
-            searchBar.placeholder = "Select A City Below To Display Businesses"
+            searchBar.placeholder = "Select A City To Filter"
             searchBar.isUserInteractionEnabled = false
             //print("Segmented Cities")
         default:
@@ -149,7 +149,6 @@ extension VenueSearchViewController {
     //MARK: Search Function
     private func startSearch(searchText: String, genre: Genre? = nil, city: City? = nil, business: BusinessType? = nil) {
         if segmentedController.selectedSegmentIndex == 1 && city != nil {
-            print("ss2")
             if searchText == "" {
                 businessResultsArray = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
             } else {
@@ -157,7 +156,6 @@ extension VenueSearchViewController {
             }
             
         } else if segmentedController.selectedSegmentIndex == 0 && business != nil {
-            print("ss3")
             if searchText == "" {
                 businessResultsArray = xityBusinessController.businessArray.filter({$0.business.businessType.contains(business!)})
             } else {
@@ -166,12 +164,15 @@ extension VenueSearchViewController {
             
             
         } else if segmentedController.selectedSegmentIndex == 0 {
-            print("ss4")
-            businessResultsArray = xityBusinessController.businessArray.filter({$0.business.name.localizedStandardContains(searchText)})
+            if searchText == "" {
+                businessResultsArray = xityBusinessController.businessArray.sorted(by: {$0.business.name < $1.business.name})
+            } else {
+                businessResultsArray =  xityBusinessController.businessArray.filter({$0.business.name.localizedStandardContains(searchText)})
+            }
+            tableView.reloadData()
         }
-        tableView.reloadData()
     }
-        
+    
 
     
     //MARK: - UpdateViews
@@ -193,6 +194,7 @@ extension VenueSearchViewController {
         
         //Add space to bottom of search table view to clear the tab view
         tableView.contentInset.bottom = 40
+        businessResultsArray = xityBusinessController.businessArray.sorted(by: {$0.business.name < $1.business.name})
 
     }
     
@@ -301,11 +303,13 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
                 item.layer.borderColor = cc.highlightBlue.cgColor
         }
         
+        startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: businessType)
+        
         switch segmentedController.selectedSegmentIndex {
         case 0:
-            genre = nil
-            city = nil
-            businessType = nil
+//            genre = nil
+//            city = nil
+//            businessType = nil
             
             businessType = businessController.businessTypeArray[indexPath.row]
             if let business = businessType {
@@ -314,22 +318,13 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
             }
             
         case 1:
-            genre = nil
-            city = nil
-            businessType = nil
+//            genre = nil
+//            city = nil
+//            businessType = nil
+            
             city = businessController.citiesArray[indexPath.row]
             if let city = city {
                 print(city.rawValue)
-                startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: businessType)
-            }
-            
-        case 2:
-            genre = nil
-            city = nil
-            businessType = nil
-            genre = bandController.genreTypeArray[indexPath.row]
-            if let genre = genre {
-                print(genre.rawValue)
                 startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: businessType)
             }
             
@@ -418,6 +413,10 @@ extension VenueSearchViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        searchCollectionView.allowsSelection = false
+        searchCollectionView.allowsSelection = true
+        print("It worked")
+        
     }
 }
 

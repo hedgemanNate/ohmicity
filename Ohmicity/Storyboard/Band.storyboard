@@ -19,6 +19,14 @@
             </objects>
             <point key="canvasLocation" x="300" y="-536"/>
         </scene>
+        <!--MenuPopUp-->
+        <scene sceneID="Y9d-Ut-8Dc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MenuPopUp" id="DoQ-q1-9xb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nx8-4k-CKX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="-536"/>
+        </scene>
         <!--Band Scene-->
         <scene sceneID="fw1-UP-A0q">
             <objects>
@@ -228,90 +236,6 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-uZ-MFk" userLabel="Ratings View">
-                                                <rect key="frame" x="0.0" y="253" width="428" height="115"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give This Band With A Long Name A Rating!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mec-ol-ao3">
-                                                        <rect key="frame" x="72" y="16" width="284" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="sKg-aW-FWu"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="bpd-Ol-JLT">
-                                                        <rect key="frame" x="72" y="74" width="284" height="25"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aio-Vn-J4x" userLabel="Star1Button">
-                                                                <rect key="frame" x="0.0" y="0.0" width="28" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <state key="normal">
-                                                                    <color key="titleColor" systemColor="systemYellowColor"/>
-                                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="template"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="star1ButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="hBn-vf-D5K"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xP0-kr-3bf">
-                                                                <rect key="frame" x="65" y="0.0" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <state key="normal">
-                                                                    <color key="titleColor" systemColor="systemYellowColor"/>
-                                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="template"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="star2ButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="klK-rR-uSS"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZz-Ol-Rsa">
-                                                                <rect key="frame" x="129" y="0.0" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <state key="normal">
-                                                                    <color key="titleColor" systemColor="systemYellowColor"/>
-                                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="template"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="star3ButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="iNI-m4-kzR"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7w-tj-op4">
-                                                                <rect key="frame" x="193" y="0.0" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <state key="normal">
-                                                                    <color key="titleColor" systemColor="systemYellowColor"/>
-                                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="template"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="star4ButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="VVA-RG-p6t"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrd-8s-8L2">
-                                                                <rect key="frame" x="257" y="0.0" width="27" height="25"/>
-                                                                <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                <state key="normal">
-                                                                    <color key="titleColor" systemColor="systemYellowColor"/>
-                                                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="template"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="star5ButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="ENy-NH-HLB"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.47600909009999998" green="0.28497480149999999" blue="0.70413423789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="mec-ol-ao3" firstAttribute="top" secondItem="QRR-uZ-MFk" secondAttribute="top" constant="16" id="0GQ-vL-fnO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="mec-ol-ao3" secondAttribute="trailing" constant="72" id="Hfh-F7-VBi"/>
-                                                    <constraint firstAttribute="height" constant="115" id="ICT-kI-1gS"/>
-                                                    <constraint firstItem="mec-ol-ao3" firstAttribute="leading" secondItem="QRR-uZ-MFk" secondAttribute="leading" constant="72" id="JIX-Td-IZc"/>
-                                                    <constraint firstItem="bpd-Ol-JLT" firstAttribute="top" secondItem="mec-ol-ao3" secondAttribute="bottom" constant="8" id="PlF-9Y-M7U"/>
-                                                    <constraint firstAttribute="trailing" secondItem="bpd-Ol-JLT" secondAttribute="trailing" constant="72" id="WNU-77-zMA"/>
-                                                    <constraint firstItem="bpd-Ol-JLT" firstAttribute="leading" secondItem="QRR-uZ-MFk" secondAttribute="leading" constant="72" id="gqK-cO-wEt"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJw-GD-W17" userLabel="Hide Ratings View">
                                                 <rect key="frame" x="0.0" y="328" width="428" height="128"/>
                                                 <color key="backgroundColor" red="0.1137254902" green="0.094117647060000004" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -333,7 +257,7 @@
                                                             <action selector="bandNotificationsButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="hG9-iL-BHm"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lV-Lo-hoF" userLabel="Call Button">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lV-Lo-hoF" userLabel="Ratings Button">
                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                         <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -346,7 +270,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="rateButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="eZz-HB-Cub"/>
+                                                            <action selector="ratingsButtonTapped:" destination="dLd-PW-4mV" eventType="touchUpInside" id="yPq-Oi-cbC"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wke-Pt-pdu" userLabel="Favorite Button">
@@ -466,7 +390,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="JJw-GD-W17" firstAttribute="top" secondItem="JBX-xr-Vup" secondAttribute="bottom" id="3DH-yn-I6j"/>
-                                            <constraint firstAttribute="trailing" secondItem="QRR-uZ-MFk" secondAttribute="trailing" id="5RC-0d-SBM"/>
                                             <constraint firstAttribute="trailing" secondItem="JBX-xr-Vup" secondAttribute="trailing" id="5wA-ZC-EKW"/>
                                             <constraint firstAttribute="height" constant="2000" id="6qo-Ka-zXE"/>
                                             <constraint firstItem="34U-Rk-mDV" firstAttribute="top" secondItem="nyQ-NU-S8U" secondAttribute="bottom" constant="7" id="8tV-qI-4Zs"/>
@@ -480,12 +403,10 @@
                                             <constraint firstAttribute="trailing" secondItem="jXb-wg-08P" secondAttribute="trailing" constant="9" id="LBL-yW-38b"/>
                                             <constraint firstItem="Frh-Cw-uD5" firstAttribute="leading" secondItem="hfO-U0-Iuj" secondAttribute="leading" constant="9" id="Lot-Ad-8in"/>
                                             <constraint firstItem="nyQ-NU-S8U" firstAttribute="top" secondItem="SGk-NX-YJ4" secondAttribute="bottom" constant="35" id="NAL-IY-ad9"/>
-                                            <constraint firstItem="QRR-uZ-MFk" firstAttribute="leading" secondItem="hfO-U0-Iuj" secondAttribute="leading" id="Nni-zg-Ecn"/>
                                             <constraint firstAttribute="trailing" secondItem="IJW-vs-VOh" secondAttribute="trailing" constant="9" id="Nrb-d4-6eL"/>
                                             <constraint firstItem="IJW-vs-VOh" firstAttribute="top" secondItem="y5S-Vy-GYi" secondAttribute="bottom" constant="7" id="Num-9E-5ur"/>
                                             <constraint firstItem="y5S-Vy-GYi" firstAttribute="top" secondItem="34U-Rk-mDV" secondAttribute="bottom" constant="35" id="TVg-XU-4LH"/>
                                             <constraint firstItem="y5S-Vy-GYi" firstAttribute="leading" secondItem="hfO-U0-Iuj" secondAttribute="leading" constant="9" id="Tna-dM-LEm"/>
-                                            <constraint firstItem="QRR-uZ-MFk" firstAttribute="top" secondItem="JBX-xr-Vup" secondAttribute="top" id="aiT-6p-HlR"/>
                                             <constraint firstItem="jmI-cm-eGL" firstAttribute="top" secondItem="hfO-U0-Iuj" secondAttribute="top" id="bOz-iO-1Dy"/>
                                             <constraint firstAttribute="trailing" secondItem="Ggu-ql-3Su" secondAttribute="trailing" constant="9" id="dEy-hE-dnJ"/>
                                             <constraint firstAttribute="trailing" secondItem="y5S-Vy-GYi" secondAttribute="trailing" constant="9" id="dLa-h8-bDd"/>
@@ -547,13 +468,6 @@
                         <outlet property="genreCollectionView" destination="SGk-NX-YJ4" id="Y3m-xY-blY"/>
                         <outlet property="mediaTableView" destination="IJW-vs-VOh" id="FYq-F2-JRv"/>
                         <outlet property="ratingButton" destination="8lV-Lo-hoF" id="dkO-vh-PEI"/>
-                        <outlet property="ratingsLabel" destination="mec-ol-ao3" id="CHX-he-0dc"/>
-                        <outlet property="ratingsView" destination="QRR-uZ-MFk" id="ND9-bA-EfW"/>
-                        <outlet property="star1Button" destination="Aio-Vn-J4x" id="IRu-Kd-y0Z"/>
-                        <outlet property="star2Button" destination="xP0-kr-3bf" id="dUU-JN-6id"/>
-                        <outlet property="star3Button" destination="zZz-Ol-Rsa" id="rDh-W2-dCy"/>
-                        <outlet property="star4Button" destination="i7w-tj-op4" id="TeP-fy-T8N"/>
-                        <outlet property="star5Button" destination="Nrd-8s-8L2" id="1mV-Te-Q5a"/>
                         <outlet property="supportButton" destination="v87-5A-Zhd" id="kWk-cc-AOx"/>
                         <outlet property="supportIndicatorView" destination="zUI-Lm-LND" id="D0D-gg-PCT"/>
                         <outlet property="supportLabel" destination="Ux0-ia-jJG" id="MUW-DF-St8"/>
@@ -563,6 +477,7 @@
                         <outlet property="xityLogoImageView" destination="aK0-fs-Pi8" id="gXb-6Y-35F"/>
                         <segue destination="mgr-e7-tBM" kind="presentation" identifier="SupportInfoSegue" id="gBe-RF-Qgp"/>
                         <segue destination="j5m-kl-awt" kind="presentation" identifier="ToSignIn" id="FIl-Mm-aM2"/>
+                        <segue destination="DoQ-q1-9xb" kind="presentation" identifier="ToRatings" modalPresentationStyle="fullScreen" id="Bkw-vH-MYY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJ0-0B-vKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -897,7 +812,6 @@ Always remember: Support live local musicians. Support live local music venues. 
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
         <image name="music.mic" catalog="system" width="128" height="121"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="xitySupportIcon.png" width="192.47999572753906" height="192.47999572753906"/>
@@ -909,9 +823,6 @@ Always remember: Support live local musicians. Support live local music venues. 
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
