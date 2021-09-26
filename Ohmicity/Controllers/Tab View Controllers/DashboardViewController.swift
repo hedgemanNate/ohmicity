@@ -78,7 +78,6 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         startTimer()
     }
     
@@ -152,19 +151,19 @@ extension DashboardViewController {
             
             switch xityShowController.todayShowArrayFilter {
             case .Sarasota:
-                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Bradenton:
-                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Venice:
-                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .StPete:
-                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Tampa:
-                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Ybor:
-                cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .All:
-                cityFilterLabel.text = "in All Cities"
+                cityFilterLabel.text = "~Filter Off"
             }
         }
         print("Dashboard Reloaded")
@@ -463,7 +462,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             }
             
         case xityExclusivesCollectionView:
-            tabBarController?.selectedIndex = 1
+            tabBarController?.selectedIndex = 0
         default:
             break
         }

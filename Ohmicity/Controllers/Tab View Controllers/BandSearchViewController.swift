@@ -19,6 +19,10 @@ class BandSearchViewController: UIViewController {
     //Banner
     var timer = Timer()
     
+    //SearchBar
+    @IBOutlet weak var searchBar: UISearchBar!
+    let searchController = UISearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -44,8 +48,7 @@ class BandSearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         bandResultsArray = bandArray
-        bandResultsArray.sort(by: {$0.band.name < $1.band.name})
-        bandResultsArray.sort(by: {($0.band.photo != nil) && ($1.band.photo == nil)})
+        arrangeBandResultsArray()
         
         bannerAdCollectionView.dataSource = self
         bannerAdCollectionView.delegate = self
@@ -55,6 +58,15 @@ class BandSearchViewController: UIViewController {
 
     //MARK: UpdateViews
     private func updateViews() {
+        searchBar.delegate = self
+        searchBar.searchTextField.delegate = self
+        searchBar.barTintColor = .clear
+        searchBar.searchTextField.textColor = .white
+        searchBar.showsCancelButton = true
+        searchBar.placeholder = "Search Bands By Name"
+        
+        tableView.contentInset.bottom = 40
+        
         setUpCollectionAndTableView()
         hideKeyboardWhenTappedAround()
     }
@@ -89,7 +101,6 @@ class BandSearchViewController: UIViewController {
             self.timer.invalidate()
         }
     }
-    
     
     // MARK: - Navigation
 
@@ -159,4 +170,42 @@ extension BandSearchViewController: UICollectionViewDataSource, UICollectionView
     }
     
     
+}
+
+extension BandSearchViewController: UISearchBarDelegate {
+    //MARK: Search Function
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        startSearch(searchText: searchText)
+    }
+    
+    private func startSearch(searchText: String) {
+        if searchText == "" {
+            bandResultsArray = xityBandController.bandArray
+            arrangeBandResultsArray()
+        } else {
+            bandResultsArray = xityBandController.bandArray.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
+            arrangeBandResultsArray()
+        }
+    }
+    
+    private func arrangeBandResultsArray() {
+        bandResultsArray.sort(by: {$0.band.name < $1.band.name})
+        bandResultsArray.sort(by: {($0.band.photo != nil) && ($1.band.photo == nil)})
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        DispatchQueue.main.async {
+            searchBar.text = ""
+            searchBar.resignFirstResponder()
+        }
+        
+    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchBar.searchTextField.resignFirstResponder()
+        return true
+    }
 }

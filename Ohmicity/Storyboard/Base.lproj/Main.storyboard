@@ -93,7 +93,7 @@
         <!--Search View Controller-->
         <scene sceneID="awe-Of-PtB">
             <objects>
-                <viewController id="3L6-vU-wgp" userLabel="Search View Controller" customClass="SearchViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3L6-vU-wgp" userLabel="Search View Controller" customClass="VenueSearchViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NeU-eK-nqW">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,7 +157,7 @@
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" delaysContentTouches="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oLF-21-53M">
-                                                <rect key="frame" x="0.0" y="334" width="428" height="95"/>
+                                                <rect key="frame" x="0.0" y="335" width="428" height="95"/>
                                                 <color key="backgroundColor" red="0.039095680601929104" green="0.037111624360208297" blue="0.056169533666035387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="95" id="BQw-Ax-PGs"/>
@@ -205,7 +205,7 @@
                                                 </cells>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="100" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqa-da-gya">
-                                                <rect key="frame" x="0.0" y="429" width="428" height="370"/>
+                                                <rect key="frame" x="0.0" y="430" width="428" height="369"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -308,7 +308,7 @@
                                                 </connections>
                                             </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-mB-DHI">
-                                                <rect key="frame" x="0.0" y="303" width="428" height="32"/>
+                                                <rect key="frame" x="0.0" y="304" width="428" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="wMd-zG-bxv"/>
                                                 </constraints>
@@ -320,38 +320,33 @@
                                                     <action selector="segmentedControllerTapped:" destination="3L6-vU-wgp" eventType="valueChanged" id="8yz-ML-B6S"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHN-Ay-iKj">
-                                                <rect key="frame" x="0.0" y="253" width="428" height="50"/>
+                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zKt-Ka-YhU">
+                                                <rect key="frame" x="0.0" y="253" width="428" height="51"/>
                                                 <color key="backgroundColor" red="0.1718570888" green="0.16069284079999999" blue="0.1935454905" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="SBW-sY-fXx"/>
+                                                    <constraint firstAttribute="height" constant="51" id="o5O-eW-tpO"/>
                                                 </constraints>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="searchBarChanged:" destination="3L6-vU-wgp" eventType="editingChanged" id="5HX-GX-m7J"/>
-                                                </connections>
-                                            </textField>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="zKt-Ka-YhU" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="12z-0b-iMb"/>
                                             <constraint firstAttribute="trailing" secondItem="Qqa-da-gya" secondAttribute="trailing" id="5qh-lv-Peb"/>
                                             <constraint firstAttribute="trailing" secondItem="oLF-21-53M" secondAttribute="trailing" id="94m-6F-Jxg"/>
                                             <constraint firstAttribute="trailing" secondItem="hpP-mB-DHI" secondAttribute="trailing" id="BFe-2u-3Zi"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="COI-Bv-C0C"/>
                                             <constraint firstItem="hpP-mB-DHI" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="DiI-lo-GOH"/>
-                                            <constraint firstItem="SHN-Ay-iKj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Fw2-ih-hGa"/>
                                             <constraint firstAttribute="trailing" secondItem="0tN-8H-6Uj" secondAttribute="trailing" id="LE7-bh-T6R"/>
-                                            <constraint firstItem="hpP-mB-DHI" firstAttribute="top" secondItem="SHN-Ay-iKj" secondAttribute="bottom" id="OBj-ie-sVT"/>
-                                            <constraint firstItem="SHN-Ay-iKj" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="bottom" id="WkG-xh-9t2"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="Y5x-rB-yTR"/>
-                                            <constraint firstAttribute="trailing" secondItem="SHN-Ay-iKj" secondAttribute="trailing" id="YKU-O6-akm"/>
                                             <constraint firstItem="oLF-21-53M" firstAttribute="top" secondItem="hpP-mB-DHI" secondAttribute="bottom" id="Ybd-nl-Lnu"/>
+                                            <constraint firstAttribute="trailing" secondItem="zKt-Ka-YhU" secondAttribute="trailing" id="Zir-DV-B3v"/>
                                             <constraint firstAttribute="bottom" secondItem="Qqa-da-gya" secondAttribute="bottom" id="cxf-dx-24J"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="leading" secondItem="4Fo-n8-heq" secondAttribute="leading" id="eo9-ll-ZyN"/>
+                                            <constraint firstItem="hpP-mB-DHI" firstAttribute="top" secondItem="zKt-Ka-YhU" secondAttribute="bottom" id="l4x-o6-oNL"/>
                                             <constraint firstItem="0tN-8H-6Uj" firstAttribute="top" secondItem="4Fo-n8-heq" secondAttribute="top" id="sAI-yg-yri"/>
                                             <constraint firstItem="Qqa-da-gya" firstAttribute="top" secondItem="oLF-21-53M" secondAttribute="bottom" id="yEi-ga-flW"/>
+                                            <constraint firstItem="zKt-Ka-YhU" firstAttribute="top" secondItem="0tN-8H-6Uj" secondAttribute="bottom" id="zvO-oP-wUj"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -383,7 +378,7 @@
                     <size key="freeformSize" width="428" height="900"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="9Zb-p5-raZ" id="Qf3-kk-oAb"/>
-                        <outlet property="searchBar" destination="SHN-Ay-iKj" id="xkt-f2-8Vn"/>
+                        <outlet property="searchBar" destination="zKt-Ka-YhU" id="yHG-1P-Hgp"/>
                         <outlet property="searchCollectionView" destination="oLF-21-53M" id="YzN-EV-NpS"/>
                         <outlet property="segmentedController" destination="hpP-mB-DHI" id="HQP-Cl-Lcb"/>
                         <outlet property="tableView" destination="Qqa-da-gya" id="8Ue-Eh-Yzw"/>
@@ -1325,24 +1320,26 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-IG-CFU">
-                                                <rect key="frame" x="9" y="267" width="68" height="44"/>
+                                                <rect key="frame" x="9" y="267" width="100" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="ojq-jI-8l8"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Today">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ in All Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
-                                                <rect key="frame" x="91" y="279" width="99" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ in All Cities" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
+                                                <rect key="frame" x="109" y="283" width="310" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="99" id="7oh-oS-Pw2"/>
                                                     <constraint firstAttribute="height" constant="21" id="qL4-aa-r5K"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemTealColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-dF-4wv" userLabel="Segue To Preferred City Button">
-                                                <rect key="frame" x="0.0" y="265" width="206" height="48"/>
+                                                <rect key="frame" x="0.0" y="265" width="288" height="48"/>
                                                 <connections>
                                                     <action selector="cityFilterButtonTapped:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="Lcs-9z-cCR"/>
                                                 </connections>
@@ -1794,7 +1791,7 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
-                                                <rect key="frame" x="312" y="260.66666666666669" width="100" height="30"/>
+                                                <rect key="frame" x="372" y="260.66666666666669" width="40" height="30"/>
                                                 <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Break">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1807,7 +1804,6 @@ should be on Xity?</string>
                                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="21" id="0Yv-3j-i78"/>
-                                            <constraint firstItem="unq-Kr-Wcq" firstAttribute="leading" secondItem="RHp-aE-CIZ" secondAttribute="trailing" constant="122" id="1jz-aG-Hck"/>
                                             <constraint firstAttribute="trailing" secondItem="KmJ-NI-E7V" secondAttribute="trailing" constant="9" id="25z-nL-wGM"/>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="7ec-qH-eqU"/>
                                             <constraint firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="BgG-vW-9VT"/>
@@ -1827,7 +1823,6 @@ should be on Xity?</string>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="PAf-dL-QLE"/>
                                             <constraint firstItem="onA-4S-Wan" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="PTh-TQ-lTj"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="MWB-JM-Q0f" secondAttribute="leading" id="Qac-rb-ddn"/>
-                                            <constraint firstItem="cgb-1O-MRt" firstAttribute="top" secondItem="RHp-aE-CIZ" secondAttribute="bottom" constant="18" id="RTe-wW-Hmq"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="S6y-nQ-yUg"/>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="SVh-xg-ZFm"/>
                                             <constraint firstAttribute="trailing" secondItem="x8J-nE-HSo" secondAttribute="trailing" id="U9T-Dl-Rwh"/>
@@ -1843,6 +1838,8 @@ should be on Xity?</string>
                                             <constraint firstAttribute="trailing" secondItem="dRP-dE-0cc" secondAttribute="trailing" constant="9" id="Zwt-8h-NtK"/>
                                             <constraint firstAttribute="height" constant="1675" id="b3g-ap-Wy4"/>
                                             <constraint firstItem="EKm-dF-4wv" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="bsV-i8-QLl"/>
+                                            <constraint firstAttribute="trailing" secondItem="RHp-aE-CIZ" secondAttribute="trailing" constant="9" id="dQ4-TT-MlG"/>
+                                            <constraint firstItem="RHp-aE-CIZ" firstAttribute="bottom" secondItem="HPd-IG-CFU" secondAttribute="bottom" constant="-7" id="gfe-F4-Lj7"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="top" secondItem="HPd-IG-CFU" secondAttribute="bottom" constant="7" id="kwg-8V-sPE"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="top" secondItem="4FR-ji-xOh" secondAttribute="bottom" constant="7" id="m7q-fG-FRI"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="mgv-dy-lZm"/>
@@ -1851,11 +1848,11 @@ should be on Xity?</string>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="top" secondItem="PRD-v0-GZh" secondAttribute="bottom" constant="28" id="nwV-TP-UTi"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="pce-My-VFH"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="ql6-jh-PRe"/>
-                                            <constraint firstItem="RHp-aE-CIZ" firstAttribute="leading" secondItem="HPd-IG-CFU" secondAttribute="trailing" constant="14" id="s4M-xX-K8I"/>
+                                            <constraint firstItem="RHp-aE-CIZ" firstAttribute="leading" secondItem="HPd-IG-CFU" secondAttribute="trailing" id="s4M-xX-K8I"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="unq-Kr-Wcq" secondAttribute="bottom" constant="20.329999999999998" id="shW-EX-EYH"/>
                                             <constraint firstItem="unq-Kr-Wcq" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="7.6699999999999999" id="tvO-aT-XgX"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="14" id="uPv-Ma-efd"/>
-                                            <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" constant="222" id="ueb-0t-Swa"/>
+                                            <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" constant="140" id="ueb-0t-Swa"/>
                                             <constraint firstItem="onA-4S-Wan" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="weM-l1-ZCm"/>
                                         </constraints>
                                     </view>
@@ -2020,7 +2017,7 @@ should be on Xity?</string>
                 </view>
                 <tabBarItem title="Dashboard" id="R8M-BV-06Y"/>
             </objects>
-            <point key="canvasLocation" x="-3192" y="-1122"/>
+            <point key="canvasLocation" x="-3192.0560747663549" y="-1122.2462203023758"/>
         </scene>
         <!--Deals-->
         <scene sceneID="mAM-TT-s8b">

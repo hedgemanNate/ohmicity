@@ -68,19 +68,18 @@ class BandDetailViewController: UIViewController {
         updateViews()
         delegateDataSourceSetup()
         notificationObservers()
+        supportIndicatorSetup()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        supportIndicatorSetup()
-        hapticGenerator.prepare()
         startTimer()
+        hapticGenerator.prepare()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        supportIndicatorSetup()
         endTimer()
+        super.viewDidDisappear(animated)
     }
     
     
@@ -261,11 +260,14 @@ class BandDetailViewController: UIViewController {
         
         guard let currentBand = currentBand else { NSLog("No current band found"); return}
         
-        if let bandImage = UIImage(data: currentBand.band.photo!) {
-            self.bandImage.image = bandImage
-        } else {
+        if currentBand.band.photo == nil {
             self.bandImage.image = UIImage(named: "DefaultBand.png")
+        } else {
+            let bandImage = UIImage(data: currentBand.band.photo!)
+            self.bandImage.image = bandImage
         }
+            
+        
         
         //Top Area Under Banner Ads
         bandNameLabel.text = currentBand.band.name

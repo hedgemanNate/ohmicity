@@ -742,9 +742,8 @@ Always remember: Support live local musicians. Support live local music venues. 
                                                     <constraint firstAttribute="trailing" secondItem="vKm-Lh-ljm" secondAttribute="trailing" id="qPP-n2-8a9"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="100" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nux-7j-wA2">
-                                                <rect key="frame" x="0.0" y="308" width="428" height="540"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="200" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nux-7j-wA2">
+                                                <rect key="frame" x="0.0" y="304" width="428" height="496"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -834,17 +833,26 @@ Always remember: Support live local musicians. Support live local music venues. 
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vl6-8g-0dc">
-                                                <rect key="frame" x="0.0" y="253" width="428" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vl6-8g-0dc">
+                                                <rect key="frame" x="0.0" y="253" width="428" height="51"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="51" id="a5D-Ma-dhm"/>
+                                                </constraints>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </searchBar>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="vl6-8g-0dc" secondAttribute="trailing" id="0Fv-eT-AO9"/>
+                                            <constraint firstItem="vl6-8g-0dc" firstAttribute="leading" secondItem="nzK-D2-nju" secondAttribute="leading" id="AvK-Yl-Jbj"/>
+                                            <constraint firstAttribute="bottom" secondItem="Nux-7j-wA2" secondAttribute="bottom" id="Qek-Xt-9d5"/>
+                                            <constraint firstItem="Nux-7j-wA2" firstAttribute="top" secondItem="vl6-8g-0dc" secondAttribute="bottom" id="SJb-OQ-Qa0"/>
                                             <constraint firstItem="Dxv-EX-3d6" firstAttribute="leading" secondItem="nzK-D2-nju" secondAttribute="leading" id="UDD-OY-mrp"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nux-7j-wA2" secondAttribute="trailing" id="Zk6-5b-Ugh"/>
+                                            <constraint firstItem="vl6-8g-0dc" firstAttribute="top" secondItem="Dxv-EX-3d6" secondAttribute="bottom" id="es1-u9-puV"/>
                                             <constraint firstItem="Dxv-EX-3d6" firstAttribute="top" secondItem="nzK-D2-nju" secondAttribute="top" id="sNP-dS-0gI"/>
                                             <constraint firstAttribute="height" constant="800" id="u4u-H9-ymq"/>
+                                            <constraint firstItem="Nux-7j-wA2" firstAttribute="leading" secondItem="nzK-D2-nju" secondAttribute="leading" id="uTW-jU-hXA"/>
                                             <constraint firstAttribute="trailing" secondItem="Dxv-EX-3d6" secondAttribute="trailing" id="wwI-UG-A5k"/>
                                         </constraints>
                                     </view>
@@ -877,12 +885,13 @@ Always remember: Support live local musicians. Support live local music venues. 
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="vKm-Lh-ljm" id="1Z5-C5-KfS"/>
+                        <outlet property="searchBar" destination="vl6-8g-0dc" id="dNL-gG-jvk"/>
                         <outlet property="tableView" destination="Nux-7j-wA2" id="pfW-0o-iyY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8B3-k6-63j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172" y="147"/>
+            <point key="canvasLocation" x="-172.46376811594203" y="146.65178571428569"/>
         </scene>
     </scenes>
     <resources>

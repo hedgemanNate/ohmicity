@@ -9,12 +9,12 @@ import UIKit
 import Firebase
 import GoogleMobileAds
 
-class SearchViewController: UIViewController {
+class VenueSearchViewController: UIViewController {
     
     //Properties
     var showResultsArray: [XityShow]? {didSet { print("Show Results Set")}}
     var businessResultsArray: [XityBusiness]? {didSet { print("Business Results Set")}}
-    var bandResultsArray: [XityBand]? {didSet { print("Band Results Set")}}
+    //var bandResultsArray: [XityBand]? {didSet { print("Band Results Set")}}
     
     var genre: Genre?
     var city: City?
@@ -25,7 +25,8 @@ class SearchViewController: UIViewController {
     var selectedIndex: Int?
     
     //Search
-    @IBOutlet weak var searchBar: UITextField!
+    //@IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
@@ -79,19 +80,16 @@ class SearchViewController: UIViewController {
         switch segmentedController.selectedSegmentIndex {
         case 0:
             searchBar.text = businessSearchCache
-            searchBar.isEnabled = true
             searchBar.placeholder = "Search Business By Name"
-            print("Segmented Business")
+            //print("Segmented Business")
+            searchBar.isUserInteractionEnabled = true
         case 1:
             searchBar.placeholder = "Select A City Below To Display Businesses"
-            print("Segmented Cities")
-        case 2:
-            searchBar.text = bandSearchCache
-            searchBar.isEnabled = true
-            searchBar.placeholder = "Search Band By Name And Genre"
-            print("Segmented Bands")
+            searchBar.isUserInteractionEnabled = false
+            //print("Segmented Cities")
         default:
-            print("Segmented Nil")
+            break
+            //print("Segmented Nil")
         }
         
         DispatchQueue.main.async { [self] in
@@ -100,19 +98,7 @@ class SearchViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func searchBarChanged(_ sender: Any) {
-        switch segmentedController.selectedSegmentIndex {
-        case 0:
-            businessSearchCache = searchBar.text ?? ""
-        case 2:
-            bandSearchCache = searchBar.text ?? ""
-        default:
-            break
-        }
-        startSearch(searchText: searchBar.text!, genre: genre, city: city, business: businessType)
-    }
-    
+    //MARK: UI ACTIONS
     
 }
 
@@ -120,7 +106,7 @@ class SearchViewController: UIViewController {
 
 
 //MARK: Functions
-extension SearchViewController {
+extension VenueSearchViewController {
     
     private func setUpCollectionViews() {
         bannerAdCollectionView.delegate = self
@@ -162,15 +148,7 @@ extension SearchViewController {
     
     //MARK: Search Function
     private func startSearch(searchText: String, genre: Genre? = nil, city: City? = nil, business: BusinessType? = nil) {
-        if segmentedController.selectedSegmentIndex == 2 && genre != nil {
-            print("ss1")
-            if searchText == "" {
-              bandResultsArray = xityBandController.bandArray.filter({$0.band.genre.contains(genre!)})
-            } else {
-                bandResultsArray = xityBandController.bandArray.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
-            }
-            
-        } else if segmentedController.selectedSegmentIndex == 1 && city != nil {
+        if segmentedController.selectedSegmentIndex == 1 && city != nil {
             print("ss2")
             if searchText == "" {
                 businessResultsArray = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
@@ -190,9 +168,6 @@ extension SearchViewController {
         } else if segmentedController.selectedSegmentIndex == 0 {
             print("ss4")
             businessResultsArray = xityBusinessController.businessArray.filter({$0.business.name.localizedStandardContains(searchText)})
-        } else if segmentedController.selectedSegmentIndex == 2 {
-            print("ss5")
-            bandResultsArray = xityBandController.bandArray.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
         }
         tableView.reloadData()
     }
@@ -203,7 +178,13 @@ extension SearchViewController {
     private func updateViews() {
         self.hideKeyboardWhenTappedAround()
         searchBar.delegate = self
-        searchBar.attributedPlaceholder = NSAttributedString(string: "Search Business By Name",                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        searchBar.placeholder = "Search Business By Name"
+        searchBar.barTintColor = .clear
+        searchBar.searchTextField.textColor = .white
+        searchBar.tintColor = .systemTeal
+        searchBar.searchTextField.delegate = self
+        searchBar.showsCancelButton = true
+        
         segmentedController.selectedSegmentTintColor = cc.highlightBlue
         
         //Collection View UI
@@ -238,7 +219,7 @@ extension SearchViewController {
 
 
 //MARK: CollectionView Protocols
-extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension VenueSearchViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size = CGSize()
@@ -311,20 +292,15 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.indexPathsForSelectedItems?.forEach { ip in
-            collectionView.cellForItem(at: ip)?.layer.borderWidth = 0
+        collectionView.indexPathsForSelectedItems?.forEach { indexPath in
+            collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 0
         }
         
         if let item = collectionView.cellForItem(at: indexPath) {
-            if selectedIndex == indexPath.row {
-                selectedIndex = nil
-                item.layer.borderWidth = 0
-                item.layer.borderColor = cc.highlightBlue.cgColor
-            } else {
                 item.layer.borderWidth = 2
                 item.layer.borderColor = cc.highlightBlue.cgColor
-            }
         }
+        
         switch segmentedController.selectedSegmentIndex {
         case 0:
             genre = nil
@@ -385,15 +361,13 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
 
 
 //MARK: TableView Protocols
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+extension VenueSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedController.selectedSegmentIndex {
         case 0:
             return businessResultsArray?.count ?? 0
         case 1:
             return businessResultsArray?.count ?? 0
-        case 2:
-            return bandResultsArray?.count ?? 0
         default:
             return 0
         }
@@ -407,8 +381,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.xityBusiness = businessResultsArray?[indexPath.row]
         case 1:
             cell.xityBusiness = businessResultsArray?[indexPath.row]
-        case 2:
-            cell.xityBand = bandResultsArray?[indexPath.row]
         default:
             break
         }
@@ -429,63 +401,42 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 //MARK: Search Protocols
-extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        let indexPath = searchCollectionView.indexPathsForSelectedItems?.first
-        
-        switch segmentedController.selectedSegmentIndex {
-        case 0:
-            if indexPath != nil {
-            let type = businessController.businessTypeArray[indexPath!.row]
-            startSearch(searchText: searchBar.text!, business: type)
-            } else {
-                startSearch(searchText: searchBar.text!)
-            }
-        case 1:
-            if indexPath != nil {
-            let type = businessController.citiesArray[indexPath!.row]
-            startSearch(searchText: searchBar.text!, city: type)
-            } else {
-                startSearch(searchText: searchBar.text!)
-            }
-        case 2:
-            if indexPath != nil {
-                let type = bandController.genreTypeArray[indexPath!.row]
-            startSearch(searchText: searchBar.text!, genre: type)
-            } else {
-                startSearch(searchText: searchBar.text!)
-            }
-        default:
-            break
-        }
-        
+extension VenueSearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let searchText = searchBar.text else {return}
+        searchCollectionView.allowsSelection = false
+        searchCollectionView.allowsSelection = true
+        searchCollectionView.reloadData()
+        startSearch(searchText: searchText)
+    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchBar.searchTextField.resignFirstResponder()
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 
 //MARK: Segue
-extension SearchViewController {
+extension VenueSearchViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToVenue" {
             endTimer()
             guard let destinationVC = segue.destination as? VenueDetailViewController else {return}
             let indexPath = tableView.indexPathForSelectedRow
             
-            if segmentedController.selectedSegmentIndex == 2 {
-                let band = bandResultsArray![indexPath!.row]
-                let business = xityBusinessController.businessArray.first(where: {$0.business == band.xityShows?.first?.business})
-                destinationVC.xityBusiness = business
-                destinationVC.featuredShow = band.xityShows?.first
-            } else {
-                let business = businessResultsArray![indexPath!.row]
-                destinationVC.xityBusiness = business
-            }
+            let business = businessResultsArray![indexPath!.row]
+            destinationVC.xityBusiness = business
         }
     }
 }
 
 //MARK: Google Ads Protocols/Functions
-extension SearchViewController: GADFullScreenContentDelegate {
+extension VenueSearchViewController: GADFullScreenContentDelegate {
     
     func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
         print("!!!!!!DASHBOARD MONEY!!!!!")
