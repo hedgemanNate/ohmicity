@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct BandsRatings: Codable {
+struct BandsRatings: Codable, Equatable {
     let bandsRatingsID: String
     var bandName: String
     let userID: String

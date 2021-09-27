@@ -363,7 +363,7 @@ extension BandDetailViewController {
         guard let currentBand = currentBand else {return}
         
         let support = XitySupport(userID: currentUser.userID, bandName: currentBand.band.name)
-        xitySupportController.pushXitySupport(xitySupport: support)
+        xitySupportController.supportInstancesArray.append(support)
         
     }
     

@@ -70,7 +70,7 @@ class CurrentUserController {
                     switch result {
                     case .success(let support):
                         if let support = support {
-                            xitySupportController.xitySupportInstances.append(support)
+                            xitySupportController.supportInstancesArray.append(support)
                         }
                     case .failure(let error):
                         NSLog(error.localizedDescription)

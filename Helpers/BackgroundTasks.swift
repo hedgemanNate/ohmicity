@@ -59,13 +59,32 @@ class CustomBackgroundTasks {
             currentUserController.pushCurrentUserData()
         }
         
+        let pushSupport = BlockOperation {
+            print("Support Being Pushed BG")
+            xitySupportController.pushXitySupport()
+        }
+        
+        let pushRecommendation = BlockOperation {
+            print("Recommendation Being Pushed BG")
+            recommendationController.pushRecommendations()
+        }
+        
+        let pushRating = BlockOperation {
+            print("Rating Being Pushed BG")
+            ratingsController.pushBandRatings()
+        }
+        
         let complete = BlockOperation {
+            print("Completed")
             task.setTaskCompleted(success: true)
         }
         
-        complete.addDependency(pushUser)
+        complete.addDependency(pushRating)
+        pushRating.addDependency(pushRecommendation)
+        pushRecommendation.addDependency(pushSupport)
+        pushSupport.addDependency(pushUser)
         
-        operationQueue.addOperations([pushUser, complete], waitUntilFinished: true)
+        operationQueue.addOperations([pushUser, pushSupport, pushRecommendation, pushRating, complete], waitUntilFinished: true)
         
     }
     

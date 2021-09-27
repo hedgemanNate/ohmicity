@@ -17,9 +17,7 @@ import FirebaseFirestore
 class RecommendViewController: UIViewController {
     
     //Properties
-    var recommendArray = [Recommendation]()
-    
-    @IBOutlet weak var venueNameTextField: MDCFilledTextField!
+    @IBOutlet weak var venueNameTextField: UITextField!
     @IBOutlet weak var explanationTextView: UITextView!
     
     @IBOutlet weak var sendButton: UIButton!
@@ -58,13 +56,15 @@ class RecommendViewController: UIViewController {
             
             if currentUser.recommendationBlackOutDate! > Date() {
                 self.dismiss(animated: true, completion: nil)
+                return
                 //MARK: NOTIFICATION
             }
             
             currentUser.recommendationBlackOutDate = timeController.aDayFromNow
             
-            if recommendArray.count <= 3 {
-                recommendArray.append(rec)
+            if recommendationController.recommendArray.count <= 3 {
+                recommendationController.recommendArray.append(rec)
+                print(recommendationController.recommendArray.count)
                 DispatchQueue.main.async {
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -90,10 +90,10 @@ class RecommendViewController: UIViewController {
     private func updateViews() {
         self.hideKeyboardWhenTappedAround()
         
-        venueNameTextField.label.text = "Business Name And City"
+        venueNameTextField.layer.borderColor = UIColor.white.cgColor
+        venueNameTextField.layer.borderWidth = 1.5
         venueNameTextField.textColor = .white
-        venueNameTextField.setFilledBackgroundColor(cc.transBlack, for: .editing)
-        venueNameTextField.setFilledBackgroundColor(cc.transBlack, for: .normal)
+        venueNameTextField.backgroundColor = cc.transBlack
         venueNameTextField.tintColor = cc.highlightBlue
         
         let estimatedFrame = CGRect(x: Double(explanationTextView.frame.minX), y: Double(explanationTextView.frame.minY), width: 302, height: -102)
@@ -105,10 +105,10 @@ class RecommendViewController: UIViewController {
         explanationTextView.textColor = .white
         explanationTextView.tintColor = cc.highlightBlue
         
-        //Temp Fix no user recommendation count
-        if currentUserController.currentUser?.recommendationCount == nil {
-            currentUserController.currentUser?.recommendationCount = 0
-        }
+//        //Temp Fix no user recommendation count
+//        if currentUserController.currentUser?.recommendationCount == nil {
+//            currentUserController.currentUser?.recommendationCount = 0
+//        }
     }
     
     

@@ -2121,8 +2121,9 @@ should be on Xity?</string>
                                     <constraint firstAttribute="width" constant="200" id="owt-IW-r2A"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-3m-P6K" customClass="MDCFilledTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-3m-P6K">
                                 <rect key="frame" x="63" y="341" width="302" height="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -2147,7 +2148,7 @@ should be on Xity?</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Pvj-v8-riA"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2164,15 +2165,34 @@ should be on Xity?</string>
                                     <action selector="backToMusicButtonTapped:" destination="9Q6-x4-ZOu" eventType="touchUpInside" id="p2w-JT-HA2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business Name And City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-UF-qij">
+                                <rect key="frame" x="63" y="322" width="302" height="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why should this be on Xity?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arQ-YC-raN">
+                                <rect key="frame" x="63" y="391" width="302" height="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bMQ-me-wib"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="pk7-3m-P6K" firstAttribute="leading" secondItem="7j9-UF-qij" secondAttribute="leading" id="2Me-yN-Ubr"/>
                             <constraint firstAttribute="bottom" secondItem="4UZ-Ju-Ld9" secondAttribute="bottom" id="3HE-My-SQp"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="top" secondItem="arQ-YC-raN" secondAttribute="bottom" constant="2" id="5ML-nl-Mfb"/>
                             <constraint firstItem="caK-BJ-RaA" firstAttribute="leading" secondItem="xHX-8M-ytV" secondAttribute="leading" id="K7j-0a-Tet"/>
                             <constraint firstItem="bMQ-me-wib" firstAttribute="trailing" secondItem="pk7-3m-P6K" secondAttribute="trailing" constant="63" id="V3J-lS-oKT"/>
                             <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="trailing" secondItem="bMQ-me-wib" secondAttribute="trailing" id="VZ1-Bf-1bX"/>
                             <constraint firstItem="pk7-3m-P6K" firstAttribute="top" secondItem="Gl9-Ci-0MO" secondAttribute="bottom" constant="28" id="Xhx-iW-ukd"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="leading" secondItem="arQ-YC-raN" secondAttribute="leading" id="Y8l-AD-ke5"/>
                             <constraint firstItem="Gl9-Ci-0MO" firstAttribute="centerX" secondItem="weH-ep-XXN" secondAttribute="centerX" id="YwX-Zw-SnK"/>
                             <constraint firstItem="xHX-8M-ytV" firstAttribute="leading" secondItem="pk7-3m-P6K" secondAttribute="leading" id="cri-Jz-efj"/>
                             <constraint firstItem="gfT-i5-5aq" firstAttribute="top" secondItem="caK-BJ-RaA" secondAttribute="bottom" constant="49" id="fDR-Nz-tTX"/>
@@ -2183,6 +2203,9 @@ should be on Xity?</string>
                             <constraint firstItem="xHX-8M-ytV" firstAttribute="top" secondItem="pk7-3m-P6K" secondAttribute="bottom" constant="35" id="oRy-5D-mZN"/>
                             <constraint firstItem="4UZ-Ju-Ld9" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" id="ovN-pP-isi"/>
                             <constraint firstItem="xHX-8M-ytV" firstAttribute="trailing" secondItem="pk7-3m-P6K" secondAttribute="trailing" id="qGN-ZE-Zx9"/>
+                            <constraint firstItem="pk7-3m-P6K" firstAttribute="top" secondItem="7j9-UF-qij" secondAttribute="bottom" constant="2" id="qcT-Oe-9Cu"/>
+                            <constraint firstItem="xHX-8M-ytV" firstAttribute="trailing" secondItem="arQ-YC-raN" secondAttribute="trailing" id="rIm-ap-3kx"/>
+                            <constraint firstItem="pk7-3m-P6K" firstAttribute="trailing" secondItem="7j9-UF-qij" secondAttribute="trailing" id="t2d-UP-FiL"/>
                             <constraint firstItem="pk7-3m-P6K" firstAttribute="leading" secondItem="bMQ-me-wib" secondAttribute="leading" constant="63" id="wSv-DL-CYU"/>
                             <constraint firstItem="gfT-i5-5aq" firstAttribute="centerX" secondItem="weH-ep-XXN" secondAttribute="centerX" id="xCa-cj-3MZ"/>
                         </constraints>
@@ -2924,9 +2947,6 @@ should be on Xity?</string>
         <image name="ticket.fill" catalog="system" width="128" height="84"/>
         <image name="unltdFavs.jpg" width="500" height="500"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
