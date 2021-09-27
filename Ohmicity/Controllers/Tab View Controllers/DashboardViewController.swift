@@ -212,9 +212,9 @@ extension DashboardViewController {
         //UI Adjustments
         getPerksButton.layer.cornerRadius = 5
         if currentUserController.currentUser?.preferredCity != nil {
-            cityFilterLabel.text = "in \(xityShowController.todayShowArrayFilter.rawValue)"
+            cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
         } else {
-            cityFilterLabel.text = "in All Cities"
+            cityFilterLabel.text = "~Filter Off"
         }
         
         scrollView.refreshControl = UIRefreshControl()

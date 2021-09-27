@@ -28,6 +28,7 @@ class TimeController {
     let inThreeHours = Date().addingTimeInterval(10800)
     let threeHoursAgo = Date().addingTimeInterval(-10800)
     let aDayAgo = Date().addingTimeInterval(-86400)
+    let aDayFromNow = Date().addingTimeInterval(86400)
     
     let remove4HoursForBug = Date().addingTimeInterval(-14400)
     

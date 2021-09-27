@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import GoogleMobileAds
+import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -54,9 +55,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let segmentedControlSelectedStateTextColor = [NSAttributedString.Key.foregroundColor: UIColor.black]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlSelectedStateTextColor, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlNormalStateTextColor, for: .normal)
+        
+        //Background Tasks
+        customBackgroundTasks.registerBackgroundTasks()
+        //registerNotifications
         return true
         
     }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        customBackgroundTasks.cancelAllPendingBGTask()
+        customBackgroundTasks.scheduleCurrentUserPush()
+    }
+    
+    
 
     // MARK: UISceneSession Lifecycle
 
@@ -71,6 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    
 
 
 }

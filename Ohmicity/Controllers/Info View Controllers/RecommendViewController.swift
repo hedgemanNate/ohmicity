@@ -17,12 +17,14 @@ import FirebaseFirestore
 class RecommendViewController: UIViewController {
     
     //Properties
+    var recommendArray = [Recommendation]()
+    
     @IBOutlet weak var venueNameTextField: MDCFilledTextField!
     @IBOutlet weak var explanationTextView: UITextView!
     
     @IBOutlet weak var sendButton: UIButton!
-    let db = Firestore.firestore().collection("remoteData").document("remoteData").collection("recommendationData")
-    let userDB = Firestore.firestore().collection("remoteData").document("remoteData").collection("userData")
+    //let db = Firestore.firestore().collection("remoteData").document("remoteData").collection("recommendationData")
+    //let userDB = Firestore.firestore().collection("remoteData").document("remoteData").collection("userData")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +34,16 @@ class RecommendViewController: UIViewController {
     
     //MARK: Button Actions
     @IBAction func sendButtonTapped(_ sender: Any) {
-        let opQueue = OperationQueue()
-        opQueue.maxConcurrentOperationCount = 1
-        let currentUser = currentUserController.currentUser
+        guard let currentUser = currentUserController.currentUser else {return}
+        if (venueNameTextField.text?.localizedCaseInsensitiveContains("Name Must Be Longer!"))! || explanationTextView.text.localizedCaseInsensitiveContains("Explanation Must Be Longer!") {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+            return
+        }
         
-        if currentUserController.currentUser!.recommendationCount! <= 10 {
-            guard let user = currentUserController.currentUser?.userID else {return}
+        if currentUser.recommendationCount ?? 0  <= 10 {
+            let userID = currentUser.userID
             guard let venue = venueNameTextField.text else {return}
             guard let explain = explanationTextView.text else {return}
             if venue.count < 5 {
@@ -48,35 +54,26 @@ class RecommendViewController: UIViewController {
                 explanationTextView.text = "Explanation Must Be Longer!"
                 return
             }
-            let rec = Recommendation(user: user, businessName: venue, explanation: explain)
+            let rec = Recommendation(user: userID, businessName: venue, explanation: explain)
             
-            let pushData = BlockOperation { [self] in
-                do {
-                    try db.document(rec.recommendationID.uuidString).setData(from: rec)
-                } catch let error {
-                    NSLog("Error pushing recommendation to database: \(error.localizedDescription)")
-                    //Place An Alert
-                }
+            if currentUser.recommendationBlackOutDate! > Date() {
+                self.dismiss(animated: true, completion: nil)
+                //MARK: NOTIFICATION
             }
             
-            let dismissView = BlockOperation { [self] in
+            currentUser.recommendationBlackOutDate = timeController.aDayFromNow
+            
+            if recommendArray.count <= 3 {
+                recommendArray.append(rec)
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true) {
-                        currentUser?.recommendationCount! += 1
-                        userDB.document(user).updateData(["recommendationCount" : currentUser!.recommendationCount!])
-                    }
+                    self.dismiss(animated: true, completion: nil)
                 }
-            }
-            
-            if (venueNameTextField.text?.localizedCaseInsensitiveContains("Name Must Be Longer!"))! || explanationTextView.text.localizedCaseInsensitiveContains("Explanation Must Be Longer!") {
+            } else {
                 DispatchQueue.main.async {
                     self.dismiss(animated: true, completion: nil)
                 }
                 return
             }
-            
-            dismissView.addDependency(pushData)
-            opQueue.addOperations([pushData, dismissView], waitUntilFinished: true)
             
         } else {
             DispatchQueue.main.async {

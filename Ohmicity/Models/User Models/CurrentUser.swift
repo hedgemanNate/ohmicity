@@ -28,9 +28,10 @@ class CurrentUser: Codable {
     var usedPromotions: [String] = []
     var paidServices: [String] = []
     var features: [Features]?
-    //var adPoints: Int = 0
     var preferredCity: City?
+    var recommendationBlackOutDate: Date?
     var recommendationCount: Int?
+    var supportBlackOutDate: Date?
     
     init(userID: String, email: String) {
         self.userID = userID

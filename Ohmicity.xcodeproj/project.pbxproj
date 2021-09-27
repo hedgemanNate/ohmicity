@@ -75,6 +75,7 @@
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
+		F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6869B4E27010EDC00421019 /* BackgroundTasks.swift */; };
 		F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687CD6626F45ECA00412C07 /* CurrentUser.swift */; };
 		F687CD6926F45EF300412C07 /* XitySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687CD6826F45EF300412C07 /* XitySupport.swift */; };
 		F687CD6B26F46AC500412C07 /* XitySupportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687CD6A26F46AC500412C07 /* XitySupportController.swift */; };
@@ -190,6 +191,7 @@
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
+		F6869B4E27010EDC00421019 /* BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTasks.swift; sourceTree = "<group>"; };
 		F687CD6626F45ECA00412C07 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		F687CD6826F45EF300412C07 /* XitySupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XitySupport.swift; sourceTree = "<group>"; };
 		F687CD6A26F46AC500412C07 /* XitySupportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XitySupportController.swift; sourceTree = "<group>"; };
@@ -296,8 +298,6 @@
 				F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */,
 				F62BC4D226F54839004177BD /* Info View Controllers */,
 				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
-				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
-				F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -376,7 +376,9 @@
 		F62BC4D226F54839004177BD /* Info View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
+				F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */,
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
 			);
 			path = "Info View Controllers";
@@ -432,6 +434,7 @@
 				F676F100269947D300C47599 /* Enumerations.swift */,
 				F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */,
 				F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */,
+				F6869B4E27010EDC00421019 /* BackgroundTasks.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
 				F69EEB8726FD8124001C342E /* BandSearchViewController.swift in Sources */,
 				F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */,
+				F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */,
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
