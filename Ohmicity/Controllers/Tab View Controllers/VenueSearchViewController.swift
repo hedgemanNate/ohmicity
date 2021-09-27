@@ -190,7 +190,7 @@ extension VenueSearchViewController {
         
         //Collection View UI
         searchCollectionView.allowsSelection = true
-        searchCollectionView.allowsMultipleSelection = true
+        searchCollectionView.allowsMultipleSelection = false
         
         //Add space to bottom of search table view to clear the tab view
         tableView.contentInset.bottom = 40
@@ -307,9 +307,9 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
         
         switch segmentedController.selectedSegmentIndex {
         case 0:
-//            genre = nil
-//            city = nil
-//            businessType = nil
+            genre = nil
+            city = nil
+            businessType = nil
             
             businessType = businessController.businessTypeArray[indexPath.row]
             if let business = businessType {
@@ -318,9 +318,9 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
             }
             
         case 1:
-//            genre = nil
-//            city = nil
-//            businessType = nil
+            genre = nil
+            city = nil
+            businessType = nil
             
             city = businessController.citiesArray[indexPath.row]
             if let city = city {
