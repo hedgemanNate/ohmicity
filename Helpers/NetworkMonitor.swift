@@ -23,13 +23,12 @@ class NetworkMonitor {
             self.isReachableOnCellular = path.isExpensive
 
             if path.status == .satisfied {
-                print("We're connected!")
+                NSLog("We're connected!")
                 notificationCenter.post(notifications.hasConnection)
             } else {
-                print("No connection.")
+                NSLog("No connection.")
                 notificationCenter.post(notifications.lostConnection)
             }
-            print(path.isExpensive)
         }
 
         let queue = DispatchQueue.global(qos: .background)

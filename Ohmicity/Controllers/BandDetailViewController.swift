@@ -76,6 +76,7 @@ class BandDetailViewController: UIViewController {
     
     //MARK: Button Actions
     @IBAction func breaker(_ sender: Any) {
+        recommendationController.pushRecommendations()
         
     }
     
