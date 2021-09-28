@@ -26,7 +26,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(SKAdNetworkRule)
 @interface FBSDKSKAdNetworkRule : NSObject
 
 @property (nonatomic) NSInteger conversionValue;

@@ -7,11 +7,6 @@
 
 import UIKit
 import MaterialComponents
-import MaterialComponents.MaterialTextFields
-import MaterialComponents.MaterialTextControls_FilledTextAreas
-import MaterialComponents.MaterialTextControls_FilledTextFields
-import MaterialComponents.MaterialTextControls_OutlinedTextAreas
-import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import FirebaseFirestore
 
 class RecommendViewController: UIViewController {

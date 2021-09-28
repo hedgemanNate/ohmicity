@@ -26,7 +26,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(ModelParser)
 @interface FBSDKModelParser : NSObject
 
 + (std::unordered_map<std::string, fbsdk::MTensor>)parseWeightsData:(NSData *)weightsData;

@@ -16,99 +16,35 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "FBSDKAuthenticationTokenClaims+Internal.h"
+#import "FBSDKAuthenticationTokenClaims.h"
 
 #import "FBSDKCoreKitBasicsImport.h"
 #import "FBSDKSettings.h"
 
-static NSTimeInterval const MaxTimeSinceTokenIssued = 10 * 60; // 10 mins
-
-@interface FBSDKAuthenticationTokenClaims ()
-
-@property (class, nonatomic) BOOL hasBeenConfigured;
-
-@property (class, nullable, nonatomic, readonly) id<FBSDKSettings> settings;
-
-@end
+static long const MaxTimeSinceTokenIssued = 10 * 60; // 10 mins
 
 @implementation FBSDKAuthenticationTokenClaims
 
-#pragma mark - Class Properties
-
-static BOOL _hasBeenConfigured;
-
-+ (BOOL)hasBeenConfigured
-{
-  return _hasBeenConfigured;
-}
-
-+ (void)setHasBeenConfigured:(BOOL)hasBeenConfigured
-{
-  _hasBeenConfigured = hasBeenConfigured;
-}
-
-static _Nullable id<FBSDKSettings> _settings;
-
-+ (nullable id<FBSDKSettings>)settings
-{
-  return _settings;
-}
-
-+ (void)setSettings:(nullable id<FBSDKSettings>)settings
-{
-  _settings = settings;
-}
-
-#pragma mark - Class Configuration
-
-+ (void)configureWithSettings:(nonnull id<FBSDKSettings>)settings
-{
-  self.settings = settings;
-}
-
-+ (void)configureClassDependencies
-{
-  if (self.hasBeenConfigured) {
-    return;
-  }
-
-  [self configureWithSettings:FBSDKSettings.sharedSettings];
-
-  self.hasBeenConfigured = YES;
-}
-
-#if FBTEST
-
-+ (void)resetClassDependencies
-{
-  self.settings = nil;
-  self.hasBeenConfigured = NO;
-}
-
-#endif
-
-#pragma mark - Creating Claims
-
-- (nullable instancetype)initWithJti:(nonnull NSString *)jti
-                                 iss:(nonnull NSString *)iss
-                                 aud:(nonnull NSString *)aud
-                               nonce:(nonnull NSString *)nonce
-                                 exp:(NSTimeInterval)exp
-                                 iat:(NSTimeInterval)iat
-                                 sub:(nonnull NSString *)sub
-                                name:(nullable NSString *)name
-                           givenName:(nullable NSString *)givenName
-                          middleName:(nullable NSString *)middleName
-                          familyName:(nullable NSString *)familyName
-                               email:(nullable NSString *)email
-                             picture:(nullable NSString *)picture
-                         userFriends:(nullable NSArray<NSString *> *)userFriends
-                        userBirthday:(nullable NSString *)userBirthday
-                        userAgeRange:(nullable NSDictionary<NSString *, NSNumber *> *)userAgeRange
-                        userHometown:(nullable NSDictionary<NSString *, NSString *> *)userHometown
-                        userLocation:(nullable NSDictionary<NSString *, NSString *> *)userLocation
-                          userGender:(nullable NSString *)userGender
-                            userLink:(nullable NSString *)userLink
+- (instancetype)initWithJti:(NSString *)jti
+                        iss:(NSString *)iss
+                        aud:(NSString *)aud
+                      nonce:(NSString *)nonce
+                        exp:(long)exp
+                        iat:(long)iat
+                        sub:(NSString *)sub
+                       name:(nullable NSString *)name
+                  givenName:(nullable NSString *)givenName
+                 middleName:(nullable NSString *)middleName
+                 familyName:(nullable NSString *)familyName
+                      email:(nullable NSString *)email
+                    picture:(nullable NSString *)picture
+                userFriends:(nullable NSArray<NSString *> *)userFriends
+               userBirthday:(nullable NSString *)userBirthday
+               userAgeRange:(nullable NSDictionary<NSString *, NSNumber *> *)userAgeRange
+               userHometown:(nullable NSDictionary<NSString *, NSString *> *)userHometown
+               userLocation:(nullable NSDictionary<NSString *, NSString *> *)userLocation
+                 userGender:(nullable NSString *)userGender
+                   userLink:(nullable NSString *)userLink
 {
   if (self = [super init]) {
     _jti = jti;
@@ -136,18 +72,15 @@ static _Nullable id<FBSDKSettings> _settings;
   return self;
 }
 
-+ (nullable FBSDKAuthenticationTokenClaims *)claimsFromEncodedString:(nonnull NSString *)encodedClaims
-                                                               nonce:(nonnull NSString *)expectedNonce
++ (nullable FBSDKAuthenticationTokenClaims *)claimsFromEncodedString:(NSString *)encodedClaims nonce:(NSString *)expectedNonce
 {
-  [self configureClassDependencies];
-
   NSError *error;
   NSData *claimsData = [FBSDKBase64 decodeAsData:[FBSDKBase64 base64FromBase64Url:encodedClaims]];
 
   if (claimsData) {
     NSDictionary *claimsDict = [FBSDKTypeUtility JSONObjectWithData:claimsData options:0 error:&error];
     if (!error) {
-      NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+      long currentTime = [[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] longValue];
 
       // verify claims
       NSString *jti = [FBSDKTypeUtility coercedToStringValue:claimsDict[@"jti"]];
@@ -157,14 +90,14 @@ static _Nullable id<FBSDKSettings> _settings;
       BOOL isFacebook = iss.length > 0 && [[[NSURL URLWithString:iss] host] isEqualToString:@"facebook.com"];
 
       NSString *aud = [FBSDKTypeUtility coercedToStringValue:claimsDict[@"aud"]];
-      BOOL audMatched = [aud isEqualToString:self.class.settings.appID];
+      BOOL audMatched = [aud isEqualToString:[FBSDKSettings appID]];
 
       NSNumber *expValue = [FBSDKTypeUtility numberValue:claimsDict[@"exp"]];
-      NSTimeInterval exp = [expValue doubleValue];
+      long exp = [expValue doubleValue];
       BOOL isExpired = expValue == nil || exp <= currentTime;
 
       NSNumber *iatValue = [FBSDKTypeUtility numberValue:claimsDict[@"iat"]];
-      NSTimeInterval iat = [iatValue doubleValue];
+      long iat = [iatValue doubleValue];
       BOOL issuedRecently = iatValue != nil && iat >= currentTime - MaxTimeSinceTokenIssued;
 
       NSString *nonce = [FBSDKTypeUtility coercedToStringValue:claimsDict[@"nonce"]];

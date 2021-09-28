@@ -49,8 +49,8 @@
 
 @interface FBSDKSwizzlingOnClass : NSObject
 
-@property (nonatomic) FBSDKSwizzle *bindingSwizzle;
-@property (nonatomic) Class bindingClass;
+@property FBSDKSwizzle *bindingSwizzle;
+@property Class bindingClass;
 
 - (instancetype)initWithSwizzle:(FBSDKSwizzle *)aSwizzle
                           class:(Class)aClass;
@@ -364,7 +364,7 @@ static void (*fb_swizzledMethods[MAX_ARGS - MIN_ARGS + 1])() = {fb_swizzledMetho
 }
 
 #if DEBUG
- #if FBTEST
+ #if FBSDKTEST
 
 + (void)setSwizzleQueue:(dispatch_queue_t)queue
 {

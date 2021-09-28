@@ -18,7 +18,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FBSDKTimeSpentData.h"
 #import "FBSDKTimeSpentRecording.h"
 
 NS_ASSUME_NONNULL_BEGIN

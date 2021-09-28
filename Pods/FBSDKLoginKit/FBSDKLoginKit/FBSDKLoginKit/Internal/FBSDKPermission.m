@@ -66,17 +66,13 @@
   return rawPermissions;
 }
 
-- (BOOL)isEqual:(id)object
+- (BOOL)isEqual:(id)obj
 {
-  if (self == object) {
-    return YES;
-  }
-
-  if (![object isKindOfClass:[FBSDKPermission class]]) {
+  if (![obj isKindOfClass:[FBSDKPermission class]]) {
     return NO;
   }
 
-  FBSDKPermission *other = (FBSDKPermission *)object;
+  FBSDKPermission *other = (FBSDKPermission *)obj;
   return [self.value isEqualToString:other.value];
 }
 

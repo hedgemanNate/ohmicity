@@ -20,11 +20,12 @@
 
 #import "FBSDKCoreKitBasicsImport.h"
 #import "FBSDKCrashObserver.h"
-#import "FBSDKErrorReport+ErrorReporting.h"
+#import "FBSDKErrorReporting.h"
 #import "FBSDKFeatureChecking.h"
 #import "FBSDKFeatureManager+FeatureChecking.h"
-#import "FBSDKGraphRequestFactory.h"
 #import "FBSDKSettings+Internal.h"
+#import "FBSDKSettings+SettingsProtocols.h"
+#import "FBSDKSettingsProtocol.h"
 
 @interface FBSDKInstrumentManager ()
 
@@ -40,13 +41,9 @@
 
 - (instancetype)init
 {
-  FBSDKCrashObserver *crashObserver = [[FBSDKCrashObserver alloc] initWithFeatureChecker:FBSDKFeatureManager.shared
-                                                                    graphRequestProvider:[FBSDKGraphRequestFactory new]
-                                                                                settings:FBSDKSettings.sharedSettings];
-
   return [self initWithFeatureCheckerProvider:FBSDKFeatureManager.shared
                                      settings:FBSDKSettings.sharedSettings
-                                crashObserver:crashObserver
+                                crashObserver:FBSDKCrashObserver.shared
                                   errorReport:FBSDKErrorReport.shared
                                  crashHandler:FBSDKCrashHandler.shared];
 }

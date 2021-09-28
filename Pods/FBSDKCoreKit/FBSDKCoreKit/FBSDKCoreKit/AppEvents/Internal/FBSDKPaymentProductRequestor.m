@@ -22,7 +22,6 @@
 
 #import "FBSDKAppEventName.h"
 #import "FBSDKAppEventParameterName.h"
-#import "FBSDKAppEventsFlushReason.h"
 #import "FBSDKAppStoreReceiptProviding.h"
 #import "FBSDKCoreKitBasicsImport.h"
 #import "FBSDKDataPersisting.h"
@@ -199,15 +198,11 @@ static NSMutableArray *_pendingRequestors;
                                           }];
   if (product) {
     [eventParameters addEntriesFromDictionary:@{
+       FBSDKAppEventParameterNameCurrency : [product.priceLocale objectForKey:NSLocaleCurrencyCode],
        FBSDKAppEventParameterNameNumItems : @(payment.quantity),
        FBSDKAppEventParameterNameProductTitle : [self getTruncatedString:product.localizedTitle],
        FBSDKAppEventParameterNameDescription : [self getTruncatedString:product.localizedDescription],
      }];
-    if (@available(iOS 10.0, *)) {
-      [FBSDKTypeUtility dictionary:eventParameters
-                         setObject:product.priceLocale.currencyCode
-                            forKey:FBSDKAppEventParameterNameCurrency];
-    }
     if (transactionID) {
       [FBSDKTypeUtility dictionary:eventParameters setObject:transactionID forKey:FBSDKAppEventParameterNameTransactionID];
     }

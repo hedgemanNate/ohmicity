@@ -24,10 +24,6 @@
 
 #import "FBSDKAccessTokenProtocols.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 // Default conformance to the AccessToken protocols
 @interface FBSDKAccessToken (AccessTokenProviding) <FBSDKAccessTokenProviding, FBSDKAccessTokenSetting>
 @end
-
-NS_ASSUME_NONNULL_END

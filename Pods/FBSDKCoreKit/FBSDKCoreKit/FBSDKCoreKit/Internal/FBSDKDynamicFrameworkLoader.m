@@ -23,7 +23,6 @@
 
 #import <dlfcn.h>
 
-#import "FBSDKDynamicSocialFrameworkLoader.h"
 #import "FBSDKLogger.h"
 #import "FBSDKSettings.h"
 

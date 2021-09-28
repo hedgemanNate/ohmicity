@@ -22,14 +22,10 @@
 
  #import <UIKit/UIKit.h>
 
- #import "FBSDKInternalURLOpener.h"
-
-NS_ASSUME_NONNULL_BEGIN
+ #import "FBSDKURLOpener.h"
 
 // Default conformance to the URL opener protocol
-@interface UIApplication (URLOpener) <FBSDKInternalURLOpener>
+@interface UIApplication (URLOpener) <FBSDKURLOpener>
 @end
-
-NS_ASSUME_NONNULL_END
 
 #endif

@@ -151,8 +151,7 @@ extension VenueSearchViewController {
         if segmentedController.selectedSegmentIndex == 1 && city != nil {
             if searchText == "" {
                 businessResultsArray = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
-            } else {
-                businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
+                tableView.reloadData()
             }
             
         } else if segmentedController.selectedSegmentIndex == 0 && business != nil {
@@ -325,7 +324,7 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
             city = businessController.citiesArray[indexPath.row]
             if let city = city {
                 print(city.rawValue)
-                startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: businessType)
+                startSearch(searchText: "", genre: genre, city: city, business: businessType)
             }
             
         default:

@@ -41,7 +41,6 @@ extern void fb_dispatch_on_default_thread(dispatch_block_t block);
 typedef id _Nullable (^FBSDKInvalidObjectHandler)(id object, BOOL *stop)
 NS_SWIFT_NAME(InvalidObjectHandler);
 
-NS_SWIFT_NAME(BasicUtility)
 @interface FBSDKBasicUtility : NSObject
 
 /**

@@ -18,12 +18,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FBSDKIcon+Internal.h"
-
-NS_ASSUME_NONNULL_BEGIN
+#import "FBSDKIcon.h"
 
 NS_SWIFT_NAME(FBLogo)
 @interface FBSDKLogo : FBSDKIcon
-@end
 
-NS_ASSUME_NONNULL_END
+@end

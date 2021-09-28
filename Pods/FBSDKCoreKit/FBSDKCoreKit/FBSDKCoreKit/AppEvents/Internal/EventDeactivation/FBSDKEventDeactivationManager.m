@@ -19,7 +19,7 @@
 #import "FBSDKEventDeactivationManager.h"
 
 #import "FBSDKCoreKitBasicsImport.h"
-#import "FBSDKServerConfigurationManager+ServerConfigurationProviding.h"
+#import "FBSDKServerConfigurationManager.h"
 
 static NSString *const DEPRECATED_PARAM_KEY = @"deprecated_param";
 static NSString *const DEPRECATED_EVENT_KEY = @"is_deprecated_event";
@@ -52,10 +52,9 @@ static NSString *const DEPRECATED_EVENT_KEY = @"is_deprecated_event";
 
 @interface FBSDKEventDeactivationManager ()
 
-@property (nonatomic) BOOL isEventDeactivationEnabled;
+@property BOOL isEventDeactivationEnabled;
 @property (nonatomic, strong) NSMutableSet<NSString *> *deactivatedEvents;
 @property (nonatomic, strong) NSMutableArray<FBSDKDeactivatedEvent *> *eventsWithDeactivatedParams;
-@property (nonatomic) id<FBSDKServerConfigurationProviding> serverConfigurationProvider;
 
 @end
 
@@ -65,15 +64,14 @@ static NSString *const DEPRECATED_EVENT_KEY = @"is_deprecated_event";
   static FBSDKEventDeactivationManager *instance;
   static dispatch_once_t nonce;
   dispatch_once(&nonce, ^{
-    instance = [[self alloc] initWithServerConfigurationProvider:FBSDKServerConfigurationManager.shared];
+    instance = [self new];
   });
   return instance;
 }
 
-- (instancetype)initWithServerConfigurationProvider:(id<FBSDKServerConfigurationProviding>)serverConfigurationProvider
+- (instancetype)init
 {
   self.isEventDeactivationEnabled = NO;
-  self.serverConfigurationProvider = serverConfigurationProvider;
   return self;
 }
 
@@ -82,7 +80,7 @@ static NSString *const DEPRECATED_EVENT_KEY = @"is_deprecated_event";
   @try {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-      NSDictionary<NSString *, id> *restrictiveParams = [self.serverConfigurationProvider cachedServerConfiguration].restrictiveParams;
+      NSDictionary<NSString *, id> *restrictiveParams = [FBSDKServerConfigurationManager cachedServerConfiguration].restrictiveParams;
       if (restrictiveParams) {
         [self _updateDeactivatedEvents:restrictiveParams];
         self.isEventDeactivationEnabled = YES;

@@ -30,7 +30,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBSDKLoginErrorFactory : NSObject
+@interface NSError (FBSDKLoginError)
 
 + (NSError *)fbErrorForFailedLoginWithCode:(FBSDKLoginError)code;
 + (NSError *)fbErrorForSystemPasswordChange:(NSError *)innerError;

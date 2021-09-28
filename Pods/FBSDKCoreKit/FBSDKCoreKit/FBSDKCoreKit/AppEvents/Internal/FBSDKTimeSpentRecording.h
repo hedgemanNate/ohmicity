@@ -18,8 +18,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 NS_SWIFT_NAME(TimeSpentRecording)
 @protocol FBSDKTimeSpentRecording
 
@@ -27,5 +25,3 @@ NS_SWIFT_NAME(TimeSpentRecording)
 - (void)restore:(BOOL)calledFromActivateApp;
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -26,15 +26,22 @@
  #import <FBSDKCoreKit/FBSDKButtonImpressionTracking.h>
 #endif
 
-#import "FBSDKIcon+Internal.h"
+#import "FBSDKIcon.h"
 
 @interface FBSDKButton ()
+
+@property (nonatomic, readonly, getter = isImplicitlyDisabled) BOOL implicitlyDisabled;
 
 + (void)setApplicationActivationNotifier:(id)notifier;
 
 - (void)logTapEventWithEventName:(NSString *)eventName
                       parameters:(NSDictionary *)parameters;
+- (void)checkImplicitlyDisabled;
 - (void)configureButton;
+- (void)configureWithIcon:(FBSDKIcon *)icon
+                    title:(NSString *)title
+          backgroundColor:(UIColor *)backgroundColor
+         highlightedColor:(UIColor *)highlightedColor;
 - (void) configureWithIcon:(FBSDKIcon *)icon
                      title:(NSString *)title
            backgroundColor:(UIColor *)backgroundColor

@@ -22,17 +22,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol FBSDKServerConfigurationProviding;
 
-NS_SWIFT_NAME(RestrictiveDataFilterManager)
 @interface FBSDKRestrictiveDataFilterManager : NSObject
+
+@property (class, nonnull, nonatomic, readonly) FBSDKRestrictiveDataFilterManager *shared;
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
-- (instancetype)initWithServerConfigurationProvider:(id<FBSDKServerConfigurationProviding>)serverConfigurationProvider NS_DESIGNATED_INITIALIZER;
 
 - (void)enable;
-- (void)processEvents:(NSArray<NSDictionary<NSString *, id> *> *)events;
+- (void)processEvents:(NSMutableArray<NSDictionary<NSString *, id> *> *)events;
 - (nullable NSDictionary<NSString *, id> *)processParameters:(nullable NSDictionary<NSString *, id> *)parameters
                                                    eventName:(NSString *)eventName;
++ (void)setDefaultServerConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider;
+
 @end
 
 NS_ASSUME_NONNULL_END

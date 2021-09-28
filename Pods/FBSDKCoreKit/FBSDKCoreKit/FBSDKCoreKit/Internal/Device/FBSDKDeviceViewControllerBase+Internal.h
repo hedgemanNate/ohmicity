@@ -26,6 +26,9 @@
   #import <FBSDKCoreKit/FBSDKDeviceViewControllerBase.h>
  #endif
 
+ #import "FBSDKCoreKit+Internal.h"
+ #import "FBSDKDeviceDialogView.h"
+
 @class FBSDKDeviceDialogView;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -37,7 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @interface FBSDKDeviceViewControllerBase () <
   UIViewControllerAnimatedTransitioning,
-  UIViewControllerTransitioningDelegate
+  UIViewControllerTransitioningDelegate,
+  FBSDKDeviceDialogViewDelegate
 >
 
 @property (nonatomic, readonly, strong) FBSDKDeviceDialogView *deviceDialogView;

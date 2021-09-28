@@ -25,16 +25,14 @@
 
 #import <objc/runtime.h>
 
+#import "FBSDKAEMReporter.h"
 #import "FBSDKAccessToken.h"
-#import "FBSDKAdvertiserIDProviding.h"
 #import "FBSDKAppEventsConfiguration.h"
 #import "FBSDKAppEventsConfigurationProviding.h"
 #import "FBSDKAppEventsDeviceInfo.h"
 #import "FBSDKAppEventsParameterProcessing.h"
-#import "FBSDKAppEventsReporter.h"
 #import "FBSDKAppEventsState.h"
 #import "FBSDKAppEventsStatePersisting.h"
-#import "FBSDKAppEventsStateProviding.h"
 #import "FBSDKAppEventsUtility.h"
 #import "FBSDKAtePublisherCreating.h"
 #import "FBSDKAtePublishing.h"
@@ -43,27 +41,26 @@
 #import "FBSDKCoreKitBasicsImport.h"
 #import "FBSDKDataPersisting.h"
 #import "FBSDKDynamicFrameworkLoader.h"
-#import "FBSDKError+Internal.h"
-#import "FBSDKEventsProcessing.h"
+#import "FBSDKError.h"
 #import "FBSDKFeatureChecking.h"
 #import "FBSDKGateKeeperManaging.h"
 #import "FBSDKGraphRequestProtocol.h"
 #import "FBSDKGraphRequestProviding.h"
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 #import "FBSDKLogger.h"
 #import "FBSDKLogging.h"
 #import "FBSDKMetadataIndexing.h"
 #import "FBSDKPaymentObserving.h"
+#import "FBSDKSKAdNetworkReporter.h"
 #import "FBSDKServerConfiguration.h"
 #import "FBSDKServerConfigurationProviding.h"
 #import "FBSDKSettingsProtocol.h"
 #import "FBSDKSwizzling.h"
-#import "FBSDKTimeSpentRecordingCreating.h"
+#import "FBSDKTimeSpentRecording.h"
 #import "FBSDKUtility.h"
 
 #if !TARGET_OS_TV
 
- #import "FBSDKCoreKitAEMImport.h"
  #import "FBSDKEventBindingManager.h"
  #import "FBSDKEventProcessing.h"
  #import "FBSDKHybridAppEventsScriptMessageHandler.h"
@@ -122,6 +119,7 @@ FBSDKAppEventParameterName FBSDKAppEventParameterNamePaymentInfoAvailable = @"fb
 FBSDKAppEventParameterName FBSDKAppEventParameterNameNumItems = @"fb_num_items";
 FBSDKAppEventParameterName FBSDKAppEventParameterNameLevel = @"fb_level";
 FBSDKAppEventParameterName FBSDKAppEventParameterNameDescription = @"fb_description";
+FBSDKAppEventParameterName FBSDKAppEventParameterLaunchSource = @"fb_mobile_launch_source";
 FBSDKAppEventParameterName FBSDKAppEventParameterNameAdType = @"ad_type";
 FBSDKAppEventParameterName FBSDKAppEventParameterNameOrderID = @"fb_order_id";
 
@@ -269,20 +267,25 @@ NSString *const FBSDKAPPEventsWKWebViewMessagesProtocolKey = @"fbmq-0.1";
 #define FBUnityUtilityClassName "FBUnityUtility"
 #define FBUnityUtilityUpdateBindingsSelector @"triggerUpdateBindings:"
 
-static FBSDKAppEvents *shared = nil;
 static NSString *g_overrideAppID = nil;
 static BOOL g_explicitEventsLoggedYet;
 static Class<FBSDKGateKeeperManaging> g_gateKeeperManager;
 static Class<FBSDKAppEventsConfigurationProviding> g_appEventsConfigurationProvider;
-static id<FBSDKServerConfigurationProviding> g_serverConfigurationProvider;
+static Class<FBSDKServerConfigurationProviding> g_serverConfigurationProvider;
 static id<FBSDKGraphRequestProviding> g_graphRequestProvider;
 static id<FBSDKFeatureChecking> g_featureChecker;
 static Class<FBSDKLogging> g_logger;
 static id<FBSDKSettings> g_settings;
 static id<FBSDKPaymentObserving> g_paymentObserver;
+static id<FBSDKTimeSpentRecording> g_timeSpentRecorder;
 static id<FBSDKAppEventsStatePersisting> g_appEventsStateStore;
-static id<FBSDKAppEventsParameterProcessing, FBSDKEventsProcessing> g_eventDeactivationParameterProcessor;
-static id<FBSDKAppEventsParameterProcessing, FBSDKEventsProcessing> g_restrictiveDataFilterParameterProcessor;
+static id<FBSDKAppEventsParameterProcessing> g_eventDeactivationParameterProcessor;
+static id<FBSDKAppEventsParameterProcessing> g_restrictiveDataFilterParameterProcessor;
+
+#if !TARGET_OS_TV
+static id<FBSDKEventProcessing, FBSDKIntegrityParametersProcessorProvider> g_onDeviceMLModelManager = nil;
+static id<FBSDKMetadataIndexing> g_metadataIndexer = nil;
+#endif
 
 @interface FBSDKAppEvents ()
 
@@ -294,25 +297,12 @@ static id<FBSDKAppEventsParameterProcessing, FBSDKEventsProcessing> g_restrictiv
 @property (nonatomic, copy) NSString *userID;
 @property (nonatomic, strong) id<FBSDKAtePublishing> atePublisher;
 @property (nullable, nonatomic) Class<FBSDKSwizzling> swizzler;
-@property (nullable, nonatomic) id<FBSDKSourceApplicationTracking, FBSDKTimeSpentRecording> timeSpentRecorder;
-@property (nonatomic, strong) id<FBSDKAppEventsStateProviding> appEventsStateProvider;
-@property (nonatomic) id<FBSDKAdvertiserIDProviding> advertiserIDProvider;
-@property (nonatomic) id<FBSDKAtePublisherCreating> atePublisherFactory;
 @property (nonatomic) BOOL isConfigured;
-
-#if !TARGET_OS_TV
-@property (nonatomic) id<FBSDKEventProcessing, FBSDKIntegrityParametersProcessorProvider> onDeviceMLModelManager;
-@property (nonatomic) id<FBSDKMetadataIndexing> metadataIndexer;
-@property (nonatomic) id<FBSDKAppEventsReporter> skAdNetworkReporter;
-#endif
 
 @property (nonatomic, assign) BOOL disableTimer; // for testing only.
 
 @end
 
-#if FBSDK_SWIFT_PACKAGE
-NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in extensions")
-#endif
 @implementation FBSDKAppEvents
 {
   FBSDKServerConfiguration *_serverConfiguration;
@@ -676,14 +666,14 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   // Restore time spent data, indicating that we're being called from "activateApp", which will,
   // when appropriate, result in logging an "activated app" and "deactivated app" (for the
   // previous session) App Event.
-  [self.timeSpentRecorder restore:YES];
+  [g_timeSpentRecorder restore:YES];
 }
 
 + (void)setPushNotificationsDeviceToken:(NSData *)deviceToken
 {
   [self.singleton validateConfiguration];
 
-  NSString *deviceTokenString = [FBSDKInternalUtility.sharedUtility hexadecimalStringFromData:deviceToken];
+  NSString *deviceTokenString = [FBSDKInternalUtility hexadecimalStringFromData:deviceToken];
   [FBSDKAppEvents setPushNotificationsDeviceTokenString:deviceTokenString];
 }
 
@@ -889,21 +879,19 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 
 - (void)   configureWithGateKeeperManager:(Class<FBSDKGateKeeperManaging>)gateKeeperManager
            appEventsConfigurationProvider:(Class<FBSDKAppEventsConfigurationProviding>)appEventsConfigurationProvider
-              serverConfigurationProvider:(id<FBSDKServerConfigurationProviding>)serverConfigurationProvider
+              serverConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider
                      graphRequestProvider:(id<FBSDKGraphRequestProviding>)provider
                            featureChecker:(id<FBSDKFeatureChecking>)featureChecker
                                     store:(id<FBSDKDataPersisting>)store
                                    logger:(Class<FBSDKLogging>)logger
                                  settings:(id<FBSDKSettings>)settings
                           paymentObserver:(id<FBSDKPaymentObserving>)paymentObserver
-                 timeSpentRecorderFactory:(id<FBSDKTimeSpentRecordingCreating>)timeSpentRecorderFactory
+                        timeSpentRecorder:(id<FBSDKTimeSpentRecording>)timeSpentRecorder
                       appEventsStateStore:(id<FBSDKAppEventsStatePersisting>)appEventsStateStore
-      eventDeactivationParameterProcessor:(id<FBSDKAppEventsParameterProcessing, FBSDKEventsProcessing>)eventDeactivationParameterProcessor
-  restrictiveDataFilterParameterProcessor:(id<FBSDKAppEventsParameterProcessing, FBSDKEventsProcessing>)restrictiveDataFilterParameterProcessor
+      eventDeactivationParameterProcessor:(id<FBSDKAppEventsParameterProcessing>)eventDeactivationParameterProcessor
+  restrictiveDataFilterParameterProcessor:(id<FBSDKAppEventsParameterProcessing>)restrictiveDataFilterParameterProcessor
                       atePublisherFactory:(id<FBSDKAtePublisherCreating>)atePublisherFactory
-                   appEventsStateProvider:(id<FBSDKAppEventsStateProviding>)appEventsStateProvider
                                  swizzler:(Class<FBSDKSwizzling>)swizzler
-                     advertiserIDProvider:(id<FBSDKAdvertiserIDProviding>)advertiserIDProvider
 {
   [FBSDKAppEvents setAppEventsConfigurationProvider:appEventsConfigurationProvider];
   [FBSDKAppEvents setServerConfigurationProvider:serverConfigurationProvider];
@@ -913,16 +901,13 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   [FBSDKAppEvents setFeatureChecker:featureChecker];
   g_settings = settings;
   g_paymentObserver = paymentObserver;
+  g_timeSpentRecorder = timeSpentRecorder;
   g_appEventsStateStore = appEventsStateStore;
   g_eventDeactivationParameterProcessor = eventDeactivationParameterProcessor;
   g_restrictiveDataFilterParameterProcessor = restrictiveDataFilterParameterProcessor;
   self.swizzler = swizzler;
   self.store = store;
-  self.atePublisherFactory = atePublisherFactory;
-  self.atePublisher = [self.atePublisherFactory createPublisherWithAppID:self.appID];
-  self.timeSpentRecorder = [timeSpentRecorderFactory createTimeSpentRecorder];
-  self.appEventsStateProvider = appEventsStateProvider;
-  self.advertiserIDProvider = advertiserIDProvider;
+  self.atePublisher = [atePublisherFactory createPublisherWithAppID:self.appID];
 
   self.isConfigured = YES;
 
@@ -950,7 +935,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   }
 }
 
-+ (void)setServerConfigurationProvider:(id<FBSDKServerConfigurationProviding>)provider
++ (void)setServerConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)provider
 {
   if (g_serverConfigurationProvider != provider) {
     g_serverConfigurationProvider = provider;
@@ -959,13 +944,11 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 
 #if !TARGET_OS_TV
 
-- (void)configureNonTVComponentsWithOnDeviceMLModelManager:(id<FBSDKEventProcessing, FBSDKIntegrityParametersProcessorProvider>)modelManager
++ (void)configureNonTVComponentsWithOnDeviceMLModelManager:(id<FBSDKEventProcessing, FBSDKIntegrityParametersProcessorProvider>)modelManager
                                            metadataIndexer:(id<FBSDKMetadataIndexing>)metadataIndexer
-                                       skAdNetworkReporter:(nullable id<FBSDKAppEventsReporter>)skAdNetworkReporter;
 {
-  self.onDeviceMLModelManager = modelManager;
-  self.metadataIndexer = metadataIndexer;
-  self.skAdNetworkReporter = skAdNetworkReporter;
+  g_onDeviceMLModelManager = modelManager;
+  g_metadataIndexer = metadataIndexer;
 }
 
 #endif
@@ -1125,6 +1108,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 + (FBSDKAppEvents *)singleton
 {
   static dispatch_once_t onceToken;
+  static FBSDKAppEvents *shared = nil;
   dispatch_once(&onceToken, ^{
     shared = [self new];
   });
@@ -1141,36 +1125,12 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
       return;
     }
     FBSDKAppEventsState *copy = [_appEventsState copy];
-    _appEventsState = [self.appEventsStateProvider createStateWithToken:copy.tokenString
-                                                                  appID:copy.appID];
-
-    dispatch_block_t block = ^{
+    _appEventsState = [[FBSDKAppEventsState alloc] initWithToken:copy.tokenString
+                                                           appID:copy.appID];
+    dispatch_async(dispatch_get_main_queue(), ^{
       [self flushOnMainQueue:copy forReason:flushReason];
-    };
-
-  #if DEBUG && FBTEST
-    block();
-  #else
-    dispatch_async(dispatch_get_main_queue(), block);
-  #endif
+    });
   }
-}
-
-#pragma mark - Source Application Tracking
-
-- (void)setSourceApplication:(NSString *)sourceApplication openURL:(NSURL *)url
-{
-  [self.timeSpentRecorder setSourceApplication:sourceApplication openURL:url];
-}
-
-- (void)setSourceApplication:(NSString *)sourceApplication isFromAppLink:(BOOL)isFromAppLink
-{
-  [self.timeSpentRecorder setSourceApplication:sourceApplication isFromAppLink:isFromAppLink];
-}
-
-- (void)registerAutoResetSourceApplication
-{
-  [self.timeSpentRecorder registerAutoResetSourceApplication];
 }
 
 #pragma mark - Private Methods
@@ -1220,9 +1180,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
     return;
   }
 
-  self.atePublisher = self.atePublisher ?: [self.atePublisherFactory createPublisherWithAppID:self.appID];
-
-#if FBTEST
+#if FBSDKTEST
   [self.atePublisher publishATE];
 #else
   __weak FBSDKAppEvents *weakSelf = self;
@@ -1255,7 +1213,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
       _eventBindingManager = [FBSDKEventBindingManager new];
     }
 
-    if ([FBSDKInternalUtility.sharedUtility isUnity]) {
+    if ([FBSDKInternalUtility isUnity]) {
       [FBSDKAppEvents sendEventBindingsToUnity];
     } else {
       FBSDKEventBindingManager *manager = [[FBSDKEventBindingManager alloc] initWithSwizzler:self.swizzler
@@ -1305,12 +1263,12 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
       }];
       [g_featureChecker checkFeature:FBSDKFeatureAAM completionBlock:^(BOOL enabled) {
         if (enabled) {
-          [self.metadataIndexer enable];
+          [g_metadataIndexer enable];
         }
       }];
       [g_featureChecker checkFeature:FBSDKFeaturePrivacyProtection completionBlock:^(BOOL enabled) {
         if (enabled) {
-          [self.onDeviceMLModelManager enable];
+          [g_onDeviceMLModelManager enable];
         }
       }];
       if (@available(iOS 11.3, *)) {
@@ -1320,7 +1278,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
               [SKAdNetwork registerAppForAdNetworkAttribution];
               [g_featureChecker checkFeature:FBSDKFeatureSKAdNetworkConversionValue completionBlock:^(BOOL SKAdNetworkConversionValueEnabled) {
                 if (SKAdNetworkConversionValueEnabled) {
-                  [self.skAdNetworkReporter enable];
+                  [FBSDKSKAdNetworkReporter enable];
                 }
               }];
             }
@@ -1330,7 +1288,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
       if (@available(iOS 14.0, *)) {
         [g_featureChecker checkFeature:FBSDKFeatureAEM completionBlock:^(BOOL AEMEnabled) {
           if (AEMEnabled) {
-            [FBAEMReporter enable];
+            [FBSDKAEMReporter enable];
           }
         }];
       }
@@ -1366,15 +1324,12 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   }
 #if !TARGET_OS_TV
   // Update conversion value for SKAdNetwork if needed
-  [self.skAdNetworkReporter recordAndUpdateEvent:eventName
-                                        currency:[FBSDKTypeUtility dictionary:parameters objectForKey:FBSDKAppEventParameterNameCurrency ofType:NSString.class]
-                                           value:valueToSum
-                                      parameters:parameters];
+  [FBSDKSKAdNetworkReporter recordAndUpdateEvent:eventName currency:[FBSDKTypeUtility dictionary:parameters objectForKey:FBSDKAppEventParameterNameCurrency ofType:NSString.class] value:valueToSum];
   // Update conversion value for AEM if needed
-  [FBAEMReporter recordAndUpdateEvent:eventName
-                             currency:[FBSDKTypeUtility dictionary:parameters objectForKey:FBSDKAppEventParameterNameCurrency ofType:NSString.class]
-                                value:valueToSum
-                           parameters:parameters];
+  [FBSDKAEMReporter recordAndUpdateEvent:eventName
+                                currency:[FBSDKTypeUtility dictionary:parameters objectForKey:FBSDKAppEventParameterNameCurrency ofType:NSString.class]
+                                   value:valueToSum
+                              parameters:parameters];
 #endif
 
   if ([FBSDKAppEventsUtility shouldDropAppEvent]) {
@@ -1413,8 +1368,8 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 
 #if !TARGET_OS_TV
   // Filter out restrictive data with on-device ML
-  if (self.onDeviceMLModelManager.integrityParametersProcessor) {
-    parameters = [self.onDeviceMLModelManager.integrityParametersProcessor processParameters:parameters eventName:eventName];
+  if (g_onDeviceMLModelManager.integrityParametersProcessor) {
+    parameters = [g_onDeviceMLModelManager.integrityParametersProcessor processParameters:parameters eventName:eventName];
   }
 #endif
   // Filter out restrictive keys
@@ -1460,19 +1415,19 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 
   @synchronized(self) {
     if (!_appEventsState) {
-      _appEventsState = [self.appEventsStateProvider createStateWithToken:tokenString appID:appID];
+      _appEventsState = [[FBSDKAppEventsState alloc] initWithToken:tokenString appID:appID];
     } else if (![_appEventsState isCompatibleWithTokenString:tokenString appID:appID]) {
       if (self.flushBehavior == FBSDKAppEventsFlushBehaviorExplicitOnly) {
         [g_appEventsStateStore persistAppEventsData:_appEventsState];
       } else {
         [self flushForReason:FBSDKAppEventsFlushReasonSessionChange];
       }
-      _appEventsState = [self.appEventsStateProvider createStateWithToken:tokenString appID:appID];
+      _appEventsState = [[FBSDKAppEventsState alloc] initWithToken:tokenString appID:appID];
     }
 
     [_appEventsState addEvent:eventDictionary isImplicit:isImplicitlyLogged];
     if (!isImplicitlyLogged) {
-      NSString *message = [NSString stringWithFormat:@"FBSDKAppEvents: Recording event @ %f: %@",
+      NSString *message = [NSString stringWithFormat:@"FBSDKAppEvents: Recording event @ %ld: %@",
                            [FBSDKAppEventsUtility unixTimeNow],
                            eventDictionary];
       [g_logger singleShotLogEntry:FBSDKLoggingBehaviorAppEvents
@@ -1503,8 +1458,8 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   // reduce lock time by creating a new FBSDKAppEventsState to collect matching persisted events.
   @synchronized(self) {
     if (_appEventsState) {
-      matchingEventsPreviouslySaved = [self.appEventsStateProvider createStateWithToken:_appEventsState.tokenString
-                                                                                  appID:_appEventsState.appID];
+      matchingEventsPreviouslySaved = [[FBSDKAppEventsState alloc] initWithToken:_appEventsState.tokenString
+                                                                           appID:_appEventsState.appID];
     }
   }
   for (FBSDKAppEventsState *saved in existingEventsStates) {
@@ -1582,7 +1537,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
       NSMutableDictionary *paramsForPrinting = [postParameters mutableCopy];
       [paramsForPrinting removeObjectForKey:@"custom_events_file"];
 
-      loggingEntry = [NSString stringWithFormat:@"FBSDKAppEvents: Flushed @ %f, %lu events due to '%@' - %@\nEvents: %@",
+      loggingEntry = [NSString stringWithFormat:@"FBSDKAppEvents: Flushed @ %ld, %lu events due to '%@' - %@\nEvents: %@",
                       [FBSDKAppEventsUtility unixTimeNow],
                       (unsigned long)appEventsState.events.count,
                       [FBSDKAppEventsUtility flushReasonToString:reason],
@@ -1680,7 +1635,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   [self checkPersistedEvents];
 
   // Restore time spent data, indicating that we're not being called from "activateApp".
-  [self.timeSpentRecorder restore:NO];
+  [g_timeSpentRecorder restore:NO];
 }
 
 - (void)applicationMovingFromActiveStateOrTerminating
@@ -1695,7 +1650,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   if (copy) {
     [g_appEventsStateStore persistAppEventsData:copy];
   }
-  [self.timeSpentRecorder suspend];
+  [g_timeSpentRecorder suspend];
 }
 
 #pragma mark - Configuration Validation
@@ -1706,8 +1661,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   if (!self.isConfigured) {
     static NSString *const reason = @"As of v9.0, you must initialize the SDK prior to calling any methods or setting any properties. "
     "You can do this by calling `FBSDKApplicationDelegate`'s `application:didFinishLaunchingWithOptions:` method. "
-    "Learn more: https://developers.facebook.com/docs/ios/getting-started"
-    "If no `UIApplication` is available you can use `FBSDKApplicationDelegate`'s `initializeSDK` method.";
+    "Learn more: https://developers.facebook.com/docs/ios/getting-started";
     @throw [NSException exceptionWithName:@"InvalidOperationException" reason:reason userInfo:nil];
   }
 #endif
@@ -1735,7 +1689,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   if (!accessToken) {
     // We don't have a logged in user, so we need some form of udid representation. Prefer advertiser ID if
     // available. Note that this function only makes sense to be called in the context of advertising.
-    udid = [self.singleton.advertiserIDProvider advertiserID];
+    udid = [FBSDKAppEventsUtility.shared advertiserID];
     if (!udid) {
       // No udid, and no user token.  No point in making the request.
       return nil;
@@ -1759,7 +1713,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 
 #pragma mark - Testability
 
-#if DEBUG && FBTEST
+#if DEBUG
 
 + (void)reset
 {
@@ -1767,11 +1721,6 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   [self resetApplicationState];
   g_gateKeeperManager = nil;
   g_graphRequestProvider = nil;
-}
-
-+ (void)setSingletonInstanceToInstance:(FBSDKAppEvents *)appEvents
-{
-  shared = appEvents;
 }
 
 + (void)resetApplicationState
@@ -1789,7 +1738,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   return g_graphRequestProvider;
 }
 
-+ (id<FBSDKServerConfigurationProviding>)serverConfigurationProvider
++ (Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider
 {
   return g_serverConfigurationProvider;
 }
@@ -1829,6 +1778,11 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   g_paymentObserver = paymentObserver;
 }
 
++ (id<FBSDKTimeSpentRecording>)timeSpentRecorder
+{
+  return g_timeSpentRecorder;
+}
+
 + (id<FBSDKAppEventsStatePersisting>)appEventsStateStore
 {
   return g_appEventsStateStore;
@@ -1841,12 +1795,22 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 
  #if !TARGET_OS_TV
 
-+ (id<FBSDKAppEventsParameterProcessing, FBSDKEventsProcessing>)eventDeactivationParameterProcessor
++ (id<FBSDKEventProcessing, FBSDKIntegrityParametersProcessorProvider>)onDeviceMLModelManager
+{
+  return g_onDeviceMLModelManager;
+}
+
++ (id<FBSDKMetadataIndexing>)metadataIndexer
+{
+  return g_metadataIndexer;
+}
+
++ (id<FBSDKAppEventsParameterProcessing>)eventDeactivationParameterProcessor
 {
   return g_eventDeactivationParameterProcessor;
 }
 
-+ (id<FBSDKAppEventsParameterProcessing, FBSDKEventsProcessing>)restrictiveDataFilterParameterProcessor
++ (id<FBSDKAppEventsParameterProcessing>)restrictiveDataFilterParameterProcessor
 {
   return g_restrictiveDataFilterParameterProcessor;
 }

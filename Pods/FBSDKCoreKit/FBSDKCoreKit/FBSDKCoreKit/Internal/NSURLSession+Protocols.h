@@ -20,8 +20,6 @@
 
 #import "FBSDKCoreKitBasicsImport.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 // MARK: Default Protocol Conformances
 
 @interface NSURLSessionDataTask (FBSessionDataTask) <FBSDKSessionDataTask>
@@ -29,5 +27,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSURLSession (SessionProviding) <FBSDKSessionProviding>
 @end
-
-NS_ASSUME_NONNULL_END

@@ -20,7 +20,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(CrashShield)
 @interface FBSDKCrashShield : NSObject
 
 + (void)analyze:(NSArray<NSDictionary<NSString *, id> *> *)crashLogs;

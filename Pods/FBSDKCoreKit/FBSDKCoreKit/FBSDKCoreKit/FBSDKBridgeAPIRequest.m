@@ -27,16 +27,13 @@
  #import "FBSDKBridgeAPIProtocolWebV1.h"
  #import "FBSDKBridgeAPIProtocolWebV2.h"
  #import "FBSDKCoreKitBasicsImport.h"
- #import "FBSDKInternalUtility+Internal.h"
+ #import "FBSDKInternalUtility.h"
  #import "FBSDKSettings.h"
 
 NSString *const FBSDKBridgeAPIAppIDKey = @"app_id";
 NSString *const FBSDKBridgeAPISchemeSuffixKey = @"scheme_suffix";
 NSString *const FBSDKBridgeAPIVersionKey = @"version";
 
- #if FBSDK_SWIFT_PACKAGE
-NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in extensions")
- #endif
 @implementation FBSDKBridgeAPIRequest
 
  #pragma mark - Class Methods
@@ -118,7 +115,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
     return nil;
   }
 
-  [FBSDKInternalUtility.sharedUtility validateURLSchemes];
+  [FBSDKInternalUtility validateURLSchemes];
 
   NSDictionary<NSString *, NSString *> *requestQueryParameters = [FBSDKBasicUtility dictionaryWithQueryString:requestURL.query];
   NSMutableDictionary *queryParameters = [[NSMutableDictionary alloc] initWithDictionary:requestQueryParameters];
@@ -126,11 +123,11 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
   [FBSDKTypeUtility dictionary:queryParameters
                      setObject:[FBSDKSettings appURLSchemeSuffix]
                         forKey:FBSDKBridgeAPISchemeSuffixKey];
-  requestURL = [FBSDKInternalUtility.sharedUtility URLWithScheme:requestURL.scheme
-                                                            host:requestURL.host
-                                                            path:requestURL.path
-                                                 queryParameters:queryParameters
-                                                           error:errorRef];
+  requestURL = [FBSDKInternalUtility URLWithScheme:requestURL.scheme
+                                              host:requestURL.host
+                                              path:requestURL.path
+                                   queryParameters:queryParameters
+                                             error:errorRef];
   return requestURL;
 }
 

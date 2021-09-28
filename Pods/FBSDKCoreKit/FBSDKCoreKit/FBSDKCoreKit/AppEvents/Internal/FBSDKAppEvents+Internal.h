@@ -26,6 +26,9 @@
 
 #import "FBSDKAppEventsUtility.h"
 
+@protocol FBSDKEventProcessing;
+@protocol FBSDKMetadataIndexing;
+
 // Internally known event names
 
 /** Use to log that the share dialog was launched */
@@ -47,6 +50,9 @@ FOUNDATION_EXPORT NSString *const FBSDKAppEventNameShareTrayDidLaunch;
 FOUNDATION_EXPORT NSString *const FBSDKAppEventNameShareTrayDidSelectActivity;
 
 // Internally known event parameters
+
+/** Parameter key used to specify which application launches this application. */
+FOUNDATION_EXPORT NSString *const FBSDKAppEventParameterLaunchSource;
 
 /** Use to log the result of a call to FBDialogs presentShareDialogWithParams: */
 FOUNDATION_EXPORT NSString *const FBSDKAppEventNameFBDialogsPresentShareDialog;
@@ -97,6 +103,8 @@ FOUNDATION_EXPORT NSString *const FBSDKAppEventNameFBSDKLiveStreamingButtonImpre
 FOUNDATION_EXPORT NSString *const FBSDKAppEventNameFBSDKLikeButtonDidTap;
 FOUNDATION_EXPORT NSString *const FBSDKAppEventNameFBSDKLiveStreamingButtonDidTap;
 
+FOUNDATION_EXPORT NSString *const FBSDKAppEventParameterLogTime;
+
 FOUNDATION_EXPORT NSString *const FBSDKAppEventsWKWebViewMessagesHandlerKey;
 FOUNDATION_EXPORT NSString *const FBSDKAppEventsWKWebViewMessagesActionKey;
 FOUNDATION_EXPORT NSString *const FBSDKAppEventsWKWebViewMessagesEventKey;
@@ -136,5 +144,12 @@ FOUNDATION_EXPORT NSString *const FBSDKAppEventsWKWebViewMessagesPixelIDKey;
 
 - (void)flushForReason:(FBSDKAppEventsFlushReason)flushReason;
 - (void)startObservingApplicationLifecycleNotifications;
+
+#if !TARGET_OS_TV
+
++ (void)configureNonTVComponentsWithOnDeviceMLModelManager:(id<FBSDKEventProcessing>)modelManager
+                                           metadataIndexer:(id<FBSDKMetadataIndexing>)metadataIndexer;
+
+#endif
 
 @end

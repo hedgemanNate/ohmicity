@@ -18,10 +18,12 @@
 
 #import "FBSDKUtility.h"
 
+#import <CommonCrypto/CommonDigest.h>
+
 #import "FBSDKAccessToken.h"
 #import "FBSDKAuthenticationToken.h"
 #import "FBSDKCoreKitBasicsImport.h"
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 
 @implementation FBSDKUtility
 
@@ -97,10 +99,10 @@
                                 queryParameters:(NSDictionary *)queryParameters
                                           error:(NSError *__autoreleasing *)errorRef
 {
-  return [FBSDKInternalUtility.sharedUtility unversionedFacebookURLWithHostPrefix:hostPrefix
-                                                                             path:path
-                                                                  queryParameters:queryParameters
-                                                                            error:errorRef];
+  return [FBSDKInternalUtility unversionedFacebookURLWithHostPrefix:hostPrefix
+                                                               path:path
+                                                    queryParameters:queryParameters
+                                                              error:errorRef];
 }
 
 @end

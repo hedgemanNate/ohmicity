@@ -23,12 +23,13 @@
  #import "FBSDKAppLinkNavigation.h"
 
  #import "FBSDKAppLinkEventPosting.h"
+ #import "FBSDKAppLinkTarget.h"
  #import "FBSDKAppLink_Internal.h"
  #import "FBSDKCoreKitBasicsImport.h"
- #import "FBSDKInternalURLOpener.h"
  #import "FBSDKMeasurementEvent+AppLinkEventPosting.h"
  #import "FBSDKMeasurementEvent_Internal.h"
  #import "FBSDKSettings.h"
+ #import "FBSDKURLOpener.h"
  #import "FBSDKWebViewAppLinkResolver.h"
  #import "UIApplication+URLOpener.h"
 
@@ -123,7 +124,7 @@ static id<FBSDKAppLinkResolving> defaultResolver;
                                error:error];
 }
 
-- (FBSDKAppLinkNavigationType)navigateWithUrlOpener:(id<FBSDKInternalURLOpener>)urlOpener
+- (FBSDKAppLinkNavigationType)navigateWithUrlOpener:(id<FBSDKURLOpener>)urlOpener
                                         eventPoster:(id<FBSDKAppLinkEventPosting>)eventPoster
                                               error:(NSError *__autoreleasing *)error
 {
@@ -301,7 +302,7 @@ static id<FBSDKAppLinkResolving> defaultResolver;
 }
 
 - (FBSDKAppLinkNavigationType)navigationTypeForTargets:(nonnull NSArray<FBSDKAppLinkTarget *> *)targets
-                                             urlOpener:(nonnull id<FBSDKInternalURLOpener>)urlOpener
+                                             urlOpener:(nonnull id<FBSDKURLOpener>)urlOpener
 {
   FBSDKAppLinkTarget *eligibleTarget = nil;
   for (FBSDKAppLinkTarget *target in self.appLink.targets) {
@@ -346,7 +347,7 @@ static id<FBSDKAppLinkResolving> defaultResolver;
 }
 
  #if DEBUG
-  #if FBTEST
+  #if FBSDKTEST
 
 + (void)reset
 {

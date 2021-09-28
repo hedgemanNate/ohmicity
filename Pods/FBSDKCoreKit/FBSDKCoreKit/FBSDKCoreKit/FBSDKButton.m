@@ -285,11 +285,7 @@ static id _applicationActivationNotifier;
   CGFloat padding = [self _paddingForHeight:height];
   CGFloat textPaddingCorrection = [self _textPaddingCorrectionForHeight:height];
   CGSize contentSize = CGSizeMake(height + padding + titleSize.width - textPaddingCorrection, height);
-
-  return CGSizeMake(
-    contentEdgeInsets.left + contentSize.width + contentEdgeInsets.right,
-    contentEdgeInsets.top + contentSize.height + contentEdgeInsets.bottom
-  );
+  return FBSDKEdgeInsetsOutsetSize(contentSize, contentEdgeInsets);
 }
 
 #pragma mark - Helper Methods

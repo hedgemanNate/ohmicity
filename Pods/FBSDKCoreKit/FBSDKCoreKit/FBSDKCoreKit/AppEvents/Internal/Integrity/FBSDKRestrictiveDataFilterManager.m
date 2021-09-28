@@ -51,20 +51,30 @@
 
 @end
 
+static Class<FBSDKServerConfigurationProviding> _defaultServerConfigurationProvider;
 static FBSDKRestrictiveDataFilterManager *_instance;
 
 @interface FBSDKRestrictiveDataFilterManager ()
 
-@property (nonatomic) BOOL isRestrictiveEventFilterEnabled;
+@property BOOL isRestrictiveEventFilterEnabled;
 @property (nonatomic) NSMutableArray<FBSDKRestrictiveEventFilter *> *params;
 @property (nonatomic) NSMutableSet<NSString *> *restrictedEvents;
-@property (nonatomic) id<FBSDKServerConfigurationProviding> serverConfigurationProvider;
+@property (nonatomic) Class<FBSDKServerConfigurationProviding> serverConfigurationProvider;
 
 @end
 
 @implementation FBSDKRestrictiveDataFilterManager
 
-- (instancetype)initWithServerConfigurationProvider:(id<FBSDKServerConfigurationProviding>)serverConfigurationProvider
++ (instancetype)shared
+{
+  static dispatch_once_t nonce;
+  dispatch_once(&nonce, ^{
+    _instance = [[self alloc] initWithServerConfigurationProvider:_defaultServerConfigurationProvider];
+  });
+  return _instance;
+}
+
+- (instancetype)initWithServerConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider
 {
   self.serverConfigurationProvider = serverConfigurationProvider;
   return self;
@@ -120,7 +130,7 @@ static FBSDKRestrictiveDataFilterManager *_instance;
   return nil;
 }
 
-- (void)processEvents:(NSArray<NSMutableDictionary<NSString *, id> *> *)events
+- (void)processEvents:(NSMutableArray<NSMutableDictionary<NSString *, id> *> *)events
 {
   @try {
     if (!self.isRestrictiveEventFilterEnabled) {
@@ -190,6 +200,14 @@ static FBSDKRestrictiveDataFilterManager *_instance;
       self.params = eventFilterArray;
       self.restrictedEvents = restrictedEventSet;
     }
+  }
+}
+
++ (void)setDefaultServerConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider
+{
+  _defaultServerConfigurationProvider = serverConfigurationProvider;
+  if (_instance != nil) {
+    _instance.serverConfigurationProvider = serverConfigurationProvider;
   }
 }
 

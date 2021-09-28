@@ -18,11 +18,6 @@
 
 #import "FBSDKObjectDecoding.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-NS_SWIFT_NAME(ObjectDecoder)
 @interface FBSDKObjectDecoder : NSObject <FBSDKObjectDecoding>
 - (instancetype)initWith:(NSKeyedUnarchiver *)unarchiver;
 @end
-
-NS_ASSUME_NONNULL_END

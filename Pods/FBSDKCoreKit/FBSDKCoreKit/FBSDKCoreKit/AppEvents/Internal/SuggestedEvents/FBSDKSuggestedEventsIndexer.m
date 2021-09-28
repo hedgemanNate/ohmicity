@@ -30,18 +30,20 @@
 
  #import "FBSDKAppEvents.h"
  #import "FBSDKAppEvents+EventLogging.h"
- #import "FBSDKAppEventsUtility.h"
  #import "FBSDKCoreKitBasicsImport.h"
  #import "FBSDKEventProcessing.h"
  #import "FBSDKFeatureExtracting.h"
  #import "FBSDKFeatureExtractor.h"
  #import "FBSDKGraphRequestFactory.h"
- #import "FBSDKInternalUtility+Internal.h"
+ #import "FBSDKGraphRequestHTTPMethod.h"
+ #import "FBSDKGraphRequestProtocol.h"
+ #import "FBSDKInternalUtility.h"
  #import "FBSDKMLMacros.h"
  #import "FBSDKModelManager.h"
  #import "FBSDKModelUtility.h"
  #import "FBSDKServerConfigurationManager+ServerConfigurationProviding.h"
  #import "FBSDKSettings+Internal.h"
+ #import "FBSDKSettings+SettingsProtocols.h"
  #import "FBSDKSwizzler+Swizzling.h"
  #import "FBSDKSwizzling.h"
  #import "FBSDKViewHierarchy.h"
@@ -53,7 +55,7 @@ NSString *const UnconfirmedEvents = @"eligible_for_prediction_events";
 @interface FBSDKSuggestedEventsIndexer ()
 
 @property (nonatomic, readonly) id<FBSDKGraphRequestProviding> requestProvider;
-@property (nonatomic, readonly) id<FBSDKServerConfigurationProviding> serverConfigurationProvider;
+@property (nonatomic, readonly) Class<FBSDKServerConfigurationProviding> serverConfigurationProvider;
 @property (nonatomic, readonly) Class<FBSDKSwizzling> swizzler;
 @property (nonatomic, readonly) id<FBSDKSettings> settings;
 @property (nonatomic, readonly) id<FBSDKEventLogging> eventLogger;
@@ -64,15 +66,12 @@ NSString *const UnconfirmedEvents = @"eligible_for_prediction_events";
 
 @end
 
- #if FBSDK_SWIFT_PACKAGE
-NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in extensions")
- #endif
 @implementation FBSDKSuggestedEventsIndexer
 
 - (instancetype)init
 {
   return [self initWithGraphRequestProvider:[FBSDKGraphRequestFactory new]
-                serverConfigurationProvider:FBSDKServerConfigurationManager.shared
+                serverConfigurationProvider:FBSDKServerConfigurationManager.class
                                    swizzler:FBSDKSwizzler.class
                                    settings:FBSDKSettings.sharedSettings
                                 eventLogger:FBSDKAppEvents.singleton
@@ -81,7 +80,7 @@ NS_EXTENSION_UNAVAILABLE("The Facebook iOS SDK is not currently supported in ext
 }
 
 - (instancetype)initWithGraphRequestProvider:(id<FBSDKGraphRequestProviding>)requestProvider
-                 serverConfigurationProvider:(id<FBSDKServerConfigurationProviding>)serverConfigurationProvider
+                 serverConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider
                                     swizzler:(Class<FBSDKSwizzling>)swizzler
                                     settings:(id<FBSDKSettings>)settings
                                  eventLogger:(id<FBSDKEventLogging>)eventLogger
@@ -278,7 +277,7 @@ static dispatch_once_t setupNonce;
     NSMutableDictionary<NSString *, id> *viewTree = [NSMutableDictionary dictionary];
 
     NSString *screenName = nil;
-    UIViewController *topMostViewController = [FBSDKInternalUtility.sharedUtility topMostViewController];
+    UIViewController *topMostViewController = [FBSDKInternalUtility topMostViewController];
     if (topMostViewController) {
       screenName = NSStringFromClass([topMostViewController class]);
     }
@@ -306,7 +305,7 @@ static dispatch_once_t setupNonce;
       free(denseData);
     };
 
-  #if FBTEST
+  #ifdef FBSDKTEST
     predictAndLogBlock();
   #else
     fb_dispatch_on_default_thread(predictAndLogBlock);
@@ -365,7 +364,7 @@ static dispatch_once_t setupNonce;
 
  #pragma mark - Testability
 
- #if FBTEST
+ #ifdef FBSDKTEST
 
 + (void)reset
 {

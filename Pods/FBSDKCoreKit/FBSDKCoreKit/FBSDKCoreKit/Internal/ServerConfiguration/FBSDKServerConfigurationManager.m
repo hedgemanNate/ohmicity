@@ -27,9 +27,10 @@
 #import "FBSDKGraphRequestConnection.h"
 #import "FBSDKGraphRequestConnection+GraphRequestConnecting.h"
 #import "FBSDKImageDownloader.h"
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 #import "FBSDKLogger.h"
 #import "FBSDKObjectDecoding.h"
+#import "FBSDKServerConfiguration.h"
 #import "FBSDKServerConfiguration+Internal.h"
 #import "FBSDKSettings.h"
 #import "FBSDKUnarchiverProvider.h"
@@ -57,20 +58,15 @@
 #define FBSDK_SERVER_CONFIGURATION_SUGGESTED_EVENTS_SETTING_FIELD @"suggested_events_setting"
 #define FBSDK_SERVER_CONFIGURATION_MONITORING_CONFIG_FIELD @"monitoringConfiguration"
 
-@interface FBSDKServerConfigurationManager ()
-
-@property (nonatomic) NSMutableArray *completionBlocks;
-@property (nonatomic) BOOL loadingServerConfiguration;
-@property (nonatomic) FBSDKServerConfiguration *serverConfiguration;
-@property (nonatomic) NSError *serverConfigurationError;
-@property (nonatomic) NSDate *serverConfigurationErrorTimestamp;
-@property (nonatomic) BOOL requeryFinishedForAppStart;
-
-@end
-
-static const NSTimeInterval kTimeout = 4.0;
-
 @implementation FBSDKServerConfigurationManager
+
+static NSMutableArray *_completionBlocks;
+static BOOL _loadingServerConfiguration;
+static FBSDKServerConfiguration *_serverConfiguration;
+static NSError *_serverConfigurationError;
+static NSDate *_serverConfigurationErrorTimestamp;
+static const NSTimeInterval kTimeout = 4.0;
+static BOOL _requeryFinishedForAppStart;
 
 #if DEBUG
 static BOOL _printedUpdateMessage;
@@ -85,38 +81,27 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
   FBSDKServerConfigurationManagerAppEventsFeaturesUninstallTrackingEnabled = 1 << 7,
 };
 
-- (instancetype)init
+#pragma mark - Public Class Methods
+
++ (void)initialize
 {
-  if ((self = [super init])) {
+  if (self == [FBSDKServerConfigurationManager class]) {
     _completionBlocks = [NSMutableArray new];
   }
-  return self;
 }
 
-+ (FBSDKServerConfigurationManager *)shared
++ (void)clearCache
 {
-  static FBSDKServerConfigurationManager *instance;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    instance = [FBSDKServerConfigurationManager new];
-  });
-  return instance;
-}
-
-#pragma mark - Public
-
-- (void)clearCache
-{
-  self.serverConfiguration = nil;
-  self.serverConfigurationError = nil;
-  self.serverConfigurationErrorTimestamp = nil;
+  _serverConfiguration = nil;
+  _serverConfigurationError = nil;
+  _serverConfigurationErrorTimestamp = nil;
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSString *defaultsKey = [NSString stringWithFormat:FBSDK_SERVER_CONFIGURATION_USER_DEFAULTS_KEY, [FBSDKSettings appID]];
   [defaults removeObjectForKey:defaultsKey];
   [defaults synchronize];
 }
 
-- (FBSDKServerConfiguration *)cachedServerConfiguration
++ (FBSDKServerConfiguration *)cachedServerConfiguration
 {
   NSString *appID = [FBSDKSettings appID];
   @synchronized(self) {
@@ -124,27 +109,27 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
     [self loadServerConfigurationWithCompletionBlock:nil];
 
     // use whatever configuration we have or the default
-    return self.serverConfiguration ?: [FBSDKServerConfiguration defaultServerConfigurationForAppID:appID];
+    return _serverConfiguration ?: [FBSDKServerConfiguration defaultServerConfigurationForAppID:appID];
   }
 }
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-- (void)loadServerConfigurationWithCompletionBlock:(FBSDKServerConfigurationBlock)completionBlock
++ (void)loadServerConfigurationWithCompletionBlock:(FBSDKServerConfigurationBlock)completionBlock
 {
   @try {
     void (^loadBlock)(void) = nil;
     NSString *appID = [FBSDKSettings appID];
     @synchronized(self) {
       // validate the cached configuration has the correct appID
-      if (self.serverConfiguration && ![self.serverConfiguration.appID isEqualToString:appID]) {
-        self.serverConfiguration = nil;
-        self.serverConfigurationError = nil;
-        self.serverConfigurationErrorTimestamp = nil;
+      if (_serverConfiguration && ![_serverConfiguration.appID isEqualToString:appID]) {
+        _serverConfiguration = nil;
+        _serverConfigurationError = nil;
+        _serverConfigurationErrorTimestamp = nil;
       }
 
       // load the configuration from NSUserDefaults
-      if (!self.serverConfiguration) {
+      if (!_serverConfiguration) {
         // load the defaults
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *defaultsKey = [NSString stringWithFormat:FBSDK_SERVER_CONFIGURATION_USER_DEFAULTS_KEY, appID];
@@ -160,31 +145,31 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
           } @finally {
             // ensure that the configuration points to the current appID
             if ([serverConfiguration.appID isEqualToString:appID]) {
-              self.serverConfiguration = serverConfiguration;
+              _serverConfiguration = serverConfiguration;
             }
           }
         }
       }
 
-      if (self.requeryFinishedForAppStart
-          && ((self.serverConfiguration && [self _serverConfigurationTimestampIsValid:self.serverConfiguration.timestamp] && self.serverConfiguration.version >= FBSDKServerConfigurationVersion))) {
+      if (_requeryFinishedForAppStart
+          && ((_serverConfiguration && [self _serverConfigurationTimestampIsValid:_serverConfiguration.timestamp] && _serverConfiguration.version >= FBSDKServerConfigurationVersion))) {
         // we have a valid server configuration, use that
         loadBlock = [self _wrapperBlockForLoadBlock:completionBlock];
       } else {
         // hold onto the completion block
-        [FBSDKTypeUtility array:self.completionBlocks addObject:[completionBlock copy]];
+        [FBSDKTypeUtility array:_completionBlocks addObject:[completionBlock copy]];
 
         // check if we are already loading
-        if (!self.loadingServerConfiguration) {
+        if (!_loadingServerConfiguration) {
           // load the configuration from the network
-          self.loadingServerConfiguration = YES;
-          FBSDKGraphRequest *request = [self requestToLoadServerConfiguration:appID];
+          _loadingServerConfiguration = YES;
+          FBSDKGraphRequest *request = [[self class] requestToLoadServerConfiguration:appID];
 
           // start request with specified timeout instead of the default 180s
           id<FBSDKGraphRequestConnecting> requestConnection = [FBSDKGraphRequestConnection new];
           requestConnection.timeout = kTimeout;
           [requestConnection addRequest:request completion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
-            self.requeryFinishedForAppStart = YES;
+            _requeryFinishedForAppStart = YES;
             [self processLoadRequestResponse:result error:error appID:appID];
           }];
           [requestConnection start];
@@ -200,9 +185,9 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
 
 #pragma clang diagnostic pop
 
-#pragma mark - Internal
+#pragma mark - Internal Class Methods
 
-- (void)processLoadRequestResponse:(id)result error:(NSError *)error appID:(NSString *)appID
++ (void)processLoadRequestResponse:(id)result error:(NSError *)error appID:(NSString *)appID
 {
   @try {
     if (error) {
@@ -282,9 +267,9 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
   } @catch (NSException *exception) {}
 }
 
-- (FBSDKGraphRequest *)requestToLoadServerConfiguration:(NSString *)appID
++ (FBSDKGraphRequest *)requestToLoadServerConfiguration:(NSString *)appID
 {
-  NSOperatingSystemVersion operatingSystemVersion = [FBSDKInternalUtility.sharedUtility operatingSystemVersion];
+  NSOperatingSystemVersion operatingSystemVersion = [FBSDKInternalUtility operatingSystemVersion];
   NSString *osVersion = [NSString stringWithFormat:@"%ti.%ti.%ti",
                          operatingSystemVersion.majorVersion,
                          operatingSystemVersion.minorVersion,
@@ -331,7 +316,7 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
 
 #pragma mark - Helper Class Methods
 
-- (void)_didProcessConfigurationFromNetwork:(FBSDKServerConfiguration *)serverConfiguration
++ (void)_didProcessConfigurationFromNetwork:(FBSDKServerConfiguration *)serverConfiguration
                                       appID:(NSString *)appID
                                       error:(NSError *)error
 {
@@ -391,7 +376,7 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
   }
 }
 
-- (NSDictionary *)_parseDialogConfigurations:(NSDictionary *)dictionary
++ (NSDictionary *)_parseDialogConfigurations:(NSDictionary *)dictionary
 {
   NSMutableDictionary *dialogConfigurations = [NSMutableDictionary new];
   NSArray *dialogConfigurationsArray = [FBSDKTypeUtility arrayValue:dictionary[@"data"]];
@@ -411,12 +396,12 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
   return dialogConfigurations;
 }
 
-- (BOOL)_serverConfigurationTimestampIsValid:(NSDate *)timestamp
++ (BOOL)_serverConfigurationTimestampIsValid:(NSDate *)timestamp
 {
   return ([[NSDate date] timeIntervalSinceDate:timestamp] < FBSDK_SERVER_CONFIGURATION_MANAGER_CACHE_TIMEOUT);
 }
 
-- (FBSDKCodeBlock)_wrapperBlockForLoadBlock:(FBSDKServerConfigurationBlock)loadBlock
++ (FBSDKCodeBlock)_wrapperBlockForLoadBlock:(FBSDKServerConfigurationBlock)loadBlock
 {
   if (!loadBlock) {
     return nil;
@@ -432,6 +417,13 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationManagerAppEventsFeatures)
   return ^{
     loadBlock(serverConfiguration, serverConfigurationError);
   };
+}
+
+#pragma mark - Object Lifecycle
+
+- (instancetype)init
+{
+  return nil;
 }
 
 @end

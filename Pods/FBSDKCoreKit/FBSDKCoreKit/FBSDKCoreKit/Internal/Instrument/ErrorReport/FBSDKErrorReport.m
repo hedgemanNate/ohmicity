@@ -22,10 +22,12 @@
 #import "FBSDKGraphRequest.h"
 #import "FBSDKGraphRequestConnection.h"
 #import "FBSDKGraphRequestFactory.h"
+#import "FBSDKGraphRequestHTTPMethod.h"
 #import "FBSDKGraphRequestProviding.h"
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 #import "FBSDKLogger.h"
 #import "FBSDKSettings+Internal.h"
+#import "FBSDKSettings+SettingsProtocols.h"
 #import "FBSDKSettingsProtocol.h"
 
 #define FBSDK_MAX_ERROR_REPORT_LOGS 1000
@@ -37,7 +39,6 @@
 @property (nonatomic, strong) id<FBSDKSettings> settings;
 @property (nonatomic, strong) Class<FBSDKFileDataExtracting> dataExtractor;
 @property (nonatomic, readonly, strong) NSString *directoryPath;
-@property (nonatomic) BOOL isEnabled;
 
 @end
 
@@ -91,7 +92,7 @@ NSString *const kFBSDKErrorTimestamp = @"timestamp";
   if (![self.settings isDataProcessingRestricted]) {
     [self uploadErrors];
   }
-  self.isEnabled = YES;
+  [FBSDKError enableErrorReport];
 }
 
 + (void)saveError:(NSInteger)errorCode
@@ -107,14 +108,12 @@ NSString *const kFBSDKErrorTimestamp = @"timestamp";
       errorDomain:(NSErrorDomain)errorDomain
           message:(nullable NSString *)message
 {
-  if (self.isEnabled) {
-    NSString *timestamp = [NSString stringWithFormat:@"%.0lf", [[NSDate date] timeIntervalSince1970]];
-    [self _saveErrorInfoToDisk:@{
-       kFBSDKErrorCode : @(errorCode),
-       kFBSDKErrorDomain : errorDomain,
-       kFBSDKErrorTimestamp : timestamp,
-     }];
-  }
+  NSString *timestamp = [NSString stringWithFormat:@"%.0lf", [[NSDate date] timeIntervalSince1970]];
+  [self _saveErrorInfoToDisk:@{
+     kFBSDKErrorCode : @(errorCode),
+     kFBSDKErrorDomain : errorDomain,
+     kFBSDKErrorTimestamp : timestamp,
+   }];
 }
 
 #pragma mark - Private Methods
@@ -209,16 +208,5 @@ NSString *const kFBSDKErrorTimestamp = @"timestamp";
   NSString *timestamp = [NSString stringWithFormat:@"%.0lf", [[NSDate date] timeIntervalSince1970]];
   return [self.directoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"error_report_%@.json", timestamp]];
 }
-
-#if DEBUG
- #if FBTEST
-
-- (void)reset
-{
-  _isEnabled = NO;
-}
-
- #endif
-#endif
 
 @end

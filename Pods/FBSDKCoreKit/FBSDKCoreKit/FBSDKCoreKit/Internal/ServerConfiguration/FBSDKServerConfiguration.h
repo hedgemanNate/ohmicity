@@ -18,6 +18,12 @@
 
 #import <Foundation/Foundation.h>
 
+#if SWIFT_PACKAGE
+#import "FBSDKCopying.h"
+#else
+#import <FBSDKCoreKit/FBSDKCopying.h>
+#endif
+
 #import "FBSDKDialogConfiguration.h"
 #import "FBSDKErrorConfiguration.h"
 
@@ -28,6 +34,9 @@ FOUNDATION_EXPORT NSString *const FBSDKDialogConfigurationNameLogin;
 FOUNDATION_EXPORT NSString *const FBSDKDialogConfigurationNameAppInvite;
 FOUNDATION_EXPORT NSString *const FBSDKDialogConfigurationNameGameRequest;
 FOUNDATION_EXPORT NSString *const FBSDKDialogConfigurationNameGroup;
+FOUNDATION_EXPORT NSString *const FBSDKDialogConfigurationNameLike;
+FOUNDATION_EXPORT NSString *const FBSDKDialogConfigurationNameMessage;
+FOUNDATION_EXPORT NSString *const FBSDKDialogConfigurationNameShare;
 
 FOUNDATION_EXPORT const NSInteger FBSDKServerConfigurationVersion;
 
@@ -39,7 +48,7 @@ typedef NS_OPTIONS(NSUInteger, FBSDKServerConfigurationSmartLoginOptions)
 };
 
 NS_SWIFT_NAME(ServerConfiguration)
-@interface FBSDKServerConfiguration : NSObject <NSCopying, NSObject, NSSecureCoding>
+@interface FBSDKServerConfiguration : NSObject <FBSDKCopying, NSSecureCoding>
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

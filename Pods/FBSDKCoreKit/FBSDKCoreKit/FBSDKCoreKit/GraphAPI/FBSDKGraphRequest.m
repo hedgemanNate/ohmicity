@@ -26,9 +26,9 @@
 #import "FBSDKGraphRequestConnectionFactory.h"
 #import "FBSDKGraphRequestConnectionProviding.h"
 #import "FBSDKGraphRequestDataAttachment.h"
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 #import "FBSDKLogger.h"
-#import "FBSDKSettingsProtocol.h"
+#import "FBSDKSettings+Internal.h"
 #import "FBSDKTokenStringProviding.h"
 
 // constants
@@ -37,7 +37,6 @@ FBSDKHTTPMethod FBSDKHTTPMethodPOST = @"POST";
 FBSDKHTTPMethod FBSDKHTTPMethodDELETE = @"DELETE";
 
 static Class<FBSDKTokenStringProviding> _currentAccessTokenStringProvider;
-static id<FBSDKSettings> _settings;
 
 @interface FBSDKGraphRequest ()
 @property (nonatomic, readwrite, assign) FBSDKGraphRequestFlags flags;
@@ -104,7 +103,7 @@ static id<FBSDKSettings> _settings;
   if ((self = [self initWithGraphPath:graphPath
                            parameters:parameters
                           tokenString:tokenString
-                              version:_settings.graphAPIVersion
+                              version:[FBSDKSettings graphAPIVersion]
                            HTTPMethod:method])) {
     self.flags |= requestFlags;
   }
@@ -122,7 +121,7 @@ static id<FBSDKSettings> _settings;
                       parameters:parameters
                      tokenString:tokenString
                       HTTPMethod:method
-                         version:_settings.graphAPIVersion
+                         version:[FBSDKSettings graphAPIVersion]
                            flags:requestFlags
                connectionFactory:factory];
 }
@@ -154,11 +153,11 @@ static id<FBSDKSettings> _settings;
 {
   if ((self = [super init])) {
     _tokenString = tokenString ? [tokenString copy] : nil;
-    _version = version ? [version copy] : _settings.graphAPIVersion;
+    _version = version ? [version copy] : [FBSDKSettings graphAPIVersion];
     _graphPath = [graphPath copy];
     self.HTTPMethod = method.length > 0 ? [method copy] : FBSDKHTTPMethodGET;
     _parameters = parameters ?: @{};
-    if (!_settings.isGraphErrorRecoveryEnabled) {
+    if (!FBSDKSettings.isGraphErrorRecoveryEnabled) {
       self.flags = FBSDKGraphRequestFlagDisableErrorRecovery;
     }
     _connectionFactory = [FBSDKGraphRequestConnectionFactory new];
@@ -244,7 +243,7 @@ static id<FBSDKSettings> _settings;
 
 + (NSDictionary *)preprocessParams:(NSDictionary *)params
 {
-  NSString *debugValue = _settings.graphAPIDebugParamValue;
+  NSString *debugValue = [FBSDKSettings graphAPIDebugParamValue];
   if (debugValue) {
     NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:params];
     [FBSDKTypeUtility dictionary:mutableParams setObject:debugValue forKey:@"debug"];
@@ -259,11 +258,6 @@ static id<FBSDKSettings> _settings;
   if (_currentAccessTokenStringProvider != provider) {
     _currentAccessTokenStringProvider = provider;
   }
-}
-
-+ (void)setSettings:(id<FBSDKSettings>)settings
-{
-  _settings = settings;
 }
 
 - (id<FBSDKGraphRequestConnecting>)startWithCompletionHandler:(FBSDKGraphRequestBlock)handler
@@ -307,7 +301,7 @@ static id<FBSDKSettings> _settings;
 }
 
 #if DEBUG
- #if FBTEST
+ #if FBSDKTEST
 
 + (void)reset
 {
@@ -317,16 +311,6 @@ static id<FBSDKSettings> _settings;
 + (Class<FBSDKTokenStringProviding>)currentAccessTokenStringProvider
 {
   return _currentAccessTokenStringProvider;
-}
-
-+ (id<FBSDKSettings>)currentSettings
-{
-  return _settings;
-}
-
-+ (void)resetSettings
-{
-  _settings = nil;
 }
 
  #endif

@@ -20,7 +20,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME(AuthenticationTokenHeader)
 @interface FBSDKAuthenticationTokenHeader : NSObject
 
 /// Value that represents the algorithm that was used to sign the JWT.
