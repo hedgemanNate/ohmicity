@@ -75,16 +75,6 @@ class ProfileViewController: UIViewController {
             UIApplication.shared.openURL(url)
         }
     }
-
-    @IBAction func preferredCityButtonTapped(_ sender: Any) {
-        if currentUserController.currentUser == nil {
-            self.performSegue(withIdentifier: "ToSignIn", sender: self)
-        } else {
-            self.performSegue(withIdentifier: "ToFilterCity", sender: self)
-        }
-    }
-    
-    
     
     @objc private func updateLogButton() {
         if Auth.auth().currentUser == nil {

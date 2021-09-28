@@ -436,7 +436,7 @@
                                     <constraint firstAttribute="trailing" secondItem="hfO-U0-Iuj" secondAttribute="trailing" id="ebO-gs-Oon"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOT-HS-Rnm">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOT-HS-Rnm">
                                 <rect key="frame" x="341" y="149" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -541,7 +541,7 @@
                                                     <constraint firstItem="15v-cz-jYm" firstAttribute="leading" secondItem="cOl-0P-0s7" secondAttribute="leading" id="z8S-DS-6xJ"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TgW-CS-3mi">
+                                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgW-CS-3mi">
                                                 <rect key="frame" x="21" y="288" width="386" height="533"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Town By Xity is all about giving our local musicians our support. So every time you tap on the Support Button, you show support to the band on the page. And with enough support, your favorite bands will receive things that they need to keep the music coming! Everything from small show promotions to Full Studio Album productions!

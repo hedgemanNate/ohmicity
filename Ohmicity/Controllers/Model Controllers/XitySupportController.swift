@@ -10,9 +10,10 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class XitySupportController {
+    //Propeties
     var supportInstancesArray = [XitySupport]()
      
-    func pushXitySupport() {
+    func pushXitySupportArray() {
         if supportInstancesArray != [] {
             for support in supportInstancesArray {
                 do {
@@ -24,6 +25,17 @@ class XitySupportController {
             }
         }
     }
+    
+    func pushXitySupport(support: XitySupport) {
+        do {
+            try ref.xitySupportDataPath.document(support.uid).setData(from: support)
+            NSLog("✅ Support Pushed")
+        } catch (let error) {
+            NSLog("🚨 \(error.localizedDescription)")
+        }
+    }
+    
+    
     
     func addUsersSupportToArray(xitySupport: XitySupport) {
         supportInstancesArray.append(xitySupport)

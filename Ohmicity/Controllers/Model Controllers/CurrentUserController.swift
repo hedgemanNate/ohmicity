@@ -131,7 +131,7 @@ class CurrentUserController {
         }
         
         if currentUser.supportBlackOutDate == nil {
-            currentUser.supportBlackOutDate = Date()
+            currentUser.supportBlackOutDate = timeController.aDayAgo
         }
     }
 }

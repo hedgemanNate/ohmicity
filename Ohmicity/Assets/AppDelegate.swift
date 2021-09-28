@@ -141,7 +141,7 @@ extension AppDelegate {
         
         let pushSupport = BlockOperation {
             print("Support Being Pushed BG")
-            xitySupportController.pushXitySupport()
+            xitySupportController.pushXitySupportArray()
         }
         
         let pushRecommendation = BlockOperation {

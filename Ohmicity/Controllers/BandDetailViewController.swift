@@ -169,16 +169,23 @@ class BandDetailViewController: UIViewController {
     //MARK: Update Views
     @objc private func updateViews() {
         //Support UI
-        supportIndicatorSetup()
         supportLabel.layer.zPosition = 98
         supportButton.layer.zPosition = 100
         xityLogoImageView.layer.zPosition = 97
         xityLogoImageView.alpha = 0
         bannerAdCollectionView.sendSubviewToBack(self.view)
-       
         
+        guard let blackoutDate = currentUserController.currentUser?.supportBlackOutDate else { NSLog("🚨 No currentUser.supportBlackOutDate???"); return}
+        if blackoutDate > Date() {
+            print("\(blackoutDate) should be animated")
+            shouldShowSupportInfo = true
+            DispatchQueue.main.async {
+                self.supportButtonPushedAnimation()
+            }
+        }
         
-        guard let currentBand = currentBand else { NSLog("No current band found"); return}
+        //Top Area Under Banner Ads
+        guard let currentBand = currentBand else { NSLog("🚨 No current band found"); return}
         
         if currentBand.band.photo == nil {
             self.bandImage.image = UIImage(named: "DefaultBand.png")
@@ -186,12 +193,9 @@ class BandDetailViewController: UIViewController {
             let bandImage = UIImage(data: currentBand.band.photo!)
             self.bandImage.image = bandImage
         }
-            
         
-        
-        //Top Area Under Banner Ads
         bandNameLabel.text = currentBand.band.name
-        guard let currentUser = currentUserController.currentUser else { NSLog("no current user for favorites"); return}
+        guard let currentUser = currentUserController.currentUser else { NSLog("🚨 No current user for favorites"); return}
         
         if currentUser.favoriteBands.contains(currentBand.band.bandID) {
             favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
@@ -341,7 +345,7 @@ extension BandDetailViewController {
     
     @objc private func supportButtonTapped() {
         
-        //Logic
+        //First Checks
         if currentUserController.currentUser == nil {
          performSegue(withIdentifier: "ToSignIn", sender: self)
          return
@@ -352,19 +356,27 @@ extension BandDetailViewController {
             return
         }
         
-        if shouldShowSupportInfo == false {
-            shouldShowSupportInfo = true
-        }
-        
-        //Support UI
-        hapticGenerator.impactOccurred(intensity: 1)
-        supportButtonPushedAnimation()
-        
         guard let currentUser = currentUserController.currentUser else {return}
         guard let currentBand = currentBand else {return}
         
-        let support = XitySupport(userID: currentUser.userID, bandName: currentBand.band.name)
-        xitySupportController.supportInstancesArray.append(support)
+        //Logic
+        guard let blackoutDate = currentUser.supportBlackOutDate else {return NSLog("🚨 No currentUser.supportBlackOutDate???")}
+        
+        if blackoutDate <= Date() {
+            let support = XitySupport(userID: currentUser.userID, bandName: currentBand.band.name)
+            currentUser.supportBlackOutDate = timeController.aDayFromNow
+            
+            //Push Data
+            xitySupportController.pushXitySupport(support: support)
+            currentUserController.pushCurrentUserData()
+            
+            shouldShowSupportInfo = true
+            
+            //Support UI
+            hapticGenerator.impactOccurred(intensity: 1)
+            supportButtonPushedAnimation()
+        }
+        
         
     }
     

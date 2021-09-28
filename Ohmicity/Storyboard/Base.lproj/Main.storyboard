@@ -1032,7 +1032,7 @@ Florida 34222 </string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="U03-DP-nhM" userLabel="Button Stack View">
-                                                <rect key="frame" x="28" y="281" width="372" height="192"/>
+                                                <rect key="frame" x="28" y="281" width="372" height="121"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
                                                         <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
@@ -1048,22 +1048,8 @@ Florida 34222 </string>
                                                             <action selector="logoutButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="8i1-ad-lL4"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsW-Xc-TBr" userLabel="Preferred City Button">
-                                                        <rect key="frame" x="0.0" y="71" width="372" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="bre-B8-HoR"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="Preferred City">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="preferredCityButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="mrH-jO-AP4"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-H2-d2Z" userLabel="Privacy Policy">
-                                                        <rect key="frame" x="0.0" y="142" width="372" height="50"/>
+                                                        <rect key="frame" x="0.0" y="71" width="372" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="uHg-Yf-NeO"/>
@@ -1079,7 +1065,7 @@ Florida 34222 </string>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
-                                                <rect key="frame" x="9" y="522" width="410" height="150"/>
+                                                <rect key="frame" x="9" y="451" width="410" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="1GU-jT-GzF">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="150"/>
@@ -1166,7 +1152,6 @@ should be on Xity?</string>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
                         <outlet property="recommendButton" destination="Fwy-YD-YlE" id="hxM-jl-EAm"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
-                        <segue destination="evY-Al-06O" kind="presentation" identifier="ToFilterCity" id="Iq0-3N-MXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1244,7 +1229,7 @@ should be on Xity?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrt-Kx-XKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018.6915887850466" y="-719.22246220302384"/>
+            <point key="canvasLocation" x="-1511" y="-701"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="URJ-TY-WiF">
@@ -2917,10 +2902,9 @@ should be on Xity?</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Zxp-OZ-fdc"/>
-        <segue reference="Wv8-HY-qnG"/>
+        <segue reference="pjQ-BQ-c07"/>
         <segue reference="KpL-6c-PpP"/>
         <segue reference="phR-fw-lgs"/>
-        <segue reference="Iq0-3N-MXY"/>
         <segue reference="nhG-zm-tK4"/>
     </inferredMetricsTieBreakers>
     <resources>
