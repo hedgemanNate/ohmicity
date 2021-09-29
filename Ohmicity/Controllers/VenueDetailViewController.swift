@@ -18,6 +18,7 @@ class VenueDetailViewController: UIViewController {
     var currentUser = currentUserController.currentUser
     var xityBusiness: XityBusiness?
     var featuredShow: XityShow?
+    var bandMedia: String = ""
     var nextShowsArray = [Show]()
     
     //Slideshow properties
@@ -254,6 +255,8 @@ extension VenueDetailViewController {
         //Data Source An Delegate Setup
         nextShowsTableView.dataSource = self
         nextShowsTableView.delegate = self
+        nextShowsTableView.allowsSelection = true
+        
         businessPicsCollectionView.delegate = self
         businessPicsCollectionView.dataSource = self
         
@@ -332,9 +335,14 @@ extension VenueDetailViewController {
         }()
         self.backgroundView = backgroundView
         
-        if featuredBand.mediaLink == nil || featuredBand.mediaLink == "" {
+        bandMedia = featuredShow?.band.mediaLink ?? ""
+        
+        if bandMedia == "" {
             listenButton.setTitle("No Media To Hear", for: .normal)
             listenButton.isEnabled = false
+        } else {
+            listenButton.setTitle("Take A Listen", for: .normal)
+            listenButton.isEnabled = true
         }
     }
 }
@@ -433,6 +441,14 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let show = xityBusiness?.xityShows[indexPath.row]
+        featuredShow = show
+        DispatchQueue.main.async {
+            self.updateViews()
+        }
     }
 }
 

@@ -50,7 +50,6 @@ class VenueSearchViewController: UIViewController {
         updateViews()
         
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
-            
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -211,10 +210,6 @@ extension VenueSearchViewController {
             indexPath = IndexPath(row: 0, section: 0)
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
-    }
-    
-    private func setUpSegmentedControl() {
-        
     }
 }
 

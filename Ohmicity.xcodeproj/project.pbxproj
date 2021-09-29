@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		D8262F01264466FA0050F9CA /* VenueSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */; };
 		D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0A264467A90050F9CA /* SuggestViewController.swift */; };
+		D834F55E2703C80E00CEEECE /* Venue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F55D2703C80E00CEEECE /* Venue.storyboard */; };
+		D834F5602703CD2900CEEECE /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F55F2703CD2900CEEECE /* Recommend.storyboard */; };
+		D834F5622703D38A00CEEECE /* LostConnection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F5612703D38A00CEEECE /* LostConnection.storyboard */; };
+		D834F5642703D73500CEEECE /* Subscription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F5632703D73500CEEECE /* Subscription.storyboard */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
 		D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D082641C4C400E95415 /* SceneDelegate.swift */; };
 		D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0C2641C4C400E95415 /* Main.storyboard */; };
 		D8403D102641C4C500E95415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0F2641C4C500E95415 /* Assets.xcassets */; };
 		D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D112641C4C500E95415 /* LaunchScreen.storyboard */; };
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
+		D855BDE92703DBE400D88E23 /* VenueSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */; };
 		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 		D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* SignIn.storyboard */; };
 		F60B849626CB4D1800C9226F /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849526CB4D1600C9226F /* tabBar.png */; };
@@ -59,7 +64,7 @@
 		F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */; };
 		F66CB28126FC683600B26EE3 /* GlobalAlerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */; };
 		F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */; };
-		F66CB28526FD113800B26EE3 /* Band.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28426FD113800B26EE3 /* Band.storyboard */; };
+		F66CB28526FD113800B26EE3 /* BandSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28426FD113800B26EE3 /* BandSearch.storyboard */; };
 		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
 		F676F0F626991C6C00C47599 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Ratings.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
@@ -124,6 +129,10 @@
 		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
 		D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueSearchViewController.swift; sourceTree = "<group>"; };
 		D8262F0A264467A90050F9CA /* SuggestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
+		D834F55D2703C80E00CEEECE /* Venue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Venue.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Venue.storyboard; sourceTree = "<group>"; };
+		D834F55F2703CD2900CEEECE /* Recommend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Recommend.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Recommend.storyboard; sourceTree = "<group>"; };
+		D834F5612703D38A00CEEECE /* LostConnection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LostConnection.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/LostConnection.storyboard; sourceTree = "<group>"; };
+		D834F5632703D73500CEEECE /* Subscription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Subscription.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Subscription.storyboard; sourceTree = "<group>"; };
 		D8403D032641C4C400E95415 /* Ohmicity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohmicity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8403D062641C4C400E95415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8403D082641C4C400E95415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +141,7 @@
 		D8403D122641C4C500E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8403D142641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = VenueSearch.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/VenueSearch.storyboard; sourceTree = "<group>"; };
 		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D8CED4052641F4100017FD28 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,7 +187,7 @@
 		F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobalAlerts.storyboard; sourceTree = "<group>"; };
 		F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostInternetConnectionViewController.swift; sourceTree = "<group>"; };
-		F66CB28426FD113800B26EE3 /* Band.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Band.storyboard; sourceTree = "<group>"; };
+		F66CB28426FD113800B26EE3 /* BandSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandSearch.storyboard; sourceTree = "<group>"; };
 		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* Ratings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ratings.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
@@ -321,10 +331,15 @@
 			isa = PBXGroup;
 			children = (
 				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
-				D8403D0C2641C4C400E95415 /* Main.storyboard */,
-				F66CB28426FD113800B26EE3 /* Band.storyboard */,
-				F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */,
 				D8CED4052641F4100017FD28 /* SignIn.storyboard */,
+				D8403D0C2641C4C400E95415 /* Main.storyboard */,
+				D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */,
+				F66CB28426FD113800B26EE3 /* BandSearch.storyboard */,
+				D834F5632703D73500CEEECE /* Subscription.storyboard */,
+				D834F5612703D38A00CEEECE /* LostConnection.storyboard */,
+				D834F55F2703CD2900CEEECE /* Recommend.storyboard */,
+				D834F55D2703C80E00CEEECE /* Venue.storyboard */,
+				F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */,
 				F661A5FD26F6950F00A059E2 /* XityDeals.storyboard */,
 				F63D191727006435004379D5 /* MenuPopUp.storyboard */,
 			);
@@ -639,14 +654,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F66C99CA26BD16F600A7C135 /* band.jpg in Resources */,
+				D834F5622703D38A00CEEECE /* LostConnection.storyboard in Resources */,
 				F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */,
 				F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */,
-				F66CB28526FD113800B26EE3 /* Band.storyboard in Resources */,
+				F66CB28526FD113800B26EE3 /* BandSearch.storyboard in Resources */,
 				F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */,
 				F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */,
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
 				F6F3DB4A26AF337C00C49016 /* family.png in Resources */,
 				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
+				D855BDE92703DBE400D88E23 /* VenueSearch.storyboard in Resources */,
 				F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */,
@@ -672,7 +689,10 @@
 				F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */,
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
+				D834F55E2703C80E00CEEECE /* Venue.storyboard in Resources */,
+				D834F5642703D73500CEEECE /* Subscription.storyboard in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
+				D834F5602703CD2900CEEECE /* Recommend.storyboard in Resources */,
 				F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */,
 				F6F3DB4726AF337C00C49016 /* outdoors.png in Resources */,
 				F63D191827006435004379D5 /* MenuPopUp.storyboard in Resources */,

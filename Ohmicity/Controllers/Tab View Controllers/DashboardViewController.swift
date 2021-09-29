@@ -289,7 +289,6 @@ extension DashboardViewController {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
         }
-        
     }
     
     private func notificationObservers() {
