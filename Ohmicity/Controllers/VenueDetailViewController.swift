@@ -11,6 +11,7 @@ import CoreLocation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import SwiftUI
+import AVKit
 
 class VenueDetailViewController: UIViewController {
     
@@ -38,6 +39,7 @@ class VenueDetailViewController: UIViewController {
     private var backgroundView: UIView!
     @IBOutlet weak var hoursButton: UIButton!
     @IBOutlet weak var listenButton: UIButton!
+    @IBOutlet weak var bandPhotoButton: UIButton!
     
     @IBOutlet weak var businessLogoImageView: UIImageView!
     @IBOutlet weak var businessNameLabel: UILabel!
@@ -64,26 +66,22 @@ class VenueDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        setUpNotificationObservers()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //Collection View Timer
-        DispatchQueue.main.async {
-            self.timer.invalidate()
-            self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
-        }
+        startTimer()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timer.invalidate()
-        //To inform Dashboard to resume its banner ad timer
         notificationCenter.post(notifications.modalDismissed)
+        endTimer()
+        //To inform Dashboard to resume its banner ad timer
+        
     }
     
 
@@ -151,6 +149,11 @@ class VenueDetailViewController: UIViewController {
         
     }
     
+    @IBAction func bandPhotoTapped(_ sender: Any) {
+        performSegue(withIdentifier: "ToBandSegue", sender: self)
+    }
+    
+    
     @IBAction func listenButtonTapped(_ sender: Any) {
         guard let bandMedia = featuredShow?.band.mediaLink else {return NSLog("Error with Featured Show Media Link")}
         guard let url = URL(string: "\(bandMedia)") else {
@@ -161,6 +164,15 @@ class VenueDetailViewController: UIViewController {
         } else {
             UIApplication.shared.openURL(url)
         }
+        
+        //Future in-app video OR audio solution
+//        let player = AVPlayer(url: url)
+//        let vc = AVPlayerViewController()
+//        vc.player = player
+//
+//        present(vc, animated: true) {
+//            vc.player?.play()
+//        }
     }
     
     
@@ -180,15 +192,22 @@ class VenueDetailViewController: UIViewController {
     
     
     
-    /*
-    // MARK: - Navigation
+
+    // MARK: - Segue
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        if segue.identifier == "ToBandSegue" {
+            endTimer()
+            guard let destinationVC = segue.destination as? BandDetailViewController else {return}
+            let band = featuredShow?.band.name
+            let currentBand = xityBandController.bandArray.first(where: {$0.band.name == band})
+            destinationVC.currentBand = currentBand
+        }
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }
 
@@ -199,6 +218,38 @@ extension VenueDetailViewController {
     @objc private func dismissAlert() {
         self.hoursView.removeFromSuperview()
         self.backgroundView.removeFromSuperview()
+    }
+    
+    //Timer
+    @objc private func startTimer() {
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+            self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc private func endTimer() {
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+        }
+    }
+    
+    private func setUpNotificationObservers() {
+        
+        //Hide Views
+        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        
+        //Banner SlideShow Start
+        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        
+        //Background
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        //Network Connection
+        //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
+        
+        //Hours
+        notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
     }
 }
 
@@ -234,6 +285,7 @@ extension VenueDetailViewController {
         let large: UIImage.SymbolConfiguration = .init(scale: .large)
         fullHeart?.applyingSymbolConfiguration(large)
         emptyHeart?.applyingSymbolConfiguration(large)
+        bandPhotoButton.setTitle("", for: .normal)
         
         if currentUserController.currentUser != nil {
             if currentUserController.currentUser!.favoriteBusinesses.contains(xityBusiness.business.venueID) {
@@ -412,10 +464,6 @@ extension VenueDetailViewController {
             indexPath = IndexPath(row: 0, section: 0)
             self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
-    }
-    
-    @objc private func endTimer() {
-        timer.invalidate()
     }
 }
 

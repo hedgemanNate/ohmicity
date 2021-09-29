@@ -66,7 +66,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        notificationObservers()
+        setUpNotificationObservers()
         createInterstitialAd()
         updateViews()
     }
@@ -291,7 +291,7 @@ extension DashboardViewController {
         }
     }
     
-    private func notificationObservers() {
+    private func setUpNotificationObservers() {
         //Reload Collection View Data
         notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadDashboardCVData.name, object: nil)
         

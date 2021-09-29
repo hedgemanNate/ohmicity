@@ -20,6 +20,7 @@
 		D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D112641C4C500E95415 /* LaunchScreen.storyboard */; };
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D855BDE92703DBE400D88E23 /* VenueSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */; };
+		D855BDEB2704198800D88E23 /* Band.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D855BDEA2704198800D88E23 /* Band.storyboard */; };
 		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 		D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* SignIn.storyboard */; };
 		F60B849626CB4D1800C9226F /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849526CB4D1600C9226F /* tabBar.png */; };
@@ -142,6 +143,7 @@
 		D8403D142641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = VenueSearch.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/VenueSearch.storyboard; sourceTree = "<group>"; };
+		D855BDEA2704198800D88E23 /* Band.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Band.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Band.storyboard; sourceTree = "<group>"; };
 		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D8CED4052641F4100017FD28 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				D8403D0C2641C4C400E95415 /* Main.storyboard */,
 				D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */,
 				F66CB28426FD113800B26EE3 /* BandSearch.storyboard */,
+				D855BDEA2704198800D88E23 /* Band.storyboard */,
 				D834F5632703D73500CEEECE /* Subscription.storyboard */,
 				D834F5612703D38A00CEEECE /* LostConnection.storyboard */,
 				D834F55F2703CD2900CEEECE /* Recommend.storyboard */,
@@ -689,6 +692,7 @@
 				F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */,
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
+				D855BDEB2704198800D88E23 /* Band.storyboard in Resources */,
 				D834F55E2703C80E00CEEECE /* Venue.storyboard in Resources */,
 				D834F5642703D73500CEEECE /* Subscription.storyboard in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,

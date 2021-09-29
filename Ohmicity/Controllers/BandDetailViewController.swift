@@ -34,7 +34,6 @@ class BandDetailViewController: UIViewController {
     
     //Table View
     @IBOutlet weak var upcomingShowsTableView: UITableView!
-    @IBOutlet weak var mediaTableView: UITableView!
     
     //BannerAd
     var timer = Timer()
@@ -43,6 +42,7 @@ class BandDetailViewController: UIViewController {
     //Loader
     @IBOutlet weak var supportView: UIView!
     @IBOutlet weak var supportIndicatorView: UIView!
+    @IBOutlet weak var buttonIndicatorView: UIView!
     @IBOutlet weak var xityLogoImageView: UIImageView!
     @IBOutlet weak var supportLabel: UILabel!
     let supportIndicator5 = MDCActivityIndicator()
@@ -50,6 +50,7 @@ class BandDetailViewController: UIViewController {
     let supportIndicator3 = MDCActivityIndicator()
     let supportIndicator2 = MDCActivityIndicator()
     let supportIndicator1 = MDCActivityIndicator()
+    let supportIndicatorButton = MDCActivityIndicator()
     let hapticGenerator = UIImpactFeedbackGenerator(style: .heavy)
     var shouldShowSupportInfo = false
     let strokeWidth: CGFloat = 9
@@ -58,7 +59,7 @@ class BandDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         delegateDataSourceSetup()
-        notificationObservers()
+        setUpNotificationObservers()
         supportIndicatorSetup()
         // Do any additional setup after loading the view.
     }
@@ -70,6 +71,7 @@ class BandDetailViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         endTimer()
+        notificationCenter.post(notifications.modalDismissed)
         super.viewDidDisappear(animated)
     }
     
@@ -172,7 +174,7 @@ class BandDetailViewController: UIViewController {
         supportLabel.layer.zPosition = 98
         supportButton.layer.zPosition = 100
         xityLogoImageView.layer.zPosition = 97
-        xityLogoImageView.alpha = 0
+        xityLogoImageView.alpha = 1
         bannerAdCollectionView.sendSubviewToBack(self.view)
         
         guard let blackoutDate = currentUserController.currentUser?.supportBlackOutDate else { NSLog("🚨 No currentUser.supportBlackOutDate???"); return}
@@ -213,12 +215,21 @@ class BandDetailViewController: UIViewController {
         genreCollectionView.dataSource = self
         upcomingShowsTableView.delegate = self
         upcomingShowsTableView.dataSource = self
-        mediaTableView.delegate = self
-        mediaTableView.dataSource = self
     }
     
-    private func notificationObservers() {
+    private func setUpNotificationObservers() {
+        
+        //Hide Views
         notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        
+        //Banner SlideShow Start
+        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        
+        //Background
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        //Network Connection
+        //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
     
@@ -305,9 +316,6 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case upcomingShowsTableView:
             return currentBand.xityShows?.count ?? 0
             
-        case mediaTableView:
-            return 1
-            
         default:
             return 0
         }
@@ -330,9 +338,6 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = "\(dateFormatter.string(from: upcomingShow.date)): \(upcomingShow.venue) @ \(dateFormatter2.string(from: upcomingShow.date))"
             return cell
             
-        case mediaTableView:
-            //Create a custom cell to hold the media
-            return UITableViewCell()
         default:
             return UITableViewCell()
         }
@@ -381,38 +386,26 @@ extension BandDetailViewController {
     }
     
     private func supportButtonPushedAnimation() {
-        UIView.animate(withDuration: 1) {
-            self.xityLogoImageView.alpha = 1
-            self.supportIndicator1.alpha = 0
-            self.supportIndicator2.alpha = 0
-            self.supportIndicator3.alpha = 0
-            self.supportIndicator5.alpha = 0
-            
-            
-            self.supportIndicator4.strokeWidth = 3
+        UIView.animate(withDuration: 0.5) {
+            self.buttonIndicatorView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            self.buttonIndicatorView.transform = .identity
         }
-        
-        supportIndicator1.stopAnimating()
-        supportIndicator2.stopAnimating()
-        supportIndicator3.stopAnimating()
-        supportIndicator4.stopAnimating()
-        supportIndicator5.stopAnimating()
-        
-        supportIndicator4.cycleColors = [.systemPurple, .systemOrange, .systemGreen, .systemTeal, .systemYellow]
-        supportIndicator4.indicatorMode = .indeterminate
-        supportIndicator4.trackEnabled = false
-        supportIndicator4.startAnimating()
-        
-        supportLabel.text = "Tap Again To Learn More"
+        supportIndicatorButton.startAnimating()
+        supportLabel.text = "Tap To Learn More"
     }
     
     private func supportIndicatorSetup() {
+        //Button
+        buttonIndicatorView.addSubview(supportIndicatorButton)
+        
+        //Progress
         supportIndicator5.setProgress(0.1, animated: true)
         supportIndicatorView.addSubview(supportIndicator5)
         supportIndicator5.startAnimating()
         
         supportIndicator4.setProgress(0.15, animated: true)
         supportIndicatorView.addSubview(supportIndicator4)
+        buttonIndicatorView.addSubview(supportIndicator4)
         supportIndicator4.startAnimating()
         
         supportIndicator3.setProgress(0.27, animated: true)
@@ -428,6 +421,18 @@ extension BandDetailViewController {
         supportIndicator1.startAnimating()
         
         supportIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //supportIndicatorButtonUI
+        supportIndicatorButton.indicatorMode = .indeterminate
+        supportIndicatorButton.radius = buttonIndicatorView.frame.height / 2.5 - 1
+        supportIndicatorButton.cycleColors = [.systemPurple, .systemOrange, .systemGreen, .systemTeal, .systemYellow]
+        supportIndicatorButton.strokeWidth = 3
+        supportIndicatorButton.trackEnabled = false
+        
+        
+        supportIndicatorButton.translatesAutoresizingMaskIntoConstraints = false
+        supportIndicatorButton.centerXAnchor.constraint(equalTo: buttonIndicatorView.centerXAnchor).isActive = true
+        supportIndicatorButton.centerYAnchor.constraint(equalTo: buttonIndicatorView.centerYAnchor).isActive = true
         
         //supportIndicator 5 UI
         supportIndicator5.indicatorMode = .determinate
@@ -499,7 +504,6 @@ extension BandDetailViewController {
         self.supportIndicator2.strokeWidth = strokeWidth
         self.supportIndicator3.strokeWidth = strokeWidth
         self.supportIndicator5.strokeWidth = strokeWidth
-        xityLogoImageView.alpha = 0
         supportLabel.alpha = 1
         
         self.supportButton.addTarget(self, action: #selector(supportButtonTapped), for: .touchDown)

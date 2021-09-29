@@ -48,8 +48,7 @@ class VenueSearchViewController: UIViewController {
         setUpCollectionViews()
         createInterstitialAd()
         updateViews()
-        
-        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        setUpNotificationObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,8 +125,10 @@ extension VenueSearchViewController {
     }
     
     @objc private func endTimer() {
-            timer.invalidate()
+        DispatchQueue.main.async {
+            self.timer.invalidate()
         }
+    }
     
     @objc private func bannerChange() {
         let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
@@ -143,6 +144,20 @@ extension VenueSearchViewController {
             indexPath = IndexPath(row: 0, section: 0)
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
+    }
+    
+    private func setUpNotificationObservers() {
+        //Hide Views
+        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        
+        //Banner SlideShow Start
+        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        
+        //Background
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        //Network Connection
+        //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
     //MARK: Search Function
@@ -174,7 +189,7 @@ extension VenueSearchViewController {
 
     
     //MARK: - UpdateViews
-    private func updateViews() {
+    @objc private func updateViews() {
         self.hideKeyboardWhenTappedAround()
         searchBar.delegate = self
         searchBar.placeholder = "Search Business By Name"

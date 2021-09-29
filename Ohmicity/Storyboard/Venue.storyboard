@@ -338,13 +338,25 @@ should be on Xity?</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="155" height="204"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftc-Gs-RIA" userLabel="Band Photo Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="155" height="204"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="bandPhotoTapped:" destination="WxN-2n-PcG" eventType="touchUpInside" id="OUH-DM-YP4"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="lEK-tc-xsp" firstAttribute="leading" secondItem="Xa0-Pu-7J2" secondAttribute="leading" id="A92-bO-5Pf"/>
                                                     <constraint firstAttribute="height" constant="204" id="Awq-WR-vxp"/>
+                                                    <constraint firstItem="Ftc-Gs-RIA" firstAttribute="bottom" secondItem="HTY-1u-ENq" secondAttribute="bottom" id="EcV-w8-UiH"/>
                                                     <constraint firstItem="lEK-tc-xsp" firstAttribute="top" secondItem="Xa0-Pu-7J2" secondAttribute="top" id="IfA-Hm-Hvc"/>
+                                                    <constraint firstItem="Ftc-Gs-RIA" firstAttribute="trailing" secondItem="HTY-1u-ENq" secondAttribute="trailing" id="ReF-Q9-XPK"/>
+                                                    <constraint firstItem="Ftc-Gs-RIA" firstAttribute="top" secondItem="HTY-1u-ENq" secondAttribute="top" id="SgO-u2-Dky"/>
                                                     <constraint firstAttribute="width" constant="155" id="bxV-CE-W2t"/>
+                                                    <constraint firstItem="Ftc-Gs-RIA" firstAttribute="leading" secondItem="HTY-1u-ENq" secondAttribute="leading" id="i2N-5F-z6X"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlK-K4-ZfG">
@@ -557,6 +569,7 @@ Florida 34222 </string>
                     <connections>
                         <outlet property="bandGenreLabel" destination="cNd-mU-70c" id="ZeU-Kc-3LB"/>
                         <outlet property="bandNameLabel" destination="cGf-PF-vc0" id="ZhO-qO-fvq"/>
+                        <outlet property="bandPhotoButton" destination="Ftc-Gs-RIA" id="WLi-QU-C2u"/>
                         <outlet property="bandPhotoImageView" destination="lEK-tc-xsp" id="l07-ml-FTw"/>
                         <outlet property="businessLogoImageView" destination="Lrx-k3-tEG" id="XNf-ao-58F"/>
                         <outlet property="businessNameLabel" destination="neN-BA-Oic" id="9iR-h4-B2h"/>
@@ -576,6 +589,7 @@ Florida 34222 </string>
                         <outlet property="tonightsEntLabel" destination="wD6-kx-n0l" id="lSs-fl-q4V"/>
                         <segue destination="Nl7-xF-TxV" kind="presentation" identifier="ToSignIn" id="noR-67-dO5"/>
                         <segue destination="Ob2-cA-xFa" kind="presentation" modalPresentationStyle="fullScreen" id="dyM-2f-MLh"/>
+                        <segue destination="VAv-9L-EPR" kind="presentation" identifier="ToBandSegue" id="AEA-hr-pRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWz-7I-Miv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -583,13 +597,21 @@ Florida 34222 </string>
             </objects>
             <point key="canvasLocation" x="-45" y="78"/>
         </scene>
+        <!--Band-->
+        <scene sceneID="aRS-zZ-l0i">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Band" id="VAv-9L-EPR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsw-b5-kYy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="-158"/>
+        </scene>
         <!--Recommend-->
         <scene sceneID="BSP-VH-RKz">
             <objects>
                 <viewControllerPlaceholder storyboardName="Recommend" id="rf8-v7-5WM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pf1-FM-meM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162" y="-118"/>
+            <point key="canvasLocation" x="1162" y="-121"/>
         </scene>
         <!--Subscription-->
         <scene sceneID="QJp-4E-ni1">
@@ -597,7 +619,7 @@ Florida 34222 </string>
                 <viewControllerPlaceholder storyboardName="Subscription" id="Ob2-cA-xFa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yI-Xi-ZZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1159" y="-41"/>
+            <point key="canvasLocation" x="1164" y="-42"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="nIf-sb-JHD">
@@ -605,7 +627,7 @@ Florida 34222 </string>
                 <viewControllerPlaceholder storyboardName="SignIn" id="Nl7-xF-TxV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6c1-AX-c5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="29"/>
+            <point key="canvasLocation" x="1136" y="7"/>
         </scene>
     </scenes>
     <resources>

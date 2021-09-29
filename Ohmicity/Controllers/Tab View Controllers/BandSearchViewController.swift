@@ -26,6 +26,7 @@ class BandSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        setUpNotificationObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,9 +56,25 @@ class BandSearchViewController: UIViewController {
         
         
     }
+    
+    //MARK: Functions
+    private func setUpNotificationObservers() {
+        
+        //Hide Views
+        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        
+        //Banner SlideShow Start
+        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        
+        //Background
+        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        //Network Connection
+        //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
+    }
 
     //MARK: UpdateViews
-    private func updateViews() {
+    @objc private func updateViews() {
         searchBar.delegate = self
         searchBar.searchTextField.delegate = self
         searchBar.barTintColor = .clear
@@ -102,7 +119,7 @@ class BandSearchViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
+    // MARK: - Segue
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
