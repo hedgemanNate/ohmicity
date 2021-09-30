@@ -9,18 +9,12 @@
 /* Begin PBXBuildFile section */
 		D8262F01264466FA0050F9CA /* VenueSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */; };
 		D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8262F0A264467A90050F9CA /* SuggestViewController.swift */; };
-		D834F55E2703C80E00CEEECE /* Venue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F55D2703C80E00CEEECE /* Venue.storyboard */; };
-		D834F5602703CD2900CEEECE /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F55F2703CD2900CEEECE /* Recommend.storyboard */; };
-		D834F5622703D38A00CEEECE /* LostConnection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F5612703D38A00CEEECE /* LostConnection.storyboard */; };
-		D834F5642703D73500CEEECE /* Subscription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D834F5632703D73500CEEECE /* Subscription.storyboard */; };
 		D8403D072641C4C400E95415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D062641C4C400E95415 /* AppDelegate.swift */; };
 		D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8403D082641C4C400E95415 /* SceneDelegate.swift */; };
 		D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0C2641C4C400E95415 /* Main.storyboard */; };
 		D8403D102641C4C500E95415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8403D0F2641C4C500E95415 /* Assets.xcassets */; };
 		D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8403D112641C4C500E95415 /* LaunchScreen.storyboard */; };
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
-		D855BDE92703DBE400D88E23 /* VenueSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */; };
-		D855BDEB2704198800D88E23 /* Band.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D855BDEA2704198800D88E23 /* Band.storyboard */; };
 		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 		D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* SignIn.storyboard */; };
 		F60B849626CB4D1800C9226F /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849526CB4D1600C9226F /* tabBar.png */; };
@@ -58,6 +52,12 @@
 		F661A5FE26F6950F00A059E2 /* XityDeals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F661A5FD26F6950F00A059E2 /* XityDeals.storyboard */; };
 		F661A60026F6959E00A059E2 /* XityDealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */; };
 		F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66206E826B4B9C800BDE93E /* TimeController.swift */; };
+		F6622664270572C400593C72 /* VenueSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6622663270572C400593C72 /* VenueSearch.storyboard */; };
+		F6622666270572D100593C72 /* Band.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6622665270572D100593C72 /* Band.storyboard */; };
+		F6622668270572D900593C72 /* Subscription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6622667270572D900593C72 /* Subscription.storyboard */; };
+		F662266A270572E100593C72 /* LostConnection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6622669270572E100593C72 /* LostConnection.storyboard */; };
+		F662266C270572E600593C72 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F662266B270572E600593C72 /* Recommend.storyboard */; };
+		F662266E270572EC00593C72 /* Venue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F662266D270572EC00593C72 /* Venue.storyboard */; };
 		F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */; };
 		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
 		F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityShow.swift */; };
@@ -130,10 +130,6 @@
 		D07375228563F50E49F50E2B /* Pods-Ohmicity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.debug.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.debug.xcconfig"; sourceTree = "<group>"; };
 		D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueSearchViewController.swift; sourceTree = "<group>"; };
 		D8262F0A264467A90050F9CA /* SuggestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
-		D834F55D2703C80E00CEEECE /* Venue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Venue.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Venue.storyboard; sourceTree = "<group>"; };
-		D834F55F2703CD2900CEEECE /* Recommend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Recommend.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Recommend.storyboard; sourceTree = "<group>"; };
-		D834F5612703D38A00CEEECE /* LostConnection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LostConnection.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/LostConnection.storyboard; sourceTree = "<group>"; };
-		D834F5632703D73500CEEECE /* Subscription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Subscription.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Subscription.storyboard; sourceTree = "<group>"; };
 		D8403D032641C4C400E95415 /* Ohmicity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ohmicity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8403D062641C4C400E95415 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8403D082641C4C400E95415 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,8 +138,6 @@
 		D8403D122641C4C500E95415 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8403D142641C4C500E95415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = VenueSearch.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/VenueSearch.storyboard; sourceTree = "<group>"; };
-		D855BDEA2704198800D88E23 /* Band.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Band.storyboard; path = ../../../../../../Nathan/F2F/Ohmicity/ohmicity/Ohmicity/Storyboard/Band.storyboard; sourceTree = "<group>"; };
 		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D8CED4052641F4100017FD28 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +175,12 @@
 		F661A5FD26F6950F00A059E2 /* XityDeals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = XityDeals.storyboard; sourceTree = "<group>"; };
 		F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityDealsViewController.swift; sourceTree = "<group>"; };
 		F66206E826B4B9C800BDE93E /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
+		F6622663270572C400593C72 /* VenueSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VenueSearch.storyboard; sourceTree = "<group>"; };
+		F6622665270572D100593C72 /* Band.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Band.storyboard; sourceTree = "<group>"; };
+		F6622667270572D900593C72 /* Subscription.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Subscription.storyboard; sourceTree = "<group>"; };
+		F6622669270572E100593C72 /* LostConnection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LostConnection.storyboard; sourceTree = "<group>"; };
+		F662266B270572E600593C72 /* Recommend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
+		F662266D270572EC00593C72 /* Venue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Venue.storyboard; sourceTree = "<group>"; };
 		F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationHoursAlert.xib; sourceTree = "<group>"; };
 		F66C99C326BCD83800A7C135 /* XityShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShowController.swift; sourceTree = "<group>"; };
 		F66C99C626BCDA6200A7C135 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -335,13 +335,13 @@
 				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
 				D8CED4052641F4100017FD28 /* SignIn.storyboard */,
 				D8403D0C2641C4C400E95415 /* Main.storyboard */,
-				D855BDE82703DBE400D88E23 /* VenueSearch.storyboard */,
+				F6622663270572C400593C72 /* VenueSearch.storyboard */,
+				F662266D270572EC00593C72 /* Venue.storyboard */,
 				F66CB28426FD113800B26EE3 /* BandSearch.storyboard */,
-				D855BDEA2704198800D88E23 /* Band.storyboard */,
-				D834F5632703D73500CEEECE /* Subscription.storyboard */,
-				D834F5612703D38A00CEEECE /* LostConnection.storyboard */,
-				D834F55F2703CD2900CEEECE /* Recommend.storyboard */,
-				D834F55D2703C80E00CEEECE /* Venue.storyboard */,
+				F6622665270572D100593C72 /* Band.storyboard */,
+				F6622667270572D900593C72 /* Subscription.storyboard */,
+				F6622669270572E100593C72 /* LostConnection.storyboard */,
+				F662266B270572E600593C72 /* Recommend.storyboard */,
 				F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */,
 				F661A5FD26F6950F00A059E2 /* XityDeals.storyboard */,
 				F63D191727006435004379D5 /* MenuPopUp.storyboard */,
@@ -657,8 +657,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F66C99CA26BD16F600A7C135 /* band.jpg in Resources */,
-				D834F5622703D38A00CEEECE /* LostConnection.storyboard in Resources */,
 				F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */,
+				F6622668270572D900593C72 /* Subscription.storyboard in Resources */,
 				F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */,
 				F66CB28526FD113800B26EE3 /* BandSearch.storyboard in Resources */,
 				F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */,
@@ -666,7 +666,7 @@
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
 				F6F3DB4A26AF337C00C49016 /* family.png in Resources */,
 				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
-				D855BDE92703DBE400D88E23 /* VenueSearch.storyboard in Resources */,
+				F662266E270572EC00593C72 /* Venue.storyboard in Resources */,
 				F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */,
@@ -690,15 +690,15 @@
 				F687CD6D26F4980100412C07 /* xitySupportIcon.png in Resources */,
 				F696A73726AB7079009CB1BD /* venice.png in Resources */,
 				F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */,
+				F662266A270572E100593C72 /* LostConnection.storyboard in Resources */,
 				F61C370B26B66F8600A2235B /* brickBackground.png in Resources */,
 				D8403D102641C4C500E95415 /* Assets.xcassets in Resources */,
-				D855BDEB2704198800D88E23 /* Band.storyboard in Resources */,
-				D834F55E2703C80E00CEEECE /* Venue.storyboard in Resources */,
-				D834F5642703D73500CEEECE /* Subscription.storyboard in Resources */,
+				F662266C270572E600593C72 /* Recommend.storyboard in Resources */,
+				F6622664270572C400593C72 /* VenueSearch.storyboard in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
-				D834F5602703CD2900CEEECE /* Recommend.storyboard in Resources */,
 				F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */,
 				F6F3DB4726AF337C00C49016 /* outdoors.png in Resources */,
+				F6622666270572D100593C72 /* Band.storyboard in Resources */,
 				F63D191827006435004379D5 /* MenuPopUp.storyboard in Resources */,
 				D8403D0E2641C4C400E95415 /* Main.storyboard in Resources */,
 				F696A73526AB7079009CB1BD /* stpete.png in Resources */,

@@ -20,6 +20,7 @@ class BandDetailViewController: UIViewController {
     //Buttons
     @IBOutlet weak var supportButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var listenButton: UIButton!
     
     //Ratings
     @IBOutlet weak var ratingButton: UIButton!
@@ -55,12 +56,62 @@ class BandDetailViewController: UIViewController {
     var shouldShowSupportInfo = false
     let strokeWidth: CGFloat = 9
     
+    //MARK: Fan Support Properties
+    var supportValue: Float = 1300
+    @IBOutlet weak var step1Label: UILabel!
+    var step1Value: Float = 50
+    var step1Percentage: Float = 0 {
+        didSet {
+            if step1Percentage >= 1 {
+                step1Percentage = 1
+            }
+        }
+    }
+    @IBOutlet weak var step2Label: UILabel!
+    var step2Value: Float = 100
+    var step2Percentage: Float = 0 {
+        didSet {
+            if step2Percentage >= 1 {
+                step2Percentage = 1
+            }
+        }
+    }
+    @IBOutlet weak var step3Label: UILabel!
+    var step3Value: Float = 500
+    var step3Percentage: Float = 0 {
+        didSet {
+            if step3Percentage >= 1 {
+                step3Percentage = 1
+            }
+        }
+    }
+    @IBOutlet weak var step4Label: UILabel!
+    var step4Value: Float = 2000
+    var step4Percentage: Float = 0 {
+        didSet {
+            if step4Percentage >= 1 {
+                step4Percentage = 1
+            }
+        }
+    }
+    @IBOutlet weak var step5Label: UILabel!
+    var step5Value: Float = 5000
+    var step5Percentage: Float = 0 {
+        didSet {
+            if step5Percentage >= 1 {
+                step4Percentage = 1
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         delegateDataSourceSetup()
         setUpNotificationObservers()
+        supportLogicCalculator()
         supportIndicatorSetup()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -82,7 +133,22 @@ class BandDetailViewController: UIViewController {
         
     }
     
-    @IBAction func bandNotificationsButtonTapped(_ sender: Any) {
+    @IBAction func listenButtonTapped(_ sender: Any) {
+        let bandMedia = currentBand?.band.mediaLink ?? ""
+        guard let url = URL(string: bandMedia) else {
+          return //be safe
+        }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
+        //Future in-app video OR audio solution
+//        let player = AVPlayer(url: url)
+//        let vc = AVPlayerViewController()
+//        vc.player = player
+//
+//        present(vc, animated: true) {
+//            vc.player?.play()
+//        }
     }
     
     
@@ -175,7 +241,6 @@ class BandDetailViewController: UIViewController {
         supportButton.layer.zPosition = 100
         xityLogoImageView.layer.zPosition = 97
         xityLogoImageView.alpha = 1
-        bannerAdCollectionView.sendSubviewToBack(self.view)
         
         guard let blackoutDate = currentUserController.currentUser?.supportBlackOutDate else { NSLog("🚨 No currentUser.supportBlackOutDate???"); return}
         if blackoutDate > Date() {
@@ -204,6 +269,16 @@ class BandDetailViewController: UIViewController {
         } else {
             favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
         }
+        
+        let bandMedia = currentBand.band.mediaLink ?? ""
+        
+        if bandMedia == "" {
+            listenButton.setTitle("No Media To Hear", for: .normal)
+            listenButton.isEnabled = false
+        } else {
+            listenButton.setTitle("Take A Listen", for: .normal)
+            listenButton.isEnabled = true
+        }
     }
     
     
@@ -231,6 +306,7 @@ class BandDetailViewController: UIViewController {
         //Network Connection
         //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
+    
     
     
      // MARK: Segue
@@ -394,29 +470,46 @@ extension BandDetailViewController {
         supportLabel.text = "Tap To Learn More"
     }
     
+    private func supportLogicCalculator() {
+        let value = currentBand?.band.xitySupport ?? 0
+        supportValue = Float(value)
+        
+        step1Percentage = Float(supportValue / step1Value)
+        step2Percentage = Float(supportValue / step2Value)
+        step3Percentage = Float(supportValue / step3Value)
+        step4Percentage = Float(supportValue / step4Value)
+        step5Percentage = Float(supportValue / step5Value)
+        
+        step1Label.text = "\(Int(step1Percentage*100))%"
+        step2Label.text = "\(Int(step2Percentage*100))%"
+        step3Label.text = "\(Int(step3Percentage*100))%"
+        step4Label.text = "\(Int(step4Percentage*100))%"
+        step5Label.text = "\(Int(step5Percentage*100))%"
+    }
+    
     private func supportIndicatorSetup() {
         //Button
         buttonIndicatorView.addSubview(supportIndicatorButton)
         
         //Progress
-        supportIndicator5.setProgress(0.1, animated: true)
+        supportIndicator5.setProgress(step5Percentage, animated: true)
         supportIndicatorView.addSubview(supportIndicator5)
         supportIndicator5.startAnimating()
         
-        supportIndicator4.setProgress(0.15, animated: true)
+        supportIndicator4.setProgress(step4Percentage, animated: true)
         supportIndicatorView.addSubview(supportIndicator4)
         buttonIndicatorView.addSubview(supportIndicator4)
         supportIndicator4.startAnimating()
         
-        supportIndicator3.setProgress(0.27, animated: true)
+        supportIndicator3.setProgress(step3Percentage, animated: true)
         supportIndicatorView.addSubview(supportIndicator3)
         supportIndicator3.startAnimating()
         
-        supportIndicator2.setProgress(0.45, animated: true)
+        supportIndicator2.setProgress(step2Percentage, animated: true)
         supportIndicatorView.addSubview(supportIndicator2)
         supportIndicator2.startAnimating()
         
-        supportIndicator1.setProgress(0.78, animated: true)
+        supportIndicator1.setProgress(step1Percentage, animated: true)
         supportIndicatorView.addSubview(supportIndicator1)
         supportIndicator1.startAnimating()
         

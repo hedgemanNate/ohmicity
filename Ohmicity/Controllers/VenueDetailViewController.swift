@@ -156,14 +156,12 @@ class VenueDetailViewController: UIViewController {
     
     @IBAction func listenButtonTapped(_ sender: Any) {
         guard let bandMedia = featuredShow?.band.mediaLink else {return NSLog("Error with Featured Show Media Link")}
-        guard let url = URL(string: "\(bandMedia)") else {
+        guard let url = URL(string: bandMedia) else {
           return //be safe
         }
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
         
         //Future in-app video OR audio solution
 //        let player = AVPlayer(url: url)
