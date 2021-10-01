@@ -217,8 +217,9 @@ extension DashboardViewController {
             cityFilterLabel.text = "~Filter Off"
         }
         
-        scrollView.refreshControl = UIRefreshControl()
-        scrollView.refreshControl?.addTarget(self, action: #selector(organizeData), for: .valueChanged)
+        //Pull Down to refresh... get working in future
+//        scrollView.refreshControl = UIRefreshControl()
+//        scrollView.refreshControl?.addTarget(self, action: #selector(organizeData), for: .valueChanged)
         
         //Recommendation View
         if currentUserController.currentUser == nil {
