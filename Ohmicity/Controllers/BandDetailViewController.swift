@@ -9,6 +9,8 @@ import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import MaterialComponents.MaterialActivityIndicator
+import EventKitUI
+import EventKit
 
 class BandDetailViewController: UIViewController {
     
@@ -39,6 +41,9 @@ class BandDetailViewController: UIViewController {
     //BannerAd
     var timer = Timer()
     @IBOutlet weak var topAdView: UIView!
+    
+    //Events
+    let store = EKEventStore()
     
     //Loader
     @IBOutlet weak var supportView: UIView!
@@ -290,6 +295,7 @@ class BandDetailViewController: UIViewController {
         genreCollectionView.dataSource = self
         upcomingShowsTableView.delegate = self
         upcomingShowsTableView.dataSource = self
+        upcomingShowsTableView.allowsSelection = true
     }
     
     private func setUpNotificationObservers() {
@@ -418,6 +424,122 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return}
+        guard let show = currentBand?.xityShows?[selected.row].show else {return}
+        timeController.dateFormatter.dateFormat = timeController.dayMonthDay
+        let date = timeController.dateFormatter.string(from: show.date)
+        let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(show.band)\n Location: \(show.venue)\n Time: \(date)", preferredStyle: .actionSheet)
+        let alertAction2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let alertAction1 = UIAlertAction(title: "Add Show", style: .default) { _ in
+            DispatchQueue.main.async {
+                let showEvent = self.createEvent()
+                switch EKEventStore.authorizationStatus(for: .event) {
+                case .notDetermined:
+                    DispatchQueue.main.async {
+                        self.store.requestAccess(to: .event) { success, error in
+                            if success {
+                                let eventVC = EKEventViewController()
+                                eventVC.delegate = self
+                                eventVC.event = showEvent
+                                self.present(eventVC, animated: true)
+                            }
+                        }
+                    }
+                case .restricted:
+                    DispatchQueue.main.async {
+                        self.store.requestAccess(to: .event) { success, error in
+                            if success {
+                                let eventVC = EKEventViewController()
+                                eventVC.delegate = self
+                                eventVC.event = showEvent
+                                self.present(eventVC, animated: true)
+                            }
+                        }
+                    }
+                case .denied:
+                    break
+                case .authorized:
+                    DispatchQueue.main.async {
+                        self.store.requestAccess(to: .event) { success, error in
+                            if success {
+                                DispatchQueue.main.async {
+                                    let eventVC = EKEventViewController()
+                                    let navVC = UINavigationController(rootViewController: eventVC)
+                                    navVC.modalPresentationStyle = .overFullScreen
+                                    eventVC.delegate = self
+                                    eventVC.event = showEvent
+                                    self.present(navVC, animated: true)
+                                }
+                                
+                            }
+                        }
+                    }
+                @unknown default:
+                    break
+                }
+            }
+        }
+        
+        alert.addAction(alertAction1)
+        alert.addAction(alertAction2)
+        present(alert, animated: true, completion: nil)
+        
+    }
+}
+
+//MARK: Event Creation
+extension BandDetailViewController: EKEventViewDelegate {
+    
+    func eventViewController(_ controller: EKEventViewController, didCompleteWith action: EKEventViewAction) {
+        controller.dismiss(animated: true) {
+            guard let selected = self.upcomingShowsTableView.indexPathForSelectedRow else {return}
+            self.upcomingShowsTableView.deselectRow(at: selected, animated: true)
+        }
+    }
+    
+    private func createEvent() -> EKEvent {
+        guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return EKEvent()}
+        guard let show = currentBand?.xityShows?[selected.row].show else {return EKEvent()}
+        timeController.dateFormatter.dateFormat = timeController.monthDayYear
+        let date = timeController.dateFormatter.string(from: show.date)
+        let venue = businessController.businessArray.first(where: {$0.name == show.venue})
+        let eventShow = EKEvent(eventStore: store)
+        let headsUpAlarm = EKAlarm(absoluteDate: show.date - 10800)
+        let showStartAlarm = EKAlarm(absoluteDate: show.date)
+        eventShow.title = "\(show.band)'s \(date) Show"
+        eventShow.startDate = show.date
+        eventShow.endDate = show.date + 10800
+        eventShow.location = venue?.address
+        eventShow.notes = "\(show.band)'s show is EXACTLY what you need to destress and have a good time for a couple hours. And don't forget to check and see if \(show.venue) has any exclusive deals you can use tonight!"
+        eventShow.alarms = [headsUpAlarm, showStartAlarm]
+        eventShow.
+
+        return eventShow
+    }
+    
+    private func addEvent(eventShow: EKEvent) {
+        if !eventAlreadyExists(event: eventShow) {
+            do {
+                try store.save(eventShow, span: .thisEvent)
+            } catch let err {
+                NSLog(err.localizedDescription)
+            }
+        } else {NSLog("Event already existed"); return}
+    }
+    
+    private func eventAlreadyExists(event eventToAdd: EKEvent) -> Bool {
+            let predicate = store.predicateForEvents(withStart: eventToAdd.startDate, end: eventToAdd.endDate, calendars: nil)
+            let existingEvents = store.events(matching: predicate)
+            
+            let eventAlreadyExists = existingEvents.contains { (event) -> Bool in
+                return eventToAdd.title! == event.title && event.startDate == eventToAdd.startDate
+            }
+            return eventAlreadyExists
+        }
+    
+    
 }
 
 

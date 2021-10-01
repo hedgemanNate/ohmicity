@@ -26,6 +26,10 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-9052204067761521~8036907851</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Please Allow Usage of Calendar Only For Saving Band Events And Shows That You Choose</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Please Allow Usage of Reminders Only For Saving Band Events And Shows That You Choose</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>SKAdNetworkItems</key>

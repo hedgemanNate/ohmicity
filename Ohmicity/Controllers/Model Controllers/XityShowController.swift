@@ -36,14 +36,13 @@ class XityShowController {
     }
     
     func getWeeklyPicks() {
-        let today = Date()
         let monday = Date().next(.monday)
         
         var lowFiltered = [XityShow]()
         var theWeekFiltered = [XityShow]()
         
         let op1 = BlockOperation { [self] in
-            lowFiltered = showArray.filter({$0.show.date > today})
+            lowFiltered = showArray.filter({$0.show.date > timeController.threeHoursAgo})
             print("******lowFiltered")
         }
         
