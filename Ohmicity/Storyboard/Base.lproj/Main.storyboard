@@ -702,7 +702,7 @@ should be on Xity?</string>
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7R-d7-w8P">
                                 <rect key="frame" x="0.0" y="44" width="428" height="1873"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaE-9Z-b5c" userLabel="Content View">
@@ -759,10 +759,10 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="trailing" secondItem="sk0-Ih-96d" secondAttribute="trailing" id="ydN-lz-xgT"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-IG-CFU">
-                                                <rect key="frame" x="9" y="267" width="100" height="44"/>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-IG-CFU">
+                                                <rect key="frame" x="9" y="267" width="75" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="ojq-jI-8l8"/>
+                                                    <constraint firstAttribute="width" constant="75" id="ojq-jI-8l8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Today">
@@ -770,7 +770,7 @@ should be on Xity?</string>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ in All Cities" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
-                                                <rect key="frame" x="109" y="283" width="310" height="21"/>
+                                                <rect key="frame" x="84" y="283" width="335" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="qL4-aa-r5K"/>
                                                 </constraints>
@@ -779,7 +779,7 @@ should be on Xity?</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-dF-4wv" userLabel="Segue To Preferred City Button">
-                                                <rect key="frame" x="0.0" y="265" width="288" height="48"/>
+                                                <rect key="frame" x="0.0" y="265" width="228" height="48"/>
                                                 <connections>
                                                     <action selector="cityFilterButtonTapped:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="Lcs-9z-cCR"/>
                                                 </connections>
@@ -870,7 +870,7 @@ should be on Xity?</string>
                                                     <constraint firstItem="EVi-S6-JA1" firstAttribute="centerX" secondItem="MWB-JM-Q0f" secondAttribute="centerX" id="Ajb-2m-2Hc"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
                                                 <rect key="frame" x="9" y="593" width="167" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Xity Exclusives">
@@ -987,7 +987,7 @@ should be on Xity?</string>
                                                     <constraint firstItem="2tW-Bs-Wlj" firstAttribute="top" secondItem="KmJ-NI-E7V" secondAttribute="top" constant="21" id="yNf-FH-C7E"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Favorites Button">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Favorites Button">
                                                 <rect key="frame" x="9" y="777" width="158" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Your Favorites">
@@ -1061,7 +1061,7 @@ should be on Xity?</string>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
                                                 <rect key="frame" x="9" y="1117" width="197" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Xity Weekly Picks">
@@ -1292,7 +1292,7 @@ should be on Xity?</string>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="unq-Kr-Wcq" secondAttribute="bottom" constant="20.329999999999998" id="shW-EX-EYH"/>
                                             <constraint firstItem="unq-Kr-Wcq" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="7.6699999999999999" id="tvO-aT-XgX"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="14" id="uPv-Ma-efd"/>
-                                            <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" constant="140" id="ueb-0t-Swa"/>
+                                            <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" constant="200" id="ueb-0t-Swa"/>
                                             <constraint firstItem="onA-4S-Wan" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="weM-l1-ZCm"/>
                                         </constraints>
                                     </view>
@@ -1671,9 +1671,9 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2UD-vX-uNS"/>
-        <segue reference="mst-Qo-D3e"/>
-        <segue reference="phR-fw-lgs"/>
+        <segue reference="GVY-L8-xJL"/>
+        <segue reference="fQ9-bq-bhx"/>
+        <segue reference="30H-i8-TRl"/>
         <segue reference="sZi-Pr-M00"/>
         <segue reference="9oH-9z-0L1"/>
     </inferredMetricsTieBreakers>

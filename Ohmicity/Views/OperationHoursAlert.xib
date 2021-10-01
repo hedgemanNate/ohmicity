@@ -163,7 +163,7 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbe-CG-BDc">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbe-CG-BDc">
                     <rect key="frame" x="0.0" y="351" width="400" height="49"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="8S7-QQ-Cax"/>
