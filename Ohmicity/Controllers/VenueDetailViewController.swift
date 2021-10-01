@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import SwiftUI
@@ -105,7 +104,6 @@ class VenueDetailViewController: UIViewController {
         self.view.addSubview(backgroundView)
         self.view.addSubview(hoursView)
         setupHoursAlertConstraints()
-        print(timeController.dayOfWeek)
     }
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {

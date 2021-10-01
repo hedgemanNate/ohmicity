@@ -91,56 +91,59 @@ class CitiesCollectionViewCell: UICollectionViewCell {
         didSet {
             
             if let bandGenre = bandGenre {
-                switch bandGenre {
-                case .Rock:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Blues:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Jazz:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Dance:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Reggae:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Country:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .FunkSoul:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .EDM:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .HipHop:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .DJ:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Pop:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Metal:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Experimental:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .JamBand:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .Gospel:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                case .EasyListening:
-                    imageView.backgroundColor = .black
-                    nameLabel.text = bandGenre.rawValue
-                }
+                imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+                nameLabel.text = ""
+                
+//                switch bandGenre {
+//                case .Rock:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Blues:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Jazz:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Dance:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Reggae:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Country:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .FunkSoul:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .EDM:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .HipHop:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .DJ:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Pop:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Metal:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Experimental:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .JamBand:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .Gospel:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                case .EasyListening:
+//                    imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+//                    nameLabel.text = bandGenre.rawValue
+//                }
             }
         }
     }

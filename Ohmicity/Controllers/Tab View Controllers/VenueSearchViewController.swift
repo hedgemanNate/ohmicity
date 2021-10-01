@@ -393,13 +393,14 @@ extension VenueSearchViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let shouldShowAds = userAdController.shouldShowAds
-        if interstitialAd != nil && shouldShowAds == true {
-            interstitialAd?.present(fromRootViewController: self)
-            endTimer()
-        } else {
-            performSegue(withIdentifier: "ToVenue", sender: self)
-        }
+        performSegue(withIdentifier: "ToVenue", sender: self)
+        
+//        if interstitialAd != nil && userAdController.shouldShowAds == true {
+//            interstitialAd?.present(fromRootViewController: self)
+//            endTimer()
+//        } else {
+//            performSegue(withIdentifier: "ToVenue", sender: self)
+//        }
     }
 }
 
@@ -424,7 +425,6 @@ extension VenueSearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchCollectionView.allowsSelection = false
         searchCollectionView.allowsSelection = true
-        print("It worked")
         
     }
 }
@@ -447,7 +447,7 @@ extension VenueSearchViewController {
 extension VenueSearchViewController: GADFullScreenContentDelegate {
     
     func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
-        print("!!!!!!DASHBOARD MONEY!!!!!")
+        //print("!!!!!!DASHBOARD MONEY!!!!!")
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {

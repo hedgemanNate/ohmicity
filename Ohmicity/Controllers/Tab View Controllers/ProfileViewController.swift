@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Foundation
 
 class ProfileViewController: UIViewController {
     
@@ -20,6 +21,9 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
     @IBOutlet private weak var recommendButton: UIButton!
+    
+    @IBOutlet weak var versionLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
@@ -97,6 +101,10 @@ class ProfileViewController: UIViewController {
             recommendButton.isEnabled = true
             recommendButton.setTitle("Recommend", for: .normal)
         }
+        
+        versionLabel.text = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String) (\(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String))"
+        
+        versionLabel.text = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")"
     }
     
     

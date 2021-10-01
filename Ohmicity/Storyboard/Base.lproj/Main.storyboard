@@ -550,6 +550,16 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="bottom" secondItem="Fwy-YD-YlE" secondAttribute="bottom" constant="14" id="vJT-pr-IW3"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08x-3k-ohO">
+                                                <rect key="frame" x="119" y="616" width="300" height="20.333333333333371"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="FGe-r4-zPt"/>
+                                                    <constraint firstAttribute="height" constant="20.329999999999998" id="yiW-7x-3Po"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -561,8 +571,10 @@ should be on Xity?</string>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="bottom" constant="28" id="OSI-mZ-Zr8"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" id="TYF-81-BPZ"/>
                                             <constraint firstAttribute="trailing" secondItem="U03-DP-nhM" secondAttribute="trailing" constant="28" id="aqd-wZ-ike"/>
+                                            <constraint firstItem="08x-3k-ohO" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="bottom" constant="15" id="lD4-z2-H3j"/>
                                             <constraint firstAttribute="trailing" secondItem="g3I-Dd-R8F" secondAttribute="trailing" constant="9" id="lUR-NA-FKo"/>
                                             <constraint firstAttribute="trailing" secondItem="e63-2g-Vlu" secondAttribute="trailing" id="tWc-oU-a0e"/>
+                                            <constraint firstAttribute="trailing" secondItem="08x-3k-ohO" secondAttribute="trailing" constant="9" id="xrM-Hx-fDF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -592,13 +604,14 @@ should be on Xity?</string>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
                         <outlet property="recommendButton" destination="Fwy-YD-YlE" id="hxM-jl-EAm"/>
+                        <outlet property="versionLabel" destination="08x-3k-ohO" id="WJn-Qs-A8j"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="phR-fw-lgs"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="2UD-vX-uNS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680" y="-1510"/>
+            <point key="canvasLocation" x="-681.30841121495325" y="-1510.3671706263499"/>
         </scene>
         <!--Choose Preferred City-->
         <scene sceneID="XSJ-gK-uvf">
@@ -1658,9 +1671,9 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-L8-xJL"/>
-        <segue reference="fQ9-bq-bhx"/>
-        <segue reference="Zd4-Ao-r3K"/>
+        <segue reference="2UD-vX-uNS"/>
+        <segue reference="mst-Qo-D3e"/>
+        <segue reference="phR-fw-lgs"/>
         <segue reference="sZi-Pr-M00"/>
         <segue reference="9oH-9z-0L1"/>
     </inferredMetricsTieBreakers>

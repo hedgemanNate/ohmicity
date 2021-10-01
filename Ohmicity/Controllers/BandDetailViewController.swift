@@ -9,8 +9,9 @@ import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import MaterialComponents.MaterialActivityIndicator
+import MaterialComponents.MaterialProgressView
 import EventKitUI
-import EventKit
+import MaterialComponents
 
 class BandDetailViewController: UIViewController {
     
@@ -44,6 +45,8 @@ class BandDetailViewController: UIViewController {
     
     //Events
     let store = EKEventStore()
+    var addressLocation: CLLocation?
+    var coordinate: CLLocationCoordinate2D?
     
     //Loader
     @IBOutlet weak var supportView: UIView!
@@ -62,6 +65,14 @@ class BandDetailViewController: UIViewController {
     let strokeWidth: CGFloat = 9
     
     //MARK: Fan Support Properties
+    @IBOutlet weak var separatorView: UIView!
+    let separatorProgress = MDCProgressView()
+    @IBOutlet weak var weekAdsLabel: UILabel!
+    @IBOutlet weak var interviewLabel: UILabel!
+    @IBOutlet weak var photoshootLabel: UILabel!
+    @IBOutlet weak var studioLabel: UILabel!
+    @IBOutlet weak var musicVidLabel: UILabel!
+    
     var supportValue: Float = 1300
     @IBOutlet weak var step1Label: UILabel!
     var step1Value: Float = 50
@@ -246,6 +257,22 @@ class BandDetailViewController: UIViewController {
         supportButton.layer.zPosition = 100
         xityLogoImageView.layer.zPosition = 97
         xityLogoImageView.alpha = 1
+        
+        //Progress View UI
+        if step1Percentage == 1 {
+            weekAdsLabel.isEnabled = true
+        }
+        if step2Percentage == 1 {        interviewLabel.isEnabled = true
+        }
+        if step3Percentage == 1 {
+            photoshootLabel.isEnabled = true
+        }
+        if step4Percentage == 1 {
+            studioLabel.isEnabled = true
+        }
+        if step5Percentage == 1 {
+            musicVidLabel.isEnabled = true
+        }
         
         guard let blackoutDate = currentUserController.currentUser?.supportBlackOutDate else { NSLog("🚨 No currentUser.supportBlackOutDate???"); return}
         if blackoutDate > Date() {
@@ -507,6 +534,7 @@ extension BandDetailViewController: EKEventViewDelegate {
         let venue = businessController.businessArray.first(where: {$0.name == show.venue})
         let eventShow = EKEvent(eventStore: store)
         let headsUpAlarm = EKAlarm(absoluteDate: show.date - 10800)
+        headsUpAlarm.structuredLocation = mapForEvent(venueName: "You made it!")
         let showStartAlarm = EKAlarm(absoluteDate: show.date)
         eventShow.title = "\(show.band)'s \(date) Show"
         eventShow.startDate = show.date
@@ -514,7 +542,9 @@ extension BandDetailViewController: EKEventViewDelegate {
         eventShow.location = venue?.address
         eventShow.notes = "\(show.band)'s show is EXACTLY what you need to destress and have a good time for a couple hours. And don't forget to check and see if \(show.venue) has any exclusive deals you can use tonight!"
         eventShow.alarms = [headsUpAlarm, showStartAlarm]
-        eventShow.
+        let structLocation = mapForEvent(venueName: show.venue)
+        print(structLocation.title)
+        eventShow.structuredLocation = structLocation
 
         return eventShow
     }
@@ -539,6 +569,23 @@ extension BandDetailViewController: EKEventViewDelegate {
             return eventAlreadyExists
         }
     
+    private func mapForEvent(venueName: String) -> EKStructuredLocation {
+        guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return EKStructuredLocation()}
+        guard let venueName = currentBand?.xityShows?[selected.row].show.venue else {return EKStructuredLocation()}
+        guard let venue = businessController.businessArray.first(where: {$0.name == venueName}) else {return EKStructuredLocation()}
+        let geoCoder = CLGeocoder()
+        let structLocation = EKStructuredLocation(title: venueName)
+        geoCoder.geocodeAddressString(venue.address) { placemarks, error in
+            if let error = error {
+                NSLog(error.localizedDescription)
+            }
+            guard let location = placemarks?.first?.location else {return}
+            let coordinate = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            structLocation.geoLocation = coordinate
+            //structLocation.radius = 0.5
+        }
+        return structLocation
+    }
     
 }
 
@@ -610,6 +657,10 @@ extension BandDetailViewController {
     }
     
     private func supportIndicatorSetup() {
+        //Separator
+        separatorView.addSubview(separatorProgress)
+        separatorProgress.startAnimating()
+        
         //Button
         buttonIndicatorView.addSubview(supportIndicatorButton)
         
@@ -636,6 +687,18 @@ extension BandDetailViewController {
         supportIndicator1.startAnimating()
         
         supportIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        //separatorIndicator UI
+        separatorProgress.mode = .indeterminate
+        separatorProgress.progressTintColors = [UIColor.systemTeal, UIColor.systemOrange, UIColor.systemBlue, UIColor.systemPink, UIColor.systemPurple]
+        separatorProgress.trackTintColor = cc.transBlack
+        
+        separatorProgress.translatesAutoresizingMaskIntoConstraints = false
+        separatorProgress.centerXAnchor.constraint(equalTo: separatorView.centerXAnchor).isActive = true
+        separatorProgress.centerYAnchor.constraint(equalTo: separatorView.centerYAnchor).isActive = true
+        separatorProgress.widthAnchor.constraint(equalTo: separatorView.widthAnchor).isActive = true
+        separatorProgress.heightAnchor.constraint(equalTo: separatorView.heightAnchor).isActive = true
+        
         
         //supportIndicatorButtonUI
         supportIndicatorButton.indicatorMode = .indeterminate

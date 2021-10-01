@@ -16,7 +16,7 @@ enum UserFeatureReply {
 }
 
 class UserAdController {
-    var shouldShowAds = true
+    var shouldShowAds = false
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
