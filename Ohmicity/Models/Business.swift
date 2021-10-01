@@ -9,16 +9,6 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-enum BusinessType: String, Codable, Equatable, Hashable {
-    case Restaurant
-    case Bar
-    case Club
-    case Outdoors
-    case LiveMusic = "Live Music"
-    case Family = "Family Friendly"
-    case None
-}
-
 protocol MutatingProtocolForBusinessData {
     //Empty for the purpose adding Hours to a business
 }

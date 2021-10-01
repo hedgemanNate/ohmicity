@@ -55,3 +55,13 @@ enum Genre: String, Codable {
     case Gospel
     case EasyListening
 }
+
+enum BusinessType: String, Codable, Equatable, Hashable {
+    case Restaurant
+    case Bar
+    case Club
+    case Outdoors
+    case LiveMusic = "Live Music"
+    case Family = "Family Friendly"
+    case None
+}

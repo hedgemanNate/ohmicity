@@ -136,8 +136,8 @@
 		F6F3DB4626AF337C00C49016 /* club.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4026AF337600C49016 /* club.png */; };
 		F6F3DB4726AF337C00C49016 /* outdoors.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4126AF337700C49016 /* outdoors.png */; };
 		F6F3DB4826AF337C00C49016 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4226AF337800C49016 /* bar.png */; };
-		F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4326AF337900C49016 /* livemusic.png */; };
-		F6F3DB4A26AF337C00C49016 /* family.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4426AF337B00C49016 /* family.png */; };
+		F6F3DB4926AF337C00C49016 /* live music.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4326AF337900C49016 /* live music.png */; };
+		F6F3DB4A26AF337C00C49016 /* family friendly.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F3DB4426AF337B00C49016 /* family friendly.png */; };
 		F6FD18CA26EAB74400B145AC /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD18C926EAB74400B145AC /* PurchaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -276,8 +276,8 @@
 		F6F3DB4026AF337600C49016 /* club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club.png; sourceTree = "<group>"; };
 		F6F3DB4126AF337700C49016 /* outdoors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outdoors.png; sourceTree = "<group>"; };
 		F6F3DB4226AF337800C49016 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
-		F6F3DB4326AF337900C49016 /* livemusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livemusic.png; sourceTree = "<group>"; };
-		F6F3DB4426AF337B00C49016 /* family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = family.png; sourceTree = "<group>"; };
+		F6F3DB4326AF337900C49016 /* live music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "live music.png"; sourceTree = "<group>"; };
+		F6F3DB4426AF337B00C49016 /* family friendly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "family friendly.png"; sourceTree = "<group>"; };
 		F6FD18C926EAB74400B145AC /* PurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -635,8 +635,8 @@
 				F66C99C926BD16F400A7C135 /* band.jpg */,
 				F6F3DB4226AF337800C49016 /* bar.png */,
 				F6F3DB4026AF337600C49016 /* club.png */,
-				F6F3DB4426AF337B00C49016 /* family.png */,
-				F6F3DB4326AF337900C49016 /* livemusic.png */,
+				F6F3DB4426AF337B00C49016 /* family friendly.png */,
+				F6F3DB4326AF337900C49016 /* live music.png */,
 				F6F3DB4126AF337700C49016 /* outdoors.png */,
 				F6F3DB3F26AF337400C49016 /* restaurant.png */,
 			);
@@ -725,10 +725,10 @@
 				F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */,
 				F66226822707241100593C72 /* country.jpg in Resources */,
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
-				F6F3DB4A26AF337C00C49016 /* family.png in Resources */,
+				F6F3DB4A26AF337C00C49016 /* family friendly.png in Resources */,
 				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
 				F662266E270572EC00593C72 /* Venue.storyboard in Resources */,
-				F6F3DB4926AF337C00C49016 /* livemusic.png in Resources */,
+				F6F3DB4926AF337C00C49016 /* live music.png in Resources */,
 				F662268B2707241100593C72 /* jamband.jpg in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				F66226902707241100593C72 /* reggae.jpg in Resources */,
