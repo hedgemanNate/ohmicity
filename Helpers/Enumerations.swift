@@ -54,6 +54,7 @@ enum Genre: String, Codable {
     case JamBand
     case Gospel
     case EasyListening
+    case NA
 }
 
 enum BusinessType: String, Codable, Equatable, Hashable {

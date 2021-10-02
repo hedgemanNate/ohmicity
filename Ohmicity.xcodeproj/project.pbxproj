@@ -25,6 +25,7 @@
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
 		F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E865626CC8952001DE21A /* TemporaryViewController.swift */; };
 		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
+		F619F109270925F800FDE93F /* na.png in Resources */ = {isa = PBXBuildFile; fileRef = F619F108270925F800FDE93F /* na.png */; };
 		F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C370326B64E2200A2235B /* VenueDetailViewController.swift */; };
 		F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370626B64E5A00A2235B /* directionsIcon.png */; };
 		F61C370926B64E5B00A2235B /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370726B64E5A00A2235B /* listenButton.png */; };
@@ -166,6 +167,7 @@
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
 		F60E865626CC8952001DE21A /* TemporaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TemporaryViewController.swift; path = Temporary/TemporaryViewController.swift; sourceTree = "<group>"; };
 		F60EB6362656D3C400CDB6F6 /* goTonight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goTonight.json; sourceTree = "<group>"; };
+		F619F108270925F800FDE93F /* na.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = na.png; sourceTree = "<group>"; };
 		F61C370326B64E2200A2235B /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		F61C370626B64E5A00A2235B /* directionsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = directionsIcon.png; sourceTree = "<group>"; };
 		F61C370726B64E5A00A2235B /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				F644E8562707FF1500FF81A8 /* pop.png */,
 				F644E8572707FF1500FF81A8 /* reggae.png */,
 				F644E8582707FF1500FF81A8 /* rock.png */,
+				F619F108270925F800FDE93F /* na.png */,
 				F644E8592707FF1500FF81A8 /* soul.png */,
 			);
 			name = "Music Genre";
@@ -716,6 +719,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F619F109270925F800FDE93F /* na.png in Resources */,
 				F66C99CA26BD16F600A7C135 /* band.jpg in Resources */,
 				F60DDB8E269E483F009DD827 /* BandVenueBorder.png in Resources */,
 				F6622668270572D900593C72 /* Subscription.storyboard in Resources */,

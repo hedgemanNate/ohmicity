@@ -813,11 +813,11 @@
                                             <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txy-IN-ftp">
                                                 <rect key="frame" x="21" y="288" width="386" height="533"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <mutableString key="text">Town By Xity is all about giving our local musicians our support. So every time you tap on the Support Button, you show support to the band on the page. And with enough support, your favorite bands will receive things that they need to keep the music coming! Everything from small show promotions to studio recordings and productions!
+                                                <string key="text">Town By Xity is all about giving our local musicians our support. So every time you tap on the Support Button, you show support to the band on the page. And with enough support, your favorite bands will receive things that they need to keep the music coming! Everything from small show promotions to studio recordings and productions!
 
 And they aren’t the only ones. Every time you press the Support Button, you remain and active fan! And active fans get rewarded with free merch, free Xity Passes or other give aways. Just come and show your support for the bands you love!
 
-Always remember: Support live local musicians. Support live local music venues. Support live local music lovers!</mutableString>
+Always remember: Support live local musicians. Support live local music venues. Support live local music lovers!</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

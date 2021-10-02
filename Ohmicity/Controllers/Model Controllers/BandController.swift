@@ -59,6 +59,9 @@ class BandController {
                         switch result {
                         case .success(let band):
                             if let band = band {
+                                if band.genre == [] {
+                                    band.genre = [.NA]
+                                }
                                 self.bandArray.removeAll(where: {$0 == band})
                                 self.bandArray.append(band)
                             } else {
