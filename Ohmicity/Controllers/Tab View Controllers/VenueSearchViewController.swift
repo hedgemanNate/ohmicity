@@ -161,7 +161,7 @@ extension VenueSearchViewController {
     }
     
     //MARK: Search Function
-    private func startSearch(searchText: String, genre: Genre? = nil, city: City? = nil, business: BusinessType? = nil) {
+    private func startSearch(searchText: String, city: City? = nil, business: BusinessType? = nil) {
         if segmentedController.selectedSegmentIndex == 1 && city != nil {
             if searchText == "" {
                 businessResultsArray = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
@@ -171,8 +171,10 @@ extension VenueSearchViewController {
         } else if segmentedController.selectedSegmentIndex == 0 && business != nil {
             if searchText == "" {
                 businessResultsArray = xityBusinessController.businessArray.filter({$0.business.businessType.contains(business!)})
+                tableView.reloadData()
             } else {
                 businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
+                tableView.reloadData()
             }
             
             
@@ -312,29 +314,25 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
                 item.layer.borderColor = cc.highlightBlue.cgColor
         }
         
-        startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: businessType)
-        
         switch segmentedController.selectedSegmentIndex {
         case 0:
-            genre = nil
             city = nil
             businessType = nil
-            
             businessType = businessController.businessTypeArray[indexPath.row]
+            
             if let business = businessType {
                 print(business.rawValue)
-                startSearch(searchText: searchBar.text ?? "", genre: genre, city: city, business: business)
+                startSearch(searchText: "", city: city, business: business)
             }
             
         case 1:
-            genre = nil
             city = nil
             businessType = nil
             
             city = businessController.citiesArray[indexPath.row]
             if let city = city {
                 print(city.rawValue)
-                startSearch(searchText: "", genre: genre, city: city, business: businessType)
+                startSearch(searchText: "", city: city, business: businessType)
             }
             
         default:
