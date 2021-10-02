@@ -290,8 +290,10 @@ extension VenueDetailViewController {
                 self.favoriteButton.setImage(emptyHeart, for: .normal)
             }
         } else {
-            
+            //Future Code
         }
+        
+        
         
         
         //Map
@@ -319,7 +321,9 @@ extension VenueDetailViewController {
         //MARK: -Tonights Show Logic
         if featuredShow == nil {
             featuredShow = xityBusiness.xityShows.first ?? blankXityShow
+            bandPhotoButton.isEnabled = false
         }
+        
         let featuredBand = featuredShow!.band
         
         //Find Band for Tonight's Show and fill out info
