@@ -363,13 +363,13 @@ class BandDetailViewController: UIViewController {
 extension BandDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let currentBand = currentBand else {return 0}
+        //guard let currentBand = currentBand else {return 0}
         
         switch collectionView {
         case bannerAdCollectionView:
             return 50
         case genreCollectionView:
-            return currentBand.band.genre.count
+            return 200
         default:
             return 0
         }
@@ -404,7 +404,7 @@ extension BandDetailViewController: UICollectionViewDelegateFlowLayout, UICollec
             
         case genreCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCell", for: indexPath) as? CitiesCollectionViewCell else {return UICollectionViewCell()}
-            cell.bandGenre = currentBand.band.genre[indexPath.row]
+            cell.bandGenre = currentBand.band.genre[indexPath.row % currentBand.band.genre.count]
             return cell
             
         default:

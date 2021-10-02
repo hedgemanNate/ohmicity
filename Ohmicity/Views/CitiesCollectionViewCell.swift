@@ -51,7 +51,7 @@ class CitiesCollectionViewCell: UICollectionViewCell {
         didSet {
             
             if let bandGenre = bandGenre {
-                imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).jpg")
+                imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).png")
                 nameLabel.text = ""
             }
         }

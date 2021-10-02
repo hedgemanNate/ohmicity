@@ -321,10 +321,15 @@ extension VenueDetailViewController {
         //MARK: -Tonights Show Logic
         if featuredShow == nil {
             featuredShow = xityBusiness.xityShows.first ?? blankXityShow
-            bandPhotoButton.isEnabled = false
         }
         
         let featuredBand = featuredShow!.band
+        
+        if featuredBand.name == "No Show" {
+            bandPhotoButton.isEnabled = false
+        } else {
+            bandPhotoButton.isEnabled = true
+        }
         
         //Find Band for Tonight's Show and fill out info
         let showTimeString = featuredShow!.show.dateString
