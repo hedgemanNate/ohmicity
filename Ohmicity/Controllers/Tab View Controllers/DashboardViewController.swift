@@ -66,6 +66,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkMonitor.startMonitoring()
         setUpNotificationObservers()
         createInterstitialAd()
         updateViews()

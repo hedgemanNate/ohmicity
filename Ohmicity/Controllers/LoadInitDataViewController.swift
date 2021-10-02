@@ -61,7 +61,8 @@ class LoadInitDataViewController: UIViewController {
     
     var failureCounter = 0 {
         didSet {
-            if failureCounter == 10 {
+            NSLog("🚨 Loading Failure: \(failureCounter)/6")
+            if failureCounter == 6 {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "FailedSegue", sender: self)
                 }
@@ -147,9 +148,18 @@ extension LoadInitDataViewController {
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessAdData.name, object: nil)
+        
+        //Network Notifications
+        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
     //@objc Functions
+    @objc private func lostNetworkConnection() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
+        }
+    }
+    
     @objc private func counting(_ notification: NSNotification) {
 
         switch notification.name {

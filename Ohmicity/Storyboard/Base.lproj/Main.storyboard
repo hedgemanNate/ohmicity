@@ -87,11 +87,12 @@
                     <connections>
                         <segue destination="K1r-XI-Dsm" kind="presentation" identifier="ToDashboard" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="fjy-9t-unJ"/>
                         <segue destination="Nke-Fj-Oif" kind="presentation" identifier="FailedSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="9Pv-G2-gH4"/>
+                        <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="7HS-V6-wWy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCs-Pg-jIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3948" y="-2164"/>
+            <point key="canvasLocation" x="-3949" y="-2180"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="u2M-2R-i6y">
@@ -144,7 +145,7 @@ Check your internet connection and try again. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-5m-R0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3171.0280373831774" y="-1437.1490280777539"/>
+            <point key="canvasLocation" x="-3949" y="-1470"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="awe-Of-PtB">
@@ -1725,7 +1726,7 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-L8-xJL"/>
+        <segue reference="7HS-V6-wWy"/>
         <segue reference="fQ9-bq-bhx"/>
         <segue reference="30H-i8-TRl"/>
         <segue reference="sZi-Pr-M00"/>
