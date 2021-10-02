@@ -176,12 +176,12 @@ extension DashboardViewController {
     //MARK: Banner Ad
     @objc private func bannerChange() {
         let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
-        let currentPath = shownPath.first
+        guard let currentPath = shownPath.first else {return}
     
-        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
+        var indexPath = IndexPath(row: currentPath.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 25 {
+        if currentPath.row < 25 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
         } else {
@@ -363,7 +363,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         switch collectionView {
         case bannerAdCollectionView:
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
-            return 50
+            return  50
             
         case todayCollectionView:
             return xityShowController.todayShowResultsArray.count
@@ -380,7 +380,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case xityPickCollectionView:
             if currentUserController.currentUser == nil {
                 xityShowController.weeklyPicksArray.shuffle()
-                return 1
+                return xityShowController.weeklyPicksArray.count
             } else {
                 xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
                 return xityShowController.weeklyPicksArray.count

@@ -29,7 +29,21 @@ class LastModifiedDateHandler {
         print("!!!SAVEDDATE: \(Timestamp(date: timeController.savedDateForDatabaseUse!).dateValue())")
     }
     
-    
+    func retryToGetData() {
+        NSLog("!*!*!First Open!*!*!")
+        //ALL BUSINESS DATA
+        businessController.getAllBusinessData()
+
+        //ALL SHOW DATA
+        showController.getAllShowData()
+        
+        //ALL BAND DATA
+        bandController.getAllBandData()
+        
+        //ALL BANNER DATA
+        businessBannerAdController.getAllBusinessAdData()
+        saveDate()
+    }
     
     func checkDateAndGetData() {
         if UserDefaults.standard.object(forKey: "SavedDate") == nil {

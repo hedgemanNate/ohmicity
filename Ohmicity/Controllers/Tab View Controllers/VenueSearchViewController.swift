@@ -369,9 +369,9 @@ extension VenueSearchViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedController.selectedSegmentIndex {
         case 0:
-            return businessResultsArray?.count ?? 0
+            return businessResultsArray?.count ?? 1000
         case 1:
-            return businessResultsArray?.count ?? 0
+            return businessResultsArray?.count ?? 1000
         default:
             return 0
         }

@@ -13,25 +13,58 @@ import MaterialComponents.MaterialActivityIndicator
 class LoadInitDataViewController: UIViewController {
     
     //Properties
-    var todayShowArray: [Show] = []
-    var todayVenueArray: [Business] = []
     
+    //For Debuging the loader
+//    var newDataAction = 0 {
+//        didSet{
+//            print("🚨 New Data Action \(newDataAction)")
+//        }
+//    }
+//    var cacheAction = 0 {
+//        didSet{
+//            print("🚨 Cache Action \(cacheAction)")
+//        }
+//    }
+//    var allDataAction = 0 {
+//        didSet{
+//            print("🚨 All Data Action \(allDataAction)")
+//        }
+//    }
     
     var dataActionsFinished = 0 {
         didSet {
-            print("####Current Data Action Amount: \(dataActionsFinished)")
-            if dataActionsFinished >= 8 {
+            print("🔄 Data Actions \(dataActionsFinished)")
+            if dataActionsFinished == 8 {
                 organizeData(); print("DATA ACTIONS FIN")
             }
         }
     }
     
     
-    var syncingActionsFinished = 0 {
+    var organizingActionsFinished = 0 {
         didSet{
-            print(syncingActionsFinished)
-            if syncingActionsFinished == 4 {
+            print("🔄 Organization Actions\(organizingActionsFinished)")
+            if organizingActionsFinished == 4 {
+                checkingThatDataExists()
+            }
+        }
+    }
+    
+    var checkingDataActionsFinished = 0 {
+        didSet {
+            print("🔄 Checking Data Actions\(checkingDataActionsFinished)")
+            if checkingDataActionsFinished == 6 {
                 doneLoading()
+            }
+        }
+    }
+    
+    var failureCounter = 0 {
+        didSet {
+            if failureCounter == 10 {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "FailedSegue", sender: self)
+                }
             }
         }
     }
@@ -74,7 +107,7 @@ extension LoadInitDataViewController {
     
     
     func doneLoading() {
-        print("**DONE LOADING FUNC****")
+        print("✅ DONE LOADING")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
@@ -123,46 +156,134 @@ extension LoadInitDataViewController {
         
         case notifications.gotNewBandData.name:
             dataActionsFinished += 1
+            
             print("gotNewBandData")
         case notifications.gotNewBusinessData.name:
             dataActionsFinished += 1
+            // For Debuging the loader newDataAction += 1
             print("gotNewBusinessData")
         case notifications.gotNewBusinessAdData.name:
             dataActionsFinished += 1
+            // For Debuging the loader newDataAction += 1
             print("gotNewBusinessAdData")
         case notifications.gotNewShowData.name:
             dataActionsFinished += 1
+            // For Debuging the loader newDataAction += 1
             print("gotNewShowData")
             
         
         case notifications.gotCacheBandData.name:
             dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
             print("gotCacheBandData")
         case notifications.gotCacheBusinessData.name:
             dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
             print("gotCacheBusinessData")
         case notifications.gotCacheShowData.name:
             dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
             print("gotCacheShowData")
         case notifications.gotCacheBusinessAdData.name:
            dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
             print("gotCacheBusinessAdData")
         
         
         case notifications.gotAllBandData.name:
             dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
             print("gotAllBandData")
         case notifications.gotAllBusinessAdData.name:
             dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
             print("gotAllBusinessAdData")
         case notifications.gotAllBusinessData.name:
             dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
             print("gotAllBusinessData")
         case notifications.gotAllShowData.name:
             dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
             print("gotAllShowData")
         default:
             break
+        }
+    }
+    
+    //MARK: Checking Data
+    private func checkingThatDataExists() {
+        //1
+        if businessController.businessArray.count >= 50 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //2
+        if bandController.bandArray.count >= 250 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //3
+        if showController.showArray.count >= 100 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //4
+        if xityBusinessController.businessArray.count >= 50 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //5
+        if xityBandController.bandArray.count >= 250 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //6
+        if xityShowController.showArray.count >= 100 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
         }
     }
     
@@ -176,7 +297,7 @@ extension LoadInitDataViewController {
         let op2 = BlockOperation {
             xityBandController.fillXityBandArray()
             xityBusinessController.fillXityBusinessArray()
-            self.syncingActionsFinished += 1
+            self.organizingActionsFinished += 1
             print("*** Creating Xity Band And Business Data ***")
         }
         
@@ -185,7 +306,7 @@ extension LoadInitDataViewController {
             xityShowController.getWeeklyPicks()
             //xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
             
-            self.syncingActionsFinished += 1
+            self.organizingActionsFinished += 1
             print("*** Collected Weekly Picks ***")
         }
         
@@ -205,7 +326,7 @@ extension LoadInitDataViewController {
             }
             
             xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
-            self.syncingActionsFinished += 1
+            self.organizingActionsFinished += 1
             print("*** Collected Today's Shows ***")
         }
         
@@ -213,7 +334,6 @@ extension LoadInitDataViewController {
             //Creating Xity Show Data
             let genericBand = Band(name: "No Name")
             let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
-            print("op3 Started")
             var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             showArray.removeAll(where: {$0.onHold == true})
             
@@ -238,7 +358,7 @@ extension LoadInitDataViewController {
                 
             }
             xityShowController.removeDuplicates()
-            self.syncingActionsFinished += 1
+            self.organizingActionsFinished += 1
             print("*** Creating Xity Show Data ***")
         }
         

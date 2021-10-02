@@ -26,7 +26,7 @@ class Band: Codable, Equatable, Hashable {
     var genre: [Genre] = []
     var ratings: [BandsRatings]?
     var mediaLink: String?
-    var xitySupport: Int?
+    //var xitySupport: Int?
     var ohmPick: Bool = false
     
     init(name: String) {

@@ -640,7 +640,7 @@ extension BandDetailViewController {
     }
     
     private func supportLogicCalculator() {
-        let value = currentBand?.band.xitySupport ?? 0
+        let value = 0
         supportValue = Float(value)
         
         step1Percentage = Float(supportValue / step1Value)
