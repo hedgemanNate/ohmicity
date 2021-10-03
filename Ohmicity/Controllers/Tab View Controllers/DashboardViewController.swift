@@ -187,6 +187,7 @@ extension DashboardViewController {
     
     //MARK: UPDATEVIEWS
     @objc private func updateViews() {
+        userAdController.setUpAdsAndFeaturesForUser()
         handleHidden()
         showController.removeHolds()
         setupUpCollectionViews()
@@ -196,9 +197,7 @@ extension DashboardViewController {
         
         cityFilterLabel.text = "~Filter Off"
         
-        //Pull Down to refresh... get working in future
-//        scrollView.refreshControl = UIRefreshControl()
-//        scrollView.refreshControl?.addTarget(self, action: #selector(organizeData), for: .valueChanged)
+        
         
         //Recommendation View
         if currentUserController.currentUser == nil {
@@ -354,12 +353,21 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return businessController.businessTypeArray.count
             
         case favoritesCollectionView:
-            return currentUserController.favArray.count
+            if subscriptionController.favorites {
+                return currentUserController.favArray.count
+            } else {
+                if currentUserController.favArray.count < 1 {
+                    return currentUserController.favArray.count
+                } else {
+                    return 1
+                }
+            }
+            
             
         case xityPickCollectionView:
             if currentUserController.currentUser == nil {
                 xityShowController.weeklyPicksArray.shuffle()
-                return xityShowController.weeklyPicksArray.count
+                return 1
             } else {
                 xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
                 return xityShowController.weeklyPicksArray.count

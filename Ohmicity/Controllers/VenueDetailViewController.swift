@@ -15,12 +15,13 @@ import GoogleMobileAds
 enum AfterAd: String {
     case watchBandVideo
     case getMapDirections
+    case nothing
 }
 
 class VenueDetailViewController: UIViewController {
     
     //MARK: Properties
-    var currentUser = currentUserController.currentUser
+    let currentUser = currentUserController.currentUser
     var xityBusiness: XityBusiness?
     var featuredShow: XityShow?
     var bandMedia: String = ""
@@ -56,6 +57,8 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var bandGenreLabel: UILabel!
     @IBOutlet weak var businessRatingLabel: UILabel!
     
+    @IBOutlet weak var upComingDetailLabel: UILabel!
+    
     //Map
     @IBOutlet weak var mapNameLabel: UILabel!
     @IBOutlet weak var mapAddressLabel: UILabel!
@@ -70,6 +73,14 @@ class VenueDetailViewController: UIViewController {
     private var interstitialAd: GADInterstitialAd?
     lazy private var segueToPerform = ""
     var afterAdIsShown: AfterAd?
+    var upComingShowTapCount = 0 {
+        didSet {
+            if upComingShowTapCount > 2 {
+                upComingShowTapCount = 0
+                checkForAdThenRunFunction(for: .nothing)
+            }
+        }
+    }
     
     //MARK: ViewDidLoad
     override func viewDidLoad() {
@@ -116,11 +127,10 @@ class VenueDetailViewController: UIViewController {
         setupHoursAlertConstraints()
     }
     
-    @IBAction func favoriteButtonTapped(_ sender: Any) {
-        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: favoriteButtonTapped: venueDetailViewController")}
+    private func addFavoriteFunction() {
+        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found")}
         
-        //MARK: BETA
-        if currentUser != nil /*&& (currentUser?.subscription == .BackStagePass || currentUser?.subscription == .FullAccessPass) */{
+        if currentUser != nil {
             if currentUser!.favoriteBusinesses.contains(xityBusiness.business.venueID) {
                 currentUser!.favoriteBusinesses.removeAll(where: {$0 == xityBusiness.business.venueID})
                 NSLog("Business Removed From Favorites")
@@ -149,12 +159,26 @@ class VenueDetailViewController: UIViewController {
                     NSLog("Error Pushing favoriteBusiness")
                 }
             }
-        } else if currentUser == nil {
-            self.performSegue(withIdentifier: "ToSignIn", sender: self)
-        } else if currentUser?.subscription == .FrontRowPass || currentUser?.subscription == .None {
-            performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
         }
-        
+    }
+    
+    
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        if currentUserController.currentUser != nil {
+            if subscriptionController.seeAllData {
+                addFavoriteFunction()
+            } else {
+                if currentUserController.currentUser?.favoriteBusinesses.count ?? 0 < 1 {
+                    addFavoriteFunction()
+                } else if currentUserController.currentUser?.favoriteBusinesses.count ?? 0 >= 1 && currentUser!.favoriteBusinesses.contains(xityBusiness?.business.venueID ?? "") {
+                    addFavoriteFunction()
+                } else {
+                    self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
+                }
+            }
+        } else {
+            self.performSegue(withIdentifier: "ToSignIn", sender: self)
+        }
     }
     
     @IBAction func bandPhotoTapped(_ sender: Any) {
@@ -218,7 +242,7 @@ extension VenueDetailViewController {
     private func setUpNotificationObservers() {
         
         //Hide Views
-        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(userSignedIn), name: notifications.userAuthUpdated.name, object: nil)
         
         //Banner SlideShow Start
         notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
@@ -269,6 +293,11 @@ extension VenueDetailViewController {
         self.backgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         self.backgroundView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
         self.backgroundView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+    }
+    
+    @objc private func userSignedIn() {
+        nextShowsTableView.reloadData()
+        updateViews()
     }
     
     
@@ -336,6 +365,14 @@ extension VenueDetailViewController {
             recommendButton.setTitle("Recommend", for: .normal)
         }
         
+        
+        
+        if subscriptionController.seeAllData == false {
+            upComingDetailLabel.text = "See All \(xityBusiness.xityShows.count - 1) shows with any Xity Pass"
+            nextShowsTableView.reloadData()
+        } else {
+            upComingDetailLabel.text = ""
+        }
         
         //SetTime
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
@@ -473,11 +510,23 @@ extension VenueDetailViewController {
 //MARK: -----UpdateViews End-----
 
 
+
+
 //MARK: - TableView
 extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return xityBusiness?.xityShows.count ?? 0
+        if subscriptionController.seeAllData == false {
+            xityBusiness?.xityShows.shuffle()
+            return 1
+        } else {
+            xityBusiness?.xityShows.sort(by: {$0.show.date < $1.show.date})
+            if xityBusiness?.xityShows.count == 0 {
+                return 1
+            } else {
+                return xityBusiness?.xityShows.count ?? 1
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -500,6 +549,11 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let show = xityBusiness?.xityShows[indexPath.row]
         featuredShow = show
+        
+        if subscriptionController.seeAllData == false {
+            upComingShowTapCount += 1
+        }
+        
         DispatchQueue.main.async {
             self.updateViews()
         }
@@ -547,6 +601,9 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
         case .getMapDirections:
             mapButtonFunction()
             
+        case .nothing:
+            return
+            
         case .none:
             performSegue(withIdentifier: segueToPerform, sender: self)
         }
@@ -592,6 +649,8 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
                 listenButtonFunction()
             case .getMapDirections:
                 mapButtonFunction()
+            case .nothing:
+                return
             }
         }
     }

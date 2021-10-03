@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Band" id="KLq-Ds-344" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Mg-lD-LPT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="-252"/>
+            <point key="canvasLocation" x="414" y="147"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ReK-St-IFX">
@@ -225,11 +225,29 @@
                         <outlet property="searchBar" destination="vl6-8g-0dc" id="dNL-gG-jvk"/>
                         <outlet property="tableView" destination="Nux-7j-wA2" id="pfW-0o-iyY"/>
                         <segue destination="KLq-Ds-344" kind="presentation" identifier="BandSegue" id="fMe-rz-XbI"/>
+                        <segue destination="I5S-r8-SdG" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="vrZ-su-jfU"/>
+                        <segue destination="5t2-vD-QcJ" kind="presentation" identifier="ToSignIn" id="N7u-UN-2HQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8B3-k6-63j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172.46376811594203" y="146.65178571428569"/>
+            <point key="canvasLocation" x="-216" y="131"/>
+        </scene>
+        <!--Subscription-->
+        <scene sceneID="gVE-Xi-X6y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Subscription" id="I5S-r8-SdG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qj3-FR-ghE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448" y="80"/>
+        </scene>
+        <!--SignIn-->
+        <scene sceneID="Kww-WI-7Vg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" id="5t2-vD-QcJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wm2-gK-tqE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="414" y="192"/>
         </scene>
     </scenes>
     <resources>

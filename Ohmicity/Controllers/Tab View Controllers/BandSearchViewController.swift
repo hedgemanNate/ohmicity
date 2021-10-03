@@ -48,6 +48,7 @@ class BandSearchViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         endTimer()
+        searchBar.text = ""
     }
     
     
@@ -199,10 +200,15 @@ extension BandSearchViewController: UICollectionViewDataSource, UICollectionView
     
 }
 
+//MARK: Search Protocols
 extension BandSearchViewController: UISearchBarDelegate {
-    //MARK: Search Function
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        startSearch(searchText: searchText)
+        let subControl = subscriptionController
+        subControl.userFeaturesAvailableCheck(feature: subControl.search, viewController: self) {
+            startSearch(searchText: searchText)
+        }
+        
     }
     
     private func startSearch(searchText: String) {

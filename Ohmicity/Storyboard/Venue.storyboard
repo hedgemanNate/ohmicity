@@ -359,11 +359,8 @@ should be on Xity?</string>
                                                     <constraint firstItem="Ftc-Gs-RIA" firstAttribute="leading" secondItem="HTY-1u-ENq" secondAttribute="leading" id="i2N-5F-z6X"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlK-K4-ZfG">
-                                                <rect key="frame" x="9" y="666" width="266" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="zlK-K4-ZfG" secondAttribute="height" multiplier="133:16" id="wXc-su-gnI"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See Upcoming Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlK-K4-ZfG">
+                                                <rect key="frame" x="9" y="666" width="246.5" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -492,7 +489,7 @@ Florida 34222 </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7k-Js-eCY">
-                                                <rect key="frame" x="237" y="597.5" width="166" height="48"/>
+                                                <rect key="frame" x="237" y="597.5" width="166" height="47.5"/>
                                                 <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="break">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -501,6 +498,12 @@ Florida 34222 </string>
                                                     <action selector="breaker:" destination="WxN-2n-PcG" eventType="touchUpInside" id="kbw-Yy-Wyd"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxr-AB-gQQ">
+                                                <rect key="frame" x="381.5" y="883" width="37.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -520,11 +523,13 @@ Florida 34222 </string>
                                             <constraint firstItem="tY8-Xb-aSd" firstAttribute="leading" secondItem="JQl-aJ-Ioj" secondAttribute="leading" id="MZm-NB-aXS"/>
                                             <constraint firstItem="uBx-gY-Bgd" firstAttribute="top" secondItem="Xa0-Pu-7J2" secondAttribute="top" id="PGc-DJ-GD9"/>
                                             <constraint firstAttribute="trailing" secondItem="HsI-6P-9qy" secondAttribute="trailing" constant="9" id="Q0E-tt-lOI"/>
+                                            <constraint firstAttribute="trailing" secondItem="yxr-AB-gQQ" secondAttribute="trailing" constant="9" id="RjF-SN-08T"/>
                                             <constraint firstItem="HsI-6P-9qy" firstAttribute="leading" secondItem="JQl-aJ-Ioj" secondAttribute="leading" constant="9" id="SIV-vY-EPY"/>
                                             <constraint firstItem="cGf-PF-vc0" firstAttribute="trailing" secondItem="Xa0-Pu-7J2" secondAttribute="trailing" id="Vo8-J7-uYX"/>
                                             <constraint firstItem="cGf-PF-vc0" firstAttribute="top" secondItem="Xa0-Pu-7J2" secondAttribute="bottom" constant="7" id="WGK-yS-Lxz"/>
                                             <constraint firstAttribute="trailing" secondItem="EXh-gH-ikj" secondAttribute="trailing" constant="9" id="WWs-ZB-A9d"/>
                                             <constraint firstAttribute="trailing" secondItem="uBx-gY-Bgd" secondAttribute="trailing" constant="9" id="YFn-Kz-sjG"/>
+                                            <constraint firstItem="yxr-AB-gQQ" firstAttribute="top" secondItem="gl9-6M-Nhd" secondAttribute="bottom" constant="8" id="Yq1-pE-8T4"/>
                                             <constraint firstAttribute="trailing" secondItem="c7k-Js-eCY" secondAttribute="trailing" constant="25" id="ZQO-BA-6F0"/>
                                             <constraint firstItem="tY8-Xb-aSd" firstAttribute="top" secondItem="1hi-1b-22L" secondAttribute="bottom" id="ZWN-hV-Qpe"/>
                                             <constraint firstItem="2RQ-3C-3iG" firstAttribute="top" secondItem="gl9-6M-Nhd" secondAttribute="bottom" constant="35" id="aFy-Pw-ZPy"/>
@@ -536,7 +541,7 @@ Florida 34222 </string>
                                             <constraint firstAttribute="height" constant="1550" id="hBx-pe-vTX"/>
                                             <constraint firstItem="c7k-Js-eCY" firstAttribute="leading" secondItem="cGf-PF-vc0" secondAttribute="trailing" constant="73" id="lWM-m4-8dH"/>
                                             <constraint firstItem="wD6-kx-n0l" firstAttribute="leading" secondItem="JQl-aJ-Ioj" secondAttribute="leading" constant="9" id="lfd-7e-GOa"/>
-                                            <constraint firstItem="zlK-K4-ZfG" firstAttribute="top" secondItem="c7k-Js-eCY" secondAttribute="bottom" constant="20.329999999999998" id="neT-SO-I5Y"/>
+                                            <constraint firstItem="zlK-K4-ZfG" firstAttribute="top" secondItem="c7k-Js-eCY" secondAttribute="bottom" constant="21" id="neT-SO-I5Y"/>
                                             <constraint firstItem="gl9-6M-Nhd" firstAttribute="top" secondItem="zlK-K4-ZfG" secondAttribute="bottom" constant="7" id="tCx-UA-c8s"/>
                                             <constraint firstItem="Xa0-Pu-7J2" firstAttribute="top" secondItem="wD6-kx-n0l" secondAttribute="bottom" constant="7" id="uj0-ya-aZQ"/>
                                             <constraint firstItem="uBx-gY-Bgd" firstAttribute="leading" secondItem="Xa0-Pu-7J2" secondAttribute="trailing" constant="14" id="wl4-Yy-mM2"/>
@@ -587,15 +592,16 @@ Florida 34222 </string>
                         <outlet property="recommendButton" destination="imS-6D-rrR" id="pNA-iU-qBC"/>
                         <outlet property="showTimeLabel" destination="aKU-83-vU4" id="CrI-pA-m9H"/>
                         <outlet property="tonightsEntLabel" destination="wD6-kx-n0l" id="lSs-fl-q4V"/>
+                        <outlet property="upComingDetailLabel" destination="yxr-AB-gQQ" id="fmx-U6-neb"/>
                         <segue destination="Nl7-xF-TxV" kind="presentation" identifier="ToSignIn" id="noR-67-dO5"/>
-                        <segue destination="Ob2-cA-xFa" kind="presentation" modalPresentationStyle="fullScreen" id="dyM-2f-MLh"/>
+                        <segue destination="Ob2-cA-xFa" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="dyM-2f-MLh"/>
                         <segue destination="VAv-9L-EPR" kind="presentation" identifier="ToBandSegue" id="AEA-hr-pRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWz-7I-Miv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="pFf-vB-LAJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-45" y="78"/>
+            <point key="canvasLocation" x="-46.376811594202906" y="77.678571428571431"/>
         </scene>
         <!--Band-->
         <scene sceneID="aRS-zZ-l0i">

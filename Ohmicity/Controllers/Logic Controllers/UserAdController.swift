@@ -26,6 +26,16 @@ class UserAdController {
     
     //Functions
     func setUpAdsAndFeaturesForUser() {
+        if currentUserController.currentUser == nil {
+            subscriptionController.favorites = false
+            subscriptionController.noPopupAds = false
+            subscriptionController.seeAllData = false
+            subscriptionController.showReminders = false
+            subscriptionController.todayShowFilter = false
+            subscriptionController.search = false
+            subscriptionController.xityDeals = false
+        }
+        
         guard let user = currentUserController.currentUser else {showAds = true; return}
         if user.subscription == .None {
             showAds = true

@@ -42,7 +42,7 @@ class VenueSearchViewController: UIViewController {
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
     
-    
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionViews()
@@ -64,13 +64,14 @@ class VenueSearchViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         endTimer()
+        searchBar.text = ""
     }
     
     
     //MARK: Buttons Tapped
     
     @IBAction func breaker(_ sender: Any) {
-        interstitialAd?.present(fromRootViewController: self)
+        
     }
     
     @IBAction func segmentedControllerTapped(_ sender: Any) {
@@ -399,11 +400,14 @@ extension VenueSearchViewController: UITableViewDelegate, UITableViewDataSource 
 extension VenueSearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let searchText = searchBar.text else {return}
         searchCollectionView.allowsSelection = false
         searchCollectionView.allowsSelection = true
-        searchCollectionView.reloadData()
-        startSearch(searchText: searchText)
+        let subControl = subscriptionController
+        subControl.userFeaturesAvailableCheck(feature: subControl.search, viewController: self) {
+            guard let searchText = searchBar.text else {return}
+            searchCollectionView.reloadData()
+            startSearch(searchText: searchText)
+        }
     }
     
     override func textFieldShouldReturn(_ textField: UITextField) -> Bool {

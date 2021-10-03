@@ -303,6 +303,8 @@
                         <outlet property="segmentedController" destination="DZl-Ks-CoK" id="HDJ-4O-TKh"/>
                         <outlet property="tableView" destination="Kf0-ey-VsI" id="ty8-tn-zzm"/>
                         <segue destination="l09-9k-DfI" kind="presentation" identifier="ToVenue" id="xLU-IJ-8Sn"/>
+                        <segue destination="Mlz-BM-8Qm" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="bvy-11-Rlp"/>
+                        <segue destination="Kd2-9R-CYn" kind="presentation" identifier="ToSignIn" id="27I-Zo-oYI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iZ-sq-8vL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -316,6 +318,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUk-Ey-9U4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-1871"/>
+        </scene>
+        <!--Subscription-->
+        <scene sceneID="3ow-Yu-F7u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Subscription" id="Mlz-BM-8Qm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moI-Qw-LOR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1180" y="-1827"/>
+        </scene>
+        <!--SignIn-->
+        <scene sceneID="ipu-qQ-uli">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" id="Kd2-9R-CYn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PdB-bG-LaP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1151" y="-1776"/>
         </scene>
     </scenes>
     <resources>
