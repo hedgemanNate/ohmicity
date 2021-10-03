@@ -63,7 +63,7 @@ class DashboardViewController: UIViewController {
     private var interstitialAd: GADInterstitialAd?
     lazy private var segueToPerform = ""
     
-    
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         networkMonitor.startMonitoring()
@@ -136,7 +136,7 @@ extension DashboardViewController {
     }
     
     private func checkSubscription() {
-        switch userAdController.shouldShowAds {
+        switch userAdController.showAds {
         case true:
             self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
         default:
@@ -436,28 +436,16 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let shouldShowAds = userAdController.shouldShowAds
 
         switch collectionView {
         case todayCollectionView:
+            checkForAdThenSegue(to: todaySegue)
             
-            if interstitialAd != nil && shouldShowAds == true {
-                showAdThirtyThreeChance(segue: todaySegue)
-            } else {
-                performSegue(withIdentifier: todaySegue, sender: self)
-            }
         case favoritesCollectionView:
-            if interstitialAd != nil && shouldShowAds == true {
-                showAdThirtyThreeChance(segue: favSegue)
-            } else {
-                performSegue(withIdentifier: favSegue, sender: self)
-            }
+            checkForAdThenSegue(to: favSegue)
+            
         case xityPickCollectionView:
-            if interstitialAd != nil && shouldShowAds == true {
-                showAdThirtyThreeChance(segue: xityPickSegue)
-            } else {
-                performSegue(withIdentifier: xityPickSegue, sender: self)
-            }
+            checkForAdThenSegue(to: xityPickSegue)
             
         case xityExclusivesCollectionView:
             tabBarController?.selectedIndex = 0
@@ -517,7 +505,6 @@ extension DashboardViewController: GADFullScreenContentDelegate {
     
     func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
         endTimer()
-        print("!!!!!!DASHBOARD MONEY!!!!!")
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
@@ -528,9 +515,9 @@ extension DashboardViewController: GADFullScreenContentDelegate {
     //Functions
     private func createInterstitialAd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialAdUnitID, request: request) { [self] ad, error in
+        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialTestAdID, request: request) { [self] ad, error in
+            
             if let error = error {
-                //Handle Ad Error
                 NSLog("Error Displaying Ad: \(error.localizedDescription)")
                 return
             }
@@ -539,17 +526,18 @@ extension DashboardViewController: GADFullScreenContentDelegate {
         }
     }
     
-    private func showAdThirtyThreeChance(segue: String) {
-        setSegueToPerform(segue: segue)
-        let x = Int.random(in: 1...10)
-        if x == 1 || x == 3 || x == 6 {
-            interstitialAd?.present(fromRootViewController: self)
+    private func checkForAdThenSegue(to segue: String) {
+        segueToPerform = segue
+        
+        if interstitialAd != nil && userAdController.showAds == true {
+            
+            if userAdController.shouldShowAd() && interstitialAd != nil {
+                interstitialAd?.present(fromRootViewController: self)
+            } else {
+                performSegue(withIdentifier: segue, sender: self)
+            }
         } else {
             performSegue(withIdentifier: segue, sender: self)
         }
-    }
-    
-    private func setSegueToPerform(segue: String) {
-        segueToPerform = segue
     }
 }

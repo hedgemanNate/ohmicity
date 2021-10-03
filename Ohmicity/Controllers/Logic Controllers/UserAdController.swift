@@ -16,7 +16,7 @@ enum UserFeatureReply {
 }
 
 class UserAdController {
-    var shouldShowAds = false
+    var showAds = true
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
@@ -25,11 +25,20 @@ class UserAdController {
     
     //Functions
     func setUpAdsForUser() {
-        guard let user = currentUserController.currentUser else {shouldShowAds = true; return}
+        guard let user = currentUserController.currentUser else {showAds = true; return}
         if user.subscription == .None {
-            shouldShowAds = true
+            showAds = true
         } else {
-            shouldShowAds = false
+            showAds = false
+        }
+    }
+    
+    func shouldShowAd() -> Bool {
+        let x = Int.random(in: 1...10)
+        if x <= 10 {
+            return true
+        } else {
+            return false
         }
     }
     
@@ -61,9 +70,6 @@ class UserAdController {
             }
             
         }
-        
-        
-        
         return reply
     }
 }

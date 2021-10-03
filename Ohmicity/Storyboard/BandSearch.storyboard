@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Band" id="KLq-Ds-344" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Mg-lD-LPT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340" y="-506"/>
+            <point key="canvasLocation" x="346" y="-252"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ReK-St-IFX">
@@ -166,7 +166,6 @@
                                                             <outlet property="nameLabel" destination="Qgg-tb-OrB" id="a3b-y6-WrR"/>
                                                             <outlet property="secondNameLabel" destination="Y6u-1M-CQD" id="8aq-qG-blJ"/>
                                                             <outlet property="showImage" destination="06o-9o-ecU" id="6Gg-Sl-Uuc"/>
-                                                            <segue destination="KLq-Ds-344" kind="presentation" identifier="BandSegue" id="dbi-4A-FVo"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -225,6 +224,7 @@
                         <outlet property="bannerAdCollectionView" destination="vKm-Lh-ljm" id="1Z5-C5-KfS"/>
                         <outlet property="searchBar" destination="vl6-8g-0dc" id="dNL-gG-jvk"/>
                         <outlet property="tableView" destination="Nux-7j-wA2" id="pfW-0o-iyY"/>
+                        <segue destination="KLq-Ds-344" kind="presentation" identifier="BandSegue" id="fMe-rz-XbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8B3-k6-63j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

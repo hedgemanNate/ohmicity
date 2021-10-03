@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class BandSearchViewController: UIViewController {
     
@@ -23,9 +24,14 @@ class BandSearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     let searchController = UISearchController()
     
+    //Google Ad Properties
+    private var interstitialAd: GADInterstitialAd?
+    lazy private var segueToPerform = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        createInterstitialAd()
         setUpNotificationObservers()
     }
     
@@ -149,6 +155,10 @@ extension BandSearchViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        checkForAdThenSegue(to: "BandSegue")
+    }
+    
     
     
     
@@ -224,5 +234,47 @@ extension BandSearchViewController: UISearchBarDelegate {
     override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchBar.searchTextField.resignFirstResponder()
         return true
+    }
+}
+
+//MARK: Google Ads Protocols/Functions
+extension BandSearchViewController: GADFullScreenContentDelegate {
+    
+    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+        endTimer()
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        performSegue(withIdentifier: segueToPerform, sender: self)
+        createInterstitialAd()
+    }
+    
+    //Functions
+    private func createInterstitialAd() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialTestAdID, request: request) { [self] ad, error in
+            
+            if let error = error {
+                NSLog("Error Displaying Ad: \(error.localizedDescription)")
+                return
+            }
+            interstitialAd = ad
+            interstitialAd?.fullScreenContentDelegate = self
+        }
+    }
+    
+    private func checkForAdThenSegue(to segue: String) {
+        segueToPerform = segue
+        
+        if interstitialAd != nil && userAdController.showAds == true {
+            
+            if userAdController.shouldShowAd() && interstitialAd != nil {
+                interstitialAd?.present(fromRootViewController: self)
+            } else {
+                performSegue(withIdentifier: segue, sender: self)
+            }
+        } else {
+            performSegue(withIdentifier: segue, sender: self)
+        }
     }
 }

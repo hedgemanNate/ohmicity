@@ -30,8 +30,7 @@ class VenueSearchViewController: UIViewController {
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
-    lazy private var interstitialAdUnitID = "ca-app-pub-9052204067761521/5346686403"
-    lazy private var interstitialTestAdID = "ca-app-pub-3940256099942544/4411468910"
+    lazy private var segueToPerform = ""
     
     var timer = Timer()
     
@@ -390,15 +389,7 @@ extension VenueSearchViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        performSegue(withIdentifier: "ToVenue", sender: self)
-        
-//        if interstitialAd != nil && userAdController.shouldShowAds == true {
-//            interstitialAd?.present(fromRootViewController: self)
-//            endTimer()
-//        } else {
-//            performSegue(withIdentifier: "ToVenue", sender: self)
-//        }
+        checkForAdThenSegue(to: "ToVenue")
     }
 }
 
@@ -441,30 +432,45 @@ extension VenueSearchViewController {
     }
 }
 
+
 //MARK: Google Ads Protocols/Functions
 extension VenueSearchViewController: GADFullScreenContentDelegate {
     
     func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
-        //print("!!!!!!DASHBOARD MONEY!!!!!")
+        endTimer()
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        endTimer()
-        performSegue(withIdentifier: "ToVenue", sender: self)
+        performSegue(withIdentifier: segueToPerform, sender: self)
         createInterstitialAd()
     }
     
     //Functions
     private func createInterstitialAd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: interstitialTestAdID, request: request) { [self] ad, error in
+        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialTestAdID, request: request) { [self] ad, error in
+            
             if let error = error {
-                //Handle Ad Error
                 NSLog("Error Displaying Ad: \(error.localizedDescription)")
                 return
             }
             interstitialAd = ad
             interstitialAd?.fullScreenContentDelegate = self
+        }
+    }
+    
+    private func checkForAdThenSegue(to segue: String) {
+        segueToPerform = segue
+        
+        if interstitialAd != nil && userAdController.showAds == true {
+            
+            if userAdController.shouldShowAd() && interstitialAd != nil {
+                interstitialAd?.present(fromRootViewController: self)
+            } else {
+                performSegue(withIdentifier: segue, sender: self)
+            }
+        } else {
+            performSegue(withIdentifier: segue, sender: self)
         }
     }
 }
