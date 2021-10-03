@@ -128,7 +128,7 @@
 		F6DBFDAE26E9CE45001D7520 /* noAds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDAC26E9CE42001D7520 /* noAds.jpg */; };
 		F6DBFDB126E9CE56001D7520 /* unltdFavs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDB026E9CE53001D7520 /* unltdFavs.jpg */; };
 		F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */; };
-		F6DBFDB526E9DCC0001D7520 /* SubscriptionTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */; };
+		F6DBFDB526E9DCC0001D7520 /* SubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
 		F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */; };
 		F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */; };
@@ -270,7 +270,7 @@
 		F6DBFDAC26E9CE42001D7520 /* noAds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noAds.jpg; sourceTree = "<group>"; };
 		F6DBFDB026E9CE53001D7520 /* unltdFavs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unltdFavs.jpg; sourceTree = "<group>"; };
 		F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionType.swift; sourceTree = "<group>"; };
-		F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTypeController.swift; sourceTree = "<group>"; };
+		F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewCell.swift; sourceTree = "<group>"; };
 		F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewController.swift; sourceTree = "<group>"; };
@@ -570,12 +570,12 @@
 				F687CD6A26F46AC500412C07 /* XitySupportController.swift */,
 				F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */,
 				F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */,
-				F6DBFDB426E9DCC0001D7520 /* SubscriptionTypeController.swift */,
 				F67991042697E2A0000FDC5E /* BusinessController.swift */,
 				F676F0FE269947B300C47599 /* BandController.swift */,
 				F676F1022699496200C47599 /* ShowController.swift */,
 				F6869B5027018AEB00421019 /* RatingsController.swift */,
 				F6869B522701911D00421019 /* RecommendationController.swift */,
+				F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -896,7 +896,7 @@
 				F6869B5127018AEB00421019 /* RatingsController.swift in Sources */,
 				F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
-				F6DBFDB526E9DCC0001D7520 /* SubscriptionTypeController.swift in Sources */,
+				F6DBFDB526E9DCC0001D7520 /* SubscriptionController.swift in Sources */,
 				F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */,
 				F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */,
 				F640DD0A264E3B7300959358 /* Helper.swift in Sources */,

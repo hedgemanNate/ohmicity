@@ -88,29 +88,10 @@ class DashboardViewController: UIViewController {
     }
     
     @IBAction func cityFilterButtonTapped(_ sender: Any) {
-        
-        if currentUserController.currentUser == nil {
-            self.performSegue(withIdentifier: "ToSignIn", sender: self)
-        } else {
+        let subControl = subscriptionController
+        subControl.userFeaturesAvailableCheck(feature: subControl.todayShowFilter, viewController: self) {
             self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
         }
-       
-        
-        
-        //MARK: BETA
-//        switch currentUserController.currentUser?.subscription {
-//        case .none:
-//            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
-//        case .some(.FrontRowPass):
-//            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
-//        case .some(.FullAccessPass):
-//            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
-//        case .some(.None):
-//            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
-//        case .some(.BackStagePass):
-//            self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
-//
-//        }
     }
     
     @IBAction func breaker(_ sender: Any) {

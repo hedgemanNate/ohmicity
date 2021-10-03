@@ -82,7 +82,7 @@ class CurrentUserController {
     
     func setUpCurrentUserPreferences() {
         //Ad Experience Setup
-        userAdController.setUpAdsForUser()
+        userAdController.setUpAdsAndFeaturesForUser()
         
         //Preferred City Setup
         xityShowController.todayShowArrayFilter = currentUser?.preferredCity ?? .All

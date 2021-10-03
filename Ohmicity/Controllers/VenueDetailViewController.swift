@@ -585,16 +585,7 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
         afterAdIsShown = function
         if interstitialAd != nil && userAdController.showAds == true {
             interstitialAd?.present(fromRootViewController: self)
-//            if userAdController.shouldShowAd() {
-//                interstitialAd?.present(fromRootViewController: self)
-//            } else {
-//                switch function {
-//                case .watchBandVideo:
-//                    listenButtonFunction()
-//                case .getMapDirections:
-//                    mapButtonFunction()
-//                }
-//            }
+
         } else {
             switch function {
             case .watchBandVideo:

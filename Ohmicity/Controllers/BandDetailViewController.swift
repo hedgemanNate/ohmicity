@@ -255,7 +255,8 @@ class BandDetailViewController: UIViewController {
         if step1Percentage == 1 {
             weekAdsLabel.isEnabled = true
         }
-        if step2Percentage == 1 {        interviewLabel.isEnabled = true
+        if step2Percentage == 1 {
+            interviewLabel.isEnabled = true
         }
         if step3Percentage == 1 {
             photoshootLabel.isEnabled = true
@@ -265,15 +266,6 @@ class BandDetailViewController: UIViewController {
         }
         if step5Percentage == 1 {
             musicVidLabel.isEnabled = true
-        }
-        
-        guard let blackoutDate = currentUserController.currentUser?.supportBlackOutDate else { NSLog("🚨 No currentUser.supportBlackOutDate???"); return}
-        if blackoutDate > Date() {
-            print("\(blackoutDate) should be animated")
-            shouldShowSupportInfo = true
-            DispatchQueue.main.async {
-                self.supportButtonPushedAnimation()
-            }
         }
         
         //Top Area Under Banner Ads
@@ -286,15 +278,6 @@ class BandDetailViewController: UIViewController {
             self.bandImage.image = bandImage
         }
         
-        bandNameLabel.text = currentBand.band.name
-        guard let currentUser = currentUserController.currentUser else { NSLog("🚨 No current user for favorites"); return}
-        
-        if currentUser.favoriteBands.contains(currentBand.band.bandID) {
-            favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
-        } else {
-            favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
-        }
-        
         let bandMedia = currentBand.band.mediaLink ?? ""
         
         if bandMedia == "" {
@@ -303,6 +286,32 @@ class BandDetailViewController: UIViewController {
         } else {
             listenButton.setTitle("Take A Listen", for: .normal)
             listenButton.isEnabled = true
+        }
+        bandNameLabel.text = currentBand.band.name
+        
+        if currentUserController.currentUser == nil {
+            supportButton.isEnabled = false
+            supportLabel.text = "Sign In To Give Your Support"
+        } else {
+            supportButton.isEnabled = true
+            supportLabel.text = "Tap To Show Your Support"
+        }
+        
+        guard let currentUser = currentUserController.currentUser else { NSLog("🚨 No current user for favorites"); return}
+        
+        if currentUser.favoriteBands.contains(currentBand.band.bandID) {
+            favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+        }
+        
+        guard let blackoutDate = currentUserController.currentUser?.supportBlackOutDate else { NSLog("🚨 No currentUser.supportBlackOutDate???"); return}
+        if blackoutDate > Date() {
+            print("\(blackoutDate) should be animated")
+            shouldShowSupportInfo = true
+            DispatchQueue.main.async {
+                self.supportButtonPushedAnimation()
+            }
         }
     }
     

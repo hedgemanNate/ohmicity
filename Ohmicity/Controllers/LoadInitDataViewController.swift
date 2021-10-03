@@ -80,7 +80,7 @@ class LoadInitDataViewController: UIViewController {
         updateViewController()
         setupProgressView()
         currentUserController.assignCurrentUser()
-        subscriptionTypeController.setUpInAppPurchaseArray()
+        subscriptionController.setUpInAppPurchaseArray()
         lmDateHandler.checkDateAndGetData()
         
         //resetCache

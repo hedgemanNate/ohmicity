@@ -9,9 +9,19 @@ import Foundation
 import UIKit
 
 
-class SubscriptionTypeController {
+class SubscriptionController {
     //Properties
     var inAppPurchaseArray: [Subscription] = []
+    
+    //Features Enabled
+    var favorites = false
+    var noPopupAds = false
+    var seeAllData = false
+    var xityDeals = false
+    var showReminders = false
+    var todayShowFilter = false
+    var search = false
+    
     
     //Features
     let noAdsFeature = PaywallFeature(image: UIImage(named: "noAds.jpg") ?? UIImage(), name: "No Ads")
@@ -30,10 +40,20 @@ class SubscriptionTypeController {
         
         let bspPurchase = Subscription(type: .BackStagePass, description: bspDescription, features: [ratingFeature, remindersFeature], price: "$4.99")
         inAppPurchaseArray.append(bspPurchase)
-        
-        
+    }
+    
+    func userFeaturesAvailableCheck(feature: Bool, viewController: UIViewController, completion: ()->()) {
+        if currentUserController.currentUser != nil {
+            if feature {
+                completion()
+            } else {
+                viewController.performSegue(withIdentifier: "ToPurchaseSegue", sender: viewController)
+            }
+        } else {
+            viewController.performSegue(withIdentifier: "ToSignIn", sender: viewController)
+        }
     }
     
 }
 
-let subscriptionTypeController = SubscriptionTypeController()
+let subscriptionController = SubscriptionController()

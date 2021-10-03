@@ -16,6 +16,7 @@ enum UserFeatureReply {
 }
 
 class UserAdController {
+    //Properties
     var showAds = true
     
     //Google Ad Properties
@@ -24,54 +25,60 @@ class UserAdController {
     var interstitialTestAdID = "ca-app-pub-3940256099942544/4411468910"
     
     //Functions
-    func setUpAdsForUser() {
+    func setUpAdsAndFeaturesForUser() {
         guard let user = currentUserController.currentUser else {showAds = true; return}
         if user.subscription == .None {
             showAds = true
         } else {
             showAds = false
         }
+        
+        switch user.subscription {
+        case .None:
+            subscriptionController.favorites = false
+            subscriptionController.noPopupAds = false
+            subscriptionController.seeAllData = false
+            subscriptionController.showReminders = false
+            subscriptionController.todayShowFilter = false
+            subscriptionController.search = false
+            subscriptionController.xityDeals = false
+        case .FrontRowPass:
+            subscriptionController.favorites = true
+            subscriptionController.noPopupAds = true
+            subscriptionController.seeAllData = true
+            subscriptionController.xityDeals = false
+            subscriptionController.showReminders = false
+            subscriptionController.todayShowFilter = false
+            subscriptionController.search = false
+        case .BackStagePass:
+            subscriptionController.favorites = true
+            subscriptionController.noPopupAds = true
+            subscriptionController.seeAllData = true
+            subscriptionController.showReminders = true
+            subscriptionController.todayShowFilter = true
+            subscriptionController.search = true
+            subscriptionController.xityDeals = false
+        case .FullAccessPass:
+            subscriptionController.favorites = true
+            subscriptionController.noPopupAds = true
+            subscriptionController.seeAllData = true
+            subscriptionController.showReminders = true
+            subscriptionController.todayShowFilter = true
+            subscriptionController.search = true
+            subscriptionController.xityDeals = true
+        }
     }
     
     func shouldShowAd() -> Bool {
         let x = Int.random(in: 1...10)
-        if x <= 10 {
+        if x <= 5 {
             return true
         } else {
             return false
         }
     }
-    
-    func userFeaturesAvailableCheck(feature: Features) -> UserFeatureReply {
-        var reply: UserFeatureReply = .showSubscriptions
-        
-        guard let currentUser = currentUserController.currentUser else {reply = .showLogin; return reply}
-        
-        //For Old Users: Until user.features is made non-optional-------
-        if currentUser.features == nil {
-            currentUser.features = []
-        }
-        // ---------------------
-        
-        if currentUser.features!.contains(feature) {
-            reply = .allow
-        } else {
-            switch feature {
-            case .Favorites:
-                if currentUser.subscription == .None {
-                    reply = .allowLimited
-                }
-            case .NoPopupAds:
-                if currentUser.subscription != .None {
-                    reply = .allow
-                } else {
-                    reply = .showSubscriptions
-                }
-            }
-            
-        }
-        return reply
-    }
 }
 
 let userAdController = UserAdController()
+
+

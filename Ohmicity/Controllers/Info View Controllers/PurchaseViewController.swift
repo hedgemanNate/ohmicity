@@ -106,13 +106,13 @@ class PurchaseViewController: UIViewController {
 //MARK: Collection VIew
 extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return subscriptionTypeController.inAppPurchaseArray.count
+        return subscriptionController.inAppPurchaseArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PurchaseCell", for: indexPath) as? PurchaseCollectionViewCell else {return UICollectionViewCell()}
         
-        cell.purchaseOption = subscriptionTypeController.inAppPurchaseArray[indexPath.row]
+        cell.purchaseOption = subscriptionController.inAppPurchaseArray[indexPath.row]
         
         return cell
     }
