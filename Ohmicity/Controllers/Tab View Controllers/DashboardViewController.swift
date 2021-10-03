@@ -454,7 +454,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             let selected = xityShowController.todayShowResultsArray[indexPath!.row]
             let business = selected.business
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
-            businessVC.xityBusiness = xityBusiness
+            businessVC.currentBusiness = xityBusiness
             businessVC.featuredShow = selected
             
         }
@@ -469,7 +469,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             
             businessVC.featuredShow = xityBusiness?.xityShows.first
-            businessVC.xityBusiness = xityBusiness!
+            businessVC.currentBusiness = xityBusiness!
         }
         
         if segue.identifier == xityPickSegue {
@@ -478,7 +478,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             let pick = xityShowController.weeklyPicksArray[indexPath!.row]
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == pick.business})
-            businessVC.xityBusiness = xityBusiness
+            businessVC.currentBusiness = xityBusiness
             businessVC.featuredShow = pick
             
         }

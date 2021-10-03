@@ -588,11 +588,11 @@ Florida 34222 </string>
                         <outlet property="mapAddressLabel" destination="r92-LA-MaA" id="So0-Q9-AOg"/>
                         <outlet property="mapBackgroundView" destination="bnH-Rj-YGP" id="H2n-dH-kT0"/>
                         <outlet property="mapNameLabel" destination="JmW-Rc-Eao" id="ds0-kc-5dt"/>
-                        <outlet property="nextShowsTableView" destination="gl9-6M-Nhd" id="eJK-yQ-EzP"/>
                         <outlet property="recommendButton" destination="imS-6D-rrR" id="pNA-iU-qBC"/>
                         <outlet property="showTimeLabel" destination="aKU-83-vU4" id="CrI-pA-m9H"/>
                         <outlet property="tonightsEntLabel" destination="wD6-kx-n0l" id="lSs-fl-q4V"/>
                         <outlet property="upComingDetailLabel" destination="yxr-AB-gQQ" id="fmx-U6-neb"/>
+                        <outlet property="upcomingShowsTableView" destination="gl9-6M-Nhd" id="WWu-tR-K3J"/>
                         <segue destination="Nl7-xF-TxV" kind="presentation" identifier="ToSignIn" id="noR-67-dO5"/>
                         <segue destination="Ob2-cA-xFa" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="dyM-2f-MLh"/>
                         <segue destination="VAv-9L-EPR" kind="presentation" identifier="ToBandSegue" id="AEA-hr-pRT"/>

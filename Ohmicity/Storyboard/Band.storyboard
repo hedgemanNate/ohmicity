@@ -643,6 +643,12 @@
                                                     <constraint firstAttribute="trailing" secondItem="JK5-vO-yEb" secondAttribute="trailing" id="lPa-HT-V2D"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYi-JA-T25">
+                                                <rect key="frame" x="381.5" y="1025.5" width="37.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -656,6 +662,7 @@
                                             <constraint firstItem="5of-qn-Ix2" firstAttribute="top" secondItem="OpN-9S-ifI" secondAttribute="bottom" constant="35" id="G49-an-Fa1"/>
                                             <constraint firstAttribute="trailing" secondItem="cHk-CJ-9o6" secondAttribute="trailing" id="IrX-il-eIR"/>
                                             <constraint firstItem="o9Q-xx-NlM" firstAttribute="leading" secondItem="yzC-vT-9qZ" secondAttribute="leading" constant="9" id="KmZ-s6-0EP"/>
+                                            <constraint firstAttribute="trailing" secondItem="DYi-JA-T25" secondAttribute="trailing" constant="9" id="MFu-Y4-gBs"/>
                                             <constraint firstAttribute="trailing" secondItem="5of-qn-Ix2" secondAttribute="trailing" constant="9" id="Npg-qb-beU"/>
                                             <constraint firstItem="OpN-9S-ifI" firstAttribute="top" secondItem="9Hz-Co-O7X" secondAttribute="bottom" constant="21" id="Pey-df-cJF"/>
                                             <constraint firstItem="9Hz-Co-O7X" firstAttribute="leading" secondItem="yzC-vT-9qZ" secondAttribute="leading" constant="9" id="VDF-EP-6a2"/>
@@ -677,6 +684,7 @@
                                             <constraint firstAttribute="trailing" secondItem="bvG-9j-IXv" secondAttribute="trailing" constant="9" id="rkb-7d-etN"/>
                                             <constraint firstItem="9Hz-Co-O7X" firstAttribute="top" secondItem="GRv-23-Sl4" secondAttribute="bottom" constant="21" id="sg6-IM-0bj"/>
                                             <constraint firstItem="o9Q-xx-NlM" firstAttribute="top" secondItem="bvG-9j-IXv" secondAttribute="bottom" constant="7" id="siS-3U-BdG"/>
+                                            <constraint firstItem="DYi-JA-T25" firstAttribute="top" secondItem="o9Q-xx-NlM" secondAttribute="bottom" constant="8" id="uKJ-6e-YvM"/>
                                             <constraint firstItem="5of-qn-Ix2" firstAttribute="leading" secondItem="yzC-vT-9qZ" secondAttribute="leading" constant="9" id="vXh-Uo-ZaV"/>
                                             <constraint firstItem="OpN-9S-ifI" firstAttribute="leading" secondItem="yzC-vT-9qZ" secondAttribute="leading" constant="9" id="wWn-VD-AzQ"/>
                                             <constraint firstItem="jIQ-VY-fSc" firstAttribute="leading" secondItem="yzC-vT-9qZ" secondAttribute="leading" id="wav-My-4Il"/>
@@ -741,12 +749,14 @@
                         <outlet property="supportLabel" destination="pI3-3D-SvS" id="XsU-fV-Ail"/>
                         <outlet property="supportView" destination="C98-dx-Pgm" id="LQR-ul-NXu"/>
                         <outlet property="topAdView" destination="jIQ-VY-fSc" id="MzK-6L-csC"/>
+                        <outlet property="upComingDetailLabel" destination="DYi-JA-T25" id="mmt-7n-aVN"/>
                         <outlet property="upcomingShowsTableView" destination="o9Q-xx-NlM" id="BOk-MM-NeX"/>
                         <outlet property="weekAdsLabel" destination="ZNF-Qp-H1H" id="7Vy-zq-zHW"/>
                         <outlet property="xityLogoImageView" destination="l9z-Qi-tl6" id="9Vk-W6-8YF"/>
                         <segue destination="Cda-a9-daj" kind="presentation" identifier="SupportInfoSegue" id="lNy-G6-IXU"/>
                         <segue destination="EDp-oX-WFG" kind="presentation" identifier="ToSignIn" id="Oa9-6W-4DX"/>
                         <segue destination="IRs-Vc-sbu" kind="presentation" identifier="ToRatings" modalPresentationStyle="fullScreen" id="L5B-Ls-GMM"/>
+                        <segue destination="Qaa-xU-QHa" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="kEe-HU-K5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wz-yd-KpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -863,6 +873,14 @@ Always remember: Support live local musicians. Support live local music venues. 
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHK-3a-Ncp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1920" y="107"/>
+        </scene>
+        <!--Subscription-->
+        <scene sceneID="mps-5z-yGX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Subscription" id="Qaa-xU-QHa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7MK-DF-vlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="-326"/>
         </scene>
     </scenes>
     <resources>

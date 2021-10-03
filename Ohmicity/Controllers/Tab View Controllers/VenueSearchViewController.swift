@@ -432,7 +432,7 @@ extension VenueSearchViewController {
             let indexPath = tableView.indexPathForSelectedRow
             
             let business = businessResultsArray![indexPath!.row]
-            destinationVC.xityBusiness = business
+            destinationVC.currentBusiness = business
         }
     }
 }

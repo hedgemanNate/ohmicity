@@ -22,7 +22,7 @@ class VenueDetailViewController: UIViewController {
     
     //MARK: Properties
     let currentUser = currentUserController.currentUser
-    var xityBusiness: XityBusiness?
+    var currentBusiness: XityBusiness?
     var featuredShow: XityShow?
     var bandMedia: String = ""
     var nextShowsArray = [Show]()
@@ -64,7 +64,7 @@ class VenueDetailViewController: UIViewController {
     @IBOutlet weak var mapAddressLabel: UILabel!
     
     @IBOutlet weak var businessPicsCollectionView: UICollectionView!
-    @IBOutlet weak var nextShowsTableView: UITableView!
+    @IBOutlet weak var upcomingShowsTableView: UITableView!
     
     //Recommendation Elements
     @IBOutlet private weak var recommendButton: UIButton!
@@ -112,7 +112,7 @@ class VenueDetailViewController: UIViewController {
     }
     
     @IBAction func callBusinessButtonTapped(_ sender: Any) {
-        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
+        guard let xityBusiness = currentBusiness else {return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
         let num = String(xityBusiness.business.phoneNumber)
         
         if let url = URL(string: "tel://\(num)"),
@@ -128,7 +128,7 @@ class VenueDetailViewController: UIViewController {
     }
     
     private func addFavoriteFunction() {
-        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found")}
+        guard let xityBusiness = currentBusiness else {return NSLog("No Current Business Found")}
         
         if currentUser != nil {
             if currentUser!.favoriteBusinesses.contains(xityBusiness.business.venueID) {
@@ -170,7 +170,7 @@ class VenueDetailViewController: UIViewController {
             } else {
                 if currentUserController.currentUser?.favoriteBusinesses.count ?? 0 < 1 {
                     addFavoriteFunction()
-                } else if currentUserController.currentUser?.favoriteBusinesses.count ?? 0 >= 1 && currentUser!.favoriteBusinesses.contains(xityBusiness?.business.venueID ?? "") {
+                } else if currentUserController.currentUser?.favoriteBusinesses.count ?? 0 >= 1 && currentUser!.favoriteBusinesses.contains(currentBusiness?.business.venueID ?? "") {
                     addFavoriteFunction()
                 } else {
                     self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
@@ -270,7 +270,7 @@ extension VenueDetailViewController {
         afterAdIsShown = .none
         let placemark = MKPlacemark(coordinate: coordinate!, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = xityBusiness?.business.name
+        mapItem.name = currentBusiness?.business.name
 
         let regionSpan = MKCoordinateRegion(center: coordinate!, latitudinalMeters: 1000, longitudinalMeters: 1000)
         let launchOptions = [
@@ -296,14 +296,14 @@ extension VenueDetailViewController {
     }
     
     @objc private func userSignedIn() {
-        nextShowsTableView.reloadData()
+                    upcomingShowsTableView.reloadData()
         updateViews()
     }
     
     
     //MARK: Map
     private func mapSetup() {
-        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
+        guard let xityBusiness = currentBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
         
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(xityBusiness.business.address) { [self] placemarks, error in
@@ -353,7 +353,7 @@ extension VenueDetailViewController {
 extension VenueDetailViewController {
     
     @objc private func updateViews() {
-        guard let xityBusiness = xityBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
+        guard let xityBusiness = currentBusiness else { return NSLog("No Current Business Found: updateViews: venueDetailViewController")}
         
         let businessLogoData = xityBusiness.business.logo
         
@@ -368,8 +368,14 @@ extension VenueDetailViewController {
         
         
         if subscriptionController.seeAllData == false {
-            upComingDetailLabel.text = "See All \(xityBusiness.xityShows.count - 1) shows with any Xity Pass"
-            nextShowsTableView.reloadData()
+            if xityBusiness.xityShows.count <= 4 {
+                upComingDetailLabel.text = "See all shows with any Xity Pass"
+                upcomingShowsTableView.reloadData()
+            } else {
+                upComingDetailLabel.text = "See All \(xityBusiness.xityShows.count) shows with any Xity Pass"
+                upcomingShowsTableView.reloadData()
+            }
+            
         } else {
             upComingDetailLabel.text = ""
         }
@@ -407,9 +413,9 @@ extension VenueDetailViewController {
         mapBackgroundView.backgroundColor = cc.white
         
         //Data Source An Delegate Setup
-        nextShowsTableView.dataSource = self
-        nextShowsTableView.delegate = self
-        nextShowsTableView.allowsSelection = true
+                    upcomingShowsTableView.dataSource = self
+                    upcomingShowsTableView.delegate = self
+                    upcomingShowsTableView.allowsSelection = true
         
         businessPicsCollectionView.delegate = self
         businessPicsCollectionView.dataSource = self
@@ -517,23 +523,23 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if subscriptionController.seeAllData == false {
-            xityBusiness?.xityShows.shuffle()
+            currentBusiness?.xityShows.shuffle()
             return 1
         } else {
-            xityBusiness?.xityShows.sort(by: {$0.show.date < $1.show.date})
-            if xityBusiness?.xityShows.count == 0 {
+            currentBusiness?.xityShows.sort(by: {$0.show.date < $1.show.date})
+            if currentBusiness?.xityShows.count == 0 {
                 return 1
             } else {
-                return xityBusiness?.xityShows.count ?? 1
+                return currentBusiness?.xityShows.count ?? 1
             }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NextShowsCell", for: indexPath)
-        if xityBusiness?.xityShows.count != 0 {
-            let date = xityBusiness!.xityShows[indexPath.row].show.date
-            let show = xityBusiness!.xityShows[indexPath.row].show
+        if currentBusiness?.xityShows.count != 0 {
+            let date = currentBusiness!.xityShows[indexPath.row].show.date
+            let show = currentBusiness!.xityShows[indexPath.row].show
             timeController.dateFormatter.dateFormat = timeController.dayMonthDay
             let stringDate = timeController.dateFormatter.string(from: date)
             timeController.dateFormatter.dateFormat = timeController.time
@@ -547,7 +553,7 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let show = xityBusiness?.xityShows[indexPath.row]
+        let show = currentBusiness?.xityShows[indexPath.row]
         featuredShow = show
         
         if subscriptionController.seeAllData == false {
@@ -575,7 +581,7 @@ extension VenueDetailViewController: UICollectionViewDelegateFlowLayout, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let xityBusiness = xityBusiness else { NSLog("No Current Business Found: updateViews: venueDetailViewController"); return UICollectionViewCell() }
+        guard let xityBusiness = currentBusiness else { NSLog("No Current Business Found: updateViews: venueDetailViewController"); return UICollectionViewCell() }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessPicsCell", for: indexPath) as? BannerAdBusinessPicsCollectionViewCell else {return UICollectionViewCell()}
         
         //% in indexPath for infinite scrolling

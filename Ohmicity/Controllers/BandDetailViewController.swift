@@ -39,6 +39,7 @@ class BandDetailViewController: UIViewController {
     
     //Table View
     @IBOutlet weak var upcomingShowsTableView: UITableView!
+    @IBOutlet weak var upComingDetailLabel: UILabel!
     
     //BannerAd
     var timer = Timer()
@@ -250,6 +251,7 @@ class BandDetailViewController: UIViewController {
         supportButton.layer.zPosition = 100
         xityLogoImageView.layer.zPosition = 97
         xityLogoImageView.alpha = 1
+        upcomingShowsTableView.reloadData()
         
         //Progress View UI
         if step1Percentage == 1 {
@@ -270,6 +272,19 @@ class BandDetailViewController: UIViewController {
         
         //Top Area Under Banner Ads
         guard let currentBand = currentBand else { NSLog("🚨 No current band found"); return}
+        
+        if subscriptionController.seeAllData == false || currentUserController.currentUser == nil {
+            if currentBand.xityShows?.count ?? 0 <= 4 {
+                upComingDetailLabel.text = "See all shows with any Xity Pass"
+                upcomingShowsTableView.reloadData()
+            } else {
+                upComingDetailLabel.text = "See All \(currentBand.xityShows?.count ?? 0) shows with any Xity Pass"
+                upcomingShowsTableView.reloadData()
+            }
+            
+        } else {
+            upComingDetailLabel.text = ""
+        }
         
         if currentBand.band.photo == nil {
             self.bandImage.image = UIImage(named: "DefaultBand.png")
@@ -433,7 +448,13 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch tableView {
         case upcomingShowsTableView:
-            return currentBand.xityShows?.count ?? 0
+            if subscriptionController.seeAllData == false && currentBand.xityShows?.count ?? 0 > 0 {
+                currentBand.xityShows?.shuffle()
+                return 1
+            } else {
+                currentBand.xityShows?.sort(by: {$0.show.date < $1.show.date})
+                return currentBand.xityShows?.count ?? 0
+            }
             
         default:
             return 0
@@ -463,42 +484,43 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return}
-        guard let show = currentBand?.xityShows?[selected.row].show else {return}
-        timeController.dateFormatter.dateFormat = timeController.dayMonthDay
-        let date = timeController.dateFormatter.string(from: show.date)
-        let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(show.band)\n Location: \(show.venue)\n Time: \(date)", preferredStyle: .actionSheet)
-        let alertAction2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let alertAction1 = UIAlertAction(title: "Add Show", style: .default) { _ in
-            DispatchQueue.main.async {
-                let showEvent = self.createEvent()
-                switch EKEventStore.authorizationStatus(for: .event) {
-                case .notDetermined:
-                    DispatchQueue.main.async {
-                        self.store.requestAccess(to: .event) { success, error in
-                            if success {
-                                let eventVC = EKEventViewController()
-                                eventVC.delegate = self
-                                eventVC.event = showEvent
-                                self.present(eventVC, animated: true)
+        let subControl = subscriptionController
+        subControl.userFeaturesAvailableCheck(feature: subControl.showReminders, viewController: self) {
+            guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return}
+            guard let show = currentBand?.xityShows?[selected.row].show else {return}
+            timeController.dateFormatter.dateFormat = timeController.dayMonthDay
+            let date = timeController.dateFormatter.string(from: show.date)
+            let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(show.band)\n Location: \(show.venue)\n Time: \(date)", preferredStyle: .actionSheet)
+            let alertAction2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let alertAction1 = UIAlertAction(title: "Add Show", style: .default) { _ in
+                DispatchQueue.main.async {
+                    let showEvent = self.createEvent()
+                    switch EKEventStore.authorizationStatus(for: .event) {
+                    case .notDetermined:
+                        DispatchQueue.main.async {
+                            self.store.requestAccess(to: .event) { success, error in
+                                if success {
+                                    let eventVC = EKEventViewController()
+                                    eventVC.delegate = self
+                                    eventVC.event = showEvent
+                                    self.present(eventVC, animated: true)
+                                }
                             }
                         }
-                    }
-                case .restricted:
-                    DispatchQueue.main.async {
-                        self.store.requestAccess(to: .event) { success, error in
-                            if success {
-                                let eventVC = EKEventViewController()
-                                eventVC.delegate = self
-                                eventVC.event = showEvent
-                                self.present(eventVC, animated: true)
+                    case .restricted:
+                        DispatchQueue.main.async {
+                            self.store.requestAccess(to: .event) { success, error in
+                                if success {
+                                    let eventVC = EKEventViewController()
+                                    eventVC.delegate = self
+                                    eventVC.event = showEvent
+                                    self.present(eventVC, animated: true)
+                                }
                             }
                         }
-                    }
-                case .denied:
-                    break
-                case .authorized:
-                    DispatchQueue.main.async {
+                    case .denied:
+                        break
+                    case .authorized:
                         self.store.requestAccess(to: .event) { success, error in
                             if success {
                                 DispatchQueue.main.async {
@@ -509,20 +531,18 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
                                     eventVC.event = showEvent
                                     self.present(navVC, animated: true)
                                 }
-                                
                             }
                         }
+                    @unknown default:
+                        break
                     }
-                @unknown default:
-                    break
                 }
             }
+            
+            alert.addAction(alertAction1)
+            alert.addAction(alertAction2)
+            present(alert, animated: true, completion: nil)
         }
-        
-        alert.addAction(alertAction1)
-        alert.addAction(alertAction2)
-        present(alert, animated: true, completion: nil)
-        
     }
 }
 
@@ -553,7 +573,6 @@ extension BandDetailViewController: EKEventViewDelegate {
         eventShow.notes = "\(show.band)'s show is EXACTLY what you need to destress and have a good time for a couple hours. And don't forget to check and see if \(show.venue) has any exclusive deals you can use tonight!"
         eventShow.alarms = [headsUpAlarm, showStartAlarm]
         let structLocation = mapForEvent(venueName: show.venue)
-        print(structLocation.title)
         eventShow.structuredLocation = structLocation
 
         return eventShow
