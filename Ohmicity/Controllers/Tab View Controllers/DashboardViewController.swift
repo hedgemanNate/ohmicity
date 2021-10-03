@@ -530,8 +530,7 @@ extension DashboardViewController: GADFullScreenContentDelegate {
         segueToPerform = segue
         
         if interstitialAd != nil && userAdController.showAds == true {
-            
-            if userAdController.shouldShowAd() && interstitialAd != nil {
+            if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {
                 performSegue(withIdentifier: segue, sender: self)

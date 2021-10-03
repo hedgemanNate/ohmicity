@@ -30,10 +30,21 @@ class RatingsViewController: UIViewController {
         updateViews()
     }
     
+    //MARK: UpdateViews
+    private func updateViews() {
+        guard let currentBand = currentBand else {return}
+        guard let starFilledImage = UIImage(systemName: "star.fill", withConfiguration: largeSymbolScaleConfig) else {return}
+        self.starFilledImage = starFilledImage
+        guard let starEmptyImage = UIImage(systemName: "star", withConfiguration: largeSymbolScaleConfig) else {return}
+        self.starEmptyImage = starEmptyImage
+        
+        ratingsLabel.text = "Give \(currentBand.band.name) a Rating!"
+    }
     
     @IBAction func breaker(_ sender: Any) {
         
     }
+    
     
     //MARK: Button Actions
     @IBAction func star1ButtonTapped(_ sender: Any) {
@@ -44,7 +55,7 @@ class RatingsViewController: UIViewController {
         self.star4Button.setImage(starEmptyImage, for: .normal)
         self.star5Button.setImage(starEmptyImage, for: .normal)
         givenRating = 1
-        //ratingsLabel.text = "Rating Received"
+        ratingsLabel.text = "1 Star Rating Received"
         
     }
     
@@ -55,7 +66,7 @@ class RatingsViewController: UIViewController {
         self.star4Button.setImage(starEmptyImage, for: .normal)
         self.star5Button.setImage(starEmptyImage, for: .normal)
         givenRating = 2
-        //ratingsLabel.text = "Rating Received"
+        ratingsLabel.text = "2 Star Rating Received"
         
     }
     
@@ -66,7 +77,7 @@ class RatingsViewController: UIViewController {
         self.star4Button.setImage(starEmptyImage, for: .normal)
         self.star5Button.setImage(starEmptyImage, for: .normal)
         givenRating = 3
-        //ratingsLabel.text = "Rating Received"
+        ratingsLabel.text = "3 Star Rating Received"
         
     }
     
@@ -77,7 +88,7 @@ class RatingsViewController: UIViewController {
         self.star4Button.setImage(starFilledImage, for: .normal)
         self.star5Button.setImage(starEmptyImage, for: .normal)
         givenRating = 4
-        //ratingsLabel.text = "Rating Received"
+        ratingsLabel.text = "4 Star Rating Received"
         
     }
     
@@ -88,7 +99,7 @@ class RatingsViewController: UIViewController {
         self.star4Button.setImage(starFilledImage, for: .normal)
         self.star5Button.setImage(starFilledImage, for: .normal)
         givenRating = 5
-        //ratingsLabel.text = "Rating Received"
+        ratingsLabel.text = "5 Star Rating Received"
         
     }
     
@@ -154,13 +165,7 @@ class RatingsViewController: UIViewController {
     
     
     
-    //MARK: UpdateViews
-    private func updateViews() {
-        guard let starFilledImage = UIImage(systemName: "star.fill", withConfiguration: largeSymbolScaleConfig) else {return}
-        self.starFilledImage = starFilledImage
-        guard let starEmptyImage = UIImage(systemName: "star", withConfiguration: largeSymbolScaleConfig) else {return}
-        self.starEmptyImage = starEmptyImage
-    }
+    
     
     
     /*

@@ -10,7 +10,12 @@ import MapKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import SwiftUI
-import AVKit
+import GoogleMobileAds
+
+enum AfterAd: String {
+    case watchBandVideo
+    case getMapDirections
+}
 
 class VenueDetailViewController: UIViewController {
     
@@ -61,12 +66,17 @@ class VenueDetailViewController: UIViewController {
     //Recommendation Elements
     @IBOutlet private weak var recommendButton: UIButton!
     
+    //Google Ad Properties
+    private var interstitialAd: GADInterstitialAd?
+    lazy private var segueToPerform = ""
+    var afterAdIsShown: AfterAd?
     
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         setUpNotificationObservers()
-        
+        createInterstitialAd()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -148,42 +158,17 @@ class VenueDetailViewController: UIViewController {
     }
     
     @IBAction func bandPhotoTapped(_ sender: Any) {
-        performSegue(withIdentifier: "ToBandSegue", sender: self)
+        checkForAdThenSegue(to: "ToBandSegue")
     }
     
     
     @IBAction func listenButtonTapped(_ sender: Any) {
-        guard let bandMedia = featuredShow?.band.mediaLink else {return NSLog("Error with Featured Show Media Link")}
-        guard let url = URL(string: bandMedia) else {
-          return //be safe
-        }
-        
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        
-        
-        //Future in-app video OR audio solution
-//        let player = AVPlayer(url: url)
-//        let vc = AVPlayerViewController()
-//        vc.player = player
-//
-//        present(vc, animated: true) {
-//            vc.player?.play()
-//        }
+        checkForAdThenRunFunction(for: .watchBandVideo)
     }
     
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
-        let placemark = MKPlacemark(coordinate: coordinate!, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = xityBusiness?.business.name
-
-        let regionSpan = MKCoordinateRegion(center: coordinate!, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        let launchOptions = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-
-        mapItem.openInMaps(launchOptions: launchOptions)
+        checkForAdThenRunFunction(for: .getMapDirections)
     }
     
     
@@ -247,6 +232,91 @@ extension VenueDetailViewController {
         //Hours
         notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
     }
+    
+    private func listenButtonFunction() {
+        afterAdIsShown = .none
+        guard let bandMedia = featuredShow?.band.mediaLink else {return NSLog("Error with Featured Show Media Link")}
+        guard let url = URL(string: bandMedia) else {
+          return //be safe
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    private func mapButtonFunction() {
+        afterAdIsShown = .none
+        let placemark = MKPlacemark(coordinate: coordinate!, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = xityBusiness?.business.name
+
+        let regionSpan = MKCoordinateRegion(center: coordinate!, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let launchOptions = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+
+        mapItem.openInMaps(launchOptions: launchOptions)
+    }
+    
+    private func setupHoursAlertConstraints() {
+        self.hoursView.translatesAutoresizingMaskIntoConstraints = false
+        self.hoursView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+        self.hoursView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0).isActive = true
+        self.hoursView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        self.hoursView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        self.backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+        self.backgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        self.backgroundView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+        self.backgroundView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+    }
+    
+    
+    //MARK: Map
+    private func mapSetup() {
+        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(xityBusiness.business.address) { [self] placemarks, error in
+            if let error = error {
+                NSLog("Error Converting Address: \(error.localizedDescription)")
+            }
+            guard let placemarks = placemarks,
+                  let location = placemarks.first?.location
+            else { return NSLog("Error getting placmark: VenueDetailViewController: mapSetup ")}
+            
+            map.isUserInteractionEnabled = false
+            coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            let region = MKCoordinateRegion(center: coordinate!, span: span)
+            map.setRegion(region, animated: false)
+
+            //Setup Map Pin
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinate!
+            pin.title = xityBusiness.business.name
+            map.addAnnotation(pin)
+        }
+    }
+    
+    
+    //MARK:Banner Ad
+    @objc func bannerChange() {
+        let shownPath = businessPicsCollectionView.indexPathsForVisibleItems
+        let currentPath = shownPath.first
+    
+        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
+        
+        //High Count For Infinite Loop: See Banner Ad Collection View
+        if currentPath!.row < 50 {
+            self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            
+        } else {
+            indexPath = IndexPath(row: 0, section: 0)
+            self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        }
+    }
 }
 
 
@@ -292,9 +362,6 @@ extension VenueDetailViewController {
         } else {
             //Future Code
         }
-        
-        
-        
         
         //Map
         mapSetup()
@@ -406,72 +473,6 @@ extension VenueDetailViewController {
 //MARK: -----UpdateViews End-----
 
 
-
-//MARK: Functions
-extension VenueDetailViewController {
-    
-    private func setupHoursAlertConstraints() {
-        self.hoursView.translatesAutoresizingMaskIntoConstraints = false
-        self.hoursView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
-        self.hoursView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0).isActive = true
-        self.hoursView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        self.hoursView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        
-        self.backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
-        self.backgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
-        self.backgroundView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
-        self.backgroundView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
-    }
-    
-    
-    //MARK: Map
-    private func mapSetup() {
-        guard let xityBusiness = xityBusiness else {return NSLog("No Current Business Found: VenueDetailViewController: mapSetup")}
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(xityBusiness.business.address) { [self] placemarks, error in
-            if let error = error {
-                NSLog("Error Converting Address: \(error.localizedDescription)")
-            }
-            guard let placemarks = placemarks,
-                  let location = placemarks.first?.location
-            else { return NSLog("Error getting placmark: VenueDetailViewController: mapSetup ")}
-            
-            map.isUserInteractionEnabled = false
-            coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            
-            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-            let region = MKCoordinateRegion(center: coordinate!, span: span)
-            map.setRegion(region, animated: false)
-
-            //Setup Map Pin
-            let pin = MKPointAnnotation()
-            pin.coordinate = coordinate!
-            pin.title = xityBusiness.business.name
-            map.addAnnotation(pin)
-        }
-    }
-    
-    
-    //MARK:Banner Ad
-    @objc func bannerChange() {
-        let shownPath = businessPicsCollectionView.indexPathsForVisibleItems
-        let currentPath = shownPath.first
-    
-        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
-        
-        //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 50 {
-            self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            
-        } else {
-            indexPath = IndexPath(row: 0, section: 0)
-            self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-        }
-    }
-}
-
 //MARK: - TableView
 extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -528,3 +529,79 @@ extension VenueDetailViewController: UICollectionViewDelegateFlowLayout, UIColle
         return cell
     }
 }
+
+//MARK: Google Ads Protocols/Functions
+extension VenueDetailViewController: GADFullScreenContentDelegate {
+    
+    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+        endTimer()
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        createInterstitialAd()
+        
+        switch afterAdIsShown {
+        case .watchBandVideo:
+            listenButtonFunction()
+            
+        case .getMapDirections:
+            mapButtonFunction()
+            
+        case .none:
+            performSegue(withIdentifier: segueToPerform, sender: self)
+        }
+        
+    }
+    
+    //Functions
+    private func createInterstitialAd() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialTestAdID, request: request) { [self] ad, error in
+            
+            if let error = error {
+                NSLog("Error Displaying Ad: \(error.localizedDescription)")
+                return
+            }
+            interstitialAd = ad
+            interstitialAd?.fullScreenContentDelegate = self
+        }
+    }
+    
+    private func checkForAdThenSegue(to segue: String) {
+        segueToPerform = segue
+        
+        if interstitialAd != nil && userAdController.showAds == true {
+            if userAdController.shouldShowAd() {
+                interstitialAd?.present(fromRootViewController: self)
+            } else {
+                performSegue(withIdentifier: segue, sender: self)
+            }
+        } else {
+            performSegue(withIdentifier: segue, sender: self)
+        }
+    }
+    
+    private func checkForAdThenRunFunction(for function: AfterAd) {
+        afterAdIsShown = function
+        if interstitialAd != nil && userAdController.showAds == true {
+            if userAdController.shouldShowAd() {
+                interstitialAd?.present(fromRootViewController: self)
+            } else {
+                switch function {
+                case .watchBandVideo:
+                    listenButtonFunction()
+                case .getMapDirections:
+                    mapButtonFunction()
+                }
+            }
+        } else {
+            switch function {
+            case .watchBandVideo:
+                listenButtonFunction()
+            case .getMapDirections:
+                mapButtonFunction()
+            }
+        }
+    }
+}
+

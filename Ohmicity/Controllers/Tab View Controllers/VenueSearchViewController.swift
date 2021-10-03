@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import GoogleMobileAds
 
+
 class VenueSearchViewController: UIViewController {
     
     //Properties
@@ -463,8 +464,7 @@ extension VenueSearchViewController: GADFullScreenContentDelegate {
         segueToPerform = segue
         
         if interstitialAd != nil && userAdController.showAds == true {
-            
-            if userAdController.shouldShowAd() && interstitialAd != nil {
+            if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {
                 performSegue(withIdentifier: segue, sender: self)
