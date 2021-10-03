@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CloudKit
 
 class XityShow: Equatable, Hashable {
     static func == (lhs: XityShow, rhs: XityShow) -> Bool {
@@ -15,7 +16,6 @@ class XityShow: Equatable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(show)
     }
-    
     
     //Properties
     var band: Band

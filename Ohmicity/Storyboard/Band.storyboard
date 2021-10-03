@@ -644,8 +644,8 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYi-JA-T25">
-                                                <rect key="frame" x="381.5" y="1025.5" width="37.5" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="382" y="1025.5" width="37" height="18"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -737,6 +737,7 @@
                         <outlet property="musicVidLabel" destination="y3c-7E-fpJ" id="wNa-68-MRC"/>
                         <outlet property="photoshootLabel" destination="QFa-aM-Eh1" id="Rt2-hn-lGh"/>
                         <outlet property="ratingButton" destination="la5-6C-4n8" id="imS-Rh-bas"/>
+                        <outlet property="seeAllDataDetailLabel" destination="DYi-JA-T25" id="mmt-7n-aVN"/>
                         <outlet property="separatorView" destination="u78-2f-cKo" id="vGn-4U-ex0"/>
                         <outlet property="step1Label" destination="Jh3-dG-1Ql" id="jNn-rt-AAA"/>
                         <outlet property="step2Label" destination="775-5e-uoJ" id="qnQ-K1-9go"/>
@@ -749,7 +750,6 @@
                         <outlet property="supportLabel" destination="pI3-3D-SvS" id="XsU-fV-Ail"/>
                         <outlet property="supportView" destination="C98-dx-Pgm" id="LQR-ul-NXu"/>
                         <outlet property="topAdView" destination="jIQ-VY-fSc" id="MzK-6L-csC"/>
-                        <outlet property="upComingDetailLabel" destination="DYi-JA-T25" id="mmt-7n-aVN"/>
                         <outlet property="upcomingShowsTableView" destination="o9Q-xx-NlM" id="BOk-MM-NeX"/>
                         <outlet property="weekAdsLabel" destination="ZNF-Qp-H1H" id="7Vy-zq-zHW"/>
                         <outlet property="xityLogoImageView" destination="l9z-Qi-tl6" id="9Vk-W6-8YF"/>
@@ -768,17 +768,17 @@
             <objects>
                 <viewController id="Cda-a9-daj" customClass="SupportInfoViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1H-aE-13f">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="427" height="818"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNx-sf-3th">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                                <rect key="frame" x="0.0" y="0.0" width="427" height="784"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uys-bQ-lFj" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="921"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="427" height="921"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PQ-Ea-9IV">
-                                                <rect key="frame" x="94" y="63" width="240" height="190"/>
+                                                <rect key="frame" x="93.5" y="63" width="240" height="190"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROJ-XG-5Gb" userLabel="Indicator View">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="190"/>
@@ -821,7 +821,7 @@
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txy-IN-ftp">
-                                                <rect key="frame" x="21" y="288" width="386" height="533"/>
+                                                <rect key="frame" x="21" y="288" width="385" height="533"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Town By Xity is all about giving our local musicians our support. So every time you tap on the Support Button, you show support to the band on the page. And with enough support, your favorite bands will receive things that they need to keep the music coming! Everything from small show promotions to studio recordings and productions!
 
@@ -865,14 +865,14 @@ Always remember: Support live local musicians. Support live local music venues. 
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="rIZ-us-WOA"/>
-                    <size key="freeformSize" width="428" height="926"/>
+                    <size key="freeformSize" width="427" height="872"/>
                     <connections>
                         <outlet property="supportIndicatorView" destination="WXq-Iy-CGW" id="uBv-ou-ssH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHK-3a-Ncp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="107"/>
+            <point key="canvasLocation" x="1919.5652173913045" y="106.47321428571428"/>
         </scene>
         <!--Subscription-->
         <scene sceneID="mps-5z-yGX">

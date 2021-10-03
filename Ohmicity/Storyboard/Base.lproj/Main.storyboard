@@ -786,6 +786,17 @@ should be on Xity?</string>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kqe-NK-98o">
                                                                             <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
                                                                         </imageView>
+                                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
+                                                                            <rect key="frame" x="248" y="166" width="40" height="30"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <state key="normal" title="Break">
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="breaker:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="5eZ-hk-4Ji"/>
+                                                                            </connections>
+                                                                        </button>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="Kqe-NK-98o" secondAttribute="trailing" id="1wU-2X-mx0"/>
@@ -926,14 +937,14 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
-                                                <rect key="frame" x="9" y="593" width="167" height="44"/>
+                                                <rect key="frame" x="9" y="600" width="167" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Xity Exclusives">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PRD-v0-GZh" userLabel="Citites Collection View">
-                                                <rect key="frame" x="0.0" y="644" width="428" height="105"/>
+                                                <rect key="frame" x="0.0" y="651" width="428" height="105"/>
                                                 <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="105" id="NP9-Gd-qPP"/>
@@ -986,7 +997,7 @@ should be on Xity?</string>
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmJ-NI-E7V" userLabel="Sign Up View">
-                                                <rect key="frame" x="9" y="828" width="410" height="232"/>
+                                                <rect key="frame" x="9" y="835" width="410" height="232"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-3o-0eE">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="232"/>
@@ -1043,14 +1054,14 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Favorites Button">
-                                                <rect key="frame" x="9" y="777" width="158" height="44"/>
+                                                <rect key="frame" x="9" y="784" width="158" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Your Favorites">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x8J-nE-HSo" userLabel="Favorites Collection View">
-                                                <rect key="frame" x="0.0" y="828" width="428" height="261"/>
+                                                <rect key="frame" x="0.0" y="835" width="428" height="261"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="261" id="c9Z-N1-jhD"/>
@@ -1117,14 +1128,14 @@ should be on Xity?</string>
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
-                                                <rect key="frame" x="9" y="1117" width="197" height="44"/>
+                                                <rect key="frame" x="9" y="1124" width="197" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Xity Weekly Picks">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="onA-4S-Wan">
-                                                <rect key="frame" x="0.0" y="1168" width="428" height="261"/>
+                                                <rect key="frame" x="0.0" y="1175" width="428" height="261"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="261" id="rMx-3S-1j3"/>
@@ -1183,14 +1194,14 @@ should be on Xity?</string>
                                                 </cells>
                                             </collectionView>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yr5-mc-o9V">
-                                                <rect key="frame" x="9" y="1450" width="83" height="44"/>
+                                                <rect key="frame" x="9" y="1457" width="83" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Venues">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vXY-nV-LWV" userLabel="Venue Collection View">
-                                                <rect key="frame" x="0.0" y="1501" width="428" height="105"/>
+                                                <rect key="frame" x="0.0" y="1508" width="428" height="105"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="105" id="U1r-M9-t8f"/>
@@ -1241,7 +1252,7 @@ should be on Xity?</string>
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRP-dE-0cc" userLabel="Recommend View">
-                                                <rect key="frame" x="9" y="1478" width="410" height="151"/>
+                                                <rect key="frame" x="9" y="1485" width="410" height="151"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="eln-43-wph">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="151"/>
@@ -1285,16 +1296,12 @@ should be on Xity?</string>
                                                     <constraint firstItem="eln-43-wph" firstAttribute="leading" secondItem="dRP-dE-0cc" secondAttribute="leading" id="yUI-tN-HQ8"/>
                                                 </constraints>
                                             </view>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
-                                                <rect key="frame" x="372" y="260.66666666666669" width="40" height="30"/>
-                                                <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Break">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="breaker:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="5eZ-hk-4Ji"/>
-                                                </connections>
-                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvK-9P-KhK">
+                                                <rect key="frame" x="382" y="586" width="37" height="18"/>
+                                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1326,7 +1333,6 @@ should be on Xity?</string>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="UsH-1c-6EG"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="49" id="WAw-N7-rPE"/>
                                             <constraint firstItem="SO8-4f-hLW" firstAttribute="top" secondItem="x8J-nE-HSo" secondAttribute="bottom" constant="28" id="WNZ-Vb-9H8"/>
-                                            <constraint firstAttribute="trailing" secondItem="unq-Kr-Wcq" secondAttribute="trailing" constant="16" id="XGo-bs-mXt"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="bottom" secondItem="MWB-JM-Q0f" secondAttribute="bottom" id="XvU-vJ-Wvx"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="Yle-d4-ob3"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
@@ -1341,12 +1347,12 @@ should be on Xity?</string>
                                             <constraint firstAttribute="trailing" secondItem="PRD-v0-GZh" secondAttribute="trailing" id="mj5-MS-fmm"/>
                                             <constraint firstItem="g8b-sK-kda" firstAttribute="top" secondItem="PaE-9Z-b5c" secondAttribute="top" id="nXN-RM-FfO"/>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="top" secondItem="PRD-v0-GZh" secondAttribute="bottom" constant="28" id="nwV-TP-UTi"/>
+                                            <constraint firstItem="DvK-9P-KhK" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="7" id="pad-qU-4gR"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="pce-My-VFH"/>
+                                            <constraint firstAttribute="trailing" secondItem="DvK-9P-KhK" secondAttribute="trailing" constant="9" id="qEp-7Y-x0r"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="ql6-jh-PRe"/>
                                             <constraint firstItem="RHp-aE-CIZ" firstAttribute="leading" secondItem="HPd-IG-CFU" secondAttribute="trailing" id="s4M-xX-K8I"/>
-                                            <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="unq-Kr-Wcq" secondAttribute="bottom" constant="20.329999999999998" id="shW-EX-EYH"/>
-                                            <constraint firstItem="unq-Kr-Wcq" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="7.6699999999999999" id="tvO-aT-XgX"/>
-                                            <constraint firstItem="4FR-ji-xOh" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="14" id="uPv-Ma-efd"/>
+                                            <constraint firstItem="4FR-ji-xOh" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="21" id="uPv-Ma-efd"/>
                                             <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" constant="200" id="ueb-0t-Swa"/>
                                             <constraint firstItem="onA-4S-Wan" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="weM-l1-ZCm"/>
                                         </constraints>
@@ -1388,6 +1394,7 @@ should be on Xity?</string>
                         <outlet property="recommendButton" destination="KDs-ve-Na8" id="htC-bJ-4Sm"/>
                         <outlet property="recommendView" destination="dRP-dE-0cc" id="esM-pc-LLb"/>
                         <outlet property="scrollView" destination="E7R-d7-w8P" id="ud9-2V-4mS"/>
+                        <outlet property="seeAllDataDetailLabel" destination="DvK-9P-KhK" id="7cf-4M-apz"/>
                         <outlet property="todayButton" destination="HPd-IG-CFU" id="tmK-gb-Q8j"/>
                         <outlet property="todayCollectionView" destination="cgb-1O-MRt" id="fKu-Fi-ciE"/>
                         <outlet property="topAdView" destination="g8b-sK-kda" id="dcg-uJ-YF2"/>

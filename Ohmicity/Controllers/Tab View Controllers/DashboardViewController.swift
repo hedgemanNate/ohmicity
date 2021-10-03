@@ -22,6 +22,9 @@ class DashboardViewController: UIViewController {
     //Banner
     var timer = Timer()
     
+    //Feature Access Properties
+    var halfTodayShows = [XityShow]()
+    @IBOutlet weak var seeAllDataDetailLabel: UILabel!
     
     //Not Logged In
     @IBOutlet private weak var getPerksButton: UIButton!
@@ -194,9 +197,18 @@ extension DashboardViewController {
         
         //UI Adjustments
         getPerksButton.layer.cornerRadius = 5
-        
         cityFilterLabel.text = "~Filter Off"
         
+        if subscriptionController.seeAllData == false || currentUserController.currentUser == nil {
+            if halfTodayShows.count <= 4 {
+                seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
+            } else {
+                seeAllDataDetailLabel.text = "See All \(halfTodayShows.count) shows with any Xity Pass"
+            }
+            
+        } else {
+            seeAllDataDetailLabel.text = ""
+        }
         
         
         //Recommendation View
@@ -344,7 +356,19 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return  50
             
         case todayCollectionView:
-            return xityShowController.todayShowResultsArray.count
+            if subscriptionController.seeAllData == false {
+                var index = 0
+                halfTodayShows = [XityShow]()
+                for show in xityShowController.todayShowArray {
+                    if index % 2 == 0 {
+                        halfTodayShows.append(show)
+                    }
+                    index += 1
+                }
+                return halfTodayShows.count
+            } else {
+                return xityShowController.todayShowResultsArray.count
+            }
             
         case xityExclusivesCollectionView:
             return businessController.citiesArray.count
@@ -395,8 +419,14 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! BandVenueCollectionViewCell
-            venueCell.venue = xityShowController.todayShowResultsArray[indexPath.row].business
-            return venueCell
+            
+            if subscriptionController.seeAllData == false {
+                venueCell.venue = halfTodayShows[indexPath.row].business
+                return venueCell
+            } else {
+                venueCell.venue = xityShowController.todayShowResultsArray[indexPath.row].business
+                return venueCell
+            }
             
         case xityExclusivesCollectionView:
             cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell

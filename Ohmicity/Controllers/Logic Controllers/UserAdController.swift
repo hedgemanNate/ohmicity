@@ -81,7 +81,7 @@ class UserAdController {
     
     func shouldShowAd() -> Bool {
         let x = Int.random(in: 1...10)
-        if x <= 5 {
+        if x <= 6 {
             return true
         } else {
             return false

@@ -39,7 +39,9 @@ class BandDetailViewController: UIViewController {
     
     //Table View
     @IBOutlet weak var upcomingShowsTableView: UITableView!
-    @IBOutlet weak var upComingDetailLabel: UILabel!
+    
+    //Feature Access Properties
+    @IBOutlet weak var seeAllDataDetailLabel: UILabel!
     
     //BannerAd
     var timer = Timer()
@@ -275,15 +277,15 @@ class BandDetailViewController: UIViewController {
         
         if subscriptionController.seeAllData == false || currentUserController.currentUser == nil {
             if currentBand.xityShows?.count ?? 0 <= 4 {
-                upComingDetailLabel.text = "See all shows with any Xity Pass"
+                seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
                 upcomingShowsTableView.reloadData()
             } else {
-                upComingDetailLabel.text = "See All \(currentBand.xityShows?.count ?? 0) shows with any Xity Pass"
+                seeAllDataDetailLabel.text = "See All \(currentBand.xityShows?.count ?? 0) shows with any Xity Pass"
                 upcomingShowsTableView.reloadData()
             }
             
         } else {
-            upComingDetailLabel.text = ""
+            seeAllDataDetailLabel.text = ""
         }
         
         if currentBand.band.photo == nil {
