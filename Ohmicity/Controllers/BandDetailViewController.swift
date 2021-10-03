@@ -12,6 +12,7 @@ import MaterialComponents.MaterialActivityIndicator
 import MaterialComponents.MaterialProgressView
 import EventKitUI
 import MaterialComponents
+import GoogleMobileAds
 
 class BandDetailViewController: UIViewController {
     
@@ -120,6 +121,11 @@ class BandDetailViewController: UIViewController {
         }
     }
     
+    //Google Ad Properties
+    private var interstitialAd: GADInterstitialAd?
+    
+    
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -127,6 +133,7 @@ class BandDetailViewController: UIViewController {
         setUpNotificationObservers()
         supportLogicCalculator()
         supportIndicatorSetup()
+        createInterstitialAd()
         
         // Do any additional setup after loading the view.
     }
@@ -150,21 +157,7 @@ class BandDetailViewController: UIViewController {
     }
     
     @IBAction func listenButtonTapped(_ sender: Any) {
-        let bandMedia = currentBand?.band.mediaLink ?? ""
-        guard let url = URL(string: bandMedia) else {
-          return //be safe
-        }
-        
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        
-        //Future in-app video OR audio solution
-//        let player = AVPlayer(url: url)
-//        let vc = AVPlayerViewController()
-//        vc.player = player
-//
-//        present(vc, animated: true) {
-//            vc.player?.play()
-//        }
+        checkForAdThenRunFunction()
     }
     
     
@@ -338,6 +331,14 @@ class BandDetailViewController: UIViewController {
         
         //Network Connection
         //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
+    }
+    
+    private func listenButtonFunction() {
+        let bandMedia = currentBand?.band.mediaLink ?? ""
+                guard let url = URL(string: bandMedia) else {
+                  return //be safe
+                }
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     
@@ -787,4 +788,53 @@ extension BandDetailViewController {
         self.supportButton.addTarget(self, action: #selector(supportButtonTapped), for: .touchDown)
     }
     
+}
+
+//MARK: Google Ads Protocols/Functions
+extension BandDetailViewController: GADFullScreenContentDelegate {
+    
+    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+        endTimer()
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        createInterstitialAd()
+        listenButtonFunction()
+        
+    }
+    
+    //Functions
+    private func createInterstitialAd() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialTestAdID, request: request) { [self] ad, error in
+            
+            if let error = error {
+                NSLog("Error Displaying Ad: \(error.localizedDescription)")
+                return
+            }
+            interstitialAd = ad
+            interstitialAd?.fullScreenContentDelegate = self
+        }
+    }
+    
+    private func checkForAdThenSegue(to segue: String) {
+        
+        if interstitialAd != nil && userAdController.showAds == true {
+            if userAdController.shouldShowAd() {
+                interstitialAd?.present(fromRootViewController: self)
+            } else {
+                performSegue(withIdentifier: segue, sender: self)
+            }
+        } else {
+            performSegue(withIdentifier: segue, sender: self)
+        }
+    }
+    
+    private func checkForAdThenRunFunction() {
+        if interstitialAd != nil && userAdController.showAds == true {
+            interstitialAd?.present(fromRootViewController: self)
+        } else {
+            listenButtonFunction()
+        }
+    }
 }
