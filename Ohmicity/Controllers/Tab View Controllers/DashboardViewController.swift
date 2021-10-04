@@ -120,8 +120,8 @@ extension DashboardViewController {
     }
     
     private func checkSubscription() {
-        switch userAdController.showAds {
-        case true:
+        switch subscriptionController.noPopupAds {
+        case false:
             self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
         default:
             break
@@ -534,7 +534,7 @@ extension DashboardViewController: GADFullScreenContentDelegate {
     //Functions
     private func createInterstitialAd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialTestAdID, request: request) { [self] ad, error in
+        GADInterstitialAd.load(withAdUnitID: userAdController.activePopUpAdUnitID, request: request) { [self] ad, error in
             
             if let error = error {
                 NSLog("Error Displaying Ad: \(error.localizedDescription)")
@@ -548,7 +548,7 @@ extension DashboardViewController: GADFullScreenContentDelegate {
     private func checkForAdThenSegue(to segue: String) {
         segueToPerform = segue
         
-        if interstitialAd != nil && userAdController.showAds == true {
+        if interstitialAd != nil && subscriptionController.noPopupAds == false {
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {

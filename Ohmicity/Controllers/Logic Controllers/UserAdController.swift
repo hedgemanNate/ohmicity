@@ -15,14 +15,18 @@ enum UserFeatureReply {
     case allowLimited
 }
 
+enum GoogleAdID: String {
+    case paidAdUnitID = "ca-app-pub-9052204067761521/5346686403"
+    case testAdUnitID = "ca-app-pub-3940256099942544/4411468910"
+}
+
 class UserAdController {
     //Properties
-    var showAds = true
+    //var showAds = true
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
-    var interstitialAdUnitID = "ca-app-pub-9052204067761521/5346686403"
-    var interstitialTestAdID = "ca-app-pub-3940256099942544/4411468910"
+    var activePopUpAdUnitID = GoogleAdID.testAdUnitID.rawValue
     
     //Functions
     func setUpAdsAndFeaturesForUser() {
@@ -36,11 +40,11 @@ class UserAdController {
             subscriptionController.xityDeals = false
         }
         
-        guard let user = currentUserController.currentUser else {showAds = true; return}
+        guard let user = currentUserController.currentUser else {subscriptionController.noPopupAds = false; return}
         if user.subscription == .None {
-            showAds = true
+            subscriptionController.noPopupAds = false
         } else {
-            showAds = false
+            subscriptionController.noPopupAds = true
         }
         
         switch user.subscription {

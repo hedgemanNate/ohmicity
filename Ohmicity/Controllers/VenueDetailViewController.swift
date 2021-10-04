@@ -619,7 +619,7 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
     //Functions
     private func createInterstitialAd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: userAdController.interstitialTestAdID, request: request) { [self] ad, error in
+        GADInterstitialAd.load(withAdUnitID: userAdController.activePopUpAdUnitID, request: request) { [self] ad, error in
             
             if let error = error {
                 NSLog("Error Displaying Ad: \(error.localizedDescription)")
@@ -633,7 +633,7 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
     private func checkForAdThenSegue(to segue: String) {
         segueToPerform = segue
         
-        if interstitialAd != nil && userAdController.showAds == true {
+        if interstitialAd != nil && subscriptionController.noPopupAds == false {
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {
@@ -646,7 +646,7 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
     
     private func checkForAdThenRunFunction(for function: AfterAd) {
         afterAdIsShown = function
-        if interstitialAd != nil && userAdController.showAds == true {
+        if interstitialAd != nil && subscriptionController.noPopupAds == false {
             interstitialAd?.present(fromRootViewController: self)
 
         } else {

@@ -615,6 +615,19 @@ should be on Xity?</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVZ-Pd-fP0">
+                                                <rect key="frame" x="8" y="616" width="24" height="24"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="CIp-RZ-bcd"/>
+                                                    <constraint firstAttribute="width" constant="24" id="sqz-Yf-KUX"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="featureToggleTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="TF8-0I-TVn"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -626,6 +639,8 @@ should be on Xity?</string>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="bottom" constant="28" id="OSI-mZ-Zr8"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" id="TYF-81-BPZ"/>
                                             <constraint firstAttribute="trailing" secondItem="U03-DP-nhM" secondAttribute="trailing" constant="28" id="aqd-wZ-ike"/>
+                                            <constraint firstItem="NVZ-Pd-fP0" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="8" id="dCx-EK-MAs"/>
+                                            <constraint firstItem="NVZ-Pd-fP0" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="bottom" constant="15" id="g9N-Nt-yCA"/>
                                             <constraint firstItem="08x-3k-ohO" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="bottom" constant="15" id="lD4-z2-H3j"/>
                                             <constraint firstAttribute="trailing" secondItem="g3I-Dd-R8F" secondAttribute="trailing" constant="9" id="lUR-NA-FKo"/>
                                             <constraint firstAttribute="trailing" secondItem="e63-2g-Vlu" secondAttribute="trailing" id="tWc-oU-a0e"/>
@@ -656,6 +671,7 @@ should be on Xity?</string>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
+                        <outlet property="featureToggle" destination="NVZ-Pd-fP0" id="Bxu-yQ-HLa"/>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
                         <outlet property="recommendButton" destination="Fwy-YD-YlE" id="hxM-jl-EAm"/>
@@ -1733,9 +1749,9 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-L8-xJL"/>
-        <segue reference="fQ9-bq-bhx"/>
-        <segue reference="pYi-uV-Zx2"/>
+        <segue reference="2UD-vX-uNS"/>
+        <segue reference="mst-Qo-D3e"/>
+        <segue reference="phR-fw-lgs"/>
         <segue reference="sZi-Pr-M00"/>
         <segue reference="9oH-9z-0L1"/>
     </inferredMetricsTieBreakers>
@@ -1767,6 +1783,9 @@ should be on Xity?</string>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

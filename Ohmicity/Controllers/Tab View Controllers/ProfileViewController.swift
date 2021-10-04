@@ -24,7 +24,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     
-    
+    @IBOutlet weak var featureToggle: UIButton!
+    var feature = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,32 @@ class ProfileViewController: UIViewController {
             UIApplication.shared.openURL(url)
         }
     }
+    
+    @IBAction func featureToggleTapped(_ sender: Any) {
+        notificationCenter.post(notifications.userAuthUpdated)
+        
+        
+        if feature {
+            currentUserController.currentUser?.subscription = .FullAccessPass
+        } else {
+            currentUserController.currentUser?.subscription = .None
+        }
+        
+        feature.toggle()
+        
+        print(currentUserController.currentUser?.subscription.rawValue)
+        
+        DispatchQueue.main.async { [self] in
+            if feature == true {
+            self.featureToggle.backgroundColor = .red
+            } else {
+                self.featureToggle.backgroundColor = .yellow
+            }
+        }
+        
+        print(subscriptionController.favorites, subscriptionController.seeAllData)
+    }
+    
     
     @objc private func updateLogButton() {
         if Auth.auth().currentUser == nil {
