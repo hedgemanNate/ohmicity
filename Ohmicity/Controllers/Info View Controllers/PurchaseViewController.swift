@@ -11,7 +11,10 @@ import FirebaseFirestoreSwift
 import StoreKit
 
 class PurchaseViewController: UIViewController {
+    
     //Properties
+    private var products = [SKProduct]()
+    var productToPurchase = SKProduct()
     
     @IBOutlet weak var purchaseCollectionView: UICollectionView!
     
@@ -149,4 +152,62 @@ extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDe
         
     }
     
+}
+
+//MARK: Purchase Network Calls
+extension PurchaseViewController: SKProductsRequestDelegate, SKPaymentTransactionObserver {
+    
+    private func getProducts() {
+        let request = SKProductsRequest(productIdentifiers: ["FRP_2", "BSP_4"])
+        request.delegate = self
+        request.start()
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        products = response.products
+    }
+    
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        guard request is SKProductsRequest else {
+            return
+        }
+        
+        print("Purchased Failed")
+    }
+    
+    
+    
+    func purchase(product: SKProduct) {
+        guard SKPaymentQueue.canMakePayments() else {
+            return
+        }
+        
+        productToPurchase = product
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(payment)
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        transactions.forEach({transaction in
+//            if transaction.payment.productIdentifier == self.productToPurchase.productIdentifier  {
+//                continue
+//            }
+//            
+//            switch transaction.transactionState {
+//            case .purchasing:
+//                <#code#>
+//            case .purchased:
+//                <#code#>
+//            case .failed:
+//                <#code#>
+//            case .restored:
+//                <#code#>
+//            case .deferred:
+//                <#code#>
+//            @unknown default:
+//                break
+//            }
+        })
+    }
 }

@@ -485,7 +485,11 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             endTimer()
             let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let selected = xityShowController.todayShowResultsArray[indexPath!.row]
+            var selected = xityShowController.todayShowResultsArray[indexPath!.row]
+            if subscriptionController.seeAllData == false {
+                selected = halfTodayShows[indexPath!.row]
+            }
+            
             let business = selected.business
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
             businessVC.currentBusiness = xityBusiness

@@ -121,6 +121,7 @@
 		F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE426C614ED00C73CD6 /* XityBandController.swift */; };
 		F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE626C6179800C73CD6 /* XityBusinessController.swift */; };
 		F69EEB8726FD8124001C342E /* BandSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69EEB8626FD8124001C342E /* BandSearchViewController.swift */; };
+		F6AB4F5A270C133B004C164C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AB4F59270C133B004C164C /* StoreKit.framework */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -263,6 +264,7 @@
 		F699FFE426C614ED00C73CD6 /* XityBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBandController.swift; sourceTree = "<group>"; };
 		F699FFE626C6179800C73CD6 /* XityBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBusinessController.swift; sourceTree = "<group>"; };
 		F69EEB8626FD8124001C342E /* BandSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandSearchViewController.swift; sourceTree = "<group>"; };
+		F6AB4F59270C133B004C164C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */,
+				F6AB4F5A270C133B004C164C /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +303,7 @@
 		774EDA1CD1EB166EB9631C7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6AB4F59270C133B004C164C /* StoreKit.framework */,
 				59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */,
 			);
 			name = Frameworks;
