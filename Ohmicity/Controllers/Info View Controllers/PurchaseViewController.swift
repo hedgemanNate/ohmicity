@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import StoreKit
 
 class PurchaseViewController: UIViewController {
     //Properties
@@ -27,7 +28,7 @@ class PurchaseViewController: UIViewController {
                 switch purchaseDetailsSet {
                 case 0:
                     priceTextField.text = "Then $1.99 per month. Cancel Anytime."
-                case 347:
+                case 345:
                     priceTextField.text = "Then $4.99 per month. Cancel Anytime."
                 case 2:
                     priceTextField.text = "Then $6.99 per month. Cancel Anytime."
@@ -88,6 +89,12 @@ class PurchaseViewController: UIViewController {
     private func setupCollectionView() {
         purchaseCollectionView.delegate = self
         purchaseCollectionView.dataSource = self
+        
+        //Centers the collection view cells
+        let collectionViewLayout = purchaseCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        let inset = (self.view.frame.width - 300) / 2
+        collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+        collectionViewLayout?.invalidateLayout()
     }
     
 

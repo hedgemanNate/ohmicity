@@ -383,7 +383,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
                 if currentUserController.favArray.count < 1 {
                     return currentUserController.favArray.count
                 } else {
-                    return 1
+                   return 1
                 }
             }
             
@@ -391,7 +391,11 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case xityPickCollectionView:
             if currentUserController.currentUser == nil {
                 xityShowController.weeklyPicksArray.shuffle()
-                return 1
+                if xityShowController.weeklyPicksArray.count < 1 {
+                    return xityShowController.weeklyPicksArray.count
+                } else {
+                    return 1
+                }
             } else {
                 xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
                 return xityShowController.weeklyPicksArray.count

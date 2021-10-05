@@ -628,6 +628,15 @@ should be on Xity?</string>
                                                     <action selector="featureToggleTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="TF8-0I-TVn"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzG-Qm-RP0">
+                                                <rect key="frame" x="181" y="616" width="67" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <segue destination="OdV-4F-Qyt" kind="presentation" modalPresentationStyle="fullScreen" id="dym-8r-Bda"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -684,7 +693,15 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-681.30841121495325" y="-1510.3671706263499"/>
         </scene>
-        <!--Choose Preferred City-->
+        <!--Subscription-->
+        <scene sceneID="9O0-4M-fwS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Subscription" id="OdV-4F-Qyt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQe-Mt-E8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78" y="-1422"/>
+        </scene>
+        <!--Filter By City-->
         <scene sceneID="XSJ-gK-uvf">
             <objects>
                 <tableViewController id="evY-Al-06O" customClass="PreferredCityTableViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
@@ -751,11 +768,11 @@ should be on Xity?</string>
                             <outlet property="delegate" destination="evY-Al-06O" id="p2c-cm-bnu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Preferred City" largeTitleDisplayMode="always" id="eMh-3d-xV2"/>
+                    <navigationItem key="navigationItem" title="Filter By City" largeTitleDisplayMode="always" id="eMh-3d-xV2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrt-Kx-XKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2286" y="-765"/>
+            <point key="canvasLocation" x="-1389.252336448598" y="-765.22678185745144"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="URJ-TY-WiF">
@@ -1019,20 +1036,20 @@ should be on Xity?</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="232"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your favorite venue or band and get our list of the best shows in the Bay Area. Every Week." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-Bs-Wlj">
-                                                        <rect key="frame" x="35" y="21" width="340" height="64.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <rect key="frame" x="35" y="21" width="340" height="68.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5O-HO-FdC">
-                                                        <rect key="frame" x="35" y="99.666666666666629" width="127" height="49"/>
+                                                        <rect key="frame" x="35" y="103.33333333333337" width="180" height="49"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="127" id="gLI-gO-yIx"/>
+                                                            <constraint firstAttribute="width" constant="180" id="gLI-gO-yIx"/>
                                                             <constraint firstAttribute="height" constant="49" id="sqG-Rp-DR3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <state key="normal" title="Get Perks">
+                                                        <state key="normal" title="Sign Up For Free!">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -1040,7 +1057,7 @@ should be on Xity?</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
-                                                        <rect key="frame" x="35" y="155.66666666666674" width="186" height="35"/>
+                                                        <rect key="frame" x="35" y="159.33333333333326" width="186" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="vdF-pa-dfW"/>
                                                         </constraints>
@@ -1419,7 +1436,7 @@ should be on Xity?</string>
                         <outlet property="weeklyButton" destination="SO8-4f-hLW" id="xgL-UX-5Mi"/>
                         <outlet property="xityExclusivesCollectionView" destination="PRD-v0-GZh" id="nY6-LR-kFt"/>
                         <outlet property="xityPickCollectionView" destination="onA-4S-Wan" id="WAf-S7-Qqc"/>
-                        <segue destination="evY-Al-06O" kind="presentation" identifier="ToCityFilterSegue" id="kUb-o8-2UV"/>
+                        <segue destination="mvB-W5-o1V" kind="presentation" identifier="ToCityFilterSegue" id="kUb-o8-2UV"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="pYi-uV-Zx2"/>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="FromToday" id="sZi-Pr-M00"/>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="FromFav" id="3oC-qz-sBH"/>
@@ -1705,7 +1722,7 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KrL-MU-LVT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-614"/>
+            <point key="canvasLocation" x="2043.9252336448596" y="-614.25485961123115"/>
         </scene>
         <!--Ratings View Controller-->
         <scene sceneID="jE1-eJ-7od">
@@ -1745,7 +1762,25 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQ1-jl-I04" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="318" y="-614"/>
+            <point key="canvasLocation" x="1214.018691588785" y="-614.25485961123115"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="G6l-OO-0aJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mvB-W5-o1V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Yb-fV-oLE">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="evY-Al-06O" kind="relationship" relationship="rootViewController" id="vcf-RZ-q3H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jzR-nM-3ZY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2286.4485981308408" y="-765.22678185745144"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
