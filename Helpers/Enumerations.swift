@@ -69,9 +69,10 @@ enum Genre: String, Codable {
 
 //MARK: User
 enum SubscriptionType: String, Codable, Equatable {
+    case err
     case None
     case FrontRowPass = "Front Row Pass"
-    case BackStagePass = "Back Stage Pass"
+    case BackStagePass = "Backstage Pass"
     case FullAccessPass = "Full Access Pass"
 }
 

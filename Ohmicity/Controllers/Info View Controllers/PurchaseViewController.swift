@@ -8,15 +8,12 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-import StoreKit
 
 class PurchaseViewController: UIViewController {
     
     //Properties
-    private var products = [SKProduct]()
-    var productToPurchase = SKProduct()
-    
     @IBOutlet weak var purchaseCollectionView: UICollectionView!
+    var pass: SubscriptionType = .FrontRowPass
     
     //Buttons
     @IBOutlet weak var try7DaysFreeButton: UIButton!
@@ -24,23 +21,31 @@ class PurchaseViewController: UIViewController {
     @IBOutlet weak var pageController: UIPageControl!
     
     //Views
+    var alert = UIAlertController()
+    var alertAction = UIAlertAction()
+    
     var purchaseDetailsSet: Int? {
         didSet {
             print(purchaseDetailsSet!)
             DispatchQueue.main.async { [self] in
                 switch purchaseDetailsSet {
                 case 0:
-                    priceTextField.text = "Then $1.99 per month. Cancel Anytime."
+                    priceTextField.text = "Then $2.99 per month. Cancel Anytime."
+                    pass = .FrontRowPass
                 case 345:
                     priceTextField.text = "Then $4.99 per month. Cancel Anytime."
+                    pass = .BackStagePass
                 case 2:
                     priceTextField.text = "Then $6.99 per month. Cancel Anytime."
+                    pass = .FullAccessPass
                 default:
                     break
                 }
             }
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +56,51 @@ class PurchaseViewController: UIViewController {
     
     //MARK: Button Actions
     
+    @IBAction func breaker(_ sender: Any) {
+        
+    }
+    
+    
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func try7DaysFreeButtonTapped(_ sender: Any) {
+        PurchaseController.shared.purchase(pass: pass) { [self] success in
+            if success == false {
+                alert = UIAlertController(title: "There was an error with your payment.", message: "Do not worry. You were not charged. Please check your payment method and try again.", preferredStyle: .actionSheet)
+                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                present(alert, animated: true, completion: nil)
+            } else {
+                alert = UIAlertController(title: "Success!", message: "You are now a Xity Pass Member! Thank you for supporting Live Local Music!!", preferredStyle: .actionSheet)
+                alertAction = UIAlertAction(title: "Back To The Music", style: .default, handler: { _ in
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
+                alert.addAction(alertAction)
+            }
+        }
     }
+    
+    @IBAction func restorePurchaseButtonTapped(_ sender: Any) {
+        PurchaseController.shared.restorePurchases { [self] success in
+            if success == false {
+                alert = UIAlertController(title: "Restore Failed", message: "Could not find a pass to restore.", preferredStyle: .actionSheet)
+                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                present(alert, animated: true, completion: nil)
+            } else {
+                alert = UIAlertController(title: "Pass Restored", message: "Your Xity Pass has been restored.", preferredStyle: .actionSheet)
+                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     
     @IBAction func listOfPassFeaturesButtonTapped(_ sender: Any) {
     }
@@ -155,59 +198,7 @@ extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDe
 }
 
 //MARK: Purchase Network Calls
-extension PurchaseViewController: SKProductsRequestDelegate, SKPaymentTransactionObserver {
-    
-    private func getProducts() {
-        let request = SKProductsRequest(productIdentifiers: ["FRP_2", "BSP_4"])
-        request.delegate = self
-        request.start()
-    }
-    
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        products = response.products
-    }
-    
-    func request(_ request: SKRequest, didFailWithError error: Error) {
-        guard request is SKProductsRequest else {
-            return
-        }
-        
-        print("Purchased Failed")
-    }
+extension PurchaseViewController {
     
     
-    
-    func purchase(product: SKProduct) {
-        guard SKPaymentQueue.canMakePayments() else {
-            return
-        }
-        
-        productToPurchase = product
-        let payment = SKPayment(product: product)
-        SKPaymentQueue.default().add(self)
-        SKPaymentQueue.default().add(payment)
-    }
-    
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        transactions.forEach({transaction in
-//            if transaction.payment.productIdentifier == self.productToPurchase.productIdentifier  {
-//                continue
-//            }
-//            
-//            switch transaction.transactionState {
-//            case .purchasing:
-//                <#code#>
-//            case .purchased:
-//                <#code#>
-//            case .failed:
-//                <#code#>
-//            case .restored:
-//                <#code#>
-//            case .deferred:
-//                <#code#>
-//            @unknown default:
-//                break
-//            }
-        })
-    }
 }

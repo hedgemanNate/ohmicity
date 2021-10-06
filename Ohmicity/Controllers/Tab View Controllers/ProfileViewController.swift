@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet private weak var recommendButton: UIButton!
     
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var userIDLabel: UILabel!
     
     @IBOutlet weak var featureToggle: UIButton!
     var feature = true
@@ -63,6 +64,7 @@ class ProfileViewController: UIViewController {
             do {
                 try Auth.auth().signOut()
                 currentUserController.currentUser = nil
+                userAdController.userSubscription = .None
                 self.tabBarController?.selectedIndex = 2
             } catch let signOutError as NSError {
                 NSLog("Sign Out Failed: %@", signOutError)
@@ -93,8 +95,6 @@ class ProfileViewController: UIViewController {
         
         feature.toggle()
         
-        print(currentUserController.currentUser?.subscription.rawValue)
-        
         DispatchQueue.main.async { [self] in
             if feature == true {
             self.featureToggle.backgroundColor = .red
@@ -105,6 +105,17 @@ class ProfileViewController: UIViewController {
         
         print(subscriptionController.favorites, subscriptionController.seeAllData)
     }
+    
+    @IBAction func purchaseButtonTapped(_ sender: Any) {
+        if currentUserController.currentUser == nil {
+            performSegue(withIdentifier: "ToSignIn", sender: self)
+        } else {
+            performSegue(withIdentifier: "ToSubscriptions", sender: self)
+        }
+        
+        
+    }
+    
     
     
     @objc private func updateLogButton() {
@@ -124,9 +135,11 @@ class ProfileViewController: UIViewController {
         if currentUserController.currentUser == nil {
             recommendButton.isEnabled = false
             recommendButton.setTitle("Sign In To Recommend", for: .disabled)
+            userIDLabel.text = "--"
         } else {
             recommendButton.isEnabled = true
             recommendButton.setTitle("Recommend", for: .normal)
+            userIDLabel.text = currentUserController.currentUser?.userID ?? "--"
         }
         
         versionLabel.text = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String) (\(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String))"
@@ -222,7 +235,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -230,5 +243,5 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 }

@@ -26,19 +26,19 @@ class SubscriptionController {
     //Features
     let noAdsFeature = PaywallFeature(image: UIImage(named: "noAds.jpg") ?? UIImage(), name: "No Ads")
     let unlimitedFavsFeature = PaywallFeature(image: UIImage(named: "unltdFavs.jpg") ?? UIImage(), name: "Unlimited Favorites")
-    let ratingFeature = PaywallFeature(image: UIImage(named: "rate.jpg") ?? UIImage(), name: "Rate Bands and Venues")
+    let searchFeature = PaywallFeature(image: UIImage(named: "search.jpg") ?? UIImage(), name: "Search For Bands")
     let remindersFeature = PaywallFeature(image: UIImage(named: "reminders.jpg") ?? UIImage(), name: "Never Miss a Show")
                 
     //Descriptions
-    let frpDescription = "No more popup ads and save as many bands and venues as you like!"
-    let bspDescription = "Front Row Pass plus reminders for shows you pick and filter shows by the city!"
+    let frpDescription = "No more popup ads, see all shows and Favorite multiple bands and venues*"
+    let bspDescription = "Front Row Pass plus save future shows, search for bands and venues and more!*"
     let fapDescription = ""
     
     func setUpInAppPurchaseArray() {
         let frpPurchase = Subscription(type: .FrontRowPass, description: frpDescription, features: [noAdsFeature, unlimitedFavsFeature], price: "$1.99")
         inAppPurchaseArray.append(frpPurchase)
         
-        let bspPurchase = Subscription(type: .BackStagePass, description: bspDescription, features: [ratingFeature, remindersFeature], price: "$4.99")
+        let bspPurchase = Subscription(type: .BackStagePass, description: bspDescription, features: [searchFeature, remindersFeature], price: "$4.99")
         inAppPurchaseArray.append(bspPurchase)
     }
     

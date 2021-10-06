@@ -42,7 +42,10 @@ class CurrentUserController {
                         //MARK: BETA
                         checkForNilProperties(currentUser: user)
                         self.currentUser = user
-                        self.setUpCurrentUserPreferences()
+                        self.setUpQonversionPurchasing {
+                            self.setUpCurrentUserPreferences()
+                        }
+                        
                     } else {
                         NSLog("User Data Not Found In Database")
                     }
@@ -80,6 +83,19 @@ class CurrentUserController {
         }
     }
     
+    func setUpQonversionPurchasing(completion: @escaping () -> ()) {
+        PurchaseController.shared.configure { success in
+            if success == false {
+                NSLog("💰 Qonversion Configure Error")
+                return
+            } else {
+                NSLog("💰 Qonversion Successfully Configured")
+            }
+        }
+        
+        PurchaseController.shared.checkPermissions()
+    }
+    
     func setUpCurrentUserPreferences() {
         //Ad Experience Setup
         userAdController.setUpAdsAndFeaturesForUser()
@@ -90,14 +106,12 @@ class CurrentUserController {
     
     func pushCurrentUserData() {
         
-        guard let uid = currentUser?.userID else {return NSLog("No Current User Found/Set")}
+        guard let uid = currentUser?.userID else {return NSLog("🚨 No Current User Found/Set")}
         do {
             currentUser?.lastModified = Timestamp()
             try ref.userDataPath.document(uid).setData(from: currentUser)
-            print("pushCurrentUserData")
         } catch let error {
-            NSLog(error.localizedDescription)
-            print("pushCurrentUserData Error")
+            NSLog("🚨 \(error.localizedDescription)")
         }
     }
     

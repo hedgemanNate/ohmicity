@@ -8,13 +8,6 @@
 import Foundation
 import GoogleMobileAds
 
-enum UserFeatureReply {
-    case showLogin
-    case showSubscriptions
-    case allow
-    case allowLimited
-}
-
 enum GoogleAdID: String {
     case paidAdUnitID = "ca-app-pub-9052204067761521/5346686403"
     case testAdUnitID = "ca-app-pub-3940256099942544/4411468910"
@@ -22,11 +15,16 @@ enum GoogleAdID: String {
 
 class UserAdController {
     //Properties
-    //var showAds = true
+    var userSubscription = SubscriptionType.None {
+        didSet {
+            currentUserController.setUpCurrentUserPreferences()
+            notificationCenter.post(notifications.userAuthUpdated)
+        }
+    }
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
-    var activePopUpAdUnitID = GoogleAdID.testAdUnitID.rawValue
+    var activePopUpAdUnitID = GoogleAdID.paidAdUnitID.rawValue
     
     //Functions
     func setUpAdsAndFeaturesForUser() {
@@ -40,14 +38,9 @@ class UserAdController {
             subscriptionController.xityDeals = false
         }
         
-        guard let user = currentUserController.currentUser else {subscriptionController.noPopupAds = false; return}
-        if user.subscription == .None {
-            subscriptionController.noPopupAds = false
-        } else {
-            subscriptionController.noPopupAds = true
-        }
+        //guard let user = currentUserController.currentUser else {subscriptionController.noPopupAds = false; return}
         
-        switch user.subscription {
+        switch userSubscription {
         case .None:
             subscriptionController.favorites = false
             subscriptionController.noPopupAds = false
@@ -71,7 +64,7 @@ class UserAdController {
             subscriptionController.showReminders = true
             subscriptionController.todayShowFilter = true
             subscriptionController.search = true
-            subscriptionController.xityDeals = false
+            subscriptionController.xityDeals = true
         case .FullAccessPass:
             subscriptionController.favorites = true
             subscriptionController.noPopupAds = true
@@ -80,6 +73,8 @@ class UserAdController {
             subscriptionController.todayShowFilter = true
             subscriptionController.search = true
             subscriptionController.xityDeals = true
+        case .err:
+            break
         }
     }
     

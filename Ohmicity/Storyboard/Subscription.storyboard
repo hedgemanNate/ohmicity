@@ -33,7 +33,7 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="kNR-Cx-K5b">
                                                         <rect key="frame" x="0.0" y="0.0" width="225" height="154"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgraded Access Passes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t77-sO-Ss9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Passes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t77-sO-Ss9">
                                                         <rect key="frame" x="0.0" y="164" width="225" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,7 +99,7 @@
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Dic-2a-Cj0"/>
                                                                                 <constraint firstAttribute="height" constant="45" id="a1n-kE-LWo"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -117,7 +117,7 @@
                                                                                 <constraint firstAttribute="height" constant="45" id="5wB-sF-UfX"/>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="jpL-Az-tMU"/>
                                                                             </constraints>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -195,7 +195,7 @@
                                                             <constraint firstAttribute="height" constant="20" id="tcW-DB-UeF"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <state key="normal" title="See Full List of Pass Features">
+                                                        <state key="normal" title="*See Full List of Pass Features">
                                                             <color key="titleColor" systemColor="systemYellowColor"/>
                                                         </state>
                                                         <connections>
@@ -219,6 +219,16 @@
                                                     <action selector="pageControllerValueChanged:" destination="IEP-iR-oxz" eventType="valueChanged" id="Pcq-11-RK9"/>
                                                 </connections>
                                             </pageControl>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNO-5b-0ve">
+                                                <rect key="frame" x="300" y="100" width="67" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="breaker:" destination="IEP-iR-oxz" eventType="touchUpInside" id="4ny-WR-9PO"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -266,9 +276,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1jg-iZ-fjo">
-                        <barButtonItem key="leftBarButtonItem" title="Go Back" id="OsR-oU-zJ2">
+                        <barButtonItem key="leftBarButtonItem" title="Back To The Music" id="OsR-oU-zJ2">
                             <connections>
                                 <action selector="dismissButtonTapped:" destination="IEP-iR-oxz" id="4se-FV-g76"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Restore Purchase" id="1uB-oa-Psm">
+                            <connections>
+                                <action selector="restorePurchaseButtonTapped:" destination="IEP-iR-oxz" id="lM2-E3-3Dc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -284,7 +299,7 @@
             </objects>
             <point key="canvasLocation" x="1257.9710144927537" y="-2342.4107142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Access Pass Details-->
         <scene sceneID="lAQ-M8-A3n">
             <objects>
                 <viewController id="1FV-gz-BcK" sceneMemberID="viewController">
@@ -313,8 +328,8 @@
                                                                 <color key="textColor" systemColor="systemYellowColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99/Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pC-ma-AcH">
-                                                                <rect key="frame" x="0.0" y="34" width="106.5" height="21.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2.99/Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pC-ma-AcH">
+                                                                <rect key="frame" x="0.0" y="34" width="109.5" height="21.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -349,7 +364,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wRZ-wd-7tf">
-                                                <rect key="frame" x="27" y="464" width="360" height="503.5"/>
+                                                <rect key="frame" x="27" y="464" width="360" height="524"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cfI-36-Fdz">
                                                         <rect key="frame" x="0.0" y="0.0" width="231" height="56.5"/>
@@ -392,27 +407,27 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search bands and venues by name category and city." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbu-uO-Rp4">
+                                                        <rect key="frame" x="0.0" y="295" width="341.5" height="41"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sf6-oT-IL7">
-                                                        <rect key="frame" x="0.0" y="295" width="350.5" height="81.5"/>
+                                                        <rect key="frame" x="0.0" y="351" width="350.5" height="81.5"/>
                                                         <string key="text">Early notification when free merch, special offers, free Xity Access Passes and Upgrades and other local goods and services are available to claim. (While Supplies Last)</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Reminders for shows you don't want to miss." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewk-RO-rqR">
-                                                        <rect key="frame" x="0.0" y="391.5" width="310" height="41"/>
+                                                        <rect key="frame" x="0.0" y="447.5" width="310" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add shows to your Apple Calendar to share." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pan-Ir-96v">
-                                                        <rect key="frame" x="0.0" y="447.5" width="332.5" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help curate Town by rating Bands and Venues" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbu-uO-Rp4">
-                                                        <rect key="frame" x="0.0" y="483" width="349.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="503.5" width="332.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -456,7 +471,7 @@
                             <constraint firstItem="dXb-ac-MR0" firstAttribute="leading" secondItem="Xgm-7a-PSW" secondAttribute="leading" id="y2g-eF-1E8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Z8g-rj-Dab"/>
+                    <navigationItem key="navigationItem" title="Access Pass Details" id="Z8g-rj-Dab"/>
                     <size key="freeformSize" width="414" height="1150"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNf-Ch-1p8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -488,6 +503,9 @@
         <image name="loginLogo.png" width="624" height="380"/>
         <image name="noAds.jpg" width="500" height="500"/>
         <image name="unltdFavs.jpg" width="500" height="500"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
