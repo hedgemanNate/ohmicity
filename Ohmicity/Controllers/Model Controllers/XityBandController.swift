@@ -17,10 +17,16 @@ class XityBandController {
             let newBand = XityBand(band: band)
             for show in xityShowController.showArray {
                 if show.band == band {
-                    newBand.xityShows.append(show)
+                    if newBand.xityShows == nil {
+                        newBand.xityShows = []
+                        newBand.xityShows?.append(show)
+                    } else {
+                        newBand.xityShows?.append(show)
+                    }
+                    
                 }
             }
-            let orderedShows = newBand.xityShows.sorted(by: {$0.show.date.compare($1.show.date) == .orderedAscending})
+            let orderedShows = newBand.xityShows?.sorted(by: {$0.show.date.compare($1.show.date) == .orderedAscending})
             newBand.xityShows = orderedShows
             self.bandArray.append(newBand)
         }

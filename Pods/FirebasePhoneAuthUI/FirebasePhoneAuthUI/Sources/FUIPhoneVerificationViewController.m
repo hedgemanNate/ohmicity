@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 static NSString *const kNextButtonAccessibilityID = @"NextButtonAccessibilityID";
 
-static NSTimeInterval FUIDelayInSecondsBeforeShowingResendConfirmationCode = 60;
+static NSTimeInterval FUIDelayInSecondsBeforeShowingResendConfirmationCode = 15;
 
 /** Regex pattern that matches for a TOS style link. For example: [Terms]. */
 static NSString *const kLinkPlaceholderPattern = @"\\[([^\\]]+)\\]";

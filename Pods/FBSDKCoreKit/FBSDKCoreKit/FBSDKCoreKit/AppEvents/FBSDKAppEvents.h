@@ -22,15 +22,22 @@
 #import <WebKit/WebKit.h>
 #endif
 
-#import "FBSDKGraphRequest.h"
+#ifdef BUCK
+#import <FBSDKCoreKit/FBSDKGraphRequestConnection.h>
+#import <FBSDKCoreKit/FBSDKAppEventParameterName.h>
+#import <FBSDKCoreKit/FBSDKAppEventName.h>
+#import <FBSDKCoreKit/FBSDKAppEventsFlushBehavior.h>
+#else
 #import "FBSDKGraphRequestConnection.h"
 #import "FBSDKAppEventParameterName.h"
 #import "FBSDKAppEventName.h"
 #import "FBSDKAppEventsFlushBehavior.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class FBSDKAccessToken;
+@class FBSDKGraphRequest;
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 

@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 class LastModifiedDateHandler {
     //MARK: Properties
-    var savedDate: Date?
+    //var savedDate: Date?
     let opQueue = OperationQueue()
     
     
@@ -18,20 +18,37 @@ class LastModifiedDateHandler {
     //MARK: Functions
     // Stores and checks current time and date for fewer data calls
     func loadDate() {
-        savedDate = (UserDefaults.standard.object(forKey: "SavedDate") as! Date)
+        timeController.savedDateForDatabaseUse = (UserDefaults.standard.object(forKey: "SavedDate") as! Date)
+        print("!!!!Loading Date: \(timeController.savedDateForDatabaseUse!)")
     }
     
     //After database has been queried, save the date
     func saveDate() {
-        savedDate = Date()
-        UserDefaults.standard.set(savedDate, forKey: "SavedDate")
-        print("!!!SAVEDDATE: \(Timestamp(date: savedDate!).dateValue())")
+        timeController.savedDateForDatabaseUse = timeController.remove4HoursForBug
+        UserDefaults.standard.set(timeController.savedDateForDatabaseUse, forKey: "SavedDate")
+        print("!!!SAVEDDATE: \(Timestamp(date: timeController.savedDateForDatabaseUse!).dateValue())")
     }
     
-    
+    func retryToGetData() {
+        NSLog("!*!*!First Open!*!*!")
+        //ALL BUSINESS DATA
+        businessController.getAllBusinessData()
+
+        //ALL SHOW DATA
+        showController.getAllShowData()
+        
+        //ALL BAND DATA
+        bandController.getAllBandData()
+        
+        //ALL BANNER DATA
+        businessBannerAdController.getAllBusinessAdData()
+        saveDate()
+    }
     
     func checkDateAndGetData() {
         if UserDefaults.standard.object(forKey: "SavedDate") == nil {
+            opQueue.maxConcurrentOperationCount = 1
+            
             NSLog("!*!*!First Open!*!*!")
             //ALL BUSINESS DATA
             businessController.getAllBusinessData()
@@ -45,6 +62,8 @@ class LastModifiedDateHandler {
             //ALL BANNER DATA
             businessBannerAdController.getAllBusinessAdData()
             saveDate()
+            
+            
         } else {
             NSLog("!*!*!Repeat Open!*!*!")
             opQueue.maxConcurrentOperationCount = 1
@@ -62,10 +81,10 @@ class LastModifiedDateHandler {
             }
             
             let op1 = BlockOperation {
-                businessBannerAdController.fillArrayFromCache()
-                businessController.fillArrayFromCache()
-                showController.fillArrayFromCache()
-                bandController.fillArrayFromCache()
+                businessBannerAdController.fillBusinessAdArrayFromCache()
+                businessController.fillBusinessArrayFromCache()
+                showController.fillShowArrayFromCache()
+                bandController.fillBandArrayFromCache()
             }
             
             op1.addDependency(preOp)

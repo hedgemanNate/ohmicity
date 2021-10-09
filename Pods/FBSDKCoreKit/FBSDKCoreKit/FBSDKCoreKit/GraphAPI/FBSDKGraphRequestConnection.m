@@ -21,7 +21,7 @@
 #import "FBSDKAppEvents+EventLogging.h"
 #import "FBSDKConstants.h"
 #import "FBSDKCoreKit+Internal.h"
-#import "FBSDKError+Internal.h"
+#import "FBSDKError.h"
 #import "FBSDKErrorConfigurationProvider.h"
 #import "FBSDKGraphRequest+Internal.h"
 #import "FBSDKGraphRequestBody.h"
@@ -29,7 +29,7 @@
 #import "FBSDKGraphRequestDataAttachment.h"
 #import "FBSDKGraphRequestMetadata.h"
 #import "FBSDKGraphRequestPiggybackManagerProvider.h"
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 #import "FBSDKLogger.h"
 #import "FBSDKOperatingSystemVersionComparing.h"
 #import "FBSDKSettingsProtocol.h"
@@ -304,7 +304,7 @@ static BOOL _canMakeRequests = NO;
   self.state = kStateStarted;
 
   [self logRequest:request bodyLength:0 bodyLogger:nil attachmentLogger:nil];
-  _requestStartTime = [FBSDKInternalUtility.sharedUtility currentTimeInMilliseconds];
+  _requestStartTime = [FBSDKInternalUtility currentTimeInMilliseconds];
 
   FBSDKURLSessionTaskBlock completionHandler = ^(NSData *responseDataV1, NSURLResponse *responseV1, NSError *errorV1) {
     FBSDKURLSessionTaskBlock handler = ^(NSData *responseDataV2,
@@ -574,7 +574,7 @@ static BOOL _canMakeRequests = NO;
                 addFormData:NO
                      logger:attachmentLogger];
 
-    NSURL *url = [FBSDKInternalUtility.sharedUtility
+    NSURL *url = [FBSDKInternalUtility
                   facebookURLWithHostPrefix:kGraphURLPrefix
                   path:@""
                   queryParameters:@{}
@@ -655,7 +655,7 @@ static BOOL _canMakeRequests = NO;
       }
     }
 
-    baseURL = [FBSDKInternalUtility.sharedUtility
+    baseURL = [FBSDKInternalUtility
                facebookURLWithHostPrefix:prefix
                path:request.graphPath
                queryParameters:@{}
@@ -717,7 +717,7 @@ static BOOL _canMakeRequests = NO;
     } else {
       [_logger appendFormat:@"Response <#%lu>\nDuration: %llu msec\nSize: %lu kB\nResponse Body:\n%@\n\n",
        (unsigned long)_logger.loggerSerialNumber,
-       [FBSDKInternalUtility.sharedUtility currentTimeInMilliseconds] - _requestStartTime,
+       [FBSDKInternalUtility currentTimeInMilliseconds] - _requestStartTime,
        (unsigned long)data.length,
        results];
     }
@@ -1087,7 +1087,7 @@ static BOOL _canMakeRequests = NO;
   NSString *mimeType = response.MIMEType;
   NSMutableString *mutableLogEntry = [NSMutableString stringWithFormat:@"FBSDKGraphRequestConnection <#%lu>:\n  Duration: %llu msec\nResponse Size: %lu kB\n  MIME type: %@\n",
                                       (unsigned long)[FBSDKLogger generateSerialNumber],
-                                      [FBSDKInternalUtility.sharedUtility currentTimeInMilliseconds] - requestStartTime,
+                                      [FBSDKInternalUtility currentTimeInMilliseconds] - requestStartTime,
                                       (unsigned long)responseData.length / 1024,
                                       mimeType];
 

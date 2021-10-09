@@ -22,10 +22,11 @@
 
  #import "FBSDKBridgeAPIResponse.h"
 
+ #import "FBSDKBridgeAPIProtocol.h"
+ #import "FBSDKBridgeAPIProtocolType.h"
  #import "FBSDKBridgeAPIRequest+Private.h"
- #import "FBSDKConstants.h"
  #import "FBSDKCoreKitBasicsImport.h"
- #import "FBSDKInternalUtility+Internal.h"
+ #import "FBSDKInternalUtility.h"
  #import "FBSDKOperatingSystemVersionComparing.h"
  #import "NSProcessInfo+Protocols.h"
 
@@ -75,23 +76,13 @@
   } else {
     switch (protocolType) {
       case FBSDKBridgeAPIProtocolTypeNative: {
-        if (![FBSDKInternalUtility.sharedUtility isFacebookBundleIdentifier:sourceApplication]) {
-          if (errorRef != NULL) {
-            *errorRef = [[NSError alloc] initWithDomain:FBSDKErrorDomain
-                                                   code:FBSDKErrorBridgeAPIResponse
-                                               userInfo:nil];
-          }
+        if (![FBSDKInternalUtility isFacebookBundleIdentifier:sourceApplication]) {
           return nil;
         }
         break;
       }
       case FBSDKBridgeAPIProtocolTypeWeb: {
-        if (![FBSDKInternalUtility.sharedUtility isSafariBundleIdentifier:sourceApplication]) {
-          if (errorRef != NULL) {
-            *errorRef = [[NSError alloc] initWithDomain:FBSDKErrorDomain
-                                                   code:FBSDKErrorBridgeAPIResponse
-                                               userInfo:nil];
-          }
+        if (![FBSDKInternalUtility isSafariBundleIdentifier:sourceApplication]) {
           return nil;
         }
         break;
@@ -110,9 +101,6 @@
     *errorRef = error;
   }
   if (!responseParameters) {
-    if (errorRef != NULL) {
-      *errorRef = [[NSError alloc] initWithDomain:FBSDKErrorDomain code:FBSDKErrorBridgeAPIResponse userInfo:nil];
-    }
     return nil;
   }
   return [[self alloc] initWithRequest:request

@@ -21,8 +21,12 @@
 #import "FBSDKCoreKitBasicsImport.h"
 #import "FBSDKFeatureChecking.h"
 #import "FBSDKFeatureDisabling.h"
+#import "FBSDKGraphRequestFactory.h"
+#import "FBSDKGraphRequestHTTPMethod.h"
 #import "FBSDKGraphRequestProtocol.h"
 #import "FBSDKGraphRequestProviding.h"
+#import "FBSDKInternalUtility.h"
+#import "FBSDKSettings+Internal.h"
 #import "FBSDKSettingsProtocol.h"
 
 @interface FBSDKCrashShield ()
@@ -72,15 +76,15 @@ static id<FBSDKSettings> _settings;
   if (self == [FBSDKCrashShield class]) {
     _featureMapping =
     @{
+      @"AEM" : @ [
+        @"FBSDKAEMConfiguration",
+        @"FBSDKAEMEvent",
+        @"FBSDKAEMInvocation",
+        @"FBSDKAEMReporter",
+        @"FBSDKAEMRule",
+      ],
       @"AAM" : @[
         @"FBSDKMetadataIndexer",
-      ],
-      @"AEM" : @ [
-        @"FBAEMConfiguration",
-        @"FBAEMEvent",
-        @"FBAEMInvocation",
-        @"FBAEMReporter",
-        @"FBAEMRule",
       ],
       @"CodelessEvents" : @[
         @"FBSDKCodelessIndexer",

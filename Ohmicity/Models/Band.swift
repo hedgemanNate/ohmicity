@@ -8,24 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-enum Genre: String, Codable {
-    case Rock
-    case Blues
-    case Jazz
-    case Dance
-    case Reggae
-    case Country
-    case FunkSoul
-    case EDM
-    case HipHop
-    case DJ
-    case Pop
-    case Metal
-    case Experimental
-    case JamBand
-    case Gospel
-    case EasyListening
-}
+
 
 class Band: Codable, Equatable, Hashable {
     static func == (lhs: Band, rhs: Band) -> Bool {
@@ -41,7 +24,9 @@ class Band: Codable, Equatable, Hashable {
     var name: String
     var photo: Data?
     var genre: [Genre] = []
+    var ratings: [BandsRatings]?
     var mediaLink: String?
+    //var xitySupport: Int?
     var ohmPick: Bool = false
     
     init(name: String) {

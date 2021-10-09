@@ -34,14 +34,17 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e7-Kv-IzQ">
-                                <rect key="frame" x="174.66666666666666" y="202" width="39" height="30"/>
-                                <state key="normal" title="break"/>
+                                <rect key="frame" x="194.66666666666666" y="202" width="39" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="break">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="breaker:" destination="Wrf-EA-5Et" eventType="touchUpInside" id="wWC-Ze-ZVo"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ysw-lv-MTJ">
-                                <rect key="frame" x="77" y="293.66666666666669" width="234" height="159"/>
+                                <rect key="frame" x="97" y="293.66666666666669" width="234" height="159"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="234" id="sT9-Vl-FYK"/>
                                     <constraint firstAttribute="height" constant="159" id="tHR-Vv-fgs"/>
@@ -55,11 +58,10 @@
                             <constraint firstItem="p4U-tD-oOP" firstAttribute="top" secondItem="0S8-Ri-kr7" secondAttribute="top" id="Bud-Gm-dRE"/>
                             <constraint firstItem="Ysw-lv-MTJ" firstAttribute="centerY" secondItem="0S8-Ri-kr7" secondAttribute="centerY" constant="-90" id="MMU-Kw-84T"/>
                             <constraint firstItem="mqK-sJ-0cM" firstAttribute="top" secondItem="Ysw-lv-MTJ" secondAttribute="bottom" constant="100" id="NKI-CY-Obk"/>
-                            <constraint firstItem="6gM-RK-aho" firstAttribute="trailing" secondItem="Ysw-lv-MTJ" secondAttribute="trailing" constant="117" id="Op2-ZR-yyf"/>
-                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="leading" secondItem="6gM-RK-aho" secondAttribute="leading" constant="77" id="PLh-OZ-8oC"/>
                             <constraint firstAttribute="bottom" secondItem="p4U-tD-oOP" secondAttribute="bottom" id="Pi1-E4-tQq"/>
                             <constraint firstItem="6gM-RK-aho" firstAttribute="trailing" secondItem="mqK-sJ-0cM" secondAttribute="trailing" constant="75" id="Qpz-yy-rQ5"/>
                             <constraint firstItem="p4U-tD-oOP" firstAttribute="trailing" secondItem="6gM-RK-aho" secondAttribute="trailing" id="SEO-Az-gfR"/>
+                            <constraint firstItem="Ysw-lv-MTJ" firstAttribute="centerX" secondItem="0S8-Ri-kr7" secondAttribute="centerX" id="V7u-0a-URO"/>
                             <constraint firstItem="p4U-tD-oOP" firstAttribute="leading" secondItem="6gM-RK-aho" secondAttribute="leading" id="XDD-eK-zSN"/>
                             <constraint firstItem="Ysw-lv-MTJ" firstAttribute="centerX" secondItem="4e7-Kv-IzQ" secondAttribute="centerX" id="pPJ-ZA-SJJ"/>
                         </constraints>
@@ -86,9 +88,12 @@
     </scenes>
     <resources>
         <image name="PurpleBG.png" width="1125" height="2436"/>
-        <image name="loginLogo.png" width="548" height="380"/>
+        <image name="loginLogo.png" width="624" height="380"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

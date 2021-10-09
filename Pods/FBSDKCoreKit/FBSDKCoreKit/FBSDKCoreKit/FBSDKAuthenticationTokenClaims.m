@@ -21,7 +21,7 @@
 #import "FBSDKCoreKitBasicsImport.h"
 #import "FBSDKSettings.h"
 
-static NSTimeInterval const MaxTimeSinceTokenIssued = 10 * 60; // 10 mins
+static long const MaxTimeSinceTokenIssued = 10 * 60; // 10 mins
 
 @implementation FBSDKAuthenticationTokenClaims
 
@@ -29,8 +29,8 @@ static NSTimeInterval const MaxTimeSinceTokenIssued = 10 * 60; // 10 mins
                         iss:(NSString *)iss
                         aud:(NSString *)aud
                       nonce:(NSString *)nonce
-                        exp:(NSTimeInterval)exp
-                        iat:(NSTimeInterval)iat
+                        exp:(long)exp
+                        iat:(long)iat
                         sub:(NSString *)sub
                        name:(nullable NSString *)name
                   givenName:(nullable NSString *)givenName
@@ -80,7 +80,7 @@ static NSTimeInterval const MaxTimeSinceTokenIssued = 10 * 60; // 10 mins
   if (claimsData) {
     NSDictionary *claimsDict = [FBSDKTypeUtility JSONObjectWithData:claimsData options:0 error:&error];
     if (!error) {
-      NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+      long currentTime = [[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] longValue];
 
       // verify claims
       NSString *jti = [FBSDKTypeUtility coercedToStringValue:claimsDict[@"jti"]];
@@ -93,11 +93,11 @@ static NSTimeInterval const MaxTimeSinceTokenIssued = 10 * 60; // 10 mins
       BOOL audMatched = [aud isEqualToString:[FBSDKSettings appID]];
 
       NSNumber *expValue = [FBSDKTypeUtility numberValue:claimsDict[@"exp"]];
-      NSTimeInterval exp = [expValue doubleValue];
+      long exp = [expValue doubleValue];
       BOOL isExpired = expValue == nil || exp <= currentTime;
 
       NSNumber *iatValue = [FBSDKTypeUtility numberValue:claimsDict[@"iat"]];
-      NSTimeInterval iat = [iatValue doubleValue];
+      long iat = [iatValue doubleValue];
       BOOL issuedRecently = iatValue != nil && iat >= currentTime - MaxTimeSinceTokenIssued;
 
       NSString *nonce = [FBSDKTypeUtility coercedToStringValue:claimsDict[@"nonce"]];

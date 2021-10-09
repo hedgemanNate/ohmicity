@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
   return self;
 }
 
-- (nullable id<FBSDKAtePublishing>)createPublisherWithAppID:(NSString *)appID
+- (id<FBSDKAtePublishing>)createPublisherWithAppID:(NSString *)appID
 {
   return [[FBSDKAppEventsAtePublisher alloc] initWithAppIdentifier:appID
                                                graphRequestFactory:self.graphRequestFactory

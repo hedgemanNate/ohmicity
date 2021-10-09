@@ -22,6 +22,13 @@
 
 @class FBSDKAccessToken;
 
+typedef NS_ENUM(NSUInteger, FBSDKAdvertisingTrackingStatus)
+{
+  FBSDKAdvertisingTrackingAllowed,
+  FBSDKAdvertisingTrackingDisallowed,
+  FBSDKAdvertisingTrackingUnspecified
+} NS_SWIFT_NAME(AppEventsUtility.AdvertisingTrackingStatus);
+
 NS_SWIFT_NAME(AppEventsUtility)
 @interface FBSDKAppEventsUtility : NSObject
 
@@ -30,7 +37,7 @@ NS_SWIFT_NAME(AppEventsUtility)
 
 @property (class, nonatomic, readonly) FBSDKAppEventsUtility *shared;
 @property (nonatomic, copy, readonly) NSString *advertiserID;
-@property (class, nonatomic, assign, readonly) NSTimeInterval unixTimeNow;
+@property (class, nonatomic, assign, readonly) long unixTimeNow;
 @property (class, nonatomic, assign, readonly) BOOL isDebugBuild;
 
 + (NSMutableDictionary *)activityParametersDictionaryForEvent:(NSString *)eventCategory
@@ -44,6 +51,6 @@ NS_SWIFT_NAME(AppEventsUtility)
 + (BOOL)shouldDropAppEvent;
 + (BOOL)isSensitiveUserData:(NSString *)text;
 + (BOOL)isStandardEvent:(NSString *)event;
-+ (NSTimeInterval)convertToUnixTime:(NSDate *)date;
++ (long)convertToUnixTime:(NSDate *)date;
 
 @end

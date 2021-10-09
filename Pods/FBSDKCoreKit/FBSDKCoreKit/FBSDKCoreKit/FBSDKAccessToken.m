@@ -21,9 +21,8 @@
 #import "FBSDKAccessToken+TokenStringProviding.h"
 
 #import "FBSDKCoreKitBasicsImport.h"
-#import "FBSDKError+Internal.h"
 #import "FBSDKGraphRequestPiggybackManager.h"
-#import "FBSDKInternalUtility+Internal.h"
+#import "FBSDKInternalUtility.h"
 #import "FBSDKMath.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -176,7 +175,7 @@ static id<FBSDKGraphRequestConnectionProviding> g_connectionFactory;
     // Only need to keep current session in web view for the case when token is current
     // When token is abandoned cookies must to be cleaned up immediately
     if (token == nil) {
-      [FBSDKInternalUtility.sharedUtility deleteFacebookCookies];
+      [FBSDKInternalUtility deleteFacebookCookies];
     }
 
     self.tokenCache.accessToken = token;
@@ -197,9 +196,7 @@ static id<FBSDKGraphRequestConnectionProviding> g_connectionFactory;
 + (void)refreshCurrentAccessToken:(FBSDKGraphRequestBlock)completionHandler
 {
   FBSDKGraphRequestCompletion completion = ^void (id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
-    if (completionHandler) {
-      completionHandler(FBSDK_CAST_TO_CLASS_OR_NIL(connection, FBSDKGraphRequestConnection), result, error);
-    }
+    completionHandler(FBSDK_CAST_TO_CLASS_OR_NIL(connection, FBSDKGraphRequestConnection), result, error);
   };
   [self refreshCurrentAccessTokenWithCompletion:completion];
 }
@@ -272,16 +269,16 @@ static id<FBSDKGraphRequestConnectionProviding> g_connectionFactory;
   #pragma clang diagnostic push
   #pragma clang diagnostic ignored "-Wdeprecated-declarations"
   return (token
-    && [FBSDKInternalUtility.sharedUtility object:self.tokenString isEqualToObject:token.tokenString]
-    && [FBSDKInternalUtility.sharedUtility object:self.permissions isEqualToObject:token.permissions]
-    && [FBSDKInternalUtility.sharedUtility object:self.declinedPermissions isEqualToObject:token.declinedPermissions]
-    && [FBSDKInternalUtility.sharedUtility object:self.expiredPermissions isEqualToObject:token.expiredPermissions]
-    && [FBSDKInternalUtility.sharedUtility object:self.appID isEqualToObject:token.appID]
-    && [FBSDKInternalUtility.sharedUtility object:self.userID isEqualToObject:token.userID]
-    && [FBSDKInternalUtility.sharedUtility object:self.refreshDate isEqualToObject:token.refreshDate]
-    && [FBSDKInternalUtility.sharedUtility object:self.expirationDate isEqualToObject:token.expirationDate]
-    && [FBSDKInternalUtility.sharedUtility object:self.dataAccessExpirationDate isEqualToObject:token.dataAccessExpirationDate]
-    && [FBSDKInternalUtility.sharedUtility object:self.graphDomain isEqualToObject:token.graphDomain]);
+    && [FBSDKInternalUtility object:self.tokenString isEqualToObject:token.tokenString]
+    && [FBSDKInternalUtility object:self.permissions isEqualToObject:token.permissions]
+    && [FBSDKInternalUtility object:self.declinedPermissions isEqualToObject:token.declinedPermissions]
+    && [FBSDKInternalUtility object:self.expiredPermissions isEqualToObject:token.expiredPermissions]
+    && [FBSDKInternalUtility object:self.appID isEqualToObject:token.appID]
+    && [FBSDKInternalUtility object:self.userID isEqualToObject:token.userID]
+    && [FBSDKInternalUtility object:self.refreshDate isEqualToObject:token.refreshDate]
+    && [FBSDKInternalUtility object:self.expirationDate isEqualToObject:token.expirationDate]
+    && [FBSDKInternalUtility object:self.dataAccessExpirationDate isEqualToObject:token.dataAccessExpirationDate]
+    && [FBSDKInternalUtility object:self.graphDomain isEqualToObject:token.graphDomain]);
   #pragma clange diagnostic pop
 }
 

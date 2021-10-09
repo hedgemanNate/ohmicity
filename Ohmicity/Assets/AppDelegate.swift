@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import GoogleMobileAds
+import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,11 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ref.fireDataBase.settings = settings
         
         
-        //Get Data
-        
-        
         //Admob
         GADMobileAds.sharedInstance().start(completionHandler: nil) /*set up MEDIATION in here in handler*/
+        
+        //Network Monitoring
+        networkMonitor.startMonitoring()
 
         //Navigation UI
         UINavigationBar.appearance().backgroundColor = cc.navigationBGPurple
@@ -54,9 +55,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let segmentedControlSelectedStateTextColor = [NSAttributedString.Key.foregroundColor: UIColor.black]
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlSelectedStateTextColor, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlNormalStateTextColor, for: .normal)
+        
+        //Background Tasks
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.push.currentUser", using: nil) { [self] task in
+            task.setTaskCompleted(success: true)
+            scheduleCurrentUserPush()
+        }
+        //registerNotifications
         return true
         
     }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        //cancelAllPendingBGTask()
+        scheduleCurrentUserPush()
+    }
+    
+    
 
     // MARK: UISceneSession Lifecycle
 
@@ -71,7 +86,87 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
+//MARK: BackgroundTasks
+extension AppDelegate {
+    func registerBackgroundTasks() {
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.push.currentUser", using: nil) { [self] task in
+            handleCurrentUserPush(task: task as! BGProcessingTask)
+            
+        }
+    }
+    
+    func cancelAllPendingBGTask() {
+        BGTaskScheduler.shared.cancelAllTaskRequests()
+    }
+    
+    func scheduleCurrentUserPush() {
+        print("🚨 Scheduled")
+        let request = BGProcessingTaskRequest(identifier: "com.push.currentUser")
+        request.requiresNetworkConnectivity = false
+        request.requiresExternalPower = false
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60)//60 representing a minute
+        
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch (let error) {
+            NSLog(error.localizedDescription)
+        }
+    }
+    
+    func handleCurrentUserPush(task: BGProcessingTask) {
+        print("🚨 Started")
+        scheduleCurrentUserPush()
+        
+        task.expirationHandler = {
+            //Cancel All tasks and queues here before the BGProcess Expires
+        }
+        
+        //Check to see if theres new data
+        //If so perform pushes
+        
+        //push user
+        //push supports
+        //push recommendations
+        //push ratings
+        
+        let operationQueue = OperationQueue()
+        operationQueue.maxConcurrentOperationCount = 1
+        
+        let pushUser = BlockOperation {
+            print("User Being Pushed BG")
+            currentUserController.pushCurrentUserData()
+        }
+        
+        let pushSupport = BlockOperation {
+            print("Support Being Pushed BG")
+            xitySupportController.pushXitySupportArray()
+        }
+        
+        let pushRecommendation = BlockOperation {
+            print("Recommendation Being Pushed BG")
+            recommendationController.pushRecommendations()
+        }
+        
+        let pushRating = BlockOperation {
+            print("Rating Being Pushed BG")
+            ratingsController.pushBandRatings()
+        }
+        
+        let complete = BlockOperation {
+            print("Completed")
+            task.setTaskCompleted(success: true)
+        }
+        
+        complete.addDependency(pushRating)
+        pushRating.addDependency(pushRecommendation)
+        pushRecommendation.addDependency(pushSupport)
+        pushSupport.addDependency(pushUser)
+        
+        operationQueue.addOperations([pushUser, pushSupport, pushRecommendation, pushRating, complete], waitUntilFinished: true)
+        
+    }
+    
+    
+}

@@ -18,7 +18,7 @@ class XityBand: Equatable, Hashable {
     
     
     let band: Band
-    var xityShows = [XityShow]()
+    var xityShows: [XityShow]?
     
     init(band: Band) {
         self.band = band
