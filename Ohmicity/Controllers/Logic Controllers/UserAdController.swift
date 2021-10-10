@@ -16,7 +16,7 @@ enum UserFeatureReply {
 }
 
 enum GoogleAdID: String {
-    case paidAdUnitID = "ca-app-pub-9052204067761521/5346686403"
+    case paidAdUnitID = "ca-app-pub-9052204067761521/4962469563"
     case testAdUnitID = "ca-app-pub-3940256099942544/4411468910"
 }
 
@@ -26,7 +26,7 @@ class UserAdController {
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
-    var activePopUpAdUnitID = GoogleAdID.testAdUnitID.rawValue
+    var activePopUpAdUnitID = GoogleAdID.paidAdUnitID.rawValue
     
     //Functions
     func setUpAdsAndFeaturesForUser() {
