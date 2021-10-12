@@ -19,6 +19,8 @@
 #import "FBSDKAuthenticationToken.h"
 #import "FBSDKAuthenticationToken+Internal.h"
 
+#import <Foundation/Foundation.h>
+
 #import "FBSDKAuthenticationTokenClaims.h"
 #import "FBSDKCoreKitBasicsImport.h"
 

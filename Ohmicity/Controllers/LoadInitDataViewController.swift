@@ -8,54 +8,80 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import MaterialComponents.MaterialActivityIndicator
 
 class LoadInitDataViewController: UIViewController {
     
     //Properties
-    var todayShowArray: [Show] = []
-    var todayVenueArray: [Business] = []
     
+    //For Debuging the loader
+//    var newDataAction = 0 {
+//        didSet{
+//            print("🚨 New Data Action \(newDataAction)")
+//        }
+//    }
+//    var cacheAction = 0 {
+//        didSet{
+//            print("🚨 Cache Action \(cacheAction)")
+//        }
+//    }
+//    var allDataAction = 0 {
+//        didSet{
+//            print("🚨 All Data Action \(allDataAction)")
+//        }
+//    }
     
     var dataActionsFinished = 0 {
         didSet {
-            loadingDisplayColorAnimations()
-            print("####Current Data Action: \(dataActionsFinished)")
-            if dataActionsFinished >= 8 {
+            print("🔄 Data Actions \(dataActionsFinished)")
+            if dataActionsFinished == 8 {
                 organizeData(); print("DATA ACTIONS FIN")
             }
         }
     }
     
     
-    var syncingActionsFinished = 0 {
+    var organizingActionsFinished = 0 {
         didSet{
-            loadingDisplayColorAnimations()
-            print(syncingActionsFinished)
-            if syncingActionsFinished == 4 {
+            print("🔄 Organization Actions\(organizingActionsFinished)")
+            if organizingActionsFinished == 4 {
+                checkingThatDataExists()
+            }
+        }
+    }
+    
+    var checkingDataActionsFinished = 0 {
+        didSet {
+            print("🔄 Checking Data Actions\(checkingDataActionsFinished)")
+            if checkingDataActionsFinished == 6 {
                 doneLoading()
             }
         }
     }
     
-    @IBOutlet weak var checkingDatabaseCheck: UIImageView!
-    @IBOutlet weak var checkingDatabaseText: UILabel!
+    var failureCounter = 0 {
+        didSet {
+            NSLog("🚨 Loading Failure: \(failureCounter)/6")
+            if failureCounter == 6 {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "FailedSegue", sender: self)
+                }
+            }
+        }
+    }
     
-    @IBOutlet weak var downloadingShowsCheck: UIImageView!
-    @IBOutlet weak var downloadingShowsText: UILabel!
+    //Loader
+    let activityIndicator = MDCActivityIndicator()
     
-    @IBOutlet weak var updatingLocalCheck: UIImageView!
-    @IBOutlet weak var updatingLocalText: UILabel!
     
-    @IBOutlet weak var initCheck: UIImageView!
-    @IBOutlet weak var initText: UILabel!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotificationObservers()
         updateViewController()
+        setupProgressView()
         currentUserController.assignCurrentUser()
-        lmDateHandler.checkDateAndGetData() 
+        subscriptionController.setUpInAppPurchaseArray()
+        lmDateHandler.checkDateAndGetData()
         
         //resetCache
 //        let settings = FirestoreSettings()
@@ -63,8 +89,9 @@ class LoadInitDataViewController: UIViewController {
 //        settings.isPersistenceEnabled = true
         
     }
-    @IBAction func btn(_ sender: Any) {
-        print("****Tapped****")
+    
+    @IBAction func breaker(_ sender: Any) {
+        print(businessBannerAdController.businessAdArray)
     }
     
 
@@ -79,109 +106,194 @@ class LoadInitDataViewController: UIViewController {
 //MARK: Functions
 extension LoadInitDataViewController {
     
-    private func loadingDisplayColorAnimations() {
-        DispatchQueue.main.async { [self] in
-            switch dataActionsFinished {
-            case 1..<3:
-                checkingDatabaseCheck.tintColor = .green
-                checkingDatabaseText.textColor = .lightGray
-            case 3..<6:
-                downloadingShowsCheck.tintColor = .green
-                downloadingShowsText.textColor = .lightGray
-                
-            case 6...8:
-                updatingLocalCheck.tintColor = .green
-                updatingLocalText.textColor = .lightGray
-            default:
-                break
-            }
-            
-            switch syncingActionsFinished {
-            case 4:
-                initCheck.tintColor = .green
-                initText.textColor = .lightGray
-            default:
-                break
-            }
-        }
-        
-    }
     
     func doneLoading() {
-        print("**DONE LOADING FUNC****")
+        print("✅ DONE LOADING")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
     }
-        
+    
+    //MARK: Progress Bar Functions
+    private func setupProgressView() {
+        activityIndicator.transform = CGAffineTransform(scaleX: 1, y: 1)
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+        activityIndicator.radius = 150
+        activityIndicator.cycleColors = [cc.highlightBlue, UIColor.yellow, UIColor.systemPurple, UIColor.green]
+        activityIndicator.startAnimating()
+    }
     
     //MARK: UpdateViews
     private func updateViewController() {
-        dateFormatter.dateFormat = dateFormat3
         timeController.setTime()
         //setTime(enterTime) format July 31, 2021
     }
     
     private func addNotificationObservers() {
         //Cache Loading Notifications
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
+       notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheShowData.name, object: nil)
+       notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessAdData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotCacheBusinessAdData.name, object: nil)
         
-        
-        //Database Loading Notifications
+        //Database Loading All Notifications
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllShowData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBandData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessData.name, object: nil)
         notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotAllBusinessAdData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotShowData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBandData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotBusinessData.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.bannerAdsLoaded.name, object: nil)
+
+        //Database Loading New Notifications
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewShowData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBandData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessData.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(counting), name: notifications.gotNewBusinessAdData.name, object: nil)
+        
+        //Network Notifications
+        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
     //@objc Functions
+    @objc private func lostNetworkConnection() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
+        }
+    }
+    
     @objc private func counting(_ notification: NSNotification) {
 
         switch notification.name {
-        case notifications.bandArraySet.name:
+        
+        case notifications.gotNewBandData.name:
             dataActionsFinished += 1
-        case notifications.bannerAdsCollected.name:
+            
+            print("gotNewBandData")
+        case notifications.gotNewBusinessData.name:
             dataActionsFinished += 1
-        case notifications.bannerAdsLoaded.name:
+            // For Debuging the loader newDataAction += 1
+            print("gotNewBusinessData")
+        case notifications.gotNewBusinessAdData.name:
             dataActionsFinished += 1
-        case notifications.businessArraySet.name:
+            // For Debuging the loader newDataAction += 1
+            print("gotNewBusinessAdData")
+        case notifications.gotNewShowData.name:
             dataActionsFinished += 1
-        case notifications.businessAdArraySet.name:
-            dataActionsFinished += 1
-        case notifications.gotBandData.name:
-            dataActionsFinished += 1
-        case notifications.gotBusinessData.name:
-            dataActionsFinished += 2
-        case notifications.gotBusinessAdData.name:
-            dataActionsFinished += 1
+            // For Debuging the loader newDataAction += 1
+            print("gotNewShowData")
+            
+        
         case notifications.gotCacheBandData.name:
             dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
+            print("gotCacheBandData")
         case notifications.gotCacheBusinessData.name:
             dataActionsFinished += 1
-        case notifications.gotCacheBusinessAdData.name:
-            dataActionsFinished += 1
-        case notifications.gotShowData.name:
-            dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
+            print("gotCacheBusinessData")
         case notifications.gotCacheShowData.name:
             dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
+            print("gotCacheShowData")
+        case notifications.gotCacheBusinessAdData.name:
+           dataActionsFinished += 1
+            // For Debuging the loader cacheAction += 1
+            print("gotCacheBusinessAdData")
+        
+        
         case notifications.gotAllBandData.name:
-            dataActionsFinished += 2
+            dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
+            print("gotAllBandData")
         case notifications.gotAllBusinessAdData.name:
-            dataActionsFinished += 2
+            dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
+            print("gotAllBusinessAdData")
         case notifications.gotAllBusinessData.name:
-            dataActionsFinished += 2
+            dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
+            print("gotAllBusinessData")
         case notifications.gotAllShowData.name:
-            dataActionsFinished += 2
-            
+            dataActionsFinished += 1
+            // For Debuging the loader allDataAction += 1
+            print("gotAllShowData")
         default:
             break
+        }
+    }
+    
+    //MARK: Checking Data
+    private func checkingThatDataExists() {
+        //1
+        if businessController.businessArray.count >= 50 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //2
+        if bandController.bandArray.count >= 250 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //3
+        if showController.showArray.count >= 100 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //4
+        if xityBusinessController.businessArray.count >= 50 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //5
+        if xityBandController.bandArray.count >= 250 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
+        }
+        //6
+        if xityShowController.showArray.count >= 100 {
+            checkingDataActionsFinished += 1
+        } else {
+            dataActionsFinished = 0
+            organizingActionsFinished = 0
+            checkingDataActionsFinished = 0
+            failureCounter += 1
+            lmDateHandler.retryToGetData()
+            NSLog("🚨 Retrying to get Data")
+            return
         }
     }
     
@@ -195,7 +307,7 @@ extension LoadInitDataViewController {
         let op2 = BlockOperation {
             xityBandController.fillXityBandArray()
             xityBusinessController.fillXityBusinessArray()
-            self.syncingActionsFinished += 1
+            self.organizingActionsFinished += 1
             print("*** Creating Xity Band And Business Data ***")
         }
         
@@ -204,7 +316,7 @@ extension LoadInitDataViewController {
             xityShowController.getWeeklyPicks()
             //xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
             
-            self.syncingActionsFinished += 1
+            self.organizingActionsFinished += 1
             print("*** Collected Weekly Picks ***")
         }
         
@@ -218,12 +330,13 @@ extension LoadInitDataViewController {
             for todayShow in xityShowController.showArray {
                 let stringDate = dateFormatter.string(from: todayShow.show.date)
                 if stringDate == timeController.todayString {
-                    xityShowController.todayShowArray!.removeAll(where: {$0 == todayShow})
-                    xityShowController.todayShowArray!.append(todayShow)
+                    xityShowController.todayShowArray.removeAll(where: {$0 == todayShow})
+                    xityShowController.todayShowArray.append(todayShow)
                 }
             }
-            xityShowController.todayShowArray!.sort(by: {$0.show.date < $1.show.date})
-            self.syncingActionsFinished += 1
+            
+            xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
+            self.organizingActionsFinished += 1
             print("*** Collected Today's Shows ***")
         }
         
@@ -231,7 +344,6 @@ extension LoadInitDataViewController {
             //Creating Xity Show Data
             let genericBand = Band(name: "No Name")
             let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
-            print("op3 Started")
             var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             showArray.removeAll(where: {$0.onHold == true})
             
@@ -255,7 +367,8 @@ extension LoadInitDataViewController {
                 xityShowController.showArray.append(xity)
                 
             }
-            self.syncingActionsFinished += 1
+            xityShowController.removeDuplicates()
+            self.organizingActionsFinished += 1
             print("*** Creating Xity Show Data ***")
         }
         

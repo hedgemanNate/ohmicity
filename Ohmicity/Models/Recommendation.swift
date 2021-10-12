@@ -9,8 +9,8 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct Recommendation: Codable {
-    var recommendationID = UUID()
+struct Recommendation: Codable, Equatable {
+    var recommendationID = UUID().uuidString
     let user: String
     let businessName: String
     let explanation: String

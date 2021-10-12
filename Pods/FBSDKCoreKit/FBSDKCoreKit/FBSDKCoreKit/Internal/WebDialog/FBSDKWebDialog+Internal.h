@@ -20,7 +20,6 @@
 
 #if !TARGET_OS_TV
 
- #import <CoreGraphics/CoreGraphics.h>
  #import <Foundation/Foundation.h>
 
  #if SWIFT_PACKAGE
@@ -34,10 +33,14 @@
 
 @interface FBSDKWebDialog ()
 
++ (instancetype)showWithName:(NSString *)name
+                  parameters:(NSDictionary *)parameters
+                windowFinder:(id<FBSDKWindowFinding>)windowFinder
+                    delegate:(id<FBSDKWebDialogDelegate>)delegate;
+
 @property (nonatomic, weak) id<FBSDKWebDialogDelegate> delegate;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSDictionary *parameters;
-@property CGRect webViewFrame;
 
 - (BOOL)show;
 

@@ -29,18 +29,14 @@ static NSString *const kTableName = @"FirebaseGoogleAuthUI";
 /** @var kBundleName
     @brief The name of the bundle to search for resources.
  */
-#if SWIFT_PACKAGE
-static NSString *const kBundleName = @"FirebaseUI_FirebaseGoogleAuthUI";
-#else
 static NSString *const kBundleName = @"FirebaseGoogleAuthUI";
-#endif // SWIFT_PACKAGE
 
 /** @var kSignInWithGoogle
     @brief The string key for localized button text.
  */
 static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
 
-@interface FUIGoogleAuth ()
+@interface FUIGoogleAuth () <GIDSignInDelegate>
 
 /** @property authUI
     @brief FUIAuth instance of the application.
@@ -54,6 +50,16 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
 
 @end
 @implementation FUIGoogleAuth {
+  /** @var _presentingViewController
+      @brief The presenting view controller for interactive sign-in.
+   */
+  UIViewController *_presentingViewController;
+
+  /** @var _pendingSignInCallback
+      @brief The callback which should be invoked when the sign in flow completes (or is cancelled.)
+   */
+  FUIAuthProviderSignInCompletionBlock _pendingSignInCallback;
+
   /** @var _email
       @brief The email address associated with this account.
    */
@@ -63,10 +69,6 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
 + (NSBundle *)bundle {
   return [FUIAuthUtils bundleNamed:kBundleName
                  inFrameworkBundle:[NSBundle bundleForClass:[self class]]];
-}
-
-+ (NSArray<NSString *> *)defaultScopes {
-  return @[kGoogleUserInfoEmailScope, kGoogleUserInfoProfileScope];
 }
 
 - (instancetype)initWithAuthUI:(FUIAuth *)authUI {
@@ -88,7 +90,7 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (instancetype)init {
-  return [self initWithScopes:[[self class] defaultScopes]];
+  return [self initWithScopes:@[kGoogleUserInfoEmailScope, kGoogleUserInfoProfileScope]];
 }
 
 - (instancetype)initWithScopes:(NSArray *)scopes {
@@ -100,13 +102,6 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
 }
 #pragma clang diagnostic pop
 
-- (GIDSignIn *)googleSignIn {
-  return GIDSignIn.sharedInstance;
-}
-
-- (NSString *)clientID {
-  return self.authUI.auth.app.options.clientID;
-}
 
 #pragma mark - FUIAuthProvider
 
@@ -118,14 +113,14 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
   if (self.authUI.isEmulatorEnabled) {
     return nil;
   }
-  return [self googleSignIn].currentUser.authentication.accessToken;
+  return [GIDSignIn sharedInstance].currentUser.authentication.accessToken;
 }
 
 - (nullable NSString *)idToken {
   if (self.authUI.isEmulatorEnabled) {
     return nil;
   }
-  return [self googleSignIn].currentUser.authentication.idToken;
+  return [GIDSignIn sharedInstance].currentUser.authentication.idToken;
 }
 
 - (NSString *)shortName {
@@ -164,6 +159,7 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
 - (void)signInWithDefaultValue:(nullable NSString *)defaultValue
       presentingViewController:(nullable UIViewController *)presentingViewController
                     completion:(nullable FUIAuthProviderSignInCompletionBlock)completion {
+  _presentingViewController = presentingViewController;
 
   if (self.authUI.isEmulatorEnabled) {
     [self signInWithOAuthProvider:self.providerForEmulator
@@ -172,42 +168,26 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
     return;
   }
 
-  GIDSignIn *signIn = [self googleSignIn];
-  NSString *clientID = [self clientID];
-
-  if (!clientID) {
-    [NSException raise:NSInternalInconsistencyException
-                format:@"OAuth client ID not found. Please make sure Google Sign-In is enabled in "
-     @"the Firebase console. You may have to download a new GoogleService-Info.plist file after "
-     @"enabling Google Sign-In."];
-  }
-
-  GIDConfiguration *config = [[GIDConfiguration alloc] initWithClientID:clientID];
-
-  FUIAuthProviderSignInCompletionBlock callback = ^(FIRAuthCredential *_Nullable credential,
+  GIDSignIn *signIn = [self configuredGoogleSignIn];
+  signIn.presentingViewController = presentingViewController;
+  _pendingSignInCallback = ^(FIRAuthCredential *_Nullable credential,
                              NSError *_Nullable error,
                              _Nullable FIRAuthResultCallback result,
                              NSDictionary *_Nullable userInfo) {
+    signIn.loginHint = nil;
     if (completion) {
-      completion(credential, error, result, userInfo);
+      completion(credential, error, result, nil);
     }
   };
 
-  [signIn signInWithConfiguration:config
-         presentingViewController:presentingViewController
-                             hint:defaultValue
-                         callback:^(GIDGoogleUser *user, NSError *error) {
-    [self handleSignInWithUser:user
-                         error:error
-      presentingViewController:presentingViewController
-                      callback:callback];
-  }];
+  signIn.loginHint = defaultValue;
+  [signIn signIn];
 }
 
 - (void)signInWithOAuthProvider:(FIROAuthProvider *)oauthProvider
        presentingViewController:(nullable UIViewController *)presentingViewController
                      completion:(nullable FUIAuthProviderSignInCompletionBlock)completion {
-  oauthProvider.scopes = [[self class] defaultScopes];
+  oauthProvider.scopes = self.scopes;
 
   [oauthProvider getCredentialWithUIDelegate:nil
                                   completion:^(FIRAuthCredential *_Nullable credential,
@@ -234,30 +214,11 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
   }];
 }
 
-- (void)requestScopesWithPresentingViewController:(UIViewController *)presentingViewController
-                                       completion:(FUIAuthProviderSignInCompletionBlock)completion {
-  GIDSignIn *signIn = [self googleSignIn];
-  [signIn addScopes:self.scopes presentingViewController:presentingViewController
-           callback:^(GIDGoogleUser *user, NSError *error) {
-    [self handleSignInWithUser:user
-                         error:error
-      presentingViewController:presentingViewController
-                      callback:^(FIRAuthCredential *credential,
-                                 NSError *error,
-                                 FIRAuthResultCallback result,
-                                 NSDictionary<NSString *,id> *userInfo) {
-      if (completion != nil) {
-        completion(credential, error, result, userInfo);
-      }
-    }];
-  }];
-}
-
 - (void)signOut {
   if (self.authUI.isEmulatorEnabled) {
     return;
   }
-  GIDSignIn *signIn = [self googleSignIn];
+  GIDSignIn *signIn = [self configuredGoogleSignIn];
   [signIn signOut];
 }
 
@@ -265,7 +226,7 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
   if (self.authUI.isEmulatorEnabled) {
     return NO;
   }
-  GIDSignIn *signIn = [self googleSignIn];
+  GIDSignIn *signIn = [self configuredGoogleSignIn];
   return [signIn handleURL:URL];
 }
 
@@ -273,38 +234,72 @@ static NSString *const kSignInWithGoogle = @"SignInWithGoogle";
   return _email;
 }
 
-- (void)handleSignInWithUser:(GIDGoogleUser *)user
-                       error:(NSError *)error
-    presentingViewController:(UIViewController *)presentingViewController
-                    callback:(FUIAuthProviderSignInCompletionBlock)callback {
+#pragma mark - GIDSignInDelegate methods
+
+- (void)signIn:(GIDSignIn *)signIn
+    didSignInForUser:(GIDGoogleUser *)user
+           withError:(NSError *)error {
   if (error) {
     if (error.code == kGIDSignInErrorCodeCanceled) {
-      NSError *newError = [FUIAuthErrorUtils userCancelledSignInError];
-      if (callback) {
-        callback(nil, newError, nil, nil);
-      }
+      [self callbackWithCredential:nil
+                             error:[FUIAuthErrorUtils
+                                    userCancelledSignInError] result:nil];
     } else {
       NSError *newError =
           [FUIAuthErrorUtils providerErrorWithUnderlyingError:error
                                                      providerID:FIRGoogleAuthProviderID];
-      if (callback) {
-        callback(nil, newError, nil, nil);
-      }
+      [self callbackWithCredential:nil error:newError result:nil];
     }
     return;
   }
   _email = user.profile.email;
   UIActivityIndicatorView *activityView =
-      [FUIAuthBaseViewController addActivityIndicator:presentingViewController.view];
+      [FUIAuthBaseViewController addActivityIndicator:_presentingViewController.view];
   [activityView startAnimating];
   FIRAuthCredential *credential =
       [FIRGoogleAuthProvider credentialWithIDToken:user.authentication.idToken
                                        accessToken:user.authentication.accessToken];
-  FIRAuthResultCallback result = ^(FIRUser *_Nullable user,
-                                   NSError *_Nullable error) {
+  [self callbackWithCredential:credential error:nil result:^(FIRUser *_Nullable user,
+                                                             NSError *_Nullable error) {
     [activityView stopAnimating];
     [activityView removeFromSuperview];
-  };
+  }];
+}
+
+#pragma mark - Helpers
+
+/** @fn configuredGoogleSignIn
+    @brief Returns an instance of @c GIDSignIn which is configured to match the configuration
+        of this instance.
+ */
+- (GIDSignIn *)configuredGoogleSignIn {
+  GIDSignIn *signIn = [GIDSignIn sharedInstance];
+  signIn.delegate = self;
+  signIn.shouldFetchBasicProfile = YES;
+  signIn.clientID = [[FIRApp defaultApp] options].clientID;
+  if (!signIn.clientID) {
+    [NSException raise:NSInternalInconsistencyException
+                format:@"OAuth client ID not found. Please make sure Google Sign-In is enabled in "
+     @"the Firebase console. You may have to download a new GoogleService-Info.plist file after "
+     @"enabling Google Sign-In."];
+  }
+  signIn.scopes = _scopes;
+  return signIn;
+}
+
+/** @fn callbackWithCredential:error:
+    @brief Ends the sign-in flow by cleaning up and calling back with given credential or error.
+    @param credential The credential to pass back, if any.
+    @param error The error to pass back, if any.
+    @param result The result of sign-in operation using provided @c FIRAuthCredential object.
+        @see @c FIRAuth.signInWithCredential:completion:
+ */
+- (void)callbackWithCredential:(nullable FIRAuthCredential *)credential
+                         error:(nullable NSError *)error
+                        result:(nullable FIRAuthResultCallback)result {
+  FUIAuthProviderSignInCompletionBlock callback = _pendingSignInCallback;
+  _presentingViewController = nil;
+  _pendingSignInCallback = nil;
   if (callback) {
     callback(credential, error, result, nil);
   }

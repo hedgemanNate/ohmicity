@@ -11,18 +11,22 @@ class XityShowController {
     
     //Properties
     var showArray = [XityShow]()
-    var todayShowArrayFilter: City? {
+    var todayShowArrayFilter: City = .All {
         didSet {
-            todayShowResultsArray = todayShowArray!.filter({($0.show.city?.contains(todayShowArrayFilter!))!})
+            todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
             notificationCenter.post(notifications.reloadDashboardCVData)
         }
     }
-    var todayShowArray: [XityShow]? {
+    var todayShowArray: [XityShow] = [] {
         didSet {
-            todayShowResultsArray = todayShowArray!
+            todayShowResultsArray = todayShowArray
         }
     }
-    var todayShowResultsArray = [XityShow]()
+    var todayShowResultsArray: [XityShow] = [] {
+        didSet {
+            notificationCenter.post(notifications.reloadDashboardCVData)
+        }
+    }
     var weeklyPicksArray = [XityShow]()
     var xityShowSearchArray = [XityShow]()
     
@@ -32,14 +36,13 @@ class XityShowController {
     }
     
     func getWeeklyPicks() {
-        let today = Date()
         let monday = Date().next(.monday)
         
         var lowFiltered = [XityShow]()
         var theWeekFiltered = [XityShow]()
         
         let op1 = BlockOperation { [self] in
-            lowFiltered = showArray.filter({$0.show.date > today})
+            lowFiltered = showArray.filter({$0.show.date > timeController.threeHoursAgo})
             print("******lowFiltered")
         }
         

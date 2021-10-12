@@ -18,13 +18,13 @@ target 'Ohmicity' do
   pod 'FirebaseUI'
 
   pod 'Google-Mobile-Ads-SDK'
+  pod 'youtube-ios-player-helper'
   
   pod 'MaterialComponents/TextFields'
   pod 'MaterialComponents/Buttons'
-  pod 'MaterialComponents/TextControls+FilledTextAreas'
   pod 'MaterialComponents/TextControls+FilledTextFields'
-  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
-  pod 'MaterialComponents/List'
+  pod 'MaterialComponents/ProgressView'
+  pod 'MaterialComponents/ActivityIndicator'
 
 end

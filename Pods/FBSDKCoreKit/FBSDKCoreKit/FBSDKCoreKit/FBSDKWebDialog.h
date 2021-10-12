@@ -20,10 +20,7 @@
 
 #if !TARGET_OS_TV
 
-#import <CoreGraphics/CGGeometry.h>
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
-@protocol FBSDKWindowFinding;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,14 +43,6 @@ NS_SWIFT_NAME(WebDialog)
  */
 @property (nonatomic) BOOL shouldDeferVisibility;
 
-/**
- Internal Type exposed to facilitate transition to Swift.
- API Subject to change or removal without warning. Do not use.
-
- @warning UNSAFE - DO NOT USE
- */
-@property (nonatomic, strong) id<FBSDKWindowFinding> windowFinder;
-
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -75,18 +64,6 @@ NS_SWIFT_NAME(WebDialog)
 + (instancetype)showWithName:(NSString *)name
                   parameters:(NSDictionary *)parameters
                     delegate:(id<FBSDKWebDialogDelegate>)delegate;
-
-/**
- Internal Type exposed to facilitate transition to Swift.
- API Subject to change or removal without warning. Do not use.
-
- @warning UNSAFE - DO NOT USE
- */
-+ (instancetype)createAndShow:(NSString *)name
-                   parameters:(NSDictionary *)parameters
-                        frame:(CGRect)frame
-                     delegate:(id<FBSDKWebDialogDelegate>)delegate
-                 windowFinder:(id<FBSDKWindowFinding>)windowFinder;
 
 @end
 

@@ -151,7 +151,7 @@
   NSString *smartInstructionString = NSLocalizedStringWithDefaultValue(
     @"DeviceLogin.SmartLogInPrompt",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"To connect your account, open the Facebook app on your mobile device and check for notifications.",
     @"Instructions telling the user to open their Facebook app on a mobile device and check for a login notification."
   );
@@ -182,7 +182,7 @@
   orInstructionLabel.text = NSLocalizedStringWithDefaultValue(
     @"DeviceLogin.SmartLogInOrLabel",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"-- OR --",
     @"The 'or' string for smart login instructions"
   );;
@@ -216,7 +216,7 @@
   NSString *localizedFormatString = NSLocalizedStringWithDefaultValue(
     @"DeviceLogin.LogInPrompt",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"Visit %@ and enter the code shown above.",
     @"The format string for device login instructions"
   );
@@ -263,7 +263,7 @@
   [button setTitle:NSLocalizedStringWithDefaultValue(
     @"LoginButton.CancelLogout",
     @"FacebookSDK",
-    [FBSDKInternalUtility.sharedUtility bundleForStrings],
+    [FBSDKInternalUtility bundleForStrings],
     @"Cancel",
     @"The label for the FBSDKLoginButton action sheet to cancel logging out"
   )

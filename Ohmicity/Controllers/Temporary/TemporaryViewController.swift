@@ -19,8 +19,13 @@ class TemporaryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor.green
+    }
+    
     @IBAction func goBackButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        tabBarController?.selectedIndex = 2
     }
 
     /*

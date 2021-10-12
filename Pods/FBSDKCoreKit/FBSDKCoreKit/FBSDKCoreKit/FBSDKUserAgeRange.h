@@ -17,11 +17,12 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "FBSDKCopying.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(UserAgeRange)
-@interface FBSDKUserAgeRange : NSObject<NSCopying, NSObject, NSSecureCoding>
+@interface FBSDKUserAgeRange : NSObject<FBSDKCopying, NSSecureCoding>
 
 /**
   The user's minimun age, nil if unspecified

@@ -30,13 +30,14 @@
 
  #import "FBSDKAppEvents.h"
  #import "FBSDKAppEvents+EventLogging.h"
- #import "FBSDKAppEventsUtility.h"
  #import "FBSDKCoreKitBasicsImport.h"
  #import "FBSDKEventProcessing.h"
  #import "FBSDKFeatureExtracting.h"
  #import "FBSDKFeatureExtractor.h"
  #import "FBSDKGraphRequestFactory.h"
- #import "FBSDKInternalUtility+Internal.h"
+ #import "FBSDKGraphRequestHTTPMethod.h"
+ #import "FBSDKGraphRequestProtocol.h"
+ #import "FBSDKInternalUtility.h"
  #import "FBSDKMLMacros.h"
  #import "FBSDKModelManager.h"
  #import "FBSDKModelUtility.h"
@@ -276,7 +277,7 @@ static dispatch_once_t setupNonce;
     NSMutableDictionary<NSString *, id> *viewTree = [NSMutableDictionary dictionary];
 
     NSString *screenName = nil;
-    UIViewController *topMostViewController = [FBSDKInternalUtility.sharedUtility topMostViewController];
+    UIViewController *topMostViewController = [FBSDKInternalUtility topMostViewController];
     if (topMostViewController) {
       screenName = NSStringFromClass([topMostViewController class]);
     }
