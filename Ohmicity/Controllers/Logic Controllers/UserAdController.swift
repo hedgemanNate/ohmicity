@@ -9,7 +9,7 @@ import Foundation
 import GoogleMobileAds
 
 enum GoogleAdID: String {
-    case paidAdUnitID = "ca-app-pub-9052204067761521/5346686403"
+    case paidAdUnitID = "ca-app-pub-9052204067761521/4962469563"
     case testAdUnitID = "ca-app-pub-3940256099942544/4411468910"
 }
 
