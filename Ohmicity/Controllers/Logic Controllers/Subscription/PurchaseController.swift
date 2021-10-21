@@ -37,13 +37,16 @@ class PurchaseController {
             print("Qonversion Permissions: \(permissions)")
             let type: [SubscriptionType] = [.FrontRowPass, .BackStagePass, .FullAccessPass]
             
-            if permissions.first?.value.isActive == true {
-                guard let key = permissions.first?.key else {return}
-                guard let subscription = type.first(where: {$0.rawValue == key}) else { print("fail"); return}
-                print("🚨 permission found")
+            
+            
+            if permissions.contains(where: {$0.value.isActive == true}) {
+                let perm = permissions.first(where: {$0.value.isActive == true})
+                guard let key = perm?.key else {NSLog("🚇 Permission with no key. Call Qonversion for help"); return}
+                guard let subscription = type.first(where: {$0.rawValue == key}) else { print("checkPermissions function fail"); return}
+                print("🚨 Permission found")
                 userAdController.userSubscription = subscription
             } else {
-                print("🚨 Not permission found")
+                print("🚨 No permission found")
             }
         }
     }
