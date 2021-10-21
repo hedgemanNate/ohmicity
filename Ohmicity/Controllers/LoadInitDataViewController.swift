@@ -308,7 +308,7 @@ extension LoadInitDataViewController {
             xityBandController.fillXityBandArray()
             xityBusinessController.fillXityBusinessArray()
             self.organizingActionsFinished += 1
-            print("*** Creating Xity Band And Business Data ***")
+            print("🫀 Creating Xity Band And Business Data")
         }
         
         //Gathering Weekly Picks
@@ -317,7 +317,7 @@ extension LoadInitDataViewController {
             //xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
             
             self.organizingActionsFinished += 1
-            print("*** Collected Weekly Picks ***")
+            print("🫀 Collected Weekly Picks")
         }
         
         //Connecting Todays Shows to Businesses
@@ -337,7 +337,7 @@ extension LoadInitDataViewController {
             
             xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
             self.organizingActionsFinished += 1
-            print("*** Collected Today's Shows ***")
+            print("🫀 Collected Today's Shows")
         }
         
         let op1 = BlockOperation {
@@ -369,7 +369,7 @@ extension LoadInitDataViewController {
             }
             xityShowController.removeDuplicates()
             self.organizingActionsFinished += 1
-            print("*** Creating Xity Show Data ***")
+            print("🫀 Creating Xity Show Data")
         }
         
         

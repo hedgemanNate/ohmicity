@@ -516,6 +516,15 @@
 			path = "../../../App Assests/Music Genre";
 			sourceTree = "<group>";
 		};
+		F649D51B27214BF80050E7F9 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */,
+				F6AB4F5E270D0308004C164C /* PurchaseController.swift */,
+			);
+			path = Subscription;
+			sourceTree = "<group>";
+		};
 		F6522D622649AAF400912B90 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,7 +549,7 @@
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
 				F6E8EF5C26E71E4F00831544 /* SettingsController.swift */,
-				F6AB4F5E270D0308004C164C /* PurchaseController.swift */,
+				F649D51B27214BF80050E7F9 /* Subscription */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -584,7 +593,6 @@
 				F676F1022699496200C47599 /* ShowController.swift */,
 				F6869B5027018AEB00421019 /* RatingsController.swift */,
 				F6869B522701911D00421019 /* RecommendationController.swift */,
-				F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
