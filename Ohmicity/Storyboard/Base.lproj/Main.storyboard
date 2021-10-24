@@ -477,7 +477,7 @@ Check your internet connection and try again. </string>
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="921"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -528,7 +528,7 @@ Check your internet connection and try again. </string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="U03-DP-nhM" userLabel="Button Stack View">
-                                                <rect key="frame" x="28" y="281" width="372" height="192"/>
+                                                <rect key="frame" x="28" y="281" width="372" height="263"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyA-uJ-wYC" userLabel="Purchase Button">
                                                         <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
@@ -572,10 +572,24 @@ Check your internet connection and try again. </string>
                                                             <action selector="privacyPolicyButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="MvR-18-J6o"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-y1-i4D" userLabel="Privacy Policy">
+                                                        <rect key="frame" x="0.0" y="213" width="372" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="3v7-Mj-iDN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <state key="normal" title="EU License Agreement">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="licenseAgreementButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="1vy-a5-Zsa"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
-                                                <rect key="frame" x="9" y="522" width="410" height="150"/>
+                                                <rect key="frame" x="9" y="593" width="410" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="1GU-jT-GzF">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="150"/>
@@ -620,7 +634,7 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08x-3k-ohO">
-                                                <rect key="frame" x="319" y="687" width="100" height="20.333333333333371"/>
+                                                <rect key="frame" x="319" y="758" width="100" height="20.333333333333371"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="FGe-r4-zPt"/>
                                                     <constraint firstAttribute="height" constant="20.329999999999998" id="yiW-7x-3Po"/>
@@ -640,7 +654,7 @@ should be on Xity?</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8j-tu-aar">
-                                                <rect key="frame" x="9" y="687" width="250" height="21"/>
+                                                <rect key="frame" x="9" y="758" width="250" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Rsz-5c-EI5"/>
                                                     <constraint firstAttribute="width" constant="250" id="ixH-lc-5f3"/>
@@ -652,7 +666,7 @@ should be on Xity?</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="921" id="1vh-iS-Xmu"/>
+                                            <constraint firstAttribute="height" constant="1000" id="1vh-iS-Xmu"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="3Yh-gc-MA5"/>
                                             <constraint firstItem="g3I-Dd-R8F" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="4ML-bD-bye"/>
