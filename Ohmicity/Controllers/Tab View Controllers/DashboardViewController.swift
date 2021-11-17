@@ -119,15 +119,6 @@ extension DashboardViewController {
         
     }
     
-    private func checkSubscription() {
-        switch subscriptionController.noPopupAds {
-        case false:
-            self.performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
-        default:
-            break
-        }
-    }
-    
     @objc private func reloadData() {
         DispatchQueue.main.async { [self] in
             self.todayCollectionView.reloadData()
@@ -190,7 +181,7 @@ extension DashboardViewController {
     
     //MARK: UPDATEVIEWS
     @objc private func updateViews() {
-        userAdController.setUpAdsAndFeaturesForUser()
+        //userAdController.setUpAdsAndFeaturesForUser()
         handleHidden()
         showController.removeHolds()
         setupUpCollectionViews()

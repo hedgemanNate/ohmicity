@@ -528,10 +528,10 @@ Check your internet connection and try again. </string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="U03-DP-nhM" userLabel="Button Stack View">
-                                                <rect key="frame" x="28" y="281" width="372" height="263"/>
+                                                <rect key="frame" x="28" y="281" width="372" height="192"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyA-uJ-wYC" userLabel="Purchase Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyA-uJ-wYC" userLabel="Purchase Button">
+                                                        <rect key="frame" x="0.0" y="-50" width="372" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Ca6-4v-W6C"/>
@@ -545,7 +545,7 @@ Check your internet connection and try again. </string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
-                                                        <rect key="frame" x="0.0" y="71" width="372" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="gs3-Dk-9YE"/>
@@ -559,7 +559,7 @@ Check your internet connection and try again. </string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-H2-d2Z" userLabel="Privacy Policy">
-                                                        <rect key="frame" x="0.0" y="142" width="372" height="50"/>
+                                                        <rect key="frame" x="0.0" y="71" width="372" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="uHg-Yf-NeO"/>
@@ -573,7 +573,7 @@ Check your internet connection and try again. </string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-y1-i4D" userLabel="Privacy Policy">
-                                                        <rect key="frame" x="0.0" y="213" width="372" height="50"/>
+                                                        <rect key="frame" x="0.0" y="142" width="372" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="3v7-Mj-iDN"/>
@@ -589,7 +589,7 @@ Check your internet connection and try again. </string>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3I-Dd-R8F" userLabel="Reccomend View">
-                                                <rect key="frame" x="9" y="593" width="410" height="150"/>
+                                                <rect key="frame" x="9" y="522" width="410" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="1GU-jT-GzF">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="150"/>
@@ -634,7 +634,7 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08x-3k-ohO">
-                                                <rect key="frame" x="319" y="758" width="100" height="20.333333333333371"/>
+                                                <rect key="frame" x="319" y="687" width="100" height="20.333333333333371"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="FGe-r4-zPt"/>
                                                     <constraint firstAttribute="height" constant="20.329999999999998" id="yiW-7x-3Po"/>
@@ -654,7 +654,7 @@ should be on Xity?</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8j-tu-aar">
-                                                <rect key="frame" x="9" y="758" width="250" height="21"/>
+                                                <rect key="frame" x="9" y="687" width="250" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Rsz-5c-EI5"/>
                                                     <constraint firstAttribute="width" constant="250" id="ixH-lc-5f3"/>
