@@ -30,6 +30,7 @@ class LastModifiedDateHandler {
     }
     
     func retryToGetData() {
+        
         NSLog("!*!*!First Open!*!*!")
         //ALL BUSINESS DATA
         businessController.getAllBusinessData()
