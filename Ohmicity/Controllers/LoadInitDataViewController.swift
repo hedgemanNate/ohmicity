@@ -344,7 +344,6 @@ extension LoadInitDataViewController {
         let op1 = BlockOperation {
             //Creating Xity Show Data
             let genericBand = Band(name: "No Name")
-            let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
             var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             showArray.removeAll(where: {$0.onHold == true})
             
@@ -359,9 +358,9 @@ extension LoadInitDataViewController {
                     band = genericBand
                 }
                 
-                var business = businessArray.first(where: {$0.name == show.venue})
+                let business = businessArray.first(where: {$0.name == show.venue})
                 if business == nil {
-                    business = genericBusiness
+                    continue
                 }
                 
                 let xity = XityShow(band: band!, business: business!, show: show)

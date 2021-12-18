@@ -120,7 +120,6 @@
 		F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE426C614ED00C73CD6 /* XityBandController.swift */; };
 		F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE626C6179800C73CD6 /* XityBusinessController.swift */; };
 		F69EEB8726FD8124001C342E /* BandSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69EEB8626FD8124001C342E /* BandSearchViewController.swift */; };
-		F6AB4F5A270C133B004C164C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AB4F59270C133B004C164C /* StoreKit.framework */; };
 		F6AB4F5D270CFD80004C164C /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F6AB4F5C270CFD80004C164C /* Qonversion */; };
 		F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB4F5E270D0308004C164C /* PurchaseController.swift */; };
 		F6AB4F61270DAF50004C164C /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6AB4F60270DAF4C004C164C /* search.jpg */; };
@@ -265,7 +264,6 @@
 		F699FFE426C614ED00C73CD6 /* XityBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBandController.swift; sourceTree = "<group>"; };
 		F699FFE626C6179800C73CD6 /* XityBusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityBusinessController.swift; sourceTree = "<group>"; };
 		F69EEB8626FD8124001C342E /* BandSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandSearchViewController.swift; sourceTree = "<group>"; };
-		F6AB4F59270C133B004C164C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F6AB4F5E270D0308004C164C /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
 		F6AB4F60270DAF4C004C164C /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */,
-				F6AB4F5A270C133B004C164C /* StoreKit.framework in Frameworks */,
 				F6AB4F5D270CFD80004C164C /* Qonversion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +304,6 @@
 		774EDA1CD1EB166EB9631C7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F6AB4F59270C133B004C164C /* StoreKit.framework */,
 				59774DC230F587A7A5A8577F /* Pods_Ohmicity.framework */,
 			);
 			name = Frameworks;
@@ -1094,7 +1090,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1117,7 +1113,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ohmicity/Ohmicity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8492LT54LT;
 				INFOPLIST_FILE = "$(SRCROOT)/Ohmicity/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
