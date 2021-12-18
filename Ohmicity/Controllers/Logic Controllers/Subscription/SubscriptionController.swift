@@ -14,13 +14,13 @@ class SubscriptionController {
     var inAppPurchaseArray: [Subscription] = []
     
     //Features Enabled
-    var favorites = false
+    var favorites = true
     var noPopupAds = false
-    var seeAllData = false
-    var xityDeals = false
-    var showReminders = false
-    var todayShowFilter = false
-    var search = false
+    var seeAllData = true
+    var xityDeals = true
+    var showReminders = true
+    var todayShowFilter = true
+    var search = true
     
     
     //Features

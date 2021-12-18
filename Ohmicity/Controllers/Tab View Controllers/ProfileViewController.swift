@@ -73,7 +73,18 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
-        guard let url = URL(string: "https://www.termsfeed.com/live/74628d86-471b-44e2-b598-f5ff1a3ed63c") else {
+        guard let url = URL(string: "https://face2faceapps.com/town-by-xity-app-privacy-policy/") else {
+            return //be safe
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    @IBAction func licenseAgreementButtonTapped(_ sender: Any) {
+        guard let url = URL(string: "https://face2faceapps.com/town-by-xity-app-eula/") else {
             return //be safe
         }
         if #available(iOS 10.0, *) {

@@ -42,13 +42,14 @@ class UserAdController {
         
         switch userSubscription {
         case .None:
-            subscriptionController.favorites = false
+            //Changed for free usage
+            subscriptionController.favorites = true
             subscriptionController.noPopupAds = false
-            subscriptionController.seeAllData = false
-            subscriptionController.showReminders = false
-            subscriptionController.todayShowFilter = false
-            subscriptionController.search = false
-            subscriptionController.xityDeals = false
+            subscriptionController.seeAllData = true
+            subscriptionController.showReminders = true
+            subscriptionController.todayShowFilter = true
+            subscriptionController.search = true
+            subscriptionController.xityDeals = true
         case .FrontRowPass:
             subscriptionController.favorites = true
             subscriptionController.noPopupAds = true
@@ -80,7 +81,7 @@ class UserAdController {
     
     func shouldShowAd() -> Bool {
         let x = Int.random(in: 1...10)
-        if x <= 6 {
+        if x <= 10 {
             return true
         } else {
             return false

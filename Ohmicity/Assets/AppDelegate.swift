@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Admob
         GADMobileAds.sharedInstance().start(completionHandler: nil) /*set up MEDIATION in here in handler*/
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["3f07752fd3b5455917cd1b1a4d002c27"]
         
         //Network Monitoring
         networkMonitor.startMonitoring()

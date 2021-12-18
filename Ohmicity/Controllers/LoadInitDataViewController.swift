@@ -155,6 +155,7 @@ extension LoadInitDataViewController {
     
     //@objc Functions
     @objc private func lostNetworkConnection() {
+        NSLog("No Connection 📶📶📶📶 ")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
         }
@@ -232,7 +233,7 @@ extension LoadInitDataViewController {
             checkingDataActionsFinished = 0
             failureCounter += 1
             lmDateHandler.retryToGetData()
-            NSLog("🚨 Retrying to get Data")
+            NSLog("🚨 Retrying to get more Raw Businesses")
             return
         }
         //2
@@ -244,11 +245,11 @@ extension LoadInitDataViewController {
             checkingDataActionsFinished = 0
             failureCounter += 1
             lmDateHandler.retryToGetData()
-            NSLog("🚨 Retrying to get Data")
+            NSLog("🚨 Retrying to get more Raw Bands")
             return
         }
         //3
-        if showController.showArray.count >= 100 {
+        if showController.showArray.count >= 10 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -256,7 +257,7 @@ extension LoadInitDataViewController {
             checkingDataActionsFinished = 0
             failureCounter += 1
             lmDateHandler.retryToGetData()
-            NSLog("🚨 Retrying to get Data")
+            NSLog("🚨 Retrying to get more Raw Shows")
             return
         }
         //4
@@ -268,7 +269,7 @@ extension LoadInitDataViewController {
             checkingDataActionsFinished = 0
             failureCounter += 1
             lmDateHandler.retryToGetData()
-            NSLog("🚨 Retrying to get Data")
+            NSLog("🚨 Retrying to get more Xity Businesses")
             return
         }
         //5
@@ -280,11 +281,11 @@ extension LoadInitDataViewController {
             checkingDataActionsFinished = 0
             failureCounter += 1
             lmDateHandler.retryToGetData()
-            NSLog("🚨 Retrying to get Data")
+            NSLog("🚨 Retrying to get more Xity Bands")
             return
         }
         //6
-        if xityShowController.showArray.count >= 100 {
+        if xityShowController.showArray.count >= 10 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -292,7 +293,7 @@ extension LoadInitDataViewController {
             checkingDataActionsFinished = 0
             failureCounter += 1
             lmDateHandler.retryToGetData()
-            NSLog("🚨 Retrying to get Data")
+            NSLog("🚨 Retrying to get more Xity Shows")
             return
         }
     }
@@ -343,7 +344,6 @@ extension LoadInitDataViewController {
         let op1 = BlockOperation {
             //Creating Xity Show Data
             let genericBand = Band(name: "No Name")
-            let genericBusiness = Business(name: "Not Found", address: "", phoneNumber: 000, website: "")
             var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             showArray.removeAll(where: {$0.onHold == true})
             
@@ -358,9 +358,9 @@ extension LoadInitDataViewController {
                     band = genericBand
                 }
                 
-                var business = businessArray.first(where: {$0.name == show.venue})
+                let business = businessArray.first(where: {$0.name == show.venue})
                 if business == nil {
-                    business = genericBusiness
+                    continue
                 }
                 
                 let xity = XityShow(band: band!, business: business!, show: show)
