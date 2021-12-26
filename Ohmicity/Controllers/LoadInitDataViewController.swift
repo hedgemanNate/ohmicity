@@ -358,12 +358,16 @@ extension LoadInitDataViewController {
                     band = genericBand
                 }
                 
-                let business = businessArray.first(where: {$0.name == show.venue})
-                if business == nil {
+                guard let business = businessArray.first(where: {$0.name == show.venue}) else {
                     continue
                 }
                 
-                let xity = XityShow(band: band!, business: business!, show: show)
+                guard let band = bandArray.first(where: {$0.name == show.band}) else {
+                    continue
+                }
+            
+                
+                let xity = XityShow(band: band, business: business, show: show)
                 xityShowController.showArray.append(xity)
                 
             }
