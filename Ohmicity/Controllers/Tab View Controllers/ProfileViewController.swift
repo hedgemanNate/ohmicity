@@ -153,8 +153,6 @@ class ProfileViewController: UIViewController {
             userIDLabel.text = currentUserController.currentUser?.userID ?? "--"
         }
         
-        versionLabel.text = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String) (\(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String))"
-        
         versionLabel.text = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")"
     }
     
