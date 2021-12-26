@@ -554,8 +554,8 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath == [0,0] {
-        Prevents crashing when a venue has no shows
+        if currentBusiness?.xityShows.count == 0 {
+            //Prevents crashing when a venue has no shows
             return
         }
         
