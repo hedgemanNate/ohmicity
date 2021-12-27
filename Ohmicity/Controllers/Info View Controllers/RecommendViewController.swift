@@ -16,8 +16,8 @@ class RecommendViewController: UIViewController {
     @IBOutlet weak var explanationTextView: UITextView!
     
     @IBOutlet weak var sendButton: UIButton!
-    //let db = Firestore.firestore().collection("remoteData").document("remoteData").collection("recommendationData")
-    //let userDB = Firestore.firestore().collection("remoteData").document("remoteData").collection("userData")
+    let db = Firestore.firestore().collection("remoteData").document("remoteData").collection("recommendationData")
+    let userDB = Firestore.firestore().collection("remoteData").document("remoteData").collection("userData")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,58 +27,38 @@ class RecommendViewController: UIViewController {
     
     //MARK: Button Actions
     @IBAction func sendButtonTapped(_ sender: Any) {
-        guard let currentUser = currentUserController.currentUser else {return}
-        if (venueNameTextField.text?.localizedCaseInsensitiveContains("Name Must Be Longer!"))! || explanationTextView.text.localizedCaseInsensitiveContains("Explanation Must Be Longer!") {
+        guard let userID = currentUserController.currentUser?.userID else {
             DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true)
             }
             return
         }
-        
-        if currentUser.recommendationCount ?? 0  <= 10 {
-            let userID = currentUser.userID
-            guard let venue = venueNameTextField.text else {return}
-            guard let explain = explanationTextView.text else {return}
-            if venue.count < 5 {
-                venueNameTextField.text = "Name Must Be Longer!"
-                return
-            }
-            if explain.count < 5 {
-                explanationTextView.text = "Explanation Must Be Longer!"
-                return
-            }
-            let rec = Recommendation(user: userID, businessName: venue, explanation: explain)
-            
-            if currentUser.recommendationBlackOutDate! > Date() {
-                self.dismiss(animated: true, completion: nil)
-                return
-                //MARK: NOTIFICATION
-            }
-            
-            currentUser.recommendationBlackOutDate = timeController.aDayFromNow
-            
-            if recommendationController.recommendArray.count <= 3 {
-                recommendationController.recommendArray.append(rec)
-                print(recommendationController.recommendArray.count)
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                }
-                return
-            }
-            
-        } else {
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-            }
+        guard let venue = venueNameTextField.text else {return}
+        guard let explain = explanationTextView.text else {return}
+        if venue.count < 5 {
+            venueNameTextField.text = "Name Must Be Longer!"
+            return
         }
-    }
-    
-    @IBAction func backToMusicButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if explain.count < 5 {
+            explanationTextView.text = "Explanation Must Be Longer!"
+            return
+        }
+        let rec = Recommendation(user: userID, businessName: venue, explanation: explain)
+        
+        do {
+            try db.document(rec.recommendationID).setData(from: rec, completion: { err in
+                if let err = err {
+                    NSLog(err.localizedDescription)
+                } else {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true)
+                    }
+                }
+            })
+        } catch let error {
+            NSLog(error.localizedDescription)
+        }
+        
     }
     
     
