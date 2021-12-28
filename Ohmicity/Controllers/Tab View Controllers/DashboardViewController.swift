@@ -142,7 +142,7 @@ extension DashboardViewController {
                 cityFilterLabel.text = "~Filter Off"
             }
         }
-        print("Dashboard Reloaded")
+        print("reloadData() ran")
     }
     
     @objc private func scrollToTop() {
