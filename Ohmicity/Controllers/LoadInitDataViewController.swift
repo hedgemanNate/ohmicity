@@ -225,7 +225,7 @@ extension LoadInitDataViewController {
     //MARK: Checking Data
     private func checkingThatDataExists() {
         //1
-        if businessController.businessArray.count >= 50 {
+        if businessController.businessArray.count >= 66 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -237,7 +237,7 @@ extension LoadInitDataViewController {
             return
         }
         //2
-        if bandController.bandArray.count >= 250 {
+        if bandController.bandArray.count >= 600 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -261,7 +261,7 @@ extension LoadInitDataViewController {
             return
         }
         //4
-        if xityBusinessController.businessArray.count >= 50 {
+        if xityBusinessController.businessArray.count >= businessController.businessArray.count - 5 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -273,7 +273,7 @@ extension LoadInitDataViewController {
             return
         }
         //5
-        if xityBandController.bandArray.count >= 250 {
+        if xityBandController.bandArray.count >= bandController.bandArray.count - 50 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -285,7 +285,7 @@ extension LoadInitDataViewController {
             return
         }
         //6
-        if xityShowController.showArray.count >= 10 {
+        if xityShowController.showArray.count >= showController.showArray.count - 50 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
