@@ -23,7 +23,7 @@ class XityShowController {
     }
     var todayShowResultsArray: [XityShow] = [] {
         didSet {
-            //notificationCenter.post(notifications.reloadDashboardCVData)
+            notificationCenter.post(notifications.reloadDashboardCVData)
         }
     }
     var weeklyPicksArray = [XityShow]()
