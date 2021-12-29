@@ -82,6 +82,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        notificationCenter.post(notifications.reloadDashboardCVData)
         startTimer()
     }
     
@@ -142,7 +143,7 @@ extension DashboardViewController {
                 cityFilterLabel.text = "~Filter Off"
             }
         }
-        print("Dashboard Reloaded")
+        print("Notification Sent For Tapping Dashboard Button")
     }
     
     @objc private func scrollToTop() {
@@ -190,15 +191,15 @@ extension DashboardViewController {
         getPerksButton.layer.cornerRadius = 5
         cityFilterLabel.text = "~Filter Off"
         
-        if subscriptionController.seeAllData == false || currentUserController.currentUser == nil {
+        if subscriptionController.seeAllData == false && currentUserController.currentUser == nil {
             if halfTodayShows.count <= 4 {
-                seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
+                //seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
             } else {
-                seeAllDataDetailLabel.text = "See All \(halfTodayShows.count) shows with any Xity Pass"
+                //seeAllDataDetailLabel.text = "See All \(halfTodayShows.count) shows with any Xity Pass"
             }
             
-        } else {
-            seeAllDataDetailLabel.text = ""
+        } else if subscriptionController.seeAllData == true {
+            seeAllDataDetailLabel.text = " "
         }
         
         
