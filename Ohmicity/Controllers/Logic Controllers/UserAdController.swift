@@ -80,7 +80,7 @@ class UserAdController {
     }
     
     func shouldShowAd() -> Bool {
-        let percentArray = [1,2,3]
+        let percentArray = [1,2,3,4]
         let x = Int.random(in: 1...10)
         if percentArray.contains(x) {
             return true
