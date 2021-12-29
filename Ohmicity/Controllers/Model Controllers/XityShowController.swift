@@ -14,7 +14,6 @@ class XityShowController {
     var todayShowArrayFilter: City = .All {
         didSet {
             todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
-            notificationCenter.post(notifications.reloadDashboardCVData)
         }
     }
     var todayShowArray: [XityShow] = [] {
@@ -24,7 +23,7 @@ class XityShowController {
     }
     var todayShowResultsArray: [XityShow] = [] {
         didSet {
-            notificationCenter.post(notifications.reloadDashboardCVData)
+            //notificationCenter.post(notifications.reloadDashboardCVData)
         }
     }
     var weeklyPicksArray = [XityShow]()

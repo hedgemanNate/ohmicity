@@ -261,7 +261,7 @@ extension LoadInitDataViewController {
             return
         }
         //4
-        if xityBusinessController.businessArray.count >= businessController.businessArray.count - 5 {
+        if Float(xityBusinessController.businessArray.count) >= Float(businessController.businessArray.count) * 0.10 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -273,7 +273,7 @@ extension LoadInitDataViewController {
             return
         }
         //5
-        if xityBandController.bandArray.count >= bandController.bandArray.count - 50 {
+        if Float(xityBandController.bandArray.count) >= Float(bandController.bandArray.count) * 0.10 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -285,7 +285,7 @@ extension LoadInitDataViewController {
             return
         }
         //6
-        if xityShowController.showArray.count >= showController.showArray.count - 50 {
+        if Float(xityShowController.showArray.count) >= Float(showController.showArray.count) * 0.10 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0

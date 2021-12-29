@@ -79,13 +79,12 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
         self.hapticGenerator.selectionChanged()
         activityIndicator.startAnimating()
         activityIndicatorColors.shuffle()
-        xityShowController.todayShowArray.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
+        notificationCenter.post(notifications.reloadDashboardCVData)
         let temp = xityShowController.todayShowArrayFilter
         xityShowController.todayShowArrayFilter = temp
         activityIndicator.cycleColors = activityIndicatorColors
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             self.activityIndicator.stopAnimating()
-            
         }
     }
 }

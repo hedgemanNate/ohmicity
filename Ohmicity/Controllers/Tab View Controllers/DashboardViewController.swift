@@ -82,6 +82,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        notificationCenter.post(notifications.reloadDashboardCVData)
         startTimer()
     }
     
@@ -121,6 +122,7 @@ extension DashboardViewController {
     
     @objc private func reloadData() {
         DispatchQueue.main.async { [self] in
+            xityShowController.todayShowArray.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             self.todayCollectionView.reloadData()
             self.favoritesCollectionView.reloadData()
             self.xityPickCollectionView.reloadData()
@@ -142,7 +144,7 @@ extension DashboardViewController {
                 cityFilterLabel.text = "~Filter Off"
             }
         }
-        print("Dashboard Reloaded")
+        print("Notification Sent For Tapping Dashboard Button")
     }
     
     @objc private func scrollToTop() {
