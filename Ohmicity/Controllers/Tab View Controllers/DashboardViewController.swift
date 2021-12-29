@@ -122,7 +122,6 @@ extension DashboardViewController {
     
     @objc private func reloadData() {
         DispatchQueue.main.async { [self] in
-            xityShowController.todayShowArray.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             self.todayCollectionView.reloadData()
             self.favoritesCollectionView.reloadData()
             self.xityPickCollectionView.reloadData()
@@ -192,15 +191,15 @@ extension DashboardViewController {
         getPerksButton.layer.cornerRadius = 5
         cityFilterLabel.text = "~Filter Off"
         
-        if subscriptionController.seeAllData == false || currentUserController.currentUser == nil {
+        if subscriptionController.seeAllData == false && currentUserController.currentUser == nil {
             if halfTodayShows.count <= 4 {
-                seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
+                //seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
             } else {
-                seeAllDataDetailLabel.text = "See All \(halfTodayShows.count) shows with any Xity Pass"
+                //seeAllDataDetailLabel.text = "See All \(halfTodayShows.count) shows with any Xity Pass"
             }
             
-        } else {
-            seeAllDataDetailLabel.text = ""
+        } else if subscriptionController.seeAllData == true {
+            seeAllDataDetailLabel.text = " "
         }
         
         
