@@ -251,7 +251,6 @@ extension LoadInitDataViewController {
         //3
         if showController.showArray.count >= 10 {
             checkingDataActionsFinished += 1
-            print("\(showController.showArray.count) ▶️▶️▶️▶️")
         } else {
             dataActionsFinished = 0
             organizingActionsFinished = 0
@@ -288,7 +287,6 @@ extension LoadInitDataViewController {
         //6
         if Float(xityShowController.showArray.count) >= Float(showController.showArray.count) * 0.10 {
             checkingDataActionsFinished += 1
-            print("\(xityShowController.showArray.count) ▶️▶️▶️▶️")
         } else {
             dataActionsFinished = 0
             organizingActionsFinished = 0
