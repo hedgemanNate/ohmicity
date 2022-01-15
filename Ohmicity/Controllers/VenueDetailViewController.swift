@@ -137,7 +137,7 @@ class VenueDetailViewController: UIViewController {
                 currentUser?.lastModified = Timestamp()
                 
                 do {
-                    try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
                     notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
@@ -150,7 +150,7 @@ class VenueDetailViewController: UIViewController {
                 currentUser!.lastModified = Timestamp()
                 
                 do {
-                    try ref.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
                     notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)

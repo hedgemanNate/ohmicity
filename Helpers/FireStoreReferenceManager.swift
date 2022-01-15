@@ -26,5 +26,3 @@ class FireStoreReferenceManager {
     static let businessBannerAdDataPath = fireDataBase.collection(environment).document(environment).collection("businessBannerAdData")
     static let xitySupportDataPath = fireDataBase.collection(environment).document(environment).collection("xitySupportData")
 }
-
-let ref = FireStoreReferenceManager.self

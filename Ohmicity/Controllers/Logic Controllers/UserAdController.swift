@@ -80,7 +80,10 @@ class UserAdController {
     }
     
     func shouldShowAd() -> Bool {
-        let percentArray = [1,2,3,4,5,6,7]
+        var percentArray = [1,2,3,4,5,6,7]
+        if currentUserController.currentUser?.email == "nate.hedgeman@gmail.com" || currentUserController.currentUser?.email == "tufflove8@gmail.com" {
+            percentArray = [0]
+        }
         let x = Int.random(in: 1...10)
         if percentArray.contains(x) {
             return true

@@ -114,7 +114,7 @@ class RatingsViewController: UIViewController {
                     currentUserController.currentUser?.bandRatings = []
                     currentUserController.currentUser?.bandRatings?.append(userRating)
                     do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
+                        try FireStoreReferenceManager.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
                         self.dismiss(animated: true, completion: nil)
                     } catch (let error) {
                         NSLog(error.localizedDescription)
@@ -122,7 +122,7 @@ class RatingsViewController: UIViewController {
                 } else {
                     currentUserController.currentUser?.bandRatings?.append(userRating)
                     do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
+                        try FireStoreReferenceManager.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
                         self.dismiss(animated: true, completion: nil)
                     } catch (let error) {
                         NSLog(error.localizedDescription)
@@ -141,14 +141,14 @@ class RatingsViewController: UIViewController {
                     currentUserController.currentUser?.bandRatings = []
                     currentUserController.currentUser?.bandRatings?.append(userRating)
                     do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
+                        try FireStoreReferenceManager.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
                     } catch (let error) {
                         NSLog(error.localizedDescription)
                     }
                 } else {
                     currentUserController.currentUser?.bandRatings?.append(userRating)
                     do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
+                        try FireStoreReferenceManager.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
                     } catch (let error) {
                         NSLog(error.localizedDescription)
                     }

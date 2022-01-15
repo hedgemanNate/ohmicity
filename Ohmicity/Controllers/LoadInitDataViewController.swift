@@ -90,6 +90,11 @@ class LoadInitDataViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     @IBAction func breaker(_ sender: Any) {
         print(businessBannerAdController.businessAdArray)
     }

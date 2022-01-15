@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = FirestoreSettings()
         settings.cacheSizeBytes = 2500000000
         settings.isPersistenceEnabled = true
-        ref.fireDataBase.settings = settings
+        FireStoreReferenceManager.fireDataBase.settings = settings
         
         
         //Admob

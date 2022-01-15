@@ -18,7 +18,7 @@ class RatingsController {
         if bandRatingArray != [] {
             for rating in bandRatingArray {
                 do {
-                    try ref.bandsRatingsDataPath.document(rating.bandsRatingsID).setData(from: rating)
+                    try FireStoreReferenceManager.bandsRatingsDataPath.document(rating.bandsRatingsID).setData(from: rating)
                     NSLog("✅ Band Ratings Pushed")
                 } catch (let error) {
                     NSLog("🚨 \(error.localizedDescription)")
