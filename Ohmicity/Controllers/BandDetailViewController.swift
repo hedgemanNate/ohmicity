@@ -862,7 +862,8 @@ extension BandDetailViewController: GADFullScreenContentDelegate {
     
     private func checkForAdThenRunFunction() {
         if interstitialAd != nil && subscriptionController.noPopupAds == false {
-            interstitialAd?.present(fromRootViewController: self)
+            //interstitialAd?.present(fromRootViewController: self)
+            listenButtonFunction()
         } else {
             listenButtonFunction()
         }
