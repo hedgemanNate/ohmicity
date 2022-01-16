@@ -39,5 +39,5 @@ class FireStoreReferenceManager {
     
     
     static let bandDataPath = fireDataBase.collection(switchData).document(switchData).collection("bandData")
-    static let showDataPath = fireDataBase.collection(switchData).document(switchData).collection("showData")
+    static let showDataPath = fireDataBase.collection(switchData).document(switchData).collection("allShowData")
 }

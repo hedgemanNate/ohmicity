@@ -35,6 +35,9 @@
 		F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BC4D326F54866004177BD /* SupportInfoViewController.swift */; };
 		F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */; };
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
+		F63837892793F90000838858 /* ProductionShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63837882793F90000838858 /* ProductionShows.swift */; };
+		F638378D2793FBD800838858 /* ProductionShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638378C2793FBD800838858 /* ProductionShowController.swift */; };
+		F638378F2793FEC400838858 /* FailedAttemptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */; };
 		F63D191827006435004379D5 /* MenuPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F63D191727006435004379D5 /* MenuPopUp.storyboard */; };
 		F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */; };
 		F63D191C27006818004379D5 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D191B27006818004379D5 /* RatingsViewController.swift */; };
@@ -179,6 +182,9 @@
 		F62BC4D326F54866004177BD /* SupportInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportInfoViewController.swift; sourceTree = "<group>"; };
 		F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
+		F63837882793F90000838858 /* ProductionShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductionShows.swift; path = Ohmicity/Models/ProductionShows.swift; sourceTree = SOURCE_ROOT; };
+		F638378C2793FBD800838858 /* ProductionShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionShowController.swift; sourceTree = "<group>"; };
+		F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedAttemptsViewController.swift; sourceTree = "<group>"; };
 		F63D191727006435004379D5 /* MenuPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuPopUp.storyboard; sourceTree = "<group>"; };
 		F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopUpLogicViewController.swift; sourceTree = "<group>"; };
 		F63D191B27006818004379D5 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
@@ -444,6 +450,7 @@
 				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
+				F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -589,6 +596,7 @@
 				F676F1022699496200C47599 /* ShowController.swift */,
 				F6869B5027018AEB00421019 /* RatingsController.swift */,
 				F6869B522701911D00421019 /* RecommendationController.swift */,
+				F638378C2793FBD800838858 /* ProductionShowController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -599,6 +607,7 @@
 				F687CD6626F45ECA00412C07 /* CurrentUser.swift */,
 				F687CD6826F45EF300412C07 /* XitySupport.swift */,
 				F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */,
+				F63837882793F90000838858 /* ProductionShows.swift */,
 			);
 			path = "User Models";
 			sourceTree = "<group>";
@@ -913,6 +922,7 @@
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F6869B5127018AEB00421019 /* RatingsController.swift in Sources */,
+				F63837892793F90000838858 /* ProductionShows.swift in Sources */,
 				F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F6DBFDB526E9DCC0001D7520 /* SubscriptionController.swift in Sources */,
@@ -933,6 +943,7 @@
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Ratings.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
+				F638378D2793FBD800838858 /* ProductionShowController.swift in Sources */,
 				F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,
@@ -941,6 +952,7 @@
 				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,
 				F6869B532701911D00421019 /* RecommendationController.swift in Sources */,
 				F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */,
+				F638378F2793FEC400838858 /* FailedAttemptsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

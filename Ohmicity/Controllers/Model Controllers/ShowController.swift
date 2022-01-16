@@ -31,65 +31,46 @@ class ShowController {
         showArray.removeAll(where: {$0.onHold == true})
     }
     
-    func getNewShowData() {
-        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { [self] (_, error) in
-            if let error = error {
-                NSLog(error.localizedDescription)
-            } else {
-                notificationCenter.post(notifications.gotNewShowData)
-                fillShowArrayFromCache()
-            }
-        }
-        let temp = showArray.removingDuplicates()
-        showArray = temp
-        showArray.removeAll(where: {$0.onHold == true})
-    }
-    
-    
     func getAllShowData() {
-        db.getDocuments { [self] (_, error) in
-            if let error = error {
-                NSLog(error.localizedDescription)
-            } else {
-                notificationCenter.post(notifications.gotAllShowData)
-                fillShowArrayFromCache()
+        FireStoreReferenceManager.showDataPath.document(ProductionShowController.allShows.allProductionShowsID).getDocument { snapShot, error in
+            let result = Result {
+                try snapShot?.data(as: AllProductionShows.self)
+            }
+            switch result {
+            case .success(let success):
+                if let allShows = success {
+                    ProductionShowController.allShows = allShows
+                    self.fillShowArrayFromRawShowData()
+                } else {
+                    NSLog("Production Shows were not found: getAllShowData")
+                }
+            case .failure(let failure):
+                NSLog(failure.localizedDescription)
             }
         }
-        let temp = showArray.removingDuplicates()
-        showArray = temp
-        showArray.removeAll(where: {$0.onHold == true})
+        notificationCenter.post(notifications.gotAllShowData)
     }
     
-    func fillShowArrayFromCache() {
-        var showCount = 0
-        db.getDocuments(source: .cache) { querySnapshot, error in
-            if let error = error {
-                NSLog(error.localizedDescription)
-            } else {
-                for show in querySnapshot!.documents {
-                    let result = Result {
-                        try show.data(as: Show.self)
-                    }
-                    switch result {
-                    case .success(let show):
-                        if let show = show {
-                            self.showArray.removeAll(where: {$0 == show})
-                            self.showArray.append(show)
-                            showCount += 1
-                        } else {
-                            NSLog("Business data was nil")
-                        }
-                    case .failure(let error):
-                        NSLog("Error decoding Business: \(error)")
-                    }
-                }
-                notificationCenter.post(notifications.gotCacheShowData)
-                NSLog("*****gotCacheShowData HIT*****")
-            }
+    func fillShowArrayFromRawShowData() {
+        for show in ProductionShowController.allShows.shows {
+            if !bandController.bandArray.contains(where: {$0.bandID == show.band}) {print("No band"); continue}
+            if !businessController.businessArray.contains(where: {$0.venueID == show.venue}) {print("No Venue"); continue}
+            
+            let venue = businessController.businessArray.first(where: {$0.venueID == show.venue})
+            guard let venue = venue else {continue}
+            
+            let cleanDisplay = show.bandDisplayName.capitalized
+
+            timeController.dateFormatter.dateFormat = timeController.monthDayYear
+            var newShow = Show(showID: show.showID, band: show.band, venue: show.venue, bandDisplayName: cleanDisplay, dateString: timeController.dateFormatter.string(from: show.date), date: show.date)
+            
+            newShow.ohmPick = show.ohmPick
+            newShow.city = venue.city
+            newShow.city.append(.All)
+            
+            showArray.append(newShow)
         }
-        let temp = showArray.removingDuplicates()
-        showArray = temp
-        showArray.removeAll(where: {$0.onHold == true})
+        notificationCenter.post(notifications.gotCacheShowData)
     }
 }
 

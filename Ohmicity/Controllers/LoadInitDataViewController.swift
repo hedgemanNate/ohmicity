@@ -242,7 +242,7 @@ extension LoadInitDataViewController {
             return
         }
         //2
-        if bandController.bandArray.count >= 600 {
+        if bandController.bandArray.count >= 100 {
             checkingDataActionsFinished += 1
         } else {
             dataActionsFinished = 0
@@ -348,9 +348,7 @@ extension LoadInitDataViewController {
         
         let op1 = BlockOperation {
             //Creating Xity Show Data
-            let genericBand = Band(name: "No Name")
-            var showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
-            showArray.removeAll(where: {$0.onHold == true})
+            let showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
             
             let businessArray = businessController.businessArray
             let bandArray = bandController.bandArray
@@ -358,25 +356,19 @@ extension LoadInitDataViewController {
             for show in showArray {
                 
                 //This protects against missing bands and missing businesses***
-                var  band = bandArray.first(where: {$0.name == show.band})
-                if band == nil {
-                    band = genericBand
-                }
-                
-                guard let business = businessArray.first(where: {$0.name == show.venue}) else {
+                guard let business = businessArray.first(where: {$0.venueID == show.venue}) else {
+                    print("🌇⁉️ No venue found for to make Xity Show")
                     continue
                 }
-                
-                guard let band = bandArray.first(where: {$0.name == show.band}) else {
+                guard let band = bandArray.first(where: {$0.bandID == show.band}) else {
+                    print("🌇⁉️ No band found for to make Xity Show")
                     continue
                 }
             
-                
                 let xity = XityShow(band: band, business: business, show: show)
                 xityShowController.showArray.append(xity)
                 
             }
-            xityShowController.removeDuplicates()
             self.organizingActionsFinished += 1
             print("🫀 Creating Xity Show Data")
         }

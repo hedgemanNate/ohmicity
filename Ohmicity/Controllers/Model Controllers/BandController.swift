@@ -15,20 +15,18 @@ class BandController {
     var bandArray: [Band] = [] { didSet { /*function here*/  }}
     let genreTypeArray: [Genre] = [.Blues, .Country, .DJ, .Dance, .EDM, .EasyListening, .Experimental, .FunkSoul, .Gospel, .HipHop, .JamBand, .Jazz, .Metal, .Pop, .Reggae, .Rock]
         
-    let db = Firestore.firestore()
-                      .collection("remoteData")
-                      .document("remoteData")
-                      .collection("bandData")
+    let db = FireStoreReferenceManager.bandDataPath
     
     
     //Functions
     
     func getNewBandData() {
-        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: timeController.savedDateForDatabaseUse!).getDocuments() { [self] (_, error) in
+        guard let savedDate = timeController.savedDateForDatabaseUse else {return}
+        db.order(by: "lastModified", descending: true).whereField("lastModified", isGreaterThan: savedDate).getDocuments() { [self] (_, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {
-                print("GETTING NEW BAND DATA: Time \(timeController.savedDateForDatabaseUse!)")
+                print("GETTING NEW BAND DATA: Time \(savedDate)")
                 notificationCenter.post(notifications.gotNewBandData)
                 fillBandArrayFromCache()
             }

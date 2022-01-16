@@ -75,7 +75,7 @@ class LastModifiedDateHandler {
             
             let op2 = BlockOperation {
                 businessController.getNewBusinessData()
-                showController.getNewShowData()
+                showController.getAllShowData()
                 bandController.getNewBandData()
                 businessBannerAdController.getNewBusinessAdData()
                 self.saveDate()
@@ -84,7 +84,7 @@ class LastModifiedDateHandler {
             let op1 = BlockOperation {
                 businessBannerAdController.fillBusinessAdArrayFromCache()
                 businessController.fillBusinessArrayFromCache()
-                showController.fillShowArrayFromCache()
+                showController.fillShowArrayFromRawShowData()
                 bandController.fillBandArrayFromCache()
             }
             

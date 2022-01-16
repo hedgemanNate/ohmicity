@@ -57,7 +57,7 @@
                                     <constraint firstAttribute="width" constant="200" id="xyn-uO-hzC"/>
                                 </constraints>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-gE-zqZ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-gE-zqZ">
                                 <rect key="frame" x="188" y="182" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="breaker"/>
@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="-3949" y="-2165"/>
         </scene>
-        <!--View Controller-->
+        <!--Failed Attempts View Controller-->
         <scene sceneID="u2M-2R-i6y">
             <objects>
-                <viewController id="Nke-Fj-Oif" sceneMemberID="viewController">
+                <viewController id="Nke-Fj-Oif" customClass="FailedAttemptsViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MYD-WC-vGC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,6 +124,15 @@ Check your internet connection and try again. </string>
                                     <constraint firstAttribute="height" constant="200" id="ums-9b-NbM"/>
                                 </constraints>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXs-tj-zyU">
+                                <rect key="frame" x="178" y="134" width="74" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Breaker"/>
+                                <connections>
+                                    <action selector="breaker:" destination="Nke-Fj-Oif" eventType="touchUpInside" id="t4n-Go-IeB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ncW-uJ-rzo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
