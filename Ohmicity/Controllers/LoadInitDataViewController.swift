@@ -96,7 +96,7 @@ class LoadInitDataViewController: UIViewController {
     }
     
     @IBAction func breaker(_ sender: Any) {
-        print(businessBannerAdController.businessAdArray)
+        
     }
     
 

@@ -92,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCs-Pg-jIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3949" y="-2180"/>
+            <point key="canvasLocation" x="-3949" y="-2165"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="u2M-2R-i6y">
@@ -1813,7 +1813,7 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-L8-xJL"/>
+        <segue reference="7HS-V6-wWy"/>
         <segue reference="fQ9-bq-bhx"/>
         <segue reference="30H-i8-TRl"/>
         <segue reference="sZi-Pr-M00"/>
