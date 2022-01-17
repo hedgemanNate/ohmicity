@@ -23,7 +23,7 @@ class Business: Codable, Equatable, Hashable {
         hasher.combine(phoneNumber)
     }
     
-    let venueID: String
+    var venueID: String
     var lastModified: Timestamp?
     var name: String
     var address: String = ""

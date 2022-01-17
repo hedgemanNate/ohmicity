@@ -132,6 +132,12 @@ extension DashboardViewController {
             hiddenSignUpView.isHidden = true
         }
         
+        if xityShowController.weeklyPicksArray.count == 0 {
+            noShowsView.isHidden = false
+        } else {
+            noShowsView.isHidden = true
+        }
+        
     }
     
     @objc private func reloadData() {

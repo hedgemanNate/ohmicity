@@ -923,32 +923,26 @@ should be on Xity?</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-IG-CFU">
-                                                <rect key="frame" x="9" y="267" width="75" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="ojq-jI-8l8"/>
-                                                </constraints>
+                                                <rect key="frame" x="9" y="253" width="169" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Today">
+                                                <state key="normal" title="Today's Shows">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~Filter Shows By City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
-                                                <rect key="frame" x="84" y="283" width="335" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="qL4-aa-r5K"/>
-                                                </constraints>
+                                                <rect key="frame" x="187" y="267" width="162" height="21"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemTealColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-dF-4wv" userLabel="Preferred City Button">
-                                                <rect key="frame" x="0.0" y="265" width="228" height="48"/>
+                                                <rect key="frame" x="0.0" y="265" width="428" height="30"/>
                                                 <connections>
                                                     <action selector="cityFilterButtonTapped:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="Lcs-9z-cCR"/>
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-1O-MRt">
-                                                <rect key="frame" x="0.0" y="318" width="428" height="261"/>
+                                                <rect key="frame" x="0.0" y="300" width="428" height="261"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="261" id="zPH-Cf-ZWh"/>
@@ -1018,10 +1012,10 @@ should be on Xity?</string>
                                                 </cells>
                                             </collectionView>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWB-JM-Q0f" userLabel="No Shows Today View">
-                                                <rect key="frame" x="0.0" y="311" width="428" height="268"/>
+                                                <rect key="frame" x="0.0" y="819" width="428" height="268"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Shows Today..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVi-S6-JA1">
-                                                        <rect key="frame" x="144.66666666666666" y="123.66666666666669" width="138.99999999999997" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No More Picks For This Week." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVi-S6-JA1">
+                                                        <rect key="frame" x="100.33333333333333" y="123.66666666666663" width="227.33333333333337" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1029,19 +1023,20 @@ should be on Xity?</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="EVi-S6-JA1" firstAttribute="centerY" secondItem="MWB-JM-Q0f" secondAttribute="centerY" id="4On-uM-fmd"/>
-                                                    <constraint firstItem="EVi-S6-JA1" firstAttribute="centerX" secondItem="MWB-JM-Q0f" secondAttribute="centerX" id="Ajb-2m-2Hc"/>
+                                                    <constraint firstItem="EVi-S6-JA1" firstAttribute="centerX" secondItem="MWB-JM-Q0f" secondAttribute="centerX" id="Cix-BR-65w"/>
+                                                    <constraint firstItem="EVi-S6-JA1" firstAttribute="centerY" secondItem="MWB-JM-Q0f" secondAttribute="centerY" id="E55-ca-bYI"/>
+                                                    <constraint firstAttribute="height" constant="268" id="zUy-ND-ADj"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
-                                                <rect key="frame" x="9" y="600" width="167" height="44"/>
+                                                <rect key="frame" x="9" y="582" width="242" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Xity Exclusives">
+                                                <state key="normal" title="Xity's Exclusive Deals">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PRD-v0-GZh" userLabel="Citites Collection View">
-                                                <rect key="frame" x="0.0" y="651" width="428" height="105"/>
+                                                <rect key="frame" x="0.0" y="633" width="428" height="105"/>
                                                 <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="105" id="NP9-Gd-qPP"/>
@@ -1094,7 +1089,7 @@ should be on Xity?</string>
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmJ-NI-E7V" userLabel="Sign Up View">
-                                                <rect key="frame" x="9" y="835" width="410" height="232"/>
+                                                <rect key="frame" x="9" y="817" width="410" height="232"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-3o-0eE">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="232"/>
@@ -1121,7 +1116,7 @@ should be on Xity?</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
-                                                        <rect key="frame" x="35" y="159.33333333333326" width="186" height="35"/>
+                                                        <rect key="frame" x="35" y="159.33333333333337" width="186" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="vdF-pa-dfW"/>
                                                         </constraints>
@@ -1150,15 +1145,15 @@ should be on Xity?</string>
                                                     <constraint firstItem="2tW-Bs-Wlj" firstAttribute="top" secondItem="KmJ-NI-E7V" secondAttribute="top" constant="21" id="yNf-FH-C7E"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Weekly Button">
-                                                <rect key="frame" x="9" y="784" width="197" height="44"/>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Weekly Button">
+                                                <rect key="frame" x="9" y="766" width="280" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Xity Weekly Picks">
+                                                <state key="normal" title="Xity's Picks Of The Week">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x8J-nE-HSo" userLabel="Weekly Picks Collection View">
-                                                <rect key="frame" x="0.0" y="835" width="428" height="261"/>
+                                                <rect key="frame" x="0.0" y="817" width="428" height="261"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="261" id="c9Z-N1-jhD"/>
@@ -1225,14 +1220,14 @@ should be on Xity?</string>
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
-                                                <rect key="frame" x="9" y="1124" width="158" height="44"/>
+                                                <rect key="frame" x="9" y="1106" width="158" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Your Favorites">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="onA-4S-Wan">
-                                                <rect key="frame" x="0.0" y="1175" width="428" height="261"/>
+                                                <rect key="frame" x="0.0" y="1157" width="428" height="261"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="261" id="rMx-3S-1j3"/>
@@ -1292,14 +1287,14 @@ should be on Xity?</string>
                                                 </cells>
                                             </collectionView>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yr5-mc-o9V">
-                                                <rect key="frame" x="9" y="1457" width="83" height="44"/>
+                                                <rect key="frame" x="9" y="1439" width="83" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Venues">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vXY-nV-LWV" userLabel="Venue Collection View">
-                                                <rect key="frame" x="0.0" y="1508" width="428" height="105"/>
+                                                <rect key="frame" x="0.0" y="1490" width="428" height="105"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="105" id="U1r-M9-t8f"/>
@@ -1350,7 +1345,7 @@ should be on Xity?</string>
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRP-dE-0cc" userLabel="Recommend View">
-                                                <rect key="frame" x="9" y="1485" width="410" height="151"/>
+                                                <rect key="frame" x="9" y="1467" width="410" height="151"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="eln-43-wph">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="151"/>
@@ -1395,7 +1390,7 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvK-9P-KhK">
-                                                <rect key="frame" x="382" y="586" width="37" height="18"/>
+                                                <rect key="frame" x="382" y="568" width="37" height="18"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1405,53 +1400,48 @@ should be on Xity?</string>
                                         <constraints>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="21" id="0Yv-3j-i78"/>
                                             <constraint firstAttribute="trailing" secondItem="KmJ-NI-E7V" secondAttribute="trailing" constant="9" id="25z-nL-wGM"/>
+                                            <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="9" id="6fj-n0-5aQ"/>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="7ec-qH-eqU"/>
-                                            <constraint firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="BgG-vW-9VT"/>
                                             <constraint firstAttribute="trailing" secondItem="g8b-sK-kda" secondAttribute="trailing" id="Dyn-eL-Orr"/>
                                             <constraint firstAttribute="trailing" secondItem="onA-4S-Wan" secondAttribute="trailing" id="GYS-TM-s9p"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="I1d-Ca-LlP"/>
-                                            <constraint firstItem="cgb-1O-MRt" firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="IjF-k3-AVU"/>
-                                            <constraint firstItem="HPd-IG-CFU" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="Ixq-qF-KNW"/>
                                             <constraint firstItem="vXY-nV-LWV" firstAttribute="top" secondItem="Yr5-mc-o9V" secondAttribute="bottom" constant="7" id="JI1-UW-BM4"/>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="Jkm-6H-a36"/>
                                             <constraint firstItem="SO8-4f-hLW" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="KCf-mt-v4C"/>
                                             <constraint firstItem="EKm-dF-4wv" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="12" id="KYa-aA-3Sh"/>
                                             <constraint firstAttribute="trailing" secondItem="vXY-nV-LWV" secondAttribute="trailing" id="LaG-dS-yiP"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="top" secondItem="EKm-dF-4wv" secondAttribute="bottom" constant="5" id="Mf6-28-jcI"/>
-                                            <constraint firstItem="HPd-IG-CFU" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="14" id="N4I-OR-p1L"/>
                                             <constraint firstItem="g8b-sK-kda" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="NVZ-bT-eHY"/>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="PAf-dL-QLE"/>
                                             <constraint firstItem="onA-4S-Wan" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="PTh-TQ-lTj"/>
-                                            <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="MWB-JM-Q0f" secondAttribute="leading" id="Qac-rb-ddn"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="S6y-nQ-yUg"/>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="SVh-xg-ZFm"/>
                                             <constraint firstAttribute="trailing" secondItem="x8J-nE-HSo" secondAttribute="trailing" id="U9T-Dl-Rwh"/>
-                                            <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="HPd-IG-CFU" secondAttribute="bottom" id="UbT-1i-ILj"/>
                                             <constraint firstItem="vXY-nV-LWV" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="UhR-ln-4vy"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="UsH-1c-6EG"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="49" id="WAw-N7-rPE"/>
                                             <constraint firstItem="SO8-4f-hLW" firstAttribute="top" secondItem="x8J-nE-HSo" secondAttribute="bottom" constant="28" id="WNZ-Vb-9H8"/>
-                                            <constraint firstItem="cgb-1O-MRt" firstAttribute="bottom" secondItem="MWB-JM-Q0f" secondAttribute="bottom" id="XvU-vJ-Wvx"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="Yle-d4-ob3"/>
+                                            <constraint firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="Yt2-Cm-Udq"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
                                             <constraint firstAttribute="trailing" secondItem="dRP-dE-0cc" secondAttribute="trailing" constant="9" id="Zwt-8h-NtK"/>
                                             <constraint firstAttribute="height" constant="1675" id="b3g-ap-Wy4"/>
+                                            <constraint firstItem="MWB-JM-Q0f" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="bkl-3m-iGy"/>
                                             <constraint firstItem="EKm-dF-4wv" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="bsV-i8-QLl"/>
-                                            <constraint firstAttribute="trailing" secondItem="RHp-aE-CIZ" secondAttribute="trailing" constant="9" id="dQ4-TT-MlG"/>
-                                            <constraint firstItem="RHp-aE-CIZ" firstAttribute="bottom" secondItem="HPd-IG-CFU" secondAttribute="bottom" constant="-7" id="gfe-F4-Lj7"/>
-                                            <constraint firstItem="cgb-1O-MRt" firstAttribute="top" secondItem="HPd-IG-CFU" secondAttribute="bottom" constant="7" id="kwg-8V-sPE"/>
+                                            <constraint firstItem="HPd-IG-CFU" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" id="gA4-No-970"/>
+                                            <constraint firstItem="HPd-IG-CFU" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="k5h-uA-JiG"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="top" secondItem="4FR-ji-xOh" secondAttribute="bottom" constant="7" id="m7q-fG-FRI"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="mgv-dy-lZm"/>
                                             <constraint firstAttribute="trailing" secondItem="PRD-v0-GZh" secondAttribute="trailing" id="mj5-MS-fmm"/>
                                             <constraint firstItem="g8b-sK-kda" firstAttribute="top" secondItem="PaE-9Z-b5c" secondAttribute="top" id="nXN-RM-FfO"/>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="top" secondItem="PRD-v0-GZh" secondAttribute="bottom" constant="28" id="nwV-TP-UTi"/>
+                                            <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" id="oio-oq-K3b"/>
                                             <constraint firstItem="DvK-9P-KhK" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="7" id="pad-qU-4gR"/>
-                                            <constraint firstItem="MWB-JM-Q0f" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="pce-My-VFH"/>
                                             <constraint firstAttribute="trailing" secondItem="DvK-9P-KhK" secondAttribute="trailing" constant="9" id="qEp-7Y-x0r"/>
                                             <constraint firstItem="cgb-1O-MRt" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="ql6-jh-PRe"/>
-                                            <constraint firstItem="RHp-aE-CIZ" firstAttribute="leading" secondItem="HPd-IG-CFU" secondAttribute="trailing" id="s4M-xX-K8I"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="top" secondItem="cgb-1O-MRt" secondAttribute="bottom" constant="21" id="uPv-Ma-efd"/>
-                                            <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" constant="200" id="ueb-0t-Swa"/>
+                                            <constraint firstItem="RHp-aE-CIZ" firstAttribute="leading" secondItem="HPd-IG-CFU" secondAttribute="trailing" constant="9" id="ubA-LV-ZfO"/>
+                                            <constraint firstItem="RHp-aE-CIZ" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" constant="14" id="wTh-BI-QV5"/>
                                             <constraint firstItem="onA-4S-Wan" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="weM-l1-ZCm"/>
                                         </constraints>
                                     </view>
@@ -1619,7 +1609,7 @@ should be on Xity?</string>
                 </view>
                 <tabBarItem title="Dashboard" id="R8M-BV-06Y"/>
             </objects>
-            <point key="canvasLocation" x="-2285" y="-1817"/>
+            <point key="canvasLocation" x="-2286.4485981308408" y="-1817.4946004319656"/>
         </scene>
         <!--Band-->
         <scene sceneID="gUJ-AW-aJv">

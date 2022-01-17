@@ -17,6 +17,7 @@ class FavoriteController {
         didSet {
             let set = Set(favoritesArray)
             favoritesArray = Array(set)
+            favoritesArray.sort(by: {$0.type < $1.type})
             notificationCenter.post(notifications.userFavoritesUpdated)
         }
     }
@@ -30,18 +31,16 @@ extension FavoriteController {
             return
         }
         
-        for band in currentUser.favoriteBands {
-            let foundBand = bandController.bandArray.first(where: {$0.bandID == band})
-            guard let foundBand = foundBand else {continue}
-            let newFav = Favorite(favoriteID: foundBand.bandID, bandFavorite: foundBand, venueFavorite: nil)
-            favoritesArray.append(newFav)
+        for fav in currentUser.favoriteBusinesses {
+            let newFavorite = Favorite(favoriteID: fav)
+            guard let newFavorite = newFavorite else {continue}
+            FavoriteController.favoritesArray.append(newFavorite)
         }
         
-        for venue in currentUser.favoriteBusinesses {
-            let foundVenue = businessController.businessArray.first(where: {$0.venueID == venue})
-            guard let foundVenue = foundVenue else {continue}
-            let newFav = Favorite(favoriteID: foundVenue.venueID, bandFavorite: nil, venueFavorite: foundVenue)
-            favoritesArray.append(newFav)
+        for fav in currentUser.favoriteBands {
+            let newFavorite = Favorite(favoriteID: fav)
+            guard let newFavorite = newFavorite else {continue}
+            FavoriteController.favoritesArray.append(newFavorite)
         }
     }
     
@@ -49,16 +48,16 @@ extension FavoriteController {
         if currentUserController.currentUser == nil {return}
         if bandController.bandArray.contains(where: {$0.bandID == objectID}) {
             let foundBand = bandController.bandArray.first(where: {$0.bandID == objectID})
-            let newFav = Favorite(favoriteID: foundBand!.bandID, bandFavorite: foundBand, venueFavorite: nil)
+            guard let foundBand = foundBand else {return}
+            let newFav = Favorite(bandFavorite: foundBand)
             favoritesArray.append(newFav)
             
-        
         } else {
             if businessController.businessArray.contains(where: {$0.venueID == objectID}) {
                 let foundVenue = businessController.businessArray.first(where: {$0.venueID == objectID})
-                let newFav = Favorite(favoriteID: foundVenue!.venueID, bandFavorite: nil, venueFavorite: foundVenue)
+                guard let foundVenue = foundVenue else {return}
+                let newFav = Favorite(venueFavorite: foundVenue)
                 favoritesArray.append(newFav)
-                
             }
         }
         

@@ -44,7 +44,15 @@ class SearchTableViewCell: UITableViewCell {
                 //Labels
                 var stringArray = [String]()
                 nameLabel.text = xityBand.band.name
-                secondNameLabel.text = "Next Show: \(xityBand.xityShows?.first?.show.venue ?? "None Scheduled")"
+                
+                if xityBand.xityShows?.first != nil {
+                    let venueID = xityBand.xityShows!.first?.business.venueID
+                    let venueName = businessController.businessArray.first(where: {$0.venueID == venueID})?.name
+                    secondNameLabel.text = "Next Show: \(venueName ?? "None Scheduled")"
+                } else {
+                    secondNameLabel.text = "None Scheduled"
+                }
+                
                 for genre in xityBand.band.genre {
                     stringArray.append(genre.rawValue)
                 }
@@ -63,7 +71,16 @@ class SearchTableViewCell: UITableViewCell {
                     //Labels
                     var stringArray = [String]()
                     nameLabel.text = xityBusiness.business.name
-                    secondNameLabel.text = "Next Show: \(xityBusiness.xityShows.first?.show.band ?? "None Scheduled")"
+                    
+                    
+                    if xityBusiness.xityShows.first != nil {
+                        let bandID = xityBusiness.xityShows.first?.band.bandID
+                        let bandName = bandController.bandArray.first(where: {$0.bandID == bandID})?.name
+                        secondNameLabel.text = "Next Show: \(bandName ?? "None Scheduled")"
+                    } else {
+                        secondNameLabel.text = "None Scheduled"
+                    }
+                    
                     for businessType in xityBusiness.business.businessType {
                         stringArray.append(businessType.rawValue)
                     }
