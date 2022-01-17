@@ -57,7 +57,7 @@
                                     <constraint firstAttribute="width" constant="200" id="xyn-uO-hzC"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-gE-zqZ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-gE-zqZ">
                                 <rect key="frame" x="188" y="182" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="breaker"/>
@@ -155,6 +155,33 @@ Check your internet connection and try again. </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-5m-R0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3949" y="-1470"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aWs-nU-x9A">
+            <objects>
+                <viewController id="cIJ-Iv-zTa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BF7-CF-V6d">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-JW-YpA">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UdO-EI-H7W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Hy-JW-YpA" firstAttribute="leading" secondItem="UdO-EI-H7W" secondAttribute="leading" id="ENX-G1-boh"/>
+                            <constraint firstItem="1Hy-JW-YpA" firstAttribute="top" secondItem="BF7-CF-V6d" secondAttribute="top" id="TCE-2u-f8q"/>
+                            <constraint firstAttribute="bottom" secondItem="1Hy-JW-YpA" secondAttribute="bottom" id="hBL-QJ-HmE"/>
+                            <constraint firstItem="1Hy-JW-YpA" firstAttribute="trailing" secondItem="UdO-EI-H7W" secondAttribute="trailing" id="paH-Sm-fV7"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="428" height="926"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J6b-M4-Dz8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3185.0467289719622" y="-1470.1943844492441"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="awe-Of-PtB">
@@ -472,7 +499,7 @@ Check your internet connection and try again. </string>
                 <viewControllerPlaceholder storyboardName="Venue" id="8qd-y1-hnj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgJ-0A-Yrf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-554" y="-3087"/>
+            <point key="canvasLocation" x="-562" y="-3087"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Iqo-pK-cSs">
@@ -856,17 +883,6 @@ should be on Xity?</string>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kqe-NK-98o">
                                                                             <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
                                                                         </imageView>
-                                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
-                                                                            <rect key="frame" x="248" y="166" width="40" height="30"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <state key="normal" title="Break">
-                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </state>
-                                                                            <connections>
-                                                                                <action selector="breaker:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="5eZ-hk-4Ji"/>
-                                                                            </connections>
-                                                                        </button>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="Kqe-NK-98o" secondAttribute="trailing" id="1wU-2X-mx0"/>
@@ -895,6 +911,17 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="trailing" secondItem="sk0-Ih-96d" secondAttribute="trailing" id="ydN-lz-xgT"/>
                                                 </constraints>
                                             </view>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
+                                                <rect key="frame" x="194" y="190" width="40" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Break">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="breaker:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="5eZ-hk-4Ji"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-IG-CFU">
                                                 <rect key="frame" x="9" y="267" width="75" height="44"/>
                                                 <constraints>
@@ -905,7 +932,7 @@ should be on Xity?</string>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~Filter Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~Filter Shows By City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
                                                 <rect key="frame" x="84" y="283" width="335" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="qL4-aa-r5K"/>
@@ -1477,11 +1504,13 @@ should be on Xity?</string>
                         <segue destination="mvB-W5-o1V" kind="presentation" identifier="ToCityFilterSegue" id="kUb-o8-2UV"/>
                         <segue destination="VkB-f5-0Se" kind="presentation" identifier="ToSignIn" id="pYi-uV-Zx2"/>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="FromToday" id="sZi-Pr-M00"/>
-                        <segue destination="8qd-y1-hnj" kind="presentation" identifier="FromFav" id="3oC-qz-sBH"/>
+                        <segue destination="8qd-y1-hnj" kind="presentation" identifier="VenueFromFav" id="3oC-qz-sBH"/>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="FromXityPick" id="4YM-rC-lLc"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="GVY-L8-xJL"/>
                         <segue destination="J6f-dj-eee" kind="presentation" identifier="DealsComingSoonSegue" id="9oH-9z-0L1"/>
                         <segue destination="Pg6-Ho-7vW" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="zcJ-zu-BfT"/>
+                        <segue destination="cIJ-Iv-zTa" kind="presentation" identifier="WrongDatabase" id="ZNU-1a-iCP"/>
+                        <segue destination="DQx-hs-upo" kind="presentation" identifier="BandFromFav" id="RgU-SC-VCr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1592,13 +1621,21 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-2285" y="-1817"/>
         </scene>
+        <!--Band-->
+        <scene sceneID="gUJ-AW-aJv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Band" id="DQx-hs-upo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPH-Vr-1n2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="-3087"/>
+        </scene>
         <!--Recommend-->
         <scene sceneID="rim-5Z-1Yi">
             <objects>
                 <viewControllerPlaceholder storyboardName="Recommend" id="qeh-Jj-CAA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZY-Tg-rN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-212" y="-3087"/>
+            <point key="canvasLocation" x="64" y="-3078"/>
         </scene>
         <!--Subscription-->
         <scene sceneID="QZl-m3-Jvg">
@@ -1822,10 +1859,10 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7HS-V6-wWy"/>
+        <segue reference="GVY-L8-xJL"/>
         <segue reference="fQ9-bq-bhx"/>
         <segue reference="30H-i8-TRl"/>
-        <segue reference="sZi-Pr-M00"/>
+        <segue reference="3oC-qz-sBH"/>
         <segue reference="9oH-9z-0L1"/>
     </inferredMetricsTieBreakers>
     <resources>

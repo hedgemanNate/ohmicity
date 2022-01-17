@@ -177,6 +177,7 @@ class BandDetailViewController: UIViewController {
                 
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    FavoriteController.favoritesArray.removeAll(where: {$0.favoriteID == currentBand.band.bandID})
                     notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
@@ -191,6 +192,7 @@ class BandDetailViewController: UIViewController {
                 
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    FavoriteController.createFavorite(objectID: currentBand.band.bandID)
                     notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
@@ -475,9 +477,9 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NextShowsCell", for: indexPath)
             
             guard let currentBand = currentBand else {return noShow}
-            guard let upcomingShow = currentBand.xityShows?[indexPath.row].show else {return noShow}
+            guard let upcomingShow = currentBand.xityShows?[indexPath.row] else {return noShow}
             
-            cell.textLabel?.text = "\(dateFormatter.string(from: upcomingShow.date)): \(upcomingShow.venue) @ \(dateFormatter2.string(from: upcomingShow.date))"
+            cell.textLabel?.text = "\(dateFormatter.string(from: upcomingShow.show.date)): \(upcomingShow.business.name) @ \(dateFormatter2.string(from: upcomingShow.show.date))"
             return cell
             
         default:
@@ -560,21 +562,21 @@ extension BandDetailViewController: EKEventViewDelegate {
     
     private func createEvent() -> EKEvent {
         guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return EKEvent()}
-        guard let show = currentBand?.xityShows?[selected.row].show else {return EKEvent()}
+        guard let show = currentBand?.xityShows?[selected.row] else {return EKEvent()}
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
-        let date = timeController.dateFormatter.string(from: show.date)
-        let venue = businessController.businessArray.first(where: {$0.name == show.venue})
+        let date = timeController.dateFormatter.string(from: show.show.date)
+        let venue = businessController.businessArray.first(where: {$0.name == show.show.venue})
         let eventShow = EKEvent(eventStore: store)
-        let headsUpAlarm = EKAlarm(absoluteDate: show.date - 10800)
+        let headsUpAlarm = EKAlarm(absoluteDate: show.show.date - 10800)
         headsUpAlarm.structuredLocation = mapForEvent(venueName: "You made it!")
-        let showStartAlarm = EKAlarm(absoluteDate: show.date)
-        eventShow.title = "\(show.band)'s \(date) Show"
-        eventShow.startDate = show.date
-        eventShow.endDate = show.date + 10800
+        let showStartAlarm = EKAlarm(absoluteDate: show.show.date)
+        eventShow.title = "\(show.band.name)'s \(date) Show"
+        eventShow.startDate = show.show.date
+        eventShow.endDate = show.show.date + 10800
         eventShow.location = venue?.address
-        eventShow.notes = "\(show.band)'s show is EXACTLY what you need to destress and have a good time for a couple hours. And don't forget to check and see if \(show.venue) has any exclusive deals you can use tonight!"
+        eventShow.notes = "\(show.band.name)'s show is EXACTLY what you need to destress and have a good time for a couple hours. And don't forget to check and see if \(venue?.name ?? "this venue") has any exclusive deals you can use tonight!"
         eventShow.alarms = [headsUpAlarm, showStartAlarm]
-        let structLocation = mapForEvent(venueName: show.venue)
+        let structLocation = mapForEvent(venueName: venue?.name ?? "The shows venue")
         eventShow.structuredLocation = structLocation
 
         return eventShow

@@ -16,7 +16,8 @@ class DashboardViewController: UIViewController {
     //Properties
     let todaySegue = "FromToday"
     let xityPickSegue = "FromXityPick"
-    let favSegue = "FromFav"
+    let venueFavSegue = "VenueFromFav"
+    let bandFavSegue = "BandFromFav"
     let dealsSoonSegue = "DealsComingSoonSegue"
     
     //Banner
@@ -73,6 +74,9 @@ class DashboardViewController: UIViewController {
         setUpNotificationObservers()
         createInterstitialAd()
         updateViews()
+        DispatchQueue.main.async {
+            self.checkDevelopmentStatus()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +88,7 @@ class DashboardViewController: UIViewController {
         super.viewDidAppear(animated)
         notificationCenter.post(notifications.reloadDashboardCVData)
         startTimer()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -106,6 +111,15 @@ class DashboardViewController: UIViewController {
 
 //MARK: ---- Functions ----
 extension DashboardViewController {
+    private func checkDevelopmentStatus() {
+        if FireStoreReferenceManager.inDevelopment == true {
+            self.performSegue(withIdentifier: "WrongDatabase", sender: self)
+            //Fix in Helpers/FireStoreReferenceManager
+            //set inDevelopment == false
+        }
+    }
+    
+    
     //UI Functions
     private func handleHidden() {
         if currentUserController.currentUser == nil {
@@ -128,19 +142,19 @@ extension DashboardViewController {
             
             switch xityShowController.todayShowArrayFilter {
             case .Sarasota:
-                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Bradenton:
-                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Venice:
-                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .StPete:
-                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Tampa:
-                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .Ybor:
-                cityFilterLabel.text = "~Filter Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
             case .All:
-                cityFilterLabel.text = "~Filter Off"
+                cityFilterLabel.text = "~Filter Shows By City"
             }
         }
         print("Notification Sent For Tapping Dashboard Button")
@@ -215,16 +229,16 @@ extension DashboardViewController {
     }
     
     //MARK: Logic Functions
-    @objc private func getFavorites() {
-        if currentUserController.currentUser != nil {
-            currentUserController.favArray = []
-            for string in currentUserController.currentUser!.favoriteBusinesses {
-                guard let business = businessController.businessArray.first(where: {$0.venueID == string}) else {return}
-                currentUserController.favArray.append(business)
-            }
-        }
-        favoritesCollectionView.reloadData()
-    }
+//    @objc private func getFavorites() {
+//        if currentUserController.currentUser != nil {
+//            currentUserController.favArray = []
+//            for string in currentUserController.currentUser!.favoriteBusinesses {
+//                guard let business = businessController.businessArray.first(where: {$0.venueID == string}) else {return}
+//                currentUserController.favArray.append(business)
+//            }
+//        }
+//        favoritesCollectionView.reloadData()
+//    }
     
     //----- Refresh Data Start -----
     @objc private func organizeData() {
@@ -259,7 +273,7 @@ extension DashboardViewController {
         favoritesCollectionView.delegate = self
         favoritesCollectionView.dataSource = self
         favoritesCollectionView.showsHorizontalScrollIndicator = false
-        getFavorites()
+        FavoriteController.generateFavorites()
         
         xityPickCollectionView.delegate = self
         xityPickCollectionView.dataSource = self
@@ -288,7 +302,7 @@ extension DashboardViewController {
         notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
         
         //Favorites
-        notificationCenter.addObserver(self, selector: #selector(getFavorites), name: notifications.userFavoritesUpdated.name, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.userFavoritesUpdated.name, object: nil)
         
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
@@ -370,10 +384,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case favoritesCollectionView:
             if subscriptionController.favorites {
-                return currentUserController.favArray.count
+                return FavoriteController.favoritesArray.count
             } else {
-                if currentUserController.favArray.count < 1 {
-                    return currentUserController.favArray.count
+                if FavoriteController.favoritesArray.count < 1 {
+                    return 0
                 } else {
                    return 1
                 }
@@ -436,8 +450,20 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case favoritesCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! BandVenueCollectionViewCell
-            venueCell.venue = currentUserController.favArray[indexPath.row]
+            
+            for fav in FavoriteController.favoritesArray {
+                if fav.bandFavorite != nil {
+                    venueCell.band = FavoriteController.favoritesArray[indexPath.row].bandFavorite
+                } else {
+                    venueCell.venue = FavoriteController.favoritesArray[indexPath.row].venueFavorite
+                }
+            }
+            
             return venueCell
+            
+            
+            
+            
         case xityPickCollectionView:
             xityPickCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeeklyCell", for: indexPath) as! BandVenueCollectionViewCell
             xityPickCell.xityPick = xityShowController.weeklyPicksArray[indexPath.row]
@@ -457,7 +483,11 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             checkForAdThenSegue(to: todaySegue)
             
         case favoritesCollectionView:
-            checkForAdThenSegue(to: favSegue)
+            if FavoriteController.favoritesArray[indexPath.row].venueFavorite != nil {
+                checkForAdThenSegue(to: venueFavSegue)
+            } else {
+                checkForAdThenSegue(to: bandFavSegue)
+            }
             
         case xityPickCollectionView:
             checkForAdThenSegue(to: xityPickSegue)
@@ -489,17 +519,29 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         }
         
-        if segue.identifier == favSegue {
+        if segue.identifier == venueFavSegue {
             endTimer()
             let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let business = currentUserController.favArray[indexPath!.row]
+            let business = FavoriteController.favoritesArray[indexPath!.row].venueFavorite
             
             let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
             xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             
             businessVC.featuredShow = xityBusiness?.xityShows.first
             businessVC.currentBusiness = xityBusiness!
+        }
+        
+        if segue.identifier == bandFavSegue {
+            endTimer()
+            let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
+            guard let bandVC = segue.destination as? BandDetailViewController else {return}
+            let band = FavoriteController.favoritesArray[indexPath!.row].bandFavorite
+            
+            let xityBand = xityBandController.bandArray.first(where: {$0.band == band})
+            xityBand?.xityShows?.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
+            
+            bandVC.currentBand = xityBand
         }
         
         if segue.identifier == xityPickSegue {

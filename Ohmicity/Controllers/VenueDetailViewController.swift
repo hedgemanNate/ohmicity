@@ -138,6 +138,7 @@ class VenueDetailViewController: UIViewController {
                 
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    FavoriteController.favoritesArray.removeAll(where: {$0.favoriteID == xityBusiness.business.venueID})
                     notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
@@ -151,6 +152,7 @@ class VenueDetailViewController: UIViewController {
                 
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
+                    FavoriteController.createFavorite(objectID: xityBusiness.business.venueID)
                     notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
@@ -544,7 +546,7 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
             let stringDate = timeController.dateFormatter.string(from: date)
             timeController.dateFormatter.dateFormat = timeController.time
             let time = timeController.dateFormatter.string(from: date)
-            cell.textLabel?.text = "\(stringDate): \(show.band) @ \(time)"
+            cell.textLabel?.text = "\(stringDate): \(show.bandDisplayName) @ \(time)"
         } else {
             cell.textLabel?.text = "No Show Scheduled"
         }

@@ -135,6 +135,8 @@
 		F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */; };
 		F6DBFDB526E9DCC0001D7520 /* SubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
+		F6E10DF62795073B009353BE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E10DF52795073B009353BE /* Favorite.swift */; };
+		F6E10DF8279508DB009353BE /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E10DF7279508DB009353BE /* FavoriteController.swift */; };
 		F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */; };
 		F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */; };
 		F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5C26E71E4F00831544 /* SettingsController.swift */; };
@@ -281,6 +283,8 @@
 		F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionType.swift; sourceTree = "<group>"; };
 		F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F6E10DF52795073B009353BE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		F6E10DF7279508DB009353BE /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewCell.swift; sourceTree = "<group>"; };
 		F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewController.swift; sourceTree = "<group>"; };
 		F6E8EF5C26E71E4F00831544 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -570,6 +574,7 @@
 				F699FFE026C6121A00C73CD6 /* XityBusiness.swift */,
 				F699FFE226C613C400C73CD6 /* XityBand.swift */,
 				F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */,
+				F6E10DF52795073B009353BE /* Favorite.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				F6869B5027018AEB00421019 /* RatingsController.swift */,
 				F6869B522701911D00421019 /* RecommendationController.swift */,
 				F638378C2793FBD800838858 /* ProductionShowController.swift */,
+				F6E10DF7279508DB009353BE /* FavoriteController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -932,6 +938,7 @@
 				F676F1032699496200C47599 /* ShowController.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */,
+				F6E10DF8279508DB009353BE /* FavoriteController.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
@@ -950,6 +957,7 @@
 				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
 				F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */,
 				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,
+				F6E10DF62795073B009353BE /* Favorite.swift in Sources */,
 				F6869B532701911D00421019 /* RecommendationController.swift in Sources */,
 				F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */,
 				F638378F2793FEC400838858 /* FailedAttemptsViewController.swift in Sources */,

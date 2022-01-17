@@ -305,7 +305,7 @@ extension LoadInitDataViewController {
     
     //MARK: Adding shows to Today
     @objc private func organizeData() {
-        //Collected Weekly Picks
+        
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
         
@@ -320,7 +320,6 @@ extension LoadInitDataViewController {
         //Gathering Weekly Picks
         let op3 = BlockOperation {
             xityShowController.getWeeklyPicks()
-            //xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
             
             self.organizingActionsFinished += 1
             print("🫀 Collected Weekly Picks")
