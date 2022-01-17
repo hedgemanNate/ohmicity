@@ -278,11 +278,11 @@ class BandDetailViewController: UIViewController {
         guard let currentBand = currentBand else { NSLog("🚨 No current band found"); return}
         
         if subscriptionController.seeAllData == false || currentUserController.currentUser == nil {
-            if currentBand.xityShows?.count ?? 0 <= 4 {
+            if currentBand.xityShows.count <= 4 {
                 seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
                 upcomingShowsTableView.reloadData()
             } else {
-                seeAllDataDetailLabel.text = "See All \(currentBand.xityShows?.count ?? 0) shows with any Xity Pass"
+                seeAllDataDetailLabel.text = "See All \(currentBand.xityShows.count) shows with any Xity Pass"
                 upcomingShowsTableView.reloadData()
             }
             
@@ -452,12 +452,12 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch tableView {
         case upcomingShowsTableView:
-            if subscriptionController.seeAllData == false && currentBand.xityShows?.count ?? 0 > 0 {
-                currentBand.xityShows?.shuffle()
+            if subscriptionController.seeAllData == false && currentBand.xityShows.count > 0 {
+                currentBand.xityShows.shuffle()
                 return 1
             } else {
-                currentBand.xityShows?.sort(by: {$0.show.date < $1.show.date})
-                return currentBand.xityShows?.count ?? 0
+                currentBand.xityShows.sort(by: {$0.show.date < $1.show.date})
+                return currentBand.xityShows.count
             }
             
         default:
@@ -477,7 +477,7 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NextShowsCell", for: indexPath)
             
             guard let currentBand = currentBand else {return noShow}
-            guard let upcomingShow = currentBand.xityShows?[indexPath.row] else {return noShow}
+            let upcomingShow = currentBand.xityShows[indexPath.row]
             
             cell.textLabel?.text = "\(dateFormatter.string(from: upcomingShow.show.date)): \(upcomingShow.business.name) @ \(dateFormatter2.string(from: upcomingShow.show.date))"
             return cell
@@ -491,7 +491,7 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         let subControl = subscriptionController
         subControl.userFeaturesAvailableCheck(feature: subControl.showReminders, viewController: self) {
             guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return}
-            guard let show = currentBand?.xityShows?[selected.row].show else {return}
+            guard let show = currentBand?.xityShows[selected.row].show else {return}
             timeController.dateFormatter.dateFormat = timeController.dayMonthDay
             let date = timeController.dateFormatter.string(from: show.date)
             let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(show.band)\n Location: \(show.venue)\n Time: \(date)", preferredStyle: .actionSheet)
@@ -562,7 +562,7 @@ extension BandDetailViewController: EKEventViewDelegate {
     
     private func createEvent() -> EKEvent {
         guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return EKEvent()}
-        guard let show = currentBand?.xityShows?[selected.row] else {return EKEvent()}
+        guard let show = currentBand?.xityShows[selected.row] else {return EKEvent()}
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         let date = timeController.dateFormatter.string(from: show.show.date)
         let venue = businessController.businessArray.first(where: {$0.name == show.show.venue})
@@ -604,7 +604,7 @@ extension BandDetailViewController: EKEventViewDelegate {
     
     private func mapForEvent(venueName: String) -> EKStructuredLocation {
         guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return EKStructuredLocation()}
-        guard let venueName = currentBand?.xityShows?[selected.row].show.venue else {return EKStructuredLocation()}
+        guard let venueName = currentBand?.xityShows[selected.row].show.venue else {return EKStructuredLocation()}
         guard let venue = businessController.businessArray.first(where: {$0.name == venueName}) else {return EKStructuredLocation()}
         let geoCoder = CLGeocoder()
         let structLocation = EKStructuredLocation(title: venueName)

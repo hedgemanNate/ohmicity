@@ -545,7 +545,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             let band = FavoriteController.favoritesArray[indexPath!.row].bandFavorite
             
             let xityBand = xityBandController.bandArray.first(where: {$0.band == band})
-            xityBand?.xityShows?.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
+            xityBand?.xityShows.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             
             bandVC.currentBand = xityBand
         }

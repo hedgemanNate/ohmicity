@@ -10,7 +10,7 @@ import Foundation
 class XityShowController {
     
     //Properties
-    var showArray = [XityShow]()
+    var showArray = [XityShow]() 
     var todayShowArrayFilter: City = .All {
         didSet {
             todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})

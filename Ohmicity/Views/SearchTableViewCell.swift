@@ -45,8 +45,8 @@ class SearchTableViewCell: UITableViewCell {
                 var stringArray = [String]()
                 nameLabel.text = xityBand.band.name
                 
-                if xityBand.xityShows?.first != nil {
-                    let venueID = xityBand.xityShows!.first?.business.venueID
+                if xityBand.xityShows.first != nil {
+                    let venueID = xityBand.xityShows.first?.business.venueID
                     let venueName = businessController.businessArray.first(where: {$0.venueID == venueID})?.name
                     secondNameLabel.text = "Next Show: \(venueName ?? "None Scheduled")"
                 } else {

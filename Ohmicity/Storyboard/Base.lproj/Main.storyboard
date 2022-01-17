@@ -1191,9 +1191,8 @@ should be on Xity?</string>
                                                                         <constraint firstAttribute="height" constant="204" id="Rpo-GX-bPC"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEl-lS-ATx">
-                                                                    <rect key="frame" x="0.0" y="212" width="155" height="49"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEl-lS-ATx">
+                                                                    <rect key="frame" x="0.0" y="204" width="155" height="57"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -1201,9 +1200,13 @@ should be on Xity?</string>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="9jR-lZ-shv" firstAttribute="top" secondItem="PLR-Bn-TNa" secondAttribute="top" id="0Yc-Yh-ucx"/>
+                                                                <constraint firstAttribute="trailing" secondItem="tEl-lS-ATx" secondAttribute="trailing" id="34b-Qr-aa4"/>
+                                                                <constraint firstItem="tEl-lS-ATx" firstAttribute="top" secondItem="5FZ-Mc-kHW" secondAttribute="bottom" id="OYr-MB-YNt"/>
                                                                 <constraint firstAttribute="trailing" secondItem="5FZ-Mc-kHW" secondAttribute="trailing" id="S7S-EF-RRL"/>
                                                                 <constraint firstItem="Qr7-st-gKI" firstAttribute="top" secondItem="PLR-Bn-TNa" secondAttribute="top" id="ZVZ-ZT-3PB"/>
                                                                 <constraint firstAttribute="trailing" secondItem="9jR-lZ-shv" secondAttribute="trailing" id="gf1-el-FMV"/>
+                                                                <constraint firstAttribute="bottom" secondItem="tEl-lS-ATx" secondAttribute="bottom" id="hab-E3-7NA"/>
+                                                                <constraint firstItem="tEl-lS-ATx" firstAttribute="leading" secondItem="PLR-Bn-TNa" secondAttribute="leading" id="jJZ-1c-niW"/>
                                                                 <constraint firstItem="9jR-lZ-shv" firstAttribute="leading" secondItem="PLR-Bn-TNa" secondAttribute="leading" id="krY-b4-pYD"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Qr7-st-gKI" secondAttribute="trailing" id="sRw-Zm-5Ka"/>
                                                                 <constraint firstItem="5FZ-Mc-kHW" firstAttribute="top" secondItem="PLR-Bn-TNa" secondAttribute="top" id="toB-gL-iU5"/>

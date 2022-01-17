@@ -18,7 +18,13 @@ class XityBusiness: Equatable, Hashable {
     
     //Properties
     let business: Business
-    var xityShows = [XityShow]()
+    var xityShows = [XityShow]() {
+        didSet {
+            let set = Set(xityShows)
+            xityShows = Array(set)
+            xityShows.sort(by: {$0.show.date < $1.show.date})
+        }
+    }
     
     
     init(business: Business) {
