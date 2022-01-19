@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rY8-YR-ghh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EGS-yB-xFY">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -36,7 +36,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHT-cb-nit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3167" y="-2164"/>
+            <point key="canvasLocation" x="-2268.2242990654204" y="-2164.1468682505401"/>
         </scene>
         <!--Load Init Data View Controller-->
         <scene sceneID="Rvk-4W-YPJ">
@@ -83,16 +83,17 @@
                             <constraint firstItem="NMd-3O-G8B" firstAttribute="centerY" secondItem="pO6-bc-c2s" secondAttribute="centerY" id="ktk-Se-NIa"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="MtF-x6-pNo"/>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
-                        <segue destination="K1r-XI-Dsm" kind="presentation" identifier="ToDashboard" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="fjy-9t-unJ"/>
+                        <segue destination="K1r-XI-Dsm" kind="show" identifier="ToDashboard" animates="NO" id="fjy-9t-unJ"/>
                         <segue destination="Nke-Fj-Oif" kind="presentation" identifier="FailedSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="9Pv-G2-gH4"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="7HS-V6-wWy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCs-Pg-jIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3949" y="-2165"/>
+            <point key="canvasLocation" x="-3049.0654205607475" y="-2165.4427645788337"/>
         </scene>
         <!--Failed Attempts View Controller-->
         <scene sceneID="u2M-2R-i6y">
@@ -481,7 +482,7 @@ Check your internet connection and try again. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ7-wy-8QZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="-1845"/>
+            <point key="canvasLocation" x="1432.7102803738317" y="-1845.3563714902809"/>
         </scene>
         <!--XityDeals-->
         <scene sceneID="LMF-3p-EZa">
@@ -1612,7 +1613,7 @@ should be on Xity?</string>
                 </view>
                 <tabBarItem title="Dashboard" id="R8M-BV-06Y"/>
             </objects>
-            <point key="canvasLocation" x="-2286.4485981308408" y="-1817.4946004319656"/>
+            <point key="canvasLocation" x="-1386.448598130841" y="-1817.4946004319656"/>
         </scene>
         <!--Band-->
         <scene sceneID="gUJ-AW-aJv">
@@ -1662,7 +1663,7 @@ should be on Xity?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4t-dZ-E6E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679" y="-2164"/>
+            <point key="canvasLocation" x="220.09345794392522" y="-2164.1468682505401"/>
         </scene>
         <!--BandSearch-->
         <scene sceneID="JDd-c1-s0z">
@@ -1850,13 +1851,30 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-2286.4485981308408" y="-765.22678185745144"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="M6T-3p-6oF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="EGS-yB-xFY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mMC-5d-nqM">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rY8-YR-ghh" kind="relationship" relationship="rootViewController" id="EFt-5b-Dr4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mg9-Lg-Pxp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3949.0654205607475" y="-2165.4427645788337"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-L8-xJL"/>
+        <segue reference="7HS-V6-wWy"/>
         <segue reference="fQ9-bq-bhx"/>
         <segue reference="30H-i8-TRl"/>
         <segue reference="3oC-qz-sBH"/>
-        <segue reference="9oH-9z-0L1"/>
+        <segue reference="akC-Jx-DjO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>

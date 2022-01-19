@@ -13,6 +13,7 @@ class XityBusinessController {
     var businessArray = [XityBusiness]()
     
     func fillXityBusinessArray() {
+        businessArray = []
         for business in businessController.businessArray {
             let newBusiness = XityBusiness(business: business)
             for show in xityShowController.showArray {

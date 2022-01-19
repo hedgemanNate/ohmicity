@@ -71,6 +71,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         networkMonitor.startMonitoring()
+        addBackGroundNotificationObservers()
         setUpNotificationObservers()
         createInterstitialAd()
         updateViews()
@@ -86,7 +87,6 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        notificationCenter.post(notifications.reloadDashboardCVData)
         startTimer()
         
     }
@@ -111,6 +111,7 @@ class DashboardViewController: UIViewController {
 
 //MARK: ---- Functions ----
 extension DashboardViewController {
+    
     private func checkDevelopmentStatus() {
         if FireStoreReferenceManager.inDevelopment == true {
             self.performSegue(withIdentifier: "WrongDatabase", sender: self)
@@ -295,6 +296,8 @@ extension DashboardViewController {
     }
     
     private func setUpNotificationObservers() {
+        
+        
         //Reload Collection View Data
         notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadDashboardCVData.name, object: nil)
         
@@ -604,6 +607,46 @@ extension DashboardViewController: GADFullScreenContentDelegate {
             }
         } else {
             performSegue(withIdentifier: segue, sender: self)
+        }
+    }
+}
+
+//MARK: Background to Foreground Functions
+extension DashboardViewController {
+    
+    private func addBackGroundNotificationObservers() {
+        let dashboardNotificationCenter = NotificationCenter.default
+        
+        dashboardNotificationCenter.addObserver(self, selector: #selector(test), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        dashboardNotificationCenter.addObserver(self, selector: #selector(test), name: UIApplication.significantTimeChangeNotification, object: nil)
+    }
+    
+    @objc private func test() {
+        print("!!!!!!!!!!!!!TEST HIT!!!!!!!!!!!!!")
+    }
+    
+    @objc private func recreateXityShowsArray() {
+        xityShowController.showArray = []
+        let showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
+        
+        let businessArray = businessController.businessArray
+        let bandArray = bandController.bandArray
+        
+        for show in showArray {
+            
+            //This protects against missing bands and missing businesses***
+            guard let business = businessArray.first(where: {$0.venueID == show.venue}) else {
+                print("🌇⁉️ No venue found to make Xity Show")
+                continue
+            }
+            guard let band = bandArray.first(where: {$0.bandID == show.band}) else {
+                print("🌇⁉️ No band found to make Xity Show")
+                continue
+            }
+        
+            let xity = XityShow(band: band, business: business, show: show)
+            xityShowController.showArray.append(xity)
         }
     }
 }

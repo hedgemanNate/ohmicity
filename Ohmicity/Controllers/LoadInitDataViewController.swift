@@ -330,8 +330,6 @@ extension LoadInitDataViewController {
             //Collected Today's Shows
             dateFormatter.dateFormat = timeController.monthDayYear
             
-            //Initialize todayShowArray to prevent crashing because it is optional and can be nil
-            xityShowController.todayShowArray = []
             for todayShow in xityShowController.showArray {
                 let stringDate = dateFormatter.string(from: todayShow.show.date)
                 if stringDate == timeController.todayString {

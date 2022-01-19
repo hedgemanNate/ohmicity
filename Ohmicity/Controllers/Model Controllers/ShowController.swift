@@ -51,6 +51,29 @@ class ShowController {
         notificationCenter.post(notifications.gotAllShowData)
     }
     
+    func refreshShowData(completion: @escaping (_ error: Bool?) -> Void)  {
+        FireStoreReferenceManager.showDataPath.document(ProductionShowController.allShows.allProductionShowsID).getDocument { snapShot, error in
+            let result = Result {
+                try snapShot?.data(as: AllProductionShows.self)
+            }
+            switch result {
+            case .success(let success):
+                if let allShows = success {
+                    ProductionShowController.allShows = allShows
+                    self.fillShowArrayFromRawShowData()
+                    completion(false)
+                } else {
+                    NSLog("Production Shows were not found: getAllShowData")
+                }
+            case .failure(let failure):
+                NSLog(failure.localizedDescription)
+                completion(true)
+            }
+        }
+        //I don't think I need this here. The function should escape every-time before it gets here.
+        completion(nil)
+    }
+    
     func fillShowArrayFromRawShowData() {
         for show in ProductionShowController.allShows.shows {
             if !bandController.bandArray.contains(where: {$0.bandID == show.band}) {print("No band"); continue}
