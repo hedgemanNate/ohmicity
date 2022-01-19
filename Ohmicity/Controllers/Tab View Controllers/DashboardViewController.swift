@@ -181,17 +181,21 @@ extension DashboardViewController {
         
         //High Count For Infinite Loop: See Banner Ad Collection View
         if currentPath.row < 25 {
-            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            DispatchQueue.main.async {
+                self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            }
             
         } else {
             indexPath = IndexPath(row: 0, section: 0)
-            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            DispatchQueue.main.async {
+                self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            }
         }
     }
     
     @objc private func startTimer() {
+        timer.invalidate()
         DispatchQueue.main.async {
-            self.timer.invalidate()
             self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.bannerChange), userInfo: nil, repeats: true)
         }
     }
