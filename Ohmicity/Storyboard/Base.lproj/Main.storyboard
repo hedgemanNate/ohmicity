@@ -86,7 +86,7 @@
                     <navigationItem key="navigationItem" id="MtF-x6-pNo"/>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
-                        <segue destination="K1r-XI-Dsm" kind="show" identifier="ToDashboard" animates="NO" id="fjy-9t-unJ"/>
+                        <segue destination="K1r-XI-Dsm" kind="show" identifier="ToDashboard" id="fjy-9t-unJ"/>
                         <segue destination="Nke-Fj-Oif" kind="presentation" identifier="FailedSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="9Pv-G2-gH4"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="7HS-V6-wWy"/>
                     </connections>

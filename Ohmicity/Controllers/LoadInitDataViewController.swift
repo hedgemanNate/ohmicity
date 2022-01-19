@@ -11,9 +11,7 @@ import FirebaseFirestore
 import MaterialComponents.MaterialActivityIndicator
 
 class LoadInitDataViewController: UIViewController {
-    
-    //Properties
-    
+        
     //For Debuging the loader
 //    var newDataAction = 0 {
 //        didSet{
@@ -31,11 +29,14 @@ class LoadInitDataViewController: UIViewController {
 //        }
 //    }
     
+    //MARK: Properties
+    
     var dataActionsFinished = 0 {
         didSet {
             print("🔄 Data Actions \(dataActionsFinished)")
             if dataActionsFinished == 8 {
                 organizeData(); print("DATA ACTIONS FIN")
+                removeNotificationObservers()
             }
         }
     }
@@ -46,6 +47,7 @@ class LoadInitDataViewController: UIViewController {
             print("🔄 Organization Actions\(organizingActionsFinished)")
             if organizingActionsFinished == 4 {
                 checkingThatDataExists()
+                organizingActionsFinished = 0
             }
         }
     }
@@ -54,6 +56,7 @@ class LoadInitDataViewController: UIViewController {
         didSet {
             print("🔄 Checking Data Actions\(checkingDataActionsFinished)")
             if checkingDataActionsFinished == 6 {
+                checkingDataActionsFinished = 0
                 doneLoading()
             }
         }
@@ -66,6 +69,7 @@ class LoadInitDataViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "FailedSegue", sender: self)
                 }
+                failureCounter = 0
             }
         }
     }
@@ -76,12 +80,12 @@ class LoadInitDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNotificationObservers()
-        updateViewController()
+        
+        updateViews()
         setupProgressView()
         currentUserController.assignCurrentUser()
         subscriptionController.setUpInAppPurchaseArray()
-        lmDateHandler.checkDateAndGetData()
+        
         
         //resetCache
 //        let settings = FirestoreSettings()
@@ -92,8 +96,16 @@ class LoadInitDataViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        addNotificationObservers()
+        lmDateHandler.checkDateAndGetData()
     }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeNotificationObservers()
+    }
+    
     
     @IBAction func breaker(_ sender: Any) {
         
@@ -113,10 +125,20 @@ extension LoadInitDataViewController {
     
     
     func doneLoading() {
+        restartCount()
+        removeNotificationObservers()
         print("✅ DONE LOADING")
         DispatchQueue.main.async {
+            if self.navigationController!.viewControllers.count > 1 {return}
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
+    }
+    
+    func restartCount() {
+        dataActionsFinished = 0
+        organizingActionsFinished = 0
+        checkingDataActionsFinished = 0
+        failureCounter = 0
     }
     
     //MARK: Progress Bar Functions
@@ -130,7 +152,7 @@ extension LoadInitDataViewController {
     }
     
     //MARK: UpdateViews
-    private func updateViewController() {
+    private func updateViews() {
         timeController.setTime()
         //setTime(enterTime) format July 31, 2021
     }
@@ -156,6 +178,25 @@ extension LoadInitDataViewController {
         
         //Network Notifications
         notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
+    }
+    
+    private func removeNotificationObservers() {
+        notificationCenter.removeObserver(notifications.gotCacheShowData)
+        notificationCenter.removeObserver(notifications.gotCacheBandData)
+        notificationCenter.removeObserver(notifications.gotCacheBusinessData)
+        notificationCenter.removeObserver(notifications.gotCacheBusinessAdData)
+        
+        notificationCenter.removeObserver(notifications.gotAllShowData)
+        notificationCenter.removeObserver(notifications.gotAllBandData)
+        notificationCenter.removeObserver(notifications.gotAllBusinessAdData)
+        notificationCenter.removeObserver(notifications.gotAllBusinessData)
+        
+        notificationCenter.removeObserver(notifications.gotNewShowData)
+        notificationCenter.removeObserver(notifications.gotNewBandData)
+        notificationCenter.removeObserver(notifications.gotNewBusinessData)
+        notificationCenter.removeObserver(notifications.gotNewBusinessAdData)
+        
+        notificationCenter.removeObserver(notifications.lostConnection)
     }
     
     //@objc Functions
@@ -338,7 +379,7 @@ extension LoadInitDataViewController {
                 }
             }
             
-            xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
+            //xityShowController.todayShowArray.sort(by: {$0.show.date < $1.show.date})
             self.organizingActionsFinished += 1
             print("🫀 Collected Today's Shows")
         }

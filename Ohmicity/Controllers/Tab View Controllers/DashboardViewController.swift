@@ -76,12 +76,13 @@ class DashboardViewController: UIViewController {
         createInterstitialAd()
         updateViews()
         DispatchQueue.main.async {
-            self.checkDevelopmentStatus()
+            //self.checkDevelopmentStatus()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         tabBarController?.tabBar.tintColor = UIColor.clear
     }
     
@@ -234,25 +235,6 @@ extension DashboardViewController {
         }
 
     }
-    
-    //MARK: Logic Functions
-//    @objc private func getFavorites() {
-//        if currentUserController.currentUser != nil {
-//            currentUserController.favArray = []
-//            for string in currentUserController.currentUser!.favoriteBusinesses {
-//                guard let business = businessController.businessArray.first(where: {$0.venueID == string}) else {return}
-//                currentUserController.favArray.append(business)
-//            }
-//        }
-//        favoritesCollectionView.reloadData()
-//    }
-    
-    //----- Refresh Data Start -----
-    @objc private func organizeData() {
-        //Future SwipeDown Refresh
-    }
-    //----- Refresh Data End -----
-    
     
     //MARK: Setup CollectionViews
     private func setupUpCollectionViews() {
@@ -617,36 +599,18 @@ extension DashboardViewController {
     private func addBackGroundNotificationObservers() {
         let dashboardNotificationCenter = NotificationCenter.default
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(test), name: UIApplication.didBecomeActiveNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(removeOldTodayShows), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(test), name: UIApplication.significantTimeChangeNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(goBackToLoadInitVC), name: UIApplication.significantTimeChangeNotification, object: nil)
     }
     
-    @objc private func test() {
-        print("!!!!!!!!!!!!!TEST HIT!!!!!!!!!!!!!")
+    @objc private func goBackToLoadInitVC() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc private func recreateXityShowsArray() {
-        xityShowController.showArray = []
-        let showArray = showController.showArray.filter({$0.date >= timeController.threeHoursAgo})
-        
-        let businessArray = businessController.businessArray
-        let bandArray = bandController.bandArray
-        
-        for show in showArray {
-            
-            //This protects against missing bands and missing businesses***
-            guard let business = businessArray.first(where: {$0.venueID == show.venue}) else {
-                print("🌇⁉️ No venue found to make Xity Show")
-                continue
-            }
-            guard let band = bandArray.first(where: {$0.bandID == show.band}) else {
-                print("🌇⁉️ No band found to make Xity Show")
-                continue
-            }
-        
-            let xity = XityShow(band: band, business: business, show: show)
-            xityShowController.showArray.append(xity)
-        }
+    @objc private func removeOldTodayShows() {
+        xityShowController.todayShowResultsArray.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
+        todayCollectionView.reloadData()
+        print("!!!!!!!!!!Old Today Shows Removed!!!!!")
     }
 }

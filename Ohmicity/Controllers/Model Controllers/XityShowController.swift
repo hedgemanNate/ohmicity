@@ -15,6 +15,7 @@ class XityShowController {
     var todayShowArrayFilter: City = .All {
         didSet {
             todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
+            notificationCenter.post(notifications.reloadDashboardCVData)
         }
     }
     var todayShowArray: [XityShow] = [] {
@@ -27,13 +28,13 @@ class XityShowController {
     var todayShowResultsArray: [XityShow] = [] {
         didSet {
             todayShowResultsArray.sort(by: {$0.show.date < $1.show.date})
-            //notificationCenter.post(notifications.reloadDashboardCVData)
         }
     }
     var weeklyPicksArray = [XityShow]() {
         didSet {
             let set = Set(weeklyPicksArray)
             weeklyPicksArray = Array(set)
+            weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
         }
     }
     var xityShowSearchArray = [XityShow]()
