@@ -76,7 +76,7 @@ class DashboardViewController: UIViewController {
         createInterstitialAd()
         updateViews()
         DispatchQueue.main.async {
-            //self.checkDevelopmentStatus()
+            self.checkDevelopmentStatus()
         }
     }
     
