@@ -38,6 +38,6 @@ class FireStoreReferenceManager {
     static let businessFullDataPath = fireDataBase.collection(environment).document(environment).collection("businessFullData")
     
     
-    static let bandDataPath = fireDataBase.collection(switchData).document(switchData).collection("bandData")
+    static let bandDataPath = fireDataBase.collection(switchData).document(switchData).collection("allBandData")
     static let showDataPath = fireDataBase.collection(switchData).document(switchData).collection("allShowData")
 }

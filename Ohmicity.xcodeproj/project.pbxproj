@@ -135,6 +135,7 @@
 		F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */; };
 		F6DBFDB526E9DCC0001D7520 /* SubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
+		F6DE75B3279925900033C807 /* ProductionBands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DE75B2279925900033C807 /* ProductionBands.swift */; };
 		F6E10DF62795073B009353BE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E10DF52795073B009353BE /* Favorite.swift */; };
 		F6E10DF8279508DB009353BE /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E10DF7279508DB009353BE /* FavoriteController.swift */; };
 		F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */; };
@@ -283,6 +284,7 @@
 		F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionType.swift; sourceTree = "<group>"; };
 		F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F6DE75B2279925900033C807 /* ProductionBands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionBands.swift; sourceTree = "<group>"; };
 		F6E10DF52795073B009353BE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		F6E10DF7279508DB009353BE /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewCell.swift; sourceTree = "<group>"; };
@@ -575,6 +577,8 @@
 				F699FFE226C613C400C73CD6 /* XityBand.swift */,
 				F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */,
 				F6E10DF52795073B009353BE /* Favorite.swift */,
+				F63837882793F90000838858 /* ProductionShows.swift */,
+				F6DE75B2279925900033C807 /* ProductionBands.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -613,7 +617,6 @@
 				F687CD6626F45ECA00412C07 /* CurrentUser.swift */,
 				F687CD6826F45EF300412C07 /* XitySupport.swift */,
 				F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */,
-				F63837882793F90000838858 /* ProductionShows.swift */,
 			);
 			path = "User Models";
 			sourceTree = "<group>";
@@ -942,6 +945,7 @@
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
+				F6DE75B3279925900033C807 /* ProductionBands.swift in Sources */,
 				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,
 				F6615ADF26F2CC450096D59D /* ProgressCircle.swift in Sources */,

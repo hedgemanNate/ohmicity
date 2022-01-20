@@ -76,7 +76,7 @@ class LastModifiedDateHandler {
             let op2 = BlockOperation {
                 businessController.getNewBusinessData()
                 //Shows are retrieved in op1
-                bandController.getNewBandData()
+                bandController.getAllBandData()
                 businessBannerAdController.getNewBusinessAdData()
                 self.saveDate()
             }
