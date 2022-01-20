@@ -65,6 +65,7 @@
 		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
 		F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */; };
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
+		F6502A3C2799D31200535AB7 /* Shows.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6502A3B2799D31200535AB7 /* Shows.storyboard */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
 		F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */ = {isa = PBXBuildFile; fileRef = F65BC59D26BE8E2400B62C7C /* DefaultBand.png */; };
 		F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */; };
@@ -214,6 +215,7 @@
 		F649ECB0264B2C5500E84408 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandVenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadInitDataViewController.swift; sourceTree = "<group>"; };
+		F6502A3B2799D31200535AB7 /* Shows.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shows.storyboard; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		F65BC59D26BE8E2400B62C7C /* DefaultBand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultBand.png; sourceTree = "<group>"; };
 		F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
 				D8CED4052641F4100017FD28 /* SignIn.storyboard */,
 				D8403D0C2641C4C400E95415 /* Main.storyboard */,
+				F6502A3B2799D31200535AB7 /* Shows.storyboard */,
 				F6622663270572C400593C72 /* VenueSearch.storyboard */,
 				F662266D270572EC00593C72 /* Venue.storyboard */,
 				F66CB28426FD113800B26EE3 /* BandSearch.storyboard */,
@@ -813,6 +816,7 @@
 				F644E8682707FF1500FF81A8 /* pop.png in Resources */,
 				F6622664270572C400593C72 /* VenueSearch.storyboard in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
+				F6502A3C2799D31200535AB7 /* Shows.storyboard in Resources */,
 				F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */,
 				F644E85B2707FF1500FF81A8 /* country.png in Resources */,
 				F6F3DB4726AF337C00C49016 /* outdoors.png in Resources */,
