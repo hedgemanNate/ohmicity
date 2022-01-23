@@ -82,8 +82,15 @@ class DashboardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tabBarController?.tabBar.tintColor = UIColor.clear
+        
+        let todayFilter = xityShowController.todayShowResultsArray.filter({$0.show.date >= timeController.threeHoursAgo})
+        xityShowController.todayShowResultsArray = todayFilter
+        
+        let weeklyFilter = xityShowController.weeklyPicksArray.filter({$0.show.date >= timeController.threeHoursAgo})
+        xityShowController.weeklyPicksArray = weeklyFilter
+        
+        reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -488,7 +495,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             checkForAdThenSegue(to: xityPickSegue)
             
         case xityExclusivesCollectionView:
-            tabBarController?.selectedIndex = 0
+            performSegue(withIdentifier: "DealsComingSoonSegue", sender: self)
         default:
             break
         }

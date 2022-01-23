@@ -19,5 +19,3 @@ let blankShow = Show(band: "No Band", venue: "No Venue", date: Date(), dateStrin
 let blankBusiness = Business(name: "No Location", address: "No Location", phoneNumber: 0, website: "No Location")
 let blankXityShow = XityShow(band: blankBand, business: blankBusiness, show: blankShow)
 
-
-

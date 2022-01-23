@@ -66,6 +66,8 @@
 		F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */; };
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
 		F6502A3C2799D31200535AB7 /* Shows.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6502A3B2799D31200535AB7 /* Shows.storyboard */; };
+		F6502A3E2799E34B00535AB7 /* Grouped Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6502A3D2799E34B00535AB7 /* Grouped Section.swift */; };
+		F6502A402799E3EA00535AB7 /* ShowsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
 		F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */ = {isa = PBXBuildFile; fileRef = F65BC59D26BE8E2400B62C7C /* DefaultBand.png */; };
 		F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */; };
@@ -216,6 +218,8 @@
 		F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandVenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadInitDataViewController.swift; sourceTree = "<group>"; };
 		F6502A3B2799D31200535AB7 /* Shows.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shows.storyboard; sourceTree = "<group>"; };
+		F6502A3D2799E34B00535AB7 /* Grouped Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Grouped Section.swift"; sourceTree = "<group>"; };
+		F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsSearchViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		F65BC59D26BE8E2400B62C7C /* DefaultBand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultBand.png; sourceTree = "<group>"; };
 		F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 		F62BC4D226F54839004177BD /* Info View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */,
 				F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */,
 				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
@@ -550,6 +555,7 @@
 				F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */,
 				F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */,
 				F6869B4E27010EDC00421019 /* BackgroundTasks.swift */,
+				F6502A3D2799E34B00535AB7 /* Grouped Section.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -639,10 +645,10 @@
 			isa = PBXGroup;
 			children = (
 				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
-				F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */,
 				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
 				D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */,
 				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
+				F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */,
 			);
 			path = "Tab View Controllers";
 			sourceTree = "<group>";
@@ -905,9 +911,11 @@
 				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,
 				F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */,
 				F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */,
+				F6502A3E2799E34B00535AB7 /* Grouped Section.swift in Sources */,
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F687CD6926F45EF300412C07 /* XitySupport.swift in Sources */,
+				F6502A402799E3EA00535AB7 /* ShowsSearchViewController.swift in Sources */,
 				F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,

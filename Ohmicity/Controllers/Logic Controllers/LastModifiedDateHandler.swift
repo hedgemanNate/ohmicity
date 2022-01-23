@@ -30,8 +30,10 @@ class LastModifiedDateHandler {
     }
     
     func retryToGetData() {
+        showController.showArray = []
+        bandController.bandArray = []
         
-        NSLog("!*!*!First Open!*!*!")
+        NSLog("!*!*!Retry Open!*!*!")
         //ALL BUSINESS DATA
         businessController.getAllBusinessData()
 

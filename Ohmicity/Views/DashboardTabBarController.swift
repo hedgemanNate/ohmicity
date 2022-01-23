@@ -75,13 +75,10 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     // MARK: - Actions
 
     @objc private func menuButtonAction(sender: UIButton) {
-        xityShowController.todayShowResultsArray.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
         selectedIndex = 2
         self.hapticGenerator.selectionChanged()
         DashboardTabBarController.activityIndicator.startAnimating()
         activityIndicatorColors.shuffle()
-        let temp = xityShowController.todayShowArrayFilter
-        xityShowController.todayShowArrayFilter = temp
         DashboardTabBarController.activityIndicator.cycleColors = activityIndicatorColors
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             DashboardTabBarController.activityIndicator.stopAnimating()

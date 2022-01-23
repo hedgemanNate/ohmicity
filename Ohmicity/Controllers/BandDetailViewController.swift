@@ -433,6 +433,7 @@ extension BandDetailViewController: UICollectionViewDelegateFlowLayout, UICollec
             
         case genreCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCell", for: indexPath) as? CitiesCollectionViewCell else {return UICollectionViewCell()}
+            if currentBand.band.genre == [] {return cell}
             cell.bandGenre = currentBand.band.genre[indexPath.row % currentBand.band.genre.count]
             return cell
             

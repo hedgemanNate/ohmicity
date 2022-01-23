@@ -484,15 +484,23 @@ Check your internet connection and try again. </string>
             </objects>
             <point key="canvasLocation" x="1432.7102803738317" y="-1845.3563714902809"/>
         </scene>
-        <!--XityDeals-->
+        <!--Shows-->
         <scene sceneID="LMF-3p-EZa">
             <objects>
-                <viewControllerPlaceholder storyboardName="XityDeals" id="J6f-dj-eee" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Shows" id="J6f-dj-eee" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Zpl-y7-syZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="215-eA-XtH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1780" y="-3087"/>
+            <point key="canvasLocation" x="-1686" y="-3146"/>
+        </scene>
+        <!--XityDeals-->
+        <scene sceneID="UUW-Xd-i90">
+            <objects>
+                <viewControllerPlaceholder storyboardName="XityDeals" id="Ykx-hl-rcX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9fb-es-a19" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1586" y="-3079"/>
         </scene>
         <!--Venue-->
         <scene sceneID="wkN-mU-SbV">
@@ -1501,10 +1509,10 @@ should be on Xity?</string>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="VenueFromFav" id="3oC-qz-sBH"/>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="FromXityPick" id="4YM-rC-lLc"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="GVY-L8-xJL"/>
-                        <segue destination="J6f-dj-eee" kind="presentation" identifier="DealsComingSoonSegue" id="9oH-9z-0L1"/>
                         <segue destination="Pg6-Ho-7vW" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="zcJ-zu-BfT"/>
                         <segue destination="cIJ-Iv-zTa" kind="presentation" identifier="WrongDatabase" id="ZNU-1a-iCP"/>
                         <segue destination="DQx-hs-upo" kind="presentation" identifier="BandFromFav" id="RgU-SC-VCr"/>
+                        <segue destination="Ykx-hl-rcX" kind="presentation" identifier="DealsComingSoonSegue" modalPresentationStyle="fullScreen" id="cgE-01-9J4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1870,11 +1878,10 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7HS-V6-wWy"/>
+        <segue reference="GVY-L8-xJL"/>
         <segue reference="fQ9-bq-bhx"/>
         <segue reference="30H-i8-TRl"/>
         <segue reference="3oC-qz-sBH"/>
-        <segue reference="akC-Jx-DjO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>

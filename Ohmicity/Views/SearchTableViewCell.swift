@@ -14,6 +14,8 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var secondNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    var shouldShowBand = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -88,5 +90,35 @@ class SearchTableViewCell: UITableViewCell {
                 }
             }
         }
-
+    
+    var xityShow: XityShow? {
+            didSet {
+                if let xityShow = xityShow {
+                    
+                    if shouldShowBand == false {
+                        //Photo
+                        showImage.image = UIImage(data: xityShow.business.logo)
+                        
+                        //Labels
+                        nameLabel.text = xityShow.business.name
+                        secondNameLabel.text = xityShow.show.bandDisplayName.capitalized
+                    } else {
+                        //Photo
+                        if xityShow.band.photo == nil {
+                            showImage.image = UIImage(named: "DefaultBand.png")
+                        } else {
+                            showImage.image = UIImage(data: xityShow.band.photo!)
+                        }
+                        
+                        //Labels
+                        nameLabel.text = xityShow.show.bandDisplayName.capitalized
+                        secondNameLabel.text = xityShow.business.name
+                    }
+                   
+                    var stringArray = [String]()
+                    for genre in xityShow.band.genre { stringArray.append(genre.rawValue) }
+                    categoryLabel.text = stringArray.joined(separator: ", ")
+                }
+            }
+        }
 }
