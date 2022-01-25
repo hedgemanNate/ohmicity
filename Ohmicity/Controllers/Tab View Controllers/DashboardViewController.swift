@@ -70,7 +70,6 @@ class DashboardViewController: UIViewController {
     //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkMonitor.startMonitoring()
         addBackGroundNotificationObservers()
         setUpNotificationObservers()
         createInterstitialAd()
@@ -309,7 +308,7 @@ extension DashboardViewController {
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
-        //Network Connection
+        //Network Notifications
         notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
@@ -612,16 +611,14 @@ extension DashboardViewController {
         
         dashboardNotificationCenter.addObserver(self, selector: #selector(removeOldTodayShows), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(goBackToLoadInitVC), name: UIApplication.significantTimeChangeNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(reDownloadAllData), name: UIApplication.significantTimeChangeNotification, object: nil)
     }
     
-    @objc private func goBackToLoadInitVC() {
-        self.navigationController?.popToRootViewController(animated: true)
+    @objc private func reDownloadAllData() {
+        
     }
     
     @objc private func removeOldTodayShows() {
-        xityShowController.todayShowResultsArray.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
-        todayCollectionView.reloadData()
-        print("!!!!!!!!!!Old Today Shows Removed!!!!!")
+        
     }
 }

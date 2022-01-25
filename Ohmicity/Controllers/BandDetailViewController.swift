@@ -357,8 +357,6 @@ class BandDetailViewController: UIViewController {
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
-        //Network Connection
-        //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
     private func listenButtonFunction() {

@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Band" id="V7c-GE-13s" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCn-sl-jzP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1131" y="-619"/>
+            <point key="canvasLocation" x="-714" y="-619"/>
         </scene>
         <!--Venue-->
         <scene sceneID="TcH-F3-ycD">

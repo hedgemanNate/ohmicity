@@ -76,8 +76,6 @@ class BandSearchViewController: UIViewController {
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
-        //Network Connection
-        //notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
 
     //MARK: UpdateViews

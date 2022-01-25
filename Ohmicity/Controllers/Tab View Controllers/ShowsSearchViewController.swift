@@ -165,15 +165,6 @@ class ShowsSearchViewController: UIViewController {
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
-        //Network Connection
-        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
-    }
-    
-    @objc private func lostNetworkConnection() {
-        NSLog("No Connection 📶📶📶📶 ")
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
-        }
     }
     
     private func sortByGenre() {

@@ -11,9 +11,7 @@ class XityDealsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Network Connection
-        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,13 +31,6 @@ class XityDealsViewController: UIViewController {
     */
     @IBAction func dismissButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @objc private func lostNetworkConnection() {
-        print("!!!!!!!Show Perform Segue!!!!!!!!!")
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
-        }
     }
     
 }
