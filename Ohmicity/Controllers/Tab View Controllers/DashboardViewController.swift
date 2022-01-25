@@ -171,7 +171,6 @@ extension DashboardViewController {
                 cityFilterLabel.text = "~Filter Shows By City"
             }
         }
-        print("Notification Sent For Tapping Dashboard Button")
     }
     
     @objc private func scrollToTop() {
@@ -613,6 +612,8 @@ extension DashboardViewController {
         dashboardNotificationCenter.addObserver(self, selector: #selector(removeOldTodayShows), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         dashboardNotificationCenter.addObserver(self, selector: #selector(reDownloadAllData), name: UIApplication.significantTimeChangeNotification, object: nil)
+        
+        dashboardNotificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadAllData.name, object: nil)
     }
     
     @objc private func reDownloadAllData() {

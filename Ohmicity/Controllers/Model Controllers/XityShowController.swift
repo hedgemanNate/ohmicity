@@ -12,12 +12,6 @@ class XityShowController {
     //Properties
     var showArray = [XityShow]() 
     
-    var todayShowArrayFilter: City = .All {
-        didSet {
-            todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
-            notificationCenter.post(notifications.reloadDashboardCVData)
-        }
-    }
     var todayShowArray: [XityShow] = [] {
         didSet {
             let xitySet = Set(showArray)
@@ -38,6 +32,13 @@ class XityShowController {
         }
     }
     var xityShowSearchArray = [XityShow]()
+    
+    var todayShowArrayFilter: City = .All {
+        didSet {
+            todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
+            notificationCenter.post(notifications.reloadDashboardCVData)
+        }
+    }
     
     func getWeeklyPicks() {
         weeklyPicksArray = []

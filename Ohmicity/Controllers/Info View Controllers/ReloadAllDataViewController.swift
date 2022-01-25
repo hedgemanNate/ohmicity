@@ -11,8 +11,7 @@ class ReloadAllDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        clearAllData()
     }
     
 
@@ -26,4 +25,27 @@ class ReloadAllDataViewController: UIViewController {
     }
     */
 
+}
+
+//MARK: viewDidLoad Functions
+extension ReloadAllDataViewController {
+    
+    private func clearAllData() {
+        businessController.businessArray = []
+        xityBusinessController.businessArray = []
+        
+        bandController.bandArray = []
+        bandController.bandGroupArray = []
+        xityBandController.bandArray = []
+        
+        showController.showArray = []
+        showController.todayShowArray = []
+        xityShowController.showArray = []
+        xityShowController.weeklyPicksArray = []
+        xityShowController.todayShowArray = []
+        xityShowController.todayShowResultsArray = []
+        xityShowController.xityShowSearchArray = []
+        
+        notificationCenter.post(notifications.reloadAllData)
+    }
 }

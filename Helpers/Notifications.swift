@@ -58,8 +58,11 @@ class Notifications {
     let hasConnection = Notification(name: Notification.Name(rawValue: "hasConnection"))
     
     
-    //Dashboard notifications
+    //Dashboard Notifications
     let reloadDashboardCVData = Notification(name: Notification.Name(rawValue: "reloadDashboardCVData"))
+    
+    //Reload All Data Notifications
+    let reloadAllData = Notification(name: Notification.Name(rawValue: "ReloadAllData"))
 }
 
 let notifications = Notifications()
