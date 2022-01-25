@@ -31,6 +31,7 @@
 		F61C370926B64E5B00A2235B /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370726B64E5A00A2235B /* listenButton.png */; };
 		F61C370B26B66F8600A2235B /* brickBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370A26B66F8500A2235B /* brickBackground.png */; };
 		F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C371026B727B400A2235B /* OperationHoursAlert.swift */; };
+		F61E00A327A0B58800FA8298 /* ReloadAllDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */; };
 		F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */; };
 		F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BC4D326F54866004177BD /* SupportInfoViewController.swift */; };
 		F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */; };
@@ -184,6 +185,7 @@
 		F61C370726B64E5A00A2235B /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
 		F61C370A26B66F8500A2235B /* brickBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brickBackground.png; sourceTree = "<group>"; };
 		F61C371026B727B400A2235B /* OperationHoursAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHoursAlert.swift; sourceTree = "<group>"; };
+		F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadAllDataViewController.swift; sourceTree = "<group>"; };
 		F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		F62BC4D326F54866004177BD /* SupportInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportInfoViewController.swift; sourceTree = "<group>"; };
 		F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
 				F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */,
+				F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -943,6 +946,7 @@
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F6869B5127018AEB00421019 /* RatingsController.swift in Sources */,
+				F61E00A327A0B58800FA8298 /* ReloadAllDataViewController.swift in Sources */,
 				F63837892793F90000838858 /* ProductionShows.swift in Sources */,
 				F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,

@@ -281,11 +281,12 @@ extension DashboardViewController {
     }
     
     @objc private func lostNetworkConnection() {
-        print("!!!!!!!Show Perform Segue!!!!!!!!!")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
         }
     }
+    
+    
     
     private func setUpNotificationObservers() {
         
@@ -615,7 +616,9 @@ extension DashboardViewController {
     }
     
     @objc private func reDownloadAllData() {
-        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ReloadDataSegue", sender: self)
+        }
     }
     
     @objc private func removeOldTodayShows() {
