@@ -129,7 +129,6 @@ extension LoadInitDataViewController {
         removeNotificationObservers()
         print("✅ DONE LOADING")
         DispatchQueue.main.async {
-            if self.navigationController!.viewControllers.count > 1 {return}
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
     }
