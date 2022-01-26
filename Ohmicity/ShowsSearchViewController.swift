@@ -104,8 +104,11 @@ class ShowsSearchViewController: UIViewController {
         filteredSections = sections
     }
     
-    private func fillTableData() {
-        //Show Data
+    @objc private func reloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.bannerAdCollectionView.reloadData()
+        }
         
     }
     
@@ -164,6 +167,9 @@ class ShowsSearchViewController: UIViewController {
         
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadAllData.name, object: nil)
+        
         
     }
     

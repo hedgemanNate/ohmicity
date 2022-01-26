@@ -14,11 +14,8 @@ class ShowController {
     //Properties
     
     var todayShowArray = [Show]()
-    var showArray: [Show] = [] {
-        didSet {
-            
-        }
-    }
+    var showArray: [Show] = [] {didSet {}}
+    var showCount: Int?
     
     let db = Firestore.firestore()
                       .collection("remoteData")
@@ -74,7 +71,7 @@ class ShowController {
         completion(nil)
     }
     
-    func fillShowArrayFromCache() {
+    func fillShowArrayFromCache() -> Bool {
         for show in ProductionShowController.allShows.shows {
             if !bandController.bandArray.contains(where: {$0.bandID == show.band}) {print("No band"); continue}
             if !businessController.businessArray.contains(where: {$0.venueID == show.venue}) {print("No Venue"); continue}
@@ -94,6 +91,10 @@ class ShowController {
             showArray.append(newShow)
         }
         notificationCenter.post(notifications.gotCacheShowData)
+        if showArray.count == showCount {
+            return true
+        }
+        return false
     }
 }
 

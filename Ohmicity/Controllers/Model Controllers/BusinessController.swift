@@ -12,7 +12,6 @@ import FirebaseFirestore
 
 class BusinessController {
     //Properties
-    var todayVenueArray = [Business]()
     var businessArray: [Business] = [] {
         didSet {
             

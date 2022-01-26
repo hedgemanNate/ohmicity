@@ -83,5 +83,6 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             DashboardTabBarController.activityIndicator.stopAnimating()
         }
+        notificationCenter.post(notifications.reloadDashboardCVData)
     }
 }

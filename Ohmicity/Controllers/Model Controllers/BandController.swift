@@ -15,6 +15,7 @@ class BandController {
     var bandGroupArray = [GroupOfProductionBands]()
     
     var bandArray: [Band] = [] { didSet { /*function here*/  }}
+    var bandArrayCount: Int?
     let genreTypeArray: [Genre] = [.Blues, .Country, .DJ, .Dance, .EDM, .EasyListening, .Experimental, .FunkSoul, .Gospel, .HipHop, .JamBand, .Jazz, .Metal, .Pop, .Reggae, .Rock]
         
     let db = FireStoreReferenceManager.bandDataPath

@@ -149,11 +149,14 @@ extension DashboardViewController {
     }
     
     @objc private func reloadData() {
+        let temp = xityShowController.todayShowResultsArray.filter({$0.show.date > timeController.threeHoursAgo})
+        xityShowController.todayShowResultsArray = temp
+        
         DispatchQueue.main.async { [self] in
             self.todayCollectionView.reloadData()
             self.favoritesCollectionView.reloadData()
             self.xityPickCollectionView.reloadData()
-            
+        
             switch xityShowController.todayShowArrayFilter {
             case .Sarasota:
                 cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
@@ -609,20 +612,16 @@ extension DashboardViewController {
     private func addBackGroundNotificationObservers() {
         let dashboardNotificationCenter = NotificationCenter.default
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(reDownloadAllData), name: UIApplication.didBecomeActiveNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(reloadData), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(reDownloadAllData), name: UIApplication.significantTimeChangeNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(launchLoadingScreen), name: UIApplication.significantTimeChangeNotification, object: nil)
         
         dashboardNotificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadAllData.name, object: nil)
     }
     
-    @objc private func reDownloadAllData() {
+    @objc private func launchLoadingScreen() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ReloadDataSegue", sender: self)
         }
-    }
-    
-    @objc private func removeOldTodayShows() {
-        
     }
 }

@@ -68,7 +68,7 @@ class LoadInitDataViewController: UIViewController {
     var failureCounter = 0 {
         didSet {
             NSLog("🚨 Loading Failure: \(failureCounter)/6")
-            if failureCounter == 6 {
+            if failureCounter == 10 {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "FailedSegue", sender: self)
                 }
@@ -404,6 +404,7 @@ extension LoadInitDataViewController {
                 }
                 guard let band = bandArray.first(where: {$0.bandID == show.band}) else {
                     print("🌇⁉️ No band found for to make Xity Show")
+                    print(show.band)
                     continue
                 }
             

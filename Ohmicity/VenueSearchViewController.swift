@@ -157,6 +157,16 @@ extension VenueSearchViewController {
         //Background
         notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadAllData.name, object: nil)
+        
+    }
+    
+    @objc private func reloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.bannerAdCollectionView.reloadData()
+        }
+        
     }
     
     //MARK: Search Function

@@ -177,7 +177,7 @@
 		F60B849E26CB6DDA00C9226F /* DashboardTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBar.swift; sourceTree = "<group>"; };
 		F60DDB8D269E483E009DD827 /* BandVenueBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorder.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
-		F60E865626CC8952001DE21A /* TemporaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TemporaryViewController.swift; path = Temporary/TemporaryViewController.swift; sourceTree = "<group>"; };
+		F60E865626CC8952001DE21A /* TemporaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryViewController.swift; sourceTree = "<group>"; };
 		F60EB6362656D3C400CDB6F6 /* goTonight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goTonight.json; sourceTree = "<group>"; };
 		F619F108270925F800FDE93F /* na.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = na.png; sourceTree = "<group>"; };
 		F61C370326B64E2200A2235B /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +356,11 @@
 				F67109EF264B64F000FC479B /* Models */,
 				F60E6BCD2648F36B001CA06E /* Images */,
 				D8CED3F22641E3880017FD28 /* Controllers */,
+				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
+				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
+				D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */,
+				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
+				F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */,
 				F60E6BC82648F259001CA06E /* Storyboard */,
 				F60E6BC92648F2AE001CA06E /* Assets */,
 			);
@@ -370,11 +375,7 @@
 				F640DD14264E4BB700959358 /* Login View Controllers */,
 				F62FEB6B26562A1A008DEF64 /* Settings View Controllers */,
 				F62BC4D226F54839004177BD /* Info View Controllers */,
-				F6DBFDA926E9BAE6001D7520 /* Tab View Controllers */,
-				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
-				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
-				F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */,
-				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
+				F6DBFDA926E9BAE6001D7520 /* Detail & Loading View Controllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -467,7 +468,6 @@
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
 				F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */,
-				F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -644,16 +644,16 @@
 			path = "Puchase Images";
 			sourceTree = "<group>";
 		};
-		F6DBFDA926E9BAE6001D7520 /* Tab View Controllers */ = {
+		F6DBFDA926E9BAE6001D7520 /* Detail & Loading View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
-				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
-				D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */,
-				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
-				F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */,
+				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
+				F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */,
+				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
+				F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */,
+				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
 			);
-			path = "Tab View Controllers";
+			path = "Detail & Loading View Controllers";
 			sourceTree = "<group>";
 		};
 		F6F3DB3C26AF331C00C49016 /* Cell Images */ = {
