@@ -70,6 +70,16 @@ class XityShowController {
         op2.addDependency(op1)
         opQueue.addOperations([op1, op2, op3], waitUntilFinished: false)
     }
+    
+    func fillXityShowArray() {
+        for show in showController.showArray {
+            guard let band = bandController.bandArray.first(where: {$0.bandID == show.band}) else {continue}
+            guard let business = businessController.businessArray.first(where: {$0.venueID == show.venue}) else {continue}
+            
+            let xityShow = XityShow(band: band, business: business, show: show)
+            showArray.append(xityShow)
+        }
+    }
 }
 
 let xityShowController = XityShowController()

@@ -40,7 +40,7 @@ class ShowController {
             case .success(let success):
                 if let allShows = success {
                     ProductionShowController.allShows = allShows
-                    self.fillShowArrayFromRawShowData()
+                    self.fillShowArrayFromCache()
                 } else {
                     NSLog("Production Shows were not found: getAllShowData")
                 }
@@ -60,7 +60,7 @@ class ShowController {
             case .success(let success):
                 if let allShows = success {
                     ProductionShowController.allShows = allShows
-                    self.fillShowArrayFromRawShowData()
+                    self.fillShowArrayFromCache()
                     completion(false)
                 } else {
                     NSLog("Production Shows were not found: getAllShowData")
@@ -74,7 +74,7 @@ class ShowController {
         completion(nil)
     }
     
-    func fillShowArrayFromRawShowData() {
+    func fillShowArrayFromCache() {
         for show in ProductionShowController.allShows.shows {
             if !bandController.bandArray.contains(where: {$0.bandID == show.band}) {print("No band"); continue}
             if !businessController.businessArray.contains(where: {$0.venueID == show.venue}) {print("No Venue"); continue}

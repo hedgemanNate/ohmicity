@@ -11,7 +11,8 @@ import FirebaseFirestore
 import MaterialComponents.MaterialActivityIndicator
 
 class LoadInitDataViewController: UIViewController {
-        
+    
+    var onOpen = true
     //For Debuging the loader
 //    var newDataAction = 0 {
 //        didSet{
@@ -33,10 +34,12 @@ class LoadInitDataViewController: UIViewController {
     
     var dataActionsFinished = 0 {
         didSet {
-            print("🔄 Data Actions \(dataActionsFinished)")
-            if dataActionsFinished == 8 {
-                organizeData(); print("DATA ACTIONS FIN")
-                removeNotificationObservers()
+            if onOpen == true {
+                print("🔄 Data Actions \(dataActionsFinished)")
+                if dataActionsFinished == 8 {
+                    organizeData(); print("DATA ACTIONS FIN")
+                    removeNotificationObservers()
+                }
             }
         }
     }
@@ -96,8 +99,10 @@ class LoadInitDataViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addNotificationObservers()
-        lmDateHandler.checkDateAndGetData()
+        if onOpen == true {
+            addNotificationObservers()
+            lmDateHandler.checkDateAndGetData()
+        }
     }
     
     
@@ -127,6 +132,7 @@ extension LoadInitDataViewController {
     func doneLoading() {
         restartCount()
         removeNotificationObservers()
+        onOpen = false
         print("✅ DONE LOADING")
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
@@ -207,7 +213,6 @@ extension LoadInitDataViewController {
     }
     
     @objc private func counting(_ notification: NSNotification) {
-
         switch notification.name {
         
         case notifications.gotNewBandData.name:

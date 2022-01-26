@@ -67,23 +67,26 @@ class BandController {
                         NSLog(error.localizedDescription)
                     }
                 }
+                notificationCenter.post(notifications.gotAllBandData)
+                self.fillBandArrayFromCache()
             }
             
         }
-        notificationCenter.post(notifications.gotAllBandData)
-        self.fillBandArrayFromCache()
+        
     }
     
     func fillBandArrayFromCache() {
-        
-        for bandGroup in bandGroupArray {
-            for band in bandGroup.bands {
-                let newBand = Band(singleBand: band)
-                bandArray.append(newBand)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            for bandGroup in self.bandGroupArray {
+                for band in bandGroup.bands {
+                    let newBand = Band(singleBand: band)
+                    self.bandArray.append(newBand)
+                }
             }
+            notificationCenter.post(notifications.gotCacheBandData)
+            NSLog("*****gotCacheBandData HIT*****")
         }
-        notificationCenter.post(notifications.gotCacheBandData)
-        NSLog("*****gotCacheBandData HIT*****")
+        
     }
     
     

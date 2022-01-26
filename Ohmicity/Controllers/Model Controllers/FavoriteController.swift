@@ -42,6 +42,7 @@ extension FavoriteController {
             guard let newFavorite = newFavorite else {continue}
             FavoriteController.favoritesArray.append(newFavorite)
         }
+        
     }
     
     static func createFavorite(objectID: String) {

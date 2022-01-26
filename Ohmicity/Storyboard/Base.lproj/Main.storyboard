@@ -1560,10 +1560,10 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-2286.4485981308408" y="-765.22678185745144"/>
         </scene>
-        <!--Load Init Data View Controller-->
+        <!--Reload All Data View Controller-->
         <scene sceneID="cVh-yh-Riu">
             <objects>
-                <viewController id="TdY-aU-Og1" customClass="LoadInitDataViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TdY-aU-Og1" customClass="ReloadAllDataViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ISA-gl-lAm">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1579,12 +1579,13 @@ should be on Xity?</string>
                                     <constraint firstAttribute="height" constant="200" id="cGW-J7-DRA"/>
                                 </constraints>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-ng-hU9">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-ng-hU9">
                                 <rect key="frame" x="188" y="182" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="breaker"/>
                                 <connections>
                                     <action selector="breaker:" destination="TdY-aU-Og1" eventType="touchUpInside" id="EvC-cY-Cwt"/>
+                                    <action selector="breaker:" destination="Ubm-aZ-I3h" eventType="touchUpInside" id="nJc-4u-TYN"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBM-rw-bEY">
@@ -1609,6 +1610,7 @@ should be on Xity?</string>
                     <size key="freeformSize" width="428" height="926"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2G-Rw-XzH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ubm-aZ-I3h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3203" y="-2844"/>
         </scene>

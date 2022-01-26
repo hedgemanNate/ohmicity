@@ -609,7 +609,7 @@ extension DashboardViewController {
     private func addBackGroundNotificationObservers() {
         let dashboardNotificationCenter = NotificationCenter.default
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(removeOldTodayShows), name: UIApplication.didBecomeActiveNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(reDownloadAllData), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         dashboardNotificationCenter.addObserver(self, selector: #selector(reDownloadAllData), name: UIApplication.significantTimeChangeNotification, object: nil)
         

@@ -55,6 +55,34 @@ class BusinessController {
         }
     }
     
+    func getAllBusinessData2() {
+        FireStoreReferenceManager.businessFullDataPath.getDocuments { snapShot, error in
+            if let error = error {
+                NSLog(error.localizedDescription)
+            } else {
+                for business in snapShot!.documents {
+                    let result = Result {
+                        try business.data(as: Business.self)
+                    }
+                    switch result {
+                    case .success(let business):
+                        if let business = business {
+                            self.businessArray.append(business)
+                        } else {
+                            NSLog("Band Group is nil")
+                        }
+                    case .failure(let error):
+                        NSLog(error.localizedDescription)
+                    }
+                }
+                notificationCenter.post(notifications.gotAllBandData)
+                notificationCenter.post(notifications.gotCacheBusinessData)
+            }
+            
+        }
+        
+    }
+    
     func fillBusinessArrayFromCache() {
         db.getDocuments(source: .cache) { querySnapshot, error in
             if let error = error {
