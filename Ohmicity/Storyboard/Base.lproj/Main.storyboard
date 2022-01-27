@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="-2286" y="-2164"/>
         </scene>
-        <!--Load Init Data View Controller-->
+        <!--New Loader View Controller-->
         <scene sceneID="Rvk-4W-YPJ">
             <objects>
-                <viewController id="rY8-YR-ghh" customClass="LoadInitDataViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rY8-YR-ghh" customClass="NewLoaderViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pO6-bc-c2s">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,12 +57,12 @@
                                     <constraint firstAttribute="width" constant="200" id="xyn-uO-hzC"/>
                                 </constraints>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-gE-zqZ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-gE-zqZ">
                                 <rect key="frame" x="188" y="182" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="breaker"/>
                                 <connections>
-                                    <action selector="breaker:" destination="rY8-YR-ghh" eventType="touchUpInside" id="qqB-Gt-NyY"/>
+                                    <action selector="breaker:" destination="rY8-YR-ghh" eventType="touchUpInside" id="f1E-o6-UbL"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pV7-Ok-08P">
@@ -1616,7 +1616,7 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-L8-xJL"/>
+        <segue reference="7HS-V6-wWy"/>
         <segue reference="fQ9-bq-bhx"/>
         <segue reference="30H-i8-TRl"/>
         <segue reference="3oC-qz-sBH"/>

@@ -104,6 +104,7 @@
 		F67991002697AB54000FDC5E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67990FF2697AB54000FDC5E /* Notifications.swift */; };
 		F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991042697E2A0000FDC5E /* BusinessController.swift */; };
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
+		F67B93B727A25044004B8DA7 /* NewLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
 		F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6869B4E27010EDC00421019 /* BackgroundTasks.swift */; };
@@ -258,6 +259,7 @@
 		F67990FF2697AB54000FDC5E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		F67991042697E2A0000FDC5E /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
+		F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoaderViewController.swift; sourceTree = "<group>"; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
 		F6869B4E27010EDC00421019 /* BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTasks.swift; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 			isa = PBXGroup;
 			children = (
 				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
+				F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */,
 				F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */,
 				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
 				F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */,
@@ -958,6 +961,7 @@
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */,
 				F6E10DF8279508DB009353BE /* FavoriteController.swift in Sources */,
+				F67B93B727A25044004B8DA7 /* NewLoaderViewController.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,

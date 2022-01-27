@@ -75,25 +75,17 @@ class LastModifiedDateHandler {
                 self.loadDate()
             }
             
-            let op2 = BlockOperation {
-                businessController.getNewBusinessData()
-                //Shows are retrieved in op1
+            let op1 = BlockOperation {
+                businessBannerAdController.getAllBusinessAdData()
+                businessController.getAllBusinessData()
+                showController.getAllShowData()
                 bandController.getAllBandData()
-                businessBannerAdController.getNewBusinessAdData()
                 self.saveDate()
             }
             
-            let op1 = BlockOperation {
-                businessBannerAdController.fillBusinessAdArrayFromCache()
-                businessController.fillBusinessArrayFromCache()
-                showController.getAllShowData()
-                bandController.fillBandArrayFromCache()
-            }
-            
             op1.addDependency(preOp)
-            op2.addDependency(op1)
             
-            opQueue.addOperations([preOp, op1, op2], waitUntilFinished: true)
+            opQueue.addOperations([preOp, op1], waitUntilFinished: true)
         
         }
     }

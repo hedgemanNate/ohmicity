@@ -42,7 +42,7 @@ class BusinessController {
 
     
     
-    func getAllBusinessData() {
+    func getAllBusinessData2() {
         db.getDocuments { [self] (_, error) in
             if let error = error {
                 NSLog(error.localizedDescription)
@@ -54,8 +54,8 @@ class BusinessController {
         }
     }
     
-    func getAllBusinessData2() {
-        FireStoreReferenceManager.businessFullDataPath.getDocuments { snapShot, error in
+    func getAllBusinessData() {
+        FireStoreReferenceManager.venueDataPath.getDocuments { snapShot, error in
             if let error = error {
                 NSLog(error.localizedDescription)
             } else {

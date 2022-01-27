@@ -14,7 +14,7 @@ struct Show: Codable, Equatable, Hashable {
     let venue: String
     var bandDisplayName: String
     var city: [City] = []
-    var dateString: String
+    var dateString: String?
     var date: Date
     var time = ""
     var onHold: Bool = false //To removed shows from user cache
@@ -37,13 +37,12 @@ struct Show: Codable, Equatable, Hashable {
  
 extension Show {
     
-    init(band: String, venue: String, date: Date, dateString: String, displayName: String) {
+    init(band: String, venue: String, date: Date, displayName: String) {
         
         let showID = Firestore.firestore().collection("showData").document().documentID
         self.showID = showID
         self.band = band
         self.venue = venue
-        self.dateString = dateString
         self.bandDisplayName = displayName
         self.date = date
     }
