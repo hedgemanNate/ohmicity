@@ -300,10 +300,10 @@ class BandDetailViewController: UIViewController {
         let bandMedia = currentBand.band.mediaLink ?? ""
         
         if bandMedia == "" {
-            listenButton.setTitle("No Media To Hear", for: .normal)
+            listenButton.setTitle("Could Not Find Any Videos Of Them", for: .normal)
             listenButton.isEnabled = false
         } else {
-            listenButton.setTitle("Take A Listen", for: .normal)
+            listenButton.setTitle("Watch A Video Of Them", for: .normal)
             listenButton.isEnabled = true
         }
         bandNameLabel.text = currentBand.band.name
@@ -431,7 +431,7 @@ extension BandDetailViewController: UICollectionViewDelegateFlowLayout, UICollec
             
         case genreCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCell", for: indexPath) as? CitiesCollectionViewCell else {return UICollectionViewCell()}
-            if currentBand.band.genre == [] {return cell}
+            //if currentBand.band.genre == [] {return cell}
             cell.bandGenre = currentBand.band.genre[indexPath.row % currentBand.band.genre.count]
             return cell
             
