@@ -503,8 +503,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRv-23-Sl4" userLabel="Top Buttons">
                                                 <rect key="frame" x="0.0" y="253" width="428" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJU-fV-z8c">
-                                                        <rect key="frame" x="75" y="0.0" width="278" height="75"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="vJU-fV-z8c">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="75"/>
                                                         <color key="backgroundColor" red="0.26495882869999998" green="0.15182313319999999" blue="0.35518908500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                         <state key="normal" title="Take A Listen" backgroundImage="listenButton.png">
@@ -512,22 +512,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="listenButtonTapped:" destination="D4Z-f6-YjC" eventType="touchUpInside" id="JLW-7X-6hv"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la5-6C-4n8" userLabel="Ratings Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                                        <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="oxB-pd-J5C"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal">
-                                                            <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="ratingsButtonTapped:" destination="D4Z-f6-YjC" eventType="touchUpInside" id="ZdE-qT-xTB"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rf-hV-mPI" userLabel="Favorite Button">
@@ -549,15 +533,12 @@
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
                                                     <constraint firstItem="0rf-hV-mPI" firstAttribute="leading" secondItem="vJU-fV-z8c" secondAttribute="trailing" id="EK3-6J-D9p"/>
-                                                    <constraint firstItem="la5-6C-4n8" firstAttribute="leading" secondItem="GRv-23-Sl4" secondAttribute="leading" id="GSe-H3-2gI"/>
-                                                    <constraint firstItem="la5-6C-4n8" firstAttribute="top" secondItem="GRv-23-Sl4" secondAttribute="top" id="MGi-Jz-6zH"/>
                                                     <constraint firstAttribute="bottom" secondItem="vJU-fV-z8c" secondAttribute="bottom" id="QOj-yy-ru7"/>
-                                                    <constraint firstAttribute="bottom" secondItem="la5-6C-4n8" secondAttribute="bottom" id="S1U-lC-0z5"/>
                                                     <constraint firstAttribute="height" constant="75" id="dI3-16-2Ze"/>
                                                     <constraint firstItem="vJU-fV-z8c" firstAttribute="top" secondItem="GRv-23-Sl4" secondAttribute="top" id="gaS-Ee-mRj"/>
+                                                    <constraint firstItem="vJU-fV-z8c" firstAttribute="leading" secondItem="GRv-23-Sl4" secondAttribute="leading" id="kSk-AO-qLi"/>
                                                     <constraint firstAttribute="bottom" secondItem="0rf-hV-mPI" secondAttribute="bottom" id="nEz-9y-hK3"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="pZh-SX-8RR"/>
-                                                    <constraint firstItem="vJU-fV-z8c" firstAttribute="leading" secondItem="la5-6C-4n8" secondAttribute="trailing" id="q4l-fc-zS2"/>
                                                     <constraint firstAttribute="trailing" secondItem="0rf-hV-mPI" secondAttribute="trailing" id="sbr-dH-iqH"/>
                                                     <constraint firstItem="0rf-hV-mPI" firstAttribute="top" secondItem="GRv-23-Sl4" secondAttribute="top" id="wK9-kr-BIg"/>
                                                 </constraints>
@@ -736,7 +717,6 @@
                         <outlet property="listenButton" destination="vJU-fV-z8c" id="ASM-Vc-FDI"/>
                         <outlet property="musicVidLabel" destination="y3c-7E-fpJ" id="wNa-68-MRC"/>
                         <outlet property="photoshootLabel" destination="QFa-aM-Eh1" id="Rt2-hn-lGh"/>
-                        <outlet property="ratingButton" destination="la5-6C-4n8" id="imS-Rh-bas"/>
                         <outlet property="seeAllDataDetailLabel" destination="DYi-JA-T25" id="mmt-7n-aVN"/>
                         <outlet property="separatorView" destination="u78-2f-cKo" id="vGn-4U-ex0"/>
                         <outlet property="step1Label" destination="Jh3-dG-1Ql" id="jNn-rt-AAA"/>
@@ -886,7 +866,6 @@ Always remember: Support live local musicians. Support live local music venues. 
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
         <image name="listenButton.png" width="196" height="38"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="suit.heart" catalog="system" width="128" height="109"/>
         <image name="xitySupportIcon.png" width="192.47999572753906" height="192.47999572753906"/>
         <systemColor name="systemBackgroundColor">
