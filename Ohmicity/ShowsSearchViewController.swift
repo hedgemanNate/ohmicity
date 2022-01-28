@@ -24,6 +24,10 @@ class ShowsSearchViewController: UIViewController {
     //SearchButton
     @IBOutlet weak var searchByDateButton: UIButton!
     
+    //For Table Selections
+    var section = 0
+    var row = 0
+    
 //    var datePicker: UIDatePicker {
 //        showController.showArray.sort(by: {$0.date < $1.date})
 //        let datePicker = UIDatePicker()
@@ -43,7 +47,11 @@ class ShowsSearchViewController: UIViewController {
     
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
-    lazy private var segueToPerform = ""
+    lazy private var segueToPerform = "" {
+        didSet {
+            print(segueToPerform)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -265,22 +273,22 @@ class ShowsSearchViewController: UIViewController {
         endTimer()
         
         //MUST PASS THE FEATURED SHOW AS WELL!! OR THE DETAIL VIEW WILL JUST SHOW THE STANDARD BAND OR VENUE INFO
-        guard let section = tableView.indexPathForSelectedRow?.section else {return}
-        guard let row = tableView.indexPathForSelectedRow?.row else {return}
         if segue.identifier == "BandSegue" {
             guard let bandDetailVC = segue.destination as? BandDetailViewController else {return}
             let bandID = filteredSections[section].showsForDate[row].band.bandID
             let band = XityBandController.bandArray.first(where: {$0.band.bandID == bandID})
             bandDetailVC.currentBand = band
-            
         }
         
         if segue.identifier == "VenueSegue" {
-            guard let venueDetailVC = segue.destination as? VenueDetailViewController else {return}
-            let show = filteredSections[section].showsForDate[row]
             let venueID = filteredSections[section].showsForDate[row].business.venueID
-            let venue = XityBusinessController.businessArray.first(where: {$0.business.venueID == venueID})
+            let show = filteredSections[section].showsForDate[row]
+            
+            guard let venueDetailVC = segue.destination as? VenueDetailViewController else {return}
+            guard let venue = XityBusinessController.businessArray.first(where: {$0.business.venueID == venueID}) else {return}
+            
             venueDetailVC.currentBusiness = venue
+            print(venue.business.name)
             venueDetailVC.featuredShow = show
         }
     }
@@ -341,6 +349,8 @@ extension ShowsSearchViewController: UITableViewDataSource, UITableViewDelegate 
     
     //Cell Selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        section = indexPath.section
+        row = indexPath.row
         if shouldShowBand == true {
             checkForAdThenSegue(to: "BandSegue")
         } else if shouldShowBand == false {
@@ -384,12 +394,6 @@ extension ShowsSearchViewController: UICollectionViewDataSource, UICollectionVie
     
 }
 
-//MARK: Search Protocols
-extension ShowsSearchViewController: UISearchBarDelegate {
-    
-    
-    
-}
 
 //MARK: Google Ads Protocols/Functions
 extension ShowsSearchViewController: GADFullScreenContentDelegate {
@@ -399,7 +403,7 @@ extension ShowsSearchViewController: GADFullScreenContentDelegate {
     }
     
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        performSegue(withIdentifier: segueToPerform, sender: self)
+        performSegue(withIdentifier: segueToPerform , sender: self)
         createInterstitialAd()
     }
     
@@ -432,6 +436,7 @@ extension ShowsSearchViewController: GADFullScreenContentDelegate {
         }
     }
 }
+
 
 
 
