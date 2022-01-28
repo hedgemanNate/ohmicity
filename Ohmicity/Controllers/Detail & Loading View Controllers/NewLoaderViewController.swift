@@ -27,12 +27,6 @@ class NewLoaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ShowController.showArray = []
-        ProductionShowController.allShows = AllProductionShows(shows: [SingleProductionShow]())
-        BandController.bandArray = []
-        ProductionBandController.bandGroupArray = []
-        BusinessController.businessArray = []
-        
         setupProgressView()
         preWork()
         downloadData()
@@ -127,6 +121,7 @@ extension NewLoaderViewController {
                         try? ads.data(as: BusinessBannerAd.self)
                     })
                     print("Got Ads")
+                    BusinessBannerAdController.removeNonPublished()
                     group.leave()
                 }
             }
@@ -293,64 +288,5 @@ extension NewLoaderViewController {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
-    }
-}
-
-//MARK: Download Functions
-extension NewLoaderViewController {
-    
-    func getAllBannerAdsData() {
-        
-        func removeNonPublished() {
-            BusinessBannerAdController.businessAdArray.removeAll(where: {$0.isPublished == false})
-            BusinessBannerAdController.businessAdArray.removeAll(where: {$0.endDate <= Date()})
-        }
-        
-        FireStoreReferenceManager.businessBannerAdDataPath.getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                NSLog(error.localizedDescription)
-            } else {
-                for businessAd in querySnapshot!.documents {
-                    let result = Result {
-                        try businessAd.data(as: BusinessBannerAd.self)
-                    }
-                    switch result {
-                    case .success(let businessAd):
-                        if let businessAd = businessAd {
-                            BusinessBannerAdController.businessAdArray.removeAll(where: {$0 == businessAd})
-                            BusinessBannerAdController.businessAdArray.append(businessAd)
-                        } else {
-                            NSLog("Show data was nil")
-                        }
-                    case .failure(let error):
-                        NSLog("Error decoding businessAd: \(error)")
-                    }
-                }
-                removeNonPublished()
-            }
-        }
-    }
-}
-
-//MARK: Fill Arrays Functions
-extension NewLoaderViewController {
-    private func fillShowArray() {
-        for show in ProductionShowController.allShows.shows {
-            
-            let newShow = Show(showID: show.showID, band: show.band, venue: show.venue, bandDisplayName: show.bandDisplayName, date: show.date)
-            
-            ShowController.showArray.append(newShow)
-        }
-        ShowController.showArray.sort(by: {$0.date < $1.date})
-    }
-    
-    private func fillBandArray() {
-        for group in ProductionBandController.bandGroupArray {
-            for band in group.bands {
-                let newBand = Band(singleBand: band)
-                BandController.bandArray.append(newBand)
-            }
-        }
-        BandController.bandArray.sort(by: {$0.name < $1.name})
     }
 }

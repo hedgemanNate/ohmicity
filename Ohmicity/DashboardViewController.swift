@@ -151,13 +151,19 @@ extension DashboardViewController {
     }
     
     @objc private func reloadData() {
-        let temp = XityShowController.todayShowResultsArray.filter({$0.show.date > timeController.threeHoursAgo})
+        var temp = XityShowController.todayShowResultsArray.filter({$0.show.date > timeController.threeHoursAgo})
         XityShowController.todayShowResultsArray = temp
+        temp = []
+        
+        var week = XityShowController.weeklyPicksArray.filter({$0.show.date > timeController.threeHoursAgo})
+        XityShowController.weeklyPicksArray = week
+        week = []
         
         DispatchQueue.main.async { [self] in
             self.todayCollectionView.reloadData()
             self.favoritesCollectionView.reloadData()
             self.xityPickCollectionView.reloadData()
+            self.bannerAdCollectionView.reloadData()
         
             switch XityShowController.todayShowArrayFilter {
             case .Sarasota:
@@ -365,7 +371,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         switch collectionView {
         case bannerAdCollectionView:
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
-            return  50
+            return  100
             
         case todayCollectionView:
             if subscriptionController.seeAllData == false {
