@@ -14,6 +14,9 @@ class NewLoaderViewController: UIViewController {
     
     //Properties
     var rawBandCount: Int?
+    let workQueue = DispatchQueue.self
+    
+    //Order
     
     //StepComplete
     var gotRawShowData = false {didSet{}}
@@ -21,18 +24,24 @@ class NewLoaderViewController: UIViewController {
     
     //Loader
     let activityIndicator = MDCActivityIndicator()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ShowController.showArray = []
+        ProductionShowController.allShows = AllProductionShows(shows: [SingleProductionShow]())
+        BandController.bandArray = []
+        ProductionBandController.bandGroupArray = []
+        BusinessController.businessArray = []
+        
         setupProgressView()
-        processData()
+        preWork()
+        downloadData()
     }
     
     
     @IBAction func breaker(_ sender: Any) {
         
     }
-
 }
 
 extension NewLoaderViewController {
@@ -48,154 +57,253 @@ extension NewLoaderViewController {
 }
 
 extension NewLoaderViewController {
-    //MARK: Queue Functions
     
-    private func processData() {
-        let opQueue = OperationQueue()
-        opQueue.maxConcurrentOperationCount = 1
+    //MARK: PreDownload Work
+    private func preWork() {
+        timeController.setTime()
+        currentUserController.assignCurrentUser()
         
-        let download = BlockOperation {
-            self.download()
-        }
-        
-        let fillArrays = BlockOperation {
-            self.fillArrays()
-        }
-        
-        let buildXity = BlockOperation {
-            
-        }
-        
-        let removeCache = BlockOperation {
-            
-        }
-        
-        removeCache.addDependency(buildXity)
-        buildXity.addDependency(fillArrays)
-        fillArrays.addDependency(download)
-        
-        opQueue.addOperations([download, fillArrays], waitUntilFinished: true)
+        //Notifications
+        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
     }
     
-    private func download() {
-        let opQueue = OperationQueue()
-        opQueue.maxConcurrentOperationCount = 1
+    @objc private func lostNetworkConnection() {
+        NSLog("No Connection 📶📶📶📶 ")
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
+        }
+    }
+    
+    //MARK: Start Download
+    private func downloadData() {
+        print("Download Started")
+        let group = DispatchGroup()
         
-        let getRawBands = BlockOperation { [self] in
-            self.getRawBandData()
-            guard let rawBandCount = rawBandCount else {return}
-            while bandController.bandGroupArray.count < rawBandCount {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    //WAIT
+        DispatchQueue.global(qos: .default).sync {
+            group.enter()
+            FireStoreReferenceManager.showDataPath.document("EB7BD27C-15EA-43A5-866A-BF6883D0DD67").getDocument { snap, err in
+                if let err = err {
+                    NSLog(err.localizedDescription)
+                } else {
+                    ProductionShowController.allShows = try! snap!.data(as: AllProductionShows.self)!
+                    print("Got Shows")
+                    group.leave()
                 }
             }
-        }
-        
-        let getRawVenues = BlockOperation {
-            self.getRawVenueData()
-        }
-        
-        let getRawShows = BlockOperation {
-            self.getRawShowData()
             
+            group.enter()
+            FireStoreReferenceManager.bandDataPath.getDocuments { snap, err in
+                if let err = err {
+                    NSLog(err.localizedDescription)
+                } else {
+                    ProductionBandController.bandGroupArray = snap!.documents.compactMap({ bandGroups in
+                        try? bandGroups.data(as: GroupOfProductionBands.self)
+                    })
+                    print("Got Bands")
+                    group.leave()
+                }
+            }
+            
+            group.enter()
+            FireStoreReferenceManager.venueDataPath.getDocuments { snap, err in
+                if let err = err {
+                    NSLog(err.localizedDescription)
+                } else {
+                    BusinessController.businessArray = snap!.documents.compactMap({ venues in
+                        try? venues.data(as: Business.self)
+                    })
+                    print("Got Venues")
+                    group.leave()
+                }
+            }
+            
+            
+            group.enter()
+            FireStoreReferenceManager.businessBannerAdDataPath.getDocuments { snap, err in
+                if let err = err {
+                    NSLog(err.localizedDescription)
+                } else {
+                    BusinessBannerAdController.businessAdArray = snap!.documents.compactMap({ ads in
+                        try? ads.data(as: BusinessBannerAd.self)
+                    })
+                    print("Got Ads")
+                    group.leave()
+                }
+            }
+            
+            group.notify(queue: .global()) { [self] in
+                self.fillArrays()
+            }
         }
-        
-        let getBanners = BlockOperation {
-            self.getAllBannerAdsData()
-        }
-        
-        getBanners.addDependency(getRawShows)
-        getRawShows.addDependency(getRawVenues)
-        getRawVenues.addDependency(getRawBands)
-        
-        opQueue.addOperations([getRawBands, getRawVenues, getRawShows, getBanners], waitUntilFinished: true)
     }
     
+    //MARK: Fill Arrays
     private func fillArrays() {
+        print("Filling Arrays")
+        let group = DispatchGroup()
+        
+        group.enter()
+        for show in ProductionShowController.allShows.shows {
+            let newShow = Show(singleShow: show)
+            ShowController.showArray.append(newShow)
+        }
+        print("Shows Filled")
+        group.leave()
+        
+        group.enter()
+        for bandGroup in ProductionBandController.bandGroupArray {
+            for band in bandGroup.bands {
+                let newBand = Band(singleBand: band)
+                BandController.bandArray.append(newBand)
+            }
+        }
+        print("Bands Filled")
+        group.leave()
+        
+        group.notify(queue: .global()) {
+            self.buildXityShows()
+        }
+    }
+    //MARK: Xity Shows
+    private func buildXityShows() {
+        print("Building Xity")
+        let group = DispatchGroup()
+        
+        group.enter()
+        for show in ShowController.showArray {
+            guard let band = BandController.bandArray.first(where: {$0.bandID == show.band}) else {continue}
+            guard let venue = BusinessController.businessArray.first(where: {$0.venueID == show.venue}) else {continue}
+            let xityShow = XityShow(band: band, business: venue, show: show)
+            XityShowController.showArray.append(xityShow)
+        }
+        print("Shows Built")
+        group.leave()
+        
+        group.notify(queue: .global()) {
+            self.buildXityBands()
+        }
+    }
+    
+    //MARK: Xity Bands
+    private func buildXityBands() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        for band in BandController.bandArray {
+            let _ = XityBand(band: band)
+        }
+        print("Bands Built")
+        group.leave()
+        
+        group.notify(queue: .global()) {
+            self.buildXityVenues()
+        }
+    }
+    
+    //MARK: Xity Venues
+    private func buildXityVenues() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        for venue in BusinessController.businessArray {
+            let _ = XityBusiness(venue: venue)
+        }
+        print("Venues Built")
+        group.leave()
+        
+        group.notify(queue: .global()) {
+            self.buildTodayShows()
+        }
+    }
+    
+    //MARK: Today
+    private func buildTodayShows() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        dateFormatter.dateFormat = timeController.monthDayYear
+        for todayShow in XityShowController.showArray {
+            let stringDate = dateFormatter.string(from: todayShow.show.date)
+            if stringDate == timeController.todayString {
+                XityShowController.todayShowArray.append(todayShow)
+            }
+        }
+        print("Today Built")
+        group.leave()
+        
+        group.notify(queue: .global()) {
+            self.buildWeeklyPicks()
+        }
+    }
+    
+    //MARK: Weekly
+    private func buildWeeklyPicks() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        let monday = Date().next(.monday)
+        
+        var lowFiltered = [XityShow]()
+        var theWeekFiltered = [XityShow]()
+        
+        let op1 = BlockOperation {
+            lowFiltered = XityShowController.showArray.filter({$0.show.date > timeController.threeHoursAgo})
+            print("******lowFiltered")
+        }
+        
+        let op2 = BlockOperation {
+            theWeekFiltered = lowFiltered.filter({$0.show.date < monday})
+            print("******theWeekFiltered")
+            print(monday)
+        }
+        
+        let op3 = BlockOperation {
+            let mid = theWeekFiltered.filter({$0.show.ohmPick == true})
+            XityShowController.weeklyPicksArray = mid.sorted(by: {$0.show.date < $1.show.date})
+            print("******Xity Picks!")
+        }
+        
         let opQueue = OperationQueue()
         opQueue.maxConcurrentOperationCount = 1
+        op3.addDependency(op2)
+        op2.addDependency(op1)
+        opQueue.addOperations([op1, op2, op3], waitUntilFinished: true)
         
-        let fillShowArray = BlockOperation {
-            self.fillShowArray()
+        print("Weeks Built")
+        group.leave()
+        
+        group.notify(queue: .global()) {
+            self.clearCache()
         }
+    }
+    
+    //MARK: Clear
+    private func clearCache() {
+        print("Clearing Cache")
+        ShowController.showArray = []
+        ProductionShowController.allShows = AllProductionShows(shows: [SingleProductionShow]())
         
-        let fillBandArray = BlockOperation {
-            self.fillBandArray()
+        BandController.bandArray = []
+        ProductionBandController.bandGroupArray = []
+        
+        BusinessController.businessArray = []
+        
+        notificationCenter.removeObserver(self, name: notifications.lostConnection.name, object:nil )
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ToDashboard", sender: self)
         }
-        
-        fillBandArray.addDependency(fillShowArray)
-        
-        opQueue.addOperations([fillShowArray, fillBandArray], waitUntilFinished: true)
     }
 }
 
 //MARK: Download Functions
 extension NewLoaderViewController {
     
-    private func getRawShowData() {
-        FireStoreReferenceManager.showDataPath.document("EB7BD27C-15EA-43A5-866A-BF6883D0DD67").getDocument { snap, _ in
-            do {
-                try ProductionShowController.allShows = snap!.data(as: AllProductionShows.self)!
-            } catch let error {
-                NSLog(error.localizedDescription)
-            }
-        }
-    }
-    
-    
-    private func getRawBandData() {
-        FireStoreReferenceManager.bandDataPath.getDocuments { snapShot, error in
-            if let error = error {
-                NSLog(error.localizedDescription)
-            } else {
-                self.rawBandCount = snapShot?.documents.count
-                for bandGroup in snapShot!.documents {
-                    let result = Result {
-                        try bandGroup.data(as: GroupOfProductionBands.self)
-                    }
-                    switch result {
-                    case .success(let bandGroup):
-                        if let bandGroup = bandGroup {
-                            bandController.bandGroupArray.append(bandGroup)
-                        }
-                    case .failure(let error):
-                        NSLog(error.localizedDescription)
-                    }
-                }
-            }
-        }
-    }
-    
-    private func getRawVenueData() {
-        FireStoreReferenceManager.venueDataPath.getDocuments { snap, error in
-            if let error = error {
-                NSLog(error.localizedDescription)
-            } else {
-                for business in snap!.documents {
-                    let result = Result {
-                        try business.data(as: Business.self)
-                    }
-                    switch result {
-                    case .success(let business):
-                        if let business = business {
-                            businessController.businessArray.append(business)
-                        } else {
-                            NSLog("Band Group is nil")
-                        }
-                    case .failure(let error):
-                        NSLog(error.localizedDescription)
-                    }
-                }
-                
-            }
-        }
-    }
-    
     func getAllBannerAdsData() {
         
         func removeNonPublished() {
-            businessBannerAdController.businessAdArray.removeAll(where: {$0.isPublished == false})
-            businessBannerAdController.businessAdArray.removeAll(where: {$0.endDate <= Date()})
+            BusinessBannerAdController.businessAdArray.removeAll(where: {$0.isPublished == false})
+            BusinessBannerAdController.businessAdArray.removeAll(where: {$0.endDate <= Date()})
         }
         
         FireStoreReferenceManager.businessBannerAdDataPath.getDocuments() { (querySnapshot, error) in
@@ -209,8 +317,8 @@ extension NewLoaderViewController {
                     switch result {
                     case .success(let businessAd):
                         if let businessAd = businessAd {
-                            businessBannerAdController.businessAdArray.removeAll(where: {$0 == businessAd})
-                            businessBannerAdController.businessAdArray.append(businessAd)
+                            BusinessBannerAdController.businessAdArray.removeAll(where: {$0 == businessAd})
+                            BusinessBannerAdController.businessAdArray.append(businessAd)
                         } else {
                             NSLog("Show data was nil")
                         }
@@ -231,18 +339,18 @@ extension NewLoaderViewController {
             
             let newShow = Show(showID: show.showID, band: show.band, venue: show.venue, bandDisplayName: show.bandDisplayName, date: show.date)
             
-            showController.showArray.append(newShow)
+            ShowController.showArray.append(newShow)
         }
-        showController.showArray.sort(by: {$0.date < $1.date})
+        ShowController.showArray.sort(by: {$0.date < $1.date})
     }
     
     private func fillBandArray() {
-        for group in bandController.bandGroupArray {
+        for group in ProductionBandController.bandGroupArray {
             for band in group.bands {
                 let newBand = Band(singleBand: band)
-                bandController.bandArray.append(newBand)
+                BandController.bandArray.append(newBand)
             }
         }
-        bandController.bandArray.sort(by: {$0.name < $1.name})
+        BandController.bandArray.sort(by: {$0.name < $1.name})
     }
 }

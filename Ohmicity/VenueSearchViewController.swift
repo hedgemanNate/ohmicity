@@ -173,25 +173,25 @@ extension VenueSearchViewController {
     private func startSearch(searchText: String, city: City? = nil, business: BusinessType? = nil) {
         if segmentedController.selectedSegmentIndex == 1 && city != nil {
             if searchText == "" {
-                businessResultsArray = xityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
+                businessResultsArray = XityBusinessController.businessArray.filter({$0.business.city.contains(city!)})
                 tableView.reloadData()
             }
             
         } else if segmentedController.selectedSegmentIndex == 0 && business != nil {
             if searchText == "" {
-                businessResultsArray = xityBusinessController.businessArray.filter({$0.business.businessType.contains(business!)})
+                businessResultsArray = XityBusinessController.businessArray.filter({$0.business.businessType.contains(business!)})
                 tableView.reloadData()
             } else {
-                businessResultsArray = xityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
+                businessResultsArray = XityBusinessController.businessArray.filter({($0.business.name.localizedStandardContains(searchText))})
                 tableView.reloadData()
             }
             
             
         } else if segmentedController.selectedSegmentIndex == 0 {
             if searchText == "" {
-                businessResultsArray = xityBusinessController.businessArray.sorted(by: {$0.business.name < $1.business.name})
+                businessResultsArray = XityBusinessController.businessArray.sorted(by: {$0.business.name < $1.business.name})
             } else {
-                businessResultsArray =  xityBusinessController.businessArray.filter({$0.business.name.localizedStandardContains(searchText)})
+                businessResultsArray =  XityBusinessController.businessArray.filter({$0.business.name.localizedStandardContains(searchText)})
             }
             tableView.reloadData()
         }
@@ -218,7 +218,7 @@ extension VenueSearchViewController {
         
         //Add space to bottom of search table view to clear the tab view
         tableView.contentInset.bottom = 40
-        businessResultsArray = xityBusinessController.businessArray.sorted(by: {$0.business.name < $1.business.name})
+        businessResultsArray = XityBusinessController.businessArray.sorted(by: {$0.business.name < $1.business.name})
 
     }
     
@@ -264,16 +264,16 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
         
         switch collectionView {
         case bannerAdCollectionView:
-            businessBannerAdController.businessAdArray.shuffle()
+            BusinessBannerAdController.businessAdArray.shuffle()
             return 50
         case searchCollectionView:
             switch segmentedController.selectedSegmentIndex {
             case 0:
-                return businessController.businessTypeArray.count
+                return BusinessController.businessTypeArray.count
             case 1:
-                return businessController.citiesArray.count
+                return BusinessController.citiesArray.count
             case 2:
-                return bandController.genreTypeArray.count
+                return BandController.genreTypeArray.count
             default:
                 return 0
             }
@@ -290,20 +290,20 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
         case bannerAdCollectionView:
             bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
             //% for indexpath to allow for infinite loop: See Banner Ad Section
-            bannerAdCell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
+            bannerAdCell.bannerAd = BusinessBannerAdController.businessAdArray[indexPath.row % BusinessBannerAdController.businessAdArray.count]
             return bannerAdCell
         
         case searchCollectionView:
             searchCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as! CitiesCollectionViewCell
             switch segmentedController.selectedSegmentIndex {
             case 0:
-                searchCell.businessType = businessController.businessTypeArray[indexPath.row]
+                searchCell.businessType = BusinessController.businessTypeArray[indexPath.row]
                 return searchCell
             case 1:
-                searchCell.city = businessController.citiesArray[indexPath.row]
+                searchCell.city = BusinessController.citiesArray[indexPath.row]
                 return searchCell
             case 2:
-                searchCell.bandGenre = bandController.genreTypeArray[indexPath.row]
+                searchCell.bandGenre = BandController.genreTypeArray[indexPath.row]
                 return searchCell
             default:
                 return searchCell
@@ -327,7 +327,7 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
         case 0:
             city = nil
             businessType = nil
-            businessType = businessController.businessTypeArray[indexPath.row]
+            businessType = BusinessController.businessTypeArray[indexPath.row]
             
             if let business = businessType {
                 print(business.rawValue)
@@ -338,7 +338,7 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
             city = nil
             businessType = nil
             
-            city = businessController.citiesArray[indexPath.row]
+            city = BusinessController.citiesArray[indexPath.row]
             if let city = city {
                 print(city.rawValue)
                 startSearch(searchText: "", city: city, business: businessType)

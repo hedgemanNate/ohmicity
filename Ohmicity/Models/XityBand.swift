@@ -8,15 +8,7 @@
 import Foundation
 
 class XityBand: Equatable, Hashable {
-    static func == (lhs: XityBand, rhs: XityBand) -> Bool {
-        lhs.band.name == rhs.band.name
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(band)
-    }
-    
-    
+    //Properties
     let band: Band
     var xityShows = [XityShow]() {
         didSet {
@@ -26,7 +18,23 @@ class XityBand: Equatable, Hashable {
         }
     }
     
+    static func == (lhs: XityBand, rhs: XityBand) -> Bool {
+        lhs.band.name == rhs.band.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(band)
+    }
+    
     init(band: Band) {
         self.band = band
+        
+        for show in XityShowController.showArray {
+            if show.band.bandID == band.bandID {
+                self.xityShows.append(show)
+            }
+        }
+        
+        XityBandController.bandArray.append(self)
     }
 }

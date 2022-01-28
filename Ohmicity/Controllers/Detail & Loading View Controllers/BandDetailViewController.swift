@@ -426,7 +426,7 @@ extension BandDetailViewController: UICollectionViewDelegateFlowLayout, UICollec
         case bannerAdCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as? BannerAdBusinessPicsCollectionViewCell else {return UICollectionViewCell()}
             
-            cell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
+            cell.bannerAd = BusinessBannerAdController.businessAdArray[indexPath.row % BusinessBannerAdController.businessAdArray.count]
             return cell
             
         case genreCollectionView:
@@ -491,9 +491,11 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         subControl.userFeaturesAvailableCheck(feature: subControl.showReminders, viewController: self) {
             guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return}
             guard let show = currentBand?.xityShows[selected.row].show else {return}
-            timeController.dateFormatter.dateFormat = timeController.dayMonthDay
+            guard let venue = XityBusinessController.businessArray.first(where: {$0.business.venueID == show.venue})?.business.name else {return}
+            guard let band = XityBandController.bandArray.first(where: {$0.band.bandID == show.band})?.band.name else {return}
+            timeController.dateFormatter.dateFormat = timeController.dayMonthDayYearTime
             let date = timeController.dateFormatter.string(from: show.date)
-            let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(show.band)\n Location: \(show.venue)\n Time: \(date)", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(band)\n Location: \(venue)\n Time: \(date)", preferredStyle: .actionSheet)
             let alertAction2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let alertAction1 = UIAlertAction(title: "Add Show", style: .default) { _ in
                 DispatchQueue.main.async {
@@ -564,7 +566,7 @@ extension BandDetailViewController: EKEventViewDelegate {
         guard let show = currentBand?.xityShows[selected.row] else {return EKEvent()}
         timeController.dateFormatter.dateFormat = timeController.monthDayYear
         let date = timeController.dateFormatter.string(from: show.show.date)
-        let venue = businessController.businessArray.first(where: {$0.name == show.show.venue})
+        let venue = XityBusinessController.businessArray.first(where: {$0.business.venueID == show.show.venue})
         let eventShow = EKEvent(eventStore: store)
         let headsUpAlarm = EKAlarm(absoluteDate: show.show.date - 10800)
         headsUpAlarm.structuredLocation = mapForEvent(venueName: "You made it!")
@@ -572,10 +574,10 @@ extension BandDetailViewController: EKEventViewDelegate {
         eventShow.title = "\(show.band.name)'s \(date) Show"
         eventShow.startDate = show.show.date
         eventShow.endDate = show.show.date + 10800
-        eventShow.location = venue?.address
-        eventShow.notes = "\(show.band.name)'s show is EXACTLY what you need to destress and have a good time for a couple hours. And don't forget to check and see if \(venue?.name ?? "this venue") has any exclusive deals you can use tonight!"
+        eventShow.location = venue?.business.address
+        eventShow.notes = "\(show.band.name)'s show is EXACTLY what you need to destress and have a good time for a couple hours."
         eventShow.alarms = [headsUpAlarm, showStartAlarm]
-        let structLocation = mapForEvent(venueName: venue?.name ?? "The shows venue")
+        let structLocation = mapForEvent(venueName: venue?.business.name ?? "The shows venue")
         eventShow.structuredLocation = structLocation
 
         return eventShow
@@ -604,10 +606,10 @@ extension BandDetailViewController: EKEventViewDelegate {
     private func mapForEvent(venueName: String) -> EKStructuredLocation {
         guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return EKStructuredLocation()}
         guard let venueName = currentBand?.xityShows[selected.row].show.venue else {return EKStructuredLocation()}
-        guard let venue = businessController.businessArray.first(where: {$0.name == venueName}) else {return EKStructuredLocation()}
+        guard let venue = XityBusinessController.businessArray.first(where: {$0.business.name == venueName}) else {return EKStructuredLocation()}
         let geoCoder = CLGeocoder()
         let structLocation = EKStructuredLocation(title: venueName)
-        geoCoder.geocodeAddressString(venue.address) { placemarks, error in
+        geoCoder.geocodeAddressString(venue.business.address) { placemarks, error in
             if let error = error {
                 NSLog(error.localizedDescription)
             }

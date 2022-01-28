@@ -234,7 +234,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
         case bannerAdCollectionView:
             bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
             //% for indexpath to allow for infinite loop: See Banner Ad Section
-            bannerAdCell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
+            bannerAdCell.bannerAd = BusinessBannerAdController.businessAdArray[indexPath.row % BusinessBannerAdController.businessAdArray.count]
             return bannerAdCell
             
         default:

@@ -209,7 +209,7 @@ class VenueDetailViewController: UIViewController {
             endTimer()
             guard let destinationVC = segue.destination as? BandDetailViewController else {return}
             let band = featuredShow?.band.name
-            let currentBand = xityBandController.bandArray.first(where: {$0.band.name == band})
+            let currentBand = XityBandController.bandArray.first(where: {$0.band.name == band})
             destinationVC.currentBand = currentBand
         }
         // Pass the selected object to the new view controller.

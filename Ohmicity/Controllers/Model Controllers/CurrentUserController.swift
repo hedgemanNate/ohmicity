@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import FirebaseFirestore
 
 class CurrentUserController {
     
@@ -19,7 +20,7 @@ class CurrentUserController {
     var preferredCity: City = .All {
         didSet {
             currentUser?.preferredCity = preferredCity
-            xityShowController.todayShowArrayFilter = preferredCity
+            XityShowController.todayShowArrayFilter = preferredCity
             //Can be more financially efficient
         }
         
@@ -42,9 +43,10 @@ class CurrentUserController {
                         //MARK: BETA
                         checkForNilProperties(currentUser: user)
                         self.currentUser = user
-                        self.setUpQonversionPurchasing {
-                            self.setUpCurrentUserPreferences()
-                        }
+                        self.setUpCurrentUserPreferences()
+//                        self.setUpQonversionPurchasing {
+//                            self.setUpCurrentUserPreferences()
+//                        }
                         
                     } else {
                         NSLog("User Data Not Found In Database")
@@ -101,7 +103,7 @@ class CurrentUserController {
         userAdController.setUpAdsAndFeaturesForUser()
         
         //Preferred City Setup
-        xityShowController.todayShowArrayFilter = currentUser?.preferredCity ?? .All
+        XityShowController.todayShowArrayFilter = currentUser?.preferredCity ?? .All
     }
     
     func pushCurrentUserData() {

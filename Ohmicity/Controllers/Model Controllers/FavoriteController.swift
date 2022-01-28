@@ -47,15 +47,15 @@ extension FavoriteController {
     
     static func createFavorite(objectID: String) {
         if currentUserController.currentUser == nil {return}
-        if bandController.bandArray.contains(where: {$0.bandID == objectID}) {
-            let foundBand = bandController.bandArray.first(where: {$0.bandID == objectID})
+        if BandController.bandArray.contains(where: {$0.bandID == objectID}) {
+            let foundBand = BandController.bandArray.first(where: {$0.bandID == objectID})
             guard let foundBand = foundBand else {return}
             let newFav = Favorite(bandFavorite: foundBand)
             favoritesArray.append(newFav)
             
         } else {
-            if businessController.businessArray.contains(where: {$0.venueID == objectID}) {
-                let foundVenue = businessController.businessArray.first(where: {$0.venueID == objectID})
+            if BusinessController.businessArray.contains(where: {$0.venueID == objectID}) {
+                let foundVenue = BusinessController.businessArray.first(where: {$0.venueID == objectID})
                 guard let foundVenue = foundVenue else {return}
                 let newFav = Favorite(venueFavorite: foundVenue)
                 favoritesArray.append(newFav)

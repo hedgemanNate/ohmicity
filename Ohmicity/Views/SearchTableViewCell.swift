@@ -49,7 +49,7 @@ class SearchTableViewCell: UITableViewCell {
                 
                 if xityBand.xityShows.first != nil {
                     let venueID = xityBand.xityShows.first?.business.venueID
-                    let venueName = businessController.businessArray.first(where: {$0.venueID == venueID})?.name
+                    let venueName = XityBusinessController.businessArray.first(where: {$0.business.venueID == venueID})?.business.name
                     secondNameLabel.text = "Next Show: \(venueName ?? "None Scheduled")"
                 } else {
                     secondNameLabel.text = "None Scheduled"
@@ -77,7 +77,7 @@ class SearchTableViewCell: UITableViewCell {
                     
                     if xityBusiness.xityShows.first != nil {
                         let bandID = xityBusiness.xityShows.first?.band.bandID
-                        let bandName = bandController.bandArray.first(where: {$0.bandID == bandID})?.name
+                        let bandName = XityBandController.bandArray.first(where: {$0.band.bandID == bandID})?.band.name
                         secondNameLabel.text = "Next Show: \(bandName ?? "None Scheduled")"
                     } else {
                         secondNameLabel.text = "None Scheduled"

@@ -38,12 +38,12 @@ struct Favorite: Hashable {
         var venue: Business?
         var type: FavoriteType?
         
-        if let foundBand = bandController.bandArray.first(where: {$0.bandID == favoriteID}) {
-            band = foundBand
+        if let foundBand = XityBandController.bandArray.first(where: {$0.band.bandID == favoriteID}) {
+            band = foundBand.band
             venue = nil
             type = .band
-        } else if let foundVenue = businessController.businessArray.first(where: {$0.venueID == favoriteID}) {
-            venue = foundVenue
+        } else if let foundVenue = XityBusinessController.businessArray.first(where: {$0.business.venueID == favoriteID}) {
+            venue = foundVenue.business
             band = nil
             type = .venue
         }

@@ -12,7 +12,7 @@ class BandSearchViewController: UIViewController {
     
     //Properties
     var bandResultsArray = [XityBand]()
-    var bandArray = xityBandController.bandArray
+    //var bandArray = XityBandController.bandArray
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bannerAdCollectionView: UICollectionView!
@@ -55,7 +55,7 @@ class BandSearchViewController: UIViewController {
     private func setUpCollectionAndTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        bandResultsArray = bandArray
+        bandResultsArray = XityBandController.bandArray
         arrangeBandResultsArray()
         
         bannerAdCollectionView.dataSource = self
@@ -200,7 +200,7 @@ extension BandSearchViewController: UICollectionViewDataSource, UICollectionView
         var bannerAdCell = BannerAdBusinessPicsCollectionViewCell()
         bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
         //% for indexpath to allow for infinite loop: See Banner Ad Section
-        bannerAdCell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
+        bannerAdCell.bannerAd = BusinessBannerAdController.businessAdArray[indexPath.row % BusinessBannerAdController.businessAdArray.count]
         return bannerAdCell
     }
     
@@ -220,10 +220,10 @@ extension BandSearchViewController: UISearchBarDelegate {
     
     private func startSearch(searchText: String) {
         if searchText == "" {
-            bandResultsArray = xityBandController.bandArray
+            bandResultsArray = XityBandController.bandArray
             arrangeBandResultsArray()
         } else {
-            bandResultsArray = xityBandController.bandArray.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
+            bandResultsArray = XityBandController.bandArray.filter({$0.band.name.localizedCaseInsensitiveContains(searchText)})
             arrangeBandResultsArray()
         }
     }

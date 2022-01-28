@@ -10,37 +10,37 @@ import Foundation
 class XityShowController {
     
     //Properties
-    var showArray = [XityShow]() 
+    static var showArray = [XityShow]()
     
-    var todayShowArray: [XityShow] = [] {
+    static var todayShowArray: [XityShow] = [] {
         didSet {
             let xitySet = Set(showArray)
             showArray = Array(xitySet)
             todayShowResultsArray = todayShowArray
         }
     }
-    var todayShowResultsArray: [XityShow] = [] {
+    static var todayShowResultsArray: [XityShow] = [] {
         didSet {
             todayShowResultsArray.sort(by: {$0.show.date < $1.show.date})
         }
     }
-    var weeklyPicksArray = [XityShow]() {
+    static var weeklyPicksArray = [XityShow]() {
         didSet {
             let set = Set(weeklyPicksArray)
             weeklyPicksArray = Array(set)
             weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
         }
     }
-    var xityShowSearchArray = [XityShow]()
+    static var xityShowSearchArray = [XityShow]()
     
-    var todayShowArrayFilter: City = .All {
+    static var todayShowArrayFilter: City = .All {
         didSet {
             todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
             notificationCenter.post(notifications.reloadDashboardCVData)
         }
     }
     
-    func getWeeklyPicks() {
+    static func getWeeklyPicks() {
         weeklyPicksArray = []
         let monday = Date().next(.monday)
         
@@ -71,10 +71,10 @@ class XityShowController {
         opQueue.addOperations([op1, op2, op3], waitUntilFinished: false)
     }
     
-    func fillXityShowArray() {
-        for show in showController.showArray {
-            guard let band = bandController.bandArray.first(where: {$0.bandID == show.band}) else {continue}
-            guard let business = businessController.businessArray.first(where: {$0.venueID == show.venue}) else {continue}
+    static func fillXityShowArray() {
+        for show in ShowController.showArray {
+            guard let band = BandController.bandArray.first(where: {$0.bandID == show.band}) else {continue}
+            guard let business = BusinessController.businessArray.first(where: {$0.venueID == show.venue}) else {continue}
             
             let xityShow = XityShow(band: band, business: business, show: show)
             showArray.append(xityShow)

@@ -20,6 +20,8 @@ class DashboardViewController: UIViewController {
     let bandFavSegue = "BandFromFav"
     let dealsSoonSegue = "DealsComingSoonSegue"
     
+    var sharedIndexPath = IndexPath()
+    
     //Banner
     var timer = Timer()
     
@@ -83,11 +85,11 @@ class DashboardViewController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.tintColor = UIColor.clear
         
-        let todayFilter = xityShowController.todayShowResultsArray.filter({$0.show.date >= timeController.threeHoursAgo})
-        xityShowController.todayShowResultsArray = todayFilter
+        let todayFilter = XityShowController.todayShowResultsArray.filter({$0.show.date >= timeController.threeHoursAgo})
+        XityShowController.todayShowResultsArray = todayFilter
         
-        let weeklyFilter = xityShowController.weeklyPicksArray.filter({$0.show.date >= timeController.threeHoursAgo})
-        xityShowController.weeklyPicksArray = weeklyFilter
+        let weeklyFilter = XityShowController.weeklyPicksArray.filter({$0.show.date >= timeController.threeHoursAgo})
+        XityShowController.weeklyPicksArray = weeklyFilter
         
         reloadData()
     }
@@ -140,7 +142,7 @@ extension DashboardViewController {
             hiddenSignUpView.isHidden = true
         }
         
-        if xityShowController.weeklyPicksArray.count == 0 {
+        if XityShowController.weeklyPicksArray.count == 0 {
             noShowsView.isHidden = false
         } else {
             noShowsView.isHidden = true
@@ -149,27 +151,27 @@ extension DashboardViewController {
     }
     
     @objc private func reloadData() {
-        let temp = xityShowController.todayShowResultsArray.filter({$0.show.date > timeController.threeHoursAgo})
-        xityShowController.todayShowResultsArray = temp
+        let temp = XityShowController.todayShowResultsArray.filter({$0.show.date > timeController.threeHoursAgo})
+        XityShowController.todayShowResultsArray = temp
         
         DispatchQueue.main.async { [self] in
             self.todayCollectionView.reloadData()
             self.favoritesCollectionView.reloadData()
             self.xityPickCollectionView.reloadData()
         
-            switch xityShowController.todayShowArrayFilter {
+            switch XityShowController.todayShowArrayFilter {
             case .Sarasota:
-                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(XityShowController.todayShowArrayFilter.rawValue)"
             case .Bradenton:
-                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(XityShowController.todayShowArrayFilter.rawValue)"
             case .Venice:
-                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(XityShowController.todayShowArrayFilter.rawValue)"
             case .StPete:
-                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(XityShowController.todayShowArrayFilter.rawValue)"
             case .Tampa:
-                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(XityShowController.todayShowArrayFilter.rawValue)"
             case .Ybor:
-                cityFilterLabel.text = "~Shows in \(xityShowController.todayShowArrayFilter.rawValue)"
+                cityFilterLabel.text = "~Shows in \(XityShowController.todayShowArrayFilter.rawValue)"
             case .All:
                 cityFilterLabel.text = "~Filter Shows By City"
             }
@@ -218,7 +220,7 @@ extension DashboardViewController {
     @objc private func updateViews() {
         //userAdController.setUpAdsAndFeaturesForUser()
         handleHidden()
-        showController.removeHolds()
+        ShowController.removeHolds()
         setupUpCollectionViews()
         
         //UI Adjustments
@@ -369,7 +371,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             if subscriptionController.seeAllData == false {
                 var index = 0
                 halfTodayShows = [XityShow]()
-                for show in xityShowController.todayShowArray {
+                for show in XityShowController.todayShowArray {
                     if index % 2 == 0 {
                         halfTodayShows.append(show)
                     }
@@ -377,14 +379,14 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
                 }
                 return halfTodayShows.count
             } else {
-                return xityShowController.todayShowResultsArray.count
+                return XityShowController.todayShowResultsArray.count
             }
             
         case xityExclusivesCollectionView:
-            return businessController.citiesArray.count
+            return BusinessController.citiesArray.count
             
         case venueCollectionView:
-            return businessController.businessTypeArray.count
+            return BusinessController.businessTypeArray.count
             
         case favoritesCollectionView:
             if subscriptionController.favorites {
@@ -400,15 +402,15 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case xityPickCollectionView:
             if currentUserController.currentUser == nil {
-                xityShowController.weeklyPicksArray.shuffle()
-                if xityShowController.weeklyPicksArray.count < 1 {
-                    return xityShowController.weeklyPicksArray.count
+                XityShowController.weeklyPicksArray.shuffle()
+                if XityShowController.weeklyPicksArray.count < 1 {
+                    return XityShowController.weeklyPicksArray.count
                 } else {
                     return 1
                 }
             } else {
-                xityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
-                return xityShowController.weeklyPicksArray.count
+                XityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
+                return XityShowController.weeklyPicksArray.count
             }
         default:
             return 4
@@ -428,7 +430,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case bannerAdCollectionView:
             bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
             //% for indexpath to allow for infinite loop: See Banner Ad Section
-            bannerAdCell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
+            bannerAdCell.bannerAd = BusinessBannerAdController.businessAdArray[indexPath.row % BusinessBannerAdController.businessAdArray.count]
             return bannerAdCell
             
         case todayCollectionView:
@@ -438,18 +440,18 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
                 venueCell.venue = halfTodayShows[indexPath.row].business
                 return venueCell
             } else {
-                venueCell.venue = xityShowController.todayShowResultsArray[indexPath.row].business
+                venueCell.venue = XityShowController.todayShowResultsArray[indexPath.row].business
                 return venueCell
             }
             
         case xityExclusivesCollectionView:
             cityCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as! CitiesCollectionViewCell
-            cityCell.city = businessController.citiesArray[indexPath.row]
+            cityCell.city = BusinessController.citiesArray[indexPath.row]
             return cityCell
             
         case venueCollectionView:
             businessTypeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessTypeCell", for: indexPath) as! CitiesCollectionViewCell
-            businessTypeCell.businessType = businessController.businessTypeArray[indexPath.row]
+            businessTypeCell.businessType = BusinessController.businessTypeArray[indexPath.row]
             return businessTypeCell
             
         case favoritesCollectionView:
@@ -470,7 +472,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case xityPickCollectionView:
             xityPickCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeeklyCell", for: indexPath) as! BandVenueCollectionViewCell
-            xityPickCell.xityPick = xityShowController.weeklyPicksArray[indexPath.row]
+            xityPickCell.xityPick = XityShowController.weeklyPicksArray[indexPath.row]
             return xityPickCell
         default:
             return cell
@@ -484,9 +486,11 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
 
         switch collectionView {
         case todayCollectionView:
+            sharedIndexPath = indexPath
             checkForAdThenSegue(to: todaySegue)
             
         case favoritesCollectionView:
+            sharedIndexPath = indexPath
             if FavoriteController.favoritesArray[indexPath.row].venueFavorite != nil {
                 checkForAdThenSegue(to: venueFavSegue)
             } else {
@@ -494,9 +498,11 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             }
             
         case xityPickCollectionView:
+            sharedIndexPath = indexPath
             checkForAdThenSegue(to: xityPickSegue)
             
         case xityExclusivesCollectionView:
+            sharedIndexPath = indexPath
             performSegue(withIdentifier: "DealsComingSoonSegue", sender: self)
         default:
             break
@@ -509,15 +515,14 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
          //Pass the selected object to the new view controller.
         if segue.identifier == todaySegue {
             endTimer()
-            let indexPath = todayCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            var selected = xityShowController.todayShowResultsArray[indexPath!.row]
+            var selected = XityShowController.todayShowResultsArray[sharedIndexPath.row]
             if subscriptionController.seeAllData == false {
-                selected = halfTodayShows[indexPath!.row]
+                selected = halfTodayShows[sharedIndexPath.row]
             }
             
             let business = selected.business
-            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
+            let xityBusiness = XityBusinessController.businessArray.first(where: {$0.business == business})
             businessVC.currentBusiness = xityBusiness
             businessVC.featuredShow = selected
             
@@ -525,11 +530,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         
         if segue.identifier == venueFavSegue {
             endTimer()
-            let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let business = FavoriteController.favoritesArray[indexPath!.row].venueFavorite
+            let business = FavoriteController.favoritesArray[sharedIndexPath.row].venueFavorite
             
-            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == business})
+            let xityBusiness = XityBusinessController.businessArray.first(where: {$0.business == business})
             xityBusiness?.xityShows.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             
             businessVC.featuredShow = xityBusiness?.xityShows.first
@@ -538,11 +542,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         
         if segue.identifier == bandFavSegue {
             endTimer()
-            let indexPath = favoritesCollectionView.indexPathsForSelectedItems?.first
             guard let bandVC = segue.destination as? BandDetailViewController else {return}
-            let band = FavoriteController.favoritesArray[indexPath!.row].bandFavorite
+            let band = FavoriteController.favoritesArray[sharedIndexPath.row].bandFavorite
             
-            let xityBand = xityBandController.bandArray.first(where: {$0.band == band})
+            let xityBand = XityBandController.bandArray.first(where: {$0.band == band})
             xityBand?.xityShows.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
             
             bandVC.currentBand = xityBand
@@ -550,10 +553,9 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         
         if segue.identifier == xityPickSegue {
             endTimer()
-            let indexPath = xityPickCollectionView.indexPathsForSelectedItems?.first
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
-            let pick = xityShowController.weeklyPicksArray[indexPath!.row]
-            let xityBusiness = xityBusinessController.businessArray.first(where: {$0.business == pick.business})
+            let pick = XityShowController.weeklyPicksArray[sharedIndexPath.row]
+            let xityBusiness = XityBusinessController.businessArray.first(where: {$0.business == pick.business})
             businessVC.currentBusiness = xityBusiness
             businessVC.featuredShow = pick
             

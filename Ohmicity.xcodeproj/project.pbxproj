@@ -131,6 +131,7 @@
 		F6AB4F5D270CFD80004C164C /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F6AB4F5C270CFD80004C164C /* Qonversion */; };
 		F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB4F5E270D0308004C164C /* PurchaseController.swift */; };
 		F6AB4F61270DAF50004C164C /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6AB4F60270DAF4C004C164C /* search.jpg */; };
+		F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -285,6 +286,7 @@
 		F69EEB8626FD8124001C342E /* BandSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandSearchViewController.swift; sourceTree = "<group>"; };
 		F6AB4F5E270D0308004C164C /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
 		F6AB4F60270DAF4C004C164C /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
+		F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionBandController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 				F6869B5027018AEB00421019 /* RatingsController.swift */,
 				F6869B522701911D00421019 /* RecommendationController.swift */,
 				F638378C2793FBD800838858 /* ProductionShowController.swift */,
+				F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */,
 				F6E10DF7279508DB009353BE /* FavoriteController.swift */,
 			);
 			path = "Model Controllers";
@@ -931,6 +934,7 @@
 				F676F0FF269947B300C47599 /* BandController.swift in Sources */,
 				F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */,
 				F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */,
+				F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */,
 				F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */,
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
 				F63D191C27006818004379D5 /* RatingsViewController.swift in Sources */,

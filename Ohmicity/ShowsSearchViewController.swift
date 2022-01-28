@@ -96,12 +96,13 @@ class ShowsSearchViewController: UIViewController {
         bannerAdCollectionView.delegate = self
         
         //Show Data
-        sortedArray = xityShowController.showArray.filter({$0.show.date >= timeController.threeHoursAgo})
+        sortedArray = XityShowController.showArray.filter({$0.show.date >= timeController.threeHoursAgo})
         sortedArray.sort(by: {$0.show.date < $1.show.date})
         sections = GroupedSection.group(array: sortedArray, by: {theDayOfTheShow(day: $0.show.date)})
         sections.sort { lhs, rhs in lhs.date < rhs.date }
         
         filteredSections = sections
+        sortedArray = []
     }
     
     @objc private func reloadData() {
@@ -269,7 +270,7 @@ class ShowsSearchViewController: UIViewController {
         if segue.identifier == "BandSegue" {
             guard let bandDetailVC = segue.destination as? BandDetailViewController else {return}
             let bandID = filteredSections[section].showsForDate[row].band.bandID
-            let band = xityBandController.bandArray.first(where: {$0.band.bandID == bandID})
+            let band = XityBandController.bandArray.first(where: {$0.band.bandID == bandID})
             bandDetailVC.currentBand = band
             
         }
@@ -278,7 +279,7 @@ class ShowsSearchViewController: UIViewController {
             guard let venueDetailVC = segue.destination as? VenueDetailViewController else {return}
             let show = filteredSections[section].showsForDate[row]
             let venueID = filteredSections[section].showsForDate[row].business.venueID
-            let venue = xityBusinessController.businessArray.first(where: {$0.business.venueID == venueID})
+            let venue = XityBusinessController.businessArray.first(where: {$0.business.venueID == venueID})
             venueDetailVC.currentBusiness = venue
             venueDetailVC.featuredShow = show
         }
@@ -376,7 +377,7 @@ extension ShowsSearchViewController: UICollectionViewDataSource, UICollectionVie
         var bannerAdCell = BannerAdBusinessPicsCollectionViewCell()
         bannerAdCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerAdCell", for: indexPath) as! BannerAdBusinessPicsCollectionViewCell
         //% for indexpath to allow for infinite loop: See Banner Ad Section
-        bannerAdCell.bannerAd = businessBannerAdController.businessAdArray[indexPath.row % businessBannerAdController.businessAdArray.count]
+        bannerAdCell.bannerAd = BusinessBannerAdController.businessAdArray[indexPath.row % BusinessBannerAdController.businessAdArray.count]
         return bannerAdCell
     }
     

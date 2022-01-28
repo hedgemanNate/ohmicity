@@ -46,4 +46,12 @@ extension Show {
         self.bandDisplayName = displayName
         self.date = date
     }
+    
+    init(singleShow: SingleProductionShow) {
+        self.showID = singleShow.showID
+        self.band = singleShow.band
+        self.venue = singleShow.venue
+        self.bandDisplayName = singleShow.bandDisplayName
+        self.date = singleShow.date
+    }
 }

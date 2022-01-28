@@ -10,28 +10,12 @@ import Foundation
 class XityBandController {
     
     //Properties
-    var bandArray = [XityBand]() {
+    static var bandArray = [XityBand]() {
         didSet {
             let set = Set(bandArray)
             bandArray = Array(set)
+            bandArray.sort(by: {$0.band.name < $1.band.name})
         }
-    }
-    
-    func fillXityBandArray() {
-        bandArray = []
-        for band in bandController.bandArray {
-            let newBand = XityBand(band: band)
-            for show in xityShowController.showArray {
-                if show.band == band {
-                    newBand.xityShows.append(show)
-                }
-            }
-            let orderedShows = newBand.xityShows.sorted(by: {$0.show.date.compare($1.show.date) == .orderedAscending})
-            newBand.xityShows = orderedShows
-            self.bandArray.append(newBand)
-        }
-        bandArray.removeDuplicates()
     }
 }
 
-let xityBandController = XityBandController()

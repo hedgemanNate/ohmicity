@@ -8,14 +8,6 @@
 import Foundation
 
 class XityBusiness: Equatable, Hashable {
-    static func == (lhs: XityBusiness, rhs: XityBusiness) -> Bool {
-        return lhs.business.venueID == rhs.business.venueID
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(business)
-    }
-    
     //Properties
     let business: Business
     var xityShows = [XityShow]() {
@@ -26,8 +18,26 @@ class XityBusiness: Equatable, Hashable {
         }
     }
     
+    static func == (lhs: XityBusiness, rhs: XityBusiness) -> Bool {
+        return lhs.business.venueID == rhs.business.venueID
+    }
     
-    init(business: Business) {
-        self.business = business
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(business)
+    }
+    
+    
+    
+    
+    init(venue: Business) {
+        self.business = venue
+        
+        for show in XityShowController.showArray {
+            if show.business.venueID == venue.venueID {
+                self.xityShows.append(show)
+            }
+        }
+        
+        XityBusinessController.businessArray.append(self)
     }
 }
