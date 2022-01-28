@@ -113,7 +113,7 @@ extension NewLoaderViewController {
             
             
             group.enter()
-            FireStoreReferenceManager.businessBannerAdDataPath.getDocuments { snap, err in
+            FireStoreReferenceManager.bannerDataPath.getDocuments { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
                 } else {

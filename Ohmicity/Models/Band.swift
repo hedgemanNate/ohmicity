@@ -47,6 +47,10 @@ class Band: Codable, Equatable, Hashable {
         photo = singleBand.photo
         genre = singleBand.genre
         mediaLink = singleBand.mediaLink
+        
+        if singleBand.genre == [] {
+            genre.append(Genre.NA)
+        }
     }
 
 }
