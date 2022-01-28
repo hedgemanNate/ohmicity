@@ -53,7 +53,10 @@ class CitiesCollectionViewCell: UICollectionViewCell {
             if let bandGenre = bandGenre {
                 imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).png")
                 nameLabel.text = ""
-            } 
+            } else {
+                imageView.image = UIImage(named: "na.png")
+                nameLabel.text = ""
+            }
         }
     }
     
