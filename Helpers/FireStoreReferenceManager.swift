@@ -22,7 +22,7 @@ class FireStoreReferenceManager {
         }
         
         if inDevelopment == false {
-            switchData = "remoteData"
+            switchData = "productionData"
         }
         return switchData
     }
@@ -31,16 +31,12 @@ class FireStoreReferenceManager {
     
     static let fireDataBase = Firestore.firestore()
     
-    static let bandsRatingsDataPath = fireDataBase.collection(environment).document(environment).collection("bandRatingsData")
-    static let userDataPath = fireDataBase.collection(environment).document(environment).collection("userData")
-    static let businessBannerAdDataPath = fireDataBase.collection(environment).document(environment).collection("businessBannerAdData")
-    
-    //static let businessFullDataPath = fireDataBase.collection(switchData).document(switchData).collection("businessFullData")
-    
+    static let userDataPath = fireDataBase.collection("productionData").document("productionData").collection("allUserData")
     
     static let bandDataPath = fireDataBase.collection(switchData).document(switchData).collection("allBandData")
     static let showDataPath = fireDataBase.collection(switchData).document(switchData).collection("allShowData")
     static let venueDataPath = fireDataBase.collection(switchData).document(switchData).collection("allVenueData")
+    static let bannerDataPath = fireDataBase.collection(switchData).document(switchData).collection("allBannerData")
     
     static let recommendationPath = fireDataBase.collection(switchData).document(switchData).collection("recommendationData")
     static let xitySupportDataPath = fireDataBase.collection(switchData).document(switchData).collection("xitySupportData")
