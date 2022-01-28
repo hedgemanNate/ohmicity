@@ -10,9 +10,7 @@ import FirebaseCore
 import FirebaseFirestore
 
 class FireStoreReferenceManager {
-    private static var environment = "remoteData"
-    
-    static let inDevelopment = true
+    static let inDevelopment = false
     
     private static var switchData: String {
         var switchData = ""
