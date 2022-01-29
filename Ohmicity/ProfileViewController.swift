@@ -17,10 +17,14 @@ class ProfileViewController: UIViewController {
     var timer = Timer()
     
     @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
-    @IBOutlet private weak var recommendButton: UIButton!
-    
+
+    //Card
+    @IBOutlet weak var profileCardView: UIView!
+    @IBOutlet weak var profilePhotoImage: UIImageView!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
+    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var profileLevelLabel: UILabel!
     
     //Buttons
     @IBOutlet weak var logoutButton: UIButton!
@@ -123,9 +127,24 @@ class ProfileViewController: UIViewController {
     
     //MARK: UpdateViews
     @objc private func updateViews() {
+        let version = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")"
+        
         logoutButton.layer.cornerRadius = 8
         privacyPolicyButton.layer.cornerRadius = 8
         endUserButton.layer.cornerRadius = 8
+        
+        profileCardView.layer.cornerRadius = 8
+        profileCardView.layer.borderColor = cc.highlightBlue.cgColor
+        profileCardView.layer.borderWidth = 2.5
+        
+        profileLevelLabel.textColor = cc.highlightBlue
+        
+        profilePhotoImage.layer.cornerRadius = profilePhotoImage.frame.height/2
+        profilePhotoImage.layer.borderColor = cc.highlightBlue.cgColor
+        profilePhotoImage.layer.borderWidth = 2.5
+        
+        updateButton.layer.cornerRadius = 8
+        
         
         logoutButton.backgroundColor = cc.highlightBlue
         privacyPolicyButton.backgroundColor = cc.highlightBlue
@@ -134,17 +153,10 @@ class ProfileViewController: UIViewController {
         updateLogButton()
         setupCollectionsView()
         
-        if currentUserController.currentUser == nil {
-            recommendButton.isEnabled = false
-            recommendButton.setTitle("Sign In To Recommend", for: .disabled)
-            userIDLabel.text = "--"
-        } else {
-            recommendButton.isEnabled = true
-            recommendButton.setTitle("Recommend", for: .normal)
-            userIDLabel.text = currentUserController.currentUser?.userID ?? "--"
-        }
+        userIDLabel.text = currentUserController.currentUser?.userID ?? "- -"
+        updateButton.setTitle("Current Version \(version)", for: .normal)
+        updateButton.setTitle("Current Version \(version)", for: .disabled)
         
-        versionLabel.text = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")"
         
         if currentUserController.currentUser?.email == "nate.hedgeman@gmail.com" || currentUserController.currentUser?.email == "tufflove8@gmail.com" {
             developmentButton.isHidden = false

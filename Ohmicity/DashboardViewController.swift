@@ -133,12 +133,12 @@ extension DashboardViewController {
     //UI Functions
     private func handleHidden() {
         if currentUserController.currentUser == nil {
-            weeklyButton.isHidden = true
-            xityPickCollectionView.isHidden = true
+            favoritesButton.isHidden = true
+            favoritesCollectionView.isHidden = true
             hiddenSignUpView.isHidden = false
         } else {
-            weeklyButton.isHidden = false
-            xityPickCollectionView.isHidden = false
+            favoritesButton.isHidden = false
+            favoritesCollectionView.isHidden = false
             hiddenSignUpView.isHidden = true
         }
         

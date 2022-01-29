@@ -149,11 +149,10 @@ class VenueDetailViewController: UIViewController {
             } else {
                 currentUser!.favoriteBusinesses.append(xityBusiness.business.venueID)
                 currentUser!.lastModified = Timestamp()
-                
+                FavoriteController.createFavorite(objectID: xityBusiness.business.venueID)
+                notificationCenter.post(notifications.userFavoritesUpdated)
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
-                    FavoriteController.createFavorite(objectID: xityBusiness.business.venueID)
-                    notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
                     }
@@ -162,6 +161,7 @@ class VenueDetailViewController: UIViewController {
                 }
             }
         }
+        notificationCenter.post(notifications.reloadDashboardCVData)
     }
     
     

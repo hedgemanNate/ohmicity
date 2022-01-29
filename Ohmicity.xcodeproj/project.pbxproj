@@ -133,6 +133,7 @@
 		F6AB4F61270DAF50004C164C /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6AB4F60270DAF4C004C164C /* search.jpg */; };
 		F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */; };
 		F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */; };
+		F6D17B4027A5DFCA00AD22F9 /* userIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D17B3F27A5DFC600AD22F9 /* userIcon.png */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -289,6 +290,7 @@
 		F6AB4F60270DAF4C004C164C /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
 		F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionBandController.swift; sourceTree = "<group>"; };
 		F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentViewController.swift; sourceTree = "<group>"; };
+		F6D17B3F27A5DFC600AD22F9 /* userIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userIcon.png; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 		F61C370526B64E5A00A2235B /* Button Icons And BG's */ = {
 			isa = PBXGroup;
 			children = (
+				F6D17B3F27A5DFC600AD22F9 /* userIcon.png */,
 				F687CD6C26F4980000412C07 /* xitySupportIcon.png */,
 				F61C370626B64E5A00A2235B /* directionsIcon.png */,
 				F61C370726B64E5A00A2235B /* listenButton.png */,
@@ -822,6 +825,7 @@
 				F644E85D2707FF1500FF81A8 /* dj.png in Resources */,
 				F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */,
 				F644E8602707FF1500FF81A8 /* experimental.png in Resources */,
+				F6D17B4027A5DFCA00AD22F9 /* userIcon.png in Resources */,
 				F696A73426AB7079009CB1BD /* tampa.png in Resources */,
 				F6DBFDAE26E9CE45001D7520 /* noAds.jpg in Resources */,
 				F6F3DB4826AF337C00C49016 /* bar.png in Resources */,

@@ -172,7 +172,7 @@ class BandDetailViewController: UIViewController {
         if currentUser != nil /*&& (currentUser?.subscription == .BackStagePass || currentUser?.subscription == .FullAccessPass) */{
             if currentUser!.favoriteBands.contains(currentBand.band.bandID) {
                 currentUser!.favoriteBands.removeAll(where: {$0 == currentBand.band.bandID})
-                NSLog("Business Removed From Favorites")
+                NSLog("Band Removed From Favorites")
                 currentUser!.lastModified = Timestamp()
                 
                 do {
@@ -189,11 +189,11 @@ class BandDetailViewController: UIViewController {
                 NSLog("\(currentBand.band.bandID) added to Favorites")
                 currentUser!.favoriteBands .append(currentBand.band.bandID)
                 currentUser!.lastModified = Timestamp()
+                FavoriteController.createFavorite(objectID: currentBand.band.bandID)
+                notificationCenter.post(notifications.userFavoritesUpdated)
                 
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
-                    FavoriteController.createFavorite(objectID: currentBand.band.bandID)
-                    notificationCenter.post(notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
                     }
@@ -206,7 +206,6 @@ class BandDetailViewController: UIViewController {
         } else if currentUser?.subscription == .FrontRowPass || currentUser?.subscription == .None {
             performSegue(withIdentifier: "ToPurchaseSegue", sender: self)
         }
-        
     }
     
     @IBAction func ratingsButtonTapped(_ sender: Any) {
@@ -300,10 +299,10 @@ class BandDetailViewController: UIViewController {
         let bandMedia = currentBand.band.mediaLink ?? ""
         
         if bandMedia == "" {
-            listenButton.setTitle("No Videos Found Of Them", for: .normal)
+            listenButton.setTitle("▶️ No Videos Of Them", for: .normal)
             listenButton.isEnabled = false
         } else {
-            listenButton.setTitle("▶️ Watch A Video Of Them", for: .normal)
+            listenButton.setTitle("▶️ Watch Their Video", for: .normal)
             listenButton.isEnabled = true
         }
         bandNameLabel.text = currentBand.band.name

@@ -14,5 +14,5 @@ class BandController {
     //Properties
     
     static var bandArray: [Band] = [] { didSet { /*function here*/  }}
-    static let genreTypeArray: [Genre] = [.Blues, .Country, .DJ, .Dance, .EDM, .EasyListening, .Experimental, .FunkSoul, .Gospel, .HipHop, .JamBand, .Jazz, .Metal, .Pop, .Reggae, .Rock]
+    static let genreTypeArray: [Genre] = [.Blues, .Country, .DJ, .Dance, .EDM, .EasyListening, .Experimental, .FunkSoul, .Gospel, .HipHop, .JamBand, .Jazz, .Metal, .Pop, .Reggae, .Rock, .SynthPop, .RnB, .Latin, .Folk, .Soul, .Americana, .ClassicRock, .World, .Alternative, .BlueGrass]
 }
