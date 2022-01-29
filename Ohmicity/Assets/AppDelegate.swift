@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let segmentedControlNormalStateTextColor = [NSAttributedString.Key.foregroundColor: UIColor.white]
         let segmentedControlSelectedStateTextColor = [NSAttributedString.Key.foregroundColor: UIColor.black]
+
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlSelectedStateTextColor, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(segmentedControlNormalStateTextColor, for: .normal)
         

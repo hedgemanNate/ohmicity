@@ -82,7 +82,6 @@ class ShowsSearchViewController: UIViewController {
     @objc private func updateViews() {
         tableView.contentInset.bottom = 50
         venueBandSegmentedController.selectedSegmentTintColor = cc.highlightBlue
-        
         setUpCollectionAndTableView()
         hideKeyboardWhenTappedAround()
         

@@ -439,7 +439,7 @@ extension VenueSearchViewController {
             guard let destinationVC = segue.destination as? VenueDetailViewController else {return}
             let indexPath = tableView.indexPathForSelectedRow
             
-            let business = businessResultsArray![indexPath!.row]
+        let business = businessResultsArray![indexPath!.row]
             destinationVC.currentBusiness = business
         }
     }

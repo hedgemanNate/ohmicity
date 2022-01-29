@@ -14,9 +14,6 @@ import Foundation
 class ProfileViewController: UIViewController {
     
     //Properties
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var privacyPolicyButton: UIButton!
-    
     var timer = Timer()
     
     @IBOutlet private weak var bannerAdCollectionView: UICollectionView!
@@ -25,8 +22,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
     
-    @IBOutlet weak var featureToggle: UIButton!
-    var feature = true
+    //Buttons
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var privacyPolicyButton: UIButton!
+    @IBOutlet weak var endUserButton: UIButton!
+    
+    //Development
+    @IBOutlet weak var developmentButton: UIButton!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,28 +99,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func featureToggleTapped(_ sender: Any) {
-        notificationCenter.post(notifications.userAuthUpdated)
-        
-        
-        if feature {
-            currentUserController.currentUser?.subscription = .FullAccessPass
-        } else {
-            currentUserController.currentUser?.subscription = .None
-        }
-        
-        feature.toggle()
-        
-        DispatchQueue.main.async { [self] in
-            if feature == true {
-            self.featureToggle.backgroundColor = .red
-            } else {
-                self.featureToggle.backgroundColor = .yellow
-            }
-        }
-        
-        print(subscriptionController.favorites, subscriptionController.seeAllData)
-    }
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
         if currentUserController.currentUser == nil {
@@ -140,6 +123,14 @@ class ProfileViewController: UIViewController {
     
     //MARK: UpdateViews
     @objc private func updateViews() {
+        logoutButton.layer.cornerRadius = 8
+        privacyPolicyButton.layer.cornerRadius = 8
+        endUserButton.layer.cornerRadius = 8
+        
+        logoutButton.backgroundColor = cc.highlightBlue
+        privacyPolicyButton.backgroundColor = cc.highlightBlue
+        endUserButton.backgroundColor = cc.highlightBlue
+        
         updateLogButton()
         setupCollectionsView()
         
@@ -154,6 +145,12 @@ class ProfileViewController: UIViewController {
         }
         
         versionLabel.text = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")"
+        
+        if currentUserController.currentUser?.email == "nate.hedgeman@gmail.com" || currentUserController.currentUser?.email == "tufflove8@gmail.com" {
+            developmentButton.isHidden = false
+        } else {
+            developmentButton.isHidden = true
+        }
     }
     
     
@@ -191,6 +188,7 @@ class ProfileViewController: UIViewController {
     }
     
     //MARK: ---- Functions End ----
+    
 }
 
 
@@ -245,12 +243,11 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     
     
     
-    // MARK: - Navigation
+    // MARK: Segue
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //self.hidesBottomBarWhenPushed = true
     }
     
 }

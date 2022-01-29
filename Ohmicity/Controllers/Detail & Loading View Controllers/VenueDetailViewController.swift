@@ -22,7 +22,7 @@ class VenueDetailViewController: UIViewController {
     
     //MARK: Properties
     let currentUser = currentUserController.currentUser
-    var currentBusiness: XityBusiness?
+    var currentBusiness: XityBusiness? {didSet{print(currentBusiness?.business.name)}}
     var featuredShow: XityShow?
     var bandMedia: String = ""
     var nextShowsArray = [Show]()

@@ -16,8 +16,6 @@ class RecommendViewController: UIViewController {
     @IBOutlet weak var explanationTextView: UITextView!
     
     @IBOutlet weak var sendButton: UIButton!
-    let db = Firestore.firestore().collection("remoteData").document("remoteData").collection("recommendationData")
-    let userDB = Firestore.firestore().collection("remoteData").document("remoteData").collection("userData")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +44,7 @@ class RecommendViewController: UIViewController {
         let rec = Recommendation(user: userID, businessName: venue, explanation: explain)
         
         do {
-            try db.document(rec.recommendationID).setData(from: rec, completion: { err in
+            try FireStoreReferenceManager.recommendationPath.document(rec.recommendationID).setData(from: rec, completion: { err in
                 if let err = err {
                     NSLog(err.localizedDescription)
                 } else {

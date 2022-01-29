@@ -155,7 +155,7 @@ Check your internet connection and try again. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-5m-R0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3949" y="-1470"/>
+            <point key="canvasLocation" x="-3203" y="-1418"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aWs-nU-x9A">
@@ -182,7 +182,7 @@ Check your internet connection and try again. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6b-M4-Dz8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3049" y="-1317"/>
+            <point key="canvasLocation" x="-2286" y="-1418"/>
         </scene>
         <!--Shows-->
         <scene sceneID="LMF-3p-EZa">
@@ -192,7 +192,7 @@ Check your internet connection and try again. </string>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="215-eA-XtH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1686" y="-3146"/>
+            <point key="canvasLocation" x="-1378" y="-3075"/>
         </scene>
         <!--XityDeals-->
         <scene sceneID="UUW-Xd-i90">
@@ -200,7 +200,7 @@ Check your internet connection and try again. </string>
                 <viewControllerPlaceholder storyboardName="XityDeals" id="Ykx-hl-rcX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fb-es-a19" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1586" y="-3079"/>
+            <point key="canvasLocation" x="-1085" y="-3076"/>
         </scene>
         <!--Venue-->
         <scene sceneID="wkN-mU-SbV">
@@ -208,7 +208,7 @@ Check your internet connection and try again. </string>
                 <viewControllerPlaceholder storyboardName="Venue" id="8qd-y1-hnj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgJ-0A-Yrf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-562" y="-3087"/>
+            <point key="canvasLocation" x="-108" y="-3076"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Iqo-pK-cSs">
@@ -222,7 +222,7 @@ Check your internet connection and try again. </string>
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="799"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -291,13 +291,13 @@ Check your internet connection and try again. </string>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
                                                         <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <color key="backgroundColor" red="0.24040266869999999" green="0.61070144179999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="gs3-Dk-9YE"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                                         <state key="normal" title="Log Out">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="logoutButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="8i1-ad-lL4"/>
@@ -305,13 +305,13 @@ Check your internet connection and try again. </string>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-H2-d2Z" userLabel="Privacy Policy">
                                                         <rect key="frame" x="0.0" y="71" width="372" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <color key="backgroundColor" red="0.24040266869999999" green="0.61070144179999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="uHg-Yf-NeO"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                                         <state key="normal" title="Privacy Policy">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="privacyPolicyButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="MvR-18-J6o"/>
@@ -319,13 +319,13 @@ Check your internet connection and try again. </string>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-y1-i4D" userLabel="Privacy Policy">
                                                         <rect key="frame" x="0.0" y="142" width="372" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <color key="backgroundColor" red="0.24040266869999999" green="0.61070144179999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="3v7-Mj-iDN"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                                         <state key="normal" title="EU License Agreement">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="licenseAgreementButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="1vy-a5-Zsa"/>
@@ -388,16 +388,6 @@ should be on Xity?</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVZ-Pd-fP0">
-                                                <rect key="frame" x="96" y="753" width="24" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
-                                                <connections>
-                                                    <action selector="featureToggleTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="TF8-0I-TVn"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8j-tu-aar">
                                                 <rect key="frame" x="9" y="687" width="250" height="21"/>
                                                 <constraints>
@@ -408,10 +398,26 @@ should be on Xity?</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9n-Sl-4zz">
+                                                <rect key="frame" x="261" y="723.33333333333337" width="158" height="28.333333333333371"/>
+                                                <color key="backgroundColor" red="0.1116280928" green="0.093091420829999993" blue="0.13905775549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="158" id="sqR-o2-62L"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Development">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="0.0"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="ZAu-pm-0g3" kind="show" id="lsq-9P-3Vu"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="1vh-iS-Xmu"/>
+                                            <constraint firstAttribute="trailing" secondItem="R9n-Sl-4zz" secondAttribute="trailing" constant="9" id="1vC-RY-8xd"/>
+                                            <constraint firstAttribute="height" constant="799" id="1vh-iS-Xmu"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="3Yh-gc-MA5"/>
                                             <constraint firstItem="g3I-Dd-R8F" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="4ML-bD-bye"/>
@@ -420,6 +426,7 @@ should be on Xity?</string>
                                             <constraint firstItem="n8j-tu-aar" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="9" id="LOF-vI-DBF"/>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="top" secondItem="e63-2g-Vlu" secondAttribute="bottom" constant="28" id="OSI-mZ-Zr8"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" id="TYF-81-BPZ"/>
+                                            <constraint firstItem="R9n-Sl-4zz" firstAttribute="top" secondItem="08x-3k-ohO" secondAttribute="bottom" constant="16" id="VdB-vL-ZBH"/>
                                             <constraint firstAttribute="trailing" secondItem="U03-DP-nhM" secondAttribute="trailing" constant="28" id="aqd-wZ-ike"/>
                                             <constraint firstItem="08x-3k-ohO" firstAttribute="top" secondItem="g3I-Dd-R8F" secondAttribute="bottom" constant="15" id="lD4-z2-H3j"/>
                                             <constraint firstAttribute="trailing" secondItem="g3I-Dd-R8F" secondAttribute="trailing" constant="9" id="lUR-NA-FKo"/>
@@ -432,7 +439,7 @@ should be on Xity?</string>
                                     <constraint firstItem="6oy-Bu-Xsa" firstAttribute="leading" secondItem="xyT-4S-Tzb" secondAttribute="leading" id="N7C-hc-jBR"/>
                                     <constraint firstAttribute="trailing" secondItem="6oy-Bu-Xsa" secondAttribute="trailing" id="PiZ-w7-gTU"/>
                                     <constraint firstItem="6oy-Bu-Xsa" firstAttribute="top" secondItem="xyT-4S-Tzb" secondAttribute="top" id="XZl-Ze-Hr5"/>
-                                    <constraint firstAttribute="bottom" secondItem="6oy-Bu-Xsa" secondAttribute="bottom" constant="-127" id="bKK-Yc-rA7"/>
+                                    <constraint firstAttribute="bottom" secondItem="6oy-Bu-Xsa" secondAttribute="bottom" id="bKK-Yc-rA7"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -451,7 +458,8 @@ should be on Xity?</string>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
-                        <outlet property="featureToggle" destination="NVZ-Pd-fP0" id="Bxu-yQ-HLa"/>
+                        <outlet property="developmentButton" destination="R9n-Sl-4zz" id="0EU-ZJ-bMr"/>
+                        <outlet property="endUserButton" destination="cw5-y1-i4D" id="nyE-tt-Kdo"/>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
                         <outlet property="recommendButton" destination="Fwy-YD-YlE" id="hxM-jl-EAm"/>
@@ -464,7 +472,99 @@ should be on Xity?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQH-xL-sX1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1766" y="-2760"/>
+            <point key="canvasLocation" x="224" y="-2164"/>
+        </scene>
+        <!--Development View Controller-->
+        <scene sceneID="1gx-sI-0re">
+            <objects>
+                <viewController id="ZAu-pm-0g3" customClass="DevelopmentViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="naW-Vx-drG">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="W7W-cq-f6J">
+                                <rect key="frame" x="120" y="310.66666666666669" width="188" height="221.66666666666669"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SSh-b0-WdR">
+                                        <rect key="frame" x="0.0" y="0.0" width="188" height="64.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn Ads Off or On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdF-bF-JXy">
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="25.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="dMS-lL-0D7">
+                                                <rect key="frame" x="0.0" y="33.333333333333314" width="51" height="31"/>
+                                                <color key="onTintColor" red="0.47600909009999998" green="0.28497480149999999" blue="0.70413423789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="adSwitchTapped:" destination="ZAu-pm-0g3" eventType="valueChanged" id="jFc-Ik-vI0"/>
+                                                    <action selector="adsSwitch:" destination="78K-M0-mTn" eventType="valueChanged" id="eln-R9-KAT"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-KG-yKn">
+                                        <rect key="frame" x="0.0" y="144.33333333333331" width="188" height="77.333333333333314"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Database" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5s-bP-afy">
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="25.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-iP-Noy">
+                                                <rect key="frame" x="0.0" y="46.333333333333314" width="188" height="32"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <segments>
+                                                    <segment title="Live"/>
+                                                    <segment title="Dev" width="92"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="selectedSegmentTintColor" red="0.47600909009999998" green="0.28497480149999999" blue="0.70413423789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="databaseSegTapped:" destination="ZAu-pm-0g3" eventType="valueChanged" id="pcU-wu-oOu"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za1-nO-h6q">
+                                <rect key="frame" x="179" y="582.33333333333337" width="70" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Done">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="19"/>
+                                    <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="ZAu-pm-0g3" eventType="touchUpInside" id="nCv-My-hLa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GkC-yS-8MT"/>
+                        <color key="backgroundColor" red="0.1116280928" green="0.093091420829999993" blue="0.13905775549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Za1-nO-h6q" firstAttribute="centerX" secondItem="naW-Vx-drG" secondAttribute="centerX" id="Aew-q0-rUc"/>
+                            <constraint firstItem="Za1-nO-h6q" firstAttribute="top" secondItem="W7W-cq-f6J" secondAttribute="bottom" constant="50" id="VmW-GA-jMe"/>
+                            <constraint firstItem="W7W-cq-f6J" firstAttribute="centerX" secondItem="naW-Vx-drG" secondAttribute="centerX" id="cDl-A5-lGS"/>
+                            <constraint firstItem="W7W-cq-f6J" firstAttribute="centerY" secondItem="naW-Vx-drG" secondAttribute="centerY" id="ztz-aQ-DGr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="IwM-IX-W6q"/>
+                    <connections>
+                        <outlet property="adsSwitch" destination="dMS-lL-0D7" id="IJu-Ke-mf6"/>
+                        <outlet property="databaseSeg" destination="w7i-iP-Noy" id="Q30-YI-jDV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5lx-tH-bYU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="78K-M0-mTn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="-2163"/>
         </scene>
         <!--Subscription-->
         <scene sceneID="9O0-4M-fwS">
@@ -472,7 +572,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="Subscription" id="OdV-4F-Qyt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQe-Mt-E8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="-2185"/>
+            <point key="canvasLocation" x="872" y="-3075"/>
         </scene>
         <!--Filter By City-->
         <scene sceneID="XSJ-gK-uvf">
@@ -545,7 +645,7 @@ should be on Xity?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrt-Kx-XKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1389.252336448598" y="-765.22678185745144"/>
+            <point key="canvasLocation" x="-558" y="-765"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="URJ-TY-WiF">
@@ -553,7 +653,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="SignIn" id="VkB-f5-0Se" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtj-5X-GBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2096" y="-3213"/>
+            <point key="canvasLocation" x="-1631" y="-3076"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="Xoh-KE-nbH">
@@ -620,7 +720,7 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="trailing" secondItem="sk0-Ih-96d" secondAttribute="trailing" id="ydN-lz-xgT"/>
                                                 </constraints>
                                             </view>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Kr-Wcq">
                                                 <rect key="frame" x="194" y="190" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.032125217740000003" green="1" blue="3.3306690740000002e-16" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -737,10 +837,10 @@ should be on Xity?</string>
                                                     <constraint firstAttribute="height" constant="268" id="zUy-ND-ADj"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
-                                                <rect key="frame" x="9" y="582" width="242" height="44"/>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
+                                                <rect key="frame" x="9" y="582" width="315" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Xity's Exclusive Deals">
+                                                <state key="normal" title="Xity's Exclusive Deals 🤑">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -855,9 +955,9 @@ should be on Xity?</string>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Weekly Button">
-                                                <rect key="frame" x="9" y="766" width="280" height="44"/>
+                                                <rect key="frame" x="9" y="766" width="316" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Xity's Picks Of The Week">
+                                                <state key="normal" title="Xity's Picks Of The Week 👍">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -932,9 +1032,9 @@ should be on Xity?</string>
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
-                                                <rect key="frame" x="9" y="1106" width="158" height="44"/>
+                                                <rect key="frame" x="9" y="1106" width="193" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Your Favorites">
+                                                <state key="normal" title="Your Favorites ❤️">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -1330,7 +1430,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="Band" id="DQx-hs-upo" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPH-Vr-1n2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278" y="-3087"/>
+            <point key="canvasLocation" x="169" y="-3076"/>
         </scene>
         <!--Recommend-->
         <scene sceneID="rim-5Z-1Yi">
@@ -1338,7 +1438,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="Recommend" id="qeh-Jj-CAA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZY-Tg-rN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64" y="-3078"/>
+            <point key="canvasLocation" x="493" y="-3076"/>
         </scene>
         <!--Subscription-->
         <scene sceneID="QZl-m3-Jvg">
@@ -1346,7 +1446,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="Subscription" id="Pg6-Ho-7vW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4jZ-XF-mVx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1273" y="-3087"/>
+            <point key="canvasLocation" x="-820" y="-3076"/>
         </scene>
         <!--Profile-->
         <scene sceneID="9kl-2i-Ufr">
@@ -1372,7 +1472,7 @@ should be on Xity?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4t-dZ-E6E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051" y="-2760"/>
+            <point key="canvasLocation" x="-491" y="-2164"/>
         </scene>
         <!--BandSearch-->
         <scene sceneID="JDd-c1-s0z">
@@ -1382,7 +1482,7 @@ should be on Xity?</string>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnD-PB-AeN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2598" y="-3087"/>
+            <point key="canvasLocation" x="-2270" y="-3075"/>
         </scene>
         <!--VenueSearch-->
         <scene sceneID="usV-Fo-Qnl">
@@ -1392,7 +1492,7 @@ should be on Xity?</string>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tab-Ba-4mE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2528" y="-2979"/>
+            <point key="canvasLocation" x="-2007" y="-3075"/>
         </scene>
         <!--LostConnection-->
         <scene sceneID="Ash-O7-Ciw">
@@ -1400,147 +1500,7 @@ should be on Xity?</string>
                 <viewControllerPlaceholder storyboardName="LostConnection" id="Cwc-vi-K0T" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXg-qh-AET" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-966" y="-3009"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="bF3-F7-bdf">
-            <objects>
-                <viewController id="O1b-Dj-41V" customClass="ProfileViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PDF-TR-oF8">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvB-pc-EdA">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtX-Gb-Q0A" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="921"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6X-RW-sb2" userLabel="Top Ad View">
-                                                <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
-                                                <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O04-EL-uyZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cZN-qv-00F">
-                                                            <size key="itemSize" width="428" height="252"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="BannerAdCell" id="hcW-Tk-yEQ" customClass="BannerAdBusinessPicsCollectionViewCell" customModule="Ohmicity" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.66666666666666663" width="428" height="252"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qar-2p-9Bk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="428" height="252"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WSL-Gh-dYD">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="428" height="252"/>
-                                                                        </imageView>
-                                                                    </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="WSL-Gh-dYD" firstAttribute="leading" secondItem="Qar-2p-9Bk" secondAttribute="leading" id="CL2-xy-IOc"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="WSL-Gh-dYD" secondAttribute="bottom" id="bjv-SA-2bj"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="WSL-Gh-dYD" secondAttribute="trailing" id="c9z-Lm-vjM"/>
-                                                                        <constraint firstItem="WSL-Gh-dYD" firstAttribute="top" secondItem="Qar-2p-9Bk" secondAttribute="top" id="yvu-Tb-f7d"/>
-                                                                    </constraints>
-                                                                </collectionViewCellContentView>
-                                                                <size key="customSize" width="428" height="252"/>
-                                                                <connections>
-                                                                    <outlet property="bannerImage" destination="WSL-Gh-dYD" id="Cni-Bg-9tJ"/>
-                                                                </connections>
-                                                            </collectionViewCell>
-                                                        </cells>
-                                                    </collectionView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="253" id="4eT-gv-TX1"/>
-                                                    <constraint firstAttribute="bottom" secondItem="O04-EL-uyZ" secondAttribute="bottom" id="J77-fj-qrO"/>
-                                                    <constraint firstItem="O04-EL-uyZ" firstAttribute="leading" secondItem="J6X-RW-sb2" secondAttribute="leading" id="Qzb-XK-LYR"/>
-                                                    <constraint firstAttribute="trailing" secondItem="O04-EL-uyZ" secondAttribute="trailing" id="SRL-4h-wIo"/>
-                                                    <constraint firstItem="O04-EL-uyZ" firstAttribute="top" secondItem="J6X-RW-sb2" secondAttribute="top" id="WV8-Fj-V5g"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="J6X-RW-sb2" firstAttribute="leading" secondItem="NtX-Gb-Q0A" secondAttribute="leading" id="Jo2-SK-ThY"/>
-                                            <constraint firstItem="J6X-RW-sb2" firstAttribute="top" secondItem="NtX-Gb-Q0A" secondAttribute="top" id="fIz-sR-2nv"/>
-                                            <constraint firstAttribute="height" constant="921" id="iib-tk-sFx"/>
-                                            <constraint firstAttribute="trailing" secondItem="J6X-RW-sb2" secondAttribute="trailing" id="ly8-TD-rNs"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="NtX-Gb-Q0A" firstAttribute="leading" secondItem="yvB-pc-EdA" secondAttribute="leading" id="TaH-bF-yGc"/>
-                                    <constraint firstAttribute="trailing" secondItem="NtX-Gb-Q0A" secondAttribute="trailing" id="Umo-D4-q0e"/>
-                                    <constraint firstAttribute="bottom" secondItem="NtX-Gb-Q0A" secondAttribute="bottom" constant="-127" id="spx-6Q-sow"/>
-                                    <constraint firstItem="NtX-Gb-Q0A" firstAttribute="top" secondItem="yvB-pc-EdA" secondAttribute="top" id="uRQ-wA-fG4"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="peL-SB-34g"/>
-                        <color key="backgroundColor" red="0.1137254902" green="0.094117647060000004" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NtX-Gb-Q0A" firstAttribute="width" secondItem="PDF-TR-oF8" secondAttribute="width" id="1BZ-LX-sCg"/>
-                            <constraint firstItem="yvB-pc-EdA" firstAttribute="bottom" secondItem="peL-SB-34g" secondAttribute="bottom" id="Btb-Hl-78P"/>
-                            <constraint firstItem="yvB-pc-EdA" firstAttribute="top" secondItem="peL-SB-34g" secondAttribute="top" id="YwP-pZ-2Bc"/>
-                            <constraint firstItem="yvB-pc-EdA" firstAttribute="trailing" secondItem="peL-SB-34g" secondAttribute="trailing" id="hoD-mo-dTl"/>
-                            <constraint firstItem="yvB-pc-EdA" firstAttribute="leading" secondItem="peL-SB-34g" secondAttribute="leading" id="u7E-Vi-ewU"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="Q77-RN-bAk"/>
-                    <size key="freeformSize" width="428" height="926"/>
-                    <connections>
-                        <outlet property="bannerAdCollectionView" destination="O04-EL-uyZ" id="ZSF-FD-vxo"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KrL-MU-LVT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2043.9252336448596" y="-614.25485961123115"/>
-        </scene>
-        <!--Ratings View Controller-->
-        <scene sceneID="jE1-eJ-7od">
-            <objects>
-                <viewController id="1H4-78-5a3" customClass="RatingsViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4D7-Cu-SjZ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVc-3i-Xy1">
-                                <rect key="frame" x="0.0" y="416.66666666666674" width="428" height="509.33333333333326"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgC-Bi-y0I">
-                                        <rect key="frame" x="371" y="8" width="49" height="43"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="dismissButtonTapped:" destination="1H4-78-5a3" eventType="touchUpInside" id="lcf-UC-aVP"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="8qr-Yh-Eda"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="wVc-3i-Xy1" firstAttribute="height" secondItem="4D7-Cu-SjZ" secondAttribute="height" multiplier="0.55" id="Amd-JC-Is4"/>
-                            <constraint firstItem="wVc-3i-Xy1" firstAttribute="leading" secondItem="8qr-Yh-Eda" secondAttribute="leading" id="HJL-cp-qa3"/>
-                            <constraint firstAttribute="bottom" secondItem="wVc-3i-Xy1" secondAttribute="bottom" id="I48-Wd-VXi"/>
-                            <constraint firstItem="wVc-3i-Xy1" firstAttribute="centerX" secondItem="4D7-Cu-SjZ" secondAttribute="centerX" id="Xuy-Wc-2TY"/>
-                            <constraint firstItem="wVc-3i-Xy1" firstAttribute="trailing" secondItem="8qr-Yh-Eda" secondAttribute="trailing" id="lko-vx-AEU"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eQ1-jl-I04" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1214.018691588785" y="-614.25485961123115"/>
+            <point key="canvasLocation" x="-485" y="-3076"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G6l-OO-0aJ">
@@ -1558,7 +1518,7 @@ should be on Xity?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzR-nM-3ZY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2286.4485981308408" y="-765.22678185745144"/>
+            <point key="canvasLocation" x="-1378" y="-765"/>
         </scene>
         <!--Reload All Data View Controller-->
         <scene sceneID="cVh-yh-Riu">
@@ -1619,7 +1579,7 @@ should be on Xity?</string>
         <segue reference="GVY-L8-xJL"/>
         <segue reference="fQ9-bq-bhx"/>
         <segue reference="30H-i8-TRl"/>
-        <segue reference="3oC-qz-sBH"/>
+        <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
@@ -1632,7 +1592,6 @@ should be on Xity?</string>
         <image name="loginLogo.png" width="624" height="380"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

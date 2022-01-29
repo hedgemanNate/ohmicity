@@ -300,10 +300,10 @@ class BandDetailViewController: UIViewController {
         let bandMedia = currentBand.band.mediaLink ?? ""
         
         if bandMedia == "" {
-            listenButton.setTitle("Could Not Find Any Videos Of Them", for: .normal)
+            listenButton.setTitle("No Videos Found Of Them", for: .normal)
             listenButton.isEnabled = false
         } else {
-            listenButton.setTitle("Watch A Video Of Them", for: .normal)
+            listenButton.setTitle("▶️ Watch A Video Of Them", for: .normal)
             listenButton.isEnabled = true
         }
         bandNameLabel.text = currentBand.band.name

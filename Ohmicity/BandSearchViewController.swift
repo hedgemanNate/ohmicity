@@ -167,9 +167,6 @@ extension BandSearchViewController: UITableViewDataSource, UITableViewDelegate {
         checkForAdThenSegue(to: "BandSegue")
     }
     
-    
-    
-    
 }
 
 

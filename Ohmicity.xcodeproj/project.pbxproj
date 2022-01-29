@@ -132,6 +132,7 @@
 		F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB4F5E270D0308004C164C /* PurchaseController.swift */; };
 		F6AB4F61270DAF50004C164C /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6AB4F60270DAF4C004C164C /* search.jpg */; };
 		F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */; };
+		F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -287,6 +288,7 @@
 		F6AB4F5E270D0308004C164C /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
 		F6AB4F60270DAF4C004C164C /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
 		F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionBandController.swift; sourceTree = "<group>"; };
+		F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentViewController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
 				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				F62FEB6F26562A59008DEF64 /* ResetViewController.swift */,
+				F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */,
 			);
 			path = "Settings View Controllers";
 			sourceTree = "<group>";
@@ -935,6 +938,7 @@
 				F6502A402799E3EA00535AB7 /* ShowsSearchViewController.swift in Sources */,
 				F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
+				F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
 				F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */,
@@ -1153,7 +1157,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.03;
+				MARKETING_VERSION = 2.041;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1176,7 +1180,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.03;
+				MARKETING_VERSION = 2.041;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

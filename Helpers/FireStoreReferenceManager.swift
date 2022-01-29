@@ -10,7 +10,7 @@ import FirebaseCore
 import FirebaseFirestore
 
 class FireStoreReferenceManager {
-    static let inDevelopment = false
+    static var inDevelopment = false
     
     private static var switchData: String {
         var switchData = ""
@@ -30,12 +30,14 @@ class FireStoreReferenceManager {
     static let fireDataBase = Firestore.firestore()
     
     static let userDataPath = fireDataBase.collection("productionData").document("productionData").collection("allUserData")
+    static let recommendationPath = fireDataBase.collection("workingData").document("workingData").collection("recommendationData")
+    static let xitySupportDataPath = fireDataBase.collection("workingData").document("workingData").collection("xitySupportData")
+
     
     static let bandDataPath = fireDataBase.collection(switchData).document(switchData).collection("allBandData")
     static let showDataPath = fireDataBase.collection(switchData).document(switchData).collection("allShowData")
     static let venueDataPath = fireDataBase.collection(switchData).document(switchData).collection("allVenueData")
     static let bannerDataPath = fireDataBase.collection(switchData).document(switchData).collection("allBannerData")
-    
-    static let recommendationPath = fireDataBase.collection(switchData).document(switchData).collection("recommendationData")
-    static let xitySupportDataPath = fireDataBase.collection(switchData).document(switchData).collection("xitySupportData")
 }
+    
+    

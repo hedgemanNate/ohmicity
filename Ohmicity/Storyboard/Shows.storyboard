@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Band" id="V7c-GE-13s" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCn-sl-jzP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="-619"/>
+            <point key="canvasLocation" x="656" y="-280"/>
         </scene>
         <!--Venue-->
         <scene sceneID="TcH-F3-ycD">
@@ -24,7 +24,7 @@
                 <viewControllerPlaceholder storyboardName="Venue" id="Jde-nn-eBM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cah-0A-wcb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-395" y="-619"/>
+            <point key="canvasLocation" x="171" y="-534"/>
         </scene>
         <!--Shows-->
         <scene sceneID="Inn-w6-B0L">

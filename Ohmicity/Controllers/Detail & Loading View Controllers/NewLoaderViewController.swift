@@ -27,6 +27,9 @@ class NewLoaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DevelopmentSettingsController.loadDevData()
+        DevelopmentSettingsController.setDatabase()
+        print(DevelopmentSettingsController.devSettings.database)
         setupProgressView()
         preWork()
         downloadData()
