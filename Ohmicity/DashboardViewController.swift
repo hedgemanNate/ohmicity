@@ -131,7 +131,7 @@ extension DashboardViewController {
     }
     
     private func checkForUpdate() {
-        if CheckForUpdateController.updateAvailable == false {
+        if CheckForUpdateController.updateAvailable == true {
             self.performSegue(withIdentifier: "UpdateAvailableSegue", sender: self)
         }
     }

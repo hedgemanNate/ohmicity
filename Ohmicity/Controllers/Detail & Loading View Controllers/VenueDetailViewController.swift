@@ -463,7 +463,7 @@ extension VenueDetailViewController {
             let bandImage = UIImage(named: "DefaultBand.png")
             bandPhotoImageView.image = bandImage
         }
-        bandNameLabel.text = featuredBand.name
+        bandNameLabel.text = featuredShow?.show.bandDisplayName.capitalized ?? ""
         
         timeController.dateFormatter.dateFormat = timeController.time
         let time = timeController.dateFormatter.string(from: (featuredShow?.show.date)!)

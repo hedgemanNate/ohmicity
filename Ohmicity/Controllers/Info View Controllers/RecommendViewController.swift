@@ -59,6 +59,11 @@ class RecommendViewController: UIViewController {
         
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    
     
     private func updateViews() {
         self.hideKeyboardWhenTappedAround()

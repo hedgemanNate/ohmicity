@@ -135,7 +135,6 @@ class ProfileViewController: UIViewController {
     
     //MARK: UpdateViews
     @objc private func updateViews() {
-        let version = "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") \(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")"
         
         logoutButton.layer.cornerRadius = 8
         privacyPolicyButton.layer.cornerRadius = 8
@@ -162,8 +161,14 @@ class ProfileViewController: UIViewController {
         setupCollectionsView()
         
         userIDLabel.text = currentUserController.currentUser?.userID ?? "- -"
-        updateButton.setTitle("Current Version \(version)", for: .normal)
-        updateButton.setTitle("Current Version \(version)", for: .disabled)
+        
+        if CheckForUpdateController.updateAvailable == true {
+            updateButton.isEnabled = true
+        } else {
+            updateButton.isEnabled = false
+        }
+        updateButton.setTitle("Update To Version \(CheckForUpdateController.appStoreVersion)", for: .normal)
+        updateButton.setTitle("Current Version \(CheckForUpdateController.installedVersion)", for: .disabled)
         
         
         if currentUserController.currentUser?.email == "nate.hedgeman@gmail.com" || currentUserController.currentUser?.email == "tufflove8@gmail.com" {
