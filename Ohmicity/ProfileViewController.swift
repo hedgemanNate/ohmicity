@@ -21,7 +21,6 @@ class ProfileViewController: UIViewController {
     //Card
     @IBOutlet weak var profileCardView: UIView!
     @IBOutlet weak var profilePhotoImage: UIImageView!
-    @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var profileLevelLabel: UILabel!
@@ -39,9 +38,9 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        notificationCenter.addObserver(self, selector: #selector(updateLogButton), name: notifications.userAuthUpdated.name, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(updateLogButton), name: Notifications.userAuthUpdated.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
             
         updateViews()
     }
@@ -103,6 +102,17 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func updateVersionButtonTapped(_ sender: Any) {
+        guard let url = URL(string: "https://apps.apple.com/us/app/town-by-xity/id1582040816") else {
+            return //be safe
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
         if currentUserController.currentUser == nil {
@@ -110,8 +120,6 @@ class ProfileViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "ToSubscriptions", sender: self)
         }
-        
-        
     }
     
     
@@ -261,5 +269,10 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //self.hidesBottomBarWhenPushed = true
     }
+    
+}
+
+//MARK: Check App Store Version
+extension ProfileViewController {
     
 }

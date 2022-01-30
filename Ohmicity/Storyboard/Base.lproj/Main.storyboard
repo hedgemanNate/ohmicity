@@ -87,7 +87,7 @@
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <segue destination="K1r-XI-Dsm" kind="modal" identifier="ToDashboard" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="fjy-9t-unJ"/>
-                        <segue destination="Nke-Fj-Oif" kind="presentation" identifier="FailedSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="9Pv-G2-gH4"/>
+                        <segue destination="Nke-Fj-Oif" kind="presentation" identifier="ForceUpdateSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="9Pv-G2-gH4"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="7HS-V6-wWy"/>
                     </connections>
                 </viewController>
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="-3203" y="-2165"/>
         </scene>
-        <!--Failed Attempts View Controller-->
+        <!--Force Update View Controller-->
         <scene sceneID="u2M-2R-i6y">
             <objects>
-                <viewController id="Nke-Fj-Oif" customClass="FailedAttemptsViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nke-Fj-Oif" customClass="ForceUpdateViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MYD-WC-vGC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,20 +107,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzp-Z6-xyR">
-                                <rect key="frame" x="44" y="382.66666666666669" width="340" height="161.00000000000006"/>
+                                <rect key="frame" x="44" y="363" width="340" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="161" id="KYa-i1-7tI"/>
+                                    <constraint firstAttribute="height" constant="200" id="KYa-i1-7tI"/>
                                 </constraints>
-                                <string key="text">After several attempts to collect show schedules, venue locations and band information, your device was unable to.
+                                <string key="text">Looks like theres a big update for your device. Update now to make Xity run smoother, faster and with more features.
 
-Check your internet connection and try again. </string>
+Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="p34-Vi-U4E">
-                                <rect key="frame" x="114" y="173.66666666666663" width="200" height="200"/>
+                                <rect key="frame" x="114" y="154" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="ums-9b-NbM"/>
                                 </constraints>
@@ -134,12 +134,29 @@ Check your internet connection and try again. </string>
                                     <action selector="breaker:" destination="Nke-Fj-Oif" eventType="touchUpInside" id="t4n-Go-IeB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fo-Fs-Ivz">
+                                <rect key="frame" x="44" y="613" width="340" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="xhH-tG-lPJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update">
+                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="23"/>
+                                    <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                    <color key="baseBackgroundColor" red="0.27059562453421832" green="0.17953315399498518" blue="0.31431012111224754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="updateButtonTapped:" destination="Nke-Fj-Oif" eventType="touchUpInside" id="VQo-vF-GRh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ncW-uJ-rzo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kzp-Z6-xyR" firstAttribute="centerX" secondItem="MYD-WC-vGC" secondAttribute="centerX" id="3Bs-z2-eAC"/>
                             <constraint firstItem="kzp-Z6-xyR" firstAttribute="top" secondItem="p34-Vi-U4E" secondAttribute="bottom" constant="9" id="6Bh-Sm-G99"/>
+                            <constraint firstItem="1Fo-Fs-Ivz" firstAttribute="top" secondItem="kzp-Z6-xyR" secondAttribute="bottom" constant="50" id="799-eF-4xb"/>
+                            <constraint firstItem="1Fo-Fs-Ivz" firstAttribute="leading" secondItem="kzp-Z6-xyR" secondAttribute="leading" id="7Yc-fb-QLA"/>
                             <constraint firstItem="kzp-Z6-xyR" firstAttribute="leading" secondItem="ncW-uJ-rzo" secondAttribute="leading" constant="44" id="E6N-Wd-H7C"/>
                             <constraint firstItem="ncW-uJ-rzo" firstAttribute="trailing" secondItem="kzp-Z6-xyR" secondAttribute="trailing" constant="44" id="Ief-ei-X0z"/>
                             <constraint firstItem="jY2-Yt-d0w" firstAttribute="top" secondItem="MYD-WC-vGC" secondAttribute="top" id="Mw9-S8-Tao"/>
@@ -147,6 +164,7 @@ Check your internet connection and try again. </string>
                             <constraint firstItem="p34-Vi-U4E" firstAttribute="leading" secondItem="ncW-uJ-rzo" secondAttribute="leading" constant="114" id="YyH-ob-WHk"/>
                             <constraint firstItem="kzp-Z6-xyR" firstAttribute="centerY" secondItem="MYD-WC-vGC" secondAttribute="centerY" id="g6j-bf-6dY"/>
                             <constraint firstItem="ncW-uJ-rzo" firstAttribute="trailing" secondItem="p34-Vi-U4E" secondAttribute="trailing" constant="114" id="mvi-46-4TG"/>
+                            <constraint firstItem="1Fo-Fs-Ivz" firstAttribute="trailing" secondItem="kzp-Z6-xyR" secondAttribute="trailing" id="oaM-xc-WQ5"/>
                             <constraint firstItem="jY2-Yt-d0w" firstAttribute="leading" secondItem="ncW-uJ-rzo" secondAttribute="leading" id="uLT-WB-OXK"/>
                             <constraint firstAttribute="bottom" secondItem="jY2-Yt-d0w" secondAttribute="bottom" id="yDP-xw-eF9"/>
                         </constraints>
@@ -155,7 +173,7 @@ Check your internet connection and try again. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-5m-R0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3203" y="-1418"/>
+            <point key="canvasLocation" x="-3203" y="-1470"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aWs-nU-x9A">
@@ -199,7 +217,7 @@ Check your internet connection and try again. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6b-M4-Dz8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2286" y="-1418"/>
+            <point key="canvasLocation" x="-2286" y="-821"/>
         </scene>
         <!--Shows-->
         <scene sceneID="LMF-3p-EZa">
@@ -381,7 +399,7 @@ Check your internet connection and try again. </string>
                                                         <color key="textColor" systemColor="systemYellowColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ze2-HQ-wMZ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ze2-HQ-wMZ">
                                                         <rect key="frame" x="18" y="123" width="336" height="50"/>
                                                         <color key="backgroundColor" red="0.1009910628" green="0.086154855789999998" blue="0.1230360195" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -393,6 +411,9 @@ Check your internet connection and try again. </string>
                                                             <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                                             <color key="baseBackgroundColor" red="0.1137254902" green="0.094117647060000004" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="updateVersionButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="tSx-35-ilI"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.15188165661478897" green="0.10238395482034311" blue="0.18410785238345961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1312,6 +1333,7 @@ should be on Xity?</string>
                         <segue destination="DQx-hs-upo" kind="presentation" identifier="BandFromFav" id="RgU-SC-VCr"/>
                         <segue destination="Ykx-hl-rcX" kind="presentation" identifier="DealsComingSoonSegue" modalPresentationStyle="fullScreen" id="cgE-01-9J4"/>
                         <segue destination="TdY-aU-Og1" kind="presentation" identifier="ReloadDataSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="3AK-jE-xSk"/>
+                        <segue destination="i7g-5L-c0W" kind="presentation" identifier="UpdateAvailableSegue" id="F9i-jk-nv6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1572,10 +1594,54 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-3203" y="-2844"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="a6D-wD-KGv">
+            <objects>
+                <viewController id="i7g-5L-c0W" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CGr-Fg-3JN">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="dOE-Nc-sQ3">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboardActive.png" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-rN-BdB">
+                                <rect key="frame" x="114" y="336" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="G2Y-JD-dlN"/>
+                                    <constraint firstAttribute="width" constant="200" id="J9v-AR-n4y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Version Available!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQY-io-Oc1">
+                                <rect key="frame" x="47.666666666666657" y="280" width="333" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <color key="textColor" red="0.24201422929999999" green="0.62648308279999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nbb-gU-CzD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SJy-rN-BdB" firstAttribute="centerY" secondItem="CGr-Fg-3JN" secondAttribute="centerY" id="0pE-CX-gsR"/>
+                            <constraint firstAttribute="bottom" secondItem="dOE-Nc-sQ3" secondAttribute="bottom" id="9Se-Uw-J86"/>
+                            <constraint firstItem="dOE-Nc-sQ3" firstAttribute="trailing" secondItem="Nbb-gU-CzD" secondAttribute="trailing" id="AmS-4g-CzT"/>
+                            <constraint firstItem="dOE-Nc-sQ3" firstAttribute="top" secondItem="CGr-Fg-3JN" secondAttribute="top" id="Oev-TK-oDz"/>
+                            <constraint firstItem="SJy-rN-BdB" firstAttribute="top" secondItem="sQY-io-Oc1" secondAttribute="bottom" constant="20" id="jCg-ie-3LN"/>
+                            <constraint firstItem="dOE-Nc-sQ3" firstAttribute="leading" secondItem="Nbb-gU-CzD" secondAttribute="leading" id="nPg-yA-v3m"/>
+                            <constraint firstItem="sQY-io-Oc1" firstAttribute="centerX" secondItem="CGr-Fg-3JN" secondAttribute="centerX" id="nmQ-KX-630"/>
+                            <constraint firstItem="SJy-rN-BdB" firstAttribute="centerX" secondItem="CGr-Fg-3JN" secondAttribute="centerX" id="wMc-S5-kXH"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="428" height="926"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDe-un-ETN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2286" y="-1470"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2UD-vX-uNS"/>
-        <segue reference="phR-fw-lgs"/>
+        <segue reference="7HS-V6-wWy"/>
+        <segue reference="Zd4-Ao-r3K"/>
         <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>
     <resources>

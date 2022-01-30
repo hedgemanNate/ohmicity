@@ -12,7 +12,7 @@ class CurrentUserController {
     
     var currentUser: CurrentUser? {
         didSet {
-            notificationCenter.post(notifications.userAuthUpdated)
+            NotifyCenter.post(Notifications.userAuthUpdated)
             NSLog("⚠️ CURRENT USER SET")
         }
     }

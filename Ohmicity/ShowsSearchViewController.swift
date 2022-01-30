@@ -168,15 +168,15 @@ class ShowsSearchViewController: UIViewController {
     private func setUpNotificationObservers() {
         
         //Hide Views
-        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
         
         //Banner SlideShow Start
-        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(startTimer), name: Notifications.modalDismissed.name, object: nil)
         
         //Background
-        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
-        notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadAllData.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(reloadData), name: Notifications.reloadAllData.name, object: nil)
         
         
     }

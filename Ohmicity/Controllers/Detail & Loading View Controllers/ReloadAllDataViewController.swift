@@ -58,7 +58,7 @@ extension ReloadAllDataViewController {
         timeController.setTime()
         
         //Notifications
-        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: Notifications.lostConnection.name, object: nil)
     }
     
     @objc private func lostNetworkConnection() {
@@ -283,8 +283,8 @@ extension ReloadAllDataViewController {
         
         BusinessController.businessArray = []
         
-        notificationCenter.removeObserver(self, name: notifications.lostConnection.name, object:nil )
-        notificationCenter.post(notifications.reloadDashboardCVData)
+        NotifyCenter.removeObserver(self, name: Notifications.lostConnection.name, object:nil )
+        NotifyCenter.post(Notifications.reloadDashboardCVData)
         DispatchQueue.main.async {
             self.dismiss(animated: true)
         }

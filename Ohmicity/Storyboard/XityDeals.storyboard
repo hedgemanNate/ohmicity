@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rTS-oC-LzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rTS-oC-LzF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -121,7 +121,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJ8-EI-GML" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="jza-iJ-Vsj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="386"/>
+            <point key="canvasLocation" x="1238" y="327"/>
         </scene>
         <!--Deals-->
         <scene sceneID="bNs-Wo-QUM">
@@ -160,11 +160,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Iw-Du-eKN">
-                                <rect key="frame" x="100" y="546" width="214" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="55" y="546" width="304" height="60"/>
+                                <color key="backgroundColor" red="0.27059562450000002" green="0.179533154" blue="0.31431012110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="XzD-ZI-vUz"/>
+                                    <constraint firstAttribute="height" constant="60" id="XzD-ZI-vUz"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
                                 <state key="normal" title="Back To The Music!">
                                     <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
@@ -178,16 +179,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tiZ-E3-RQw" firstAttribute="top" secondItem="7VY-ER-Wcu" secondAttribute="bottom" constant="7" id="8wz-kf-dry"/>
-                            <constraint firstItem="2Iw-Du-eKN" firstAttribute="leading" secondItem="8nK-fq-fo0" secondAttribute="leading" constant="100" id="9HI-2c-7I5"/>
                             <constraint firstItem="7VY-ER-Wcu" firstAttribute="centerX" secondItem="1SQ-aU-q0H" secondAttribute="centerX" id="9nW-39-62c"/>
                             <constraint firstItem="618-RR-wMX" firstAttribute="trailing" secondItem="8nK-fq-fo0" secondAttribute="trailing" id="GkX-9Q-9Zn"/>
                             <constraint firstItem="618-RR-wMX" firstAttribute="leading" secondItem="8nK-fq-fo0" secondAttribute="leading" id="MQe-Ic-va3"/>
                             <constraint firstItem="tiZ-E3-RQw" firstAttribute="leading" secondItem="8nK-fq-fo0" secondAttribute="leading" constant="55" id="Q5q-11-fV9"/>
+                            <constraint firstItem="2Iw-Du-eKN" firstAttribute="leading" secondItem="tiZ-E3-RQw" secondAttribute="leading" id="QPC-M0-5tb"/>
                             <constraint firstItem="7VY-ER-Wcu" firstAttribute="centerY" secondItem="1SQ-aU-q0H" secondAttribute="centerY" constant="-150" id="V2e-oY-Xhk"/>
                             <constraint firstItem="618-RR-wMX" firstAttribute="top" secondItem="1SQ-aU-q0H" secondAttribute="top" id="WTP-8l-qqc"/>
                             <constraint firstItem="2Iw-Du-eKN" firstAttribute="top" secondItem="tiZ-E3-RQw" secondAttribute="bottom" constant="28" id="ZYV-t0-mTx"/>
                             <constraint firstItem="8nK-fq-fo0" firstAttribute="trailing" secondItem="tiZ-E3-RQw" secondAttribute="trailing" constant="55" id="kaQ-oG-0v6"/>
-                            <constraint firstItem="8nK-fq-fo0" firstAttribute="trailing" secondItem="2Iw-Du-eKN" secondAttribute="trailing" constant="100" id="wAd-Pr-4WE"/>
+                            <constraint firstItem="2Iw-Du-eKN" firstAttribute="trailing" secondItem="tiZ-E3-RQw" secondAttribute="trailing" id="lwn-SF-N4k"/>
                             <constraint firstAttribute="bottom" secondItem="618-RR-wMX" secondAttribute="bottom" id="zxf-QC-DnO"/>
                         </constraints>
                     </view>

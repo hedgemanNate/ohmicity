@@ -148,7 +148,7 @@ class BandDetailViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         endTimer()
-        notificationCenter.post(notifications.modalDismissed)
+        NotifyCenter.post(Notifications.modalDismissed)
         super.viewDidDisappear(animated)
     }
     
@@ -178,7 +178,7 @@ class BandDetailViewController: UIViewController {
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
                     FavoriteController.favoritesArray.removeAll(where: {$0.favoriteID == currentBand.band.bandID})
-                    notificationCenter.post(notifications.userFavoritesUpdated)
+                    NotifyCenter.post(Notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
                     }
@@ -190,7 +190,7 @@ class BandDetailViewController: UIViewController {
                 currentUser!.favoriteBands .append(currentBand.band.bandID)
                 currentUser!.lastModified = Timestamp()
                 FavoriteController.createFavorite(objectID: currentBand.band.bandID)
-                notificationCenter.post(notifications.userFavoritesUpdated)
+                NotifyCenter.post(Notifications.userFavoritesUpdated)
                 
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
@@ -348,13 +348,13 @@ class BandDetailViewController: UIViewController {
     private func setUpNotificationObservers() {
         
         //Hide Views
-        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
         
         //Banner SlideShow Start
-        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(startTimer), name: Notifications.modalDismissed.name, object: nil)
         
         //Background
-        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
     }
     

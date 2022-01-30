@@ -20,7 +20,7 @@ class UserAdController {
     var userSubscription = SubscriptionType.None {
         didSet {
             currentUserController.setUpCurrentUserPreferences()
-            notificationCenter.post(notifications.userAuthUpdated)
+            NotifyCenter.post(Notifications.userAuthUpdated)
         }
     }
     

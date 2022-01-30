@@ -78,6 +78,7 @@ class DashboardViewController: UIViewController {
         updateViews()
         DispatchQueue.main.async {
             self.checkDevelopmentStatus()
+            self.checkForUpdate()
         }
     }
     
@@ -126,6 +127,12 @@ extension DashboardViewController {
             self.performSegue(withIdentifier: "WrongDatabase", sender: self)
             //Fix in Helpers/FireStoreReferenceManager
             //set inDevelopment == false
+        }
+    }
+    
+    private func checkForUpdate() {
+        if CheckForUpdateController.updateAvailable == true {
+            self.performSegue(withIdentifier: "UpdateAvailableSegue", sender: self)
         }
     }
     
@@ -298,29 +305,31 @@ extension DashboardViewController {
     
     
     
+    
+    //MARK: Notifications
     private func setUpNotificationObservers() {
         
         
         //Reload Collection View Data
-        notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadDashboardCVData.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(reloadData), name: Notifications.reloadDashboardCVData.name, object: nil)
         
         //Hide Views
-        notificationCenter.addObserver(self, selector: #selector(updateViews), name: notifications.userAuthUpdated.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
         
         //Scroll To Top
-        notificationCenter.addObserver(self, selector: #selector(scrollToTop), name: notifications.scrollToTop.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(scrollToTop), name: Notifications.scrollToTop.name, object: nil)
         
         //Banner SlideShow Start
-        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(startTimer), name: Notifications.modalDismissed.name, object: nil)
         
         //Favorites
-        notificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.userFavoritesUpdated.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(reloadData), name: Notifications.userFavoritesUpdated.name, object: nil)
         
         //Background
-        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
         //Network Notifications
-        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: Notifications.lostConnection.name, object: nil)
     }
     
     //MARK: ---- Functions End ----
@@ -614,7 +623,8 @@ extension DashboardViewController: GADFullScreenContentDelegate {
     }
 }
 
-//MARK: Background to Foreground Functions
+//MARK: Background Notifications
+
 extension DashboardViewController {
     
     private func addBackGroundNotificationObservers() {
@@ -624,7 +634,7 @@ extension DashboardViewController {
         
         dashboardNotificationCenter.addObserver(self, selector: #selector(launchLoadingScreen), name: UIApplication.significantTimeChangeNotification, object: nil)
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(reloadData), name: notifications.reloadAllData.name, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(reloadData), name: Notifications.reloadAllData.name, object: nil)
     }
     
     @objc private func launchLoadingScreen() {

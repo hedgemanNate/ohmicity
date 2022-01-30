@@ -98,7 +98,7 @@ class VenueDetailViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        notificationCenter.post(notifications.modalDismissed)
+        NotifyCenter.post(Notifications.modalDismissed)
         endTimer()
         //To inform Dashboard to resume its banner ad timer
         
@@ -139,7 +139,7 @@ class VenueDetailViewController: UIViewController {
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
                     FavoriteController.favoritesArray.removeAll(where: {$0.favoriteID == xityBusiness.business.venueID})
-                    notificationCenter.post(notifications.userFavoritesUpdated)
+                    NotifyCenter.post(Notifications.userFavoritesUpdated)
                     DispatchQueue.main.async {
                         self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
                     }
@@ -150,7 +150,7 @@ class VenueDetailViewController: UIViewController {
                 currentUser!.favoriteBusinesses.append(xityBusiness.business.venueID)
                 currentUser!.lastModified = Timestamp()
                 FavoriteController.createFavorite(objectID: xityBusiness.business.venueID)
-                notificationCenter.post(notifications.userFavoritesUpdated)
+                NotifyCenter.post(Notifications.userFavoritesUpdated)
                 do {
                     try FireStoreReferenceManager.userDataPath.document(currentUser!.userID).setData(from: currentUser)
                     DispatchQueue.main.async {
@@ -161,7 +161,7 @@ class VenueDetailViewController: UIViewController {
                 }
             }
         }
-        notificationCenter.post(notifications.reloadDashboardCVData)
+        NotifyCenter.post(Notifications.reloadDashboardCVData)
     }
     
     
@@ -244,16 +244,16 @@ extension VenueDetailViewController {
     private func setUpNotificationObservers() {
         
         //Hide Views
-        notificationCenter.addObserver(self, selector: #selector(userSignedIn), name: notifications.userAuthUpdated.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(userSignedIn), name: Notifications.userAuthUpdated.name, object: nil)
         
         //Banner SlideShow Start
-        notificationCenter.addObserver(self, selector: #selector(startTimer), name: notifications.modalDismissed.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(startTimer), name: Notifications.modalDismissed.name, object: nil)
         
         //Background
-        notificationCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         
         //Hours
-        notificationCenter.addObserver(self, selector: #selector(dismissAlert), name: notifications.dismiss.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(dismissAlert), name: Notifications.dismiss.name, object: nil)
     }
     
     private func listenButtonFunction() {

@@ -31,8 +31,7 @@ class NewLoaderViewController: UIViewController {
         DevelopmentSettingsController.setDatabase()
         print(DevelopmentSettingsController.devSettings.database)
         setupProgressView()
-        preWork()
-        downloadData()
+        startWork()
     }
     
     
@@ -56,12 +55,33 @@ extension NewLoaderViewController {
 extension NewLoaderViewController {
     
     //MARK: PreDownload Work
-    private func preWork() {
-        timeController.setTime()
-        currentUserController.assignCurrentUser()
+    private func startWork() {
+        let group = DispatchGroup()
         
-        //Notifications
-        notificationCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: notifications.lostConnection.name, object: nil)
+        DispatchQueue.global(qos: .default).sync {
+            group.enter()
+            currentUserController.assignCurrentUser()
+            
+            //Notifications
+            NotifyCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: Notifications.lostConnection.name, object: nil)
+            
+            NotifyCenter.addObserver(self, selector: #selector(forceUpdate), name: Notifications.forceUpdate.name, object: nil)
+            group.leave()
+            
+        
+            group.enter()
+            CheckForUpdateController.checkIfUpdateIsAvailable()
+            group.leave()
+            
+            
+            timeController.setTime()
+            
+            
+            
+            group.notify(queue: .global()) { [self] in
+                self.downloadData()
+            }
+        }
     }
     
     @objc private func lostNetworkConnection() {
@@ -286,10 +306,17 @@ extension NewLoaderViewController {
         
         BusinessController.businessArray = []
         
-        notificationCenter.removeObserver(self, name: notifications.lostConnection.name, object:nil )
+        NotifyCenter.removeObserver(self, name: Notifications.lostConnection.name, object:nil )
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ToDashboard", sender: self)
+        }
+    }
+    
+    //MARK: ForceUpdate
+    @objc private func forceUpdate() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ForceUpdateSegue", sender: self)
         }
     }
 }

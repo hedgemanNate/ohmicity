@@ -36,7 +36,7 @@ class XityShowController {
     static var todayShowArrayFilter: City = .All {
         didSet {
             todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
-            notificationCenter.post(notifications.reloadDashboardCVData)
+            NotifyCenter.post(Notifications.reloadDashboardCVData)
         }
     }
     

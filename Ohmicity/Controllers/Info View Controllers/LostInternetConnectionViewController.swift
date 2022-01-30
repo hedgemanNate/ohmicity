@@ -17,7 +17,7 @@ class LostInternetConnectionViewController: UIViewController {
         super.viewDidLoad()
 
         setupProgressView()
-        notificationCenter.addObserver(self, selector: #selector(dismissView), name: notifications.hasConnection.name, object: nil)
+        NotifyCenter.addObserver(self, selector: #selector(dismissView), name: Notifications.hasConnection.name, object: nil)
     }
     
     

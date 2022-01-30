@@ -38,7 +38,7 @@
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
 		F63837892793F90000838858 /* ProductionShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63837882793F90000838858 /* ProductionShows.swift */; };
 		F638378D2793FBD800838858 /* ProductionShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638378C2793FBD800838858 /* ProductionShowController.swift */; };
-		F638378F2793FEC400838858 /* FailedAttemptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */; };
+		F638378F2793FEC400838858 /* ForceUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638378E2793FEC400838858 /* ForceUpdateViewController.swift */; };
 		F63D191827006435004379D5 /* MenuPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F63D191727006435004379D5 /* MenuPopUp.storyboard */; };
 		F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */; };
 		F63D191C27006818004379D5 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D191B27006818004379D5 /* RatingsViewController.swift */; };
@@ -134,6 +134,7 @@
 		F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */; };
 		F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */; };
 		F6D17B4027A5DFCA00AD22F9 /* userIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D17B3F27A5DFC600AD22F9 /* userIcon.png */; };
+		F6D17B4227A5F37400AD22F9 /* CheckForUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -196,7 +197,7 @@
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		F63837882793F90000838858 /* ProductionShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductionShows.swift; path = Ohmicity/Models/ProductionShows.swift; sourceTree = SOURCE_ROOT; };
 		F638378C2793FBD800838858 /* ProductionShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionShowController.swift; sourceTree = "<group>"; };
-		F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedAttemptsViewController.swift; sourceTree = "<group>"; };
+		F638378E2793FEC400838858 /* ForceUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateViewController.swift; sourceTree = "<group>"; };
 		F63D191727006435004379D5 /* MenuPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuPopUp.storyboard; sourceTree = "<group>"; };
 		F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopUpLogicViewController.swift; sourceTree = "<group>"; };
 		F63D191B27006818004379D5 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +292,7 @@
 		F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionBandController.swift; sourceTree = "<group>"; };
 		F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentViewController.swift; sourceTree = "<group>"; };
 		F6D17B3F27A5DFC600AD22F9 /* userIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userIcon.png; sourceTree = "<group>"; };
+		F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdateController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -477,7 +479,7 @@
 				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
-				F638378E2793FEC400838858 /* FailedAttemptsViewController.swift */,
+				F638378E2793FEC400838858 /* ForceUpdateViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -580,6 +582,7 @@
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
 				F6E8EF5C26E71E4F00831544 /* SettingsController.swift */,
+				F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */,
 				F649D51B27214BF80050E7F9 /* Subscription */,
 			);
 			path = "Logic Controllers";
@@ -1001,10 +1004,11 @@
 				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
 				F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */,
 				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,
+				F6D17B4227A5F37400AD22F9 /* CheckForUpdateController.swift in Sources */,
 				F6E10DF62795073B009353BE /* Favorite.swift in Sources */,
 				F6869B532701911D00421019 /* RecommendationController.swift in Sources */,
 				F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */,
-				F638378F2793FEC400838858 /* FailedAttemptsViewController.swift in Sources */,
+				F638378F2793FEC400838858 /* ForceUpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

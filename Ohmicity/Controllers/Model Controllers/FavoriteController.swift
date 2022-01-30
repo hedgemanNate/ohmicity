@@ -18,7 +18,7 @@ class FavoriteController {
             let set = Set(favoritesArray)
             favoritesArray = Array(set)
             favoritesArray.sort(by: {$0.type < $1.type})
-            notificationCenter.post(notifications.userFavoritesUpdated)
+            NotifyCenter.post(Notifications.userFavoritesUpdated)
         }
     }
 }
