@@ -135,6 +135,7 @@
 		F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */; };
 		F6D17B4027A5DFCA00AD22F9 /* userIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D17B3F27A5DFC600AD22F9 /* userIcon.png */; };
 		F6D17B4227A5F37400AD22F9 /* CheckForUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */; };
+		F6D17B4427A6154B00AD22F9 /* UpdateAvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B4327A6154B00AD22F9 /* UpdateAvailableViewController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -293,6 +294,7 @@
 		F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentViewController.swift; sourceTree = "<group>"; };
 		F6D17B3F27A5DFC600AD22F9 /* userIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userIcon.png; sourceTree = "<group>"; };
 		F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdateController.swift; sourceTree = "<group>"; };
+		F6D17B4327A6154B00AD22F9 /* UpdateAvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailableViewController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
 				F638378E2793FEC400838858 /* ForceUpdateViewController.swift */,
+				F6D17B4327A6154B00AD22F9 /* UpdateAvailableViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */,
 				F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */,
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
+				F6D17B4427A6154B00AD22F9 /* UpdateAvailableViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F6869B5127018AEB00421019 /* RatingsController.swift in Sources */,

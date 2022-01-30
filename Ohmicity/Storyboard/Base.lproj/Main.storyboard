@@ -751,14 +751,14 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </connections>
                                             </button>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-IG-CFU">
-                                                <rect key="frame" x="9" y="253" width="169" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <rect key="frame" x="9" y="253" width="173" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                 <state key="normal" title="Today's Shows">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~Filter Shows By City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
-                                                <rect key="frame" x="187" y="267" width="162" height="21"/>
+                                                <rect key="frame" x="191" y="267" width="162" height="21"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemTealColor"/>
                                                 <nil key="highlightedColor"/>
@@ -810,7 +810,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11k-Km-eNH">
                                                                     <rect key="frame" x="0.0" y="204" width="155" height="57"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -858,7 +858,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                             </view>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
                                                 <rect key="frame" x="9" y="582" width="315" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                 <state key="normal" title="Xity's Exclusive Deals 🤑">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -974,8 +974,8 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Weekly Button">
-                                                <rect key="frame" x="9" y="766" width="316" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <rect key="frame" x="9" y="766" width="323" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                 <state key="normal" title="Xity's Picks Of The Week 👍">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -1021,7 +1021,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEl-lS-ATx">
                                                                     <rect key="frame" x="0.0" y="204" width="155" height="57"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1051,8 +1051,8 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-4f-hLW">
-                                                <rect key="frame" x="9" y="1106" width="193" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <rect key="frame" x="9" y="1106" width="199" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                 <state key="normal" title="Your Favorites ❤️">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -1091,7 +1091,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTi-Fe-fw4">
                                                                     <rect key="frame" x="0.0" y="204" width="155" height="57"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1594,53 +1594,86 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-3203" y="-2844"/>
         </scene>
-        <!--View Controller-->
+        <!--Update Available View Controller-->
         <scene sceneID="a6D-wD-KGv">
             <objects>
-                <viewController id="i7g-5L-c0W" sceneMemberID="viewController">
+                <viewController id="i7g-5L-c0W" customClass="UpdateAvailableViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CGr-Fg-3JN">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="dOE-Nc-sQ3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="dOE-Nc-sQ3">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboardActive.png" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-rN-BdB">
-                                <rect key="frame" x="114" y="336" width="200" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="iK0-bk-pXG">
+                                <rect key="frame" x="47.666666666666657" y="248.66666666666663" width="333" height="375"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Version Available!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQY-io-Oc1">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                        <color key="textColor" red="0.23921568630000001" green="0.61176470589999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFL-0C-Ckp">
+                                        <rect key="frame" x="0.0" y="61.000000000000028" width="333" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i24-7P-gf0">
+                                        <rect key="frame" x="0.0" y="109.00000000000003" width="333" height="180.99999999999997"/>
+                                        <string key="text">• Numerous Big Fixes
+• Stability Improvements
+• New Features 
+• More Shows
+• More Bands
+• More Venues</string>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xql-p8-jpC">
+                                        <rect key="frame" x="0.0" y="315" width="333" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="rAw-pA-8VK"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Update">
+                                            <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="23"/>
+                                            <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                            <color key="baseBackgroundColor" red="0.27059562450000002" green="0.179533154" blue="0.31431012110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="updateButtonTapped:" destination="Nke-Fj-Oif" eventType="touchUpInside" id="CfI-X2-u1l"/>
+                                            <action selector="updateButtonTapped:" destination="i7g-5L-c0W" eventType="touchUpInside" id="WQY-ex-pOL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="G2Y-JD-dlN"/>
-                                    <constraint firstAttribute="width" constant="200" id="J9v-AR-n4y"/>
+                                    <constraint firstAttribute="height" constant="375" id="1MZ-1h-Ywd"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Version Available!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQY-io-Oc1">
-                                <rect key="frame" x="47.666666666666657" y="280" width="333" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <color key="textColor" red="0.24201422929999999" green="0.62648308279999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nbb-gU-CzD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SJy-rN-BdB" firstAttribute="centerY" secondItem="CGr-Fg-3JN" secondAttribute="centerY" id="0pE-CX-gsR"/>
-                            <constraint firstAttribute="bottom" secondItem="dOE-Nc-sQ3" secondAttribute="bottom" id="9Se-Uw-J86"/>
-                            <constraint firstItem="dOE-Nc-sQ3" firstAttribute="trailing" secondItem="Nbb-gU-CzD" secondAttribute="trailing" id="AmS-4g-CzT"/>
-                            <constraint firstItem="dOE-Nc-sQ3" firstAttribute="top" secondItem="CGr-Fg-3JN" secondAttribute="top" id="Oev-TK-oDz"/>
-                            <constraint firstItem="SJy-rN-BdB" firstAttribute="top" secondItem="sQY-io-Oc1" secondAttribute="bottom" constant="20" id="jCg-ie-3LN"/>
-                            <constraint firstItem="dOE-Nc-sQ3" firstAttribute="leading" secondItem="Nbb-gU-CzD" secondAttribute="leading" id="nPg-yA-v3m"/>
-                            <constraint firstItem="sQY-io-Oc1" firstAttribute="centerX" secondItem="CGr-Fg-3JN" secondAttribute="centerX" id="nmQ-KX-630"/>
-                            <constraint firstItem="SJy-rN-BdB" firstAttribute="centerX" secondItem="CGr-Fg-3JN" secondAttribute="centerX" id="wMc-S5-kXH"/>
+                            <constraint firstItem="iK0-bk-pXG" firstAttribute="centerX" secondItem="CGr-Fg-3JN" secondAttribute="centerX" id="6Dl-ax-foo"/>
+                            <constraint firstItem="iK0-bk-pXG" firstAttribute="centerY" secondItem="CGr-Fg-3JN" secondAttribute="centerY" id="7Ot-UF-wMC"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="428" height="926"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="cFL-0C-Ckp" id="tAI-nK-g4S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDe-un-ETN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2286" y="-1470"/>
+            <point key="canvasLocation" x="-2286.4485981308408" y="-1470.1943844492441"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7HS-V6-wWy"/>
+        <segue reference="GVY-L8-xJL"/>
         <segue reference="Zd4-Ao-r3K"/>
         <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>
