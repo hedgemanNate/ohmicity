@@ -36,7 +36,7 @@ class OperationHoursAlert: UIView {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-        notificationCenter.post(notifications.dismiss)
+        NotifyCenter.post(Notifications.dismiss)
     }
     
     

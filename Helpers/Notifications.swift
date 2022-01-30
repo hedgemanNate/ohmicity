@@ -11,56 +11,58 @@ import FirebaseAuth
 class Notifications {
     
     //User Notifications
-    let userAuthUpdated = Notification(name: Notification.Name(rawValue: "UserAuthUpdated"))
-    let userFavoritesUpdated = Notification(name: Notification.Name(rawValue: "UserFavoritesUpdated"))
+    static let userAuthUpdated = Notification(name: Notification.Name(rawValue: "UserAuthUpdated"))
+    static let userFavoritesUpdated = Notification(name: Notification.Name(rawValue: "UserFavoritesUpdated"))
     
     //UI Notifications
-    let scrollToTop = Notification(name: Notification.Name(rawValue: "ScrollToTop"))
-    let dismiss = Notification(name: Notification.Name(rawValue: "Dismiss"))
-    let modalDismissed = Notification(name: Notification.Name(rawValue: "ModalDismissed"))
+    static let scrollToTop = Notification(name: Notification.Name(rawValue: "ScrollToTop"))
+    static let dismiss = Notification(name: Notification.Name(rawValue: "Dismiss"))
+    static let modalDismissed = Notification(name: Notification.Name(rawValue: "ModalDismissed"))
     
     //Database Notifications
-    let businessArraySet = Notification(name: Notification.Name(rawValue: "BusinessArraySet"))
-    let showArraySet = Notification(name: Notification.Name(rawValue: "ShowArraySet"))
-    let bandArraySet = Notification(name: Notification.Name(rawValue: "BandArraySet"))
-    let businessAdArraySet = Notification(name: Notification.Name(rawValue: "BusinessAdArraySet"))
+    static let businessArraySet = Notification(name: Notification.Name(rawValue: "BusinessArraySet"))
+    static let showArraySet = Notification(name: Notification.Name(rawValue: "ShowArraySet"))
+    static let bandArraySet = Notification(name: Notification.Name(rawValue: "BandArraySet"))
+    static let businessAdArraySet = Notification(name: Notification.Name(rawValue: "BusinessAdArraySet"))
     
-    let gotNewBusinessData = Notification(name: Notification.Name(rawValue: "GotBusinessData"))
-    let gotNewBandData = Notification(name: Notification.Name(rawValue: "GotBandData"))
-    let gotNewShowData = Notification(name: Notification.Name(rawValue: "GotShowData"))
-    
-    
-    let gotAllBusinessData = Notification(name: Notification.Name(rawValue: "GotAllBusinessData"))
-    let gotAllBandData = Notification(name: Notification.Name(rawValue: "GotAllBandData"))
-    let gotAllShowData = Notification(name: Notification.Name(rawValue: "GotAllShowData"))
+    static let gotNewBusinessData = Notification(name: Notification.Name(rawValue: "GotBusinessData"))
+    static let gotNewBandData = Notification(name: Notification.Name(rawValue: "GotBandData"))
+    static let gotNewShowData = Notification(name: Notification.Name(rawValue: "GotShowData"))
     
     
-    let gotCacheBusinessData = Notification(name: Notification.Name(rawValue: "GotCacheBusinessData"))
-    let gotCacheBandData = Notification(name: Notification.Name(rawValue: "GotCacheBandData"))
-    let gotCacheShowData = Notification(name: Notification.Name(rawValue: "GotCacheShowData"))
+    static let gotAllBusinessData = Notification(name: Notification.Name(rawValue: "GotAllBusinessData"))
+    static let gotAllBandData = Notification(name: Notification.Name(rawValue: "GotAllBandData"))
+    static let gotAllShowData = Notification(name: Notification.Name(rawValue: "GotAllShowData"))
     
     
-    let databaseError = Notification(name: Notification.Name(rawValue: "DatabaseError"))
-    let databaseSuccess = Notification(name: Notification.Name(rawValue: "DatabaseSuccess"))
+    static let gotCacheBusinessData = Notification(name: Notification.Name(rawValue: "GotCacheBusinessData"))
+    static let gotCacheBandData = Notification(name: Notification.Name(rawValue: "GotCacheBandData"))
+    static let gotCacheShowData = Notification(name: Notification.Name(rawValue: "GotCacheShowData"))
+    
+    
+    static let databaseError = Notification(name: Notification.Name(rawValue: "DatabaseError"))
+    static let databaseSuccess = Notification(name: Notification.Name(rawValue: "DatabaseSuccess"))
     
     //Business Ad Notifications
-    let gotAllBusinessAdData = Notification(name: Notification.Name(rawValue: "GotAllBusinessAdData"))
-    let gotNewBusinessAdData = Notification(name: Notification.Name(rawValue: "GotBusinessAdData"))
-    let gotCacheBusinessAdData = Notification(name: Notification.Name(rawValue: "GotCacheBusinessAdData"))
+    static let gotAllBusinessAdData = Notification(name: Notification.Name(rawValue: "GotAllBusinessAdData"))
+    static let gotNewBusinessAdData = Notification(name: Notification.Name(rawValue: "GotBusinessAdData"))
+    static let gotCacheBusinessAdData = Notification(name: Notification.Name(rawValue: "GotCacheBusinessAdData"))
     
     //Loading Steps
-    let op1Finished = Notification(name: Notification.Name(rawValue: "op1Finished"))
-    let op2Finished = Notification(name: Notification.Name(rawValue: "op2Finished"))
-    let op3Finished = Notification(name: Notification.Name(rawValue: "op3Finished"))
+    static let forceUpdate = Notification(name: Notification.Name(rawValue: "ForceUpdate"))
+    //static let updateAvailable = Notification(name: Notification.Name(rawValue: "UpdateAvailable"))
+    //static let op3Finished = Notification(name: Notification.Name(rawValue: "op3Finished"))
     
     //Network Notifications
-    let lostConnection = Notification(name: Notification.Name(rawValue: "lostConnection"))
-    let hasConnection = Notification(name: Notification.Name(rawValue: "hasConnection"))
+    static let lostConnection = Notification(name: Notification.Name(rawValue: "lostConnection"))
+    static let hasConnection = Notification(name: Notification.Name(rawValue: "hasConnection"))
     
     
-    //Dashboard notifications
-    let reloadDashboardCVData = Notification(name: Notification.Name(rawValue: "reloadDashboardCVData"))
+    //Dashboard Notifications
+    static let reloadDashboardCVData = Notification(name: Notification.Name(rawValue: "reloadDashboardCVData"))
+    
+    //Reload All Data Notifications
+    static let reloadAllData = Notification(name: Notification.Name(rawValue: "ReloadAllData"))
 }
 
-let notifications = Notifications()
-let notificationCenter = NotificationCenter.init()
+let NotifyCenter = NotificationCenter.init()

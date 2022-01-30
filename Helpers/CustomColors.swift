@@ -32,5 +32,8 @@ class CustomColors: UIColor {
     
     //Purchase
     let purchaseCellBGColor = UIColor(red: 46/255, green: 54/255, blue: 82/255, alpha: 0.6)
+    
+    let deepGreen = UIColor(red: 40/255, green: 92/255, blue: 69/255, alpha:1)
 }
+
 

@@ -104,59 +104,7 @@ class RatingsViewController: UIViewController {
     }
     
     @IBAction func addRatingButtonTapped(_ sender: Any) {
-        if currentBand != nil {
-            if givenRating != 0 {
-                print("Rating Creating")
-                let userRating = UsersRatings(bandName: currentBand?.band.name ?? "testBand", rating: givenRating)
-                let bandRating = BandsRatings(bandName: currentBand?.band.name ?? "testBand", userID: currentUserController.currentUser!.userID, stars: givenRating)
-                
-                if currentUserController.currentUser?.bandRatings == nil {
-                    currentUserController.currentUser?.bandRatings = []
-                    currentUserController.currentUser?.bandRatings?.append(userRating)
-                    do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
-                        self.dismiss(animated: true, completion: nil)
-                    } catch (let error) {
-                        NSLog(error.localizedDescription)
-                    }
-                } else {
-                    currentUserController.currentUser?.bandRatings?.append(userRating)
-                    do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
-                        self.dismiss(animated: true, completion: nil)
-                    } catch (let error) {
-                        NSLog(error.localizedDescription)
-                    }
-                }
-            } else {
-                ratingsLabel.text = "Please add a rating for \(currentBand?.band.name ?? "this band")"
-            }
-        } else {
-            if givenRating != 0 {
-                print("Rating Creating")
-                let userRating = UsersRatings(bandName: currentBand?.band.name ?? "testBand", rating: givenRating)
-                let bandRating = BandsRatings(bandName: currentBand?.band.name ?? "testBand", userID: currentUserController.currentUser!.userID, stars: givenRating)
-                
-                if currentUserController.currentUser?.bandRatings == nil {
-                    currentUserController.currentUser?.bandRatings = []
-                    currentUserController.currentUser?.bandRatings?.append(userRating)
-                    do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
-                    } catch (let error) {
-                        NSLog(error.localizedDescription)
-                    }
-                } else {
-                    currentUserController.currentUser?.bandRatings?.append(userRating)
-                    do {
-                        try ref.bandsRatingsDataPath.document(bandRating.bandsRatingsID).setData(from: bandRating)
-                    } catch (let error) {
-                        NSLog(error.localizedDescription)
-                    }
-                }
-            } else {
-                ratingsLabel.text = "Please add a rating for \(currentBand?.band.name ?? "this band")"
-            }
-        }
+        
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {

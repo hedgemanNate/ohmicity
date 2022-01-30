@@ -26,7 +26,6 @@ class Band: Codable, Equatable, Hashable {
     var genre: [Genre] = []
     var ratings: [BandsRatings]?
     var mediaLink: String?
-    //var xitySupport: Int?
     var ohmPick: Bool = false
     
     init(name: String) {
@@ -40,6 +39,18 @@ class Band: Codable, Equatable, Hashable {
         genre = newBand.genre
         mediaLink = newBand.mediaLink
         ohmPick = newBand.ohmPick
+    }
+    
+    init(singleBand: SingleProductionBand) {
+        bandID = singleBand.bandID
+        name = singleBand.name
+        photo = singleBand.photo
+        genre = singleBand.genre
+        mediaLink = singleBand.mediaLink
+        
+        if singleBand.genre == [] {
+            genre.append(Genre.NA)
+        }
     }
 
 }

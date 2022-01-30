@@ -14,7 +14,7 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     
     //Properties
     var menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
-    let activityIndicator = MDCActivityIndicator()
+    static let activityIndicator = MDCActivityIndicator()
     var activityIndicatorColors = [cc.highlightBlue, UIColor.yellow, UIColor.systemPurple, UIColor.green, UIColor.orange]
     let hapticGenerator = UISelectionFeedbackGenerator()
     
@@ -63,12 +63,12 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     }
     
     private func setupProgressView() {
-        menuButton.addSubview(activityIndicator)
-        activityIndicator.center = menuButton.center
-        activityIndicator.radius = 27
-        activityIndicator.cycleColors = activityIndicatorColors
-        activityIndicator.trackEnabled = true
-        activityIndicator.bringSubviewToFront(menuButton)
+        menuButton.addSubview(DashboardTabBarController.activityIndicator)
+        DashboardTabBarController.activityIndicator.center = menuButton.center
+        DashboardTabBarController.activityIndicator.radius = 27
+        DashboardTabBarController.activityIndicator.cycleColors = activityIndicatorColors
+        DashboardTabBarController.activityIndicator.trackEnabled = true
+        DashboardTabBarController.activityIndicator.bringSubviewToFront(menuButton)
     }
 
 
@@ -77,15 +77,12 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     @objc private func menuButtonAction(sender: UIButton) {
         selectedIndex = 2
         self.hapticGenerator.selectionChanged()
-        activityIndicator.startAnimating()
+        DashboardTabBarController.activityIndicator.startAnimating()
         activityIndicatorColors.shuffle()
-        xityShowController.todayShowArray.removeAll(where: {$0.show.date < timeController.threeHoursAgo})
-        notificationCenter.post(notifications.reloadDashboardCVData)
-        let temp = xityShowController.todayShowArrayFilter
-        xityShowController.todayShowArrayFilter = temp
-        activityIndicator.cycleColors = activityIndicatorColors
+        DashboardTabBarController.activityIndicator.cycleColors = activityIndicatorColors
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            self.activityIndicator.stopAnimating()
+            DashboardTabBarController.activityIndicator.stopAnimating()
         }
+        NotifyCenter.post(Notifications.reloadDashboardCVData)
     }
 }

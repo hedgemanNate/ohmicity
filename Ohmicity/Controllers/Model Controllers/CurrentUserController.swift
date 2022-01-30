@@ -6,12 +6,13 @@
 //
 
 import Firebase
+import FirebaseFirestore
 
 class CurrentUserController {
     
     var currentUser: CurrentUser? {
         didSet {
-            notificationCenter.post(notifications.userAuthUpdated)
+            NotifyCenter.post(Notifications.userAuthUpdated)
             NSLog("⚠️ CURRENT USER SET")
         }
     }
@@ -19,7 +20,7 @@ class CurrentUserController {
     var preferredCity: City = .All {
         didSet {
             currentUser?.preferredCity = preferredCity
-            xityShowController.todayShowArrayFilter = preferredCity
+            XityShowController.todayShowArrayFilter = preferredCity
             //Can be more financially efficient
         }
         
@@ -32,7 +33,7 @@ class CurrentUserController {
     func assignCurrentUser() {
             guard let id = Auth.auth().currentUser?.uid else { return NSLog("No Current User ID: assignCurrentUser") }
             
-            ref.userDataPath.document(id).getDocument { [self] document, error in
+            FireStoreReferenceManager.userDataPath.document(id).getDocument { [self] document, error in
                 let result = Result {
                     try document?.data(as: CurrentUser.self)
                 }
@@ -42,9 +43,10 @@ class CurrentUserController {
                         //MARK: BETA
                         checkForNilProperties(currentUser: user)
                         self.currentUser = user
-                        self.setUpQonversionPurchasing {
-                            self.setUpCurrentUserPreferences()
-                        }
+                        self.setUpCurrentUserPreferences()
+//                        self.setUpQonversionPurchasing {
+//                            self.setUpCurrentUserPreferences()
+//                        }
                         
                     } else {
                         NSLog("User Data Not Found In Database")
@@ -58,7 +60,7 @@ class CurrentUserController {
     func getUserXitySupportLast24Hours() {
         if currentUser == nil { NSLog("No User"); return }
         
-        let userSupportQuery = ref.xitySupportDataPath
+        let userSupportQuery = FireStoreReferenceManager.xitySupportDataPath
             .whereField("userID", isEqualTo: currentUser!.userID)
             .whereField("time", isGreaterThan: timeController.aDayAgo)
         
@@ -101,7 +103,7 @@ class CurrentUserController {
         userAdController.setUpAdsAndFeaturesForUser()
         
         //Preferred City Setup
-        xityShowController.todayShowArrayFilter = currentUser?.preferredCity ?? .All
+        XityShowController.todayShowArrayFilter = currentUser?.preferredCity ?? .All
     }
     
     func pushCurrentUserData() {
@@ -109,7 +111,7 @@ class CurrentUserController {
         guard let uid = currentUser?.userID else {return NSLog("🚨 No Current User Found/Set")}
         do {
             currentUser?.lastModified = Timestamp()
-            try ref.userDataPath.document(uid).setData(from: currentUser)
+            try FireStoreReferenceManager.userDataPath.document(uid).setData(from: currentUser)
         } catch let error {
             NSLog("🚨 \(error.localizedDescription)")
         }
@@ -117,7 +119,7 @@ class CurrentUserController {
     
     func pushCurrentUserData(_with uid: String) {
         do {
-            try ref.userDataPath.document(uid).setData(from: currentUser)
+            try FireStoreReferenceManager.userDataPath.document(uid).setData(from: currentUser)
         } catch let error {
             NSLog(error.localizedDescription)
         }

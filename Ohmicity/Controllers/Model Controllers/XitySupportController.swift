@@ -17,7 +17,7 @@ class XitySupportController {
         if supportInstancesArray != [] {
             for support in supportInstancesArray {
                 do {
-                    try ref.xitySupportDataPath.document(support.uid).setData(from: support)
+                    try FireStoreReferenceManager.xitySupportDataPath.document(support.uid).setData(from: support)
                     NSLog("✅ Support Pushed")
                 } catch (let error) {
                     NSLog("🚨 \(error.localizedDescription)")
@@ -28,7 +28,7 @@ class XitySupportController {
     
     func pushXitySupport(support: XitySupport) {
         do {
-            try ref.xitySupportDataPath.document(support.uid).setData(from: support)
+            try FireStoreReferenceManager.xitySupportDataPath.document(support.uid).setData(from: support)
             NSLog("✅ Support Pushed")
         } catch (let error) {
             NSLog("🚨 \(error.localizedDescription)")

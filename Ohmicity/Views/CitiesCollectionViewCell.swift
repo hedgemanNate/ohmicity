@@ -51,9 +51,15 @@ class CitiesCollectionViewCell: UICollectionViewCell {
         didSet {
             
             if let bandGenre = bandGenre {
-                imageView.image = UIImage(named: "\(bandGenre.rawValue.lowercased()).png")
-                nameLabel.text = ""
-            } 
+                nameLabel.text = bandGenre.rawValue
+                
+                
+                let colors: [UIColor] = [cc.highlightPurple, cc.navigationTextBlue, cc.tabBarPurple, cc.tabBarButtonPurple, .orange, .systemBlue, .purple, cc.deepGreen]
+                
+                let bgColor = colors.randomElement()
+                nameLabel.backgroundColor = bgColor
+                nameLabel.textColor = .white
+            }
         }
     }
     

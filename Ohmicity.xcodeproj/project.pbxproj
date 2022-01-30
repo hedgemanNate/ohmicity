@@ -31,10 +31,14 @@
 		F61C370926B64E5B00A2235B /* listenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370726B64E5A00A2235B /* listenButton.png */; };
 		F61C370B26B66F8600A2235B /* brickBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370A26B66F8500A2235B /* brickBackground.png */; };
 		F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C371026B727B400A2235B /* OperationHoursAlert.swift */; };
+		F61E00A327A0B58800FA8298 /* ReloadAllDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */; };
 		F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */; };
 		F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BC4D326F54866004177BD /* SupportInfoViewController.swift */; };
 		F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */; };
 		F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62FEB6F26562A59008DEF64 /* ResetViewController.swift */; };
+		F63837892793F90000838858 /* ProductionShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63837882793F90000838858 /* ProductionShows.swift */; };
+		F638378D2793FBD800838858 /* ProductionShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638378C2793FBD800838858 /* ProductionShowController.swift */; };
+		F638378F2793FEC400838858 /* ForceUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638378E2793FEC400838858 /* ForceUpdateViewController.swift */; };
 		F63D191827006435004379D5 /* MenuPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F63D191727006435004379D5 /* MenuPopUp.storyboard */; };
 		F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */; };
 		F63D191C27006818004379D5 /* RatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D191B27006818004379D5 /* RatingsViewController.swift */; };
@@ -62,6 +66,9 @@
 		F649ECB1264B2C5500E84408 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649ECB0264B2C5500E84408 /* Extensions.swift */; };
 		F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */; };
 		F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */; };
+		F6502A3C2799D31200535AB7 /* Shows.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6502A3B2799D31200535AB7 /* Shows.storyboard */; };
+		F6502A3E2799E34B00535AB7 /* Grouped Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6502A3D2799E34B00535AB7 /* Grouped Section.swift */; };
+		F6502A402799E3EA00535AB7 /* ShowsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */; };
 		F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6522D5D2649AAF000912B90 /* CustomColors.swift */; };
 		F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */ = {isa = PBXBuildFile; fileRef = F65BC59D26BE8E2400B62C7C /* DefaultBand.png */; };
 		F65F098D26D5AE5F008D18B1 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */; };
@@ -97,6 +104,7 @@
 		F67991002697AB54000FDC5E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67990FF2697AB54000FDC5E /* Notifications.swift */; };
 		F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991042697E2A0000FDC5E /* BusinessController.swift */; };
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
+		F67B93B727A25044004B8DA7 /* NewLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
 		F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6869B4E27010EDC00421019 /* BackgroundTasks.swift */; };
@@ -123,6 +131,11 @@
 		F6AB4F5D270CFD80004C164C /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F6AB4F5C270CFD80004C164C /* Qonversion */; };
 		F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB4F5E270D0308004C164C /* PurchaseController.swift */; };
 		F6AB4F61270DAF50004C164C /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6AB4F60270DAF4C004C164C /* search.jpg */; };
+		F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */; };
+		F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */; };
+		F6D17B4027A5DFCA00AD22F9 /* userIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D17B3F27A5DFC600AD22F9 /* userIcon.png */; };
+		F6D17B4227A5F37400AD22F9 /* CheckForUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */; };
+		F6D17B4427A6154B00AD22F9 /* UpdateAvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D17B4327A6154B00AD22F9 /* UpdateAvailableViewController.swift */; };
 		F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */; };
 		F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D67C1A26D75F3400B4823D /* UserAdController.swift */; };
 		F6DBFDA726E9900C001D7520 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DBFDA626E9900B001D7520 /* loginLogo.png */; };
@@ -132,6 +145,9 @@
 		F6DBFDB326E9D88A001D7520 /* SubscriptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */; };
 		F6DBFDB526E9DCC0001D7520 /* SubscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */; };
 		F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DD860E264E658A00C90938 /* SettingsViewController.swift */; };
+		F6DE75B3279925900033C807 /* ProductionBands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DE75B2279925900033C807 /* ProductionBands.swift */; };
+		F6E10DF62795073B009353BE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E10DF52795073B009353BE /* Favorite.swift */; };
+		F6E10DF8279508DB009353BE /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E10DF7279508DB009353BE /* FavoriteController.swift */; };
 		F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */; };
 		F6E8EF5B26E70FD000831544 /* PreferredCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */; };
 		F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8EF5C26E71E4F00831544 /* SettingsController.swift */; };
@@ -167,7 +183,7 @@
 		F60B849E26CB6DDA00C9226F /* DashboardTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBar.swift; sourceTree = "<group>"; };
 		F60DDB8D269E483E009DD827 /* BandVenueBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BandVenueBorder.png; sourceTree = "<group>"; };
 		F60E6BD62648F7C8001CA06E /* PurpleBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleBG.png; sourceTree = "<group>"; };
-		F60E865626CC8952001DE21A /* TemporaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TemporaryViewController.swift; path = Temporary/TemporaryViewController.swift; sourceTree = "<group>"; };
+		F60E865626CC8952001DE21A /* TemporaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryViewController.swift; sourceTree = "<group>"; };
 		F60EB6362656D3C400CDB6F6 /* goTonight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goTonight.json; sourceTree = "<group>"; };
 		F619F108270925F800FDE93F /* na.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = na.png; sourceTree = "<group>"; };
 		F61C370326B64E2200A2235B /* VenueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
@@ -175,10 +191,14 @@
 		F61C370726B64E5A00A2235B /* listenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listenButton.png; sourceTree = "<group>"; };
 		F61C370A26B66F8500A2235B /* brickBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brickBackground.png; sourceTree = "<group>"; };
 		F61C371026B727B400A2235B /* OperationHoursAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationHoursAlert.swift; sourceTree = "<group>"; };
+		F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadAllDataViewController.swift; sourceTree = "<group>"; };
 		F6268E1126BF695700A0B2F4 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		F62BC4D326F54866004177BD /* SupportInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportInfoViewController.swift; sourceTree = "<group>"; };
 		F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		F62FEB6F26562A59008DEF64 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
+		F63837882793F90000838858 /* ProductionShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductionShows.swift; path = Ohmicity/Models/ProductionShows.swift; sourceTree = SOURCE_ROOT; };
+		F638378C2793FBD800838858 /* ProductionShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionShowController.swift; sourceTree = "<group>"; };
+		F638378E2793FEC400838858 /* ForceUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateViewController.swift; sourceTree = "<group>"; };
 		F63D191727006435004379D5 /* MenuPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuPopUp.storyboard; sourceTree = "<group>"; };
 		F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopUpLogicViewController.swift; sourceTree = "<group>"; };
 		F63D191B27006818004379D5 /* RatingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +225,9 @@
 		F649ECB0264B2C5500E84408 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F64E1414269F984300943371 /* BandVenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandVenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadInitDataViewController.swift; sourceTree = "<group>"; };
+		F6502A3B2799D31200535AB7 /* Shows.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shows.storyboard; sourceTree = "<group>"; };
+		F6502A3D2799E34B00535AB7 /* Grouped Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Grouped Section.swift"; sourceTree = "<group>"; };
+		F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsSearchViewController.swift; sourceTree = "<group>"; };
 		F6522D5D2649AAF000912B90 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		F65BC59D26BE8E2400B62C7C /* DefaultBand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultBand.png; sourceTree = "<group>"; };
 		F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +264,7 @@
 		F67990FF2697AB54000FDC5E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		F67991042697E2A0000FDC5E /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
+		F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoaderViewController.swift; sourceTree = "<group>"; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
 		F6869B4E27010EDC00421019 /* BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTasks.swift; sourceTree = "<group>"; };
@@ -266,6 +290,11 @@
 		F69EEB8626FD8124001C342E /* BandSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandSearchViewController.swift; sourceTree = "<group>"; };
 		F6AB4F5E270D0308004C164C /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
 		F6AB4F60270DAF4C004C164C /* search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = search.jpg; sourceTree = "<group>"; };
+		F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionBandController.swift; sourceTree = "<group>"; };
+		F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentViewController.swift; sourceTree = "<group>"; };
+		F6D17B3F27A5DFC600AD22F9 /* userIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userIcon.png; sourceTree = "<group>"; };
+		F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForUpdateController.swift; sourceTree = "<group>"; };
+		F6D17B4327A6154B00AD22F9 /* UpdateAvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailableViewController.swift; sourceTree = "<group>"; };
 		F6D5945F26BBB1DA005D0DEC /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
 		F6D67C1A26D75F3400B4823D /* UserAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdController.swift; sourceTree = "<group>"; };
 		F6DBFDA626E9900B001D7520 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
@@ -275,6 +304,9 @@
 		F6DBFDB226E9D88A001D7520 /* SubscriptionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionType.swift; sourceTree = "<group>"; };
 		F6DBFDB426E9DCC0001D7520 /* SubscriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionController.swift; sourceTree = "<group>"; };
 		F6DD860E264E658A00C90938 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F6DE75B2279925900033C807 /* ProductionBands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionBands.swift; sourceTree = "<group>"; };
+		F6E10DF52795073B009353BE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		F6E10DF7279508DB009353BE /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		F6E8EF5026E70B5800831544 /* PreferredCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewCell.swift; sourceTree = "<group>"; };
 		F6E8EF5A26E70FD000831544 /* PreferredCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredCityTableViewController.swift; sourceTree = "<group>"; };
 		F6E8EF5C26E71E4F00831544 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -312,6 +344,7 @@
 		D8403CFA2641C4C400E95415 = {
 			isa = PBXGroup;
 			children = (
+				F6BA377127A3BEF000D1E5E3 /* Old Files */,
 				F66C99C626BCDA6200A7C135 /* MyPlayground.playground */,
 				F6522D622649AAF400912B90 /* Helpers */,
 				D8403D052641C4C400E95415 /* Ohmicity */,
@@ -336,6 +369,11 @@
 				F67109EF264B64F000FC479B /* Models */,
 				F60E6BCD2648F36B001CA06E /* Images */,
 				D8CED3F22641E3880017FD28 /* Controllers */,
+				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
+				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
+				D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */,
+				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
+				F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */,
 				F60E6BC82648F259001CA06E /* Storyboard */,
 				F60E6BC92648F2AE001CA06E /* Assets */,
 			);
@@ -350,11 +388,7 @@
 				F640DD14264E4BB700959358 /* Login View Controllers */,
 				F62FEB6B26562A1A008DEF64 /* Settings View Controllers */,
 				F62BC4D226F54839004177BD /* Info View Controllers */,
-				F6DBFDA926E9BAE6001D7520 /* Tab View Controllers */,
-				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
-				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
-				F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */,
-				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
+				F6DBFDA926E9BAE6001D7520 /* Detail & Loading View Controllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -375,6 +409,7 @@
 				D8403D112641C4C500E95415 /* LaunchScreen.storyboard */,
 				D8CED4052641F4100017FD28 /* SignIn.storyboard */,
 				D8403D0C2641C4C400E95415 /* Main.storyboard */,
+				F6502A3B2799D31200535AB7 /* Shows.storyboard */,
 				F6622663270572C400593C72 /* VenueSearch.storyboard */,
 				F662266D270572EC00593C72 /* Venue.storyboard */,
 				F66CB28426FD113800B26EE3 /* BandSearch.storyboard */,
@@ -430,6 +465,7 @@
 		F61C370526B64E5A00A2235B /* Button Icons And BG's */ = {
 			isa = PBXGroup;
 			children = (
+				F6D17B3F27A5DFC600AD22F9 /* userIcon.png */,
 				F687CD6C26F4980000412C07 /* xitySupportIcon.png */,
 				F61C370626B64E5A00A2235B /* directionsIcon.png */,
 				F61C370726B64E5A00A2235B /* listenButton.png */,
@@ -440,10 +476,13 @@
 		F62BC4D226F54839004177BD /* Info View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */,
 				F6DBFDAA26E9BB5D001D7520 /* PurchaseViewController.swift */,
 				F65F098C26D5AE5F008D18B1 /* RecommendViewController.swift */,
 				F62BC4D326F54866004177BD /* SupportInfoViewController.swift */,
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
+				F638378E2793FEC400838858 /* ForceUpdateViewController.swift */,
+				F6D17B4327A6154B00AD22F9 /* UpdateAvailableViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -456,6 +495,7 @@
 				F6DD860E264E658A00C90938 /* SettingsViewController.swift */,
 				D8262F0A264467A90050F9CA /* SuggestViewController.swift */,
 				F62FEB6F26562A59008DEF64 /* ResetViewController.swift */,
+				F6D17B3D27A4BBF400AD22F9 /* DevelopmentViewController.swift */,
 			);
 			path = "Settings View Controllers";
 			sourceTree = "<group>";
@@ -534,6 +574,7 @@
 				F66CB27E26FC653A00B26EE3 /* NetworkMonitor.swift */,
 				F63D1919270066A5004379D5 /* MenuPopUpLogicViewController.swift */,
 				F6869B4E27010EDC00421019 /* BackgroundTasks.swift */,
+				F6502A3D2799E34B00535AB7 /* Grouped Section.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -541,10 +582,10 @@
 		F66C99C526BCD83E00A7C135 /* Logic Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
 				F6E8EF5C26E71E4F00831544 /* SettingsController.swift */,
+				F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */,
 				F649D51B27214BF80050E7F9 /* Subscription */,
 			);
 			path = "Logic Controllers";
@@ -563,6 +604,9 @@
 				F699FFE026C6121A00C73CD6 /* XityBusiness.swift */,
 				F699FFE226C613C400C73CD6 /* XityBand.swift */,
 				F62EA7FF26D5B27D0048B7AD /* Recommendation.swift */,
+				F6E10DF52795073B009353BE /* Favorite.swift */,
+				F63837882793F90000838858 /* ProductionShows.swift */,
+				F6DE75B2279925900033C807 /* ProductionBands.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -589,6 +633,9 @@
 				F676F1022699496200C47599 /* ShowController.swift */,
 				F6869B5027018AEB00421019 /* RatingsController.swift */,
 				F6869B522701911D00421019 /* RecommendationController.swift */,
+				F638378C2793FBD800838858 /* ProductionShowController.swift */,
+				F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */,
+				F6E10DF7279508DB009353BE /* FavoriteController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -603,6 +650,15 @@
 			path = "User Models";
 			sourceTree = "<group>";
 		};
+		F6BA377127A3BEF000D1E5E3 /* Old Files */ = {
+			isa = PBXGroup;
+			children = (
+				F676F0FC2699309B00C47599 /* LastModifiedDateHandler.swift */,
+				F64E1418269FC3B100943371 /* LoadInitDataViewController.swift */,
+			);
+			path = "Old Files";
+			sourceTree = "<group>";
+		};
 		F6DBFDA826E9B161001D7520 /* Puchase Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,16 +670,16 @@
 			path = "Puchase Images";
 			sourceTree = "<group>";
 		};
-		F6DBFDA926E9BAE6001D7520 /* Tab View Controllers */ = {
+		F6DBFDA926E9BAE6001D7520 /* Detail & Loading View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
-				F661A5FF26F6959E00A059E2 /* XityDealsViewController.swift */,
-				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
-				D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */,
-				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
+				F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */,
+				F61E00A227A0B58800FA8298 /* ReloadAllDataViewController.swift */,
+				F61C370326B64E2200A2235B /* VenueDetailViewController.swift */,
+				F6615ADC26F2746B0096D59D /* BandDetailViewController.swift */,
+				F60E865626CC8952001DE21A /* TemporaryViewController.swift */,
 			);
-			path = "Tab View Controllers";
+			path = "Detail & Loading View Controllers";
 			sourceTree = "<group>";
 		};
 		F6F3DB3C26AF331C00C49016 /* Cell Images */ = {
@@ -775,6 +831,7 @@
 				F644E85D2707FF1500FF81A8 /* dj.png in Resources */,
 				F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */,
 				F644E8602707FF1500FF81A8 /* experimental.png in Resources */,
+				F6D17B4027A5DFCA00AD22F9 /* userIcon.png in Resources */,
 				F696A73426AB7079009CB1BD /* tampa.png in Resources */,
 				F6DBFDAE26E9CE45001D7520 /* noAds.jpg in Resources */,
 				F6F3DB4826AF337C00C49016 /* bar.png in Resources */,
@@ -795,6 +852,7 @@
 				F644E8682707FF1500FF81A8 /* pop.png in Resources */,
 				F6622664270572C400593C72 /* VenueSearch.storyboard in Resources */,
 				F6F3DB3B26AF172900C49016 /* bradenton.png in Resources */,
+				F6502A3C2799D31200535AB7 /* Shows.storyboard in Resources */,
 				F65BC59E26BE8E2600B62C7C /* DefaultBand.png in Resources */,
 				F644E85B2707FF1500FF81A8 /* country.png in Resources */,
 				F6F3DB4726AF337C00C49016 /* outdoors.png in Resources */,
@@ -883,11 +941,14 @@
 				F60B849F26CB6DDA00C9226F /* DashboardTabBar.swift in Sources */,
 				F6E8EF5D26E71E4F00831544 /* SettingsController.swift in Sources */,
 				F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */,
+				F6502A3E2799E34B00535AB7 /* Grouped Section.swift in Sources */,
 				F699FFE326C613C400C73CD6 /* XityBand.swift in Sources */,
 				D8403D092641C4C400E95415 /* SceneDelegate.swift in Sources */,
 				F687CD6926F45EF300412C07 /* XitySupport.swift in Sources */,
+				F6502A402799E3EA00535AB7 /* ShowsSearchViewController.swift in Sources */,
 				F62BC4D426F54866004177BD /* SupportInfoViewController.swift in Sources */,
 				F64E1416269F984300943371 /* BandVenueCollectionViewCell.swift in Sources */,
+				F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
 				F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */,
@@ -895,6 +956,7 @@
 				F676F0FF269947B300C47599 /* BandController.swift in Sources */,
 				F61C371126B727B400A2235B /* OperationHoursAlert.swift in Sources */,
 				F67990FE26977ED7000FDC5E /* ProfileViewController.swift in Sources */,
+				F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */,
 				F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */,
 				F62FEB7026562A59008DEF64 /* ResetViewController.swift in Sources */,
 				F63D191C27006818004379D5 /* RatingsViewController.swift in Sources */,
@@ -910,9 +972,12 @@
 				F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */,
 				F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */,
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
+				F6D17B4427A6154B00AD22F9 /* UpdateAvailableViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F6869B5127018AEB00421019 /* RatingsController.swift in Sources */,
+				F61E00A327A0B58800FA8298 /* ReloadAllDataViewController.swift in Sources */,
+				F63837892793F90000838858 /* ProductionShows.swift in Sources */,
 				F6E8EF5126E70B5800831544 /* PreferredCityTableViewCell.swift in Sources */,
 				F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */,
 				F6DBFDB526E9DCC0001D7520 /* SubscriptionController.swift in Sources */,
@@ -922,9 +987,12 @@
 				F676F1032699496200C47599 /* ShowController.swift in Sources */,
 				D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */,
 				F6268E1226BF695700A0B2F4 /* SearchTableViewCell.swift in Sources */,
+				F6E10DF8279508DB009353BE /* FavoriteController.swift in Sources */,
+				F67B93B727A25044004B8DA7 /* NewLoaderViewController.swift in Sources */,
 				F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */,
 				F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */,
 				F6522D5E2649AAF000912B90 /* CustomColors.swift in Sources */,
+				F6DE75B3279925900033C807 /* ProductionBands.swift in Sources */,
 				F6D67C1B26D75F3400B4823D /* UserAdController.swift in Sources */,
 				F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */,
 				F6615ADF26F2CC450096D59D /* ProgressCircle.swift in Sources */,
@@ -933,14 +1001,18 @@
 				F676F0FA26991C6C00C47599 /* Business.swift in Sources */,
 				F676F0F626991C6C00C47599 /* Ratings.swift in Sources */,
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
+				F638378D2793FBD800838858 /* ProductionShowController.swift in Sources */,
 				F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,
 				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
 				F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */,
 				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,
+				F6D17B4227A5F37400AD22F9 /* CheckForUpdateController.swift in Sources */,
+				F6E10DF62795073B009353BE /* Favorite.swift in Sources */,
 				F6869B532701911D00421019 /* RecommendationController.swift in Sources */,
 				F63D191A270066A5004379D5 /* MenuPopUpLogicViewController.swift in Sources */,
+				F638378F2793FEC400838858 /* ForceUpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1097,7 +1169,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.02;
+				MARKETING_VERSION = 2.05;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1120,7 +1192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.02;
+				MARKETING_VERSION = 2.05;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -27,5 +27,8 @@ class XityShow: Equatable, Hashable {
         self.band = band
         self.business = business
         self.show = show
+        
+        self.show.city = business.city
+        self.show.city.append(City.All)
     }
 }

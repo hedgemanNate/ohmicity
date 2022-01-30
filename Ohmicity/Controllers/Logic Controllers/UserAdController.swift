@@ -15,10 +15,12 @@ enum GoogleAdID: String {
 
 class UserAdController {
     //Properties
+    var percentArray = [1,2,3,4]
+    
     var userSubscription = SubscriptionType.None {
         didSet {
             currentUserController.setUpCurrentUserPreferences()
-            notificationCenter.post(notifications.userAuthUpdated)
+            NotifyCenter.post(Notifications.userAuthUpdated)
         }
     }
     
@@ -80,7 +82,7 @@ class UserAdController {
     }
     
     func shouldShowAd() -> Bool {
-        let percentArray = [1,2,3,4]
+        if DevelopmentSettingsController.devSettings.ads == false {percentArray = [0]}
         let x = Int.random(in: 1...10)
         if percentArray.contains(x) {
             return true

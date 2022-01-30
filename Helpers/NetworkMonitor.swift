@@ -23,10 +23,10 @@ class NetworkMonitor {
 
             if path.status == .satisfied {
                 NSLog("We're connected!")
-                notificationCenter.post(notifications.hasConnection)
+                NotifyCenter.post(Notifications.hasConnection)
             } else {
                 NSLog("No connection.")
-                notificationCenter.post(notifications.lostConnection)
+                NotifyCenter.post(Notifications.lostConnection)
             }
         }
 

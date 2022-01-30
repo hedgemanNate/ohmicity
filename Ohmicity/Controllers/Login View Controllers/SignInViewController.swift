@@ -51,7 +51,7 @@ class SignInViewController: UIViewController, FUIAuthDelegate {
             
             currentUserController.currentUser = CurrentUser(userID: uid, email: email)
             currentUserController.assignCurrentUser()
-            notificationCenter.post(notifications.userAuthUpdated)
+            NotifyCenter.post(Notifications.userAuthUpdated)
             
             //Checks if this is a new user and assigns them a space in the database
             if authDataResult?.additionalUserInfo?.isNewUser == true {

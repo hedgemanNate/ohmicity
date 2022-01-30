@@ -10,31 +10,38 @@ import Foundation
 class XityShowController {
     
     //Properties
-    var showArray = [XityShow]()
-    var todayShowArrayFilter: City = .All {
+    static var showArray = [XityShow]()
+    
+    static var todayShowArray: [XityShow] = [] {
         didSet {
-            todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
-        }
-    }
-    var todayShowArray: [XityShow] = [] {
-        didSet {
+            let xitySet = Set(showArray)
+            showArray = Array(xitySet)
             todayShowResultsArray = todayShowArray
         }
     }
-    var todayShowResultsArray: [XityShow] = [] {
+    static var todayShowResultsArray: [XityShow] = [] {
         didSet {
-            notificationCenter.post(notifications.reloadDashboardCVData)
+            todayShowResultsArray.sort(by: {$0.show.date < $1.show.date})
         }
     }
-    var weeklyPicksArray = [XityShow]()
-    var xityShowSearchArray = [XityShow]()
+    static var weeklyPicksArray = [XityShow]() {
+        didSet {
+            let set = Set(weeklyPicksArray)
+            weeklyPicksArray = Array(set)
+            weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
+        }
+    }
+    static var xityShowSearchArray = [XityShow]()
     
-    func removeDuplicates() {
-        let xitySet = Set(showArray)
-        showArray = Array(xitySet)
+    static var todayShowArrayFilter: City = .All {
+        didSet {
+            todayShowResultsArray = todayShowArray.filter({$0.show.city.contains(todayShowArrayFilter)})
+            NotifyCenter.post(Notifications.reloadDashboardCVData)
+        }
     }
     
-    func getWeeklyPicks() {
+    static func getWeeklyPicks() {
+        weeklyPicksArray = []
         let monday = Date().next(.monday)
         
         var lowFiltered = [XityShow]()
@@ -54,7 +61,6 @@ class XityShowController {
         let op3 = BlockOperation { [self] in
             let mid = theWeekFiltered.filter({$0.show.ohmPick == true})
             weeklyPicksArray = mid.sorted(by: {$0.show.date < $1.show.date})
-            weeklyPicksArray.removeDuplicates()
             print("******Xity Picks!")
         }
         
@@ -63,6 +69,16 @@ class XityShowController {
         op3.addDependency(op2)
         op2.addDependency(op1)
         opQueue.addOperations([op1, op2, op3], waitUntilFinished: false)
+    }
+    
+    static func fillXityShowArray() {
+        for show in ShowController.showArray {
+            guard let band = BandController.bandArray.first(where: {$0.bandID == show.band}) else {continue}
+            guard let business = BusinessController.businessArray.first(where: {$0.venueID == show.venue}) else {continue}
+            
+            let xityShow = XityShow(band: band, business: business, show: show)
+            showArray.append(xityShow)
+        }
     }
 }
 

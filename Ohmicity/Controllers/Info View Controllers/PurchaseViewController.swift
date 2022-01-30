@@ -123,7 +123,7 @@ class PurchaseViewController: UIViewController {
             
             do {
                 currentUserController.currentUser?.lastModified = Timestamp()
-                try ref.userDataPath.document(currentUserController.currentUser!.userID).setData(from: currentUserController.currentUser)
+                try FireStoreReferenceManager.userDataPath.document(currentUserController.currentUser!.userID).setData(from: currentUserController.currentUser)
             } catch {
                 NSLog("Error setting subscriptionType to currentUser in Firebase: PurchaseViewController")
             }

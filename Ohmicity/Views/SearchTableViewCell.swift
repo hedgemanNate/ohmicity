@@ -14,6 +14,8 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var secondNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    var shouldShowBand = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -44,7 +46,15 @@ class SearchTableViewCell: UITableViewCell {
                 //Labels
                 var stringArray = [String]()
                 nameLabel.text = xityBand.band.name
-                secondNameLabel.text = "Next Show: \(xityBand.xityShows?.first?.show.venue ?? "None Scheduled")"
+                
+                if xityBand.xityShows.first != nil {
+                    let venueID = xityBand.xityShows.first?.business.venueID
+                    let venueName = XityBusinessController.businessArray.first(where: {$0.business.venueID == venueID})?.business.name
+                    secondNameLabel.text = "Next Show: \(venueName ?? "None Scheduled")"
+                } else {
+                    secondNameLabel.text = "None Scheduled"
+                }
+                
                 for genre in xityBand.band.genre {
                     stringArray.append(genre.rawValue)
                 }
@@ -63,7 +73,16 @@ class SearchTableViewCell: UITableViewCell {
                     //Labels
                     var stringArray = [String]()
                     nameLabel.text = xityBusiness.business.name
-                    secondNameLabel.text = "Next Show: \(xityBusiness.xityShows.first?.show.band ?? "None Scheduled")"
+                    
+                    
+                    if xityBusiness.xityShows.first != nil {
+                        let bandID = xityBusiness.xityShows.first?.band.bandID
+                        let bandName = XityBandController.bandArray.first(where: {$0.band.bandID == bandID})?.band.name
+                        secondNameLabel.text = "Next Show: \(bandName ?? "None Scheduled")"
+                    } else {
+                        secondNameLabel.text = "None Scheduled"
+                    }
+                    
                     for businessType in xityBusiness.business.businessType {
                         stringArray.append(businessType.rawValue)
                     }
@@ -71,5 +90,35 @@ class SearchTableViewCell: UITableViewCell {
                 }
             }
         }
-
+    
+    var xityShow: XityShow? {
+            didSet {
+                if let xityShow = xityShow {
+                    
+                    if shouldShowBand == false {
+                        //Photo
+                        showImage.image = UIImage(data: xityShow.business.logo)
+                        
+                        //Labels
+                        nameLabel.text = xityShow.business.name
+                        secondNameLabel.text = xityShow.show.bandDisplayName.capitalized
+                    } else {
+                        //Photo
+                        if xityShow.band.photo == nil {
+                            showImage.image = UIImage(named: "DefaultBand.png")
+                        } else {
+                            showImage.image = UIImage(data: xityShow.band.photo!)
+                        }
+                        
+                        //Labels
+                        nameLabel.text = xityShow.show.bandDisplayName.capitalized
+                        secondNameLabel.text = xityShow.business.name
+                    }
+                   
+                    var stringArray = [String]()
+                    for genre in xityShow.band.genre { stringArray.append(genre.rawValue) }
+                    categoryLabel.text = stringArray.joined(separator: ", ")
+                }
+            }
+        }
 }
