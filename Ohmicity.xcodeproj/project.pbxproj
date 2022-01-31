@@ -370,10 +370,10 @@
 				F60E6BCD2648F36B001CA06E /* Images */,
 				D8CED3F22641E3880017FD28 /* Controllers */,
 				F6923D25264E7F6400A2E036 /* DashboardViewController.swift */,
-				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
+				F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */,
 				D8262F00264466FA0050F9CA /* VenueSearchViewController.swift */,
 				F69EEB8626FD8124001C342E /* BandSearchViewController.swift */,
-				F6502A3F2799E3EA00535AB7 /* ShowsSearchViewController.swift */,
+				F67990FD26977ED7000FDC5E /* ProfileViewController.swift */,
 				F60E6BC82648F259001CA06E /* Storyboard */,
 				F60E6BC92648F2AE001CA06E /* Assets */,
 			);
@@ -1169,7 +1169,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.05;
+				MARKETING_VERSION = 2.051;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1192,7 +1192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.05;
+				MARKETING_VERSION = 2.051;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
