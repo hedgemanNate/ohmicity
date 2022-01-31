@@ -1559,7 +1559,7 @@ should be on Xity?</string>
                                     <constraint firstAttribute="height" constant="200" id="cGW-J7-DRA"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-ng-hU9">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-ng-hU9">
                                 <rect key="frame" x="188" y="182" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="breaker"/>
@@ -1623,7 +1623,7 @@ should be on Xity?</string>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i24-7P-gf0">
                                         <rect key="frame" x="0.0" y="109.00000000000003" width="333" height="180.99999999999997"/>
-                                        <string key="text">• Numerous Big Fixes
+                                        <string key="text">• Numerous Bug Fixes
 • Stability Improvements
 • New Features 
 • More Shows
