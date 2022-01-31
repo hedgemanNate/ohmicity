@@ -98,7 +98,7 @@ extension NewLoaderViewController {
         
         DispatchQueue.global(qos: .default).sync {
             group.enter()
-            FireStoreReferenceManager.showDataPath.document("EB7BD27C-15EA-43A5-866A-BF6883D0DD67").getDocument { snap, err in
+            FireStoreReferenceManager.showDataPath.document("EB7BD27C-15EA-43A5-866A-BF6883D0DD67").getDocument(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
                 } else {
@@ -109,7 +109,7 @@ extension NewLoaderViewController {
             }
             
             group.enter()
-            FireStoreReferenceManager.bandDataPath.getDocuments { snap, err in
+            FireStoreReferenceManager.bandDataPath.getDocuments(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
                 } else {
@@ -122,7 +122,7 @@ extension NewLoaderViewController {
             }
             
             group.enter()
-            FireStoreReferenceManager.venueDataPath.getDocuments { snap, err in
+            FireStoreReferenceManager.venueDataPath.getDocuments(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
                 } else {
@@ -136,7 +136,7 @@ extension NewLoaderViewController {
             
             
             group.enter()
-            FireStoreReferenceManager.bannerDataPath.getDocuments { snap, err in
+            FireStoreReferenceManager.bannerDataPath.getDocuments(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
                 } else {
