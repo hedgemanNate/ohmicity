@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
         let settings = FirestoreSettings()
-        settings.cacheSizeBytes = 2500000000
+        settings.cacheSizeBytes = 500000000
         settings.isPersistenceEnabled = true
         FireStoreReferenceManager.fireDataBase.settings = settings
         
