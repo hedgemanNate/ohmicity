@@ -53,5 +53,6 @@ extension Show {
         self.venue = singleShow.venue
         self.bandDisplayName = singleShow.bandDisplayName
         self.date = singleShow.date
+        self.ohmPick = singleShow.ohmPick
     }
 }
