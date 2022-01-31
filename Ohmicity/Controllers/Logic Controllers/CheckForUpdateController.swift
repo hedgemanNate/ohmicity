@@ -61,7 +61,7 @@ class CheckForUpdateController {
     
     static private func isUpdateAvailable(completion: @escaping (Bool?, Error?) -> Void) {
         guard let info = Bundle.main.infoDictionary,
-            let currentVersion = info["CFBundleShortVersionString"] as? String,
+            let onDeviceVersion = info["CFBundleShortVersionString"] as? String,
             let identifier = info["CFBundleIdentifier"] as? String,
             let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)") else {return}
        
@@ -70,18 +70,18 @@ class CheckForUpdateController {
                 if let error = error { throw error }
                 guard let data = data else { throw CheckingError.InvalidResponse }
                 let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any]
-                guard let result = (json?["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String else {
+                guard let result = (json?["results"] as? [Any])?.first as? [String: Any], let storeVersion = result["version"] as? String else {
                     throw CheckingError.NoVersionFound
                 }
                 
-                guard let version = Double(version) else { throw CheckingError.NoConversionPossible}
-                guard let currentVersion = Double(currentVersion) else {throw CheckingError.NoConversionPossible}
+                guard let storeVersion = Double(storeVersion) else { throw CheckingError.NoConversionPossible}
+                guard let onDeviceVersion = Double(onDeviceVersion) else {throw CheckingError.NoConversionPossible}
                 
-                installedVersion = currentVersion
-                appStoreVersion = version
+                installedVersion = onDeviceVersion
+                appStoreVersion = storeVersion
                 forceUpdate = shouldForceUpdate()
                 
-                completion(version >= currentVersion, nil)
+                completion(storeVersion > onDeviceVersion, nil)
             } catch {
                 completion(nil, error)
             }
