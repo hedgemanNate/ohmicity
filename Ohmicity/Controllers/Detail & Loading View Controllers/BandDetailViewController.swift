@@ -491,10 +491,11 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
             guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return}
             guard let show = currentBand?.xityShows[selected.row].show else {return}
             guard let venue = XityBusinessController.businessArray.first(where: {$0.business.venueID == show.venue})?.business.name else {return}
+            guard let city = XityBusinessController.businessArray.first(where: {$0.business.venueID == show.venue})?.business.city[0].rawValue else {return}
             guard let band = XityBandController.bandArray.first(where: {$0.band.bandID == show.band})?.band.name else {return}
             timeController.dateFormatter.dateFormat = timeController.dayMonthDayYearTime
             let date = timeController.dateFormatter.string(from: show.date)
-            let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(band)\n Location: \(venue)\n Time: \(date)", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Add Show To Your Calendar?", message: "Band: \(band)\n Location: \(venue) - \(city)\n Time: \(date)", preferredStyle: .actionSheet)
             let alertAction2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let alertAction1 = UIAlertAction(title: "Add Show", style: .default) { _ in
                 DispatchQueue.main.async {
