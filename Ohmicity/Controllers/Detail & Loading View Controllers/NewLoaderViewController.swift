@@ -56,6 +56,7 @@ extension NewLoaderViewController {
     
     //MARK: PreDownload Work
     private func startWork() {
+        
         let group = DispatchGroup()
         
         DispatchQueue.global(qos: .default).sync {
@@ -67,12 +68,6 @@ extension NewLoaderViewController {
             
             NotifyCenter.addObserver(self, selector: #selector(forceUpdate), name: Notifications.forceUpdate.name, object: nil)
             group.leave()
-            
-        
-            group.enter()
-            CheckForUpdateController.checkIfUpdateIsAvailable()
-            group.leave()
-            
             
             timeController.setTime()
             
@@ -153,6 +148,10 @@ extension NewLoaderViewController {
                 self.fillArrays()
             }
         }
+    }
+    
+    private func sendForUpdateInfo() async {
+        await CheckForUpdateController.checkIfUpdateIsAvailable()
     }
     
     //MARK: Fill Arrays
