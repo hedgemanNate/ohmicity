@@ -41,7 +41,9 @@ class ProfileViewController: UIViewController {
         NotifyCenter.addObserver(self, selector: #selector(updateLogButton), name: Notifications.userAuthUpdated.name, object: nil)
         NotifyCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
-            
+        NotifyCenter.addObserver(self, selector: #selector(updateViews), name: NSNotification.Name(rawValue: "VersionUpdateInfo"), object: nil)
+        
+        
         updateViews()
     }
     

@@ -20,7 +20,7 @@ class CheckForUpdateController {
     static var updateAvailable = false {
         didSet {
             print("📱 There is a newer version: \(updateAvailable)")
-
+            NotifyCenter.post(name: NSNotification.Name(rawValue: "VersionUpdateInfo")  , object: nil)
         }
     }
     
@@ -32,7 +32,11 @@ class CheckForUpdateController {
         }
     }
     
-    static var installedVersion: Double = 0
+    
+    static var installedVersion: Double {
+        let v = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)
+        return Double(v ?? "0.0") ?? 0.0
+    }
     static var appStoreVersion: Double = 0
     
     
@@ -48,8 +52,8 @@ class CheckForUpdateController {
         }
     }
     
-    static func checkIfUpdateIsAvailable() {
-        isUpdateAvailable { (update, error) in
+    static func checkIfUpdateIsAvailable() async {
+        await isUpdateAvailable { (update, error) in
             if let error = error {
                 print(error)
             } else if let update = update {
@@ -59,9 +63,8 @@ class CheckForUpdateController {
         
     }
     
-    static private func isUpdateAvailable(completion: @escaping (Bool?, Error?) -> Void) {
+    static private func isUpdateAvailable(completion: @escaping (Bool?, Error?) -> Void) async {
         guard let info = Bundle.main.infoDictionary,
-            let onDeviceVersion = info["CFBundleShortVersionString"] as? String,
             let identifier = info["CFBundleIdentifier"] as? String,
             let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)") else {return}
        
@@ -75,9 +78,9 @@ class CheckForUpdateController {
                 }
                 
                 guard let storeVersion = Double(storeVersion) else { throw CheckingError.NoConversionPossible}
-                guard let onDeviceVersion = Double(onDeviceVersion) else {throw CheckingError.NoConversionPossible}
+                let onDeviceVersion = installedVersion
                 
-                installedVersion = onDeviceVersion
+                
                 appStoreVersion = storeVersion
                 forceUpdate = shouldForceUpdate()
                 
