@@ -388,7 +388,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
                 halfTodayShows = [XityShow]()
                 for show in XityShowController.todayShowArray {
                     if index % 2 == 0 {
-                        halfTodayShows.append(show)
+                        //halfTodayShows.append(show)
                     }
                     index += 1
                 }

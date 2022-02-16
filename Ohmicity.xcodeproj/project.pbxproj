@@ -25,6 +25,7 @@
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
 		F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E865626CC8952001DE21A /* TemporaryViewController.swift */; };
 		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
+		F60FDA4327BDB2A700579BA6 /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F60FDA4227BDB2A700579BA6 /* Qonversion */; };
 		F619F109270925F800FDE93F /* na.png in Resources */ = {isa = PBXBuildFile; fileRef = F619F108270925F800FDE93F /* na.png */; };
 		F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C370326B64E2200A2235B /* VenueDetailViewController.swift */; };
 		F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370626B64E5A00A2235B /* directionsIcon.png */; };
@@ -128,7 +129,6 @@
 		F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE426C614ED00C73CD6 /* XityBandController.swift */; };
 		F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F699FFE626C6179800C73CD6 /* XityBusinessController.swift */; };
 		F69EEB8726FD8124001C342E /* BandSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69EEB8626FD8124001C342E /* BandSearchViewController.swift */; };
-		F6AB4F5D270CFD80004C164C /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F6AB4F5C270CFD80004C164C /* Qonversion */; };
 		F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AB4F5E270D0308004C164C /* PurchaseController.swift */; };
 		F6AB4F61270DAF50004C164C /* search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6AB4F60270DAF4C004C164C /* search.jpg */; };
 		F6BA377027A332FF00D1E5E3 /* ProductionBandController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BA376F27A332FF00D1E5E3 /* ProductionBandController.swift */; };
@@ -325,8 +325,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F60FDA4327BDB2A700579BA6 /* Qonversion in Frameworks */,
 				F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */,
-				F6AB4F5D270CFD80004C164C /* Qonversion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,7 +748,7 @@
 			);
 			name = Ohmicity;
 			packageProductDependencies = (
-				F6AB4F5C270CFD80004C164C /* Qonversion */,
+				F60FDA4227BDB2A700579BA6 /* Qonversion */,
 			);
 			productName = Ohmicity;
 			productReference = D8403D032641C4C400E95415 /* Ohmicity.app */;
@@ -1235,7 +1235,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F6AB4F5C270CFD80004C164C /* Qonversion */ = {
+		F60FDA4227BDB2A700579BA6 /* Qonversion */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */;
 			productName = Qonversion;

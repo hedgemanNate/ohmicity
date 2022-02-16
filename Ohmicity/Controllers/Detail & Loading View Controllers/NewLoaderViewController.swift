@@ -242,6 +242,7 @@ extension NewLoaderViewController {
         for todayShow in XityShowController.showArray {
             let stringDate = dateFormatter.string(from: todayShow.show.date)
             if stringDate == timeController.todayString {
+                if XityShowController.todayShowArray.contains(todayShow) {continue}
                 XityShowController.todayShowArray.append(todayShow)
             }
         }
