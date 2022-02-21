@@ -179,7 +179,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kZJ-TT-klh">
-                                                <rect key="frame" x="0.0" y="262" width="428" height="52"/>
+                                                <rect key="frame" x="0.0" y="262" width="300" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="6KG-XX-dab"/>
                                                 </constraints>
@@ -192,20 +192,6 @@
                                                     <action selector="venueBandSegementedController:" destination="wuX-Ti-k0U" eventType="valueChanged" id="Gfp-k4-wxI"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="An4-gl-jj0">
-                                                <rect key="frame" x="285.33333333333331" y="262" width="142.66666666666669" height="51"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.2869859797" green="0.1928810219" blue="0.3457277131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Search By Date">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="13"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="baseBackgroundColor" red="0.2869859797" green="0.1928810219" blue="0.3457277131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="searchByDateButtonTapped:" destination="5mV-ad-uiy" eventType="touchUpInside" id="xwy-hD-VQE"/>
-                                                </connections>
-                                            </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoI-KX-X23">
                                                 <rect key="frame" x="177" y="107" width="74" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -224,8 +210,24 @@
                                                     <constraint firstAttribute="height" constant="51" id="bZf-mI-IjR"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="date-time"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBH-Lg-oHa">
+                                                <rect key="frame" x="303" y="262" width="125" height="52"/>
+                                                <color key="backgroundColor" red="0.27059562450000002" green="0.179533154" blue="0.31431012110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="125" id="N0H-ol-wap"/>
+                                                    <constraint firstAttribute="height" constant="52" id="vVh-ax-DoL"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Search">
+                                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="5"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="searchByDateButtonTapped:" destination="5mV-ad-uiy" eventType="touchUpInside" id="d9h-IY-iD6"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -234,13 +236,15 @@
                                             <constraint firstItem="Kmp-aE-7Sk" firstAttribute="leading" secondItem="ttc-Ux-Rzc" secondAttribute="leading" id="8tu-nu-3U2"/>
                                             <constraint firstAttribute="trailing" secondItem="Kmp-aE-7Sk" secondAttribute="trailing" id="Cqk-b1-MYw"/>
                                             <constraint firstItem="kZJ-TT-klh" firstAttribute="top" secondItem="Kmp-aE-7Sk" secondAttribute="bottom" constant="9" id="FBH-8c-Odh"/>
-                                            <constraint firstAttribute="trailing" secondItem="kZJ-TT-klh" secondAttribute="trailing" id="Mn9-lw-oHH"/>
+                                            <constraint firstItem="EBH-Lg-oHa" firstAttribute="leading" secondItem="kZJ-TT-klh" secondAttribute="trailing" constant="3" id="Mbr-xj-Y5w"/>
                                             <constraint firstItem="kZJ-TT-klh" firstAttribute="leading" secondItem="ttc-Ux-Rzc" secondAttribute="leading" id="StE-EH-mCc"/>
                                             <constraint firstAttribute="height" constant="800" id="bEN-ad-lYY"/>
                                             <constraint firstAttribute="bottom" secondItem="pkJ-Ca-if2" secondAttribute="bottom" constant="-48" id="bkv-cx-lmI"/>
                                             <constraint firstAttribute="trailing" secondItem="pkJ-Ca-if2" secondAttribute="trailing" id="ib8-rp-eTT"/>
+                                            <constraint firstAttribute="trailing" secondItem="EBH-Lg-oHa" secondAttribute="trailing" id="kFu-4t-cta"/>
                                             <constraint firstItem="Kmp-aE-7Sk" firstAttribute="top" secondItem="ttc-Ux-Rzc" secondAttribute="top" id="tTi-H5-5pO"/>
                                             <constraint firstItem="W4o-Ib-oZI" firstAttribute="leading" secondItem="ttc-Ux-Rzc" secondAttribute="leading" id="tkK-gI-5JJ"/>
+                                            <constraint firstItem="EBH-Lg-oHa" firstAttribute="top" secondItem="Kmp-aE-7Sk" secondAttribute="bottom" constant="9" id="v9E-ae-Uf5"/>
                                             <constraint firstItem="W4o-Ib-oZI" firstAttribute="top" secondItem="Kmp-aE-7Sk" secondAttribute="bottom" constant="9" id="vyA-56-KYf"/>
                                         </constraints>
                                     </view>
@@ -268,7 +272,7 @@
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="q3F-Tk-Ucr" id="el2-nw-Xxk"/>
-                        <outlet property="searchByDateButton" destination="An4-gl-jj0" id="3Vq-8c-yAW"/>
+                        <outlet property="searchByDateButton" destination="EBH-Lg-oHa" id="kfu-xp-IQs"/>
                         <outlet property="searchByDateTextField" destination="W4o-Ib-oZI" id="Cpa-X5-5bj"/>
                         <outlet property="tableView" destination="pkJ-Ca-if2" id="ifV-98-ndN"/>
                         <outlet property="venueBandSegmentedController" destination="kZJ-TT-klh" id="7tk-JE-qVM"/>

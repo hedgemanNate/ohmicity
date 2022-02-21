@@ -28,16 +28,9 @@ class ShowsSearchViewController: UIViewController {
     var section = 0
     var row = 0
     
-//    var datePicker: UIDatePicker {
-//        showController.showArray.sort(by: {$0.date < $1.date})
-//        let datePicker = UIDatePicker()
-//        datePicker.locale = .current
-//        datePicker.preferredDatePickerStyle = .inline
-//        datePicker.tintColor = cc.white
-//        //datePicker.minimumDate = datePicker.minimumDate
-//        //datePicker.maximumDate = showController.showArray.last?.date
-//        return datePicker
-//    }
+    var datePicker: UIDatePicker?
+    
+    
     @IBOutlet weak var searchByDateTextField: UITextField!
     
     //SegmentedController
@@ -58,6 +51,18 @@ class ShowsSearchViewController: UIViewController {
         updateViews()
         createInterstitialAd()
         setUpNotificationObservers()
+        
+        ShowController.showArray.sort(by: {$0.date < $1.date})
+        let lastShow = ShowController.showArray.last
+        datePicker = UIDatePicker()
+        datePicker!.locale = .current
+        datePicker!.preferredDatePickerStyle = .inline
+        datePicker!.datePickerMode = .date
+        datePicker!.tintColor = cc.white
+        datePicker!.minimumDate = timeController.threeHoursAgo
+        datePicker!.maximumDate = lastShow?.date
+        createDatePicker()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +90,7 @@ class ShowsSearchViewController: UIViewController {
         setUpCollectionAndTableView()
         hideKeyboardWhenTappedAround()
         
-        //searchByDateTextField.isHidden = true
+        searchByDateButton.layer.cornerRadius = 8
         
     }
     
@@ -129,41 +134,51 @@ class ShowsSearchViewController: UIViewController {
     //MARK: Date Picker:
         //Its working but the datePicker is only returning the current time and not the time that is selected. BUG
     
-//    private func createDatePicker() {
-//        let toolBar = UIToolbar()
-//        toolBar.sizeToFit()
-//        toolBar.tintColor = cc.white
-//        toolBar.backgroundColor = cc.white
-//
-//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonTapped))
-//        doneButton.tintColor = cc.highlightBlue
-//
-//        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: nil, action: #selector(refreshButtonTapped))
-//        refreshButton.tintColor = cc.highlightPurple
-//
-//        toolBar.setItems([doneButton, refreshButton], animated: true)
-//
-//        searchByDateTextField.inputAccessoryView = toolBar
-//        searchByDateTextField.inputView = datePicker
-//    }
-//
-//    @objc private func doneButtonTapped() {
-//        let showDateRange = (datePicker.date - 7200)...(datePicker.date + 86400)
-//        searchByDateTextField.text = "\(datePicker.date)"
-//
-//getAllShowData        let temp = sortedArray.filter({showDateRange.contains($0.show.date)})
-//        filteredSections = GroupedSection.group(array: temp, by: {theDayOfTheShow(day: $0.show.date)})
-//
-//
-//        searchByDateTextField.resignFirstResponder()
-//        view.endEditing(true)
-//    }
-//
-//    @objc private func refreshButtonTapped() {
-//        filteredSections = sections
-//        searchByDateTextField.resignFirstResponder()
-//        view.endEditing(true)
-//    }
+    private func createDatePicker() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.tintColor = cc.white
+        toolBar.backgroundColor = cc.white
+
+        let doneButton = UIBarButtonItem(title: "Search Selected Date", style: .plain, target: nil, action: #selector(doneButtonTapped))
+        doneButton.tintColor = cc.highlightBlue
+
+        let cancelButton = UIBarButtonItem(title: "See All Dates", style: .plain, target: nil, action: #selector(cancelButtonTapped))
+        cancelButton.tintColor = .white
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        toolBar.setItems([doneButton, spacer, cancelButton], animated: true)
+
+        searchByDateTextField.inputAccessoryView = toolBar
+        searchByDateTextField.inputView = datePicker
+        
+        datePicker!.addTarget(self, action: #selector(dateSelected), for: .valueChanged)
+    }
+    
+    @objc private func dateSelected() {
+        print(datePicker!.date)
+    }
+
+    @objc private func doneButtonTapped() {
+        let showDateRange = (datePicker!.date - 7200)...(datePicker!.date + 8600)
+        //searchByDateTextField.text = "\(datePicker.date)"
+
+        //let temp = sortedArray.filter({showDateRange.contains($0.show.date)})
+        filteredSections = sections.filter { section in
+            section.showsForDate.contains(where: {showDateRange.contains($0.show.date)})
+                }
+
+
+        searchByDateTextField.resignFirstResponder()
+        view.endEditing(true)
+    }
+
+    @objc private func cancelButtonTapped() {
+        filteredSections = sections
+        searchByDateTextField.resignFirstResponder()
+        view.endEditing(true)
+    }
     
     private func setUpNotificationObservers() {
         
