@@ -23,15 +23,16 @@ class ShowsSearchViewController: UIViewController {
     
     //SearchButton
     @IBOutlet weak var searchByDateButton: UIButton!
+    @IBOutlet weak var searchByDateTextField: UITextField!
+    var datePicker: UIDatePicker?
     
     //For Table Selections
     var section = 0
     var row = 0
     
-    var datePicker: UIDatePicker?
     
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var searchByDateTextField: UITextField!
     
     //SegmentedController
     @IBOutlet weak var venueBandSegmentedController: UISegmentedControl!
@@ -48,6 +49,8 @@ class ShowsSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        heightConstraint.constant = DeviceController.heightConstraint //heightConstraint handles scrolling down to cut off just the banner photo
         updateViews()
         createInterstitialAd()
         setUpNotificationObservers()
@@ -92,6 +95,8 @@ class ShowsSearchViewController: UIViewController {
         
         searchByDateButton.layer.cornerRadius = 8
         
+        print("Height!!!")
+        print(heightConstraint)
     }
     
     @IBAction func breaker(_ sender: Any) {

@@ -40,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Network Monitoring
         networkMonitor.startMonitoring()
+        
+        //Get Device
+        DeviceController.getDeviceAndSetHeightConstraint()
 
         //Navigation UI
         UINavigationBar.appearance().backgroundColor = cc.navigationBGPurple

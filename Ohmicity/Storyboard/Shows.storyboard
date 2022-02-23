@@ -272,6 +272,7 @@
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="q3F-Tk-Ucr" id="el2-nw-Xxk"/>
+                        <outlet property="heightConstraint" destination="bEN-ad-lYY" id="GVE-C7-Z0i"/>
                         <outlet property="searchByDateButton" destination="EBH-Lg-oHa" id="kfu-xp-IQs"/>
                         <outlet property="searchByDateTextField" destination="W4o-Ib-oZI" id="Cpa-X5-5bj"/>
                         <outlet property="tableView" destination="pkJ-Ca-if2" id="ifV-98-ndN"/>

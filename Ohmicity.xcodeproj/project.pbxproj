@@ -84,6 +84,8 @@
 		F662266A270572E100593C72 /* LostConnection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6622669270572E100593C72 /* LostConnection.storyboard */; };
 		F662266C270572E600593C72 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F662266B270572E600593C72 /* Recommend.storyboard */; };
 		F662266E270572EC00593C72 /* Venue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F662266D270572EC00593C72 /* Venue.storyboard */; };
+		F665584227C6C04500DC13DB /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = F665584127C6C04500DC13DB /* DeviceKit */; };
+		F665584427C6C06D00DC13DB /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665584327C6C06D00DC13DB /* DeviceController.swift */; };
 		F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */; };
 		F66C99C426BCD83800A7C135 /* XityShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C326BCD83800A7C135 /* XityShowController.swift */; };
 		F66C99C826BCF5D400A7C135 /* XityShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C99C726BCF5D400A7C135 /* XityShow.swift */; };
@@ -242,6 +244,7 @@
 		F6622669270572E100593C72 /* LostConnection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LostConnection.storyboard; sourceTree = "<group>"; };
 		F662266B270572E600593C72 /* Recommend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
 		F662266D270572EC00593C72 /* Venue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Venue.storyboard; sourceTree = "<group>"; };
+		F665584327C6C06D00DC13DB /* DeviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceController.swift; sourceTree = "<group>"; };
 		F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationHoursAlert.xib; sourceTree = "<group>"; };
 		F66C99C326BCD83800A7C135 /* XityShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XityShowController.swift; sourceTree = "<group>"; };
 		F66C99C626BCDA6200A7C135 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -327,6 +330,7 @@
 			files = (
 				F60FDA4327BDB2A700579BA6 /* Qonversion in Frameworks */,
 				F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */,
+				F665584227C6C04500DC13DB /* DeviceKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +590,7 @@
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
 				F6E8EF5C26E71E4F00831544 /* SettingsController.swift */,
 				F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */,
+				F665584327C6C06D00DC13DB /* DeviceController.swift */,
 				F649D51B27214BF80050E7F9 /* Subscription */,
 			);
 			path = "Logic Controllers";
@@ -749,6 +754,7 @@
 			name = Ohmicity;
 			packageProductDependencies = (
 				F60FDA4227BDB2A700579BA6 /* Qonversion */,
+				F665584127C6C04500DC13DB /* DeviceKit */,
 			);
 			productName = Ohmicity;
 			productReference = D8403D032641C4C400E95415 /* Ohmicity.app */;
@@ -779,6 +785,7 @@
 			mainGroup = D8403CFA2641C4C400E95415;
 			packageReferences = (
 				F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */,
+				F665584027C6C04500DC13DB /* XCRemoteSwiftPackageReference "DeviceKit" */,
 			);
 			productRefGroup = D8403D042641C4C400E95415 /* Products */;
 			projectDirPath = "";
@@ -951,6 +958,7 @@
 				F6D17B3E27A4BBF400AD22F9 /* DevelopmentViewController.swift in Sources */,
 				F676F0FB26991C6C00C47599 /* Band.swift in Sources */,
 				F696A72D26AB623A009CB1BD /* CitiesCollectionViewCell.swift in Sources */,
+				F665584427C6C06D00DC13DB /* DeviceController.swift in Sources */,
 				F62EA80026D5B27D0048B7AD /* Recommendation.swift in Sources */,
 				D8262F0B264467A90050F9CA /* SuggestViewController.swift in Sources */,
 				F676F0FF269947B300C47599 /* BandController.swift in Sources */,
@@ -1224,6 +1232,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F665584027C6C04500DC13DB /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devicekit/DeviceKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/qonversion/qonversion-ios-sdk";
@@ -1239,6 +1255,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */;
 			productName = Qonversion;
+		};
+		F665584127C6C04500DC13DB /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F665584027C6C04500DC13DB /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
