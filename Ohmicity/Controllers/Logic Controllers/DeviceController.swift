@@ -20,51 +20,51 @@ class DeviceController {
         
         switch device {
         case .iPhone6s:
-            heightConstraint = 801
+            heightConstraint = 890
         case .iPhone6sPlus:
-            heightConstraint = 801
+            heightConstraint = 962
         case .iPhone7:
-            heightConstraint = 801
+            heightConstraint = 890
         case .iPhone7Plus:
-            heightConstraint = 801
+            heightConstraint = 962
         case .iPhoneSE:
             heightConstraint = 785
         case .iPhone8:
-            heightConstraint = 801
+            heightConstraint = 890
         case .iPhone8Plus:
-            heightConstraint = 801
+            heightConstraint = 962
         case .iPhoneX:
-            heightConstraint = 801
+            heightConstraint = 976
         case .iPhoneXS:
-            heightConstraint = 801
+            heightConstraint = 976
         case .iPhoneXSMax:
-            heightConstraint = 801
+            heightConstraint = 1064
         case .iPhoneXR:
-            heightConstraint = 801
+            heightConstraint = 1060
         case .iPhone11:
-            heightConstraint = 801
+            heightConstraint = 1060
         case .iPhone11Pro:
-            heightConstraint = 801
+            heightConstraint = 976
         case .iPhone11ProMax:
-            heightConstraint = 801
+            heightConstraint = 1064
         case .iPhoneSE2:
-            heightConstraint = 801
+            heightConstraint = 890
         case .iPhone12:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone12Mini:
-            heightConstraint = 801
+            heightConstraint = 971
         case .iPhone12Pro:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone12ProMax:
-            heightConstraint = 801
+            heightConstraint = 1092
         case .iPhone13:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone13Mini:
-            heightConstraint = 801
+            heightConstraint = 971
         case .iPhone13Pro:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone13ProMax:
-            heightConstraint = 801
+            heightConstraint = 1092
 
         case .simulator(let device):
             getDeviceAndSet(device)
@@ -78,49 +78,49 @@ class DeviceController {
         case .iPhone6s:
             heightConstraint = 890
         case .iPhone6sPlus:
-            heightConstraint = 801
+            heightConstraint = 962
         case .iPhone7:
-            heightConstraint = 801
+            heightConstraint = 890
         case .iPhone7Plus:
-            heightConstraint = 801
+            heightConstraint = 962
         case .iPhoneSE:
             heightConstraint = 785
         case .iPhone8:
-            heightConstraint = 801
+            heightConstraint = 890
         case .iPhone8Plus:
-            heightConstraint = 801
+            heightConstraint = 962
         case .iPhoneX:
-            heightConstraint = 801
+            heightConstraint = 976
         case .iPhoneXS:
-            heightConstraint = 801
+            heightConstraint = 976
         case .iPhoneXSMax:
-            heightConstraint = 801
+            heightConstraint = 1064
         case .iPhoneXR:
-            heightConstraint = 801
+            heightConstraint = 1060
         case .iPhone11:
-            heightConstraint = 801
+            heightConstraint = 1060
         case .iPhone11Pro:
-            heightConstraint = 801
+            heightConstraint = 976
         case .iPhone11ProMax:
-            heightConstraint = 801
+            heightConstraint = 1064
         case .iPhoneSE2:
-            heightConstraint = 801
+            heightConstraint = 890
         case .iPhone12:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone12Mini:
-            heightConstraint = 801
+            heightConstraint = 971
         case .iPhone12Pro:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone12ProMax:
-            heightConstraint = 801
+            heightConstraint = 1092
         case .iPhone13:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone13Mini:
-            heightConstraint = 801
+            heightConstraint = 971
         case .iPhone13Pro:
-            heightConstraint = 801
+            heightConstraint = 1007
         case .iPhone13ProMax:
-            heightConstraint = 801
+            heightConstraint = 1092
         default:
             heightConstraint = 801
         }
