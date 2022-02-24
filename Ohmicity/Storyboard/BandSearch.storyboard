@@ -195,7 +195,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="nzK-D2-nju" secondAttribute="bottom" constant="-127" id="335-HU-PZH"/>
+                                    <constraint firstAttribute="bottom" secondItem="nzK-D2-nju" secondAttribute="bottom" id="335-HU-PZH"/>
                                     <constraint firstItem="nzK-D2-nju" firstAttribute="top" secondItem="bZ0-0w-9qM" secondAttribute="top" id="PAc-ZU-La1"/>
                                     <constraint firstItem="nzK-D2-nju" firstAttribute="leading" secondItem="bZ0-0w-9qM" secondAttribute="leading" id="fAi-qK-vx4"/>
                                     <constraint firstAttribute="trailing" secondItem="nzK-D2-nju" secondAttribute="trailing" id="mrw-0W-sHO"/>
@@ -222,6 +222,7 @@
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="vKm-Lh-ljm" id="1Z5-C5-KfS"/>
+                        <outlet property="heightConstraint" destination="u4u-H9-ymq" id="MGJ-pd-xbQ"/>
                         <outlet property="searchBar" destination="vl6-8g-0dc" id="dNL-gG-jvk"/>
                         <outlet property="tableView" destination="Nux-7j-wA2" id="pfW-0o-iyY"/>
                         <segue destination="KLq-Ds-344" kind="presentation" identifier="BandSegue" id="fMe-rz-XbI"/>

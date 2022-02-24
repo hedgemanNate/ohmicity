@@ -39,12 +39,16 @@ class VenueSearchViewController: UIViewController {
     @IBOutlet weak var searchCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    
     @IBOutlet weak var segmentedController: UISegmentedControl!
+    
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     
     //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        heightConstraint.constant = DeviceController.heightConstraint //heightConstraint handles scrolling down to cut off just the banner photo
+        
         setUpCollectionViews()
         createInterstitialAd()
         updateViews()

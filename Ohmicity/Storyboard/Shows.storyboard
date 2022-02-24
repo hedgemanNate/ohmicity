@@ -29,7 +29,7 @@
         <!--Shows-->
         <scene sceneID="Inn-w6-B0L">
             <objects>
-                <viewController id="5mV-ad-uiy" customClass="ShowsSearchViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5mV-ad-uiy" customClass="ShowsSearchViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4IN-N8-fDR">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,8 +88,8 @@
                                                     <constraint firstItem="q3F-Tk-Ucr" firstAttribute="top" secondItem="Kmp-aE-7Sk" secondAttribute="top" id="wQb-jG-tg2"/>
                                                 </constraints>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="200" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkJ-Ca-if2">
-                                                <rect key="frame" x="0.0" y="322" width="428" height="526"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="200" estimatedSectionFooterHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="pkJ-Ca-if2">
+                                                <rect key="frame" x="0.0" y="322" width="428" height="428"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -239,7 +239,7 @@
                                             <constraint firstItem="EBH-Lg-oHa" firstAttribute="leading" secondItem="kZJ-TT-klh" secondAttribute="trailing" constant="3" id="Mbr-xj-Y5w"/>
                                             <constraint firstItem="kZJ-TT-klh" firstAttribute="leading" secondItem="ttc-Ux-Rzc" secondAttribute="leading" id="StE-EH-mCc"/>
                                             <constraint firstAttribute="height" constant="800" id="bEN-ad-lYY"/>
-                                            <constraint firstAttribute="bottom" secondItem="pkJ-Ca-if2" secondAttribute="bottom" constant="-48" id="bkv-cx-lmI"/>
+                                            <constraint firstAttribute="bottom" secondItem="pkJ-Ca-if2" secondAttribute="bottom" constant="50" id="bkv-cx-lmI"/>
                                             <constraint firstAttribute="trailing" secondItem="pkJ-Ca-if2" secondAttribute="trailing" id="ib8-rp-eTT"/>
                                             <constraint firstAttribute="trailing" secondItem="EBH-Lg-oHa" secondAttribute="trailing" id="kFu-4t-cta"/>
                                             <constraint firstItem="Kmp-aE-7Sk" firstAttribute="top" secondItem="ttc-Ux-Rzc" secondAttribute="top" id="tTi-H5-5pO"/>
@@ -251,7 +251,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ttc-Ux-Rzc" firstAttribute="leading" secondItem="uwg-UJ-7Ud" secondAttribute="leading" id="7Wk-tW-mhw"/>
-                                    <constraint firstAttribute="bottom" secondItem="ttc-Ux-Rzc" secondAttribute="bottom" constant="-127" id="k2I-85-HQk"/>
+                                    <constraint firstAttribute="bottom" secondItem="ttc-Ux-Rzc" secondAttribute="bottom" id="k2I-85-HQk"/>
                                     <constraint firstAttribute="trailing" secondItem="ttc-Ux-Rzc" secondAttribute="trailing" id="u35-eg-dLk"/>
                                     <constraint firstItem="ttc-Ux-Rzc" firstAttribute="top" secondItem="uwg-UJ-7Ud" secondAttribute="top" id="wZJ-Cc-lgJ"/>
                                 </constraints>

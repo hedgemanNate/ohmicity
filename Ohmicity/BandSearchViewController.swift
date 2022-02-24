@@ -24,12 +24,17 @@ class BandSearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     let searchController = UISearchController()
     
+    
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     //Google Ad Properties
     private var interstitialAd: GADInterstitialAd?
     lazy private var segueToPerform = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        heightConstraint.constant = DeviceController.heightConstraint //heightConstraint handles scrolling down to cut off just the banner photo
+        
         updateViews()
         createInterstitialAd()
         setUpNotificationObservers()

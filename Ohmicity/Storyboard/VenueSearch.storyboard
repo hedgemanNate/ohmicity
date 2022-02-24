@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="822"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKq-Ko-3JE" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="822"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYo-oc-DGk" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -125,7 +125,7 @@
                                                 </cells>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="100" estimatedSectionFooterHeight="100" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf0-ey-VsI">
-                                                <rect key="frame" x="0.0" y="430" width="428" height="392"/>
+                                                <rect key="frame" x="0.0" y="430" width="428" height="370"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,6 +267,7 @@
                                             <constraint firstAttribute="trailing" secondItem="DZl-Ks-CoK" secondAttribute="trailing" id="tpL-0D-gVc"/>
                                             <constraint firstItem="DZl-Ks-CoK" firstAttribute="top" secondItem="cJG-fn-wfy" secondAttribute="bottom" id="vx5-aa-LP4"/>
                                             <constraint firstAttribute="trailing" secondItem="uYo-oc-DGk" secondAttribute="trailing" id="yNB-Z8-dXo"/>
+                                            <constraint firstAttribute="height" constant="800" id="yqG-Cr-UZQ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -275,7 +276,6 @@
                                     <constraint firstItem="FKq-Ko-3JE" firstAttribute="top" secondItem="9s3-qJ-E4w" secondAttribute="top" id="K6q-DZ-mdP"/>
                                     <constraint firstAttribute="bottom" secondItem="FKq-Ko-3JE" secondAttribute="bottom" id="njS-2W-pq6"/>
                                     <constraint firstItem="FKq-Ko-3JE" firstAttribute="leading" secondItem="9s3-qJ-E4w" secondAttribute="leading" id="y6G-9P-Kde"/>
-                                    <constraint firstItem="FKq-Ko-3JE" firstAttribute="centerY" secondItem="9s3-qJ-E4w" secondAttribute="centerY" id="zj7-fa-vGt"/>
                                     <constraint firstAttribute="trailing" secondItem="FKq-Ko-3JE" secondAttribute="trailing" id="znr-R5-joa"/>
                                 </constraints>
                             </scrollView>
@@ -298,6 +298,7 @@
                     <size key="freeformSize" width="428" height="900"/>
                     <connections>
                         <outlet property="bannerAdCollectionView" destination="zp3-xa-Q7E" id="aoK-pW-mYX"/>
+                        <outlet property="heightConstraint" destination="yqG-Cr-UZQ" id="FmD-IW-gM2"/>
                         <outlet property="searchBar" destination="cJG-fn-wfy" id="IBd-ce-JO8"/>
                         <outlet property="searchCollectionView" destination="OCS-z0-cBj" id="0ZZ-Fm-OVL"/>
                         <outlet property="segmentedController" destination="DZl-Ks-CoK" id="HDJ-4O-TKh"/>

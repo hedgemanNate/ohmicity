@@ -257,7 +257,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="799"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -436,7 +436,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="799" id="1vh-iS-Xmu"/>
+                                            <constraint firstAttribute="height" constant="800" id="1vh-iS-Xmu"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="3Yh-gc-MA5"/>
                                             <constraint firstItem="6t1-jv-ged" firstAttribute="centerX" secondItem="6oy-Bu-Xsa" secondAttribute="centerX" id="GgR-mS-KAM"/>
@@ -477,6 +477,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                         <outlet property="bannerAdCollectionView" destination="gcz-50-ukl" id="RPL-WY-NpA"/>
                         <outlet property="developmentButton" destination="R9n-Sl-4zz" id="0EU-ZJ-bMr"/>
                         <outlet property="endUserButton" destination="cw5-y1-i4D" id="nyE-tt-Kdo"/>
+                        <outlet property="heightConstraint" destination="1vh-iS-Xmu" id="ljP-6U-D6o"/>
                         <outlet property="logoutButton" destination="J1J-k9-Bq7" id="yrE-Th-XqC"/>
                         <outlet property="privacyPolicyButton" destination="yXl-H2-d2Z" id="aAA-fB-Q8T"/>
                         <outlet property="profileCardView" destination="6t1-jv-ged" id="cfg-On-hzN"/>
@@ -1673,8 +1674,8 @@ should be on Xity?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GVY-L8-xJL"/>
-        <segue reference="Zd4-Ao-r3K"/>
+        <segue reference="2UD-vX-uNS"/>
+        <segue reference="phR-fw-lgs"/>
         <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>
     <resources>

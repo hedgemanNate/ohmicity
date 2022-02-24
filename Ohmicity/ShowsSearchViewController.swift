@@ -51,6 +51,7 @@ class ShowsSearchViewController: UIViewController {
         super.viewDidLoad()
         
         heightConstraint.constant = DeviceController.heightConstraint //heightConstraint handles scrolling down to cut off just the banner photo
+        
         updateViews()
         createInterstitialAd()
         setUpNotificationObservers()
@@ -95,8 +96,6 @@ class ShowsSearchViewController: UIViewController {
         
         searchByDateButton.layer.cornerRadius = 8
         
-        print("Height!!!")
-        print(heightConstraint)
     }
     
     @IBAction func breaker(_ sender: Any) {

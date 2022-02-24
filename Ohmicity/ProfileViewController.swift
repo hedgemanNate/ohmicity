@@ -34,10 +34,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var developmentButton: UIButton!
     
     
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        heightConstraint.constant = DeviceController.heightConstraint //heightConstraint handles scrolling down to cut off just the banner photo
+        
         NotifyCenter.addObserver(self, selector: #selector(updateLogButton), name: Notifications.userAuthUpdated.name, object: nil)
         NotifyCenter.addObserver(self, selector: #selector(endTimer), name: UIApplication.willResignActiveNotification, object: nil)
         NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
