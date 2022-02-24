@@ -89,6 +89,8 @@
                         <segue destination="K1r-XI-Dsm" kind="modal" identifier="ToDashboard" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="fjy-9t-unJ"/>
                         <segue destination="Nke-Fj-Oif" kind="presentation" identifier="ForceUpdateSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="9Pv-G2-gH4"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="7HS-V6-wWy"/>
+                        <segue destination="Nq3-NM-ly7" kind="presentation" identifier="MaintenanceSegue" modalPresentationStyle="fullScreen" id="pTg-j1-CtR"/>
+                        <segue destination="zkP-We-isE" kind="presentation" identifier="ShutdownSegue" modalPresentationStyle="fullScreen" id="cTG-B2-Jix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCs-Pg-jIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -153,7 +155,6 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                         <viewLayoutGuide key="safeArea" id="ncW-uJ-rzo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kzp-Z6-xyR" firstAttribute="centerX" secondItem="MYD-WC-vGC" secondAttribute="centerX" id="3Bs-z2-eAC"/>
                             <constraint firstItem="kzp-Z6-xyR" firstAttribute="top" secondItem="p34-Vi-U4E" secondAttribute="bottom" constant="9" id="6Bh-Sm-G99"/>
                             <constraint firstItem="1Fo-Fs-Ivz" firstAttribute="top" secondItem="kzp-Z6-xyR" secondAttribute="bottom" constant="50" id="799-eF-4xb"/>
                             <constraint firstItem="1Fo-Fs-Ivz" firstAttribute="leading" secondItem="kzp-Z6-xyR" secondAttribute="leading" id="7Yc-fb-QLA"/>
@@ -173,7 +174,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nan-5m-R0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3203" y="-1470"/>
+            <point key="canvasLocation" x="-3017" y="-1429"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aWs-nU-x9A">
@@ -1335,6 +1336,8 @@ should be on Xity?</string>
                         <segue destination="Ykx-hl-rcX" kind="presentation" identifier="DealsComingSoonSegue" modalPresentationStyle="fullScreen" id="cgE-01-9J4"/>
                         <segue destination="TdY-aU-Og1" kind="presentation" identifier="ReloadDataSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="3AK-jE-xSk"/>
                         <segue destination="i7g-5L-c0W" kind="presentation" identifier="UpdateAvailableSegue" id="F9i-jk-nv6"/>
+                        <segue destination="zkP-We-isE" kind="presentation" identifier="ShutdownSegue" modalPresentationStyle="fullScreen" id="uju-Mq-YCb"/>
+                        <segue destination="Nq3-NM-ly7" kind="presentation" modalPresentationStyle="fullScreen" id="aJ0-qe-W6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1672,10 +1675,150 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-2286.4485981308408" y="-1470.1943844492441"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="4Pb-02-2Rd">
+            <objects>
+                <viewController id="Nq3-NM-ly7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="29d-cW-tih">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="KXb-Yz-89t">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pB9-M2-Pkc">
+                                <rect key="frame" x="44" y="388" width="340" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="lkn-qe-tHG"/>
+                                </constraints>
+                                <string key="text">We are doing some housekeeping right now to make sure you have a smooth and pleasent experience. Give us a few minutes and come back. This really shouldn't take very long. Odds are we are nearly done. </string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-sn-w7U">
+                                <rect key="frame" x="114" y="179" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="py6-ca-2us"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCg-cL-FdE">
+                                <rect key="frame" x="178" y="134" width="74" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Breaker"/>
+                                <connections>
+                                    <action selector="breaker:" destination="Nq3-NM-ly7" eventType="touchUpInside" id="dUe-ZS-qlk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bCV-FB-saT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bCV-FB-saT" firstAttribute="trailing" secondItem="SD1-sn-w7U" secondAttribute="trailing" constant="114" id="1Ch-JO-P5h"/>
+                            <constraint firstItem="KXb-Yz-89t" firstAttribute="leading" secondItem="bCV-FB-saT" secondAttribute="leading" id="BZz-cN-8iD"/>
+                            <constraint firstAttribute="bottom" secondItem="KXb-Yz-89t" secondAttribute="bottom" id="Cyd-vY-dsm"/>
+                            <constraint firstItem="KXb-Yz-89t" firstAttribute="trailing" secondItem="bCV-FB-saT" secondAttribute="trailing" id="ENW-hc-bSu"/>
+                            <constraint firstItem="KXb-Yz-89t" firstAttribute="top" secondItem="29d-cW-tih" secondAttribute="top" id="JXj-fr-XkY"/>
+                            <constraint firstItem="bCV-FB-saT" firstAttribute="trailing" secondItem="pB9-M2-Pkc" secondAttribute="trailing" constant="44" id="KeE-U7-N1t"/>
+                            <constraint firstItem="pB9-M2-Pkc" firstAttribute="centerY" secondItem="29d-cW-tih" secondAttribute="centerY" id="L8w-iy-FxT"/>
+                            <constraint firstItem="SD1-sn-w7U" firstAttribute="leading" secondItem="bCV-FB-saT" secondAttribute="leading" constant="114" id="PH5-N9-ZjD"/>
+                            <constraint firstItem="pB9-M2-Pkc" firstAttribute="leading" secondItem="bCV-FB-saT" secondAttribute="leading" constant="44" id="VMg-FG-SDG"/>
+                            <constraint firstItem="pB9-M2-Pkc" firstAttribute="top" secondItem="SD1-sn-w7U" secondAttribute="bottom" constant="9" id="uwS-dk-mew"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="428" height="926"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hf4-nU-dpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3673" y="-1429"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="skI-gD-Vcf">
+            <objects>
+                <viewController id="zkP-We-isE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FR6-by-N01">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PurpleBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="ozO-cb-5nO">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQE-lz-ars">
+                                <rect key="frame" x="44" y="363" width="340" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Dwh-71-4WH"/>
+                                </constraints>
+                                <string key="text">Something is not quite right. Close Town by Xity for now and check back to see if the issue is resolved. We know how annoying this is. We are working to fix the problem ASAP! 
+
+Check our Facebook page for updates on what’s going on here.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEa-3B-mO4">
+                                <rect key="frame" x="114" y="154" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="2IM-QE-CLV"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gE-wE-TmJ">
+                                <rect key="frame" x="178" y="134" width="74" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Breaker"/>
+                                <connections>
+                                    <action selector="breaker:" destination="zkP-We-isE" eventType="touchUpInside" id="yT3-Oj-sMf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rJ-ki-a9l">
+                                <rect key="frame" x="44" y="613" width="340" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="CGZ-QQ-il5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Close Town">
+                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="23"/>
+                                    <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                    <color key="baseBackgroundColor" red="0.27059562450000002" green="0.179533154" blue="0.31431012110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="updateButtonTapped:" destination="zkP-We-isE" eventType="touchUpInside" id="Aa5-cu-7MS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OYG-Rb-8Qd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UQE-lz-ars" firstAttribute="centerY" secondItem="FR6-by-N01" secondAttribute="centerY" id="7CR-pY-eCP"/>
+                            <constraint firstItem="UQE-lz-ars" firstAttribute="top" secondItem="vEa-3B-mO4" secondAttribute="bottom" constant="9" id="D9o-Eb-xhQ"/>
+                            <constraint firstItem="ozO-cb-5nO" firstAttribute="leading" secondItem="OYG-Rb-8Qd" secondAttribute="leading" id="Dm0-Ii-sQz"/>
+                            <constraint firstItem="OYG-Rb-8Qd" firstAttribute="trailing" secondItem="vEa-3B-mO4" secondAttribute="trailing" constant="114" id="FAE-sg-mLc"/>
+                            <constraint firstItem="UQE-lz-ars" firstAttribute="leading" secondItem="OYG-Rb-8Qd" secondAttribute="leading" constant="44" id="HSq-a0-pvu"/>
+                            <constraint firstItem="vEa-3B-mO4" firstAttribute="leading" secondItem="OYG-Rb-8Qd" secondAttribute="leading" constant="114" id="LwE-tg-8KN"/>
+                            <constraint firstItem="0rJ-ki-a9l" firstAttribute="top" secondItem="UQE-lz-ars" secondAttribute="bottom" constant="50" id="MWr-WJ-J4D"/>
+                            <constraint firstItem="OYG-Rb-8Qd" firstAttribute="trailing" secondItem="UQE-lz-ars" secondAttribute="trailing" constant="44" id="QYV-h5-zMn"/>
+                            <constraint firstItem="0rJ-ki-a9l" firstAttribute="trailing" secondItem="UQE-lz-ars" secondAttribute="trailing" id="Uzt-iE-nS2"/>
+                            <constraint firstItem="0rJ-ki-a9l" firstAttribute="leading" secondItem="UQE-lz-ars" secondAttribute="leading" id="bUW-h7-rBz"/>
+                            <constraint firstAttribute="bottom" secondItem="ozO-cb-5nO" secondAttribute="bottom" id="jBC-1O-Vjc"/>
+                            <constraint firstItem="ozO-cb-5nO" firstAttribute="trailing" secondItem="OYG-Rb-8Qd" secondAttribute="trailing" id="loA-pb-iy6"/>
+                            <constraint firstItem="ozO-cb-5nO" firstAttribute="top" secondItem="FR6-by-N01" secondAttribute="top" id="pEM-5L-1wG"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="428" height="926"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kev-M8-rgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4336" y="-1429"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2UD-vX-uNS"/>
-        <segue reference="phR-fw-lgs"/>
+        <segue reference="uju-Mq-YCb"/>
+        <segue reference="aJ0-qe-W6l"/>
+        <segue reference="GVY-L8-xJL"/>
+        <segue reference="pYi-uV-Zx2"/>
         <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>
     <resources>

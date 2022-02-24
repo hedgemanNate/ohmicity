@@ -29,6 +29,8 @@ class FireStoreReferenceManager {
     
     static let fireDataBase = Firestore.firestore()
     
+    static let remoteControlDataPath = fireDataBase.collection("productionData").document("productionData").collection("remoteControlData")
+    
     static let userDataPath = fireDataBase.collection("productionData").document("productionData").collection("allUserData")
     static let recommendationPath = fireDataBase.collection("workingData").document("workingData").collection("recommendationData")
     static let xitySupportDataPath = fireDataBase.collection("workingData").document("workingData").collection("xitySupportData")

@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 class SettingsController {
     //Properties
-    let preferredCitiesArray: [City] = [.All, .Venice, .Sarasota, .Bradenton, .StPete, .Tampa, .Ybor]
+    static let preferredCitiesArray: [City] = [.All, .Venice, .Sarasota, .Bradenton, .StPete, .Tampa, .Ybor]
 }
-
-let settingsController = SettingsController()

@@ -15,7 +15,7 @@ enum GoogleAdID: String {
 
 class UserAdController {
     //Properties
-    var percentArray = [1,2,3,4]
+    var percentArray = RemoteControllerModel.adPercentArray
     
     var userSubscription = SubscriptionType.None {
         didSet {

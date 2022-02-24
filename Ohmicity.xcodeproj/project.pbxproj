@@ -94,6 +94,8 @@
 		F66CB28126FC683600B26EE3 /* GlobalAlerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */; };
 		F66CB28326FC691800B26EE3 /* LostInternetConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */; };
 		F66CB28526FD113800B26EE3 /* BandSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66CB28426FD113800B26EE3 /* BandSearch.storyboard */; };
+		F6753E3C27C8071700D7D56B /* RemoteControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6753E3B27C8071700D7D56B /* RemoteControlModel.swift */; };
+		F6753E3E27C824E600D7D56B /* RemoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6753E3D27C824E600D7D56B /* RemoteController.swift */; };
 		F6761ED226E6C0A700604E94 /* BusinessBandNameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */; };
 		F676F0F626991C6C00C47599 /* Ratings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0EF26991C6C00C47599 /* Ratings.swift */; };
 		F676F0F926991C6C00C47599 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676F0F226991C6C00C47599 /* Show.swift */; };
@@ -254,6 +256,8 @@
 		F66CB28026FC683600B26EE3 /* GlobalAlerts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobalAlerts.storyboard; sourceTree = "<group>"; };
 		F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostInternetConnectionViewController.swift; sourceTree = "<group>"; };
 		F66CB28426FD113800B26EE3 /* BandSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BandSearch.storyboard; sourceTree = "<group>"; };
+		F6753E3B27C8071700D7D56B /* RemoteControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlModel.swift; sourceTree = "<group>"; };
+		F6753E3D27C824E600D7D56B /* RemoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemoteController.swift; path = "Ohmicity/Controllers/Model Controllers/RemoteController.swift"; sourceTree = SOURCE_ROOT; };
 		F6761ED126E6C0A400604E94 /* BusinessBandNameBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessBandNameBackground.png; sourceTree = "<group>"; };
 		F676F0EF26991C6C00C47599 /* Ratings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ratings.swift; sourceTree = "<group>"; };
 		F676F0F226991C6C00C47599 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
@@ -589,6 +593,7 @@
 				F66206E826B4B9C800BDE93E /* TimeController.swift */,
 				F6D67C1A26D75F3400B4823D /* UserAdController.swift */,
 				F6E8EF5C26E71E4F00831544 /* SettingsController.swift */,
+				F6753E3D27C824E600D7D56B /* RemoteController.swift */,
 				F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */,
 				F665584327C6C06D00DC13DB /* DeviceController.swift */,
 				F649D51B27214BF80050E7F9 /* Subscription */,
@@ -612,6 +617,7 @@
 				F6E10DF52795073B009353BE /* Favorite.swift */,
 				F63837882793F90000838858 /* ProductionShows.swift */,
 				F6DE75B2279925900033C807 /* ProductionBands.swift */,
+				F6753E3B27C8071700D7D56B /* RemoteControlModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -974,10 +980,12 @@
 				F699FFE126C6121A00C73CD6 /* XityBusiness.swift in Sources */,
 				F699FFE726C6179800C73CD6 /* XityBusinessController.swift in Sources */,
 				F6DD860F264E658A00C90938 /* SettingsViewController.swift in Sources */,
+				F6753E3E27C824E600D7D56B /* RemoteController.swift in Sources */,
 				F6497F5D26BCCAAB005D2D4A /* BannerAdBusinessPicsCollectionViewCell.swift in Sources */,
 				F6923D26264E7F6400A2E036 /* DashboardViewController.swift in Sources */,
 				F69EEB8726FD8124001C342E /* BandSearchViewController.swift in Sources */,
 				F66CB27F26FC653A00B26EE3 /* NetworkMonitor.swift in Sources */,
+				F6753E3C27C8071700D7D56B /* RemoteControlModel.swift in Sources */,
 				F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */,
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
 				F6D17B4427A6154B00AD22F9 /* UpdateAvailableViewController.swift in Sources */,

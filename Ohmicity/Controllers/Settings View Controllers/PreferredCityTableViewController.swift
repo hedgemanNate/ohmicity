@@ -22,7 +22,7 @@ class PreferredCityTableViewController: UITableViewController {
     
     private func updateViews() {
         guard let preferredCity = currentUserController.currentUser?.preferredCity else { return }
-        guard let index = settingsController.preferredCitiesArray.firstIndex(of: preferredCity) else {return}
+        guard let index = SettingsController.preferredCitiesArray.firstIndex(of: preferredCity) else {return}
         let indexPath = IndexPath(row: index, section: 0)
         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
     }
@@ -36,21 +36,21 @@ class PreferredCityTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return settingsController.preferredCitiesArray.count
+        return SettingsController.preferredCitiesArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! PreferredCityTableViewCell
         
-        cell.city = settingsController.preferredCitiesArray[indexPath.row]
+        cell.city = SettingsController.preferredCitiesArray[indexPath.row]
         cell.selectionStyle = .none
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let city = settingsController.preferredCitiesArray[indexPath.row]
+        let city = SettingsController.preferredCitiesArray[indexPath.row]
         currentUserController.preferredCity = city
     }
 

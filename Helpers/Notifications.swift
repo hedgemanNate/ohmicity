@@ -10,6 +10,9 @@ import FirebaseAuth
 
 class Notifications {
     
+    //Remote Controller Notifications
+    static let remoteControlUpdated = Notification(name: Notification.Name(rawValue: "RemoteControlUpdated"))
+    
     //User Notifications
     static let userAuthUpdated = Notification(name: Notification.Name(rawValue: "UserAuthUpdated"))
     static let userFavoritesUpdated = Notification(name: Notification.Name(rawValue: "UserFavoritesUpdated"))
