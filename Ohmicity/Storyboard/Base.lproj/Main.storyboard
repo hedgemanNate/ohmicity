@@ -114,7 +114,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="KYa-i1-7tI"/>
                                 </constraints>
-                                <string key="text">Looks like theres a big update for your device. Update now to make Xity run smoother, faster and with more features.
+                                <string key="text">Looks like theres a big update for your device. Update now to make Town run smoother, faster and with more features.
 
 Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -258,7 +258,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                 <rect key="frame" x="0.0" y="44" width="428" height="799"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oy-Bu-Xsa" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="900"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e63-2g-Vlu" userLabel="Top Ad View">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="253"/>
@@ -394,7 +394,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                         <imageReference key="image" image="userIcon.png" symbolScale="default"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Lover Level" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="err-qy-gAW">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Lover" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="err-qy-gAW">
                                                         <rect key="frame" x="121" y="18" width="233" height="85"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                                         <color key="textColor" systemColor="systemYellowColor"/>
@@ -437,7 +437,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="800" id="1vh-iS-Xmu"/>
+                                            <constraint firstAttribute="height" constant="900" id="1vh-iS-Xmu"/>
                                             <constraint firstItem="e63-2g-Vlu" firstAttribute="top" secondItem="6oy-Bu-Xsa" secondAttribute="top" id="2Ts-lc-01a"/>
                                             <constraint firstItem="U03-DP-nhM" firstAttribute="leading" secondItem="6oy-Bu-Xsa" secondAttribute="leading" constant="28" id="3Yh-gc-MA5"/>
                                             <constraint firstItem="6t1-jv-ged" firstAttribute="centerX" secondItem="6oy-Bu-Xsa" secondAttribute="centerX" id="GgR-mS-KAM"/>
@@ -771,6 +771,23 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                     <action selector="cityFilterButtonTapped:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="Lcs-9z-cCR"/>
                                                 </connections>
                                             </button>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xel-sG-Cs5" userLabel="No More Shows Today View">
+                                                <rect key="frame" x="0.0" y="297" width="428" height="268"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No More Shows Today." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snw-He-9P8">
+                                                        <rect key="frame" x="104.66666666666667" y="122" width="218.66666666666663" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="268" id="BEj-Lg-PPy"/>
+                                                    <constraint firstItem="snw-He-9P8" firstAttribute="centerX" secondItem="xel-sG-Cs5" secondAttribute="centerX" id="UXl-rr-f5K"/>
+                                                    <constraint firstItem="snw-He-9P8" firstAttribute="centerY" secondItem="xel-sG-Cs5" secondAttribute="centerY" id="gJ2-vp-oDn"/>
+                                                </constraints>
+                                            </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-1O-MRt">
                                                 <rect key="frame" x="0.0" y="300" width="428" height="261"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -841,7 +858,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWB-JM-Q0f" userLabel="No Shows Today View">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWB-JM-Q0f" userLabel="No More Picks This Week View">
                                                 <rect key="frame" x="0.0" y="819" width="428" height="268"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No More Picks For This Week." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVi-S6-JA1">
@@ -1232,7 +1249,9 @@ should be on Xity?</string>
                                         <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Yr5-mc-o9V" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="21" id="0Yv-3j-i78"/>
+                                            <constraint firstAttribute="trailing" secondItem="xel-sG-Cs5" secondAttribute="trailing" id="0tK-c5-pxo"/>
                                             <constraint firstAttribute="trailing" secondItem="KmJ-NI-E7V" secondAttribute="trailing" constant="9" id="25z-nL-wGM"/>
+                                            <constraint firstItem="xel-sG-Cs5" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="2nc-uQ-6lh"/>
                                             <constraint firstItem="KmJ-NI-E7V" firstAttribute="top" secondItem="SO8-4f-hLW" secondAttribute="bottom" constant="7" id="695-gx-o8k"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="9" id="6fj-n0-5aQ"/>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="7ec-qH-eqU"/>
@@ -1255,6 +1274,7 @@ should be on Xity?</string>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="UsH-1c-6EG"/>
                                             <constraint firstItem="dRP-dE-0cc" firstAttribute="top" secondItem="onA-4S-Wan" secondAttribute="bottom" constant="49" id="WAw-N7-rPE"/>
                                             <constraint firstItem="SO8-4f-hLW" firstAttribute="top" secondItem="x8J-nE-HSo" secondAttribute="bottom" constant="28" id="WNZ-Vb-9H8"/>
+                                            <constraint firstItem="xel-sG-Cs5" firstAttribute="top" secondItem="RHp-aE-CIZ" secondAttribute="bottom" constant="9" id="Xrf-11-VhS"/>
                                             <constraint firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="Yt2-Cm-Udq"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
                                             <constraint firstAttribute="trailing" secondItem="dRP-dE-0cc" secondAttribute="trailing" constant="9" id="Zwt-8h-NtK"/>
@@ -1311,7 +1331,8 @@ should be on Xity?</string>
                         <outlet property="favoritesCollectionView" destination="onA-4S-Wan" id="a0e-au-LGk"/>
                         <outlet property="getPerksButton" destination="z5O-HO-FdC" id="c8Y-R2-xdA"/>
                         <outlet property="hiddenSignUpView" destination="KmJ-NI-E7V" id="CAV-iF-qvC"/>
-                        <outlet property="noShowsView" destination="MWB-JM-Q0f" id="XYO-lQ-WA1"/>
+                        <outlet property="noMoreShowsTodayView" destination="xel-sG-Cs5" id="pol-8i-r0R"/>
+                        <outlet property="noPicksThisWeekView" destination="MWB-JM-Q0f" id="XYO-lQ-WA1"/>
                         <outlet property="recommendButton" destination="KDs-ve-Na8" id="htC-bJ-4Sm"/>
                         <outlet property="recommendView" destination="dRP-dE-0cc" id="esM-pc-LLb"/>
                         <outlet property="scrollView" destination="E7R-d7-w8P" id="ud9-2V-4mS"/>

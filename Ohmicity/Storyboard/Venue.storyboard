@@ -171,22 +171,23 @@ should be on Xity?</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tY8-Xb-aSd" userLabel="Top Buttons">
                                                 <rect key="frame" x="0.0" y="230" width="428" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-oY-66Y">
-                                                        <rect key="frame" x="75" y="0.0" width="278" height="75"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBS-oY-66Y">
+                                                        <rect key="frame" x="135" y="0.0" width="158" height="75"/>
                                                         <color key="backgroundColor" red="0.26495882869999998" green="0.15182313319999999" blue="0.35518908500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="Hours Of Operation">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title=" Hours">
                                                             <color key="titleColor" red="0.97331575960000005" green="0.97169534209999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <imageReference key="image" image="clock" catalog="system" symbolScale="large" renderingMode="template"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="hoursButtonTapped:" destination="WxN-2n-PcG" eventType="touchUpInside" id="lRX-em-Vsa"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWF-NR-NaN" userLabel="Call Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="75"/>
                                                         <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="P6W-Pn-4fv"/>
+                                                            <constraint firstAttribute="width" constant="135" id="P6W-Pn-4fv"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -200,13 +201,13 @@ should be on Xity?</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQg-zD-kVn" userLabel="Favorite Button">
-                                                        <rect key="frame" x="353" y="0.0" width="75" height="75"/>
+                                                        <rect key="frame" x="293" y="0.0" width="135" height="75"/>
                                                         <color key="backgroundColor" red="0.38791471719999998" green="0.21782347560000001" blue="0.52274340389999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="75" id="aBZ-hS-vVz"/>
+                                                            <constraint firstAttribute="width" constant="135" id="aBZ-hS-vVz"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal">
+                                                        <state key="normal" title="Add To Fav">
                                                             <imageReference key="image" image="suit.heart" catalog="system" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                         </state>

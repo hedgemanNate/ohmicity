@@ -46,7 +46,8 @@ class DashboardViewController: UIViewController {
     @IBOutlet private weak var favoritesButton: UIButton!
     @IBOutlet private weak var favoritesCollectionView: UICollectionView!
     @IBOutlet private weak var hiddenSignUpView: UIView!
-    @IBOutlet private weak var noShowsView: UIView!
+    @IBOutlet private weak var noPicksThisWeekView: UIView!
+    @IBOutlet private weak var noMoreShowsTodayView: UIView!
     
     //Collections Views
     @IBOutlet private weak var todayCollectionView: UICollectionView!
@@ -150,27 +151,35 @@ extension DashboardViewController {
         }
         
         if XityShowController.weeklyPicksArray.count == 0 {
-            noShowsView.isHidden = false
+            noPicksThisWeekView.isHidden = false
         } else {
-            noShowsView.isHidden = true
+            noPicksThisWeekView.isHidden = true
+        }
+        
+        if XityShowController.todayShowResultsArray.count == 0 {
+            noMoreShowsTodayView.isHidden = false
+        } else {
+            noMoreShowsTodayView.isHidden = true
         }
         
     }
     
     @objc private func reloadData() {
-        var temp = XityShowController.todayShowResultsArray.filter({$0.show.date > timeController.threeHoursAgo})
-        XityShowController.todayShowResultsArray = temp
-        temp = []
-        
-        var week = XityShowController.weeklyPicksArray.filter({$0.show.date > timeController.threeHoursAgo})
-        XityShowController.weeklyPicksArray = week
-        week = []
+//        var temp = XityShowController.todayShowArray.filter({$0.show.date > timeController.threeHoursAgo})
+//        XityShowController.todayShowResultsArray = temp
+//        temp = []
+//
+//        var week = XityShowController.weeklyPicksArray.filter({$0.show.date > timeController.threeHoursAgo})
+//        XityShowController.weeklyPicksArray = week
+//        week = []
         
         DispatchQueue.main.async { [self] in
             self.todayCollectionView.reloadData()
             self.favoritesCollectionView.reloadData()
             self.xityPickCollectionView.reloadData()
             self.bannerAdCollectionView.reloadData()
+            
+            self.handleHidden()
         
             switch XityShowController.todayShowArrayFilter {
             case .Sarasota:
@@ -630,9 +639,9 @@ extension DashboardViewController {
     private func addBackGroundNotificationObservers() {
         let dashboardNotificationCenter = NotificationCenter.default
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(reloadData), name: UIApplication.didBecomeActiveNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(userReturned), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        dashboardNotificationCenter.addObserver(self, selector: #selector(launchLoadingScreen), name: UIApplication.significantTimeChangeNotification, object: nil)
+        dashboardNotificationCenter.addObserver(self, selector: #selector(userReturned), name: UIApplication.significantTimeChangeNotification, object: nil)
         
         dashboardNotificationCenter.addObserver(self, selector: #selector(reloadData), name: Notifications.reloadAllData.name, object: nil)
     }
@@ -641,5 +650,13 @@ extension DashboardViewController {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ReloadDataSegue", sender: self)
         }
+    }
+    
+    @objc private func userReturned() {
+        ShowLogicController.buildTodayShows()
+        DispatchQueue.main.async {
+            self.reloadData()
+        }
+        print("User Returned!!!!!")
     }
 }

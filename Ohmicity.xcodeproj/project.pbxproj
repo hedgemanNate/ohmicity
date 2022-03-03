@@ -17,6 +17,7 @@
 		D8403D3D2641CA0F00E95415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8403D3C2641CA0F00E95415 /* GoogleService-Info.plist */; };
 		D8CED4012641E96D0017FD28 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CED4002641E96D0017FD28 /* SignInViewController.swift */; };
 		D8CED4062641F4100017FD28 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CED4052641F4100017FD28 /* SignIn.storyboard */; };
+		F602F7BA27D08CB500544B74 /* ShowLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602F7B927D08CB500544B74 /* ShowLogicController.swift */; };
 		F60B849626CB4D1800C9226F /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849526CB4D1600C9226F /* tabBar.png */; };
 		F60B849826CB506D00C9226F /* dashboardActive.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849726CB506A00C9226F /* dashboardActive.png */; };
 		F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = F60B849926CB507000C9226F /* dashboardInactive.png */; };
@@ -181,6 +182,7 @@
 		D8CED4002641E96D0017FD28 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D8CED4052641F4100017FD28 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		DEBE90EF617AC7701CBA0F7E /* Pods-Ohmicity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ohmicity.release.xcconfig"; path = "Target Support Files/Pods-Ohmicity/Pods-Ohmicity.release.xcconfig"; sourceTree = "<group>"; };
+		F602F7B927D08CB500544B74 /* ShowLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLogicController.swift; sourceTree = "<group>"; };
 		F60B849526CB4D1600C9226F /* tabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar.png; sourceTree = "<group>"; };
 		F60B849726CB506A00C9226F /* dashboardActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboardActive.png; sourceTree = "<group>"; };
 		F60B849926CB507000C9226F /* dashboardInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboardInactive.png; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */,
 				F665584327C6C06D00DC13DB /* DeviceController.swift */,
 				F649D51B27214BF80050E7F9 /* Subscription */,
+				F602F7B927D08CB500544B74 /* ShowLogicController.swift */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */,
 				F6D17B4427A6154B00AD22F9 /* UpdateAvailableViewController.swift in Sources */,
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
+				F602F7BA27D08CB500544B74 /* ShowLogicController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
 				F6869B5127018AEB00421019 /* RatingsController.swift in Sources */,
 				F61E00A327A0B58800FA8298 /* ReloadAllDataViewController.swift in Sources */,

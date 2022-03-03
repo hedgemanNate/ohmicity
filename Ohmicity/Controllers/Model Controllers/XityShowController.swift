@@ -16,6 +16,7 @@ class XityShowController {
         didSet {
             let xitySet = Set(showArray)
             showArray = Array(xitySet)
+            todayShowResultsArray = []
             todayShowResultsArray = todayShowArray
         }
     }
