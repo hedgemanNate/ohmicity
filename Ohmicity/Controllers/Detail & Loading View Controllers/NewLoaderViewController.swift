@@ -29,7 +29,8 @@ class NewLoaderViewController: UIViewController {
         super.viewDidLoad()
         DevelopmentSettingsController.loadDevData()
         DevelopmentSettingsController.setDatabase()
-        print(DevelopmentSettingsController.devSettings.database)
+        RemoteController.setRemoteControlListener()
+        
         setupProgressView()
         startWork()
     }

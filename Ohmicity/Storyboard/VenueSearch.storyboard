@@ -71,8 +71,8 @@
                                                 <constraints>
                                                     <constraint firstItem="zp3-xa-Q7E" firstAttribute="leading" secondItem="uYo-oc-DGk" secondAttribute="leading" id="4kg-nU-OWb"/>
                                                     <constraint firstAttribute="trailing" secondItem="zp3-xa-Q7E" secondAttribute="trailing" id="EjE-FG-yOt"/>
+                                                    <constraint firstAttribute="height" constant="253" id="cgP-Gm-QMM"/>
                                                     <constraint firstAttribute="bottom" secondItem="zp3-xa-Q7E" secondAttribute="bottom" id="dGW-OS-6m0"/>
-                                                    <constraint firstAttribute="width" secondItem="uYo-oc-DGk" secondAttribute="height" multiplier="428:253" id="r2x-cO-QyN"/>
                                                     <constraint firstItem="zp3-xa-Q7E" firstAttribute="top" secondItem="uYo-oc-DGk" secondAttribute="top" id="unp-2x-IlB"/>
                                                 </constraints>
                                             </view>

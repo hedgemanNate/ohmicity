@@ -309,7 +309,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="U03-DP-nhM" userLabel="Button Stack View">
-                                                <rect key="frame" x="28" y="522" width="372" height="192"/>
+                                                <rect key="frame" x="28" y="522" width="372" height="121"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1J-k9-Bq7">
                                                         <rect key="frame" x="0.0" y="0.0" width="372" height="50"/>
@@ -325,38 +325,43 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                             <action selector="logoutButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="8i1-ad-lL4"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-H2-d2Z" userLabel="Privacy Policy">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="UhQ-qp-X4x">
                                                         <rect key="frame" x="0.0" y="71" width="372" height="50"/>
-                                                        <color key="backgroundColor" red="0.23921568627450979" green="0.61176470588235299" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="uHg-Yf-NeO"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
-                                                        <state key="normal" title="Privacy Policy">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="privacyPolicyButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="MvR-18-J6o"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-y1-i4D">
-                                                        <rect key="frame" x="0.0" y="142" width="372" height="50"/>
-                                                        <color key="backgroundColor" red="0.24040266869999999" green="0.61070144179999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="3v7-Mj-iDN"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
-                                                        <state key="normal" title="EULA">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="licenseAgreementButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="1vy-a5-Zsa"/>
-                                                        </connections>
-                                                    </button>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-H2-d2Z" userLabel="Privacy Policy">
+                                                                <rect key="frame" x="0.0" y="0.0" width="175.66666666666666" height="50"/>
+                                                                <color key="backgroundColor" red="0.23921568627450979" green="0.61176470588235299" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="uHg-Yf-NeO"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                                                <state key="normal" title="Privacy Policy">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="privacyPolicyButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="MvR-18-J6o"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-y1-i4D">
+                                                                <rect key="frame" x="196.66666666666663" y="0.0" width="175.33333333333337" height="50"/>
+                                                                <color key="backgroundColor" red="0.24040266869999999" green="0.61070144179999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="3v7-Mj-iDN"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                                                <state key="normal" title="EULA">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="licenseAgreementButtonTapped:" destination="3iV-GW-bTt" eventType="touchUpInside" id="1vy-a5-Zsa"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9n-Sl-4zz">
-                                                <rect key="frame" x="242" y="739" width="158" height="30"/>
+                                                <rect key="frame" x="242" y="668" width="158" height="30"/>
                                                 <color key="backgroundColor" red="0.1116280928" green="0.093091420829999993" blue="0.13905775549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="c0f-VB-itW"/>
@@ -1838,8 +1843,8 @@ Check our Facebook page for updates on what’s going on here.</string>
     <inferredMetricsTieBreakers>
         <segue reference="uju-Mq-YCb"/>
         <segue reference="aJ0-qe-W6l"/>
-        <segue reference="GVY-L8-xJL"/>
-        <segue reference="pYi-uV-Zx2"/>
+        <segue reference="2UD-vX-uNS"/>
+        <segue reference="phR-fw-lgs"/>
         <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>
     <resources>

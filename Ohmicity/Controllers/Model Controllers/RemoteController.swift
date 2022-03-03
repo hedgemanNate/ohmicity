@@ -11,14 +11,14 @@ import FirebaseFirestoreSwift
 
 class RemoteController {
     
-    static var remoteModel: RemoteControllerModel? {
+    static var remoteModel = RemoteControllerModel() {
         didSet {
             NotifyCenter.post(Notifications.remoteControlUpdated)
         }
     }
     
     static func setRemoteControlListener() {
-        FireStoreReferenceManager.remoteControlDataPath.document("remoteController").addSnapshotListener { snap, err in
+        FireStoreReferenceManager.remoteControlDataPath.document("remote1").addSnapshotListener { snap, err in
             if let err = err {
                 NSLog(err.localizedDescription)
             } else {
