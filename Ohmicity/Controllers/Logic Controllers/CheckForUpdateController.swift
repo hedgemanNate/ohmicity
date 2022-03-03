@@ -45,7 +45,7 @@ class CheckForUpdateController {
     static func shouldForceUpdate() -> Bool {
         print("App Store Version: \(appStoreVersion) Installed Version: \(installedVersion)")
         print("Version Gap: \(appStoreVersion - installedVersion)")
-        if appStoreVersion - installedVersion > 0.05 {
+        if appStoreVersion - installedVersion > 0.02 {
             return true
         } else {
             return false

@@ -15,8 +15,6 @@ enum GoogleAdID: String {
 
 class UserAdController {
     //Properties
-    var percentArray = RemoteController.remoteModel.adPercentArray
-    
     var userSubscription = SubscriptionType.None {
         didSet {
             currentUserController.setUpCurrentUserPreferences()
@@ -82,9 +80,9 @@ class UserAdController {
     }
     
     func shouldShowAd() -> Bool {
-        if DevelopmentSettingsController.devSettings.ads == false {percentArray = [0]}
+        if DevelopmentSettingsController.devSettings.ads == false {RemoteController.remoteModel.adPercentArray = [0]}
         let x = Int.random(in: 1...10)
-        if percentArray.contains(x) {
+        if RemoteController.remoteModel.adPercentArray.contains(x) {
             return true
         } else {
             return false
