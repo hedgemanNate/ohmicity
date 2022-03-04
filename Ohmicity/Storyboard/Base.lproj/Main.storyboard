@@ -1363,7 +1363,7 @@ should be on Xity?</string>
                         <segue destination="TdY-aU-Og1" kind="presentation" identifier="ReloadDataSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="3AK-jE-xSk"/>
                         <segue destination="i7g-5L-c0W" kind="presentation" identifier="UpdateAvailableSegue" id="F9i-jk-nv6"/>
                         <segue destination="zkP-We-isE" kind="presentation" identifier="ShutdownSegue" modalPresentationStyle="fullScreen" id="uju-Mq-YCb"/>
-                        <segue destination="Nq3-NM-ly7" kind="presentation" modalPresentationStyle="fullScreen" id="aJ0-qe-W6l"/>
+                        <segue destination="Nq3-NM-ly7" kind="presentation" identifier="MaintenanceSegue" modalPresentationStyle="fullScreen" id="aJ0-qe-W6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1701,10 +1701,10 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-2286.4485981308408" y="-1470.1943844492441"/>
         </scene>
-        <!--View Controller-->
+        <!--Maintenance Mode View Controller-->
         <scene sceneID="4Pb-02-2Rd">
             <objects>
-                <viewController id="Nq3-NM-ly7" sceneMemberID="viewController">
+                <viewController id="Nq3-NM-ly7" customClass="MaintenanceModeViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="29d-cW-tih">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1760,10 +1760,10 @@ should be on Xity?</string>
             </objects>
             <point key="canvasLocation" x="-3673" y="-1429"/>
         </scene>
-        <!--View Controller-->
+        <!--Shut Down View Controller-->
         <scene sceneID="skI-gD-Vcf">
             <objects>
-                <viewController id="zkP-We-isE" sceneMemberID="viewController">
+                <viewController id="zkP-We-isE" customClass="ShutDownViewController" customModule="Ohmicity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FR6-by-N01">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1795,9 +1795,6 @@ Check our Facebook page for updates on what’s going on here.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Breaker"/>
-                                <connections>
-                                    <action selector="breaker:" destination="zkP-We-isE" eventType="touchUpInside" id="yT3-Oj-sMf"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rJ-ki-a9l">
                                 <rect key="frame" x="44" y="613" width="340" height="60"/>
@@ -1811,7 +1808,7 @@ Check our Facebook page for updates on what’s going on here.</string>
                                     <color key="baseBackgroundColor" red="0.27059562450000002" green="0.179533154" blue="0.31431012110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="updateButtonTapped:" destination="zkP-We-isE" eventType="touchUpInside" id="Aa5-cu-7MS"/>
+                                    <action selector="shutDownButtonTapped:" destination="zkP-We-isE" eventType="touchUpInside" id="F9D-CQ-GAI"/>
                                 </connections>
                             </button>
                         </subviews>

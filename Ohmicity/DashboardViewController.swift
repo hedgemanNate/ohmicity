@@ -80,6 +80,7 @@ class DashboardViewController: UIViewController {
         DispatchQueue.main.async {
             self.checkDevelopmentStatus()
             self.checkForUpdate()
+            self.checkRemoteController()
         }
     }
     
@@ -133,6 +134,8 @@ extension DashboardViewController {
     private func checkForUpdate() {
         if CheckForUpdateController.updateAvailable == true {
             self.performSegue(withIdentifier: "UpdateAvailableSegue", sender: self)
+            tabBarController?.tabBar.items?[4].badgeColor = .red
+            tabBarController?.tabBar.items?[4].badgeValue = "1"
         }
     }
     
@@ -271,6 +274,22 @@ extension DashboardViewController {
 
     }
     
+    @objc private func lostNetworkConnection() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
+        }
+    }
+    
+    @objc private func checkRemoteController() {
+        if RemoteController.remoteModel.shutDown == true {
+            DispatchQueue.main.async {self.performSegue(withIdentifier: "ShutdownSegue", sender: self)}
+        }
+        
+        if RemoteController.remoteModel.maintenanceMode == true {
+            DispatchQueue.main.async {self.performSegue(withIdentifier: "MaintenanceSegue", sender: self)}
+        }
+    }
+    
     //MARK: Setup CollectionViews
     private func setupUpCollectionViews() {
         
@@ -304,20 +323,11 @@ extension DashboardViewController {
         xityPickCollectionView.showsHorizontalScrollIndicator = false
         xityPickCollectionView.reloadData()
     }
-    
-    @objc private func lostNetworkConnection() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "NetworkConnectionSegue", sender: self)
-        }
-    }
-    
-    
+
     
     
     //MARK: Notifications
     private func setUpNotificationObservers() {
-        
-        
         //Reload Collection View Data
         NotifyCenter.addObserver(self, selector: #selector(reloadData), name: Notifications.reloadDashboardCVData.name, object: nil)
         
@@ -338,6 +348,9 @@ extension DashboardViewController {
         
         //Network Notifications
         NotifyCenter.addObserver(self, selector: #selector(lostNetworkConnection), name: Notifications.lostConnection.name, object: nil)
+        
+        //Remote Controller Notifications
+        NotifyCenter.addObserver(self, selector: #selector(checkRemoteController), name: Notifications.remoteControlUpdated.name, object: nil)
     }
     
     //MARK: ---- Functions End ----

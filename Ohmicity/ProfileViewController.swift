@@ -46,7 +46,6 @@ class ProfileViewController: UIViewController {
         NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
         NotifyCenter.addObserver(self, selector: #selector(updateViews), name: NSNotification.Name(rawValue: "VersionUpdateInfo"), object: nil)
         
-        
         updateViews()
     }
     
@@ -126,8 +125,6 @@ class ProfileViewController: UIViewController {
             performSegue(withIdentifier: "ToSubscriptions", sender: self)
         }
     }
-    
-    
     
     @objc private func updateLogButton() {
         if Auth.auth().currentUser == nil {

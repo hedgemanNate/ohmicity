@@ -110,6 +110,8 @@
 		F67991002697AB54000FDC5E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67990FF2697AB54000FDC5E /* Notifications.swift */; };
 		F67991052697E2A0000FDC5E /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991042697E2A0000FDC5E /* BusinessController.swift */; };
 		F67991072697F171000FDC5E /* FireStoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */; };
+		F67B8B9F27D18C760029A224 /* MaintenanceModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B8B9E27D18C760029A224 /* MaintenanceModeViewController.swift */; };
+		F67B8BA127D18EEC0029A224 /* ShutDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B8BA027D18EEC0029A224 /* ShutDownViewController.swift */; };
 		F67B93B727A25044004B8DA7 /* NewLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
@@ -273,6 +275,8 @@
 		F67990FF2697AB54000FDC5E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		F67991042697E2A0000FDC5E /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		F67991062697F171000FDC5E /* FireStoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreReferenceManager.swift; sourceTree = "<group>"; };
+		F67B8B9E27D18C760029A224 /* MaintenanceModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceModeViewController.swift; sourceTree = "<group>"; };
+		F67B8BA027D18EEC0029A224 /* ShutDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutDownViewController.swift; sourceTree = "<group>"; };
 		F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoaderViewController.swift; sourceTree = "<group>"; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
@@ -493,6 +497,8 @@
 				F66CB28226FC691800B26EE3 /* LostInternetConnectionViewController.swift */,
 				F638378E2793FEC400838858 /* ForceUpdateViewController.swift */,
 				F6D17B4327A6154B00AD22F9 /* UpdateAvailableViewController.swift */,
+				F67B8B9E27D18C760029A224 /* MaintenanceModeViewController.swift */,
+				F67B8BA027D18EEC0029A224 /* ShutDownViewController.swift */,
 			);
 			path = "Info View Controllers";
 			sourceTree = "<group>";
@@ -1023,8 +1029,10 @@
 				F676F101269947D300C47599 /* Enumerations.swift in Sources */,
 				F638378D2793FBD800838858 /* ProductionShowController.swift in Sources */,
 				F6AB4F5F270D0308004C164C /* PurchaseController.swift in Sources */,
+				F67B8B9F27D18C760029A224 /* MaintenanceModeViewController.swift in Sources */,
 				F640DD0F264E432C00959358 /* DashboardTabBarController.swift in Sources */,
 				F699FFE526C614ED00C73CD6 /* XityBandController.swift in Sources */,
+				F67B8BA127D18EEC0029A224 /* ShutDownViewController.swift in Sources */,
 				F676F0FD2699309B00C47599 /* LastModifiedDateHandler.swift in Sources */,
 				F687CD6726F45ECA00412C07 /* CurrentUser.swift in Sources */,
 				F66206E926B4B9C800BDE93E /* TimeController.swift in Sources */,

@@ -16,6 +16,7 @@ class RemoteControllerModel: Decodable {
 }
 
 struct RemoteAdArrays: Encodable {
+    let zero = [0]
     let forty = [1,2,3,4]
     let fifty = [1,2,3,4,5]
     let sixty = [1,2,3,4,5,6]

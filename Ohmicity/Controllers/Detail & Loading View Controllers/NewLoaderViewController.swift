@@ -72,8 +72,6 @@ extension NewLoaderViewController {
             
             timeController.setTime()
             
-            
-            
             group.notify(queue: .global()) { [self] in
                 self.downloadData()
             }

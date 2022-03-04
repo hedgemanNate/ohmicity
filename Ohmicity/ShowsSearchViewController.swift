@@ -141,14 +141,14 @@ class ShowsSearchViewController: UIViewController {
     private func createDatePicker() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        toolBar.tintColor = cc.white
-        toolBar.backgroundColor = cc.white
+        toolBar.tintColor = .black
+        toolBar.backgroundColor = .black
 
         let doneButton = UIBarButtonItem(title: "Search Selected Date", style: .plain, target: nil, action: #selector(doneButtonTapped))
-        doneButton.tintColor = cc.highlightBlue
+        //doneButton.tintColor = cc.highlightBlue
 
         let cancelButton = UIBarButtonItem(title: "See All Dates", style: .plain, target: nil, action: #selector(cancelButtonTapped))
-        cancelButton.tintColor = .white
+        //cancelButton.tintColor = .white
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
