@@ -257,12 +257,12 @@ class ShowsSearchViewController: UIViewController {
     //MARK: Banner Ad
     @objc private func bannerChange() {
         let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
-        let currentPath = shownPath.first
+        guard let currentPath = shownPath.first else {return}
     
-        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
+        var indexPath = IndexPath(row: currentPath.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 25 {
+        if currentPath.row < 25 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
         } else {
