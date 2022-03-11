@@ -154,13 +154,15 @@ extension DashboardViewController {
             favoritesButton.isHidden = false
             favoritesCollectionView.isHidden = false
             hiddenSignUpView.isHidden = true
+            
+            if currentUserController.currentUser?.subscription == .None {
+                becomeMemberView.isHidden = false
+            } else {
+                becomeMemberView.isHidden = true
+            }
         }
         
-        if currentUserController.currentUser?.subscription == .None {
-            becomeMemberView.isHidden = true
-        } else {
-            becomeMemberView.isHidden = false
-        }
+        
         
         if XityShowController.weeklyPicksArray.count == 0 {
             noPicksThisWeekView.isHidden = false

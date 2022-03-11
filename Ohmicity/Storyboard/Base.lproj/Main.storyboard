@@ -1012,7 +1012,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWz-aL-Jek" userLabel="Remove Ad's Button">
                                                         <rect key="frame" x="0.0" y="0.0" width="428" height="156"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                         <connections>
                                                             <segue destination="Pg6-Ho-7vW" kind="presentation" modalPresentationStyle="fullScreen" id="Bh3-da-HCw"/>
                                                         </connections>
