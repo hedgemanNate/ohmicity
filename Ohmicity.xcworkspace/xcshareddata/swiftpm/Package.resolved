@@ -9,15 +9,6 @@
           "revision": "da57c444cbb7b6159aa871534d4cf2616d1d55c6",
           "version": null
         }
-      },
-      {
-        "package": "Qonversion",
-        "repositoryURL": "https://github.com/qonversion/qonversion-ios-sdk",
-        "state": {
-          "branch": null,
-          "revision": "700b116d3d88fa09975d0d39736457fc2d7c4013",
-          "version": "2.18.0"
-        }
       }
     ]
   },

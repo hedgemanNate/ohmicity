@@ -765,7 +765,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~Filter Shows By City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
-                                                <rect key="frame" x="191" y="267" width="162" height="21"/>
+                                                <rect key="frame" x="191" y="267" width="162" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemTealColor"/>
                                                 <nil key="highlightedColor"/>
@@ -777,7 +777,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </connections>
                                             </button>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xel-sG-Cs5" userLabel="No More Shows Today View">
-                                                <rect key="frame" x="0.0" y="297" width="428" height="268"/>
+                                                <rect key="frame" x="0.0" y="296.33333333333331" width="428" height="267.99999999999994"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No More Shows Today." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snw-He-9P8">
                                                         <rect key="frame" x="104.66666666666667" y="122" width="218.66666666666663" height="24"/>
@@ -863,6 +863,20 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh" userLabel="Members Area">
+                                                <rect key="frame" x="9" y="582" width="175" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                                <state key="normal" title="Members Area ">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="members.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zva-NH-qkg">
+                                                <rect key="frame" x="191" y="582.66666666666663" width="49" height="43"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="43" id="MIA-36-gMl"/>
+                                                    <constraint firstAttribute="width" constant="49" id="Tma-kK-k6F"/>
+                                                </constraints>
+                                            </imageView>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWB-JM-Q0f" userLabel="No More Picks This Week View">
                                                 <rect key="frame" x="0.0" y="819" width="428" height="268"/>
                                                 <subviews>
@@ -880,13 +894,6 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                     <constraint firstAttribute="height" constant="268" id="zUy-ND-ADj"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-ji-xOh">
-                                                <rect key="frame" x="9" y="582" width="315" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
-                                                <state key="normal" title="Xity's Exclusive Deals 🤑">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PRD-v0-GZh" userLabel="Citites Collection View">
                                                 <rect key="frame" x="0.0" y="633" width="428" height="105"/>
                                                 <color key="backgroundColor" red="0.11276847869999999" green="0.093938596550000003" blue="0.1430418789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -940,6 +947,91 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                     <outlet property="delegate" destination="xaL-Zu-PHr" id="z5W-Y1-eX5"/>
                                                 </connections>
                                             </collectionView>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zl6-pJ-uGb" userLabel="Remove Ad's VIew">
+                                                <rect key="frame" x="0.0" y="582" width="428" height="156"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RemoveAdBG.png" translatesAutoresizingMaskIntoConstraints="NO" id="pXZ-zI-jKO" userLabel="BG Image">
+                                                        <rect key="frame" x="0.0" y="0.0" width="428" height="156"/>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="YYP-WT-tsh" userLabel="Purchase Graphics Stack">
+                                                        <rect key="frame" x="71" y="23.999999999999993" width="286" height="108.33333333333331"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="0CD-99-gnr" userLabel="Remove Ads Stack">
+                                                                <rect key="frame" x="0.0" y="0.0" width="84" height="108.33333333333333"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoAds.png" translatesAutoresizingMaskIntoConstraints="NO" id="2eH-NC-VU5">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="84" height="66"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="84" id="uke-wE-WH3"/>
+                                                                            <constraint firstAttribute="height" constant="66" id="zzk-jQ-q5D"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Popup Ads" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkB-UQ-UKY">
+                                                                        <rect key="frame" x="0.0" y="70" width="84" height="38.333333333333343"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="jkB-UQ-UKY" firstAttribute="leading" secondItem="2eH-NC-VU5" secondAttribute="leading" id="2NI-Y6-hD4"/>
+                                                                    <constraint firstItem="jkB-UQ-UKY" firstAttribute="trailing" secondItem="2eH-NC-VU5" secondAttribute="trailing" id="QRm-hN-j6E"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="TvM-12-fTa">
+                                                                <rect key="frame" x="118" y="29" width="50" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="kUr-7i-tjU"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="ka4-4t-ZLd"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="g2L-gW-TXp" userLabel="Member Area Stack">
+                                                                <rect key="frame" x="202" y="0.0" width="84" height="108.33333333333333"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="members.png" translatesAutoresizingMaskIntoConstraints="NO" id="lRa-eG-fsx">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="84" height="66"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="84" id="Y5x-ME-MEI"/>
+                                                                            <constraint firstAttribute="height" constant="66" id="nhH-fg-B3F"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members Area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gV-Dh-AxS">
+                                                                        <rect key="frame" x="0.0" y="70" width="84" height="38.333333333333343"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="2gV-Dh-AxS" firstAttribute="leading" secondItem="lRa-eG-fsx" secondAttribute="leading" id="4ZB-iP-pbi"/>
+                                                                    <constraint firstItem="2gV-Dh-AxS" firstAttribute="trailing" secondItem="lRa-eG-fsx" secondAttribute="trailing" id="JvP-Ro-BHh"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWz-aL-Jek" userLabel="Remove Ad's Button">
+                                                        <rect key="frame" x="0.0" y="0.0" width="428" height="156"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <segue destination="Pg6-Ho-7vW" kind="presentation" modalPresentationStyle="fullScreen" id="Bh3-da-HCw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="pXZ-zI-jKO" firstAttribute="top" secondItem="zl6-pJ-uGb" secondAttribute="top" id="4fM-yK-UJU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pXZ-zI-jKO" secondAttribute="trailing" id="9wX-TS-lnY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="JWz-aL-Jek" secondAttribute="bottom" id="E7S-NP-WEq"/>
+                                                    <constraint firstItem="pXZ-zI-jKO" firstAttribute="leading" secondItem="zl6-pJ-uGb" secondAttribute="leading" id="Hum-yA-YZg"/>
+                                                    <constraint firstItem="JWz-aL-Jek" firstAttribute="leading" secondItem="zl6-pJ-uGb" secondAttribute="leading" id="Q6s-Fl-lck"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pXZ-zI-jKO" secondAttribute="bottom" id="RZJ-3E-hhy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JWz-aL-Jek" secondAttribute="trailing" id="Zsv-AK-tWw"/>
+                                                    <constraint firstItem="YYP-WT-tsh" firstAttribute="centerY" secondItem="zl6-pJ-uGb" secondAttribute="centerY" id="b1n-nY-eNz"/>
+                                                    <constraint firstItem="JWz-aL-Jek" firstAttribute="top" secondItem="zl6-pJ-uGb" secondAttribute="top" id="eP6-M3-Txv"/>
+                                                    <constraint firstItem="YYP-WT-tsh" firstAttribute="centerX" secondItem="zl6-pJ-uGb" secondAttribute="centerX" id="yCX-PZ-snD"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmJ-NI-E7V" userLabel="Sign Up View">
                                                 <rect key="frame" x="9" y="1157" width="410" height="232"/>
                                                 <subviews>
@@ -1262,7 +1354,9 @@ should be on Xity?</string>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="top" secondItem="1aR-43-dSL" secondAttribute="bottom" constant="7" id="7ec-qH-eqU"/>
                                             <constraint firstAttribute="trailing" secondItem="g8b-sK-kda" secondAttribute="trailing" id="Dyn-eL-Orr"/>
                                             <constraint firstAttribute="trailing" secondItem="onA-4S-Wan" secondAttribute="trailing" id="GYS-TM-s9p"/>
+                                            <constraint firstAttribute="trailing" secondItem="zl6-pJ-uGb" secondAttribute="trailing" id="HCm-sE-TTv"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="I1d-Ca-LlP"/>
+                                            <constraint firstItem="Zva-NH-qkg" firstAttribute="leading" secondItem="4FR-ji-xOh" secondAttribute="trailing" constant="7" id="IH2-d9-5OZ"/>
                                             <constraint firstItem="vXY-nV-LWV" firstAttribute="top" secondItem="Yr5-mc-o9V" secondAttribute="bottom" constant="7" id="JI1-UW-BM4"/>
                                             <constraint firstItem="x8J-nE-HSo" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="Jkm-6H-a36"/>
                                             <constraint firstItem="SO8-4f-hLW" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="KCf-mt-v4C"/>
@@ -1282,15 +1376,19 @@ should be on Xity?</string>
                                             <constraint firstItem="xel-sG-Cs5" firstAttribute="top" secondItem="RHp-aE-CIZ" secondAttribute="bottom" constant="9" id="Xrf-11-VhS"/>
                                             <constraint firstAttribute="trailing" secondItem="MWB-JM-Q0f" secondAttribute="trailing" id="Yt2-Cm-Udq"/>
                                             <constraint firstAttribute="trailing" secondItem="cgb-1O-MRt" secondAttribute="trailing" id="ZiX-b5-OJl"/>
+                                            <constraint firstItem="zl6-pJ-uGb" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="ZsP-as-V7e"/>
                                             <constraint firstAttribute="trailing" secondItem="dRP-dE-0cc" secondAttribute="trailing" constant="9" id="Zwt-8h-NtK"/>
+                                            <constraint firstItem="zl6-pJ-uGb" firstAttribute="top" secondItem="4FR-ji-xOh" secondAttribute="top" id="avk-Yb-uLC"/>
                                             <constraint firstAttribute="height" constant="1675" id="b3g-ap-Wy4"/>
                                             <constraint firstItem="MWB-JM-Q0f" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="bkl-3m-iGy"/>
                                             <constraint firstItem="EKm-dF-4wv" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" id="bsV-i8-QLl"/>
                                             <constraint firstItem="HPd-IG-CFU" firstAttribute="top" secondItem="g8b-sK-kda" secondAttribute="bottom" id="gA4-No-970"/>
+                                            <constraint firstItem="Zva-NH-qkg" firstAttribute="centerY" secondItem="4FR-ji-xOh" secondAttribute="centerY" id="gI8-vr-fxZ"/>
                                             <constraint firstItem="HPd-IG-CFU" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="k5h-uA-JiG"/>
                                             <constraint firstItem="PRD-v0-GZh" firstAttribute="top" secondItem="4FR-ji-xOh" secondAttribute="bottom" constant="7" id="m7q-fG-FRI"/>
                                             <constraint firstItem="4FR-ji-xOh" firstAttribute="leading" secondItem="PaE-9Z-b5c" secondAttribute="leading" constant="9" id="mgv-dy-lZm"/>
                                             <constraint firstAttribute="trailing" secondItem="PRD-v0-GZh" secondAttribute="trailing" id="mj5-MS-fmm"/>
+                                            <constraint firstItem="PRD-v0-GZh" firstAttribute="bottom" secondItem="zl6-pJ-uGb" secondAttribute="bottom" id="nPv-Ek-WEW"/>
                                             <constraint firstItem="g8b-sK-kda" firstAttribute="top" secondItem="PaE-9Z-b5c" secondAttribute="top" id="nXN-RM-FfO"/>
                                             <constraint firstItem="1aR-43-dSL" firstAttribute="top" secondItem="PRD-v0-GZh" secondAttribute="bottom" constant="28" id="nwV-TP-UTi"/>
                                             <constraint firstAttribute="trailing" secondItem="EKm-dF-4wv" secondAttribute="trailing" id="oio-oq-K3b"/>
@@ -1330,6 +1428,7 @@ should be on Xity?</string>
                     <connections>
                         <outlet property="alreadyAccountButton" destination="zgl-sI-FPH" id="sZl-gN-H2n"/>
                         <outlet property="bannerAdCollectionView" destination="sk0-Ih-96d" id="gA5-7E-0rw"/>
+                        <outlet property="becomeMemberView" destination="zl6-pJ-uGb" id="9lW-ki-2Dl"/>
                         <outlet property="citiesButton" destination="4FR-ji-xOh" id="AZb-oA-dOs"/>
                         <outlet property="cityFilterLabel" destination="RHp-aE-CIZ" id="oJC-sg-Bbx"/>
                         <outlet property="favoritesButton" destination="SO8-4f-hLW" id="wLZ-Eg-3xY"/>
@@ -1356,7 +1455,6 @@ should be on Xity?</string>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="VenueFromFav" id="3oC-qz-sBH"/>
                         <segue destination="8qd-y1-hnj" kind="presentation" identifier="FromXityPick" id="4YM-rC-lLc"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="GVY-L8-xJL"/>
-                        <segue destination="Pg6-Ho-7vW" kind="presentation" identifier="ToPurchaseSegue" modalPresentationStyle="fullScreen" id="zcJ-zu-BfT"/>
                         <segue destination="cIJ-Iv-zTa" kind="presentation" identifier="WrongDatabase" id="ZNU-1a-iCP"/>
                         <segue destination="DQx-hs-upo" kind="presentation" identifier="BandFromFav" id="RgU-SC-VCr"/>
                         <segue destination="Ykx-hl-rcX" kind="presentation" identifier="DealsComingSoonSegue" modalPresentationStyle="fullScreen" id="cgE-01-9J4"/>
@@ -1847,15 +1945,19 @@ Check our Facebook page for updates on what’s going on here.</string>
     <resources>
         <image name="BandVenueBorder.png" width="155" height="204"/>
         <image name="BandVenueBorderXityPick.png" width="155" height="204"/>
+        <image name="NoAds.png" width="150" height="150"/>
         <image name="PurpleBG.png" width="1125" height="2436"/>
+        <image name="RemoveAdBG.png" width="454" height="156"/>
         <image name="brickBackground.png" width="396" height="231"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="dashboardActive.png" width="200" height="200"/>
         <image name="dot.circle" catalog="system" width="128" height="121"/>
         <image name="listenButton.png" width="196" height="38"/>
         <image name="loginLogo.png" width="624" height="380"/>
+        <image name="members.png" width="106" height="69"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plusIcon.png" width="60" height="60"/>
         <image name="userIcon.png" width="405" height="433"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

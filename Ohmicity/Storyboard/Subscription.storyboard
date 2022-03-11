@@ -92,7 +92,7 @@
                                                                                 <constraint firstAttribute="height" constant="99" id="SsS-Le-pl8"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Ads" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cW-1K-kha">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Popup Ads" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cW-1K-kha">
                                                                             <rect key="frame" x="35" y="273" width="99" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="99" id="0Dw-Bl-QEW"/>
@@ -110,7 +110,7 @@
                                                                                 <constraint firstAttribute="width" constant="99" id="gbI-QH-KOL"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited Favorites" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8u-90-Itq">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member Area Access" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8u-90-Itq">
                                                                             <rect key="frame" x="166" y="273" width="99" height="45"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="99" id="3gW-7f-O7P"/>
@@ -208,7 +208,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na8-ZY-8E5">
                                                 <rect key="frame" x="14" y="820" width="386" height="90"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">Subscription automatically renews, unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. Subscriptions may be managed and auto- renewal turned off in Apple Account Settings. The subscription fee will be charged to iTunes account at confirmation of purchase. Any unused portion of a trial period will be forfeited once upgraded to the subscription.</string>
+                                                <string key="text">Subscription automatically renews, unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. Subscriptions may be managed and auto-renewal turned off in Apple Account Settings. The subscription fee will be charged to iTunes account at confirmation of purchase. Any unused portion of a trial period will be forfeited once upgraded to the subscription.</string>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

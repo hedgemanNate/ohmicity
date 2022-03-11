@@ -67,38 +67,38 @@ class PurchaseViewController: UIViewController {
     
     
     @IBAction func try7DaysFreeButtonTapped(_ sender: Any) {
-        PurchaseController.shared.purchase(pass: pass) { [self] success in
-            if success == false {
-                alert = UIAlertController(title: "There was an error with your payment.", message: "Do not worry. You were not charged. Please check your payment method and try again.", preferredStyle: .actionSheet)
-                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(alertAction)
-                present(alert, animated: true, completion: nil)
-            } else {
-                alert = UIAlertController(title: "Success!", message: "You are now a Xity Pass Member! Thank you for supporting Live Local Music!!", preferredStyle: .actionSheet)
-                alertAction = UIAlertAction(title: "Back To The Music", style: .default, handler: { _ in
-                    DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                })
-                alert.addAction(alertAction)
-            }
-        }
+//        PurchaseController.shared.purchase(pass: pass) { [self] success in
+//            if success == false {
+//                alert = UIAlertController(title: "There was an error with your payment.", message: "Do not worry. You were not charged. Please check your payment method and try again.", preferredStyle: .actionSheet)
+//                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//                alert.addAction(alertAction)
+//                present(alert, animated: true, completion: nil)
+//            } else {
+//                alert = UIAlertController(title: "Success!", message: "You are now a Xity Pass Member! Thank you for supporting Live Local Music!!", preferredStyle: .actionSheet)
+//                alertAction = UIAlertAction(title: "Back To The Music", style: .default, handler: { _ in
+//                    DispatchQueue.main.async {
+//                        self.navigationController?.popViewController(animated: true)
+//                    }
+//                })
+//                alert.addAction(alertAction)
+//            }
+//        }
     }
     
     @IBAction func restorePurchaseButtonTapped(_ sender: Any) {
-        PurchaseController.shared.restorePurchases { [self] success in
-            if success == false {
-                alert = UIAlertController(title: "Restore Failed", message: "Could not find a pass to restore.", preferredStyle: .actionSheet)
-                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(alertAction)
-                present(alert, animated: true, completion: nil)
-            } else {
-                alert = UIAlertController(title: "Pass Restored", message: "Your Xity Pass has been restored.", preferredStyle: .actionSheet)
-                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(alertAction)
-                present(alert, animated: true, completion: nil)
-            }
-        }
+//        PurchaseController.shared.restorePurchases { [self] success in
+//            if success == false {
+//                alert = UIAlertController(title: "Restore Failed", message: "Could not find a pass to restore.", preferredStyle: .actionSheet)
+//                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//                alert.addAction(alertAction)
+//                present(alert, animated: true, completion: nil)
+//            } else {
+//                alert = UIAlertController(title: "Pass Restored", message: "Your Xity Pass has been restored.", preferredStyle: .actionSheet)
+//                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//                alert.addAction(alertAction)
+//                present(alert, animated: true, completion: nil)
+//            }
+//        }
     }
     
     

@@ -142,7 +142,7 @@ extension VenueSearchViewController {
         var indexPath = IndexPath(row: currentPath.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath.row < 25 {
+        if currentPath.row < 100 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
         } else {
@@ -225,22 +225,6 @@ extension VenueSearchViewController {
         businessResultsArray = XityBusinessController.businessArray.sorted(by: {$0.business.name < $1.business.name})
 
     }
-    
-    @objc private func slideChange() {
-        let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
-        let currentPath = shownPath.first
-        
-        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
-        
-        //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 50 {
-            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            
-        } else {
-            indexPath = IndexPath(row: 0, section: 0)
-            self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-        }
-    }
 }
 
 
@@ -269,7 +253,7 @@ extension VenueSearchViewController: UICollectionViewDataSource, UICollectionVie
         switch collectionView {
         case bannerAdCollectionView:
             BusinessBannerAdController.businessAdArray.shuffle()
-            return 50
+            return 101
         case searchCollectionView:
             switch segmentedController.selectedSegmentIndex {
             case 0:

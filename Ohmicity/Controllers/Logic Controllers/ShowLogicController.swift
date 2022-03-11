@@ -19,6 +19,7 @@ class ShowLogicController {
         XityShowController.todayShowResultsArray.removeAll()
         
         for todayShow in XityShowController.showArray {
+            if todayShow.show.date < timeController.threeHoursAgo {continue}
             let stringDate = dateFormatter.string(from: todayShow.show.date)
             if stringDate == timeController.todayString {
                 XityShowController.todayShowArray.append(todayShow)

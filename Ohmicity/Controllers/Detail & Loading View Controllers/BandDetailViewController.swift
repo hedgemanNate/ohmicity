@@ -220,12 +220,12 @@ class BandDetailViewController: UIViewController {
     //MARK: Banner Ad
     @objc private func bannerChange() {
         let shownPath = bannerAdCollectionView.indexPathsForVisibleItems
-        let currentPath = shownPath.first
+        guard let currentPath = shownPath.first else {return}
         
-        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
+        var indexPath = IndexPath(row: currentPath.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 25 {
+        if currentPath.row < 100 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
         } else {
@@ -393,7 +393,7 @@ extension BandDetailViewController: UICollectionViewDelegateFlowLayout, UICollec
         
         switch collectionView {
         case bannerAdCollectionView:
-            return 50
+            return 101
         case genreCollectionView:
             return 200
         default:

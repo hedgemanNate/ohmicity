@@ -26,7 +26,6 @@
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
 		F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E865626CC8952001DE21A /* TemporaryViewController.swift */; };
 		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
-		F60FDA4327BDB2A700579BA6 /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F60FDA4227BDB2A700579BA6 /* Qonversion */; };
 		F619F109270925F800FDE93F /* na.png in Resources */ = {isa = PBXBuildFile; fileRef = F619F108270925F800FDE93F /* na.png */; };
 		F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C370326B64E2200A2235B /* VenueDetailViewController.swift */; };
 		F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370626B64E5A00A2235B /* directionsIcon.png */; };
@@ -113,6 +112,11 @@
 		F67B8B9F27D18C760029A224 /* MaintenanceModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B8B9E27D18C760029A224 /* MaintenanceModeViewController.swift */; };
 		F67B8BA127D18EEC0029A224 /* ShutDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B8BA027D18EEC0029A224 /* ShutDownViewController.swift */; };
 		F67B93B727A25044004B8DA7 /* NewLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */; };
+		F67C153B27DBCB460091ABC2 /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67C153A27DBCB460091ABC2 /* StoreController.swift */; };
+		F67C153D27DBDCF90091ABC2 /* members.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C153C27DBDCF50091ABC2 /* members.png */; };
+		F67C153F27DBE0270091ABC2 /* RemoveAdBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C153E27DBE0230091ABC2 /* RemoveAdBG.png */; };
+		F67C154127DBE5DF0091ABC2 /* NoAds.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C154027DBE5DF0091ABC2 /* NoAds.png */; };
+		F67C154527DBE83A0091ABC2 /* plusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F67C154427DBE83A0091ABC2 /* plusIcon.png */; };
 		F67E64E626B0A4DF00ED75D0 /* BusinessBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */; };
 		F67E64E826B0D27900ED75D0 /* BusinessBannerAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */; };
 		F6869B4F27010EDC00421019 /* BackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6869B4E27010EDC00421019 /* BackgroundTasks.swift */; };
@@ -278,6 +282,11 @@
 		F67B8B9E27D18C760029A224 /* MaintenanceModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceModeViewController.swift; sourceTree = "<group>"; };
 		F67B8BA027D18EEC0029A224 /* ShutDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutDownViewController.swift; sourceTree = "<group>"; };
 		F67B93B627A25044004B8DA7 /* NewLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoaderViewController.swift; sourceTree = "<group>"; };
+		F67C153A27DBCB460091ABC2 /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
+		F67C153C27DBDCF50091ABC2 /* members.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = members.png; sourceTree = "<group>"; };
+		F67C153E27DBE0230091ABC2 /* RemoveAdBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RemoveAdBG.png; sourceTree = "<group>"; };
+		F67C154027DBE5DF0091ABC2 /* NoAds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoAds.png; sourceTree = "<group>"; };
+		F67C154427DBE83A0091ABC2 /* plusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusIcon.png; sourceTree = "<group>"; };
 		F67E64E526B0A4DF00ED75D0 /* BusinessBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAd.swift; sourceTree = "<group>"; };
 		F67E64E726B0D27900ED75D0 /* BusinessBannerAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBannerAdController.swift; sourceTree = "<group>"; };
 		F6869B4E27010EDC00421019 /* BackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTasks.swift; sourceTree = "<group>"; };
@@ -338,7 +347,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F60FDA4327BDB2A700579BA6 /* Qonversion in Frameworks */,
 				F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */,
 				F665584227C6C04500DC13DB /* DeviceKit in Frameworks */,
 			);
@@ -479,6 +487,8 @@
 		F61C370526B64E5A00A2235B /* Button Icons And BG's */ = {
 			isa = PBXGroup;
 			children = (
+				F67C153E27DBE0230091ABC2 /* RemoveAdBG.png */,
+				F67C153C27DBDCF50091ABC2 /* members.png */,
 				F6D17B3F27A5DFC600AD22F9 /* userIcon.png */,
 				F687CD6C26F4980000412C07 /* xitySupportIcon.png */,
 				F61C370626B64E5A00A2235B /* directionsIcon.png */,
@@ -604,8 +614,9 @@
 				F6753E3D27C824E600D7D56B /* RemoteController.swift */,
 				F6D17B4127A5F37400AD22F9 /* CheckForUpdateController.swift */,
 				F665584327C6C06D00DC13DB /* DeviceController.swift */,
-				F649D51B27214BF80050E7F9 /* Subscription */,
 				F602F7B927D08CB500544B74 /* ShowLogicController.swift */,
+				F649D51B27214BF80050E7F9 /* Subscription */,
+				F67C153A27DBCB460091ABC2 /* StoreController.swift */,
 			);
 			path = "Logic Controllers";
 			sourceTree = "<group>";
@@ -682,6 +693,8 @@
 		F6DBFDA826E9B161001D7520 /* Puchase Images */ = {
 			isa = PBXGroup;
 			children = (
+				F67C154427DBE83A0091ABC2 /* plusIcon.png */,
+				F67C154027DBE5DF0091ABC2 /* NoAds.png */,
 				F6AB4F60270DAF4C004C164C /* search.jpg */,
 				F68848C026ED877E001D06C5 /* reminders.jpg */,
 				F6DBFDAC26E9CE42001D7520 /* noAds.jpg */,
@@ -768,7 +781,6 @@
 			);
 			name = Ohmicity;
 			packageProductDependencies = (
-				F60FDA4227BDB2A700579BA6 /* Qonversion */,
 				F665584127C6C04500DC13DB /* DeviceKit */,
 			);
 			productName = Ohmicity;
@@ -799,7 +811,6 @@
 			);
 			mainGroup = D8403CFA2641C4C400E95415;
 			packageReferences = (
-				F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */,
 				F665584027C6C04500DC13DB /* XCRemoteSwiftPackageReference "DeviceKit" */,
 			);
 			productRefGroup = D8403D042641C4C400E95415 /* Products */;
@@ -825,6 +836,8 @@
 				F66CB28526FD113800B26EE3 /* BandSearch.storyboard in Resources */,
 				F644E8692707FF1500FF81A8 /* reggae.png in Resources */,
 				F60B849A26CB507200C9226F /* dashboardInactive.png in Resources */,
+				F67C153F27DBE0270091ABC2 /* RemoveAdBG.png in Resources */,
+				F67C154527DBE83A0091ABC2 /* plusIcon.png in Resources */,
 				F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */,
 				F644E85E2707FF1500FF81A8 /* easylistening.png in Resources */,
 				F696A73926AB7079009CB1BD /* sarasota.png in Resources */,
@@ -832,6 +845,7 @@
 				F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */,
 				F662266E270572EC00593C72 /* Venue.storyboard in Resources */,
 				F6F3DB4926AF337C00C49016 /* live music.png in Resources */,
+				F67C154127DBE5DF0091ABC2 /* NoAds.png in Resources */,
 				F644E8652707FF1500FF81A8 /* jazz.png in Resources */,
 				D8403D132641C4C500E95415 /* LaunchScreen.storyboard in Resources */,
 				F644E8632707FF1500FF81A8 /* hiphop.png in Resources */,
@@ -841,6 +855,7 @@
 				F644E8642707FF1500FF81A8 /* jamband.png in Resources */,
 				F68848C226ED8782001D06C5 /* reminders.jpg in Resources */,
 				F696A73D26ABB806009CB1BD /* BandVenueBorderXityPick.png in Resources */,
+				F67C153D27DBDCF90091ABC2 /* members.png in Resources */,
 				F644E86B2707FF1500FF81A8 /* soul.png in Resources */,
 				F60B849626CB4D1800C9226F /* tabBar.png in Resources */,
 				F644E85F2707FF1500FF81A8 /* edm.png in Resources */,
@@ -1001,6 +1016,7 @@
 				F6D5946026BBB1DA005D0DEC /* CurrentUserController.swift in Sources */,
 				F602F7BA27D08CB500544B74 /* ShowLogicController.swift in Sources */,
 				F64E1419269FC3B100943371 /* LoadInitDataViewController.swift in Sources */,
+				F67C153B27DBCB460091ABC2 /* StoreController.swift in Sources */,
 				F6869B5127018AEB00421019 /* RatingsController.swift in Sources */,
 				F61E00A327A0B58800FA8298 /* ReloadAllDataViewController.swift in Sources */,
 				F63837892793F90000838858 /* ProductionShows.swift in Sources */,
@@ -1197,7 +1213,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.65;
+				MARKETING_VERSION = 2.68;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1220,7 +1236,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.65;
+				MARKETING_VERSION = 2.68;
 				PRODUCT_BUNDLE_IDENTIFIER = NathanHedgeman.Ohmicity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1260,22 +1276,9 @@
 				kind = branch;
 			};
 		};
-		F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/qonversion/qonversion-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F60FDA4227BDB2A700579BA6 /* Qonversion */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */;
-			productName = Qonversion;
-		};
 		F665584127C6C04500DC13DB /* DeviceKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F665584027C6C04500DC13DB /* XCRemoteSwiftPackageReference "DeviceKit" */;

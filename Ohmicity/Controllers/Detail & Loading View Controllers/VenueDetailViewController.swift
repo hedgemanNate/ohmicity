@@ -332,12 +332,12 @@ extension VenueDetailViewController {
     //MARK:Banner Ad
     @objc func bannerChange() {
         let shownPath = businessPicsCollectionView.indexPathsForVisibleItems
-        let currentPath = shownPath.first
+        guard let currentPath = shownPath.first else {return}
     
-        var indexPath = IndexPath(row: currentPath!.row + 1, section: 0)
+        var indexPath = IndexPath(row: currentPath.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath!.row < 50 {
+        if currentPath.row < 100 {
             self.businessPicsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
         } else {
@@ -578,7 +578,7 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
 extension VenueDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return 101
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

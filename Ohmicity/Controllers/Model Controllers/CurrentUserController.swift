@@ -85,19 +85,6 @@ class CurrentUserController {
         }
     }
     
-    func setUpQonversionPurchasing(completion: @escaping () -> ()) {
-        PurchaseController.shared.configure { success in
-            if success == false {
-                NSLog("💰 Qonversion Configure Error")
-                return
-            } else {
-                NSLog("💰 Qonversion Successfully Configured")
-            }
-        }
-        
-        PurchaseController.shared.checkPermissions()
-    }
-    
     func setUpCurrentUserPreferences() {
         //Ad Experience Setup
         userAdController.setUpAdsAndFeaturesForUser()

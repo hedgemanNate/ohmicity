@@ -205,7 +205,7 @@ class ProfileViewController: UIViewController {
         var indexPath = IndexPath(row: currentPath.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath.row < 25 {
+        if currentPath.row < 100 {
             self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             
         } else {
@@ -246,7 +246,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
         switch collectionView {
         case bannerAdCollectionView:
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
-            return 50
+            return 101
         default:
             return 0
         }

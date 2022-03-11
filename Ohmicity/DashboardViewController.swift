@@ -36,6 +36,10 @@ class DashboardViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var topAdView: UIView!
     
+    //Not A Member Yet
+    @IBOutlet weak var becomeMemberView: UIView!
+    
+    
     //Labels
     @IBOutlet weak var cityFilterLabel: UILabel!
     
@@ -86,7 +90,6 @@ class DashboardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor.clear
         
         let todayFilter = XityShowController.todayShowResultsArray.filter({$0.show.date >= timeController.threeHoursAgo})
         XityShowController.todayShowResultsArray = todayFilter
@@ -146,10 +149,17 @@ extension DashboardViewController {
             favoritesButton.isHidden = true
             favoritesCollectionView.isHidden = true
             hiddenSignUpView.isHidden = false
+            becomeMemberView.isHidden = false
         } else {
             favoritesButton.isHidden = false
             favoritesCollectionView.isHidden = false
             hiddenSignUpView.isHidden = true
+        }
+        
+        if currentUserController.currentUser?.subscription == .None {
+            becomeMemberView.isHidden = true
+        } else {
+            becomeMemberView.isHidden = false
         }
         
         if XityShowController.weeklyPicksArray.count == 0 {
@@ -214,7 +224,7 @@ extension DashboardViewController {
         var indexPath = IndexPath(row: currentPath.row + 1, section: 0)
         
         //High Count For Infinite Loop: See Banner Ad Collection View
-        if currentPath.row < 25 {
+        if currentPath.row < 100 {
             DispatchQueue.main.async {
                 self.bannerAdCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             }
@@ -401,18 +411,18 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         switch collectionView {
         case bannerAdCollectionView:
             //High Count For Infinite Loop: See Banner Ad Collection View & Banner Ad Section
-            return  100
+            return  101
             
         case todayCollectionView:
             if subscriptionController.seeAllData == false {
-                var index = 0
+                //var index = 0
                 halfTodayShows = [XityShow]()
-                for show in XityShowController.todayShowArray {
-                    if index % 2 == 0 {
-                        //halfTodayShows.append(show)
-                    }
-                    index += 1
-                }
+//                for show in XityShowController.todayShowArray {
+//                    if index % 2 == 0 {
+//                        //halfTodayShows.append(show)
+//                    }
+//                    index += 1
+//                }
                 return halfTodayShows.count
             } else {
                 return XityShowController.todayShowResultsArray.count
