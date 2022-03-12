@@ -1,0 +1,49 @@
+{
+  "identifier" : "C2BB798B",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "562DB744",
+      "localizations" : [
+
+      ],
+      "name" : "Single Group",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "9170C097",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Removes all Popup Advertisments",
+              "displayName" : "Remove Popup Ads",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.townbyxity.noads",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Remove Popup Ads",
+          "subscriptionGroupID" : "562DB744",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}

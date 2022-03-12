@@ -16,6 +16,7 @@ class Notifications {
     //User Notifications
     static let userAuthUpdated = Notification(name: Notification.Name(rawValue: "UserAuthUpdated"))
     static let userFavoritesUpdated = Notification(name: Notification.Name(rawValue: "UserFavoritesUpdated"))
+    static let userSubscriptionUpdated = Notification(name: Notification.Name(rawValue: "UserSubscriptionUpdated"))
     
     //UI Notifications
     static let scrollToTop = Notification(name: Notification.Name(rawValue: "ScrollToTop"))

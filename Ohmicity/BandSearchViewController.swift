@@ -213,7 +213,7 @@ extension BandSearchViewController: UICollectionViewDataSource, UICollectionView
 extension BandSearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let subControl = subscriptionController
+        let subControl = SubscriptionController.self
         subControl.userFeaturesAvailableCheck(feature: subControl.search, viewController: self) {
             startSearch(searchText: searchText)
         }
@@ -281,7 +281,7 @@ extension BandSearchViewController: GADFullScreenContentDelegate {
     private func checkForAdThenSegue(to segue: String) {
         segueToPerform = segue
         
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)

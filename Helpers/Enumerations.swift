@@ -76,6 +76,10 @@ enum Genre: String, Codable {
     case BlueGrass = "Bluegrass"
 }
 
+//MARK: Products
+enum Products: String, CaseIterable {
+    case removeAds = "com.townbyxity.noads"
+}
 
 //MARK: User
 enum SubscriptionType: String, Codable, Equatable {

@@ -18,7 +18,8 @@ class DashboardViewController: UIViewController {
     let xityPickSegue = "FromXityPick"
     let venueFavSegue = "VenueFromFav"
     let bandFavSegue = "BandFromFav"
-    let dealsSoonSegue = "DealsComingSoonSegue"
+    let purchaseSegue = "PurchaseSegue"
+    let signInSegue = "ToSignIn"
     
     var sharedIndexPath = IndexPath()
     
@@ -111,7 +112,7 @@ class DashboardViewController: UIViewController {
     }
     
     @IBAction func cityFilterButtonTapped(_ sender: Any) {
-        let subControl = subscriptionController
+        let subControl = SubscriptionController.self
         subControl.userFeaturesAvailableCheck(feature: subControl.todayShowFilter, viewController: self) {
             self.performSegue(withIdentifier: "ToCityFilterSegue", sender: self)
         }
@@ -120,7 +121,19 @@ class DashboardViewController: UIViewController {
     @IBAction func breaker(_ sender: Any) {
         
     }
+    
+    @IBAction func invisiblePurchaseButtonTapped(_ sender: Any) {
+        if currentUserController.currentUser == nil {
+            performSegue(withIdentifier: signInSegue, sender: self)
+        } else {
+            performSegue(withIdentifier: purchaseSegue, sender: self)
+        }
+    }
+    
+    
 }
+
+
 
 
 //MARK: ---- Functions ----
@@ -144,36 +157,36 @@ extension DashboardViewController {
     
     
     //UI Functions
-    private func handleHidden() {
-        if currentUserController.currentUser == nil {
-            favoritesButton.isHidden = true
-            favoritesCollectionView.isHidden = true
-            hiddenSignUpView.isHidden = false
-            becomeMemberView.isHidden = false
-        } else {
-            favoritesButton.isHidden = false
-            favoritesCollectionView.isHidden = false
-            hiddenSignUpView.isHidden = true
-            
-            if currentUserController.currentUser?.subscription == .None {
-                becomeMemberView.isHidden = false
+    private func handleHidden(){
+        DispatchQueue.main.async {
+            if currentUserController.currentUser == nil {
+                self.favoritesButton.isHidden = true
+                self.favoritesCollectionView.isHidden = true
+                self.hiddenSignUpView.isHidden = false
+                self.becomeMemberView.isHidden = false
             } else {
-                becomeMemberView.isHidden = true
+                self.favoritesButton.isHidden = false
+                self.favoritesCollectionView.isHidden = false
+                self.hiddenSignUpView.isHidden = true
+                
+                if currentUserController.currentUser?.subscription == .None {
+                    self.becomeMemberView.isHidden = false
+                } else {
+                    self.becomeMemberView.isHidden = true
+                }
             }
-        }
-        
-        
-        
-        if XityShowController.weeklyPicksArray.count == 0 {
-            noPicksThisWeekView.isHidden = false
-        } else {
-            noPicksThisWeekView.isHidden = true
-        }
-        
-        if XityShowController.todayShowResultsArray.count == 0 {
-            noMoreShowsTodayView.isHidden = false
-        } else {
-            noMoreShowsTodayView.isHidden = true
+            
+            if XityShowController.weeklyPicksArray.count == 0 {
+                self.noPicksThisWeekView.isHidden = false
+            } else {
+                self.noPicksThisWeekView.isHidden = true
+            }
+            
+            if XityShowController.todayShowResultsArray.count == 0 {
+                self.noMoreShowsTodayView.isHidden = false
+            } else {
+                self.noMoreShowsTodayView.isHidden = true
+            }
         }
         
     }
@@ -263,14 +276,14 @@ extension DashboardViewController {
         getPerksButton.layer.cornerRadius = 5
         cityFilterLabel.text = "~Filter Off"
         
-        if subscriptionController.seeAllData == false && currentUserController.currentUser == nil {
+        if SubscriptionController.seeAllData == false && currentUserController.currentUser == nil {
             if halfTodayShows.count <= 4 {
                 //seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
             } else {
                 //seeAllDataDetailLabel.text = "See All \(halfTodayShows.count) shows with any Xity Pass"
             }
             
-        } else if subscriptionController.seeAllData == true {
+        } else if SubscriptionController.seeAllData == true {
             seeAllDataDetailLabel.text = " "
         }
         
@@ -363,6 +376,9 @@ extension DashboardViewController {
         
         //Remote Controller Notifications
         NotifyCenter.addObserver(self, selector: #selector(checkRemoteController), name: Notifications.remoteControlUpdated.name, object: nil)
+        
+        //User Notifications
+        NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userSubscriptionUpdated.name, object: nil)
     }
     
     //MARK: ---- Functions End ----
@@ -416,7 +432,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return  101
             
         case todayCollectionView:
-            if subscriptionController.seeAllData == false {
+            if SubscriptionController.seeAllData == false {
                 //var index = 0
                 halfTodayShows = [XityShow]()
 //                for show in XityShowController.todayShowArray {
@@ -437,7 +453,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return BusinessController.businessTypeArray.count
             
         case favoritesCollectionView:
-            if subscriptionController.favorites {
+            if SubscriptionController.favorites {
                 return FavoriteController.favoritesArray.count
             } else {
                 if FavoriteController.favoritesArray.count < 1 {
@@ -484,7 +500,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         case todayCollectionView:
             venueCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCell", for: indexPath) as! BandVenueCollectionViewCell
             
-            if subscriptionController.seeAllData == false {
+            if SubscriptionController.seeAllData == false {
                 venueCell.venue = halfTodayShows[indexPath.row].business
                 return venueCell
             } else {
@@ -565,7 +581,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             endTimer()
             guard let businessVC = segue.destination as? VenueDetailViewController else {return}
             var selected = XityShowController.todayShowResultsArray[sharedIndexPath.row]
-            if subscriptionController.seeAllData == false {
+            if SubscriptionController.seeAllData == false {
                 selected = halfTodayShows[sharedIndexPath.row]
             }
             
@@ -609,7 +625,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
         }
         
-        if segue.identifier == dealsSoonSegue {
+        if segue.identifier == purchaseSegue {
             
         }
     }
@@ -644,7 +660,7 @@ extension DashboardViewController: GADFullScreenContentDelegate {
     private func checkForAdThenSegue(to segue: String) {
         segueToPerform = segue
         
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {

@@ -46,7 +46,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="kNR-Cx-K5b" secondAttribute="trailing" id="cSd-Z2-Drl"/>
                                                 </constraints>
                                             </stackView>
-                                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ssA-La-wYw">
+                                            <collectionView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ssA-La-wYw">
                                                 <rect key="frame" x="0.0" y="308" width="414" height="352"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -166,7 +166,7 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ebz-4k-649" userLabel="Bottom Button Stack View">
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ebz-4k-649" userLabel="Bottom Button Stack View">
                                                 <rect key="frame" x="60" y="692" width="294" height="121"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boI-Ym-Lqf">
@@ -183,7 +183,7 @@
                                                             <action selector="try7DaysFreeButtonTapped:" destination="IEP-iR-oxz" eventType="touchUpInside" id="xXY-9A-4vF"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then $1.99 per month. Cancel Anytime." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-xd-PzR">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then $2.99 per month. Cancel Anytime." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-xd-PzR">
                                                         <rect key="frame" x="0.0" y="78" width="294" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -205,7 +205,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na8-ZY-8E5">
+                                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na8-ZY-8E5">
                                                 <rect key="frame" x="14" y="820" width="386" height="90"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Subscription automatically renews, unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period. Subscriptions may be managed and auto-renewal turned off in Apple Account Settings. The subscription fee will be charged to iTunes account at confirmation of purchase. Any unused portion of a trial period will be forfeited once upgraded to the subscription.</string>
@@ -213,7 +213,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="wTy-Lf-jQu">
+                                            <pageControl hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="wTy-Lf-jQu">
                                                 <rect key="frame" x="158.5" y="663" width="97.5" height="26"/>
                                                 <connections>
                                                     <action selector="pageControllerValueChanged:" destination="IEP-iR-oxz" eventType="valueChanged" id="Pcq-11-RK9"/>
@@ -289,7 +289,9 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
-                        <outlet property="pageController" destination="wTy-Lf-jQu" id="z4v-tq-1Ht"/>
+                        <outlet property="bottomButtonStackView" destination="Ebz-4k-649" id="3GW-Xq-Eco"/>
+                        <outlet property="bottomTextView" destination="na8-ZY-8E5" id="45H-9N-KN9"/>
+                        <outlet property="pageController" destination="wTy-Lf-jQu" id="Afg-ZM-hRh"/>
                         <outlet property="priceTextField" destination="9UU-xd-PzR" id="kRm-bZ-BwT"/>
                         <outlet property="purchaseCollectionView" destination="ssA-La-wYw" id="axZ-Io-OSk"/>
                         <outlet property="try7DaysFreeButton" destination="boI-Ym-Lqf" id="2Zk-nT-cH4"/>
@@ -395,7 +397,7 @@
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get accest to all available shows and show information. About twice as many shows as users without a Xity Pass." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rF-ODX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get access to all available shows and show information. About twice as many shows as users without a Xity Pass." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rF-ODX">
                                                         <rect key="frame" x="0.0" y="183.5" width="332.5" height="61"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

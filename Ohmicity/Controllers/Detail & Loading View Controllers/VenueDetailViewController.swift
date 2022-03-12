@@ -167,7 +167,7 @@ class VenueDetailViewController: UIViewController {
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         if currentUserController.currentUser != nil {
-            if subscriptionController.seeAllData {
+            if SubscriptionController.seeAllData {
                 addFavoriteFunction()
             } else {
                 if currentUserController.currentUser?.favoriteBusinesses.count ?? 0 < 1 {
@@ -366,7 +366,7 @@ extension VenueDetailViewController {
         
         
         
-        if subscriptionController.seeAllData == false {
+        if SubscriptionController.seeAllData == false {
             if xityBusiness.xityShows.count <= 4 {
                 upComingDetailLabel.text = "See all shows with any Xity Pass"
                 upcomingShowsTableView.reloadData()
@@ -521,7 +521,7 @@ extension VenueDetailViewController {
 extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if subscriptionController.seeAllData == false {
+        if SubscriptionController.seeAllData == false {
             currentBusiness?.xityShows.shuffle()
             return 1
         } else {
@@ -564,7 +564,7 @@ extension VenueDetailViewController: UITableViewDelegate, UITableViewDataSource 
         
         featuredShow = show
         
-        if subscriptionController.seeAllData == false {
+        if SubscriptionController.seeAllData == false {
             upComingShowTapCount += 1
         }
         
@@ -641,7 +641,7 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
     private func checkForAdThenSegue(to segue: String) {
         segueToPerform = segue
         
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {
@@ -654,7 +654,7 @@ extension VenueDetailViewController: GADFullScreenContentDelegate {
     
     private func checkForAdThenRunFunction(for function: AfterAd) {
         afterAdIsShown = function
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             //interstitialAd?.present(fromRootViewController: self)
             switch function {
             case .watchBandVideo:

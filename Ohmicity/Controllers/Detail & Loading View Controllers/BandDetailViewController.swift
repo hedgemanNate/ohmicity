@@ -276,7 +276,7 @@ class BandDetailViewController: UIViewController {
         //Top Area Under Banner Ads
         guard let currentBand = currentBand else { NSLog("🚨 No current band found"); return}
         
-        if subscriptionController.seeAllData == false || currentUserController.currentUser == nil {
+        if SubscriptionController.seeAllData == false || currentUserController.currentUser == nil {
             if currentBand.xityShows.count <= 4 {
                 seeAllDataDetailLabel.text = "See all shows with any Xity Pass"
                 upcomingShowsTableView.reloadData()
@@ -450,7 +450,7 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch tableView {
         case upcomingShowsTableView:
-            if subscriptionController.seeAllData == false && currentBand.xityShows.count > 0 {
+            if SubscriptionController.seeAllData == false && currentBand.xityShows.count > 0 {
                 currentBand.xityShows.shuffle()
                 return 1
             } else {
@@ -486,7 +486,7 @@ extension BandDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let subControl = subscriptionController
+        let subControl = SubscriptionController.self
         subControl.userFeaturesAvailableCheck(feature: subControl.showReminders, viewController: self) {
             guard let selected = upcomingShowsTableView.indexPathForSelectedRow else {return}
             guard let show = currentBand?.xityShows[selected.row].show else {return}
@@ -852,7 +852,7 @@ extension BandDetailViewController: GADFullScreenContentDelegate {
     
     private func checkForAdThenSegue(to segue: String) {
         
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {
@@ -864,7 +864,7 @@ extension BandDetailViewController: GADFullScreenContentDelegate {
     }
     
     private func checkForAdThenRunFunction() {
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             //interstitialAd?.present(fromRootViewController: self)
             listenButtonFunction()
         } else {

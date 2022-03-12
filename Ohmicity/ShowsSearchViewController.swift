@@ -442,7 +442,7 @@ extension ShowsSearchViewController: GADFullScreenContentDelegate {
     private func checkForAdThenSegue(to segue: String) {
         segueToPerform = segue
         
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)

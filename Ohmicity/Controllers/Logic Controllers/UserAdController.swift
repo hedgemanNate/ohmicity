@@ -29,51 +29,51 @@ class UserAdController {
     //Functions
     func setUpAdsAndFeaturesForUser() {
         if currentUserController.currentUser == nil {
-            subscriptionController.favorites = false
-            subscriptionController.noPopupAds = false
-            subscriptionController.seeAllData = false
-            subscriptionController.showReminders = false
-            subscriptionController.todayShowFilter = false
-            subscriptionController.search = false
-            subscriptionController.xityDeals = false
+            SubscriptionController.favorites = false
+            SubscriptionController.noPopupAds = false
+            SubscriptionController.seeAllData = false
+            SubscriptionController.showReminders = false
+            SubscriptionController.todayShowFilter = false
+            SubscriptionController.search = false
+            SubscriptionController.xityDeals = false
         }
         
-        //guard let user = currentUserController.currentUser else {subscriptionController.noPopupAds = false; return}
+        //guard let user = currentUserController.currentUser else {SubscriptionController.noPopupAds = false; return}
         
         switch userSubscription {
         case .None:
             //Changed for free usage
-            subscriptionController.favorites = true
-            subscriptionController.noPopupAds = false
-            subscriptionController.seeAllData = true
-            subscriptionController.showReminders = true
-            subscriptionController.todayShowFilter = true
-            subscriptionController.search = true
-            subscriptionController.xityDeals = true
+            SubscriptionController.favorites = true
+            SubscriptionController.noPopupAds = false
+            SubscriptionController.seeAllData = true
+            SubscriptionController.showReminders = true
+            SubscriptionController.todayShowFilter = true
+            SubscriptionController.search = true
+            SubscriptionController.xityDeals = true
         case .FrontRowPass:
-            subscriptionController.favorites = true
-            subscriptionController.noPopupAds = true
-            subscriptionController.seeAllData = true
-            subscriptionController.xityDeals = false
-            subscriptionController.showReminders = false
-            subscriptionController.todayShowFilter = false
-            subscriptionController.search = false
+            SubscriptionController.favorites = true
+            SubscriptionController.noPopupAds = true
+            SubscriptionController.seeAllData = true
+            SubscriptionController.xityDeals = false
+            SubscriptionController.showReminders = false
+            SubscriptionController.todayShowFilter = false
+            SubscriptionController.search = false
         case .BackStagePass:
-            subscriptionController.favorites = true
-            subscriptionController.noPopupAds = true
-            subscriptionController.seeAllData = true
-            subscriptionController.showReminders = true
-            subscriptionController.todayShowFilter = true
-            subscriptionController.search = true
-            subscriptionController.xityDeals = true
+            SubscriptionController.favorites = true
+            SubscriptionController.noPopupAds = true
+            SubscriptionController.seeAllData = true
+            SubscriptionController.showReminders = true
+            SubscriptionController.todayShowFilter = true
+            SubscriptionController.search = true
+            SubscriptionController.xityDeals = true
         case .FullAccessPass:
-            subscriptionController.favorites = true
-            subscriptionController.noPopupAds = true
-            subscriptionController.seeAllData = true
-            subscriptionController.showReminders = true
-            subscriptionController.todayShowFilter = true
-            subscriptionController.search = true
-            subscriptionController.xityDeals = true
+            SubscriptionController.favorites = true
+            SubscriptionController.noPopupAds = true
+            SubscriptionController.seeAllData = true
+            SubscriptionController.showReminders = true
+            SubscriptionController.todayShowFilter = true
+            SubscriptionController.search = true
+            SubscriptionController.xityDeals = true
         case .err:
             break
         }

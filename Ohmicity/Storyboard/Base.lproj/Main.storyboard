@@ -1014,7 +1014,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                         <connections>
-                                                            <segue destination="Pg6-Ho-7vW" kind="presentation" modalPresentationStyle="fullScreen" id="Bh3-da-HCw"/>
+                                                            <action selector="invisiblePurchaseButtonTapped:" destination="xaL-Zu-PHr" eventType="touchUpInside" id="R7q-D2-wTK"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1462,6 +1462,7 @@ should be on Xity?</string>
                         <segue destination="i7g-5L-c0W" kind="presentation" identifier="UpdateAvailableSegue" id="F9i-jk-nv6"/>
                         <segue destination="zkP-We-isE" kind="presentation" identifier="ShutdownSegue" modalPresentationStyle="fullScreen" id="uju-Mq-YCb"/>
                         <segue destination="Nq3-NM-ly7" kind="presentation" identifier="MaintenanceSegue" modalPresentationStyle="fullScreen" id="aJ0-qe-W6l"/>
+                        <segue destination="Pg6-Ho-7vW" kind="presentation" identifier="PurchaseSegue" modalPresentationStyle="fullScreen" id="20p-Li-YxK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyp-Ar-F8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

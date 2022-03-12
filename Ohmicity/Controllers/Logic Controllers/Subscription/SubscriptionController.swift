@@ -11,38 +11,39 @@ import UIKit
 
 class SubscriptionController {
     //Properties
-    var inAppPurchaseArray: [Subscription] = []
+    static var inAppPurchaseArray: [Subscription] = []
     
     //Features Enabled
-    var favorites = true
-    var noPopupAds = false
-    var seeAllData = true
-    var xityDeals = true
-    var showReminders = true
-    var todayShowFilter = true
-    var search = true
+    static var favorites = true
+    static var noPopupAds = false
+    static var seeAllData = true
+    static var xityDeals = true
+    static var showReminders = true
+    static var todayShowFilter = true
+    static var search = true
     
     
     //Features
-    let noAdsFeature = PaywallFeature(image: UIImage(named: "noAds.jpg") ?? UIImage(), name: "No Ads")
-    let unlimitedFavsFeature = PaywallFeature(image: UIImage(named: "unltdFavs.jpg") ?? UIImage(), name: "Unlimited Favorites")
-    let searchFeature = PaywallFeature(image: UIImage(named: "search.jpg") ?? UIImage(), name: "Search For Bands")
-    let remindersFeature = PaywallFeature(image: UIImage(named: "reminders.jpg") ?? UIImage(), name: "Never Miss a Show")
+    static let noAdsFeature = PaywallFeature(image: UIImage(named: "NoAds.png") ?? UIImage(), name: "Remove Popup Ads")
+    static let unlimitedFavsFeature = PaywallFeature(image: UIImage(named: "unltdFavs.jpg") ?? UIImage(), name: "Unlimited Favorites")
+    static let memberAccess = PaywallFeature(image: UIImage(named: "members.png") ?? UIImage(), name: "Members Area Access")
+    static let searchFeature = PaywallFeature(image: UIImage(named: "search.jpg") ?? UIImage(), name: "Search For Bands")
+    static let remindersFeature = PaywallFeature(image: UIImage(named: "reminders.jpg") ?? UIImage(), name: "Never Miss a Show")
                 
     //Descriptions
-    let frpDescription = "No more popup ads, see all shows and Favorite multiple bands and venues*"
-    let bspDescription = "Front Row Pass plus save future shows, search for bands and venues and more!*"
-    let fapDescription = ""
+    static let frpDescription = "No more popup ads, get access to the Members Area with 4X more shows*"
+    static let bspDescription = "Front Row Pass plus save future shows, search for bands and venues and more!*"
+    static let fapDescription = ""
     
-    func setUpInAppPurchaseArray() {
-        let frpPurchase = Subscription(type: .FrontRowPass, description: frpDescription, features: [noAdsFeature, unlimitedFavsFeature], price: "$1.99")
+    static func setUpInAppPurchaseArray() {
+        let frpPurchase = Subscription(type: .FrontRowPass, description: frpDescription, features: [noAdsFeature, memberAccess], price: "$2.99")
         inAppPurchaseArray.append(frpPurchase)
         
         let bspPurchase = Subscription(type: .BackStagePass, description: bspDescription, features: [searchFeature, remindersFeature], price: "$4.99")
         inAppPurchaseArray.append(bspPurchase)
     }
     
-    func userFeaturesAvailableCheck(feature: Bool, viewController: UIViewController, completion: ()->()) {
+    static func userFeaturesAvailableCheck(feature: Bool, viewController: UIViewController, completion: ()->()) {
         if currentUserController.currentUser != nil {
             if feature {
                 completion()
@@ -55,5 +56,3 @@ class SubscriptionController {
     }
     
 }
-
-let subscriptionController = SubscriptionController()

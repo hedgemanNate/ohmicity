@@ -8,12 +8,16 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import StoreKit
 
-class PurchaseViewController: UIViewController {
+class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+    
     
     //Properties
     @IBOutlet weak var purchaseCollectionView: UICollectionView!
     var pass: SubscriptionType = .FrontRowPass
+    private var products = [SKProduct]()
+    private var subscription: SubscriptionType?
     
     //Buttons
     @IBOutlet weak var try7DaysFreeButton: UIButton!
@@ -23,6 +27,12 @@ class PurchaseViewController: UIViewController {
     //Views
     var alert = UIAlertController()
     var alertAction = UIAlertAction()
+    var numberOfPages = 0
+    
+    @IBOutlet weak var bottomButtonStackView: UIStackView!
+    @IBOutlet weak var bottomTextView: UITextView!
+    
+    
     
     var purchaseDetailsSet: Int? {
         didSet {
@@ -49,9 +59,11 @@ class PurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+        fetchProducts()
         initSubscriptionType()
         setupCollectionView()
+        SubscriptionController.setUpInAppPurchaseArray()
+        SKPaymentQueue.default().add(self)
     }
     
     //MARK: Button Actions
@@ -60,29 +72,26 @@ class PurchaseViewController: UIViewController {
         
     }
     
+    //MARK: UpdateViews
+    private func updateViews() {
+        try7DaysFreeButton.layer.cornerRadius = 6
+        pageController.numberOfPages = numberOfPages
+        purchaseCollectionView.reloadData()
+        self.purchaseCollectionView.isHidden = false
+        self.bottomButtonStackView.isHidden = false
+        self.bottomTextView.isHidden = false
+        self.pageController.isHidden = false
+    }
     
     @IBAction func dismissButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func try7DaysFreeButtonTapped(_ sender: Any) {
-//        PurchaseController.shared.purchase(pass: pass) { [self] success in
-//            if success == false {
-//                alert = UIAlertController(title: "There was an error with your payment.", message: "Do not worry. You were not charged. Please check your payment method and try again.", preferredStyle: .actionSheet)
-//                alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-//                alert.addAction(alertAction)
-//                present(alert, animated: true, completion: nil)
-//            } else {
-//                alert = UIAlertController(title: "Success!", message: "You are now a Xity Pass Member! Thank you for supporting Live Local Music!!", preferredStyle: .actionSheet)
-//                alertAction = UIAlertAction(title: "Back To The Music", style: .default, handler: { _ in
-//                    DispatchQueue.main.async {
-//                        self.navigationController?.popViewController(animated: true)
-//                    }
-//                })
-//                alert.addAction(alertAction)
-//            }
-//        }
+        let index = pageController.currentPage
+        let payment = SKPayment(product: products[index])
+        SKPaymentQueue.default().add(payment)
+        if index == 0 {subscription = .FrontRowPass}
     }
     
     @IBAction func restorePurchaseButtonTapped(_ sender: Any) {
@@ -103,6 +112,7 @@ class PurchaseViewController: UIViewController {
     
     
     @IBAction func listOfPassFeaturesButtonTapped(_ sender: Any) {
+        
     }
     
     
@@ -111,10 +121,31 @@ class PurchaseViewController: UIViewController {
     }
     
     
+    //MARK: Functions
+    private func setupCollectionView() {
+        purchaseCollectionView.delegate = self
+        purchaseCollectionView.dataSource = self
+        
+        //Centers the collection view cells
+        let collectionViewLayout = purchaseCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        let inset = (self.view.frame.width - 300) / 2
+        collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+        collectionViewLayout?.invalidateLayout()
+    }
     
-    //MARK: UpdateViews
-    private func updateViews() {
-        try7DaysFreeButton.layer.cornerRadius = 6
+    internal func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        DispatchQueue.main.async {
+            NSLog("Products Received")
+            self.products = response.products
+            self.numberOfPages = response.products.count
+            self.updateViews()
+        }
+    }
+    
+    private func fetchProducts() {
+        let request = SKProductsRequest(productIdentifiers: Set(Products.allCases.compactMap({$0.rawValue})))
+        request.delegate = self
+        request.start()
     }
     
     private func initSubscriptionType() {
@@ -131,19 +162,28 @@ class PurchaseViewController: UIViewController {
         }
     }
     
-    //MARK: Functions
-    private func setupCollectionView() {
-        purchaseCollectionView.delegate = self
-        purchaseCollectionView.dataSource = self
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
-        //Centers the collection view cells
-        let collectionViewLayout = purchaseCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        let inset = (self.view.frame.width - 300) / 2
-        collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
-        collectionViewLayout?.invalidateLayout()
+        transactions.forEach({
+            switch $0.transactionState {
+                
+            case .purchasing:
+                print("purchasing")
+            case .purchased:
+                guard let subscription = subscription else {NSLog("Subscription was not set to variable"); return}
+                setUserSubscriptionFor(subscription)
+                print("purchased")
+            case .failed:
+                print("failed")
+            case .restored:
+                print("restored")
+            case .deferred:
+                print("deferred")
+            @unknown default:
+                print("unknown")
+            }
+        })
     }
-    
-
     /*
     // MARK: - Navigation
 
@@ -156,16 +196,16 @@ class PurchaseViewController: UIViewController {
 
 }
 
-//MARK: Collection VIew
+//MARK: Collection View
 extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return subscriptionController.inAppPurchaseArray.count
+        return numberOfPages
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PurchaseCell", for: indexPath) as? PurchaseCollectionViewCell else {return UICollectionViewCell()}
         
-        cell.purchaseOption = subscriptionController.inAppPurchaseArray[indexPath.row]
+        cell.purchaseOption = SubscriptionController.inAppPurchaseArray[indexPath.row]
         
         return cell
     }
@@ -197,8 +237,28 @@ extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDe
     
 }
 
-//MARK: Purchase Network Calls
+//MARK: Product Purchase Functions
 extension PurchaseViewController {
     
+    private func setUserSubscriptionFor(_ subscription: SubscriptionType) {
+        //Set the current users new subscription
+        guard let user = currentUserController.currentUser else {return}
+        user.subscription = subscription
+        do {
+            try FireStoreReferenceManager.userDataPath.document(user.userID).setData(from: user, completion: { error in
+                if let error = error {
+                    NSLog(error.localizedDescription)
+                } else {
+                    currentUserController.currentUser?.subscription = user.subscription
+                    NotifyCenter.post(Notifications.userSubscriptionUpdated)
+                }
+            })
+        } catch (let error) {
+            NSLog(error.localizedDescription)
+        }
+        
+        //update the available features
+        SubscriptionController.noPopupAds = true
+    }
     
 }

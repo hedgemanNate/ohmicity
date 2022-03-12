@@ -398,8 +398,7 @@ extension VenueSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchCollectionView.allowsSelection = false
         searchCollectionView.allowsSelection = true
-        let subControl = subscriptionController
-        subControl.userFeaturesAvailableCheck(feature: subControl.search, viewController: self) {
+        SubscriptionController.userFeaturesAvailableCheck(feature: SubscriptionController.search, viewController: self) {
             guard let searchText = searchBar.text else {return}
             searchCollectionView.reloadData()
             startSearch(searchText: searchText)
@@ -463,7 +462,7 @@ extension VenueSearchViewController: GADFullScreenContentDelegate {
     private func checkForAdThenSegue(to segue: String) {
         segueToPerform = segue
         
-        if interstitialAd != nil && subscriptionController.noPopupAds == false {
+        if interstitialAd != nil && SubscriptionController.noPopupAds == false {
             if userAdController.shouldShowAd() {
                 interstitialAd?.present(fromRootViewController: self)
             } else {
