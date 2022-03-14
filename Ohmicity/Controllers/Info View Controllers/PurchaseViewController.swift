@@ -258,7 +258,7 @@ extension PurchaseViewController {
         }
         
         //update the available features
-        SubscriptionController.noPopupAds = true
+        //SubscriptionController.noPopupAds = true
     }
     
 }

@@ -188,9 +188,33 @@ extension DashboardViewController {
                 self.noMoreShowsTodayView.isHidden = true
             }
         }
-        
     }
     
+    //MARK: Subscription
+    private func handleSubscriptions() {
+        switch currentUserController.currentUser?.subscription {
+        case .FrontRowPass:
+            SubscriptionController.noPopupAds = true
+            SubscriptionController.favorites = true
+            SubscriptionController.search = true
+            SubscriptionController.seeAllData = true
+            SubscriptionController.xityDeals = false
+        case .BackStagePass:
+            break
+        case.FullAccessPass:
+            SubscriptionController.noPopupAds = true
+            SubscriptionController.favorites = true
+            SubscriptionController.search = true
+            SubscriptionController.seeAllData = true
+            SubscriptionController.xityDeals = true
+        case .None:
+            SubscriptionController.noPopupAds = false
+        default:
+            break
+        }
+    }
+    
+    //MARK: @OBJC
     @objc private func reloadData() {
 //        var temp = XityShowController.todayShowArray.filter({$0.show.date > timeController.threeHoursAgo})
 //        XityShowController.todayShowResultsArray = temp
@@ -269,7 +293,7 @@ extension DashboardViewController {
     @objc private func updateViews() {
         //userAdController.setUpAdsAndFeaturesForUser()
         handleHidden()
-        ShowController.removeHolds()
+        handleSubscriptions()
         setupUpCollectionViews()
         
         //UI Adjustments

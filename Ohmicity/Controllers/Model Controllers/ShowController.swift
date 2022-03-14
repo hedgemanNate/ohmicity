@@ -15,7 +15,4 @@ class ShowController {
     static var showArray: [Show] = [] {didSet {}}
     
     //Functions
-    static func removeHolds() {
-        showArray.removeAll(where: {$0.onHold == true})
-    }
 }

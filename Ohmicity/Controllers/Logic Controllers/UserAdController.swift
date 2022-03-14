@@ -80,9 +80,21 @@ class UserAdController {
     }
     
     func shouldShowAd() -> Bool {
-        if DevelopmentSettingsController.devSettings.ads == false {RemoteController.remoteModel.adPercentArray = [0]}
+        if currentUserController.currentUser?.email == "nate.hedgeman@gmail.com" &&  DevelopmentSettingsController.devSettings.ads == false {
+            return false
+        }
+        
+        if currentUserController.currentUser?.email == "nate.hedgeman@gmail.com" &&  DevelopmentSettingsController.devSettings.ads == true {
+            let x = Int.random(in: 1...10)
+            if RemoteController.remoteModel.adPercentArray.contains(x) && SubscriptionController.noPopupAds == false {
+                return true
+            } else {
+                return false
+            }
+        }
+        
         let x = Int.random(in: 1...10)
-        if RemoteController.remoteModel.adPercentArray.contains(x) {
+        if RemoteController.remoteModel.adPercentArray.contains(x) && SubscriptionController.noPopupAds == false {
             return true
         } else {
             return false
