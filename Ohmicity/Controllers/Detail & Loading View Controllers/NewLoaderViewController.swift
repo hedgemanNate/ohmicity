@@ -24,6 +24,7 @@ class NewLoaderViewController: UIViewController {
     
     //Loader
     let activityIndicator = MDCActivityIndicator()
+    @IBOutlet weak var loadingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,10 @@ extension NewLoaderViewController {
     
     //MARK: PreDownload Work
     private func startWork() {
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Starting..."
+        }
+        
         
         let group = DispatchGroup()
         
@@ -87,11 +92,18 @@ extension NewLoaderViewController {
     
     //MARK: Start Download
     private func downloadData() {
-        print("Download Started")
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Download Started..."
+        }
+        
+        
         let group = DispatchGroup()
         
         DispatchQueue.global(qos: .default).sync {
             group.enter()
+            DispatchQueue.main.async {
+                self.loadingLabel.text = "Downloading Show Info..."
+            }
             FireStoreReferenceManager.showDataPath.document("EB7BD27C-15EA-43A5-866A-BF6883D0DD67").getDocument(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
@@ -103,6 +115,10 @@ extension NewLoaderViewController {
             }
             
             group.enter()
+            DispatchQueue.main.async {
+                self.loadingLabel.text = "Downloading Band Info..."
+            }
+            
             FireStoreReferenceManager.bandDataPath.getDocuments(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
@@ -116,6 +132,10 @@ extension NewLoaderViewController {
             }
             
             group.enter()
+            DispatchQueue.main.async {
+                self.loadingLabel.text = "Downloading Venue Info..."
+            }
+            
             FireStoreReferenceManager.venueDataPath.getDocuments(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
@@ -130,6 +150,10 @@ extension NewLoaderViewController {
             
             
             group.enter()
+            DispatchQueue.main.async {
+                self.loadingLabel.text = "Downloading Show Info..."
+            }
+            
             FireStoreReferenceManager.bannerDataPath.getDocuments(source: .default) { snap, err in
                 if let err = err {
                     NSLog(err.localizedDescription)
@@ -159,6 +183,10 @@ extension NewLoaderViewController {
         let group = DispatchGroup()
         
         group.enter()
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Organizing Shows..."
+        }
+        
         for show in ProductionShowController.allShows.shows {
             let newShow = Show(singleShow: show)
             ShowController.showArray.append(newShow)
@@ -167,6 +195,10 @@ extension NewLoaderViewController {
         group.leave()
         
         group.enter()
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Organizing Bands..."
+        }
+        
         for bandGroup in ProductionBandController.bandGroupArray {
             for band in bandGroup.bands {
                 let newBand = Band(singleBand: band)
@@ -182,7 +214,10 @@ extension NewLoaderViewController {
     }
     //MARK: Xity Shows
     private func buildXityShows() {
-        print("Building Xity")
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Checking Show Info..."
+        }
+        
         let group = DispatchGroup()
         
         group.enter()
@@ -202,6 +237,10 @@ extension NewLoaderViewController {
     
     //MARK: Xity Bands
     private func buildXityBands() {
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Checking Band Info..."
+        }
+        
         let group = DispatchGroup()
         
         group.enter()
@@ -218,6 +257,10 @@ extension NewLoaderViewController {
     
     //MARK: Xity Venues
     private func buildXityVenues() {
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Checking Venue Info..."
+        }
+        
         let group = DispatchGroup()
         
         group.enter()
@@ -234,6 +277,10 @@ extension NewLoaderViewController {
     
     //MARK: Today
     private func buildTodayShows() {
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Cleaning Show Data..."
+        }
+        
         let group = DispatchGroup()
         
         group.enter()
@@ -256,6 +303,10 @@ extension NewLoaderViewController {
     
     //MARK: Weekly
     private func buildWeeklyPicks() {
+        DispatchQueue.main.async {
+            self.loadingLabel.text = "Placing Show Data..."
+        }
+        
         let group = DispatchGroup()
         
         group.enter()

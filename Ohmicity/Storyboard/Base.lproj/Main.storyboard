@@ -73,6 +73,13 @@
                                     <constraint firstAttribute="height" constant="250" id="QoG-jr-TQy"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N47-r4-WqC">
+                                <rect key="frame" x="20" y="795" width="388" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BJn-Ij-xzd"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -86,6 +93,7 @@
                     <navigationItem key="navigationItem" id="MtF-x6-pNo"/>
                     <size key="freeformSize" width="428" height="926"/>
                     <connections>
+                        <outlet property="loadingLabel" destination="N47-r4-WqC" id="11T-Py-8hC"/>
                         <segue destination="K1r-XI-Dsm" kind="modal" identifier="ToDashboard" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="fjy-9t-unJ"/>
                         <segue destination="Nke-Fj-Oif" kind="presentation" identifier="ForceUpdateSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="9Pv-G2-gH4"/>
                         <segue destination="Cwc-vi-K0T" kind="presentation" identifier="NetworkConnectionSegue" modalPresentationStyle="fullScreen" id="7HS-V6-wWy"/>
@@ -95,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCs-Pg-jIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3203" y="-2165"/>
+            <point key="canvasLocation" x="-3203.2710280373831" y="-2165.4427645788337"/>
         </scene>
         <!--Force Update View Controller-->
         <scene sceneID="u2M-2R-i6y">
@@ -1838,9 +1846,9 @@ Check our Facebook page for updates on what’s going on here.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uju-Mq-YCb"/>
-        <segue reference="aJ0-qe-W6l"/>
-        <segue reference="GVY-L8-xJL"/>
+        <segue reference="cTG-B2-Jix"/>
+        <segue reference="pTg-j1-CtR"/>
+        <segue reference="7HS-V6-wWy"/>
         <segue reference="pYi-uV-Zx2"/>
         <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>
