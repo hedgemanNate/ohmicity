@@ -26,7 +26,6 @@
 		F60E6BD72648F7C8001CA06E /* PurpleBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F60E6BD62648F7C8001CA06E /* PurpleBG.png */; };
 		F60E865726CC8952001DE21A /* TemporaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60E865626CC8952001DE21A /* TemporaryViewController.swift */; };
 		F60EB6372656D3C400CDB6F6 /* goTonight.json in Resources */ = {isa = PBXBuildFile; fileRef = F60EB6362656D3C400CDB6F6 /* goTonight.json */; };
-		F60FDA4327BDB2A700579BA6 /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F60FDA4227BDB2A700579BA6 /* Qonversion */; };
 		F619F109270925F800FDE93F /* na.png in Resources */ = {isa = PBXBuildFile; fileRef = F619F108270925F800FDE93F /* na.png */; };
 		F61C370426B64E2200A2235B /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C370326B64E2200A2235B /* VenueDetailViewController.swift */; };
 		F61C370826B64E5B00A2235B /* directionsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F61C370626B64E5A00A2235B /* directionsIcon.png */; };
@@ -85,6 +84,7 @@
 		F662266A270572E100593C72 /* LostConnection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6622669270572E100593C72 /* LostConnection.storyboard */; };
 		F662266C270572E600593C72 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F662266B270572E600593C72 /* Recommend.storyboard */; };
 		F662266E270572EC00593C72 /* Venue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F662266D270572EC00593C72 /* Venue.storyboard */; };
+		F6623A2F27E3A15C005BB928 /* Qonversion in Frameworks */ = {isa = PBXBuildFile; productRef = F6623A2E27E3A15C005BB928 /* Qonversion */; };
 		F665584227C6C04500DC13DB /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = F665584127C6C04500DC13DB /* DeviceKit */; };
 		F665584427C6C06D00DC13DB /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665584327C6C06D00DC13DB /* DeviceController.swift */; };
 		F66C99C226BCD17F00A7C135 /* OperationHoursAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66C99C126BCD17F00A7C135 /* OperationHoursAlert.xib */; };
@@ -338,9 +338,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F60FDA4327BDB2A700579BA6 /* Qonversion in Frameworks */,
 				F6497F5726BCB902005D2D4A /* Pods_Ohmicity.framework in Frameworks */,
 				F665584227C6C04500DC13DB /* DeviceKit in Frameworks */,
+				F6623A2F27E3A15C005BB928 /* Qonversion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,8 +768,8 @@
 			);
 			name = Ohmicity;
 			packageProductDependencies = (
-				F60FDA4227BDB2A700579BA6 /* Qonversion */,
 				F665584127C6C04500DC13DB /* DeviceKit */,
+				F6623A2E27E3A15C005BB928 /* Qonversion */,
 			);
 			productName = Ohmicity;
 			productReference = D8403D032641C4C400E95415 /* Ohmicity.app */;
@@ -799,8 +799,8 @@
 			);
 			mainGroup = D8403CFA2641C4C400E95415;
 			packageReferences = (
-				F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */,
 				F665584027C6C04500DC13DB /* XCRemoteSwiftPackageReference "DeviceKit" */,
+				F6623A2D27E3A15C005BB928 /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */,
 			);
 			productRefGroup = D8403D042641C4C400E95415 /* Products */;
 			projectDirPath = "";
@@ -1252,6 +1252,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F6623A2D27E3A15C005BB928 /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/qonversion/qonversion-ios-sdk";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		F665584027C6C04500DC13DB /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devicekit/DeviceKit.git";
@@ -1260,20 +1268,12 @@
 				kind = branch;
 			};
 		};
-		F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/qonversion/qonversion-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F60FDA4227BDB2A700579BA6 /* Qonversion */ = {
+		F6623A2E27E3A15C005BB928 /* Qonversion */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F6AB4F5B270CFD80004C164C /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */;
+			package = F6623A2D27E3A15C005BB928 /* XCRemoteSwiftPackageReference "qonversion-ios-sdk" */;
 			productName = Qonversion;
 		};
 		F665584127C6C04500DC13DB /* DeviceKit */ = {

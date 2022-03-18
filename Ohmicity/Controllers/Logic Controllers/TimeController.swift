@@ -41,15 +41,15 @@ class TimeController {
     func setTime() {
         //For todayString
         dateFormatter.dateFormat = monthDayYear
-        todayString = dateFormatter.string(from: now)
+        todayString = dateFormatter.string(from: Date())
         
         //For thisYear
         dateFormatter.dateFormat = year
-        thisYear = dateFormatter.string(from: now)
+        thisYear = dateFormatter.string(from: Date())
         
         //For today's day of the week
         dateFormatter.dateFormat = day
-        dayOfWeek = dateFormatter.string(from: now)
+        dayOfWeek = dateFormatter.string(from: Date())
     }
     
     func setTime(enterTime: String) {

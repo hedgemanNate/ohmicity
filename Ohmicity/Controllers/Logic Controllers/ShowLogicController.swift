@@ -10,6 +10,7 @@ import Foundation
 class ShowLogicController {
     
     static func buildTodayShows() {
+        //Write an if statement or switch for if it is a new day.
         let group = DispatchGroup()
         timeController.setTime()
         
@@ -20,6 +21,7 @@ class ShowLogicController {
         
         for todayShow in XityShowController.showArray {
             let stringDate = dateFormatter.string(from: todayShow.show.date)
+            if todayShow.show.date < Date().addingTimeInterval(-10800) {continue}
             if stringDate == timeController.todayString {
                 XityShowController.todayShowArray.append(todayShow)
             }
