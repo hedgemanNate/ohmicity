@@ -239,9 +239,10 @@ extension NewLoaderViewController {
         group.enter()
         dateFormatter.dateFormat = timeController.monthDayYear
         for todayShow in XityShowController.showArray {
-            let stringDate = dateFormatter.string(from: todayShow.show.date)
-            if stringDate == timeController.todayString {
+            //let stringDate = dateFormatter.string(from: todayShow.show.date)
+            if Calendar.current.isDateInToday(todayShow.show.date) {
                 if XityShowController.todayShowArray.contains(todayShow) {continue}
+                if todayShow.show.date < Date().addingTimeInterval(-10800) {continue}
                 XityShowController.todayShowArray.append(todayShow)
             }
         }

@@ -24,7 +24,7 @@ class TimeController {
     
     let year = "yyyy"
     
-    let now = Date()
+    var today = Date()
     let inThreeHours = Date().addingTimeInterval(10800)
     let threeHoursAgo = Date().addingTimeInterval(-10800)
     let twoHoursAgo = Date().addingTimeInterval(-7200)
