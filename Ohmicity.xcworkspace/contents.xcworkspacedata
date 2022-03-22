@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Helpers/Configuration.storekit">
-   </FileRef>
-   <FileRef
       location = "group:Ohmicity.xcodeproj">
    </FileRef>
    <FileRef
