@@ -73,10 +73,9 @@
                                     <constraint firstAttribute="height" constant="250" id="QoG-jr-TQy"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N47-r4-WqC">
-                                <rect key="frame" x="20" y="795" width="388" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N47-r4-WqC">
+                                <rect key="frame" x="0.0" y="771.66666666666663" width="428" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -86,8 +85,11 @@
                         <constraints>
                             <constraint firstItem="pV7-Ok-08P" firstAttribute="centerX" secondItem="pO6-bc-c2s" secondAttribute="centerX" id="I2i-n4-REL"/>
                             <constraint firstItem="NMd-3O-G8B" firstAttribute="centerX" secondItem="pO6-bc-c2s" secondAttribute="centerX" id="SMJ-W3-4H0"/>
+                            <constraint firstItem="BJn-Ij-xzd" firstAttribute="bottom" secondItem="N47-r4-WqC" secondAttribute="bottom" constant="100" id="fOC-5w-0SN"/>
+                            <constraint firstItem="BJn-Ij-xzd" firstAttribute="trailing" secondItem="N47-r4-WqC" secondAttribute="trailing" id="fb7-bB-hg8"/>
                             <constraint firstItem="pV7-Ok-08P" firstAttribute="centerY" secondItem="pO6-bc-c2s" secondAttribute="centerY" id="ggz-Bj-Y3h"/>
                             <constraint firstItem="NMd-3O-G8B" firstAttribute="centerY" secondItem="pO6-bc-c2s" secondAttribute="centerY" id="ktk-Se-NIa"/>
+                            <constraint firstItem="N47-r4-WqC" firstAttribute="leading" secondItem="BJn-Ij-xzd" secondAttribute="leading" id="pgS-zJ-gJw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MtF-x6-pNo"/>
