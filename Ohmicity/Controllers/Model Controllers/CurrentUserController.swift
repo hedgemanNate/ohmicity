@@ -7,6 +7,7 @@
 
 import Firebase
 import FirebaseFirestore
+import RevenueCat
 
 class CurrentUserController {
     
@@ -44,9 +45,9 @@ class CurrentUserController {
                         checkForNilProperties(currentUser: user)
                         self.currentUser = user
                         self.setUpCurrentUserPreferences()
-//                        self.setUpQonversionPurchasing {
-//                            self.setUpCurrentUserPreferences()
-//                        }
+                        self.revenueCatLogin {
+                            self.setUpCurrentUserPreferences()
+                        }
                         
                     } else {
                         NSLog("User Data Not Found In Database")
@@ -56,6 +57,17 @@ class CurrentUserController {
                 }
             }
         }
+    
+    func revenueCatLogin(completion: () -> ()) {
+        Purchases.shared.logIn(currentUser!.userID) { purchaserInfo, created, err in
+            if let err = err {
+                NSLog(err.localizedDescription)
+            } else {
+                print("😀 Revenue Cat User Signed In")
+            }
+        }
+        completion()
+    }
     
     func getUserXitySupportLast24Hours() {
         if currentUser == nil { NSLog("No User"); return }

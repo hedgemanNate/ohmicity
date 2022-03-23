@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleMobileAds
+import RevenueCat
 
 class DashboardViewController: UIViewController {
     
@@ -78,6 +79,7 @@ class DashboardViewController: UIViewController {
     //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRevenueCatWithUser()
         addBackGroundNotificationObservers()
         setUpNotificationObservers()
         createInterstitialAd()
@@ -191,6 +193,12 @@ extension DashboardViewController {
     }
     
     //MARK: Subscription
+    @objc private func setupRevenueCatWithUser() {
+        if currentUserController.currentUser != nil {
+            Purchases.configure(withAPIKey: "appl_mcDBwPhyGGBFcVASGjXOVlkTrJG", appUserID: currentUserController.currentUser?.userID)
+        }
+    }
+    
     private func handleSubscriptions() {
         switch currentUserController.currentUser?.subscription {
         case .FrontRowPass:
@@ -382,6 +390,9 @@ extension DashboardViewController {
         
         //Hide Views
         NotifyCenter.addObserver(self, selector: #selector(updateViews), name: Notifications.userAuthUpdated.name, object: nil)
+        
+        //In-App Purchase
+        NotifyCenter.addObserver(self, selector: #selector(setupRevenueCatWithUser), name: Notifications.userAuthUpdated.name, object: nil)
         
         //Scroll To Top
         NotifyCenter.addObserver(self, selector: #selector(scrollToTop), name: Notifications.scrollToTop.name, object: nil)

@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Foundation
+import RevenueCat
 
 class ProfileViewController: UIViewController {
     
@@ -77,6 +78,13 @@ class ProfileViewController: UIViewController {
                 try Auth.auth().signOut()
                 currentUserController.currentUser = nil
                 userAdController.userSubscription = .None
+                Purchases.shared.logOut { purchaserInfo, err in
+                    if let err = err {
+                        NSLog(err.localizedDescription)
+                    } else {
+                        NSLog("Revenue Cat logged out!")
+                    }
+                }
                 self.tabBarController?.selectedIndex = 2
             } catch let signOutError as NSError {
                 NSLog("Sign Out Failed: %@", signOutError)

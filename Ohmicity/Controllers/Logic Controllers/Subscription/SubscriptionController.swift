@@ -7,12 +7,13 @@
 
 import Foundation
 import UIKit
+import RevenueCat
 
 
 class SubscriptionController {
     //Properties
     static var inAppPurchaseArray: [Subscription] = []
-    
+    static var packages = [Package]()
     //Features Enabled
     static var favorites = true
     static var noPopupAds = false
@@ -36,11 +37,31 @@ class SubscriptionController {
     static let fapDescription = ""
     
     static func setUpInAppPurchaseArray() {
-        let frpPurchase = Subscription(type: .FrontRowPass, description: frpDescription, features: [noAdsFeature, memberAccess], price: "$2.99")
-        inAppPurchaseArray.append(frpPurchase)
+//        let frpPurchase = Subscription(type: .FrontRowPass, description: frpDescription, features: [noAdsFeature, memberAccess], price: "$2.99")
+//        inAppPurchaseArray.append(frpPurchase)
+//
+//        let bspPurchase = Subscription(type: .BackStagePass, description: bspDescription, features: [searchFeature, remindersFeature], price: "$4.99")
+//        inAppPurchaseArray.append(bspPurchase)
         
-        let bspPurchase = Subscription(type: .BackStagePass, description: bspDescription, features: [searchFeature, remindersFeature], price: "$4.99")
-        inAppPurchaseArray.append(bspPurchase)
+        Purchases.shared.getOfferings { offerings, err in
+            if let packages = offerings?.offering(identifier: "com.townbyxity.noads")?.availablePackages {
+                self.packages = packages
+                
+                for pack in packages {
+                    switch pack.offeringIdentifier {
+                    case "com.townbyxity.noads":
+                        let noAds = Subscription(type: .FrontRowPass, description: "Removes popup ads and grants access to members area.", features: [noAdsFeature, memberAccess], price: pack.localizedPriceString)
+                        inAppPurchaseArray.append(noAds)
+                    case "com.townbyxity.deals":
+                        
+                        let deals = Subscription(type: .BackStagePass, description: pack.storeProduct.localizedDescription, features: [noAdsFeature, memberAccess, /*Xity Deals*/], price: pack.localizedPriceString)
+                        inAppPurchaseArray.append(deals)
+                    default:
+                        break
+                    }
+                }
+            }
+        }
     }
     
     static func userFeaturesAvailableCheck(feature: Bool, viewController: UIViewController, completion: ()->()) {

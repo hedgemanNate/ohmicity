@@ -8,15 +8,15 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-import StoreKit
+import RevenueCat
 
-class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+
+class PurchaseViewController: UIViewController {
     
     
     //Properties
     @IBOutlet weak var purchaseCollectionView: UICollectionView!
     var pass: SubscriptionType = .FrontRowPass
-    private var products = [SKProduct]()
     private var subscription: SubscriptionType?
     
     //Buttons
@@ -59,22 +59,27 @@ class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPay
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchProducts()
+        updateViews()
         initSubscriptionType()
         setupCollectionView()
-        SubscriptionController.setUpInAppPurchaseArray()
-        SKPaymentQueue.default().add(self)
+        updateViews()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        SubscriptionController.inAppPurchaseArray.removeAll()
     }
     
     //MARK: Button Actions
     
     @IBAction func breaker(_ sender: Any) {
-        
+        purchaseCollectionView.reloadData()
     }
     
     //MARK: UpdateViews
     private func updateViews() {
         try7DaysFreeButton.layer.cornerRadius = 6
+        numberOfPages = SubscriptionController.inAppPurchaseArray.count
         pageController.numberOfPages = numberOfPages
         purchaseCollectionView.reloadData()
         self.purchaseCollectionView.isHidden = false
@@ -89,8 +94,13 @@ class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPay
     
     @IBAction func try7DaysFreeButtonTapped(_ sender: Any) {
         let index = pageController.currentPage
-        let payment = SKPayment(product: products[index])
-        SKPaymentQueue.default().add(payment)
+        let package = SubscriptionController.packages[index]
+        
+        Purchases.shared.purchase(package: package) { (transaction, customerInfo, error, userCancelled) in
+            if customerInfo?.entitlements["com.townbyxity.noads"]?.isActive == true {
+            print("Purchase is working")
+          }
+        }
         if index == 0 {subscription = .FrontRowPass}
     }
     
@@ -133,19 +143,32 @@ class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPay
         collectionViewLayout?.invalidateLayout()
     }
     
-    internal func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        DispatchQueue.main.async {
-            NSLog("Products Received")
-            self.products = response.products
-            self.numberOfPages = response.products.count
-            self.updateViews()
-        }
-    }
-    
     private func fetchProducts() {
-        let request = SKProductsRequest(productIdentifiers: Set(Products.allCases.compactMap({$0.rawValue})))
-        request.delegate = self
-        request.start()
+        Purchases.shared.getOfferings { offerings, err in
+            if let err = err {
+                NSLog("🚨 Error getting products from Revenue Cat: \(err.localizedDescription)")
+            }
+            if let packages = offerings?.offering(identifier: "com.townbyxity.noads")?.availablePackages {
+                for pack in packages {
+                    
+                    switch pack.offeringIdentifier{
+                    case "com.townbyxity.noads":
+                        let noAds = Subscription(type: .FrontRowPass, description: pack.description, features: [SubscriptionController.noAdsFeature, SubscriptionController.memberAccess], price: pack.localizedPriceString)
+                        SubscriptionController.inAppPurchaseArray.append(noAds)
+                    case "com.townbyxity.deals":
+                        
+                        let deals = Subscription(type: .BackStagePass, description: pack.description, features: [SubscriptionController.noAdsFeature, SubscriptionController.memberAccess, /*Xity Deals*/], price: pack.localizedPriceString)
+                        SubscriptionController.inAppPurchaseArray.append(deals)
+                    default:
+                        break
+                    }
+                }
+            }
+            self.numberOfPages = SubscriptionController.inAppPurchaseArray.count
+            DispatchQueue.main.async {
+                self.purchaseCollectionView.reloadData()
+            }
+        }
     }
     
     private func initSubscriptionType() {
@@ -160,29 +183,6 @@ class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPay
             }
             
         }
-    }
-    
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        
-        transactions.forEach({
-            switch $0.transactionState {
-                
-            case .purchasing:
-                print("purchasing")
-            case .purchased:
-                guard let subscription = subscription else {NSLog("Subscription was not set to variable"); return}
-                setUserSubscriptionFor(subscription)
-                print("purchased")
-            case .failed:
-                print("failed")
-            case .restored:
-                print("restored")
-            case .deferred:
-                print("deferred")
-            @unknown default:
-                print("unknown")
-            }
-        })
     }
     /*
     // MARK: - Navigation
@@ -232,9 +232,7 @@ extension PurchaseViewController: UICollectionViewDataSource, UICollectionViewDe
         default:
             break
         }
-        
     }
-    
 }
 
 //MARK: Product Purchase Functions

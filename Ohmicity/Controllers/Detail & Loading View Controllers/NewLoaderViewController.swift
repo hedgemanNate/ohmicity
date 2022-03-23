@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import MaterialComponents.MaterialActivityIndicator
+import RevenueCat
 
 class NewLoaderViewController: UIViewController {
     

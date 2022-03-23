@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import GoogleMobileAds
 import BackgroundTasks
+import RevenueCat
 
 
 @main
@@ -34,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settings.isPersistenceEnabled = true
         FireStoreReferenceManager.fireDataBase.settings = settings
         
+        //Revenue Cat
+        Purchases.configure(withAPIKey:"appl_mcDBwPhyGGBFcVASGjXOVlkTrJG")
+        SubscriptionController.setUpInAppPurchaseArray()
         
         //Admob
         GADMobileAds.sharedInstance().start(completionHandler: nil) /*set up MEDIATION in here in handler*/
