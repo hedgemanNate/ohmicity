@@ -775,7 +775,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~Filter Shows By City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHp-aE-CIZ">
-                                                <rect key="frame" x="191" y="267" width="162" height="21"/>
+                                                <rect key="frame" x="191" y="267" width="162" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemTealColor"/>
                                                 <nil key="highlightedColor"/>
@@ -787,7 +787,7 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                 </connections>
                                             </button>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xel-sG-Cs5" userLabel="No More Shows Today View">
-                                                <rect key="frame" x="0.0" y="297" width="428" height="268"/>
+                                                <rect key="frame" x="0.0" y="296.33333333333331" width="428" height="267.99999999999994"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No More Shows Today." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snw-He-9P8">
                                                         <rect key="frame" x="104.66666666666667" y="122" width="218.66666666666663" height="24"/>
@@ -956,55 +956,57 @@ Besides, every update comes with MORE SHOWS, MORE BANDS or MORE VENUES!!</string
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brickBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="vDl-3o-0eE">
                                                         <rect key="frame" x="0.0" y="0.0" width="410" height="232"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your favorite venue or band and get our list of the best shows in the Bay Area. Every Week." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-Bs-Wlj">
-                                                        <rect key="frame" x="35" y="21" width="340" height="68.333333333333329"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5O-HO-FdC">
-                                                        <rect key="frame" x="35" y="103.33333333333326" width="180" height="49"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="180" id="gLI-gO-yIx"/>
-                                                            <constraint firstAttribute="height" constant="49" id="sqG-Rp-DR3"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <state key="normal" title="Sign Up For Free!">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <segue destination="VkB-f5-0Se" kind="presentation" id="Zd4-Ao-r3K"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
-                                                        <rect key="frame" x="35" y="159.33333333333326" width="186" height="35"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="vdF-pa-dfW"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <state key="normal" title="Already have an account?">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <segue destination="VkB-f5-0Se" kind="presentation" id="30H-i8-TRl"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vE5-Hk-lIY">
+                                                        <rect key="frame" x="35" y="21" width="340" height="190"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One tap Sign Up to UNLOCK FREE FEATURES. Save all of your favorite Bands And Venues!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tW-Bs-Wlj">
+                                                                <rect key="frame" x="13" y="0.0" width="314" height="86"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                                <color key="textColor" red="0.99519230769230771" green="0.99038461538461542" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5O-HO-FdC">
+                                                                <rect key="frame" x="60" y="96" width="220" height="49"/>
+                                                                <color key="backgroundColor" red="0.88464573356180554" green="0.26574854811365484" blue="0.30658089417029277" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="220" id="gLI-gO-yIx"/>
+                                                                    <constraint firstAttribute="height" constant="49" id="sqG-Rp-DR3"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <state key="normal" title="Unlock Free Features">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <segue destination="VkB-f5-0Se" kind="presentation" id="Zd4-Ao-r3K"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgl-sI-FPH">
+                                                                <rect key="frame" x="41" y="155" width="258" height="35"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="vdF-pa-dfW"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                <state key="normal" title="LOGIN HERE to see your favorites">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <segue destination="VkB-f5-0Se" kind="presentation" id="30H-i8-TRl"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="vDl-3o-0eE" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" id="0Vb-BD-9Ry"/>
-                                                    <constraint firstItem="zgl-sI-FPH" firstAttribute="top" secondItem="z5O-HO-FdC" secondAttribute="bottom" constant="7" id="1ec-gl-seA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="2tW-Bs-Wlj" secondAttribute="trailing" constant="35" id="5e1-wi-xsV"/>
                                                     <constraint firstAttribute="bottom" secondItem="vDl-3o-0eE" secondAttribute="bottom" id="G4E-NV-vvc"/>
-                                                    <constraint firstItem="z5O-HO-FdC" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" constant="35" id="MNo-Rn-bhw"/>
-                                                    <constraint firstItem="z5O-HO-FdC" firstAttribute="top" secondItem="2tW-Bs-Wlj" secondAttribute="bottom" constant="14" id="THc-YW-8QO"/>
                                                     <constraint firstAttribute="height" constant="232" id="UWn-al-gvr"/>
-                                                    <constraint firstItem="zgl-sI-FPH" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" constant="35" id="bl9-ji-G33"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vE5-Hk-lIY" secondAttribute="bottom" constant="21" id="gOL-cX-2KK"/>
+                                                    <constraint firstItem="vE5-Hk-lIY" firstAttribute="top" secondItem="KmJ-NI-E7V" secondAttribute="top" constant="21" id="olN-01-Mg3"/>
                                                     <constraint firstItem="vDl-3o-0eE" firstAttribute="top" secondItem="KmJ-NI-E7V" secondAttribute="top" id="php-Rw-m6n"/>
-                                                    <constraint firstItem="2tW-Bs-Wlj" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" constant="35" id="qE0-GL-gx2"/>
+                                                    <constraint firstItem="vE5-Hk-lIY" firstAttribute="leading" secondItem="KmJ-NI-E7V" secondAttribute="leading" constant="35" id="rp9-j8-rxa"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vE5-Hk-lIY" secondAttribute="trailing" constant="35" id="u9b-RS-PvQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="vDl-3o-0eE" secondAttribute="trailing" id="vmp-UH-xEJ"/>
-                                                    <constraint firstItem="2tW-Bs-Wlj" firstAttribute="top" secondItem="KmJ-NI-E7V" secondAttribute="top" constant="21" id="yNf-FH-C7E"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-43-dSL" userLabel="Weekly Button">
@@ -1848,9 +1850,9 @@ Check our Facebook page for updates on what’s going on here.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cTG-B2-Jix"/>
-        <segue reference="pTg-j1-CtR"/>
-        <segue reference="7HS-V6-wWy"/>
+        <segue reference="uju-Mq-YCb"/>
+        <segue reference="aJ0-qe-W6l"/>
+        <segue reference="GVY-L8-xJL"/>
         <segue reference="pYi-uV-Zx2"/>
         <segue reference="4YM-rC-lLc"/>
     </inferredMetricsTieBreakers>

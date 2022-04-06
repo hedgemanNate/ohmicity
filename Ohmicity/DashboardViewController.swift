@@ -437,15 +437,9 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             
             
         case xityPickCollectionView:
-            if currentUserController.currentUser == nil {
-                XityShowController.weeklyPicksArray.shuffle()
-                if XityShowController.weeklyPicksArray.count < 1 {
-                    return XityShowController.weeklyPicksArray.count
-                } else {
-                    return 1
-                }
+            if XityShowController.weeklyPicksArray.count < 1 {
+                return 1
             } else {
-                XityShowController.weeklyPicksArray.sort(by: {$0.show.date < $1.show.date})
                 return XityShowController.weeklyPicksArray.count
             }
         default:
